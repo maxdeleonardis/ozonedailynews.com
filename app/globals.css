@@ -103,15 +103,15 @@
 
   /* Buttons */
   .btn-primary {
-    @apply px-6 py-3 bg-black text-white font-semibold rounded-none hover:bg-gray-900 hover:shadow-lg transition-all duration-300 border border-black;
+    @apply px-6 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 hover:shadow-lg transition-all duration-300 border border-gray-300;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border border-black text-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300;
+    @apply px-6 py-3 border border-gray-300 text-black font-semibold rounded-xl hover:bg-black hover:text-white transition-all duration-300;
   }
 
   .btn-filter {
-    @apply px-4 py-2 border border-black rounded-none text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer;
+    @apply px-4 py-2 border border-gray-300 rounded-xl text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer;
   }
 
   .btn-filter.active {
@@ -120,12 +120,12 @@
 
   /* Sections */
   .section-divider {
-    @apply border-b border-black;
+    @apply border-b border-gray-300;
   }
 
   /* Article Cards */
   .article-card {
-    @apply bg-white border border-black p-6 transition-all duration-300 hover:shadow-lg;
+    @apply bg-white border border-gray-300 p-6 rounded-xl transition-all duration-300 hover:shadow-lg;
   }
 
   .article-card-list {
@@ -134,12 +134,13 @@
 
   /* Featured Article */
   .featured-article {
-    @apply bg-black text-white rounded-none p-8 md:p-12 mb-16 border border-black;
+    @apply text-white rounded-xl p-8 md:p-12 mb-16 border border-gray-400;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 20%, #7c2ae8 40%, #d32f9c 60%, #c2185b 80%, #8b0000 100%);
   }
 
   /* Category Badges */
   .category-badge {
-    @apply text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full border;
+    @apply text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-lg border;
   }
 
   .category-tech {
@@ -160,12 +161,12 @@
 
   /* Input Fields */
   .input-modern {
-    @apply px-4 py-3 border border-black rounded-none focus:outline-none focus:ring-2 focus:ring-black focus:border-black text-black placeholder-gray-500 transition-all duration-300;
+    @apply px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-black text-black placeholder-gray-500 transition-all duration-300;
   }
 
   /* Metadata Styling - Monospace */
   .metadata {
-    @apply font-mono text-xs tracking-wider text-gray-600;
+    @apply font-mono text-xs tracking-wider text-white;
   }
 
   .metadata-line {
@@ -187,7 +188,7 @@
 
   /* Stats */
   .stat-card {
-    @apply text-center border border-black p-8;
+    @apply text-center border border-gray-300 p-8 rounded-xl;
   }
 
   .stat-number {
@@ -205,7 +206,7 @@
 
   /* Pull Quote */
   .pull-quote {
-    @apply border-l border-black pl-6 py-4 text-lg italic text-black my-8 font-serif;
+    @apply border-l border-gray-400 pl-6 py-4 text-lg italic text-black my-8 font-serif;
   }
 
   /* Grid Layout */
@@ -215,7 +216,7 @@
 
   /* Divider lines */
   .divider-line {
-    @apply border-t border-black my-8;
+    @apply border-t border-gray-300 my-8;
   }
 }
 

@@ -37,10 +37,10 @@ export default function RootLayout({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <div className="absolute left-0 mt-2 w-56 bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <Link href="/editorial-standards" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Editorial Standards</Link>
+                <div className="absolute left-0 mt-3 w-56 bg-white border border-gray-300 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <Link href="/editorial-standards" className="block px-4 py-3 text-black hover:bg-gray-50 transition rounded-t-xl">Editorial Standards</Link>
                   <Link href="/terms-of-service" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Terms of Service</Link>
-                  <Link href="/privacy-policy" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Privacy Policy</Link>
+                  <Link href="/privacy-policy" className="block px-4 py-3 text-black hover:bg-gray-50 transition rounded-b-xl">Privacy Policy</Link>
                 </div>
               </div>
 
@@ -52,10 +52,10 @@ export default function RootLayout({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <div className="absolute left-0 mt-2 w-56 bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <Link href="/services/austin-web-market" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Austin Web Market</Link>
+                <div className="absolute left-0 mt-3 w-56 bg-white border border-gray-300 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <Link href="/services/austin-web-market" className="block px-4 py-3 text-black hover:bg-gray-50 transition rounded-t-xl">Austin Web Market</Link>
                   <Link href="/services/private-investigators" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Private Investigators</Link>
-                  <Link href="/services/journalism-standards" className="block px-4 py-3 text-black hover:bg-gray-50 transition">Journalism Standards</Link>
+                  <Link href="/services/journalism-standards" className="block px-4 py-3 text-black hover:bg-gray-50 transition rounded-b-xl">Journalism Standards</Link>
                 </div>
               </div>
             </div>

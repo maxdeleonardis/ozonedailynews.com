@@ -224,7 +224,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {['Austin Tech Policy', 'AI & Machine Learning', 'Real Estate Markets', 'Startup Ecosystem', 'Market Analysis', 'Business Intelligence'].map((topic, i) => (
-              <div key={i} className="bg-gray-50 px-6 py-8 hover:bg-gray-100 transition-colors">
+              <div key={i} className="bg-gray-50 px-6 py-8 rounded-xl hover:bg-gray-100 transition-colors">
                 <h3 className="text-lg font-semibold font-serif text-black mb-2">{topic}</h3>
                 <p className="metadata text-gray-600 mb-4">latest insights & analysis</p>
                 <Link href="/news" className="text-black hover:text-gray-700 font-medium text-sm">
@@ -249,15 +249,15 @@ export default function Home() {
               "Journalism should be a public service, not a performance art."
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="p-6 border-2 border-black">
+              <div className="p-6 border border-gray-300 rounded-xl">
                 <h4 className="font-serif font-bold text-black mb-2">Accuracy First</h4>
                 <p className="text-sm text-gray-700">Every fact verified, every source confirmed, every claim substantiated.</p>
               </div>
-              <div className="p-6 border-2 border-black">
+              <div className="p-6 border border-gray-300 rounded-xl">
                 <h4 className="font-serif font-bold text-black mb-2">Transparency</h4>
                 <p className="text-sm text-gray-700">We disclose our methods, sources, and any conflicts of interest.</p>
               </div>
-              <div className="p-6 border-2 border-black">
+              <div className="p-6 border border-gray-300 rounded-xl">
                 <h4 className="font-serif font-bold text-black mb-2">Accountability</h4>
                 <p className="text-sm text-gray-700">We correct errors promptly and take responsibility for our reporting.</p>
               </div>

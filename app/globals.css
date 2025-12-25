@@ -1,6 +1,22 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --primary-dark: #0f172a;
+    --primary-accent: #1e40af;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-light: #e2e8f0;
+    --bg-light: #f8fafc;
+    
+    /* Category Colors */
+    --cat-tech: #3b82f6;
+    --cat-policy: #f59e0b;
+    --cat-business: #10b981;
+    --cat-analysis: #8b5cf6;
+    --cat-default: #6b7280;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -12,8 +28,8 @@
   }
 
   body {
-    background: white;
-    color: black;
+    background: #f8fafc;
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -24,6 +40,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   a {
@@ -33,9 +50,152 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-slate-300 text-slate-900 font-semibold rounded-lg hover:border-slate-900 hover:bg-slate-50 transition-all duration-300;
+  }
+
+  .btn-filter {
+    @apply px-4 py-2 border border-slate-300 rounded-full text-sm font-medium text-slate-700 hover:border-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-filter.active {
+    @apply bg-slate-900 text-white border-slate-900;
+  }
+
+  /* Sections */
+  .section-divider {
+    @apply border-b border-slate-200;
+  }
+
+  /* Article Cards */
+  .article-card {
+    @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px] border border-slate-100;
+  }
+
+  .article-card-list {
+    @apply border-b border-slate-200 pb-12 last:border-0 transition-all duration-300;
+  }
+
+  /* Featured Article */
+  .featured-article {
+    @apply bg-black text-white rounded-2xl p-8 md:p-12 mb-16 shadow-xl;
+  }
+
+  /* Category Badges */
+  .category-badge {
+    @apply text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full;
+  }
+
+  .category-tech {
+    @apply bg-blue-100 text-blue-700;
+  }
+
+  .category-policy {
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  .category-business {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .category-analysis {
+    @apply bg-purple-100 text-purple-700;
+  }
+
+  /* Input Fields */
+  .input-modern {
+    @apply px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent text-slate-900 placeholder-slate-500 transition-all duration-300;
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  /* Stats */
+  .stat-card {
+    @apply text-center;
+  }
+
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold text-slate-900;
+  }
+
+  .stat-label {
+    @apply text-sm text-slate-600 mt-2;
+  }
+
+  /* Progress Bar */
+  .reading-progress {
+    @apply fixed top-0 left-0 h-1 bg-slate-900 transition-all duration-300 ease-out;
+  }
+
+  /* Pull Quote */
+  .pull-quote {
+    @apply border-l-4 border-slate-900 pl-6 py-4 text-lg italic text-slate-700 my-8;
+  }
+
+  /* Grid Layout */
+  .articles-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
 }
 
@@ -45,16 +205,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: #94a3b8;
 }
 
 

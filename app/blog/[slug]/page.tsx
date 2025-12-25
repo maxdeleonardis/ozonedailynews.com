@@ -2,7 +2,7 @@ import { getBlogPostBySlug, getBlogCategoryById, formatDate, getAllBlogPosts, ge
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { NewsCard } from '@/components/news-card';
+import NewsCard from '@/components/news-card';
 
 interface BlogPostPageProps {
   params: Promise<{

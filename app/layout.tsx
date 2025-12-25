@@ -21,10 +21,38 @@ export default function RootLayout({
             <Link href="/" className="text-2xl font-bold">
               Objective.Wire
             </Link>
-            <div className="flex gap-8 text-sm font-medium">
-              <Link href="/" className="text-black hover:underline transition">Home</Link>
+            <div className="flex gap-8 text-sm font-medium items-center">
               <Link href="/news" className="text-black hover:underline transition">News</Link>
-              <Link href="/about" className="text-black hover:underline transition">About</Link>
+              
+              {/* About Dropdown */}
+              <div className="relative group">
+                <button className="text-black hover:underline transition flex items-center gap-1">
+                  About
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute left-0 mt-2 w-56 bg-white border border-black shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <Link href="/editorial-standards" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Editorial Standards</Link>
+                  <Link href="/terms-of-service" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Terms of Service</Link>
+                  <Link href="/privacy-policy" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Privacy Policy</Link>
+                </div>
+              </div>
+
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className="text-black hover:underline transition flex items-center gap-1">
+                  Services
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute left-0 mt-2 w-56 bg-white border border-black shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <Link href="/services/austin-web-market" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Austin Web Market</Link>
+                  <Link href="/services/private-investigators" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Private Investigators</Link>
+                  <Link href="/services/journalism-standards" className="block px-4 py-3 text-black hover:bg-gray-100 transition">Journalism Standards</Link>
+                </div>
+              </div>
             </div>
           </div>
         </nav>

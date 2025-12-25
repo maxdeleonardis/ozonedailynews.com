@@ -93,14 +93,15 @@ export default function Home() {
   const categories = ['All', 'Technology', 'AI & Tech', 'Business', 'Policy', 'Analysis'];
 
   return (
-    <main className="bg-slate-50 text-slate-900">
-      {/* Hero Section - Sharp & Professional */}
-      <section className="section-divider py-32 md:py-40 bg-slate-100">
+    <main className="bg-white text-black">
+      {/* Hero Section - Minimalist Tech + Classical */}
+      <section className="section-divider py-20 md:py-32">
         <div className="container max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-slate-900 animate-fade-in-up">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight text-black font-serif animate-fade-in-up">
             Objective.Wire
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 max-w-2xl mb-12 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+          <div className="divider-line"></div>
+          <p className="text-lg md:text-xl text-black max-w-2xl mb-12 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.1s'}}>
             Detective Reporting Austin. Real-time intelligence and structured analysis for business, tech, and policy decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
@@ -108,7 +109,7 @@ export default function Home() {
               href="/news"
               className="btn-primary text-center"
             >
-              Browse Intelligence →
+              Browse Intelligence
             </Link>
             <Link 
               href="/about"
@@ -121,15 +122,15 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 md:py-32 bg-white section-divider">
+      <section className="py-16 md:py-24 section-divider">
         <div className="container max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="stat-card">
-              <div className="stat-number">{stats.stories.toLocaleString()}+</div>
+              <div className="stat-number">{stats.stories.toLocaleString()}</div>
               <div className="stat-label">Stories Published</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">{(stats.readers / 1000).toFixed(0)}K+</div>
+              <div className="stat-number">{(stats.readers / 1000).toFixed(0)}K</div>
               <div className="stat-label">Active Readers</div>
             </div>
             <div className="stat-card">
@@ -145,26 +146,21 @@ export default function Home() {
         <div className="container max-w-5xl">
           {allArticles.filter(a => a.featured).map((article, i) => (
             <div key={i} className="featured-article group cursor-pointer">
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-start justify-between mb-6 pb-6 border-b border-gray-400">
                 <span className={`category-badge ${getCategoryClass(article.category)}`}>
-                  Featured: {article.category}
+                  {article.category}
                 </span>
-                <span className="text-sm text-gray-300">{article.date}</span>
               </div>
               <Link href={`/article/${article.slug}`}>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white group-hover:text-slate-200 transition-colors">
+                <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white font-serif group-hover:text-gray-200 transition-colors">
                   {article.title}
                 </h2>
               </Link>
-              <p className="text-lg text-slate-200 mb-6 leading-relaxed max-w-3xl">
+              <p className="text-lg text-gray-200 mb-8 leading-relaxed max-w-3xl font-light">
                 {article.excerpt}
               </p>
-              <div className="flex items-center justify-between pt-6 border-t border-white border-opacity-20">
-                <div>
-                  <p className="text-sm font-medium text-slate-300">By {article.author}</p>
-                  <p className="text-xs text-slate-400">{article.readTime} read</p>
-                </div>
-                <span className="text-xl">→</span>
+              <div className="metadata-line border-t border-gray-400 pt-6">
+                <span className="metadata">author: {article.author} | date: {article.date} | read: {article.readTime}</span>
               </div>
             </div>
           ))}
@@ -174,7 +170,7 @@ export default function Home() {
       {/* Category Filter */}
       <section className="py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wide mb-6">Filter by Category</h3>
+          <p className="metadata mb-6">filter by category</p>
           <div className="flex flex-wrap gap-3">
             {categories.map((cat) => (
               <button
@@ -192,35 +188,28 @@ export default function Home() {
       {/* Articles Grid/List */}
       <section className="section-divider py-12 md:py-16">
         <div className="container max-w-5xl">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Intelligence Feed</h2>
-            <div className="h-1 w-16 bg-slate-900 mt-4 rounded-full"></div>
-          </div>
+          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-2">Intelligence Feed</h2>
+          <div className="divider-line mb-12"></div>
 
-          <div className="space-y-6">
+          <div className="space-y-12">
             {filteredArticles.filter(a => !a.featured).map((article, i) => (
-              <article key={i} className="article-card group">
-                <div className="flex items-start justify-between mb-4">
+              <article key={i} className="article-card-list group">
+                <div className="mb-4">
                   <span className={`category-badge ${getCategoryClass(article.category)}`}>
                     {article.category}
                   </span>
-                  <div className="flex items-center gap-4 text-xs text-slate-500">
-                    <span>{article.date}</span>
-                    <span>•</span>
-                    <span>{article.readTime} read</span>
-                  </div>
                 </div>
                 <Link href={`/article/${article.slug}`}>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black font-serif group-hover:text-gray-700 transition-colors">
                     {article.title}
                   </h3>
                 </Link>
-                <div className="text-sm text-slate-600 mb-4 font-medium">
-                  By {article.author}
-                </div>
-                <p className="text-slate-700 leading-relaxed max-w-3xl">
+                <p className="text-gray-700 leading-relaxed max-w-3xl mb-4">
                   {article.excerpt}
                 </p>
+                <div className="metadata-line">
+                  <span className="metadata">author: {article.author} | date: {article.date} | read: {article.readTime}</span>
+                </div>
               </article>
             ))}
           </div>
@@ -230,15 +219,15 @@ export default function Home() {
       {/* Related Topics Section */}
       <section className="py-16 md:py-24 bg-white section-divider">
         <div className="container max-w-5xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Trending Topics</h2>
-          <div className="h-1 w-16 bg-slate-900 mb-12 rounded-full"></div>
+          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-4">Trending Topics</h2>
+          <div className="divider-line mb-12"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {['Austin Tech Policy', 'AI & Machine Learning', 'Real Estate Markets', 'Startup Ecosystem', 'Market Analysis', 'Business Intelligence'].map((topic, i) => (
-              <div key={i} className="article-card text-center py-8">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{topic}</h3>
-                <p className="text-sm text-slate-600 mb-4">Latest insights & analysis</p>
-                <Link href="/news" className="text-blue-600 hover:text-blue-800 font-semibold text-sm">
+              <div key={i} className="bg-gray-50 px-6 py-8 hover:bg-gray-100 transition-colors">
+                <h3 className="text-lg font-semibold font-serif text-black mb-2">{topic}</h3>
+                <p className="metadata text-gray-600 mb-4">latest insights & analysis</p>
+                <Link href="/news" className="text-black hover:text-gray-700 font-medium text-sm">
                   Explore →
                 </Link>
               </div>
@@ -250,29 +239,27 @@ export default function Home() {
       {/* Editorial Standards Section */}
       <section className="section-divider py-16 md:py-24 bg-white">
         <div className="container max-w-4xl">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Our Standards</h2>
-            <div className="h-1 w-16 bg-slate-900 mt-4 rounded-full"></div>
-          </div>
+          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-4">Our Standards</h2>
+          <div className="divider-line mb-8"></div>
           <div className="prose prose-sm max-w-none">
-            <p className="text-lg text-slate-700 leading-relaxed mb-8">
+            <p className="text-lg text-black leading-relaxed mb-8">
               At ObjectWire, our editorial process is rooted in accuracy, clarity, and accountability. All published material undergoes rigorous verification to ensure factual integrity and unbiased reporting. We adhere to a standard of source transparency, citation discipline, and contextual relevance across all formats.
             </p>
             <div className="pull-quote">
               "Journalism should be a public service, not a performance art."
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <h4 className="font-bold text-slate-900 mb-2">Accuracy First</h4>
-                <p className="text-sm text-slate-600">Every fact verified, every source confirmed, every claim substantiated.</p>
+              <div className="p-6 border-2 border-black">
+                <h4 className="font-serif font-bold text-black mb-2">Accuracy First</h4>
+                <p className="text-sm text-gray-700">Every fact verified, every source confirmed, every claim substantiated.</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <h4 className="font-bold text-slate-900 mb-2">Transparency</h4>
-                <p className="text-sm text-slate-600">We disclose our methods, sources, and any conflicts of interest.</p>
+              <div className="p-6 border-2 border-black">
+                <h4 className="font-serif font-bold text-black mb-2">Transparency</h4>
+                <p className="text-sm text-gray-700">We disclose our methods, sources, and any conflicts of interest.</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <h4 className="font-bold text-slate-900 mb-2">Accountability</h4>
-                <p className="text-sm text-slate-600">We correct errors promptly and take responsibility for our reporting.</p>
+              <div className="p-6 border-2 border-black">
+                <h4 className="font-serif font-bold text-black mb-2">Accountability</h4>
+                <p className="text-sm text-gray-700">We correct errors promptly and take responsibility for our reporting.</p>
               </div>
             </div>
           </div>
@@ -283,9 +270,9 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="container max-w-2xl">
           <div className="mb-8 text-center">
-            <h2 className="text-4xl font-bold text-slate-900 mb-2">Stay Informed</h2>
-            <div className="h-1 w-16 bg-slate-900 mx-auto rounded-full mb-6"></div>
-            <p className="text-slate-700 text-lg leading-relaxed">
+            <h2 className="text-5xl font-bold text-black font-serif mb-2">Stay Informed</h2>
+            <div className="divider-line"></div>
+            <p className="text-black text-lg leading-relaxed">
               Get weekly intelligence delivered to your inbox. Structured analysis for professionals.
             </p>
           </div>
@@ -304,8 +291,8 @@ export default function Home() {
               Subscribe
             </button>
           </form>
-          <p className="text-xs text-slate-500 mt-4 text-center">
-            No spam. Unsubscribe anytime. See our <Link href="/privacy-policy" className="hover:underline font-semibold">privacy policy</Link>.
+          <p className="text-xs text-gray-600 mt-4 text-center metadata">
+            No spam. Unsubscribe anytime. See our <Link href="/privacy-policy" className="border-b border-gray-600">privacy policy</Link>.
           </p>
         </div>
       </section>

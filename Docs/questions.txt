@@ -1,0 +1,73 @@
+EDITORIAL STANDARDS EXPANSION:
+
+1. Analytical Methodology
+   - Which analytical frameworks do you want to emphasize? (Porter's Five Forces, SWOT, competitive intelligence, supply chain analysis, etc.)
+   - Should we include confidence levels/verification tiers for claims? (High/Medium/Low)
+   - Do you want specific time horizons defined? (immediate 0-3 months, medium 3-12 months, long-term 1+ years)
+
+I don't know what you mean by analytical frameworks. Any of the example, competitive intelligence supply, chain analysis. I mean, to be honest, anything that's worth analyzing. Eventually, we do need to write paper. You know that eventually there will be a prediction market and liquidity market built on this. But for now, what we're doing is Austin Locals, intelligence terminals, working systems, stuff that people will read. You see, the original goal is to SEO, and then now it's GEO. But even with GEO, you're still not going to be able to get it like that. We want something that people actually utilize.
+
+
+
+2. Data Standards & Integration
+   - Should ObjectWire publish structured data outputs (JSON, XML) alongside articles for machine integration?
+   - What metadata taxonomy should we use? (tags, categories, entities, impacts)
+   - What's your API/integration vision - is this for internal use, client integration, or both?
+
+Object-wise, recovery structuring data, I think right now it should just be in the site, you know, originally using HTML host by duda, but now we don't need to go out of our way to make a JSON file for machine integration, unless, I mean, it's not hard to integrate one of these, but I just think it's better. The metadata, I believe that we should use tags and categories, I guess that works as extra metadata filters, but when we were operating on duda, we were filtering it by tags slash categories, mostly tags. The tags could help you identify how you can make a technology page. Then you filter by tags, so any tag with technology on it, as an example, will work.
+
+3. Source Hierarchy
+   - How do you want to weight primary sources? (SEC filings > company statements > news > analysis?)
+   - Should we define "proprietary information" handling explicitly?
+   - What's the update cadence for content? (real-time, daily, weekly?)
+
+To be honest, I believe that if the sources are coming from a liable source, for example, SEC filing, then company statements, then that's all that matters. But I mean, it's not a bad idea to weigh primary sources. You could define proprietary information headline explicitly, but if it's not necessary, then I guess do whichever that is more resource conservative and reasonable. And I believe that the update cadence for content should be real-time. It will consume more resources, but I feel like that's what the editorial standard is all about. We'll figure it out. Whichever works.
+
+4. Impact Metrics
+   - How do you measure "strategic relevance"? (market cap impact, regulatory implications, ecosystem disruption?)
+   - Should we formalize impact scoring/weighting?
+   - For Texas focus - how granular? (statewide, metro areas, specific sectors?)
+
+Strategic relevance is important, such as market cap regulatory implications. But now, with so many information on Instagram or X, a lot of people tend to get overstimulated. Like, I would require something for somebody to read, and they'd be like, actually getting something out of it. You know, they will be able to plan strategically if they own small businesses here and there. That's why it's very important, you know, as much as the purpose of it. But impact scoring and weighting, I think we have to get the fundamentals down to go. And then once we are kind of integrating the algorithm, we can start focusing more on that. 
+I believe that, for right now, metro areas are important because we are focusing on news that will change sectors, and news that will have impact on Texas, you know, since that this is going to be, a lot of more people are moving here, it's going to be the economic powerhouse of the U.S., you know, the capital is expanding in terms of a lot of businesses are coming to Texas, we're aiming at 10, 20 years later, once that a new exchange established in Dallas, and more business comes through, you know, even like this international airline industries for example, Dallas is a very potential area because it has the potential to be like New York City, and what we want to do is basically, we want to do New York Times for Texas, if that makes sense.
+
+BACKEND & PLATFORM INTEGRATION:
+
+
+5. Article Management System
+   - Should the backend API support article versioning (v1.0, v2.0, etc.) with change logs?
+   - Do you need author/editor role management, or is it just you and Conan Doyle for now?
+   - Should articles be scheduled for publication or published immediately?
+
+Right now, it's just Mr. Doyle and Mr. Sterling. Articles could make it scheduled for publication. I know the engineering part, it might be a little bit more tricky to, you know, implement stuff like scheduled time or stuff like that. But, I mean, if you read the white paper, a language model parses it. And, you know, you can have your poster out there. That's not really important stuff that I want to focus on right now. Backend API could support article versioning. But, like I said, it's something I don't need to focus that much on right now.
+
+
+6. Newsletter & Distribution
+   - What's your vision for the newsletter? (digest of top articles, deep dives, alerts?)
+   - Frequency? (daily, weekly, as-published?)
+   - Should subscribers get premium/early access to certain content?
+
+Back when we were using duda, we were thinking about versioning different newsletters that have different types, such as breaking news, deep dives, alerts, but focusing on the fundamentals first, and same with Frequency, as we want to send out one article a day. Since we already have metadata that we mentioned above, I think it's going to work very well.With positioning multiple pages on the website and have different pages display different metadata of tags as shown on the article.
+Speaking of premium, I mean, if you were to read the white paper, ObjectWire is, right now, is open-sourced and should be a non-profit. But it does have a holding company, you know, and the holding company have hold other technologies and projects, you know, that potentially can generate a return, but not through ObjectWire. However, it might use ObjectWire technology for other usage.
+
+7. Analytics & Tracking
+   - What metrics matter most? (readership, article impact, topic trends?)
+   - Should we track which articles are cited/used in professional workflows?
+   - Any privacy considerations for user tracking?
+
+Originally, the metrics of viewership and visit numbers were most important because how this started off was the SEO project that was supposed to attract, let's say, like a couple thousand people a month. Well, it's small enough traffic, we just start placing ads and we make some sort of income from SEO, but then we realize that this platform is more than ads.
+Much like other companies, ObjectWire collects data, it collects traffic, and I guess cookies for people, from people, and they can sign up for newsletters, but, you know, obviously the data that we harvest isn't going to be used in any harmful way, much like other big tech companies.
+SubjectWire is a system that implements proof-of-truth technology. Mr. Doyle himself is working on a blockchain that satisfies that, storing information that is true. Subject like PolyMarket, when you win a slip, a bet slip, the truth comes out, it often dictates, that is the value I believe of objectWire.
+
+
+CONTENT STRATEGY:
+
+8. Content Roadmap
+   - Beyond Texas tech - what other sectors/regions are priority? (policy, geopolitics, specific industries?)
+   - Target publication frequency? (articles per week?)
+   - Should we maintain a "published article" backlog/pipeline?
+
+9. Monetization & Access
+   - Free tier vs. paid? Freemium model?
+   - Are there specific enterprise clients/segments you're targeting?
+   - Sponsored content policy? (research partnerships, vendor neutrality, etc.)

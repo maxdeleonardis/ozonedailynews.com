@@ -1,10 +1,19 @@
+'use client';
+
+import Link from 'next/link';
+
 export default function EditorialStandardsPage() {
   return (
     <main className="min-h-screen bg-white">
-      <div className="container mx-auto px-6 py-16 max-w-4xl">
-        <h1 className="text-5xl font-bold mb-8">Editorial Standards</h1>
-        
-        <div className="prose prose-lg max-w-none">
+      <article className="max-w-4xl mx-auto px-6 py-16">
+        {/* Header */}
+        <div className="mb-12 pb-8 border-b-2 border-gray-300">
+          <h1 className="text-5xl font-black text-black mb-4">Editorial Standards</h1>
+          <p className="text-gray-600 text-lg">Last updated: December 25, 2025 | Version 2.0</p>
+        </div>
+
+        {/* Content */}
+        <div className="prose prose-lg max-w-none space-y-8 text-gray-800">
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4">Mission and Purpose</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -108,7 +117,17 @@ export default function EditorialStandardsPage() {
             </p>
           </section>
         </div>
-      </div>
+
+        {/* Navigation Footer */}
+        <div className="mt-16 pt-8 border-t-2 border-gray-300 flex justify-between">
+          <Link href="/terms-of-service" className="text-blue-600 hover:text-blue-800 font-semibold">
+            ← Terms of Service
+          </Link>
+          <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800 font-semibold">
+            Privacy Policy →
+          </Link>
+        </div>
+      </article>
     </main>
   );
 }

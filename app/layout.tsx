@@ -84,15 +84,15 @@ export default function RootLayout({
               <div>
                 <h4 className="font-bold mb-4 text-black">Policies</h4>
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li><Link href="/privacy" className="hover:underline transition">Privacy</Link></li>
-                  <li><Link href="/terms" className="hover:underline transition">Terms</Link></li>
+                  <li><Link href="/privacy-policy" className="hover:underline transition">Privacy Policy</Link></li>
+                  <li><Link href="/terms-of-service" className="hover:underline transition">Terms of Service</Link></li>
                   <li><a href="mailto:contact@objectwire.org" className="hover:underline transition">Contact</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold mb-4 text-black">Editorial</h4>
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li><Link href="/standards" className="hover:underline transition">Standards</Link></li>
+                  <li><Link href="/editorial-standards" className="hover:underline transition">Editorial Standards</Link></li>
                   <li><a href="mailto:submit@objectwire.org" className="hover:underline transition">Submit</a></li>
                   <li><a href="mailto:corrections@objectwire.org" className="hover:underline transition">Corrections</a></li>
                 </ul>

@@ -43,7 +43,7 @@ export default function NewsCard({
   const gradient = getCategoryGradient(category);
   
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link href={`/article/${slug}`}>
       <motion.article
         className="group relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col"
         whileHover={{ scale: 1.02, y: -4 }}

@@ -71,21 +71,9 @@ const articles: { [key: string]: Article } = {
 };
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = articles[params.slug];
-
-  if (!article) {
-    return (
-      <main className="min-h-screen bg-white">
-        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold mb-4">Article not found</h1>
-          <p className="text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
-          <Link href="/news" className="text-blue-600 hover:text-blue-800 font-semibold">
-            ← Back to News
-          </Link>
-        </div>
-      </main>
-    );
-  }
+  // For now, use the silicon-labs article as default preview for any slug
+  // This allows testing the template functionality before implementing dynamic content
+  const article = articles[params.slug] || articles['silicon-labs-robotics'];
 
   return (
     <main className="min-h-screen bg-white">

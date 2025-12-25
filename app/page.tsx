@@ -38,24 +38,29 @@ export default function Home() {
                 author: "Bennett Freeman",
                 date: "November 14, 2025",
                 excerpt: "From a dorm room startup to a global powerhouse, Google's journey exemplifies innovation and ambition.",
+                slug: "alphabet-google-history"
               },
               {
                 title: "Comet AI Web Browser vs Atlas by ChatGPT",
                 author: "Jack Sterling",
                 date: "November 14, 2025",
                 excerpt: "AI web browsers are reshaping how we surf the internet, blending machine learning with everyday navigation.",
+                slug: "comet-ai-browser-vs-atlas"
               },
               {
                 title: "Non-Degree Studies at University of Texas Austin 2026",
                 author: "Max",
                 date: "November 14, 2025",
                 excerpt: "World-class faculty in flexible formats. Whether you're eyeing skill-building certificates or flexible online courses.",
+                slug: "ut-austin-non-degree-2026"
               }
             ].map((article, i) => (
               <article key={i} className="border-b border-gray-300 pb-12 last:border-0">
-                <h3 className="text-2xl font-bold mb-3 hover:underline cursor-pointer">
-                  {article.title}
-                </h3>
+                <Link href={`/article/${article.slug}`}>
+                  <h3 className="text-2xl font-bold mb-3 hover:underline cursor-pointer">
+                    {article.title}
+                  </h3>
+                </Link>
                 <div className="text-sm text-gray-600 mb-4">
                   By {article.author} • {article.date}
                 </div>

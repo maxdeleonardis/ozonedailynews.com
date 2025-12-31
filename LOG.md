@@ -150,6 +150,74 @@ The current global infrastructure serves as the site's foundational skeleton:
 - [ ] Create Austin ecosystem resources page
 - [ ] Advanced feature development on top of verified skeleton
 
+## Content Management System (CMS) - Core Infrastructure Task (December 27, 2025)
+
+### Objective
+Build a headless CMS dashboard to manage articles and products for ObjectWire content distribution across multiple channels (web, RSS, email, Discord, APIs) while maintaining SEO rankings and avoiding duplicate content issues.
+
+### Strategic Context
+- Websites are live and ranking on objectwire.org
+- Can pull RSS feeds of articles without losing rankings
+- Need centralized content management to scale content distribution
+- Must implement canonical tags and content syndication strategy
+
+### Architecture Plan (Headless CMS)
+**Backend (Python FastAPI Extension):**
+- [ ] Article CRUD API endpoints
+- [ ] Product management API endpoints
+- [ ] Publishing queue and automation system
+- [ ] Entity detection pipeline (NLP for companies, tickers, locations)
+- [ ] Multi-channel distribution system (RSS, email, Discord, social)
+- [ ] Analytics and metrics tracking
+- [ ] User permissions and workflow states
+
+**Database Schema (PostgreSQL/Supabase):**
+- [ ] Articles table (title, slug, content, status, metadata, canonical_url)
+- [ ] Products table (name, description, category, pricing)
+- [ ] Publishing history table (timestamps, channels, distribution status)
+- [ ] User/team permissions table (workflow states, approval roles)
+- [ ] Content tags and entity relationships
+
+**Frontend Dashboard (Next.js):**
+- [ ] Article editor with rich text + metadata
+- [ ] Product manager interface
+- [ ] Publishing workflow (draft → review → publish)
+- [ ] Multi-channel publishing scheduler
+- [ ] Content calendar view
+- [ ] Analytics dashboard
+- [ ] SEO metadata validation
+
+### Key Features
+1. **Preserve Primary Authority**
+   - Keep objectwire.org as canonical source
+   - Publish to primary domain first, syndicate after 1-2 days
+   - Implement canonical tag system for secondary republication
+
+2. **Automated Publishing**
+   - Trigger article generation on market events (earnings, filings, major moves)
+   - Schedule distribution across email, Discord, social media
+   - Auto-generate RSS feeds with proper attribution links
+
+3. **Editorial Workflow**
+   - AI-generated draft creation
+   - Human review and approval steps
+   - Entity tagging and metadata enrichment
+   - Batch publishing capabilities
+
+4. **Multi-Channel Distribution**
+   - RSS feed aggregation to secondary properties
+   - Email newsletter automation
+   - Discord bot integration for breaking news
+   - Social media posting (with link-backs to objectwire.org)
+
+### Implementation Options
+- **Option 1 (Recommended):** Custom CMS built on existing stack (FastAPI + Next.js + Supabase)
+- **Option 2:** Integrate Contentful/Sanity/Strapi headless CMS platform
+- **Option 3:** Hybrid approach using lightweight dashboard with existing FastAPI backend
+
+### Priority
+High - Essential for scaling content distribution and maintaining ranking authority as ObjectWire grows
+
 ## Development Commands
 ```bash
 npm run dev          # Start development server

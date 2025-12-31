@@ -9,7 +9,7 @@ import uvicorn
 
 from app.config import settings
 from app.database import init_db
-from app.routers import articles, categories, editorial, health
+from app.routers import articles, categories, editorial, health, dashboard
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -41,6 +41,7 @@ app.include_router(health.router, prefix="/api", tags=["Health"])
 app.include_router(articles.router, prefix="/api/articles", tags=["Articles"])
 app.include_router(categories.router, prefix="/api/categories", tags=["Categories"])
 app.include_router(editorial.router, prefix="/api/editorial", tags=["Editorial Workflow"])
+app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
 
 @app.get("/")
 async def root():

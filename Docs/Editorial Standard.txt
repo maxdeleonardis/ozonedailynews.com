@@ -20,7 +20,51 @@ Editorial Leadership: Conan Doyle, Jack Sterling
 All content must be factually verified using primary sources and undergo multi-stage validation before publication. Publications are event-driven and released only when they meet our verification threshold for credibility and relevance. This means factual claims must be traceable to primary sources such as government filings, official statements, or direct data. Secondary sources are acceptable only when contextualized and cross-referenced with primary data, and unverified claims must be explicitly labeled as "unconfirmed" or "pending verification." When errors are discovered, corrections are issued immediately with transparent notation and version control, ensuring readers can trust both our content and our accountability.
 
 2.2 Source Hierarchy and Confidence Tiers
+Editorial Standards
+Last updated: December 25, 2025 | Version 2.0
 
+Mission and Purpose
+Objectwire.org is a precision intelligence publisher dedicated to delivering event-driven analysis on business and technology developments, with a focus on Texas-based innovations and broader implications. Our mission is to transform raw information into actionable intelligence through rigorous verification and synthesis, serving as a reference-grade resource for professionals who prioritize accuracy over volume.
+
+Content Principles
+Accuracy
+All content must be factually correct, thoroughly researched, and verified using primary sources. Publications are event-driven and only produced when they meet our internal threshold for relevance and verifiability. Errors must be corrected promptly, with transparent updates and notations.
+
+Clarity
+Content must be structured for immediate comprehension, using exact and standardized language to avoid reinterpretation. We emphasize synthesis over aggregation, building a coherent, cumulative knowledge base that highlights context, relationships, causal drivers, and downstream implications.
+
+Relevance
+Content must demonstrate strategic relevance to business and technology professionals, focusing on signal over noise. We prioritize developments with actionable insights, particularly those originating from or impacting Texas ecosystems.
+
+Fairness and Objectivity
+We present balanced, evidence-based analysis without bias or favoritism. Opinion or interpretive elements must be clearly labeled and grounded in verifiable data. All claims are documented with primary sources.
+
+Originality
+All content must be original. Plagiarism is strictly prohibited; external sources must be transparently cited and not repurposed without attribution.
+
+Tone and Style
+The tone of Objectwire.org is precise, professional, and technical—authoritative yet accessible for informed readers. We maintain an objective, analytical voice that supports professional workflows, avoiding sensationalism or casual language.
+
+We follow the Associated Press (AP) Stylebook for general writing conventions, with adaptations for technical precision.
+
+Publishing Criteria
+We publish only on developments that pass our internal criteria: high verifiability (multiple primary sources), strategic impact, and novelty. All publications follow a consistent structure with clear headlines, executive summaries, detailed analysis, and transparent source citations.
+
+Editorial Process
+All content undergoes a three-stage review:
+
+Drafting: Author verifies facts against primary sources
+Internal Edit: Editor checks for clarity, relevance, and adherence to standards
+Final Approval: Publisher confirms threshold met and publishes
+Ethical Guidelines
+Transparency: Disclose any conflicts of interest, funding sources, or affiliations
+Inclusivity: Represent diverse perspectives in Texas and global tech landscapes
+Compliance: Adhere to data privacy laws and intellectual property standards
+Contact
+For questions about our editorial standards:
+
+
+\
 ObjectWire employs a tiered verification system to classify information credibility, enabling readers to instantly assess the reliability of every claim. This system categorizes sources into three tiers based on their inherent credibility and independence:
 
 High Confidence sources include SEC filings, USPTO patents, regulatory agency disclosures, official company statements and earnings reports, government databases and public records, direct data from authoritative APIs and verified datasets, and peer-reviewed research publications. These sources are primary, verifiable, and subject to legal accountability for accuracy.

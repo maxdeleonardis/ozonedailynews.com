@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { ArticlesProvider } from "@/lib/articles-context";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://objectwire.org'),
@@ -63,6 +64,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://objectwire.org" />
       </head>
       <body className="bg-white text-gray-900 antialiased">
+        <ArticlesProvider>
         {/* Header */}
         <header className="border-b border-gray-200">
           <nav className="container flex justify-between items-center py-5">
@@ -79,6 +81,9 @@ export default function RootLayout({
               </Link>
               <Link href="/editorial-standards" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
                 Standards
+              </Link>
+              <Link href="/admin" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                Dashboard
               </Link>
             </div>
           </nav>
@@ -109,6 +114,7 @@ export default function RootLayout({
                     <Link href="/" className="text-sm text-gray-500 hover:text-black">Home</Link>
                     <Link href="/blog" className="text-sm text-gray-500 hover:text-black">News</Link>
                     <Link href="/editorial-standards" className="text-sm text-gray-500 hover:text-black">Editorial Standards</Link>
+                    <Link href="/admin" className="text-sm text-gray-500 hover:text-black">Admin</Link>
                   </div>
                 </div>
               </div>
@@ -120,6 +126,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </ArticlesProvider>
       </body>
     </html>
   );

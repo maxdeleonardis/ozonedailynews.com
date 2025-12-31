@@ -137,7 +137,7 @@
 
   /* Featured Article */
   .featured-article {
-    @apply text-white rounded-xl p-8 md:p-12 mb-16 border border-gray-400;
+    @apply text-white rounded-xl p-6 md:p-8 mb-12 border border-gray-400;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 20%, #7c2ae8 40%, #d32f9c 60%, #c2185b 80%, #8b0000 100%);
   }
 
@@ -191,11 +191,11 @@
 
   /* Stats */
   .stat-card {
-    @apply text-center border border-gray-300 p-8 rounded-xl;
+    @apply text-center border border-gray-300 p-6 rounded-xl;
   }
 
   .stat-number {
-    @apply text-4xl md:text-5xl font-bold text-black font-serif;
+    @apply text-2xl md:text-3xl font-bold text-black font-serif;
   }
 
   .stat-label {

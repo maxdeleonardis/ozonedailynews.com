@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-white text-black">
         {/* Reading Progress Bar */}
-        <div className="reading-progress" id="readingProgress"></div>
+        <div className="reading-progress" id="readingProgress" suppressHydrationWarning></div>
 
         {/* Navigation */}
         <nav className="fixed top-0 w-full z-50 bg-white border-b border-black">

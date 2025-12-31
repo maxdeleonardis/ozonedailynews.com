@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 interface Article {
@@ -70,10 +68,12 @@ const articles: { [key: string]: Article } = {
   }
 };
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  
   // For now, use the silicon-labs article as default preview for any slug
   // This allows testing the template functionality before implementing dynamic content
-  const article = articles[params.slug] || articles['silicon-labs-robotics'];
+  const article = articles[slug] || articles['silicon-labs-robotics'];
 
   return (
     <main className="min-h-screen bg-white">

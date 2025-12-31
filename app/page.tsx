@@ -95,13 +95,13 @@ export default function Home() {
   return (
     <main className="bg-white text-black">
       {/* Hero Section - Minimalist Tech + Classical */}
-      <section className="section-divider py-20 md:py-32">
+      <section className="section-divider py-12 md:py-16">
         <div className="container max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight text-black font-serif animate-fade-in-up">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black font-serif animate-fade-in-up">
             Objective.Wire
           </h1>
           <div className="divider-line"></div>
-          <p className="text-lg md:text-xl text-black max-w-2xl mb-12 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+          <p className="text-base md:text-base text-black max-w-2xl mb-8 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.1s'}}>
             Detective Reporting Austin. Real-time intelligence and structured analysis for business, tech, and policy decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 section-divider">
+      <section className="py-12 md:py-16 section-divider">
         <div className="container max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="stat-card">
@@ -152,14 +152,14 @@ export default function Home() {
                 </span>
               </div>
               <Link href={`/article/${article.slug}`}>
-                <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white font-serif group-hover:text-gray-200 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white font-serif group-hover:text-gray-200 transition-colors">
                   {article.title}
                 </h2>
               </Link>
-              <p className="text-lg text-gray-200 mb-8 leading-relaxed max-w-3xl font-light">
+              <p className="text-base text-gray-200 mb-6 leading-relaxed max-w-3xl font-light">
                 {article.excerpt}
               </p>
-              <div className="metadata-line border-t border-gray-400 pt-6">
+              <div className="metadata-line border-t border-gray-400 pt-4">
                 <span className="metadata">author: {article.author} | date: {article.date} | read: {article.readTime}</span>
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function Home() {
                   </span>
                 </div>
                 <Link href={`/article/${article.slug}`}>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black font-serif group-hover:text-gray-700 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-black font-serif group-hover:text-gray-700 transition-colors">
                     {article.title}
                   </h3>
                 </Link>
@@ -217,10 +217,10 @@ export default function Home() {
       </section>
 
       {/* Related Topics Section */}
-      <section className="py-16 md:py-24 bg-white section-divider">
+      <section className="py-12 md:py-16 bg-white section-divider">
         <div className="container max-w-5xl">
-          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-4">Trending Topics</h2>
-          <div className="divider-line mb-12"></div>
+          <h2 className="text-2xl md:text-3xl font-bold text-black font-serif mb-4">Trending Topics</h2>
+          <div className="divider-line mb-8"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {['Austin Tech Policy', 'AI & Machine Learning', 'Real Estate Markets', 'Startup Ecosystem', 'Market Analysis', 'Business Intelligence'].map((topic, i) => (
@@ -237,10 +237,10 @@ export default function Home() {
       </section>
 
       {/* Editorial Standards Section */}
-      <section className="section-divider py-16 md:py-24 bg-white">
+      <section className="section-divider py-12 md:py-16 bg-white">
         <div className="container max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-4">Our Standards</h2>
-          <div className="divider-line mb-8"></div>
+          <h2 className="text-2xl md:text-3xl font-bold text-black font-serif mb-4">Our Standards</h2>
+          <div className="divider-line mb-6"></div>
           <div className="prose prose-sm max-w-none">
             <p className="text-lg text-black leading-relaxed mb-8">
               At ObjectWire, our editorial process is rooted in accuracy, clarity, and accountability. All published material undergoes rigorous verification to ensure factual integrity and unbiased reporting. We adhere to a standard of source transparency, citation discipline, and contextual relevance across all formats.
@@ -267,12 +267,12 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 md:py-32">
+      <section className="py-12 md:py-16">
         <div className="container max-w-2xl">
-          <div className="mb-8 text-center">
-            <h2 className="text-5xl font-bold text-black font-serif mb-2">Stay Informed</h2>
+          <div className="mb-6 text-center">
+            <h2 className="text-2xl font-bold text-black font-serif mb-2">Stay Informed</h2>
             <div className="divider-line"></div>
-            <p className="text-black text-lg leading-relaxed">
+            <p className="text-black text-sm leading-relaxed">
               Get weekly intelligence delivered to your inbox. Structured analysis for professionals.
             </p>
           </div>

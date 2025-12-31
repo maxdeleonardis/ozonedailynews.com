@@ -1,301 +1,112 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
-const getCategoryClass = (category: string) => {
-  switch (category.toLowerCase()) {
-    case 'technology':
-    case 'ai & tech':
-      return 'category-tech';
-    case 'policy':
-      return 'category-policy';
-    case 'business':
-      return 'category-business';
-    case 'analysis':
-      return 'category-analysis';
-    default:
-      return 'bg-slate-100 text-slate-700';
-  }
+export const metadata: Metadata = {
+  title: "ObjectWire | Precision Intelligence News Network",
+  description: "ObjectWire delivers verified, source-cited intelligence on business, technology, fraud investigations, and policy. Built for professionals who require accuracy over volume.",
+  openGraph: {
+    title: "ObjectWire | Precision Intelligence News Network",
+    description: "Verified, source-cited intelligence for professionals.",
+  },
 };
 
-export default function Home() {
-  const [email, setEmail] = useState('');
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [stats, setStats] = useState({ stories: 0, readers: 0, analysis: 0 });
+const featuredArticle = {
+  title: "Feeding Our Future: Inside Minnesota's $250 Million Fraud Scheme",
+  excerpt: "A comprehensive investigation into one of the largest pandemic-era fraud cases in U.S. history, involving falsified meal counts, shell companies, and federal indictments.",
+  category: "Investigation",
+  date: "December 30, 2025",
+  slug: "minnesota-feeding-our-future-fraud",
+  author: "ObjectWire Investigations"
+};
 
-  useEffect(() => {
-    // Animate stats on load
-    const interval = setInterval(() => {
-      setStats(prev => ({
-        stories: prev.stories < 500 ? prev.stories + 25 : 500,
-        readers: prev.readers < 100000 ? prev.readers + 5000 : 100000,
-        analysis: prev.analysis < 150 ? prev.analysis + 8 : 150
-      }));
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const allArticles = [
-    {
-      title: "Alphabet Inc - The History of Google",
-      author: "Bennett Freeman",
-      date: "November 14, 2025",
-      category: "Technology",
-      readTime: "8 min",
-      excerpt: "From a dorm room startup to a global powerhouse, Google's journey exemplifies innovation and ambition.",
-      slug: "alphabet-google-history",
-      featured: true
-    },
-    {
-      title: "Comet AI Web Browser vs Atlas by ChatGPT",
-      author: "Jack Sterling",
-      date: "November 14, 2025",
-      category: "AI & Tech",
-      readTime: "5 min",
-      excerpt: "AI web browsers are reshaping how we surf the internet, blending machine learning with everyday navigation.",
-      slug: "comet-ai-browser-vs-atlas"
-    },
-    {
-      title: "Non-Degree Studies at University of Texas Austin 2026",
-      author: "Max",
-      date: "November 14, 2025",
-      category: "Business",
-      readTime: "6 min",
-      excerpt: "World-class faculty in flexible formats. Whether you're eyeing skill-building certificates or flexible online courses.",
-      slug: "ut-austin-non-degree-2026"
-    },
-    {
-      title: "Austin Tech Policy: 2025 Legislative Update",
-      author: "Sarah Chen",
-      date: "November 13, 2025",
-      category: "Policy",
-      readTime: "7 min",
-      excerpt: "Key legislative changes affecting Austin's growing tech sector. Analysis of new regulations and their market impact.",
-      slug: "austin-tech-policy-2025"
-    },
-    {
-      title: "Market Analysis: Austin Real Estate Trends",
-      author: "David Ross",
-      date: "November 12, 2025",
-      category: "Analysis",
-      readTime: "9 min",
-      excerpt: "Deep dive into Austin's competitive real estate market, investment opportunities, and demographic shifts.",
-      slug: "austin-realestate-analysis"
-    }
-  ];
-
-  const filteredArticles = activeFilter === 'All' 
-    ? allArticles 
-    : allArticles.filter(a => a.category === activeFilter);
-
-  const categories = ['All', 'Technology', 'AI & Tech', 'Business', 'Policy', 'Analysis'];
-
+export default function HomePage() {
   return (
-    <main className="bg-white text-black">
-      {/* Hero Section - Minimalist Tech + Classical */}
-      <section className="section-divider py-12 md:py-16">
-        <div className="container max-w-4xl">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black font-serif animate-fade-in-up">
-            Objective.Wire
-          </h1>
-          <div className="divider-line"></div>
-          <p className="text-base md:text-base text-black max-w-2xl mb-8 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-            Detective Reporting Austin. Real-time intelligence and structured analysis for business, tech, and policy decisions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            <Link 
-              href="/news"
-              className="btn-primary text-center"
-            >
-              Browse Intelligence
-            </Link>
-            <Link 
-              href="/about"
-              className="btn-secondary text-center"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 md:py-16 section-divider">
-        <div className="container max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="stat-card">
-              <div className="stat-number">{stats.stories.toLocaleString()}</div>
-              <div className="stat-label">Stories Published</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">{(stats.readers / 1000).toFixed(0)}K</div>
-              <div className="stat-label">Active Readers</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">{stats.analysis}</div>
-              <div className="stat-label">In-Depth Analysis</div>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="max-w-3xl">
+            <p className="text-sm font-mono text-gray-500 mb-4 tracking-wider">PRECISION INTELLIGENCE</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Verified news.<br />
+              <span className="text-gray-400">Source-cited reporting.</span>
+            </h1>
+            <p className="text-lg text-gray-600 mb-8 max-w-xl">
+              ObjectWire delivers event-driven intelligence constructed as documented claims, supported by primary sources and transparent citations.
+            </p>
+            <div className="flex gap-4">
+              <Link 
+                href="/blog"
+                className="px-6 py-3 bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+              >
+                Read Latest
+              </Link>
+              <Link 
+                href="/editorial-standards"
+                className="px-6 py-3 border border-gray-300 text-sm font-medium hover:border-black transition-colors"
+              >
+                Our Standards
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Article */}
-      <section className="py-12 md:py-16">
-        <div className="container max-w-5xl">
-          {allArticles.filter(a => a.featured).map((article, i) => (
-            <div key={i} className="featured-article group cursor-pointer">
-              <div className="flex items-start justify-between mb-6 pb-6 border-b border-gray-400">
-                <span className={`category-badge ${getCategoryClass(article.category)}`}>
-                  {article.category}
-                </span>
-              </div>
-              <Link href={`/article/${article.slug}`}>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white font-serif group-hover:text-gray-200 transition-colors">
-                  {article.title}
-                </h2>
-              </Link>
-              <p className="text-base text-gray-200 mb-6 leading-relaxed max-w-3xl font-light">
-                {article.excerpt}
-              </p>
-              <div className="metadata-line border-t border-gray-400 pt-4">
-                <span className="metadata">author: {article.author} | date: {article.date} | read: {article.readTime}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-12 md:py-16">
-        <div className="container max-w-5xl">
-          <p className="metadata mb-6">filter by category</p>
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
-                className={`btn-filter ${activeFilter === cat ? 'active' : ''}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Articles Grid/List */}
-      <section className="section-divider py-12 md:py-16">
-        <div className="container max-w-5xl">
-          <h2 className="text-5xl md:text-6xl font-bold text-black font-serif mb-2">Intelligence Feed</h2>
-          <div className="divider-line mb-12"></div>
-
-          <div className="space-y-12">
-            {filteredArticles.filter(a => !a.featured).map((article, i) => (
-              <article key={i} className="article-card-list group">
-                <div className="mb-4">
-                  <span className={`category-badge ${getCategoryClass(article.category)}`}>
-                    {article.category}
-                  </span>
-                </div>
-                <Link href={`/article/${article.slug}`}>
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-black font-serif group-hover:text-gray-700 transition-colors">
-                    {article.title}
-                  </h3>
-                </Link>
-                <p className="text-gray-700 leading-relaxed max-w-3xl mb-4">
-                  {article.excerpt}
-                </p>
-                <div className="metadata-line">
-                  <span className="metadata">author: {article.author} | date: {article.date} | read: {article.readTime}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Related Topics Section */}
-      <section className="py-12 md:py-16 bg-white section-divider">
-        <div className="container max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-black font-serif mb-4">Trending Topics</h2>
-          <div className="divider-line mb-8"></div>
+      <section className="py-16 border-t border-gray-200">
+        <div className="container">
+          <p className="text-xs font-mono text-gray-400 mb-8 tracking-wider">FEATURED INVESTIGATION</p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['Austin Tech Policy', 'AI & Machine Learning', 'Real Estate Markets', 'Startup Ecosystem', 'Market Analysis', 'Business Intelligence'].map((topic, i) => (
-              <div key={i} className="bg-gray-50 px-6 py-8 rounded-xl hover:bg-gray-100 transition-colors">
-                <h3 className="text-lg font-semibold font-serif text-black mb-2">{topic}</h3>
-                <p className="metadata text-gray-600 mb-4">latest insights & analysis</p>
-                <Link href="/news" className="text-black hover:text-gray-700 font-medium text-sm">
-                  Explore →
-                </Link>
+          <article className="max-w-3xl">
+            <Link href={`/blog/${featuredArticle.slug}`} className="block group">
+              <span className="inline-block px-3 py-1 text-xs font-medium bg-red-50 text-red-700 mb-4">
+                {featuredArticle.category}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-gray-600 transition-colors">
+                {featuredArticle.title}
+              </h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                {featuredArticle.excerpt}
+              </p>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <span>{featuredArticle.author}</span>
+                <span>•</span>
+                <time>{featuredArticle.date}</time>
               </div>
-            ))}
-          </div>
+            </Link>
+          </article>
         </div>
       </section>
 
-      {/* Editorial Standards Section */}
-      <section className="section-divider py-12 md:py-16 bg-white">
-        <div className="container max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-black font-serif mb-4">Our Standards</h2>
-          <div className="divider-line mb-6"></div>
-          <div className="prose prose-sm max-w-none">
-            <p className="text-lg text-black leading-relaxed mb-8">
-              At ObjectWire, our editorial process is rooted in accuracy, clarity, and accountability. All published material undergoes rigorous verification to ensure factual integrity and unbiased reporting. We adhere to a standard of source transparency, citation discipline, and contextual relevance across all formats.
-            </p>
-            <div className="pull-quote">
-              "Journalism should be a public service, not a performance art."
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="p-6 border border-gray-300 rounded-xl">
-                <h4 className="font-serif font-bold text-black mb-2">Accuracy First</h4>
-                <p className="text-sm text-gray-700">Every fact verified, every source confirmed, every claim substantiated.</p>
+      {/* Standards Preview */}
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <div className="container">
+          <div className="max-w-3xl">
+            <p className="text-xs font-mono text-gray-400 mb-4 tracking-wider">OUR COMMITMENT</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Editorial Standards</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-5 bg-white border border-gray-200">
+                <h3 className="font-semibold mb-2">Source Verification</h3>
+                <p className="text-sm text-gray-500">Every claim traced to primary sources with transparent citations.</p>
               </div>
-              <div className="p-6 border border-gray-300 rounded-xl">
-                <h4 className="font-serif font-bold text-black mb-2">Transparency</h4>
-                <p className="text-sm text-gray-700">We disclose our methods, sources, and any conflicts of interest.</p>
+              <div className="p-5 bg-white border border-gray-200">
+                <h3 className="font-semibold mb-2">Factual Accuracy</h3>
+                <p className="text-sm text-gray-500">Three-stage editorial review before any publication.</p>
               </div>
-              <div className="p-6 border border-gray-300 rounded-xl">
-                <h4 className="font-serif font-bold text-black mb-2">Accountability</h4>
-                <p className="text-sm text-gray-700">We correct errors promptly and take responsibility for our reporting.</p>
+              <div className="p-5 bg-white border border-gray-200">
+                <h3 className="font-semibold mb-2">Corrections Policy</h3>
+                <p className="text-sm text-gray-500">Transparent updates and error corrections when needed.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-12 md:py-16">
-        <div className="container max-w-2xl">
-          <div className="mb-6 text-center">
-            <h2 className="text-2xl font-bold text-black font-serif mb-2">Stay Informed</h2>
-            <div className="divider-line"></div>
-            <p className="text-black text-sm leading-relaxed">
-              Get weekly intelligence delivered to your inbox. Structured analysis for professionals.
-            </p>
-          </div>
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-modern flex-1"
-            />
-            <button 
-              type="submit"
-              className="btn-primary whitespace-nowrap"
+            <Link 
+              href="/editorial-standards" 
+              className="inline-block mt-6 text-sm font-medium text-gray-600 hover:text-black"
             >
-              Subscribe
-            </button>
-          </form>
-          <p className="text-xs text-gray-600 mt-4 text-center metadata">
-            No spam. Unsubscribe anytime. See our <Link href="/privacy-policy" className="border-b border-gray-600">privacy policy</Link>.
-          </p>
+              Read full standards →
+            </Link>
+          </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "import-blogs": "npx tsx scripts/import-rss-blogs.ts"
+  }
+}

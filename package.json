@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "import-blogs": "npx tsx scripts/import-rss-blogs.ts"
+    "import-blogs": "npx tsx scripts/import-rss-to-blocks.ts"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

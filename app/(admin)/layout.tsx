@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { ArticlesProvider } from "@/lib/admin/articles-context";
+import { ArticlesProvider } from "@/lib/articles-context";
 
 export const metadata: Metadata = {
   title: {

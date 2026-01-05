@@ -19,6 +19,28 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  redirects: async () => {
+    return [
+      // Redirect old objectwire.org blog URLs to new /blog structure
+      {
+        source: '/objectwire.org/:slug*',
+        destination: '/blog/:slug*',
+        permanent: true, // 301 redirect
+      },
+      // Redirect any www.objectwire.org paths to /blog
+      {
+        source: '/www.objectwire.org/:slug*',
+        destination: '/blog/:slug*',
+        permanent: true, // 301 redirect
+      },
+      // Redirect RSS feed to a future API endpoint (optional)
+      {
+        source: '/feed/rss2',
+        destination: '/blog',
+        permanent: false, // 302 temporary redirect
+      },
+    ];
+  },
 };
 
 export default nextConfig;

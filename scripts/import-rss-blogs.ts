@@ -1,7 +1,10 @@
 /**
  * RSS Blog Import Script for ObjectWire
  * Fetches blog posts from objectwire.org RSS feed and converts them to local format
- * Usage: npx tsx scripts/import-rss-blogs.ts
+ * 
+ * Usage: 
+ *   npx tsx scripts/import-rss-blogs.ts
+ *   npx tsx scripts/import-rss-blogs.ts --file path/to/rss-feed.xml
  */
 
 import * as fs from 'fs';
@@ -74,12 +77,57 @@ const categoryMapping: { [key: string]: string } = {
 
 function fetchRSSFeed(): Promise<string> {
   return new Promise((resolve, reject) => {
-    https.get(RSS_FEED_URL, (response) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/rss+xml, application/xml, text/xml, */*'
+      }
+    };
+    
+    https.get(RSS_FEED_URL, options, (response) => {
+      // Handle redirects
+      if (response.statusCode === 301 || response.statusCode === 302) {
+        const redirectUrl = response.headers.location;
+        if (redirectUrl) {
+          console.log(`↪️  Redirecting to: ${redirectUrl}`);
+          https.get(redirectUrl, options, (redirectResponse) => {
+            let data = '';
+            redirectResponse.on('data', (chunk) => {
+              data += chunk;
+            });
+            redirectResponse.on('end', () => {
+              resolve(data);
+            });
+          }).on('error', reject);
+          return;
+        }
+      }
+
+      // Handle 404 or other error status codes
+      if (response.statusCode !== 200) {
+        console.log(`⚠️  HTTP Status: ${response.statusCode}`);
+        console.log(`\n💡 Tip: The RSS feed may be protected or not yet available.`);
+        console.log(`   Try one of these solutions:`);
+        console.log(`   1. Download the RSS feed manually and save it as 'rss-feed.xml' in the scripts folder`);
+        console.log(`   2. Run: node scripts/import-rss-blogs.ts --file scripts/rss-feed.xml`);
+        console.log(`   3. Check if the site is live at https://www.objectwire.org\n`);
+        reject(new Error(`HTTP ${response.statusCode}: RSS feed not accessible`));
+        return;
+      }
+
       let data = '';
       response.on('data', (chunk) => {
         data += chunk;
       });
       response.on('end', () => {
+        // Check if response is HTML instead of XML
+        const trimmedData = data.trim();
+        if (trimmedData.startsWith('<!DOCTYPE html') || trimmedData.startsWith('<html')) {
+          console.log('⚠️  Received HTML instead of XML RSS feed');
+          console.log('First 200 chars:', trimmedData.substring(0, 200));
+          reject(new Error('RSS feed returned HTML instead of XML. The feed may not be available yet.'));
+          return;
+        }
         resolve(data);
       });
     }).on('error', reject);
@@ -200,13 +248,126 @@ function calculateStrategicRelevance(title: string, content: string, tags: strin
   return Math.min(10, score);
 }
 
-async function parseRSSAndConvert(): Promise<void> {
-  console.log('📡 Fetching RSS feed from objectwire.org...');
+function createBlogPageFile(post: BlogPost, outputDir: string): void {
+  const blogDir = path.join(outputDir, post.slug);
   
-  try {
-    const xmlData = await fetchRSSFeed();
-    console.log('✅ RSS feed fetched successfully');
+  // Create directory for this blog post
+  if (!fs.existsSync(blogDir)) {
+    fs.mkdirSync(blogDir, { recursive: true });
+  }
 
+  // Create page.tsx file with MDX content
+  const pageContent = `// Auto-generated from RSS feed import on ${new Date().toISOString()}
+
+import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+
+export const metadata = {
+  title: '${post.title.replace(/'/g, "\\'")} | ObjectWire',
+  description: '${post.description.replace(/'/g, "\\'")}',
+};
+
+export default function BlogPost() {
+  return (
+    <>
+      {/* Reading Progress Bar */}
+      <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 z-50" />
+
+      <article className="py-16 md:py-20 selection:bg-yellow-100 selection:text-yellow-900">
+        <div className="max-w-[1150px] mx-auto px-6 md:px-12">
+          
+          {/* Article Header */}
+          <header className="mb-12">
+            <div className="mb-6">
+              <Link 
+                href="/blog" 
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-900 transition-all duration-300 hover:gap-3"
+              >
+                <span>←</span>
+                <span>Back to News</span>
+              </Link>
+            </div>
+            
+            <Badge variant="destructive" className="bg-red-500 mb-4">
+              ${post.category.toUpperCase()}
+            </Badge>
+            
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight">
+              ${post.title.replace(/'/g, "\\'")}
+            </h1>
+            
+            <div className="flex items-center gap-4 text-sm text-gray-500 mb-8">
+              <span className="font-medium">${post.author.name}</span>
+              <span>•</span>
+              <time dateTime="${post.publishedAt}">
+                ${new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <span>•</span>
+              <span>${post.readingTime} min read</span>
+            </div>
+
+            ${post.tags.length > 0 ? `<div className="flex flex-wrap gap-2 mb-8">
+              ${post.tags.map(tag => `<span key="${tag}" className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">${tag}</span>`).join('\n              ')}
+            </div>` : ''}
+          </header>
+
+          {/* Article Content */}
+          <div className="prose prose-lg max-w-none">
+            <div className="leading-relaxed text-gray-800" dangerouslySetInnerHTML={{ __html: \`${post.content.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\` }} />
+          </div>
+
+          {/* Article Footer */}
+          ${post.metadata.sources.length > 0 ? `<footer className="mt-16 pt-8 border-t border-gray-200">
+            <h3 className="text-lg font-bold mb-4">Sources</h3>
+            <ul className="space-y-2">
+              ${post.metadata.sources.map((source, idx) => `<li key="${idx}" className="text-sm text-gray-600">
+                <span className="text-red-500 font-mono mr-2">[${idx + 1}]</span>
+                ${source}
+              </li>`).join('\n              ')}
+            </ul>
+            <div className="mt-6 text-sm text-gray-500">
+              <p><strong>Verification Level:</strong> {post.metadata.verificationLevel}</p>
+              <p><strong>Strategic Relevance:</strong> ${post.metadata.strategicRelevance}/10</p>
+            </div>
+          </footer>` : ''}
+        </div>
+      </article>
+    </>
+  );
+}
+`;
+
+  const pagePath = path.join(blogDir, 'page.tsx');
+  fs.writeFileSync(pagePath, pageContent, 'utf-8');
+  console.log(`   ✓ Created ${post.slug}/page.tsx`);
+}
+
+async function parseRSSAndConvert(xmlSource?: string): Promise<void> {
+  let xmlData: string;
+
+  if (xmlSource) {
+    // Read from file
+    console.log(`📂 Reading RSS feed from file: ${xmlSource}`);
+    try {
+      xmlData = fs.readFileSync(xmlSource, 'utf-8');
+      console.log('✅ RSS feed file read successfully');
+    } catch (error) {
+      console.error(`❌ Error reading file: ${xmlSource}`);
+      throw error;
+    }
+  } else {
+    // Fetch from URL
+    console.log('📡 Fetching RSS feed from objectwire.org...');
+    try {
+      xmlData = await fetchRSSFeed();
+      console.log('✅ RSS feed fetched successfully');
+    } catch (error) {
+      console.error('❌ Failed to fetch RSS feed from URL');
+      throw error;
+    }
+  }
+
+  try {
     const parser = new xml2js.Parser({
       explicitArray: true,
       trim: true,
@@ -276,19 +437,30 @@ async function parseRSSAndConvert(): Promise<void> {
     // Sort by date descending
     blogPosts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
-    // Generate TypeScript file
-    const outputPath = path.join(process.cwd(), 'data', 'imported-blog-posts.ts');
+    // Create individual blog post files in app/blog/[slug]/ folders
+    const blogOutputDir = path.join(process.cwd(), 'app', 'blog');
+    console.log(`\n📝 Creating individual blog post files in ${blogOutputDir}...`);
+    
+    blogPosts.forEach(post => {
+      createBlogPageFile(post, blogOutputDir);
+    });
+
+    // Also generate a TypeScript data file for backup/reference
+    const dataDir = path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    
+    const outputPath = path.join(dataDir, 'imported-blog-posts.ts');
     const tsContent = `// Auto-generated from RSS feed import
 // Last updated: ${new Date().toISOString()}
 // Total posts: ${blogPosts.length}
 
-import { BlogPost } from '@/lib/types';
-
-export const importedBlogPosts: BlogPost[] = ${JSON.stringify(blogPosts, null, 2)};
+export const importedBlogPosts = ${JSON.stringify(blogPosts, null, 2)};
 `;
 
     fs.writeFileSync(outputPath, tsContent, 'utf-8');
-    console.log(`✅ Imported ${blogPosts.length} blog posts to ${outputPath}`);
+    console.log(`\n✅ Also created backup data file at ${outputPath}`);
 
     // Generate summary
     const categoryCount: { [key: string]: number } = {};
@@ -303,12 +475,31 @@ export const importedBlogPosts: BlogPost[] = ${JSON.stringify(blogPosts, null, 2
     Object.entries(categoryCount).forEach(([cat, count]) => {
       console.log(`   ${cat}: ${count} posts`);
     });
+    
+    console.log('\n✨ All blog posts have been imported as individual files!');
+    console.log(`   Each post is now available at /blog/[slug]/page.tsx`);
 
   } catch (error) {
     console.error('❌ Error importing RSS feed:', error);
+    if (error instanceof Error && error.message.includes('404')) {
+      console.error('\n⚠️  The RSS feed returned 404. Please verify:');
+      console.error('   1. The production site at objectwire.org is deployed and accessible');
+      console.error('   2. The RSS feed URL is correct: https://www.objectwire.org/feed/rss2');
+      console.error('   3. RSS functionality is enabled on the production site\n');
+    }
     throw error;
   }
 }
 
 // Run the import
-parseRSSAndConvert().catch(console.error);
+const args = process.argv.slice(2);
+const fileArgIndex = args.indexOf('--file');
+const inputFile = fileArgIndex !== -1 && args[fileArgIndex + 1] ? args[fileArgIndex + 1] : undefined;
+
+if (inputFile) {
+  console.log(`\n🚀 Starting RSS import from file...`);
+  parseRSSAndConvert(inputFile).catch(console.error);
+} else {
+  console.log(`\n🚀 Starting RSS import from URL...`);
+  parseRSSAndConvert().catch(console.error);
+}

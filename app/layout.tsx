@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { ArticlesProvider } from "@/lib/articles-context";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://objectwire.org'),
@@ -64,6 +65,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://objectwire.org" />
       </head>
       <body className="bg-white text-gray-900 antialiased">
+        <GoogleAnalytics />
         <ArticlesProvider>
         {/* Header - Sticky */}
         <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">

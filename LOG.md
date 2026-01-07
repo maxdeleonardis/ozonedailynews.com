@@ -664,6 +664,184 @@ Objectwire-Frontend/
 - Consolidate early to avoid divergent documentation
 - Archive instead of delete for historical reference
 
+---
+
+## Phase 3.5 Analytics & Content Expansion (January 6, 2026)
+
+### Google Analytics 4 (GA4) Integration ✨
+
+**Implemented Complete Tracking System:**
+
+✅ **Core Tracking Modules** (`lib/tracking/`):
+1. **`user-identity.ts`** (202 lines)
+   - Persistent anonymous user ID generation (stored in localStorage)
+   - Session tracking with page history
+   - Visit count and first/last visit timestamps
+   - User identification upgrade (anonymous → email)
+   - Helper functions: `getAnonymousId()`, `recordSession()`, `identifyUser()`, `isReturningVisitor()`
+
+2. **`ga4.ts`** (135 lines)
+   - Google Analytics 4 integration functions
+   - Page view tracking: `trackPageView(url)`
+   - Custom event tracking: `trackEvent(name, params)`
+   - Article engagement tracking: `trackArticleEngagement(slug, title, category, scrollPercentage)`
+   - Time spent tracking: `trackTimeSpent(page, seconds)`
+   - Email signup tracking: `trackEmailSignup(source)`
+   - User identity upgrade in GA4: `upgradeUserIdentity(email, name)`
+   - Requires: `NEXT_PUBLIC_GA_MEASUREMENT_ID` environment variable
+
+3. **`index.ts`** (72 lines)
+   - Centralized tracking API export
+   - Unified interface: `tracking.initialize()`, `tracking.trackEvent()`, etc.
+   - Simplifies usage across components
+
+✅ **React Components**:
+1. **`GoogleAnalytics.tsx`** (54 lines)
+   - Client component that loads GA4 script from googletagmanager.com
+   - Auto-initializes tracking on mount
+   - Tracks page views on route navigation using Next.js `usePathname` and `useSearchParams`
+   - Integrated in `app/layout.tsx` for global tracking
+
+2. **`ArticleTracking.tsx`** (88 lines)
+   - Tracks article engagement (scroll depth, time spent)
+   - Integrates with GA4 tracking module
+
+3. **`EmailCapture.tsx`** (124 lines)
+   - Tracks email signups with source attribution
+   - Integrates with GA4 event tracking
+
+**Technical Details:**
+- Analytics ID loaded from `process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID`
+- Falls back gracefully if env var not set (returns null from GoogleAnalytics component)
+- Uses localStorage to persist user identity across sessions
+- User properties stored: anonymous_id, email, visit_count, first_visit_date, is_returning_visitor
+- Event params include article metadata, scroll percentage, time metrics
+
+**Setup Required:**
+- Add to `.env.local`: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX`
+- Where `G-XXXXXXXXXX` is your GA4 Measurement ID from Google Analytics
+- Currently in development phase, will be configured during deployment
+
+### Content Expansion (50+ New Article Pages)
+
+**New Categories with Dedicated Pages:**
+- `app/analyst/page.tsx` - Analysis section landing
+- `app/asset-collection/page.tsx` - Asset management articles
+- `app/case/page.tsx` - Case studies
+- `app/health/page.tsx` - Health & wellness news
+- `app/missing-persons/page.tsx` - Investigation tracking
+- `app/surveillance/page.tsx` - Surveillance & privacy
+- `app/infidelity/page.tsx` - Investigation services
+- `app/opinion/page.tsx` - Opinion pieces
+- `app/news/page.tsx` - News feed
+- `app/start-up-news/page.tsx` - Startup coverage
+- `app/service/` - Multiple service pages (jack-s, conan-d, skip-s, press-release)
+
+**Technical Articles Added:**
+- NestJS vs Next.js vs Express comparison
+- Difference Between HTTP and REST API Servers
+- Hedera vs Solana for dApps
+- Pegatron Opens U.S. Factory in Texas
+- NeuroPhos: Austin's AI Hardware Startup
+- Comet AI Web Browser vs Atlas by ChatGPT
+
+**Business & Policy Articles Added:**
+- Alphabet Inc: The History of Google
+- Sam Altman Visits Hedera Team
+- Introducing BitChat: Jack Dorsey's Decentralized Messaging Platform
+- NASDAQ Proposed 24/7 Trading
+- Oh Canada, What Has Happened?
+- TXC Stable Coin: Texas' Entry into Digital Currency
+
+**Enhanced Articles Context:**
+- `lib/articles-context.tsx` expanded with 32+ article entries
+- Full metadata: title, slug, excerpt, category, status, author, dates, read time
+- Ready for block-based rendering
+
+### Technical Updates
+- **Next.js**: Updated from `15.5.4` → `15.5.9` (security patch)
+- **SWC bindings**: Updated for all platforms (darwin-arm64, darwin-x64, linux-arm64, linux-x64, win32)
+
+### Files Changed Summary
+- 62 files changed
+- 10,013 insertions
+- 44 deletions
+
+### Current Status
+✅ GA4 tracking system fully implemented and integrated
+✅ Content library expanded with 50+ article pages
+⏳ Awaiting GA4 Measurement ID configuration for production deployment
+✅ Next.js security updates applied
+
+### Next Steps
+1. Add GA4 Measurement ID to `.env.local`
+2. Test tracking in development environment
+3. Verify page views in Google Analytics dashboard
+4. Monitor article engagement metrics
+5. Expand content library with additional article pages
+6. Implement event-driven article generation
+
+---
+
+## Phase 3.6 Admin Authentication (January 6, 2026)
+
+### Admin Portal Login System ✨
+
+**Implemented Simple Authentication:**
+
+✅ **Authentication Module** (`lib/auth.ts`):
+- Simple credential validation (`admin` / `admin`)
+- Session management via localStorage
+- Helper functions: `validateCredentials()`, `createSession()`, `destroySession()`, `isAuthenticated()`
+- Client-side session persistence
+
+✅ **New Route Structure**:
+- `/admin` → Login page (redirects to dashboard if authenticated)
+- `/admin/dashboard` → Protected dashboard (redirects to login if not authenticated)
+
+✅ **Login Page** (`app/admin/page.tsx`):
+- Clean login form with username/password fields
+- Error handling for invalid credentials
+- Auto-redirect to dashboard on successful login
+- Auto-redirect to dashboard if already logged in
+- Default credentials displayed: `admin` / `admin`
+
+✅ **Dashboard Protection** (`app/admin/dashboard/page.tsx`):
+- Authentication check on page load
+- Auto-redirect to login if not authenticated
+- Logout button in header
+- Session management integrated
+
+**Features:**
+- Simple localStorage-based session management
+- Clean login UI with ObjectWire branding
+- Logout button in dashboard header
+- Auto-redirect flow for better UX
+- No backend required (client-side only)
+
+**Security Note:**
+- Current implementation is basic (username/password hardcoded)
+- Suitable for development/demo purposes
+- Ready for upgrade to JWT/OAuth when backend is integrated
+
+### File Structure
+```
+app/admin/
+├── page.tsx           # Login page
+└── dashboard/
+    └── page.tsx       # Protected dashboard
+
+lib/
+└── auth.ts            # Authentication utilities
+```
+
+### Next Steps
+1. Test login flow on live site
+2. Verify redirect behavior
+3. Test logout functionality
+4. Later: Upgrade to backend-based JWT authentication
+5. Later: Add role-based access control
+
 ### Next Session Goals
 
 ## Contact

@@ -1,79 +1,60 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "News Source for Independents | The Objective Wire",
-  description: "Independent news coverage focused on business, technology, and innovation. Stay informed with objective reporting.",
-};
+import type { Metadata } from "next";
+import Link from 'next/link';
+import { useArticles } from '@/lib/articles-context';
+import { Badge } from '@/components/ui/badge';
 
 export default function NewsPage() {
+  const { articles } = useArticles();
+  const publishedArticles = articles.filter(a => a.status === 'published');
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 py-16 max-w-4xl">
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            News Source for Independents
-          </h1>
-          <p className="text-xl text-gray-600">
-            Independent news coverage focused on business, technology, and innovation.
-          </p>
+    <div className="py-16 md:py-20">
+      <div className="max-w-[1150px] mx-auto px-6 md:px-12">
+        {/* Header */}
+        <header className="mb-12 pb-8 border-b border-gray-200">
+          <p className="text-xs font-mono text-gray-400 mb-4 tracking-wider">INTELLIGENCE FEED</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">News & Investigations</h1>
+          <p className="text-gray-500">Verified reporting with source citations and transparent methodology.</p>
         </header>
 
-        <section className="prose prose-lg max-w-none">
-          <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Unbiased Reporting
-            </h2>
-            <p className="text-gray-700 mb-4">
-              The Objective Wire delivers news without partisan spin. We focus on facts, context, and 
-              analysis that matters to independent thinkers who value accuracy over agenda.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Our Coverage Areas
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Business</h3>
-                <p className="text-gray-700 text-sm">
-                  Market developments, corporate strategy, and economic trends
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Technology</h3>
-                <p className="text-gray-700 text-sm">
-                  Innovation, digital transformation, and tech industry news
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Startups</h3>
-                <p className="text-gray-700 text-sm">
-                  Funding rounds, founder insights, and emerging companies
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Policy</h3>
-                <p className="text-gray-700 text-sm">
-                  Regulations, legislation, and policy impacts on business
-                </p>
-              </div>
+        {/* Articles */}
+        <div className="space-y-12">
+          {publishedArticles.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-500 mb-4">No published articles yet.</p>
+              <Link href="/admin" className="text-blue-600 hover:underline">
+                Go to Dashboard to create your first article
+              </Link>
             </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Why Choose ObjectWire
-            </h2>
-            <p className="text-gray-700">
-              In an era of media polarization, ObjectWire provides a trusted alternative. Our App Router 
-              system delivers fast, reliable news coverage optimized for modern readers. We leverage 
-              React Server Components and parallel routing to ensure you get the information you need 
-              quickly and efficiently.
-            </p>
-          </div>
-        </section>
+          ) : (
+            publishedArticles.map((article) => (
+              <article key={article.id} className="pb-12 border-b border-gray-100 group">
+                <Link href={`/${article.slug}`} className="block">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Badge variant="destructive" className="bg-red-500">
+                      {article.category}
+                    </Badge>
+                    <span className="text-xs text-gray-400">{article.readTime}</span>
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-gray-600 transition-colors">
+                    {article.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <span>{article.author}</span>
+                    <span>•</span>
+                    <time>{article.updatedAt}</time>
+                  </div>
+                </Link>
+              </article>
+            ))
+          )}
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

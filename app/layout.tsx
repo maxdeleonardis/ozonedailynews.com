@@ -78,7 +78,7 @@ export default function RootLayout({
             </Link>
             
             <div className="flex items-center gap-6">
-              <Link href="/blog" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+              <Link href="/news" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
                 News
               </Link>
               <Link href="/editorial-standards" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
@@ -115,7 +115,7 @@ export default function RootLayout({
                 <h4 className="font-semibold text-sm uppercase tracking-wide mb-4">Useful Links</h4>
                 <div className="flex flex-col gap-2.5">
                   <Link href="/" className="text-sm text-gray-600 hover:text-black transition-colors">Home</Link>
-                  <Link href="/blog" className="text-sm text-gray-600 hover:text-black transition-colors">News</Link>
+                  <Link href="/news" className="text-sm text-gray-600 hover:text-black transition-colors">News</Link>
                   <Link href="/editorial-standards" className="text-sm text-gray-600 hover:text-black transition-colors">Editorial Standards</Link>
                   <Link href="/about" className="text-sm text-gray-600 hover:text-black transition-colors">About</Link>
                 </div>

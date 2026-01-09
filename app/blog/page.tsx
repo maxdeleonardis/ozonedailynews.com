@@ -2,7 +2,24 @@
 
 import Link from 'next/link';
 import { useArticles } from '@/lib/articles-context';
-import { Badge } from '@/components/ui/badge';
+
+function CategoryBadge({ category }: { category: string }) {
+  const colors: Record<string, { bg: string; text: string }> = {
+    Technology: { bg: '#e40014', text: '#fff' },
+    Business: { bg: '#e40014', text: '#fff' },
+    Politics: { bg: '#e40014', text: '#fff' },
+    News: { bg: '#155dfc', text: '#fff' },
+    Education: { bg: '#00a544', text: '#fff' },
+    Crime: { bg: '#78350f', text: '#fff' },
+    Investigation: { bg: '#d97706', text: '#fff' },
+  };
+  const color = colors[category] || { bg: '#fb2c36', text: '#fff' };
+  return (
+    <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium" style={{ backgroundColor: color.bg, color: color.text }}>
+      {category}
+    </span>
+  );
+}
 
 export default function BlogPage() {
   const { articles } = useArticles();
@@ -32,9 +49,7 @@ export default function BlogPage() {
               <article key={article.id} className="pb-12 border-b border-gray-100 group">
                 <Link href={`/blog/${article.slug}`} className="block">
                   <div className="flex items-center gap-2 mb-4">
-                    <Badge variant="destructive" className="bg-red-500">
-                      {article.category}
-                    </Badge>
+                    <CategoryBadge category={article.category} />
                     <span className="text-xs text-gray-400">{article.readTime}</span>
                   </div>
                   <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-gray-600 transition-colors">

@@ -1,6 +1,24 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
+function CategoryBadge({ category }: { category: string }) {
+  const colors: Record<string, { bg: string; text: string }> = {
+    Technology: { bg: '#e40014', text: '#fff' },
+    Business: { bg: '#e40014', text: '#fff' },
+    Politics: { bg: '#e40014', text: '#fff' },
+    News: { bg: '#155dfc', text: '#fff' },
+    Education: { bg: '#00a544', text: '#fff' },
+    Crime: { bg: '#78350f', text: '#fff' },
+    Investigation: { bg: '#d97706', text: '#fff' },
+  };
+  const color = colors[category] || { bg: '#fb2c36', text: '#fff' };
+  return (
+    <span className="inline-block px-3 py-1 text-xs font-semibold mb-4" style={{ backgroundColor: color.bg, color: color.text }}>
+      {category.toUpperCase()}
+    </span>
+  );
+}
+
 export const metadata: Metadata = {
   title: "ObjectWire | Precision Intelligence News Network",
   description: "ObjectWire delivers verified, source-cited intelligence on business, technology, fraud investigations, and policy. Built for professionals who require accuracy over volume.",
@@ -59,9 +77,7 @@ export default function HomePage() {
           
           <article className="max-w-3xl">
             <Link href={`/blog/${featuredArticle.slug}`} className="block group">
-              <span className="inline-block px-3 py-1 text-xs font-medium bg-red-50 text-red-700 mb-4">
-                {featuredArticle.category}
-              </span>
+              <CategoryBadge category={featuredArticle.category} />
               <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-gray-600 transition-colors">
                 {featuredArticle.title}
               </h2>

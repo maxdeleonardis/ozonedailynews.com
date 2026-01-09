@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ArticlesProvider } from "@/lib/articles-context";
+import { AuthProvider } from "@/lib/auth-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
@@ -66,9 +67,11 @@ export default function RootLayout({
       </head>
       <body className="bg-white text-gray-900 antialiased">
         <GoogleAnalytics />
-        <ArticlesProvider>
-          <ConditionalLayout>{children}</ConditionalLayout>
-        </ArticlesProvider>
+        <AuthProvider>
+          <ArticlesProvider>
+            <ConditionalLayout>{children}</ConditionalLayout>
+          </ArticlesProvider>
+        </AuthProvider>
       </body>
     </html>
   );

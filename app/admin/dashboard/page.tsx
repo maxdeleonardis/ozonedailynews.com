@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { useArticles, Article, ArticleBlock } from '@/lib/articles-context';
-import { isAuthenticated, destroySession } from '@/lib/auth';
+import { isAuthenticated, destroySession, updateActivity } from '@/lib/auth';
 
 type BlockType = ArticleBlock['type'];
 
@@ -421,6 +421,33 @@ function AdminDashboardContent() {
     }
   }, [router]);
 
+  // Track user activity and check session every minute
+  useEffect(() => {
+    const trackActivity = () => {
+      updateActivity();
+    };
+
+    // Track activity on user interactions
+    const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
+    events.forEach(event => {
+      window.addEventListener(event, trackActivity);
+    });
+
+    // Check session validity every minute
+    const checkSession = setInterval(() => {
+      if (!isAuthenticated()) {
+        router.push('/admin');
+      }
+    }, 60000); // Check every minute
+
+    return () => {
+      events.forEach(event => {
+        window.removeEventListener(event, trackActivity);
+      });
+      clearInterval(checkSession);
+    };
+  }, [router]);
+
   // Handle edit query param
   useEffect(() => {
     const editId = searchParams.get('edit');
@@ -527,6 +554,43 @@ function AdminDashboardContent() {
     setActiveTab('editor');
   };
 
+  const useDefaultTemplate = () => {
+    const templateBlocks: ArticleBlock[] = [
+      {
+        id: Date.now().toString() + '-1',
+        type: 'heading',
+        content: '',
+        level: 2
+      },
+      {
+        id: Date.now().toString() + '-2',
+        type: 'summary',
+        content: ''
+      },
+      {
+        id: Date.now().toString() + '-3',
+        type: 'paragraph',
+        content: ''
+      },
+      {
+        id: Date.now().toString() + '-4',
+        type: 'paragraph',
+        content: ''
+      },
+      {
+        id: Date.now().toString() + '-5',
+        type: 'sources',
+        content: '',
+        sources: ['']
+      }
+    ];
+
+    setCurrentArticle(prev => ({
+      ...prev,
+      blocks: templateBlocks
+    }));
+  };
+
   const addBlock = (type: BlockType) => {
     const newBlock: ArticleBlock = {
       id: Date.now().toString(),
@@ -586,15 +650,13 @@ function AdminDashboardContent() {
       {/* Admin Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black flex items-center justify-center">
-                <span className="text-white font-bold">O</span>
-              </div>
-              <span className="font-bold">ObjectWire</span>
-            </Link>
-            <Separator orientation="vertical" className="h-6" />
-            <span className="text-sm text-gray-500">Admin Dashboard</span>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center">
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+              </svg>
+            </div>
+            <span className="text-sm font-semibold text-gray-900">Dashboard</span>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/">
@@ -747,12 +809,42 @@ function AdminDashboardContent() {
                 {/* Content Blocks */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Content Blocks</CardTitle>
-                    <CardDescription>
-                      Add and arrange interactive content blocks. Use **text** for bold/key terms that highlight on hover.
-                    </CardDescription>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle>Content Blocks</CardTitle>
+                        <CardDescription>
+                          Add and arrange interactive content blocks. Use **text** for bold/key terms that highlight on hover.
+                        </CardDescription>
+                      </div>
+                      {(currentArticle.blocks || []).length === 0 && (
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={useDefaultTemplate}
+                        >
+                          Use Template
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
+                    {(currentArticle.blocks || []).length === 0 && (
+                      <div className="py-8 text-center border-2 border-dashed border-gray-200 rounded-lg bg-gray-50">
+                        <p className="text-sm text-gray-500 mb-3">No content blocks yet</p>
+                        <div className="flex items-center justify-center gap-2">
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={useDefaultTemplate}
+                          >
+                            Start with Template
+                          </Button>
+                          <span className="text-xs text-gray-400">or</span>
+                          <span className="text-xs text-gray-500">Add blocks manually below</span>
+                        </div>
+                      </div>
+                    )}
+                    
                     {(currentArticle.blocks || []).map((block, index) => (
                       <BlockEditor
                         key={block.id}
@@ -772,29 +864,20 @@ function AdminDashboardContent() {
               </div>
 
               {/* Sidebar */}
-              <div className="space-y-6">
-                {/* Publish Settings */}
+              <div className="space-y-4">
+                {/* Quick Actions */}
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Publish</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <Label>Status</Label>
-                      <Select 
-                        value={currentArticle.status} 
-                        onValueChange={(value) => setCurrentArticle(prev => ({ ...prev, status: value as 'draft' | 'published' }))}
-                      >
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="draft">Draft</SelectItem>
-                          <SelectItem value="published">Published</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
+                  <CardContent className="p-4 space-y-3">
+                    <Button 
+                      className="w-full bg-black text-white hover:bg-gray-800" 
+                      onClick={() => {
+                        setCurrentArticle(prev => ({ ...prev, status: 'published' }));
+                        setTimeout(handleSaveArticle, 100);
+                      }}
+                      title="Publish immediately with current settings"
+                    >
+                      Quick Publish
+                    </Button>
                     <div className="flex gap-2">
                       <Button 
                         variant="outline" 
@@ -803,7 +886,11 @@ function AdminDashboardContent() {
                       >
                         Clear
                       </Button>
-                      <Button className="flex-1" onClick={handleSaveArticle}>
+                      <Button 
+                        variant="outline"
+                        className="flex-1" 
+                        onClick={handleSaveArticle}
+                      >
                         {editingId ? 'Update' : (currentArticle.status === 'published' ? 'Publish' : 'Save Draft')}
                       </Button>
                     </div>
@@ -818,51 +905,90 @@ function AdminDashboardContent() {
                   </CardContent>
                 </Card>
 
-                {/* Category */}
+                {/* Publish Settings - Collapsible */}
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Category</CardTitle>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      Publishing
+                      <span className="text-xs text-gray-400 font-normal" title="Control article visibility and status">ⓘ</span>
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <Select 
-                      value={currentArticle.category} 
-                      onValueChange={(value) => setCurrentArticle(prev => ({ ...prev, category: value }))}
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="News">News</SelectItem>
-                        <SelectItem value="Investigation">Investigation</SelectItem>
-                        <SelectItem value="Analysis">Analysis</SelectItem>
-                        <SelectItem value="Technology">Technology</SelectItem>
-                        <SelectItem value="Policy">Policy</SelectItem>
-                        <SelectItem value="Business">Business</SelectItem>
-                      </SelectContent>
-                    </Select>
+                  <CardContent className="space-y-3">
+                    <div className="space-y-1.5">
+                      <Label className="text-sm flex items-center gap-1.5">
+                        Status
+                        <span className="text-xs text-gray-400" title="Draft = hidden, Published = live on site">ⓘ</span>
+                      </Label>
+                      <Select 
+                        value={currentArticle.status} 
+                        onValueChange={(value) => setCurrentArticle(prev => ({ ...prev, status: value as 'draft' | 'published' }))}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="draft">📝 Draft</SelectItem>
+                          <SelectItem value="published">✅ Published</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label className="text-sm flex items-center gap-1.5">
+                        Category
+                        <span className="text-xs text-gray-400" title="Primary content category for organization">ⓘ</span>
+                      </Label>
+                      <Select 
+                        value={currentArticle.category} 
+                        onValueChange={(value) => setCurrentArticle(prev => ({ ...prev, category: value }))}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="News">📰 News</SelectItem>
+                          <SelectItem value="Investigation">🔍 Investigation</SelectItem>
+                          <SelectItem value="Analysis">📊 Analysis</SelectItem>
+                          <SelectItem value="Technology">💻 Technology</SelectItem>
+                          <SelectItem value="Policy">📋 Policy</SelectItem>
+                          <SelectItem value="Business">💼 Business</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </CardContent>
                 </Card>
 
-                {/* Author & Meta */}
+                {/* Author & Meta - Collapsible */}
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Meta</CardTitle>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      Metadata
+                      <span className="text-xs text-gray-400 font-normal" title="Article details and attribution">ⓘ</span>
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <Label>Author</Label>
+                  <CardContent className="space-y-3">
+                    <div className="space-y-1.5">
+                      <Label className="text-sm flex items-center gap-1.5">
+                        Author
+                        <span className="text-xs text-gray-400" title="Byline attribution">ⓘ</span>
+                      </Label>
                       <Input
                         value={currentArticle.author}
                         onChange={(e) => setCurrentArticle(prev => ({ ...prev, author: e.target.value }))}
-                        placeholder="Author name"
+                        placeholder="ObjectWire Editorial"
+                        className="text-sm"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label>Read Time</Label>
+                    <div className="space-y-1.5">
+                      <Label className="text-sm flex items-center gap-1.5">
+                        Read Time
+                        <span className="text-xs text-gray-400" title="Estimated reading duration">ⓘ</span>
+                      </Label>
                       <Input
                         value={currentArticle.readTime}
                         onChange={(e) => setCurrentArticle(prev => ({ ...prev, readTime: e.target.value }))}
                         placeholder="5 min read"
+                        className="text-sm"
                       />
                     </div>
                   </CardContent>

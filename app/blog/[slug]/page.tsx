@@ -6,6 +6,24 @@ import { useArticles } from '@/lib/articles-context';
 import { ArticleRenderer } from '@/components/article-renderer';
 import { useEffect, useState } from 'react';
 
+function CategoryBadge({ category }: { category: string }) {
+  const colors: Record<string, { bg: string; text: string }> = {
+    Technology: { bg: '#e40014', text: '#fff' },
+    Business: { bg: '#e40014', text: '#fff' },
+    Politics: { bg: '#e40014', text: '#fff' },
+    News: { bg: '#155dfc', text: '#fff' },
+    Education: { bg: '#00a544', text: '#fff' },
+    Crime: { bg: '#78350f', text: '#fff' },
+    Investigation: { bg: '#d97706', text: '#fff' },
+  };
+  const color = colors[category] || { bg: '#fb2c36', text: '#fff' };
+  return (
+    <span className="inline-block px-3 py-1 text-xs font-semibold mb-4" style={{ backgroundColor: color.bg, color: color.text }}>
+      {category.toUpperCase()}
+    </span>
+  );
+}
+
 export default function ArticlePage() {
   const params = useParams();
   const slug = params.slug as string;
@@ -92,9 +110,7 @@ export default function ArticlePage() {
               </Link>
             </div>
             
-            <span className="inline-block px-3 py-1 text-xs font-semibold bg-red-500 text-white mb-4">
-              {article.category.toUpperCase()}
-            </span>
+            <CategoryBadge category={article.category} />
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight">
               {article.title}

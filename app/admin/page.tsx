@@ -27,11 +27,12 @@ export default function AdminLogin() {
 
     // Simple validation
     if (username === 'admin' && password === 'admin') {
-      // Create session
+      // Create session (now uses sessionStorage)
       if (typeof window !== 'undefined') {
-        localStorage.setItem('ow_admin_session', JSON.stringify({
+        sessionStorage.setItem('ow_admin_session', JSON.stringify({
           authenticated: true,
-          timestamp: new Date().toISOString(),
+          createdAt: new Date().toISOString(),
+          lastActivity: Date.now(),
         }));
       }
       

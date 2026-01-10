@@ -70,14 +70,18 @@ export async function saveArticle(userId: string, articleId: string) {
 
 // Subscribe to article changes (real-time)
 export function subscribeToArticles(callback: (article: Article) => void) {
-  const subscription = supabase
-    .from('articles')
-    .on('*', (payload) => {
-      callback(payload.new as Article);
-    })
+  const channel = supabase
+    .channel('articles-changes')
+    .on(
+      'postgres_changes',
+      { event: '*', schema: 'public', table: 'articles' },
+      (payload) => {
+        callback(payload.new as Article);
+      }
+    )
     .subscribe();
 
   return () => {
-    subscription.unsubscribe();
+    supabase.removeChannel(channel);
   };
 }

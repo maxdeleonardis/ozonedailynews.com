@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { useArticles } from '@/lib/articles-context';
 import { ArticleRenderer } from '@/components/article-renderer';
 import { useEffect, useState } from 'react';
+import { isAuthenticated } from '@/lib/auth';
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, { bg: string; text: string }> = {
@@ -29,8 +30,13 @@ export default function ArticlePage() {
   const slug = params.slug as string;
   const { getArticleBySlug } = useArticles();
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isAdmin, setIsAdmin] = useState(false);
   
   const article = getArticleBySlug(slug);
+
+  useEffect(() => {
+    setIsAdmin(isAuthenticated());
+  }, []);
 
   // Reading progress bar
   useEffect(() => {
@@ -127,12 +133,14 @@ export default function ArticlePage() {
                 </svg>
                 {article.readTime}
               </span>
-              <Link 
-                href={`/admin?edit=${article.id}`}
-                className="ml-auto text-gray-400 hover:text-blue-600 transition-colors"
-              >
-                Edit Article
-              </Link>
+              {isAdmin && (
+                <Link 
+                  href={`/blog/${article.slug}/edit`}
+                  className="ml-auto px-3 py-1 text-sm bg-gray-900 text-white rounded hover:bg-gray-700 transition-colors"
+                >
+                  ✏️ Edit
+                </Link>
+              )}
             </div>
           </header>
 

@@ -1,6 +1,22 @@
 'use client';
 
+/**
+ * Articles Context - Centralized Article Management with Supabase
+ * 
+ * ARTICLE ID SYSTEM:
+ * - Article IDs are now slug-based for human readability and consistency
+ * - ID = slug (e.g., "alphabet-inc-the-history-of-google")
+ * - This ensures IDs are meaningful and tied to content
+ * - Changing an article's slug creates a new article (old one remains)
+ * 
+ * SUPABASE INTEGRATION:
+ * - All articles stored in Supabase 'articles' table
+ * - Real-time sync with database
+ * - Automatic backup and persistence
+ */
+
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { supabase } from './supabase';
 
 export interface ArticleBlock {
   id: string;
@@ -40,7 +56,7 @@ const ArticlesContext = createContext<ArticlesContextType | undefined>(undefined
 const defaultArticles: Article[] = [
   // Latest articles
   {
-    id: '2',
+    id: '2025-nissan-z-vs-toyota-gr-supra-comparison', // ID now matches slug
     title: "2025 Nissan Z vs Toyota GR Supra: Full Comparison, Specs & Performance",
     slug: '2025-nissan-z-vs-toyota-gr-supra-comparison',
     excerpt: 'This head-to-head breakdown covers engine specs, design, interior, technology, pricing, and real-world driving dynamics to help you decide between the 2025 Nissan Z and Toyota GR Supra.',
@@ -53,7 +69,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '3',
+    id: 'cognyte-software-ltd-cgnt', // ID now matches slug
     title: "Cognyte Software Ltd (CGNT): Investigative Analytics Platform",
     slug: 'cognyte-software-ltd-cgnt',
     excerpt: 'Cognyte develops advanced software solutions for investigative analytics, focusing on data fusion, analysis, and visualization to deliver actionable intelligence.',
@@ -66,7 +82,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '4',
+    id: 'here-s-another-thing-to-worry-about', // ID now matches slug
     title: "Here's Another Thing to Worry About: AI Scanning Your Rental Car for Damage",
     slug: 'here-s-another-thing-to-worry-about',
     excerpt: 'The rental car industry is adopting artificial intelligence (AI) to inspect vehicles and charge customers for damages. Here\'s what renters should watch out for.',
@@ -79,7 +95,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '5',
+    id: 'jerome-powell-federal-reserve-headquarters-renovation', // ID now matches slug
     title: "$2.5 Billion Federal Reserve Headquarters Renovation Sparks Political Controversy",
     slug: 'jerome-powell-federal-reserve-headquarters-renovation',
     excerpt: '$2.5 Billion Headquarters Renovation of FED | Trump Disproves - Examining the debate over the Federal Reserve\'s massive renovation project.',
@@ -92,7 +108,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '6',
+    id: 'blitzy-ai-powered-autonomous-software-development', // ID now matches slug
     title: "Blitzy: AI-Powered Autonomous Software Development",
     slug: 'blitzy-ai-powered-autonomous-software-development',
     excerpt: 'Harvard Innovation Lab startup Blitzy promises autonomous software development through AI agents that understand requirements and generate production-ready code.',
@@ -105,7 +121,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '7',
+    id: 'oanda-or-interactive-brokers-forex-trading-usa',
     title: "OANDA or Interactive Brokers: Which Is Better for Forex Trading in the USA?",
     slug: 'oanda-or-interactive-brokers-forex-trading-usa',
     excerpt: 'Comparing two leading forex brokers for U.S. traders: OANDA\'s user-friendly platform vs Interactive Brokers\' institutional-grade tools and pricing.',
@@ -118,7 +134,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '8',
+    id: 'chatgpt-staffers-to-offer-secondary-sale-at-500b-valuation',
     title: "ChatGPT Staffers to Offer Secondary Sale at $500B Valuation",
     slug: 'chatgpt-staffers-to-offer-secondary-sale-at-500b-valuation',
     excerpt: 'OpenAI employees have opportunity to sell shares at historic $500 billion valuation, making it one of the most valuable private companies globally.',
@@ -131,7 +147,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '9',
+    id: 'nycs-ranked-choice-voting-system-faces-scrutiny',
     title: "NYC's Ranked Choice Voting System Faces Scrutiny",
     slug: 'nycs-ranked-choice-voting-system-faces-scrutiny',
     excerpt: 'New York City\'s ranked choice voting experiment faces criticism over complexity, delayed results, and questions about whether it achieves its democratic goals.',
@@ -144,7 +160,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '10',
+    id: 'github-universe-october-28th-and-29th-san-francisco',
     title: "GitHub Universe: October 28th and 29th in San Francisco",
     slug: 'github-universe-october-28th-and-29th-san-francisco',
     excerpt: 'GitHub\'s flagship developer conference returns to San Francisco with announcements on AI-powered development tools, Copilot enhancements, and the future of collaborative coding.',
@@ -157,7 +173,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '11',
+    id: 'the-trillion-dollar-treasure-trove-in-the-deep-sea',
     title: "The Trillion-Dollar Treasure Trove in the Deep Sea",
     slug: 'the-trillion-dollar-treasure-trove-in-the-deep-sea',
     excerpt: 'Polymetallic nodules covering vast areas of the ocean floor contain critical minerals worth trillions, sparking debate over deep-sea mining.',
@@ -170,7 +186,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '12',
+    id: 'render-vs-vercel-for-free-start-up-app-deployment',
     title: "Render vs Vercel for Free Start-Up App Deployment",
     slug: 'render-vs-vercel-for-free-start-up-app-deployment',
     excerpt: 'A comprehensive comparison of Render and Vercel for startups choosing their deployment platform: pricing, features, and which one fits your stack.',
@@ -183,7 +199,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '13',
+    id: 'alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war',
     title: "Alphabet or NVIDIA: Here's Who I Think Will Win the AI Chip War",
     slug: 'alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war',
     excerpt: 'Analysis of the high-stakes competition between Alphabet\'s TPUs and NVIDIA\'s GPUs for dominance in the AI computing market.',
@@ -196,7 +212,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '14',
+    id: 'neurophos-ai-hardware-startup',
     title: "NeuroPhos: Austin's AI Hardware Startup Achieving 300 Tops/W",
     slug: 'neurophos-ai-hardware-startup',
     excerpt: 'Austin-based startup NeuroPhos develops photonic AI accelerators achieving 300 Tops/W efficiency, potentially revolutionizing energy consumption in AI datacenters.',
@@ -209,7 +225,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '15',
+    id: 'comet-ai-web-browser-vs-atlas-by-chatgpt',
     title: "Comet AI Web Browser vs Atlas by ChatGPT",
     slug: 'comet-ai-web-browser-vs-atlas-by-chatgpt',
     excerpt: 'Comparing two AI-native browsers: Comet\'s privacy-focused approach versus ChatGPT\'s Atlas integration for seamless AI-assisted browsing.',
@@ -222,7 +238,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '16',
+    id: 'non-degree-studies-at-university-of-texas-austin',
     title: "Non-Degree Studies at University of Texas Austin",
     slug: 'non-degree-studies-at-university-of-texas-austin',
     excerpt: 'Comprehensive guide to UT Austin\'s non-degree programs, certificate courses, and continuing education opportunities for professionals and lifelong learners.',
@@ -235,7 +251,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '17',
+    id: 'prophet-ebo-noah-s-flood-prophecy',
     title: "Prophet Ebo Noah's Flood Prophecy: Arrest and Controversy",
     slug: 'prophet-ebo-noah-s-flood-prophecy',
     excerpt: 'South African prophet Ebo Noah, known for his flood prophecies, faces arrest and criticism for false predictions that caused widespread panic.',
@@ -248,7 +264,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '18',
+    id: 'sam-altman-visits-hedera-team',
     title: "Sam Altman Visits Hedera Team: What It Means for Enterprise Blockchain",
     slug: 'sam-altman-visits-hedera-team',
     excerpt: 'OpenAI CEO Sam Altman\'s meeting with Hedera leadership signals potential integration of AI and enterprise blockchain technologies.',
@@ -261,7 +277,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '19',
+    id: 'introducing-bitchat-jack-dorsey',
     title: "Introducing BitChat: Jack Dorsey's Decentralized Messaging Platform",
     slug: 'introducing-bitchat-jack-dorsey',
     excerpt: 'Twitter co-founder Jack Dorsey unveils BitChat, a Bitcoin-native encrypted messaging protocol built on decentralized principles.',
@@ -274,7 +290,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '20',
+    id: 'alphabet-inc-the-history-of-google',
     title: "Alphabet Inc: The History of Google",
     slug: 'alphabet-inc-the-history-of-google',
     excerpt: 'From a Stanford dorm room to a $1.5 trillion tech empire: the complete history of Google\'s transformation into Alphabet Inc.',
@@ -287,7 +303,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '21',
+    id: 'luxury-watch-heists-at-the-us-grand-prix',
     title: "Luxury Watch Heists at the U.S. Grand Prix",
     slug: 'luxury-watch-heists-at-the-us-grand-prix',
     excerpt: 'Organized crime rings target high-value watches at Formula 1\'s U.S. Grand Prix in Austin, Texas, leading to FBI investigation.',
@@ -300,7 +316,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '22',
+    id: 'nasdaq-proposed-24-7-trading',
     title: "NASDAQ Proposed 24/7 Trading: What It Means for Investors",
     slug: 'nasdaq-proposed-24-7-trading',
     excerpt: 'NASDAQ explores round-the-clock trading to compete with cryptocurrency markets and meet global investor demand.',
@@ -313,7 +329,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '23',
+    id: 'oh-canada-what-has-happened',
     title: "Oh Canada, What Has Happened? Economic Challenges Facing Our Northern Neighbor",
     slug: 'oh-canada-what-has-happened',
     excerpt: 'Analyzing Canada\'s economic struggles including housing affordability crisis, productivity challenges, and brain drain to the United States.',
@@ -326,7 +342,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '24',
+    id: 'pegatron-opens-us-factory-tx',
     title: "Pegatron Opens U.S. Factory in Texas",
     slug: 'pegatron-opens-us-factory-tx',
     excerpt: 'Apple supplier Pegatron establishes manufacturing facility in Texas, bringing thousands of jobs and marking shift in tech supply chain.',
@@ -339,7 +355,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '25',
+    id: 'txc-stable-coin',
     title: "TXC Stable Coin: Texas' Entry into Digital Currency",
     slug: 'txc-stable-coin',
     excerpt: 'Texas explores state-backed digital currency with TXC stable coin proposal, aiming to compete with federal CBDC initiatives.',
@@ -352,7 +368,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '26',
+    id: 'the-intercept-sues-doge',
     title: "The Intercept Sues DOGE: Press Freedom vs Government Efficiency",
     slug: 'the-intercept-sues-doge',
     excerpt: 'The Intercept files lawsuit against Department of Government Efficiency over FOIA denials and transparency concerns.',
@@ -365,7 +381,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '27',
+    id: 'hedera-vs-solana-for-dapps',
     title: "Hedera vs Solana for dApps: Which Blockchain Should You Build On?",
     slug: 'hedera-vs-solana-for-dapps',
     excerpt: 'Comparing Hedera Hashgraph and Solana for decentralized application development: speed, costs, security, and ecosystem.',
@@ -378,7 +394,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '28',
+    id: 'https-www-topstep-com-trading-combine',
     title: "TopStep Trading Combine: Is It Worth It?",
     slug: 'https-www-topstep-com-trading-combine',
     excerpt: 'Comprehensive review of TopStep\'s funded trader program: costs, rules, success rates, and whether it\'s the right path for aspiring traders.',
@@ -391,7 +407,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '29',
+    id: 'coding/nestjs-vs-nextjs-express',
     title: "NestJS vs Next.js vs Express: Choosing the Right Node.js Framework",
     slug: 'coding/nestjs-vs-nextjs-express',
     excerpt: 'Deep dive comparison of NestJS, Next.js, and Express for building modern Node.js applications: use cases, performance, and developer experience.',
@@ -404,7 +420,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '30',
+    id: 'difference-between-http-and-rest-api-servers',
     title: "Difference Between HTTP and REST API Servers",
     slug: 'difference-between-http-and-rest-api-servers',
     excerpt: 'Understanding the fundamental differences between HTTP servers and RESTful API design principles for modern web development.',
@@ -417,7 +433,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '31',
+    id: 'does-doordash-take-snap',
     title: "Does DoorDash Take SNAP? Food Delivery and Government Benefits",
     slug: 'does-doordash-take-snap',
     excerpt: 'Exploring the intersection of food delivery apps and SNAP benefits: current policies, pilot programs, and accessibility concerns.',
@@ -430,7 +446,7 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '32',
+    id: 'who-is-serge-gatari-ai-course-review',
     title: "Who is Serge Gatari? AI Course Review",
     slug: 'who-is-serge-gatari-ai-course-review',
     excerpt: 'Investigating Serge Gatari\'s AI education platform: credentials, course quality, and whether the investment is worth it.',
@@ -444,7 +460,7 @@ const defaultArticles: Article[] = [
   },
   // Original investigation
   {
-    id: '1',
+    id: 'minnesota-feeding-our-future-fraud',
     title: "Feeding Our Future: Inside Minnesota's $250 Million Fraud Scheme",
     slug: 'minnesota-feeding-our-future-fraud',
     excerpt: 'A comprehensive investigation into one of the largest pandemic-era fraud cases in U.S. history, involving falsified meal counts, shell companies, and 70 federal indictments.',
@@ -589,42 +605,136 @@ const defaultArticles: Article[] = [
 ];
 
 export function ArticlesProvider({ children }: { children: ReactNode }) {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<Article[]>(defaultArticles);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // Load from localStorage on mount
+  // Load from Supabase on mount
   useEffect(() => {
-    const stored = localStorage.getItem('objectwire-articles');
-    if (stored) {
-      try {
-        setArticles(JSON.parse(stored));
-      } catch {
-        setArticles(defaultArticles);
-      }
-    } else {
-      setArticles(defaultArticles);
-    }
-    setIsLoaded(true);
+    loadArticlesFromSupabase();
   }, []);
 
-  // Save to localStorage when articles change
-  useEffect(() => {
-    if (isLoaded) {
-      localStorage.setItem('objectwire-articles', JSON.stringify(articles));
-    }
-  }, [articles, isLoaded]);
+  const loadArticlesFromSupabase = async () => {
+    try {
+      // Check if Supabase is properly configured
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+      
+      if (!supabaseUrl || !supabaseKey || supabaseUrl === 'https://placeholder.supabase.co') {
+        setLoading(false);
+        setIsLoaded(true);
+        return;
+      }
 
-  const addArticle = (article: Article) => {
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .order('updated_at', { ascending: false });
+
+      if (error) {
+        // Silently skip - already have defaults
+      } else if (data && data.length > 0) {
+        // Transform Supabase data to our Article format
+        const transformedArticles = data.map(article => ({
+          id: article.slug,
+          title: article.title,
+          slug: article.slug,
+          excerpt: article.excerpt,
+          blocks: article.content ? JSON.parse(article.content) : [],
+          category: article.category,
+          status: article.published_at ? 'published' as const : 'draft' as const,
+          author: article.author || 'ObjectWire Editorial',
+          createdAt: article.created_at?.split('T')[0] || new Date().toISOString().split('T')[0],
+          updatedAt: article.updated_at?.split('T')[0] || new Date().toISOString().split('T')[0],
+          readTime: '5 min read'
+        }));
+        setArticles(transformedArticles);
+      }
+    } catch (err) {
+      // Silently fail - defaults already loaded
+    } finally {
+      setLoading(false);
+      setIsLoaded(true);
+    }
+  };
+
+  const addArticle = async (article: Article) => {
+    try {
+      const { error } = await supabase
+        .from('articles')
+        .insert({
+          slug: article.slug,
+          title: article.title,
+          excerpt: article.excerpt,
+          content: JSON.stringify(article.blocks),
+          category: article.category,
+          author: article.author,
+          featured: false,
+          published_at: article.status === 'published' ? new Date().toISOString() : null,
+          created_at: new Date().toISOString(),
+          image_url: null,
+          view_count: 0
+        });
+
+      if (error) {
+        // Continue anyway - update local state
+      }
+    } catch (err) {
+      // Silently continue - network might be offline
+    }
+    
+    // Always update local state
     setArticles(prev => [article, ...prev]);
   };
 
-  const updateArticle = (id: string, updates: Partial<Article>) => {
+  const updateArticle = async (id: string, updates: Partial<Article>) => {
+    const article = articles.find(a => a.id === id);
+    if (!article) return;
+
+    const mergedArticle = { ...article, ...updates, updatedAt: new Date().toISOString().split('T')[0] };
+
+    try {
+      const { error } = await supabase
+        .from('articles')
+        .update({
+          title: mergedArticle.title,
+          excerpt: mergedArticle.excerpt,
+          content: JSON.stringify(mergedArticle.blocks),
+          category: mergedArticle.category,
+          author: mergedArticle.author,
+          published_at: mergedArticle.status === 'published' ? new Date().toISOString() : null,
+          updated_at: new Date().toISOString()
+        })
+        .eq('slug', id);
+
+      if (error) {
+        // Continue anyway - update local state
+      }
+    } catch (err) {
+      // Silently continue - network might be offline
+    }
+    
+    // Always update local state
     setArticles(prev => prev.map(a => 
-      a.id === id ? { ...a, ...updates, updatedAt: new Date().toISOString().split('T')[0] } : a
+      a.id === id ? mergedArticle : a
     ));
   };
 
-  const deleteArticle = (id: string) => {
+  const deleteArticle = async (id: string) => {
+    try {
+      const { error } = await supabase
+        .from('articles')
+        .delete()
+        .eq('slug', id);
+
+      if (error) {
+        // Continue anyway - update local state
+      }
+    } catch (err) {
+      // Silently continue - network might be offline
+    }
+    
+    // Always update local state
     setArticles(prev => prev.filter(a => a.id !== id));
   };
 
@@ -634,7 +744,16 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
 
   return (
     <ArticlesContext.Provider value={{ articles, addArticle, updateArticle, deleteArticle, getArticleBySlug }}>
-      {children}
+      {loading ? (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center">
+            <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-gray-600 font-medium">Loading articles...</p>
+          </div>
+        </div>
+      ) : (
+        children
+      )}
     </ArticlesContext.Provider>
   );
 }

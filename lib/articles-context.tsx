@@ -621,19 +621,23 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
       const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
       
       if (!supabaseUrl || !supabaseKey || supabaseUrl === 'https://placeholder.supabase.co') {
+        console.log('⚠️  Supabase not configured, using default articles');
         setLoading(false);
         setIsLoaded(true);
         return;
       }
 
+      console.log('🔄 Loading articles from Supabase...');
       const { data, error } = await supabase
         .from('articles')
         .select('*')
         .order('updated_at', { ascending: false });
 
       if (error) {
-        // Silently skip - already have defaults
+        console.error('❌ Supabase error loading articles:', error.message);
+        console.error('Error details:', error);
       } else if (data && data.length > 0) {
+        console.log('✓ Loaded', data.length, 'articles from Supabase');
         // Transform Supabase data to our Article format
         const transformedArticles = data.map(article => ({
           id: article.slug,
@@ -659,6 +663,10 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
   };
 
   const addArticle = async (article: Article) => {
+    // Update local state first for immediate feedback
+    setArticles(prev => [article, ...prev]);
+    
+    // Then sync to Supabase
     try {
       const { error } = await supabase
         .from('articles')
@@ -677,14 +685,14 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         });
 
       if (error) {
-        // Continue anyway - update local state
+        console.error('❌ Supabase error adding article:', error.message);
+        console.error('Error details:', error);
+      } else {
+        console.log('✓ Article saved to Supabase:', article.slug);
       }
     } catch (err) {
-      // Silently continue - network might be offline
+      console.error('❌ Failed to save article to Supabase:', err);
     }
-    
-    // Always update local state
-    setArticles(prev => [article, ...prev]);
   };
 
   const updateArticle = async (id: string, updates: Partial<Article>) => {
@@ -692,7 +700,13 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
     if (!article) return;
 
     const mergedArticle = { ...article, ...updates, updatedAt: new Date().toISOString().split('T')[0] };
+    
+    // Update local state first
+    setArticles(prev => prev.map(a => 
+      a.id === id ? mergedArticle : a
+    ));
 
+    // Then sync to Supabase
     try {
       const { error } = await supabase
         .from('articles')
@@ -708,19 +722,20 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         .eq('slug', id);
 
       if (error) {
-        // Continue anyway - update local state
+        console.error('❌ Supabase error updating article:', error.message);
+      } else {
+        console.log('✓ Article updated in Supabase:', id);
       }
     } catch (err) {
-      // Silently continue - network might be offline
+      console.error('❌ Failed to update article in Supabase:', err);
     }
-    
-    // Always update local state
-    setArticles(prev => prev.map(a => 
-      a.id === id ? mergedArticle : a
-    ));
   };
 
   const deleteArticle = async (id: string) => {
+    // Update local state first
+    setArticles(prev => prev.filter(a => a.id !== id));
+    
+    // Then sync to Supabase
     try {
       const { error } = await supabase
         .from('articles')
@@ -728,14 +743,13 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         .eq('slug', id);
 
       if (error) {
-        // Continue anyway - update local state
+        console.error('❌ Supabase error deleting article:', error.message);
+      } else {
+        console.log('✓ Article deleted from Supabase:', id);
       }
     } catch (err) {
-      // Silently continue - network might be offline
+      console.error('❌ Failed to delete article from Supabase:', err);
     }
-    
-    // Always update local state
-    setArticles(prev => prev.filter(a => a.id !== id));
   };
 
   const getArticleBySlug = (slug: string) => {

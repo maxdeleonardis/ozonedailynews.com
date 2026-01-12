@@ -16,7 +16,7 @@
  */
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { supabase } from './supabase';
+import { supabase, isSupabaseConfigured } from './supabase';
 
 export interface ArticleBlock {
   id: string;
@@ -616,26 +616,24 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
 
   const loadArticlesFromSupabase = async () => {
     try {
-      // Check if Supabase is properly configured
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-      
-      if (!supabaseUrl || !supabaseKey || supabaseUrl === 'https://placeholder.supabase.co') {
-        console.log('⚠️  Supabase not configured, using default articles');
+      // Skip Supabase if not properly configured
+      if (!isSupabaseConfigured) {
+        console.log('ℹ️  Supabase not configured - using default articles');
         setLoading(false);
         setIsLoaded(true);
         return;
       }
 
       console.log('🔄 Loading articles from Supabase...');
+      
       const { data, error } = await supabase
         .from('articles')
         .select('*')
         .order('updated_at', { ascending: false });
 
       if (error) {
-        console.error('❌ Supabase error loading articles:', error.message);
-        console.error('Error details:', error);
+        console.warn('⚠️  Supabase error:', error.message || 'Unknown error');
+        console.warn('⚠️  Using default articles as fallback');
       } else if (data && data.length > 0) {
         console.log('✓ Loaded', data.length, 'articles from Supabase');
         // Transform Supabase data to our Article format
@@ -653,9 +651,13 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
           readTime: '5 min read'
         }));
         setArticles(transformedArticles);
+      } else {
+        console.log('ℹ️  No articles found in Supabase, using default articles');
       }
     } catch (err) {
-      // Silently fail - defaults already loaded
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      console.warn('⚠️  Failed to fetch from Supabase:', errorMessage);
+      console.warn('⚠️  Falling back to default articles');
     } finally {
       setLoading(false);
       setIsLoaded(true);
@@ -665,6 +667,12 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
   const addArticle = async (article: Article) => {
     // Update local state first for immediate feedback
     setArticles(prev => [article, ...prev]);
+    
+    // Skip Supabase if not configured
+    if (!isSupabaseConfigured) {
+      console.log('ℹ️  Article saved locally (Supabase not configured)');
+      return;
+    }
     
     // Then sync to Supabase
     try {
@@ -685,13 +693,14 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         });
 
       if (error) {
-        console.error('❌ Supabase error adding article:', error.message);
-        console.error('Error details:', error);
+        console.error('❌ Supabase error adding article:', error.message || 'Unknown error');
+        console.error('Error code:', error.code || 'N/A');
       } else {
         console.log('✓ Article saved to Supabase:', article.slug);
       }
     } catch (err) {
-      console.error('❌ Failed to save article to Supabase:', err);
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      console.error('❌ Failed to save article to Supabase:', errorMsg);
     }
   };
 
@@ -705,6 +714,12 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
     setArticles(prev => prev.map(a => 
       a.id === id ? mergedArticle : a
     ));
+
+    // Skip Supabase if not configured
+    if (!isSupabaseConfigured) {
+      console.log('ℹ️  Article updated locally (Supabase not configured)');
+      return;
+    }
 
     // Then sync to Supabase
     try {
@@ -722,7 +737,8 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         .eq('slug', id);
 
       if (error) {
-        console.error('❌ Supabase error updating article:', error.message);
+        console.error('❌ Supabase error updating article:', error.message || 'Unknown error');
+        console.error('Error code:', error.code || 'N/A');
       } else {
         console.log('✓ Article updated in Supabase:', id);
       }
@@ -735,6 +751,12 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
     // Update local state first
     setArticles(prev => prev.filter(a => a.id !== id));
     
+    // Skip Supabase if not configured
+    if (!isSupabaseConfigured) {
+      console.log('ℹ️  Article deleted locally (Supabase not configured)');
+      return;
+    }
+    
     // Then sync to Supabase
     try {
       const { error } = await supabase
@@ -743,12 +765,13 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
         .eq('slug', id);
 
       if (error) {
-        console.error('❌ Supabase error deleting article:', error.message);
+        console.warn('⚠️  Supabase error deleting article:', error.message || 'Unknown error');
       } else {
         console.log('✓ Article deleted from Supabase:', id);
       }
     } catch (err) {
-      console.error('❌ Failed to delete article from Supabase:', err);
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      console.warn('⚠️  Failed to delete from Supabase:', errorMsg);
     }
   };
 

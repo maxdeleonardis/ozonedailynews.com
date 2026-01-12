@@ -3,10 +3,44 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+// Validate Supabase URL exists and is reachable
+const isValidSupabaseUrl = (url: string | undefined): boolean => {
+  if (!url) return false;
+  // Check if it's a placeholder or invalid URL
+  if (url === 'https://placeholder.supabase.co') return false;
+  // Check if it follows supabase.co pattern
+  return url.includes('.supabase.co') && url.startsWith('https://');
+};
+
+const hasValidConfig = isValidSupabaseUrl(supabaseUrl) && !!supabaseKey;
+
+// Only log in development on the client side
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  console.log('🔧 Supabase Configuration:', {
+    configured: hasValidConfig,
+    url: supabaseUrl ? `${supabaseUrl.substring(0, 30)}...` : 'Not set',
+    keyPresent: !!supabaseKey
+  });
+}
+
 // Initialize Supabase client with fallback for build time
-export const supabase = supabaseUrl && supabaseKey 
-  ? createClient(supabaseUrl, supabaseKey)
+// Using a dummy client to prevent runtime errors when Supabase is not configured
+export const supabase = hasValidConfig
+  ? createClient(supabaseUrl!, supabaseKey!, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+      },
+      global: {
+        headers: {
+          'x-application-name': 'objectwire-frontend',
+        },
+      },
+    })
   : createClient('https://placeholder.supabase.co', 'placeholder-key');
+
+// Export flag to check if Supabase is properly configured
+export const isSupabaseConfigured = hasValidConfig;
 
 // Type definitions for your tables
 export interface Article {

@@ -4,8 +4,8 @@
  */
 
 const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin',
+  username: 'amarketology',
+  password: '123456md',
 };
 
 const SESSION_KEY = 'ow_admin_session';

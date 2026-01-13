@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { ArticlesProvider } from "@/lib/articles-context";
+import { ArticlesProvider } from "@/lib/articles-context-simple";
+import { AuthProvider } from "@/lib/auth-context";
 
 export const metadata: Metadata = {
   title: {
@@ -16,8 +17,10 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ArticlesProvider>
-      {children}
-    </ArticlesProvider>
+    <AuthProvider>
+      <ArticlesProvider>
+        {children}
+      </ArticlesProvider>
+    </AuthProvider>
   );
 }

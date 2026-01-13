@@ -10,6 +10,23 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)](https://nextjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/) [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-green)](https://fastapi.tiangolo.com/)
 
+## 📚 Documentation
+
+**Core Setup & Architecture:**
+- [INSTALLATION.md](INSTALLATION.md) — Setup and environment configuration
+- [SUPABASE_SETUP.md](SUPABASE_SETUP.md) — Database, CLI workflow, and integration guide
+- [ARCHITECTURE_SPRINT.md](ARCHITECTURE_SPRINT.md) — Two-room architecture pattern
+
+**Strategic Documents:**
+- [WHITEPAPER.md](WHITEPAPER.md) — Platform vision and business strategy
+- [BLACKBOOK_BLUEPRINT.md](BLACKBOOK_BLUEPRINT.md) — Prediction market design
+- [LOG.md](LOG.md) — Development history and changelog
+
+**Backend:**
+- [backend/README.md](backend/README.md) — FastAPI backend documentation
+
+---
+
 ## Quick Start
 
 ```bash

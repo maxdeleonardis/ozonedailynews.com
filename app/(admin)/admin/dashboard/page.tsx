@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useArticles } from '@/lib/articles-context';
+import { useArticles } from '@/lib/articles-context-simple';
 import { isAuthenticated, destroySession } from '@/lib/auth';
 
 export default function AdminDashboard() {
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
               View Site
             </Link>
             <Link
-              href="/blog/new/edit"
+              href="/admin/editor/new"
               className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
             >
               + New Article
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      {/* Articles List - Clean Table Style */}
+      {/* Articles List */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           {/* Table Header */}
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
                         {article.excerpt}
                       </p>
                       <div className="flex items-center gap-2 text-xs text-gray-400 mt-1">
-                        <span>{article.updatedAt || article.createdAt}</span>
+                        <span>{article.updated_at || article.created_at}</span>
                         <span>•</span>
                         <span>{article.category}</span>
                       </div>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
                       </svg>
                     </Link>
                     <Link
-                      href={`/blog/${article.slug}/edit`}
+                      href={`/admin/editor/${article.id}`}
                       className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded transition-colors"
                       title="Edit"
                     >
@@ -148,14 +148,6 @@ export default function AdminDashboard() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                     </Link>
-                    <button
-                      className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded transition-colors"
-                      title="More options"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                      </svg>
-                    </button>
                   </div>
                 </div>
               </div>
@@ -167,7 +159,7 @@ export default function AdminDashboard() {
           <div className="text-center py-20">
             <p className="text-gray-500 mb-4">No articles yet</p>
             <Link
-              href="/blog/new/edit"
+              href="/admin/editor/new"
               className="inline-block px-6 py-3 bg-black text-white rounded hover:bg-gray-800"
             >
               Create your first article

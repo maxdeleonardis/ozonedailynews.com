@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS articles (
   category TEXT NOT NULL DEFAULT 'News',
   author TEXT DEFAULT 'ObjectWire Editorial',
   featured BOOLEAN DEFAULT false,
+  status TEXT DEFAULT 'draft' CHECK (status IN ('draft', 'published', 'archived')),
   published_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
@@ -26,6 +27,8 @@ CREATE INDEX IF NOT EXISTS idx_articles_slug ON articles(slug);
 CREATE INDEX IF NOT EXISTS idx_articles_category ON articles(category);
 CREATE INDEX IF NOT EXISTS idx_articles_published_at ON articles(published_at DESC);
 CREATE INDEX IF NOT EXISTS idx_articles_created_at ON articles(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_articles_status ON articles(status);
+CREATE INDEX IF NOT EXISTS idx_articles_id ON articles(id);
 
 -- Enable Row Level Security
 ALTER TABLE articles ENABLE ROW LEVEL SECURITY;
@@ -39,11 +42,11 @@ DROP POLICY IF EXISTS "Allow anonymous insert" ON articles;
 DROP POLICY IF EXISTS "Allow anonymous update" ON articles;
 DROP POLICY IF EXISTS "Allow anonymous delete" ON articles;
 
--- Create policy to allow public read access
+-- Create policy to allow public read access to PUBLISHED articles only
 CREATE POLICY "Allow public read access" ON articles
   FOR SELECT
   TO public
-  USING (true);
+  USING (status = 'published');
 
 -- Allow anonymous (anon) role to insert articles
 CREATE POLICY "Allow anonymous insert" ON articles
@@ -97,3 +100,12 @@ SELECT
   'Setup complete!' as message,
   COUNT(*) as article_count
 FROM articles;
+
+-- MIGRATION: Update existing articles to set status based on published_at
+-- Run this AFTER creating the table if you have existing data
+-- UPDATE articles 
+-- SET status = CASE 
+--   WHEN published_at IS NOT NULL THEN 'published'
+--   ELSE 'draft'
+-- END
+-- WHERE status = 'draft';

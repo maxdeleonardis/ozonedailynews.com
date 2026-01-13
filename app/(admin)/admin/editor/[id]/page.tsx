@@ -3,18 +3,45 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import { useArticles, Article, ArticleBlock } from '@/lib/articles-context';
 import { isAuthenticated } from '@/lib/auth';
+import { createClient } from '@/lib/supabase/client';
+import { saveArticleDraft, publishArticle, unpublishArticle } from '@/app/(public)/actions/articles';
 
-export default function ArticleEditPage() {
+interface ArticleBlock {
+  id: string;
+  type: 'paragraph' | 'heading' | 'image';
+  content: string;
+}
+
+interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: any;
+  category: string;
+  author: string;
+  featured: boolean;
+  status: string;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+  image_url: string | null;
+  view_count: number;
+}
+
+export default function AdminEditorPage() {
   const params = useParams();
   const router = useRouter();
-  const slug = params.slug as string;
-  const { getArticleBySlug, addArticle, updateArticle } = useArticles();
+  const id = params.id as string;
+  const supabase = createClient();
   
   const [article, setArticle] = useState<Partial<Article> | null>(null);
   const [content, setContent] = useState('');
   const [saved, setSaved] = useState<Date | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -22,32 +49,52 @@ export default function ArticleEditPage() {
       return;
     }
 
-    if (slug === 'new') {
+    loadArticle();
+  }, [id]);
+
+  const loadArticle = async () => {
+    if (id === 'new') {
       setArticle({
         title: '',
         slug: '',
         excerpt: '',
-        blocks: [],
+        content: [],
         category: 'News',
         status: 'draft',
         author: 'ObjectWire Editorial',
-        createdAt: new Date().toISOString().split('T')[0],
       });
       setContent('');
-    } else {
-      const existingArticle = getArticleBySlug(slug);
-      if (existingArticle) {
-        setArticle(existingArticle);
-        // Convert blocks to plain text for editing
-        const text = existingArticle.blocks
-          .map(block => block.content)
-          .join('\n\n');
-        setContent(text);
-      } else {
-        router.push('/admin/dashboard');
-      }
+      setIsLoading(false);
+      return;
     }
-  }, [slug, getArticleBySlug, router]);
+
+    try {
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) throw error;
+
+      if (data) {
+        setArticle(data);
+        // Convert blocks to plain text for editing
+        if (data.content && Array.isArray(data.content)) {
+          const text = data.content
+            .map((block: ArticleBlock) => block.content)
+            .join('\n\n');
+          setContent(text);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load article:', error);
+      alert('Failed to load article.');
+      router.push('/admin/dashboard');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const generateSlug = (title: string) => {
     return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -68,39 +115,110 @@ export default function ArticleEditPage() {
       return;
     }
 
+    setIsSaving(true);
     const blocks = contentToBlocks(content);
 
-    const articleData: Article = {
-      id: article.slug,
+    const articleData = {
       title: article.title,
       slug: article.slug,
       excerpt: article.excerpt || '',
-      blocks,
+      content: blocks,
       category: article.category || 'News',
-      status: (article.status as 'draft' | 'published') || 'draft',
       author: article.author || 'ObjectWire Editorial',
-      createdAt: article.createdAt || new Date().toISOString().split('T')[0],
-      updatedAt: new Date().toISOString().split('T')[0],
-      readTime: '5 min read',
+      featured: article.featured || false,
+      image_url: article.image_url || null,
     };
 
     try {
-      if (slug === 'new') {
-        await addArticle(articleData);
-        router.push('/admin/dashboard');
+      const result = await saveArticleDraft(id, articleData);
+      
+      if (result.success) {
+        setSaved(new Date());
+        
+        // If it was a new article, redirect to its UUID-based editor
+        if (id === 'new' && result.article) {
+          router.push(`/admin/editor/${result.article.id}`);
+        } else {
+          // After saving existing article, refresh and optionally go back to dashboard
+          await loadArticle();
+          setTimeout(() => {
+            router.push('/admin/dashboard');
+          }, 1500);
+        }
       } else {
-        await updateArticle(article.slug, articleData);
-        router.push('/admin/dashboard');
+        alert(result.error || 'Failed to save article');
       }
-      setSaved(new Date());
     } catch (error) {
       console.error('Failed to save article:', error);
       alert('Failed to save article.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  if (!article) {
+  const handlePublish = async () => {
+    if (!article?.id || id === 'new') {
+      alert('Please save the article as a draft first before publishing');
+      return;
+    }
+
+    if (!confirm('Are you sure you want to publish this article? It will be visible to the public.')) {
+      return;
+    }
+
+    setIsPublishing(true);
+
+    try {
+      const result = await publishArticle(article.id);
+      
+      if (result.success) {
+        alert('Article published successfully! The public site will refresh shortly.');
+        await loadArticle(); // Reload to show updated status
+      } else {
+        alert(result.error || 'Failed to publish article');
+      }
+    } catch (error) {
+      console.error('Failed to publish article:', error);
+      alert('Failed to publish article.');
+    } finally {
+      setIsPublishing(false);
+    }
+  };
+
+  const handleUnpublish = async () => {
+    if (!article?.id || id === 'new') {
+      return;
+    }
+
+    if (!confirm('Are you sure you want to unpublish this article? It will be hidden from the public.')) {
+      return;
+    }
+
+    setIsPublishing(true);
+
+    try {
+      const result = await unpublishArticle(article.id);
+      
+      if (result.success) {
+        alert('Article unpublished successfully!');
+        await loadArticle(); // Reload to show updated status
+      } else {
+        alert(result.error || 'Failed to unpublish article');
+      }
+    } catch (error) {
+      console.error('Failed to unpublish article:', error);
+      alert('Failed to unpublish article.');
+    } finally {
+      setIsPublishing(false);
+    }
+  };
+
+  if (isLoading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  if (!article) {
+    return <div className="min-h-screen flex items-center justify-center">Article not found</div>;
   }
 
   return (
@@ -126,25 +244,52 @@ export default function ArticleEditPage() {
                 <span className="font-medium">Saved {saved.toLocaleTimeString()}</span>
               </div>
             )}
+            {id !== 'new' && article.status === 'draft' && (
+              <div className="flex items-center gap-1.5 text-xs text-yellow-600 bg-yellow-50 px-3 py-1.5 rounded-full">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                <span className="font-medium">Draft</span>
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-2">
-            <select
-              value={article.status}
-              onChange={(e) => setArticle(prev => ({ ...prev, status: e.target.value as 'draft' | 'published' }))}
-              className="text-sm font-medium border border-gray-200 bg-white px-3 py-1.5 rounded-lg hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
-            >
-              <option value="draft">📝 Draft</option>
-              <option value="published">🌐 Published</option>
-            </select>
             <button
               onClick={handleSave}
-              className="flex items-center gap-2 px-5 py-1.5 text-sm bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-all shadow-sm hover:shadow-md"
+              disabled={isSaving}
+              className="flex items-center gap-2 px-5 py-1.5 text-sm bg-gray-100 text-gray-800 font-medium rounded-lg hover:bg-gray-200 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
               </svg>
-              <span>Save</span>
+              <span>{isSaving ? 'Saving...' : 'Save Draft'}</span>
             </button>
+            
+            {id !== 'new' && article.status === 'draft' && (
+              <button
+                onClick={handlePublish}
+                disabled={isPublishing}
+                className="flex items-center gap-2 px-5 py-1.5 text-sm bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+                <span>{isPublishing ? 'Publishing...' : 'Publish'}</span>
+              </button>
+            )}
+            
+            {id !== 'new' && article.status === 'published' && (
+              <button
+                onClick={handleUnpublish}
+                disabled={isPublishing}
+                className="flex items-center gap-2 px-5 py-1.5 text-sm bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                <span>{isPublishing ? 'Unpublishing...' : 'Unpublish'}</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

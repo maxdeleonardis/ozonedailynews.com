@@ -79,3 +79,38 @@
 .animate-fade-in {
   animation: fade-in 0.3s ease-in-out;
 }
+
+/* Article Styling */
+.highlight-text {
+  transition: all 0.2s ease;
+  border-radius: 2px;
+  padding: 0 2px;
+  margin: 0 -2px;
+}
+
+.highlight-text:hover {
+  background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+}
+
+.key-term {
+  position: relative;
+  font-weight: 600;
+  cursor: help;
+}
+
+.key-term::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ef4444, #f97316);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.key-term:hover::after {
+  transform: scaleX(1);
+}

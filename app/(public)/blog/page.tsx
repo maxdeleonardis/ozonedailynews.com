@@ -50,7 +50,7 @@ export default function BlogPage() {
                 <Link href={`/blog/${article.slug}`} className="block">
                   <div className="flex items-center gap-2 mb-4">
                     <CategoryBadge category={article.category} />
-                    <span className="text-xs text-gray-400">{article.readTime}</span>
+                    <span className="text-xs text-gray-400">{new Date(article.created_at).toLocaleDateString()}</span>
                   </div>
                   <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-gray-600 transition-colors">
                     {article.title}
@@ -61,7 +61,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-4 text-sm text-gray-400">
                     <span>{article.author}</span>
                     <span>•</span>
-                    <time>{article.updatedAt}</time>
+                    <time>{new Date(article.updated_at).toLocaleDateString()}</time>
                   </div>
                 </Link>
               </article>

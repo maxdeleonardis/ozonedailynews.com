@@ -32,17 +32,16 @@ export function CreatePostModal({ isOpen, onClose }: CreatePostModalProps) {
     
     // Create the article stub
     const newArticle = {
-      id: slug,
+      id: crypto.randomUUID(),
       title: title.trim(),
       slug,
       excerpt: '',
-      blocks: [],
+      content: [],
       category,
       status: 'draft' as const,
       author,
-      createdAt: new Date().toISOString().split('T')[0],
-      updatedAt: new Date().toISOString().split('T')[0],
-      readTime: '5 min read',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
     };
 
     try {

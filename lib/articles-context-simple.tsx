@@ -5,8 +5,12 @@ import { supabase, isSupabaseConfigured } from './supabase';
 
 export interface ArticleBlock {
   id: string;
-  type: 'paragraph' | 'heading' | 'image';
+  type: 'paragraph' | 'heading' | 'image' | 'summary' | 'stat-grid' | 'key-mechanisms' | 'sources' | 'callout';
   content: string;
+  level?: number;
+  items?: { num: string; title: string; desc: string }[];
+  stats?: { value: string; label: string; color: string }[];
+  sources?: string[];
 }
 
 export interface Article {

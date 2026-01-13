@@ -1,104 +1,83 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getBlogPostBySlug, BlogPostFull } from '@/lib/blog-service';
 import { ArticleRenderer } from '@/components/article-renderer';
+import { generateSEOMetadata, generateArticleSchema } from '@/lib/seo';
 
-export default function DynamicBlogPost() {
-  const params = useParams();
-  const [post, setPost] = useState<BlogPostFull | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
+export const dynamic = 'force-dynamic';
 
-  // Get the full slug path from catch-all route
-  const slugArray = params.slug as string[];
-  const fullSlug = slugArray ? slugArray.join('/') : '';
+type Props = {
+  params: { slug: string[] };
+};
 
-  useEffect(() => {
-    loadPost(fullSlug);
-  }, [fullSlug]);
-
-  const loadPost = async (slug: string) => {
-    try {
-      const { data, error } = await getBlogPostBySlug(slug);
-      if (error || !data) {
-        setNotFound(true);
-      } else {
-        setPost(data);
-      }
-    } catch (error) {
-      console.error('Error loading post:', error);
-      setNotFound(true);
-    } finally {
-      setIsLoading(false);
-    }
+// Generate SEO metadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const fullSlug = params.slug.join('/');
+  const { data: post } = await getBlogPostBySlug(fullSlug);
+  
+  if (!post) {
+    return {
+      title: 'Article Not Found | ObjectWire',
+    };
+  }
+  
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
+  const seo = generateSEOMetadata(post, baseUrl);
+  
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    authors: [{ name: seo.author || 'ObjectWire Editorial Team' }],
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      type: 'article',
+      publishedTime: seo.publishedTime,
+      modifiedTime: seo.modifiedTime,
+      authors: [seo.author || 'ObjectWire Editorial Team'],
+      tags: seo.tags,
+      images: [
+        {
+          url: seo.ogImage || '',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.title,
+      description: seo.description,
+      images: [seo.ogImage || ''],
+    },
   };
+}
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading article...</p>
-        </div>
-      </div>
-    );
+export default async function DynamicBlogPost({ params }: Props) {
+  const fullSlug = params.slug.join('/');
+  const { data: post, error } = await getBlogPostBySlug(fullSlug);
+  
+  if (error || !post || post.status !== 'published') {
+    notFound();
   }
-
-  if (notFound || !post) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        {/* Header */}
-        <header className="bg-white border-b border-gray-200">
-          <div className="max-w-4xl mx-auto px-6 py-4">
-            <Link href="/">
-              <div className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
-                <div className="w-10 h-10 bg-black flex items-center justify-center rounded">
-                  <span className="text-white font-bold text-lg">OW</span>
-                </div>
-                <span className="text-xl font-bold">ObjectWire</span>
-              </div>
-            </Link>
-          </div>
-        </header>
-
-        <main className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <div className="mb-8">
-            <svg className="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h1 className="text-4xl font-bold mb-4">Page Not Found</h1>
-          <p className="text-lg text-gray-600 mb-2">
-            No published article found at: <span className="font-mono text-blue-600">/{fullSlug}</span>
-          </p>
-          <p className="text-sm text-gray-500 mb-8">
-            This URL is available for content creation.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Link href="/">
-              <button className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
-                Go Home
-              </button>
-            </Link>
-            <Link href="/admin">
-              <button className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                Create Article Here
-              </button>
-            </Link>
-          </div>
-        </main>
-      </div>
-    );
-  }
-
+  
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
+  const schema = generateArticleSchema(post, baseUrl);
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Schema.org structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 py-4">
           <Link href="/">
             <div className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
               <div className="w-10 h-10 bg-black flex items-center justify-center rounded">
@@ -107,100 +86,30 @@ export default function DynamicBlogPost() {
               <span className="text-xl font-bold">ObjectWire</span>
             </div>
           </Link>
-          <div className="flex items-center gap-4 text-sm text-gray-600">
-            <span>{post.read_time}</span>
-          </div>
         </div>
       </header>
 
-      {/* Article */}
-      <article className="max-w-4xl mx-auto px-6 py-12">
-        {/* Breadcrumb */}
-        <div className="mb-6">
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link href="/" className="hover:text-gray-900">Home</Link>
-            {slugArray.map((segment, index) => {
-              const path = '/' + slugArray.slice(0, index + 1).join('/');
-              const isLast = index === slugArray.length - 1;
-              return (
-                <span key={segment} className="flex items-center gap-2">
-                  <span>›</span>
-                  {isLast ? (
-                    <span className="text-gray-900 font-medium truncate max-w-[200px]">{segment}</span>
-                  ) : (
-                    <Link href={path} className="hover:text-gray-900">{segment}</Link>
-                  )}
-                </span>
-              );
-            })}
+      {/* Article Content */}
+      <ArticleRenderer blocks={post.blocks} />
+      
+      {/* Footer with metadata */}
+      <footer className="max-w-4xl mx-auto px-6 py-12 border-t border-gray-200 mt-16">
+        <div className="flex flex-wrap gap-4 items-center justify-between text-sm text-gray-600">
+          <div className="flex flex-wrap gap-4">
+            <span>By {post.author}</span>
+          <div className="flex gap-2">
+            <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">{post.category}</span>
+            {post.tags.slice(0, 3).map(tag => (
+              <span key={tag} className="px-3 py-1 bg-gray-100 rounded-full text-xs">
+                {tag}
+              </span>
+            ))}
           </div>
-          <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-            {post.category}
-          </span>
         </div>
-
-        {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{post.title}</h1>
-
-        {/* Meta */}
-        <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-8 pb-8 border-b border-gray-200">
-          <span>By <span className="font-medium text-gray-900">{post.author}</span></span>
-          <span>•</span>
-          <time>{new Date(post.published_at || post.created_at).toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}</time>
-          <span>•</span>
-          <span>{post.read_time}</span>
-        </div>
-
-        {/* Featured Image */}
-        {post.featured_image && (
-          <div className="mb-12">
-            <img 
-              src={post.featured_image} 
-              alt={post.title} 
-              className="w-full rounded-lg shadow-lg"
-            />
-          </div>
-        )}
-
-        {/* Excerpt */}
-        {post.excerpt && (
-          <div className="text-xl text-gray-700 mb-12 leading-relaxed font-serif italic border-l-4 border-gray-300 pl-6">
-            {post.excerpt}
-          </div>
-        )}
-
-        {/* Content Blocks with Interactive Animations */}
-        {post.blocks && post.blocks.length > 0 ? (
-          <ArticleRenderer blocks={post.blocks} />
-        ) : (
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-500">No content blocks available.</p>
-          </div>
-        )}
-
-        {/* Tags */}
-        {post.tags && post.tags.length > 0 && (
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-600 mb-3 tracking-wider">TAGS</h3>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors cursor-pointer"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Back to home */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+      </footer>
+    </div>
+  );
+}
           <Link href="/">
             <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

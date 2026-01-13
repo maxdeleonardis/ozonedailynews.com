@@ -1,5 +1,9 @@
 'use client';
 
+// Force dynamic rendering to prevent static generation
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';

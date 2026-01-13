@@ -6,8 +6,8 @@
  */
 
 const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin',
+  username: 'max@objectwire.org',
+  password: 'max@objectwire.org',
 };
 
 const SESSION_KEY = 'ow_admin_session';

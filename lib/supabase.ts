@@ -14,15 +14,6 @@ const isValidSupabaseUrl = (url: string | undefined): boolean => {
 
 const hasValidConfig = isValidSupabaseUrl(supabaseUrl) && !!supabaseKey;
 
-// Only log in development on the client side
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  console.log('🔧 Supabase Configuration:', {
-    configured: hasValidConfig,
-    url: supabaseUrl ? `${supabaseUrl.substring(0, 30)}...` : 'Not set',
-    keyPresent: !!supabaseKey
-  });
-}
-
 // Initialize Supabase client with fallback for build time
 // Using a dummy client to prevent runtime errors when Supabase is not configured
 export const supabase = hasValidConfig

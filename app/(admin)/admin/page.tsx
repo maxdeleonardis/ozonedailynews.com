@@ -28,7 +28,8 @@ export default function AdminLogin() {
     setIsLoading(true);
 
     try {
-      if (validateCredentials(username, password)) {
+      // Trim whitespace to handle copy-paste issues
+      if (validateCredentials(username.trim(), password.trim())) {
         createSession();
         router.push('/admin/dashboard');
       } else {

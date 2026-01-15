@@ -6,7 +6,13 @@ export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
   
   try {
-    const posts = await getAllBlogPosts();
+    const { data: posts, error } = await getAllBlogPosts();
+    
+    if (error || !posts) {
+      console.error('Error fetching posts for RSS:', error);
+      return new Response('Error generating RSS feed', { status: 500 });
+    }
+    
     const publishedPosts = posts.filter(post => post.status === 'published');
     
     const rss = `<?xml version="1.0" encoding="UTF-8"?>

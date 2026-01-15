@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { ArticlesProvider } from "@/lib/articles-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { ReadingHighlighter } from "@/components/ReadingHighlighter";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://objectwire.org'),
@@ -159,6 +160,9 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        
+        {/* Reading Highlighter - persists across all pages */}
+        <ReadingHighlighter />
         </ArticlesProvider>
       </body>
     </html>

@@ -4,12 +4,14 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 
 export interface ArticleBlock {
   id: string;
-  type: 'paragraph' | 'heading' | 'summary' | 'stat-grid' | 'key-mechanisms' | 'sources' | 'callout';
+  type: 'paragraph' | 'heading' | 'summary' | 'stat-grid' | 'key-mechanisms' | 'sources' | 'callout' | 'quote' | 'list' | 'image' | 'video' | 'timeline' | 'comparison';
   content: string;
   level?: number; // for headings
-  items?: { num: string; title: string; desc: string }[]; // for key-mechanisms
+  items?: { num: string; title: string; desc: string }[]; // for key-mechanisms, timeline, comparison
   stats?: { value: string; label: string; color: string }[]; // for stat-grid
   sources?: string[]; // for sources block
+  caption?: string; // for image/video
+  credit?: string; // for image attribution
 }
 
 export interface Article {
@@ -288,14 +290,14 @@ const defaultArticles: Article[] = [
   },
   {
     id: '21',
-    title: "Luxury Watch Heists at the U.S. Grand Prix",
-    slug: 'luxury-watch-heists-at-the-us-grand-prix',
+    title: "Luxury Watch Heists at the 2025 U.S. Grand Prix: The Richard Mille Robberies",
+    slug: 'luxury-watch-heists-at-the-2025-us-grand-prix-the-richard-mille-robberies',
     excerpt: 'Organized crime rings target high-value watches at Formula 1\'s U.S. Grand Prix in Austin, Texas, leading to FBI investigation.',
     category: 'Crime',
     status: 'published',
     author: 'ObjectWire Team',
-    createdAt: '2025-10-20',
-    updatedAt: '2025-10-20',
+    createdAt: '2025-10-27',
+    updatedAt: '2025-10-27',
     readTime: '6 min read',
     blocks: []
   },

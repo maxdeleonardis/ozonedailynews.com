@@ -97,6 +97,9 @@ export default async function DynamicBlogPost({ params }: Props) {
         <div className="flex flex-wrap gap-4 items-center justify-between text-sm text-gray-600">
           <div className="flex flex-wrap gap-4">
             <span>By {post.author}</span>
+            <span>•</span>
+            <span>{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
+          </div>
           <div className="flex gap-2">
             <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">{post.category}</span>
             {post.tags.slice(0, 3).map(tag => (
@@ -105,26 +108,6 @@ export default async function DynamicBlogPost({ params }: Props) {
               </span>
             ))}
           </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
-          <Link href="/">
-            <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to Home
-            </button>
-          </Link>
-        </div>
-      </article>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-200 mt-16">
-        <div className="max-w-4xl mx-auto px-6 py-8 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} ObjectWire. All rights reserved.
         </div>
       </footer>
     </div>

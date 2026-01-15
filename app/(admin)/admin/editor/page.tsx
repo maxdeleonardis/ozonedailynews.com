@@ -10,16 +10,23 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { ImageUploader } from '@/components/ImageUploader';
 import Link from 'next/link';
 
 const BLOCK_TYPES = [
-  { type: 'summary', label: 'Executive Summary', icon: '📋' },
-  { type: 'heading', label: 'Section Heading', icon: '📌' },
-  { type: 'paragraph', label: 'Paragraph', icon: '📝' },
-  { type: 'stat-grid', label: 'Statistics Grid', icon: '📊' },
-  { type: 'key-mechanisms', label: 'Key Points List', icon: '🔑' },
-  { type: 'callout', label: 'Callout Box', icon: '💡' },
-  { type: 'sources', label: 'Sources', icon: '📚' },
+  { type: 'summary', label: 'Executive Summary', icon: '📋', category: 'Content' },
+  { type: 'heading', label: 'Section Heading', icon: '📌', category: 'Content' },
+  { type: 'paragraph', label: 'Paragraph', icon: '📝', category: 'Content' },
+  { type: 'quote', label: 'Quote', icon: '💬', category: 'Content' },
+  { type: 'list', label: 'Bullet List', icon: '📝', category: 'Content' },
+  { type: 'stat-grid', label: 'Statistics Grid', icon: '📊', category: 'Data' },
+  { type: 'key-mechanisms', label: 'Key Points List', icon: '🔑', category: 'Data' },
+  { type: 'timeline', label: 'Timeline', icon: '⏱️', category: 'Data' },
+  { type: 'comparison', label: 'Comparison Table', icon: '⚖️', category: 'Data' },
+  { type: 'callout', label: 'Callout Box', icon: '💡', category: 'Special' },
+  { type: 'image', label: 'Image', icon: '🖼️', category: 'Media' },
+  { type: 'video', label: 'Video Embed', icon: '🎥', category: 'Media' },
+  { type: 'sources', label: 'Sources', icon: '📚', category: 'Special' },
 ];
 
 export default function BlogEditor() {
@@ -35,6 +42,7 @@ export default function BlogEditor() {
   const [featuredImage, setFeaturedImage] = useState('');
   const [blocks, setBlocks] = useState<ArticleBlock[]>([]);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
+  const [draggedBlockId, setDraggedBlockId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -67,21 +75,38 @@ export default function BlogEditor() {
   };
 
   const deleteBlock = (id: string) => {
+    if (!confirm('Delete this block?')) return;
     setBlocks(blocks.filter(block => block.id !== id));
     if (activeBlockId === id) setActiveBlockId(null);
   };
 
-  const moveBlock = (id: string, direction: 'up' | 'down') => {
-    const index = blocks.findIndex(b => b.id === id);
-    if (direction === 'up' && index > 0) {
-      const newBlocks = [...blocks];
-      [newBlocks[index - 1], newBlocks[index]] = [newBlocks[index], newBlocks[index - 1]];
-      setBlocks(newBlocks);
-    } else if (direction === 'down' && index < blocks.length - 1) {
-      const newBlocks = [...blocks];
-      [newBlocks[index], newBlocks[index + 1]] = [newBlocks[index + 1], newBlocks[index]];
-      setBlocks(newBlocks);
-    }
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, blockId: string) => {
+    setDraggedBlockId(blockId);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetBlockId: string) => {
+    e.preventDefault();
+    if (!draggedBlockId || draggedBlockId === targetBlockId) return;
+
+    const draggedIndex = blocks.findIndex(b => b.id === draggedBlockId);
+    const targetIndex = blocks.findIndex(b => b.id === targetBlockId);
+
+    const newBlocks = [...blocks];
+    const [draggedBlock] = newBlocks.splice(draggedIndex, 1);
+    newBlocks.splice(targetIndex, 0, draggedBlock);
+
+    setBlocks(newBlocks);
+    setDraggedBlockId(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedBlockId(null);
   };
 
   const addTag = () => {
@@ -133,26 +158,189 @@ export default function BlogEditor() {
       case 'summary':
       case 'paragraph':
       case 'callout':
+      case 'quote':
         return (
           <Textarea
-            placeholder={block.type === 'summary' ? 'Write executive summary... Use **bold** for key terms.' : 
-                        block.type === 'callout' ? 'Important note or callout...' : 
-                        'Write paragraph content... Use **bold** for key terms.'}
+            placeholder={
+              block.type === 'summary' ? 'Executive summary... Use **bold** for key terms.' : 
+              block.type === 'callout' ? 'Important note or callout...' : 
+              block.type === 'quote' ? 'Quote text...' :
+              'Paragraph content... Use **bold** for key terms.'
+            }
             value={block.content}
             onChange={(e) => updateBlock(block.id, { content: e.target.value })}
-            rows={4}
+            rows={block.type === 'quote' ? 3 : 4}
             className="font-mono text-sm"
           />
         );
 
-      case 'heading':
+      case 'list':
         return (
-          <Input
-            placeholder="Section heading..."
+          <Textarea
+            placeholder="• First item&#10;• Second item&#10;• Third item"
             value={block.content}
             onChange={(e) => updateBlock(block.id, { content: e.target.value })}
-            className="text-lg font-semibold"
+            rows={6}
+            className="font-mono text-sm"
           />
+        );
+
+      case 'image':
+        return (
+          <div className="space-y-3">
+            <ImageUploader
+              currentUrl={block.content}
+              onUploadComplete={(url) => updateBlock(block.id, { content: url })}
+            />
+            <Input
+              placeholder="Alt text (for accessibility)"
+              value={block.caption || ''}
+              onChange={(e) => updateBlock(block.id, { caption: e.target.value })}
+            />
+            <Input
+              placeholder="Caption (optional)"
+              value={block.credit || ''}
+              onChange={(e) => updateBlock(block.id, { credit: e.target.value })}
+            />
+          </div>
+        );
+
+      case 'video':
+        return (
+          <div className="space-y-3">
+            <Input
+              placeholder="YouTube or Vimeo URL"
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+            />
+            <Input
+              placeholder="Video title/description"
+              value={block.caption || ''}
+              onChange={(e) => updateBlock(block.id, { caption: e.target.value })}
+            />
+          </div>
+        );
+
+      case 'timeline':
+        return (
+          <div className="space-y-3">
+            {(block.items || []).map((item, idx) => (
+              <div key={idx} className="grid grid-cols-12 gap-2 items-center">
+                <Input
+                  placeholder="Date"
+                  value={item.num}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], num: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-3"
+                />
+                <Input
+                  placeholder="Event title"
+                  value={item.title}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], title: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-9"
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { 
+                items: [...(block.items || []), { num: 'Jan 2026', title: '', desc: '' }] 
+              })}
+            >
+              + Add Event
+            </Button>
+          </div>
+        );
+
+      case 'comparison':
+        return (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2 mb-2">
+              <Input
+                placeholder="Column 1 Header"
+                value={block.content?.split('|')[0] || ''}
+                onChange={(e) => {
+                  const parts = block.content?.split('|') || ['', ''];
+                  parts[0] = e.target.value;
+                  updateBlock(block.id, { content: parts.join('|') });
+                }}
+              />
+              <Input
+                placeholder="Column 2 Header"
+                value={block.content?.split('|')[1] || ''}
+                onChange={(e) => {
+                  const parts = block.content?.split('|') || ['', ''];
+                  parts[1] = e.target.value;
+                  updateBlock(block.id, { content: parts.join('|') });
+                }}
+              />
+            </div>
+            {(block.items || []).map((item, idx) => (
+              <div key={idx} className="grid grid-cols-2 gap-2">
+                <Input
+                  placeholder="Value 1"
+                  value={item.title}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], title: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                />
+                <Input
+                  placeholder="Value 2"
+                  value={item.desc}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], desc: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { 
+                items: [...(block.items || []), { num: '', title: '', desc: '' }] 
+              })}
+            >
+              + Add Row
+            </Button>
+          </div>
+        );
+
+      case 'heading':
+        return (
+          <div className="space-y-3">
+            <select
+              value={block.level || 2}
+              onChange={(e) => updateBlock(block.id, { level: parseInt(e.target.value) })}
+              className="w-full h-10 px-3 rounded-md border border-gray-300"
+            >
+              <option value="1">Heading 1 (H1)</option>
+              <option value="2">Heading 2 (H2)</option>
+              <option value="3">Heading 3 (H3)</option>
+              <option value="4">Heading 4 (H4)</option>
+              <option value="5">Heading 5 (H5)</option>
+              <option value="6">Heading 6 (H6)</option>
+            </select>
+            <Input
+              placeholder="Section heading..."
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+              className="text-lg font-semibold"
+            />
+          </div>
         );
 
       case 'stat-grid':
@@ -320,10 +508,10 @@ export default function BlogEditor() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-3 gap-6">
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-4 gap-6">
           {/* Main Editor */}
-          <div className="col-span-2 space-y-6">
+          <div className="col-span-3 space-y-6">
             {/* Post Details */}
             <Card>
               <CardHeader>
@@ -331,14 +519,15 @@ export default function BlogEditor() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="title">Title *</Label>
+                  <Label htmlFor="title">Meta Title *</Label>
                   <Input
                     id="title"
-                    placeholder="Enter post title..."
+                    placeholder="Enter SEO-optimized title (50-60 characters)..."
                     value={title}
                     onChange={(e) => handleTitleChange(e.target.value)}
                     className="text-lg font-medium"
                   />
+                  <p className="text-xs text-gray-500 mt-1">{title.length}/60 characters</p>
                 </div>
                 <div>
                   <Label htmlFor="slug">URL Slug (supports nested paths)</Label>
@@ -351,14 +540,15 @@ export default function BlogEditor() {
                   <p className="text-xs text-gray-500 mt-1">URL: /{slug || 'your-slug'}</p>
                 </div>
                 <div>
-                  <Label htmlFor="excerpt">Excerpt</Label>
+                  <Label htmlFor="excerpt">Meta Description</Label>
                   <Textarea
                     id="excerpt"
-                    placeholder="Brief description..."
+                    placeholder="SEO-optimized description (150-160 characters)..."
                     value={excerpt}
                     onChange={(e) => setExcerpt(e.target.value)}
                     rows={2}
                   />
+                  <p className="text-xs text-gray-500 mt-1">{excerpt.length}/160 characters</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -388,12 +578,10 @@ export default function BlogEditor() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="featuredImage">Featured Image URL</Label>
-                  <Input
-                    id="featuredImage"
-                    placeholder="https://..."
-                    value={featuredImage}
-                    onChange={(e) => setFeaturedImage(e.target.value)}
+                  <Label htmlFor="featuredImage">Featured Image</Label>
+                  <ImageUploader
+                    currentUrl={featuredImage}
+                    onUploadComplete={setFeaturedImage}
                   />
                 </div>
                 <div>
@@ -422,31 +610,53 @@ export default function BlogEditor() {
             {/* Content Blocks */}
             <Card>
               <CardHeader>
-                <CardTitle>Content Blocks</CardTitle>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Content Blocks</CardTitle>
+                  <span className="text-sm text-gray-500">{blocks.length} blocks • Drag to reorder</span>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-3">
                 {blocks.length === 0 ? (
-                  <div className="text-center py-8 text-gray-500">
-                    <p>No content blocks yet. Add your first block from the sidebar.</p>
+                  <div className="text-center py-12 text-gray-500">
+                    <div className="text-5xl mb-3">📝</div>
+                    <p className="font-medium">No content blocks yet</p>
+                    <p className="text-sm mt-1">Add your first block from the sidebar →</p>
                   </div>
                 ) : (
                   blocks.map((block, index) => (
                     <div
                       key={block.id}
-                      className={`border rounded-lg p-4 ${activeBlockId === block.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, block.id)}
+                      onDragOver={handleDragOver}
+                      onDrop={(e) => handleDrop(e, block.id)}
+                      onDragEnd={handleDragEnd}
+                      className={`
+                        border rounded-lg p-4 transition-all cursor-move
+                        ${activeBlockId === block.id ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-gray-200 hover:border-gray-300'}
+                        ${draggedBlockId === block.id ? 'opacity-50' : 'opacity-100'}
+                      `}
                       onClick={() => setActiveBlockId(block.id)}
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
+                          <div className="flex flex-col gap-0.5 cursor-grab active:cursor-grabbing">
+                            <div className="w-4 h-0.5 bg-gray-400 rounded"></div>
+                            <div className="w-4 h-0.5 bg-gray-400 rounded"></div>
+                            <div className="w-4 h-0.5 bg-gray-400 rounded"></div>
+                          </div>
                           <span className="text-lg">{BLOCK_TYPES.find(b => b.type === block.type)?.icon}</span>
                           <span className="font-medium text-sm">{BLOCK_TYPES.find(b => b.type === block.type)?.label}</span>
-                          <span className="text-xs text-gray-400">#{index + 1}</span>
+                          <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded-full">#{index + 1}</span>
                         </div>
-                        <div className="flex gap-1">
-                          <Button variant="ghost" size="sm" onClick={() => moveBlock(block.id, 'up')} disabled={index === 0}>↑</Button>
-                          <Button variant="ghost" size="sm" onClick={() => moveBlock(block.id, 'down')} disabled={index === blocks.length - 1}>↓</Button>
-                          <Button variant="ghost" size="sm" onClick={() => deleteBlock(block.id)} className="text-red-600">×</Button>
-                        </div>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          onClick={(e) => { e.stopPropagation(); deleteBlock(block.id); }} 
+                          className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                        >
+                          🗑️ Delete
+                        </Button>
                       </div>
                       {renderBlockEditor(block)}
                     </div>
@@ -457,36 +667,31 @@ export default function BlogEditor() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <Card className="sticky top-24">
               <CardHeader>
-                <CardTitle>Add Block</CardTitle>
+                <CardTitle className="text-base">Add Content Block</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
-                {BLOCK_TYPES.map((blockType) => (
-                  <Button
-                    key={blockType.type}
-                    variant="outline"
-                    className="w-full justify-start gap-2"
-                    onClick={() => addBlock(blockType.type)}
-                  >
-                    <span>{blockType.icon}</span>
-                    {blockType.label}
-                  </Button>
+              <CardContent className="space-y-3">
+                {/* Group by category */}
+                {['Content', 'Data', 'Media', 'Special'].map(category => (
+                  <div key={category}>
+                    <p className="text-xs font-semibold text-gray-500 mb-2">{category}</p>
+                    <div className="space-y-1">
+                      {BLOCK_TYPES.filter(b => b.category === category).map((blockType) => (
+                        <Button
+                          key={blockType.type}
+                          variant="outline"
+                          className="w-full justify-start gap-2 h-9 text-sm"
+                          onClick={() => addBlock(blockType.type)}
+                        >
+                          <span>{blockType.icon}</span>
+                          {blockType.label}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Tips</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-gray-600 space-y-2">
-                <p>• Use **double asterisks** for bold key terms</p>
-                <p>• Stat grids animate when scrolled into view</p>
-                <p>• Key mechanisms show numbered bullet points</p>
-                <p>• Content fades in as users scroll</p>
-                <p>• Nested URLs: <code>technology/ai/part-2</code></p>
               </CardContent>
             </Card>
           </div>

@@ -118,6 +118,15 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
 
           case 'heading':
             sectionNumber++;
+            const HeadingTag = `h${block.level || 2}` as keyof JSX.IntrinsicElements;
+            const headingSizes: Record<number, string> = {
+              1: 'text-4xl',
+              2: 'text-2xl',
+              3: 'text-xl',
+              4: 'text-lg',
+              5: 'text-base',
+              6: 'text-sm'
+            };
             return (
               <section
                 key={block.id}
@@ -125,12 +134,12 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 data-animate
                 className={sectionClass(block.id)}
               >
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <HeadingTag className={`${headingSizes[block.level || 2]} font-bold mb-6 flex items-center gap-3`}>
                   <span className="w-8 h-8 bg-gray-900 text-white text-sm flex items-center justify-center font-mono">
                     {String(sectionNumber).padStart(2, '0')}
                   </span>
                   {block.content}
-                </h2>
+                </HeadingTag>
               </section>
             );
 
@@ -160,6 +169,141 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   <p className="text-gray-700">
                     {parseText(block.content)}
                   </p>
+                </div>
+              </section>
+            );
+
+          case 'quote':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <blockquote className="border-l-4 border-gray-900 pl-6 py-2 italic text-xl text-gray-700">
+                  {parseText(block.content)}
+                </blockquote>
+              </section>
+            );
+
+          case 'list':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <ul className="space-y-2 text-gray-600">
+                  {block.content.split('\n').filter(Boolean).map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>{parseText(item.replace(/^[•\-]\s*/, ''))}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            );
+
+          case 'image':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <figure className="my-8">
+                  <img 
+                    src={block.content} 
+                    alt={block.caption || ''} 
+                    className="w-full rounded-lg border border-gray-200"
+                  />
+                  {(block.caption || block.credit) && (
+                    <figcaption className="mt-3 text-sm text-gray-500 text-center">
+                      {block.caption && <span>{block.caption}</span>}
+                      {block.credit && <span className="block text-xs mt-1">{block.credit}</span>}
+                    </figcaption>
+                  )}
+                </figure>
+              </section>
+            );
+
+          case 'video':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <div className="my-8">
+                  <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+                    {block.content ? (
+                      <iframe
+                        src={block.content.replace('watch?v=', 'embed/')}
+                        className="w-full h-full rounded-lg"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <span className="text-gray-400">Video URL required</span>
+                    )}
+                  </div>
+                  {block.caption && (
+                    <p className="mt-3 text-sm text-gray-500 text-center">{block.caption}</p>
+                  )}
+                </div>
+              </section>
+            );
+
+          case 'timeline':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <div className="space-y-6 border-l-2 border-gray-300 pl-6 my-8">
+                  {block.items?.map((item, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[29px] w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
+                      <div className="font-mono text-sm text-red-500 mb-1">{item.num}</div>
+                      <div className="font-semibold text-gray-900">{item.title}</div>
+                      {item.desc && <div className="text-gray-600 text-sm mt-1">{item.desc}</div>}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+
+          case 'comparison':
+            return (
+              <section
+                key={block.id}
+                id={block.id}
+                data-animate
+                className={sectionClass(block.id)}
+              >
+                <div className="my-8 overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gray-900 text-white">
+                        {block.content?.split('|').map((header, i) => (
+                          <th key={i} className="p-4 text-left font-semibold">{header}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.items?.map((row, i) => (
+                        <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                          <td className="p-4 border-b border-gray-200">{row.title}</td>
+                          <td className="p-4 border-b border-gray-200">{row.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </section>
             );

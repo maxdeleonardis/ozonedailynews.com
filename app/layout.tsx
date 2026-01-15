@@ -91,7 +91,7 @@ export default function RootLayout({
           </nav>
         </header>
 
-        <main>{children}</main>
+        <main className="pt-6">{children}</main>
 
         {/* Footer */}
         <footer className="border-t border-gray-200 bg-gray-50 mt-24">

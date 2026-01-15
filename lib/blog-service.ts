@@ -10,6 +10,8 @@ export interface BlogPostInput {
   tags?: string[];
   read_time?: string;
   blocks: ArticleBlock[];
+  sidebar_blocks?: ArticleBlock[];
+  layout_columns?: 1 | 2;
   status: 'draft' | 'published';
   featured_image?: string;
   meta_title?: string;
@@ -29,6 +31,8 @@ export interface BlogPostFull {
   tags: string[];
   read_time: string;
   blocks: ArticleBlock[];
+  sidebar_blocks: ArticleBlock[];
+  layout_columns: 1 | 2;
   status: 'draft' | 'published';
   featured_image: string | null;
   meta_title: string | null;
@@ -49,6 +53,8 @@ export async function createBlogPost(post: BlogPostInput): Promise<{ data: BlogP
         tags: post.tags || [],
         read_time: post.read_time || '5 min read',
         blocks: post.blocks,
+        sidebar_blocks: post.sidebar_blocks || [],
+        layout_columns: post.layout_columns || 1,
         status: post.status,
         featured_image: post.featured_image || null,
         meta_title: post.meta_title || post.title,

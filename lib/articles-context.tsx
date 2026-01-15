@@ -4,14 +4,27 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 
 export interface ArticleBlock {
   id: string;
-  type: 'paragraph' | 'heading' | 'summary' | 'stat-grid' | 'key-mechanisms' | 'sources' | 'callout' | 'quote' | 'list' | 'image' | 'video' | 'timeline' | 'comparison';
+  type: 'paragraph' | 'heading' | 'summary' | 'stat-grid' | 'key-mechanisms' | 'sources' | 'callout' | 'quote' | 'list' | 'image' | 'video' | 'timeline' | 'comparison' | 'twitter' | 'audio' | 'gallery' | 'instagram' | 'tiktok' | 'map' | 'code' | 'data-table' | 'chart' | 'poll' | 'accordion' | 'divider' | 'author-bio' | 'related-articles' | 'newsletter' | 'pros-cons' | 'file-download' | 'button' | 'numbered-list';
   content: string;
   level?: number; // for headings
-  items?: { num: string; title: string; desc: string }[]; // for key-mechanisms, timeline, comparison
+  items?: { num: string; title: string; desc: string }[]; // for key-mechanisms, timeline, comparison, accordion, pros-cons
   stats?: { value: string; label: string; color: string }[]; // for stat-grid
   sources?: string[]; // for sources block
   caption?: string; // for image/video
   credit?: string; // for image attribution
+  language?: string; // for code block
+  tableData?: { headers: string[]; rows: string[][] }; // for data-table
+  chartType?: 'bar' | 'line' | 'pie'; // for chart
+  pollOptions?: { text: string; votes: number }[]; // for poll
+  galleryImages?: { url: string; caption: string }[]; // for gallery
+  authorName?: string; // for author-bio
+  authorImage?: string; // for author-bio
+  authorBio?: string; // for author-bio
+  relatedLinks?: { title: string; url: string; image?: string }[]; // for related-articles
+  buttonUrl?: string; // for button
+  buttonStyle?: 'primary' | 'secondary' | 'outline'; // for button
+  fileUrl?: string; // for file-download
+  fileName?: string; // for file-download
 }
 
 export interface Article {

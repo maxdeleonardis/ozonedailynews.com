@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
 import { getBlogPostById, updateBlogPost, generateSlug, calculateReadTime, BlogPostFull } from '@/lib/blog-service';
@@ -14,19 +14,54 @@ import { ImageUploader } from '@/components/ImageUploader';
 import Link from 'next/link';
 
 const BLOCK_TYPES = [
+  // Content
   { type: 'summary', label: 'Executive Summary', icon: '📋', category: 'Content' },
   { type: 'heading', label: 'Section Heading', icon: '📌', category: 'Content' },
   { type: 'paragraph', label: 'Paragraph', icon: '📝', category: 'Content' },
   { type: 'quote', label: 'Quote', icon: '💬', category: 'Content' },
   { type: 'list', label: 'Bullet List', icon: '📝', category: 'Content' },
+  { type: 'numbered-list', label: 'Numbered List', icon: '🔢', category: 'Content' },
+  // Data
   { type: 'stat-grid', label: 'Statistics Grid', icon: '📊', category: 'Data' },
   { type: 'key-mechanisms', label: 'Key Points List', icon: '🔑', category: 'Data' },
   { type: 'timeline', label: 'Timeline', icon: '⏱️', category: 'Data' },
   { type: 'comparison', label: 'Comparison Table', icon: '⚖️', category: 'Data' },
-  { type: 'callout', label: 'Callout Box', icon: '💡', category: 'Special' },
+  { type: 'data-table', label: 'Data Table', icon: '📊', category: 'Data' },
+  { type: 'chart', label: 'Chart', icon: '📈', category: 'Data' },
+  { type: 'pros-cons', label: 'Pros/Cons List', icon: '⚖️', category: 'Data' },
+  // Media
   { type: 'image', label: 'Image', icon: '🖼️', category: 'Media' },
   { type: 'video', label: 'Video Embed', icon: '🎥', category: 'Media' },
+  { type: 'gallery', label: 'Image Gallery', icon: '🖼️', category: 'Media' },
+  { type: 'audio', label: 'Audio Player', icon: '🎧', category: 'Media' },
+  // Social
+  { type: 'twitter', label: 'Twitter/X Embed', icon: '🐦', category: 'Social' },
+  { type: 'instagram', label: 'Instagram Embed', icon: '📸', category: 'Social' },
+  { type: 'tiktok', label: 'TikTok Embed', icon: '🎵', category: 'Social' },
+  { type: 'map', label: 'Map Embed', icon: '🗺️', category: 'Social' },
+  // Interactive
+  { type: 'code', label: 'Code Block', icon: '💻', category: 'Interactive' },
+  { type: 'poll', label: 'Poll', icon: '📊', category: 'Interactive' },
+  { type: 'accordion', label: 'Accordion/FAQ', icon: '❓', category: 'Interactive' },
+  // Special
+  { type: 'callout', label: 'Callout Box', icon: '💡', category: 'Special' },
+  { type: 'divider', label: 'Divider', icon: '➖', category: 'Special' },
+  { type: 'author-bio', label: 'Author Bio', icon: '👤', category: 'Special' },
+  { type: 'related-articles', label: 'Related Articles', icon: '🔗', category: 'Special' },
+  { type: 'newsletter', label: 'Newsletter CTA', icon: '📧', category: 'Special' },
+  { type: 'button', label: 'Button/CTA', icon: '🔘', category: 'Special' },
+  { type: 'file-download', label: 'File Download', icon: '📎', category: 'Special' },
   { type: 'sources', label: 'Sources', icon: '📚', category: 'Special' },
+];
+
+const TEXT_COLORS = [
+  { name: 'Red', value: 'red', class: 'bg-red-500' },
+  { name: 'Blue', value: 'blue', class: 'bg-blue-500' },
+  { name: 'Green', value: 'green', class: 'bg-green-500' },
+  { name: 'Orange', value: 'orange', class: 'bg-orange-500' },
+  { name: 'Purple', value: 'purple', class: 'bg-purple-500' },
+  { name: 'Yellow', value: 'yellow', class: 'bg-yellow-500' },
+  { name: 'Gray', value: 'gray', class: 'bg-gray-500' },
 ];
 
 export default function EditBlogPost({ params }: { params: { id: string } }) {
@@ -47,6 +82,12 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
   const [createdAt, setCreatedAt] = useState('');
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const [draggedBlockId, setDraggedBlockId] = useState<string | null>(null);
+  const [showLinkModal, setShowLinkModal] = useState(false);
+  const [linkUrl, setLinkUrl] = useState('');
+  const [linkText, setLinkText] = useState('');
+  const [currentTextareaId, setCurrentTextareaId] = useState<string | null>(null);
+  const [showColorPicker, setShowColorPicker] = useState<string | null>(null);
+  const textareaRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>({});
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -94,6 +135,18 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
       ...(type === 'stat-grid' && { stats: [{ value: '', label: '', color: 'blue' }] }),
       ...(type === 'key-mechanisms' && { items: [{ num: '01', title: '', desc: '' }] }),
       ...(type === 'sources' && { sources: [''] }),
+      ...(type === 'timeline' && { items: [{ num: 'Jan 2026', title: '', desc: '' }] }),
+      ...(type === 'comparison' && { content: 'Column 1|Column 2', items: [{ num: '', title: '', desc: '' }] }),
+      ...(type === 'accordion' && { items: [{ num: '', title: '', desc: '' }] }),
+      ...(type === 'pros-cons' && { items: [{ num: 'pro', title: '', desc: '' }] }),
+      ...(type === 'data-table' && { tableData: { headers: ['Column 1', 'Column 2'], rows: [['', '']] } }),
+      ...(type === 'gallery' && { galleryImages: [{ url: '', caption: '' }] }),
+      ...(type === 'poll' && { pollOptions: [{ text: '', votes: 0 }] }),
+      ...(type === 'related-articles' && { relatedLinks: [{ title: '', url: '', image: '' }] }),
+      ...(type === 'code' && { language: 'javascript' }),
+      ...(type === 'chart' && { chartType: 'bar' }),
+      ...(type === 'button' && { buttonStyle: 'primary', buttonUrl: '' }),
+      ...(type === 'author-bio' && { authorName: '', authorImage: '', authorBio: '' }),
     };
     setBlocks([...blocks, newBlock]);
     setActiveBlockId(newBlock.id);
@@ -138,6 +191,101 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
 
   const handleDragEnd = () => {
     setDraggedBlockId(null);
+  };
+
+  // Link insertion functions
+  const openLinkModal = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    if (textarea) {
+      const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+      setLinkText(selectedText);
+    }
+    setCurrentTextareaId(blockId);
+    setLinkUrl('');
+    setShowLinkModal(true);
+  };
+
+  const insertLink = () => {
+    if (!currentTextareaId || !linkUrl) return;
+    
+    const block = blocks.find(b => b.id === currentTextareaId);
+    if (!block) return;
+
+    const textarea = textareaRefs.current[currentTextareaId];
+    const content = block.content || '';
+    
+    // Format: [link text](url)
+    const linkMarkdown = `[${linkText || linkUrl}](${linkUrl})`;
+    
+    if (textarea) {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const newContent = content.substring(0, start) + linkMarkdown + content.substring(end);
+      updateBlock(currentTextareaId, { content: newContent });
+    } else {
+      updateBlock(currentTextareaId, { content: content + ' ' + linkMarkdown });
+    }
+    
+    setShowLinkModal(false);
+    setLinkUrl('');
+    setLinkText('');
+    setCurrentTextareaId(null);
+  };
+
+  const insertBold = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `**${selectedText || 'bold text'}**` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertItalic = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `*${selectedText || 'italic text'}*` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertUnderline = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `__${selectedText || 'underlined text'}__` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertColor = (blockId: string, color: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `{color:${color}}${selectedText || 'colored text'}{/color}` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
   };
 
   const addTag = () => {
@@ -186,14 +334,96 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
 
   const renderBlockEditor = (block: ArticleBlock) => {
     switch (block.type) {
-      case 'summary':
       case 'paragraph':
+        return (
+          <div className="space-y-2">
+            {/* Formatting Toolbar */}
+            <div className="flex items-center gap-1 p-2 bg-gray-100 rounded-t border border-b-0 border-gray-200 flex-wrap">
+              <button
+                type="button"
+                onClick={() => insertBold(block.id)}
+                className="px-3 py-1 text-sm font-bold hover:bg-gray-200 rounded transition-colors"
+                title="Bold (**text**)"
+              >
+                B
+              </button>
+              <button
+                type="button"
+                onClick={() => insertItalic(block.id)}
+                className="px-3 py-1 text-sm italic hover:bg-gray-200 rounded transition-colors"
+                title="Italic (*text*)"
+              >
+                I
+              </button>
+              <button
+                type="button"
+                onClick={() => insertUnderline(block.id)}
+                className="px-3 py-1 text-sm underline hover:bg-gray-200 rounded transition-colors"
+                title="Underline (__text__)"
+              >
+                U
+              </button>
+              <div className="w-px h-5 bg-gray-300 mx-1"></div>
+              <button
+                type="button"
+                onClick={() => openLinkModal(block.id)}
+                className="px-3 py-1 text-sm text-blue-600 hover:bg-gray-200 rounded transition-colors flex items-center gap-1"
+                title="Insert Link"
+              >
+                🔗 Link
+              </button>
+              <div className="w-px h-5 bg-gray-300 mx-1"></div>
+              {/* Color Picker */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowColorPicker(showColorPicker === block.id ? null : block.id)}
+                  className="px-3 py-1 text-sm hover:bg-gray-200 rounded transition-colors flex items-center gap-1"
+                  title="Text Color"
+                >
+                  🎨 Color
+                </button>
+                {showColorPicker === block.id && (
+                  <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-10">
+                    <div className="grid grid-cols-4 gap-1">
+                      {TEXT_COLORS.map((color) => (
+                        <button
+                          key={color.value}
+                          type="button"
+                          onClick={() => {
+                            insertColor(block.id, color.value);
+                            setShowColorPicker(null);
+                          }}
+                          className={`w-6 h-6 rounded ${color.class} hover:ring-2 hover:ring-offset-1 hover:ring-gray-400`}
+                          title={color.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex-1"></div>
+              <span className="text-xs text-gray-400">
+                Supports: bold, italic, underline, links, colors
+              </span>
+            </div>
+            <Textarea
+              ref={(el) => { textareaRefs.current[block.id] = el; }}
+              placeholder="Paragraph content... Paste text with links - they will be preserved. Use the toolbar for formatting."
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+              rows={4}
+              className="font-mono text-sm rounded-t-none"
+            />
+          </div>
+        );
+
+      case 'summary':
       case 'callout':
         return (
           <Textarea
             placeholder={block.type === 'summary' ? 'Write executive summary... Use **bold** for key terms.' : 
-                        block.type === 'callout' ? 'Important note or callout...' : 
-                        'Write paragraph content... Use **bold** for key terms.'}
+                        'Important note or callout...'}
             value={block.content}
             onChange={(e) => updateBlock(block.id, { content: e.target.value })}
             rows={4}
@@ -731,22 +961,53 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
                 ))}
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Tips</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-gray-600 space-y-2">
-                <p>• Use **double asterisks** for bold key terms</p>
-                <p>• Stat grids animate when scrolled into view</p>
-                <p>• Key mechanisms show numbered bullet points</p>
-                <p>• Content fades in as users scroll</p>
-                <p>• Nested URLs: <code>technology/ai/part-2</code></p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </main>
+
+      {/* Link Modal */}
+      {showLinkModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+            <h3 className="text-lg font-bold mb-4">Insert Link</h3>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="linkText">Link Text</Label>
+                <Input
+                  id="linkText"
+                  placeholder="Text to display"
+                  value={linkText}
+                  onChange={(e) => setLinkText(e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="linkUrl">URL</Label>
+                <Input
+                  id="linkUrl"
+                  placeholder="https://example.com"
+                  value={linkUrl}
+                  onChange={(e) => setLinkUrl(e.target.value)}
+                />
+              </div>
+              <div className="flex gap-3 justify-end pt-2">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setShowLinkModal(false);
+                    setLinkUrl('');
+                    setLinkText('');
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button onClick={insertLink} disabled={!linkUrl}>
+                  Insert Link
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

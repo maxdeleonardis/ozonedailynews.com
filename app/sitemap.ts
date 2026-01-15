@@ -7,7 +7,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
   
   try {
-    const posts = await getAllBlogPosts();
+    const { data: posts, error } = await getAllBlogPosts();
+    
+    if (error || !posts) {
+      console.error('Error fetching posts for sitemap:', error);
+      return [
+        {
+          url: baseUrl,
+          lastModified: new Date(),
+          changeFrequency: 'daily',
+          priority: 1,
+        },
+      ];
+    }
     
     const blogPosts = posts
       .filter(post => post.status === 'published')

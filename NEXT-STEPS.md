@@ -1,331 +1,374 @@
-# 📰 Google News Approval Roadmap
+# 📰 News Network Approval Roadmap
+## Google News, Perplexity AI, and MSN News
 
 ## Current Status: Pre-Application Phase
 
-ObjectWire is building towards Google News Publisher Center approval. This document outlines the technical requirements, content standards, and implementation checklist needed to qualify.
+ObjectWire is building towards approval from major news aggregators. This document outlines requirements for **Google News**, **Perplexity**, and **MSN News**.
 
 ---
 
-## 🎯 Google News Requirements Overview
+## 🎯 Requirements Overview
 
 ### 1. **Technical Requirements** (Infrastructure)
-| Requirement | Status | Priority |
-|-------------|--------|----------|
-| robots.txt allows Googlebot-News | ✅ Done | P0 |
-| Sitemap.xml with news-specific entries | ⏳ Needs Enhancement | P0 |
-| Article structured data (NewsArticle schema) | ⏳ Partial | P0 |
-| Mobile-responsive design | ✅ Done | P0 |
-| HTTPS enabled | ✅ Done | P0 |
-| Fast page load (<3s) | ✅ Done | P0 |
-| Unique, canonical URLs for all articles | ✅ Done | P0 |
-| Accessible to Googlebot | ✅ Done | P0 |
+| Requirement | Status | Priority | Platform |
+|-------------|--------|----------|----------|
+| robots.txt allows Googlebot-News | ✅ Done | P0 | Google |
+| News-specific sitemap (`/news-sitemap.xml`) | ✅ Done | P0 | Google |
+| NewsArticle Schema component | ✅ Done | P0 | All |
+| Organization Schema on site | ✅ Done | P0 | All |
+| WebSite Schema with SearchAction | ✅ Done | P0 | Google |
+| Mobile-responsive design | ✅ Done | P0 | All |
+| HTTPS enabled | ✅ Done | P0 | All |
+| Fast page load (<3s) | ✅ Done | P0 | All |
+| RSS Feed (`/rss.xml`) | ✅ Done | P0 | All |
+| Unique, canonical URLs | ✅ Done | P0 | All |
 
 ### 2. **Content Requirements** (Editorial)
-| Requirement | Status | Priority |
-|-------------|--------|----------|
-| Original, timely news content | ✅ Done | P0 |
-| Clear author attribution | ✅ Done | P0 |
-| Publication dates visible | ✅ Done | P0 |
-| Editorial standards page | ✅ Done | P0 |
-| About page | ✅ Done | P0 |
-| Contact information | ⏳ Needs Work | P0 |
-| Privacy policy | ✅ Done | P0 |
-| Distinct article vs. advertorial content | ✅ N/A (no ads) | P0 |
-| Minimum 3-5 articles per week | ⏳ Needs Content | P1 |
+| Requirement | Status | Priority | Platform |
+|-------------|--------|----------|----------|
+| Original, timely news content | ✅ Done | P0 | All |
+| Clear author attribution | ✅ Done | P0 | All |
+| Publication dates visible | ✅ Done | P0 | All |
+| Editorial standards page | ✅ Done | P0 | All |
+| About page | ✅ Done | P0 | All |
+| Contact information | ⏳ **ACTION NEEDED** | P0 | All |
+| Privacy policy | ✅ Done | P0 | All |
+| Minimum 3-5 articles per week | ⏳ **ACTION NEEDED** | P1 | All |
 
-### 3. **Publisher Requirements** (Trust)
-| Requirement | Status | Priority |
-|-------------|--------|----------|
-| Clear ownership/publisher info | ⏳ Needs Work | P0 |
-| Physical address or location | ⏳ Needs Work | P0 |
-| Corrections policy | ⏳ Needs Work | P1 |
-| Staff/contributor page | ❌ Not Started | P1 |
-| Masthead/editorial team | ❌ Not Started | P1 |
-
----
-
-## 🔧 Technical Implementation Tasks
-
-### Phase 1: Schema & Structured Data (Week 1)
-
-#### Task 1.1: Implement NewsArticle Schema
-```typescript
-// Add to article pages
-{
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "headline": "Article Title",
-  "datePublished": "2026-01-14T10:00:00Z",
-  "dateModified": "2026-01-14T12:00:00Z",
-  "author": {
-    "@type": "Person",
-    "name": "Author Name"
-  },
-  "publisher": {
-    "@type": "NewsMediaOrganization",
-    "name": "ObjectWire",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://objectwire.com/logo.png"
-    }
-  },
-  "image": "https://objectwire.com/article-image.jpg",
-  "description": "Article excerpt/meta description"
-}
-```
-
-**Files to modify:**
-- [ ] `app/[...slug]/page.tsx` - Add JSON-LD script
-- [ ] `app/blog/[slug]/page.tsx` - Add JSON-LD script
-- [ ] Create `components/NewsArticleSchema.tsx` helper
-
-#### Task 1.2: Enhance Sitemap for News
-```typescript
-// app/sitemap.ts - Add news-specific sitemap
-export async function generateNewsSitemap() {
-  // Only include articles from last 48 hours (Google News requirement)
-  const recentPosts = posts.filter(post => 
-    new Date(post.published_at) > new Date(Date.now() - 48 * 60 * 60 * 1000)
-  );
-  
-  return recentPosts.map(post => ({
-    url: `https://objectwire.com/${post.slug}`,
-    lastModified: post.updated_at,
-    news: {
-      title: post.title,
-      publication_date: post.published_at,
-      name: "ObjectWire"
-    }
-  }));
-}
-```
-
-**Files to create/modify:**
-- [ ] Create `app/news-sitemap.xml/route.ts`
-- [ ] Update `public/robots.txt` with news sitemap reference
-- [ ] Create `app/sitemap-index.xml/route.ts`
-
-#### Task 1.3: Add Organization Schema
-```typescript
-// Add to layout.tsx
-{
-  "@context": "https://schema.org",
-  "@type": "NewsMediaOrganization",
-  "name": "ObjectWire",
-  "url": "https://objectwire.com",
-  "logo": "https://objectwire.com/logo.png",
-  "sameAs": [
-    "https://twitter.com/objectwire",
-    "https://linkedin.com/company/objectwire"
-  ],
-  "foundingDate": "2025",
-  "description": "Precision intelligence news network..."
-}
-```
-
-### Phase 2: Content & Editorial Pages (Week 2)
-
-#### Task 2.1: Create/Update Required Pages
-
-**About Page Enhancement:**
-- [ ] Add editorial team bios with photos
-- [ ] Include mission statement
-- [ ] Add founding story
-- [ ] Include physical address/location
-- [ ] Link to social profiles
-
-**Contact Page:**
-- [ ] Create dedicated `/contact` page
-- [ ] Add contact form
-- [ ] Include email address
-- [ ] Add physical address
-- [ ] List editorial inquiry process
-
-**Staff/Masthead Page:**
-- [ ] Create `/team` or `/masthead` page
-- [ ] List all contributors with bios
-- [ ] Include roles and expertise areas
-- [ ] Add author profile photos
-
-**Corrections Policy:**
-- [ ] Create `/corrections` page
-- [ ] Document correction process
-- [ ] Show correction history (if any)
-- [ ] Include how to report errors
-
-### Phase 3: Publisher Center Setup (Week 3)
-
-#### Task 3.1: Google Publisher Center Registration
-1. Go to: https://publishercenter.google.com
-2. Add publication: "ObjectWire"
-3. Verify site ownership (Google Search Console)
-4. Submit publication details:
-   - Publication name
-   - Category: News
-   - Languages: English
-   - Publication type: Online news source
-   - Geographic focus: United States (initially)
-
-#### Task 3.2: Required Assets
-- [ ] Logo (1000x1000 PNG, transparent background)
-- [ ] Square logo (512x512)
-- [ ] Banner image (1200x675)
-- [ ] Favicon (32x32, 16x16)
-
-### Phase 4: Content Pipeline (Ongoing)
-
-#### Establish Publishing Cadence
-| Day | Content Type | Topic Focus |
-|-----|--------------|-------------|
-| Monday | Analysis | Technology/AI |
-| Tuesday | Breaking News | Current Events |
-| Wednesday | Investigation | Deep Dive |
-| Thursday | Opinion | Editorial Perspective |
-| Friday | Weekend Read | Long-form Feature |
-| Weekend | Breaking Only | As needed |
-
-**Target: 5-7 articles per week minimum**
+### 3. **Publisher Requirements** (Trust & Credibility)
+| Requirement | Status | Priority | Platform |
+|-------------|--------|----------|----------|
+| Clear ownership/publisher info | ⏳ **ACTION NEEDED** | P0 | All |
+| Physical address or location | ⏳ **ACTION NEEDED** | P0 | Google/MSN |
+| Corrections policy page | ⏳ **ACTION NEEDED** | P1 | Google |
+| Staff/contributor pages | ❌ **NOT STARTED** | P1 | All |
+| Individual author profile pages | ❌ **NOT STARTED** | P1 | All |
+| Masthead/editorial team | ❌ **NOT STARTED** | P1 | MSN |
 
 ---
 
-## 📝 Editor Enhancements for Google News Optimization
+## 🔴 IMMEDIATE ACTION ITEMS (Do These First)
 
-### Add to Admin Editor:
+### ☐ 1. Add NewsArticle Schema to Every Article Page
+**Status:** Component created, needs integration
 
-#### 1. SEO Score Panel
-```typescript
-// Real-time SEO scoring
-- Title length indicator (50-60 chars optimal)
-- Meta description length (150-160 chars)
-- Keyword density checker
-- Readability score (Flesch-Kincaid)
-- Internal link suggestions
+The schema component is at `components/NewsArticleSchema.tsx`. You need to add it to each article page:
+
+```tsx
+import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+
+// In your article component, add inside the return:
+<NewsArticleSchema
+  title="Article Title"
+  description="Article excerpt"
+  author="Author Name"
+  publishedTime="2026-01-15T10:00:00Z"
+  modifiedTime="2026-01-15T12:00:00Z"
+  imageUrl="https://objectwire.org/images/article-image.jpg"
+  articleUrl="https://objectwire.org/your-article-slug"
+  section="Technology"
+  keywords={["keyword1", "keyword2", "keyword3"]}
+/>
 ```
 
-#### 2. Fact-Checking Workflow
-```typescript
-// Required before publish
-- [ ] Primary source verified
-- [ ] Claims documented
-- [ ] At least 2 sources cited
-- [ ] Images properly attributed
-- [ ] No unverified claims
+**Files to update:**
+- [ ] `app/[...slug]/page.tsx`
+- [ ] All individual article pages (minesoda, quantum-computing, etc.)
+
+---
+
+### ☐ 2. Create Individual Author Pages
+**Status:** Not started
+
+Create a `/team` directory with individual author pages:
+
+```
+app/
+  team/
+    page.tsx              (main team listing)
+    [author]/
+      page.tsx            (individual author bio)
 ```
 
-#### 3. Publication Checklist
-```typescript
-// Auto-check before publishing
-- [ ] Featured image set
-- [ ] Meta title optimized
-- [ ] Meta description complete
-- [ ] Category selected
-- [ ] Tags added (3-5 recommended)
-- [ ] Author attributed
-- [ ] Sources cited
-```
+**Required for each author:**
+- Full name
+- Professional headshot photo
+- Bio (100-200 words)
+- Expertise areas
+- Social media links (LinkedIn, Twitter/X)
+- List of articles they've written
+- Contact email (optional)
 
-#### 4. NewsArticle Schema Preview
-```typescript
-// Show structured data preview in editor
-- Preview how article will appear in Google News
-- Validate schema markup
-- Check for missing required fields
+**Authors to create pages for:**
+- [ ] ObjectWire Editorial Team
+- [ ] ObjectWire Investigations
+- [ ] Tech Review Team
+- [ ] Business Analyst
+- [ ] (Add your actual writers)
+
+---
+
+### ☐ 3. Enhance About Page with Ownership Info
+**Status:** Needs enhancement
+
+**Add to `/about` page:**
+- [ ] Legal entity name (LLC, Corp, etc.)
+- [ ] Physical business address (or registered agent address)
+- [ ] Year founded
+- [ ] Founding story
+- [ ] Mission statement
+- [ ] Ownership structure
+- [ ] Funding disclosure (self-funded, investors, etc.)
+
+---
+
+### ☐ 4. Create/Enhance Contact Page
+**Status:** Needs work
+
+**Required elements for `/contact`:**
+- [ ] General inquiries email: `info@objectwire.org`
+- [ ] Editorial email: `editorial@objectwire.org`
+- [ ] Tips/submissions email: `tips@objectwire.org`
+- [ ] Press inquiries email: `press@objectwire.org`
+- [ ] Physical mailing address
+- [ ] Contact form
+- [ ] Response time expectations
+
+---
+
+### ☐ 5. Create Corrections Policy Page
+**Status:** Page exists, verify content
+
+**Required for `/corrections`:**
+- [ ] How errors are handled
+- [ ] How to report an error
+- [ ] Correction process timeline
+- [ ] Types of corrections (minor edits vs. major corrections)
+- [ ] How corrections are displayed on articles
+- [ ] Archive of past corrections (if any)
+
+---
+
+### ☐ 6. Update robots.txt with News Sitemap
+**Status:** Needs update
+
+Add to `public/robots.txt`:
+```
+Sitemap: https://objectwire.org/sitemap.xml
+Sitemap: https://objectwire.org/news-sitemap.xml
 ```
 
 ---
 
-## 🚀 Launch Checklist
+### ☐ 7. Create Required Image Assets
+**Status:** Not started
 
-### Pre-Application (Complete All)
+**For Google Publisher Center:**
+- [ ] Square logo: 1000x1000px PNG (transparent background)
+- [ ] Small square logo: 512x512px PNG
+- [ ] Rectangle logo: 400x40px PNG (site masthead)
+- [ ] Publication icon: 196x196px PNG
+- [ ] OG image: 1200x630px (for social sharing)
 
-**Technical:**
-- [ ] NewsArticle JSON-LD on all article pages
+**Save to:** `public/` directory
+
+---
+
+## 📋 Platform-Specific Requirements
+
+### 🔵 Google News Publisher Center
+
+**Application URL:** https://publishercenter.google.com
+
+**Steps:**
+1. [ ] Create Google Publisher Center account
+2. [ ] Verify site ownership via Google Search Console
+3. [ ] Add publication details
+4. [ ] Upload logo assets
+5. [ ] Select content categories
+6. [ ] Submit for review (takes 2-4 weeks)
+
+**Content requirements:**
+- Minimum 30 published articles before applying
+- At least 5 articles in the past 7 days
+- News-focused content (not just opinion/blog)
+- Clear separation between news and sponsored content
+
+---
+
+### 🟣 Perplexity AI Indexing
+
+**How Perplexity finds content:**
+- Crawls RSS feeds
+- Indexes structured data (NewsArticle schema)
+- Follows links from authoritative sources
+- Prioritizes sites with strong E-E-A-T signals
+
+**Optimization checklist:**
+- [ ] Ensure RSS feed is complete and valid (`/rss.xml`)
+- [ ] NewsArticle schema on all articles
+- [ ] Clear author attribution with expertise signals
+- [ ] Comprehensive source citations in articles
+- [ ] Fast page load times
+- [ ] Mobile-optimized design
+
+**No formal application process** - Perplexity crawls automatically. Focus on:
+1. Quality, original content
+2. Proper structured data
+3. Regular publishing cadence
+4. Strong citations and sources
+
+---
+
+### 🟢 MSN News / Microsoft Start
+
+**Partner Portal:** https://partnerhub.msn.com
+
+**Requirements:**
+- [ ] Active RSS feed
+- [ ] Consistent publishing (minimum 10 articles/month)
+- [ ] Original content only
+- [ ] Professional editorial standards
+- [ ] Clear ownership and contact info
+- [ ] No paywalled content (or clear free tier)
+
+**Application steps:**
+1. [ ] Go to MSN Partner Hub
+2. [ ] Submit application with site details
+3. [ ] Provide RSS feed URL
+4. [ ] Provide contact information
+5. [ ] Wait for review (4-8 weeks typically)
+
+**MSN prioritizes:**
+- Breaking news coverage
+- Local news (if applicable)
+- Exclusive reporting
+- Strong visual content (images, videos)
+
+---
+
+## 📅 Publishing Schedule Template
+
+### Recommended Weekly Cadence (5-7 articles)
+
+| Day | Content Type | Topic Focus | Priority |
+|-----|--------------|-------------|----------|
+| Monday | Analysis | Technology/AI trends | High |
+| Tuesday | Breaking News | Current events | High |
+| Wednesday | Investigation | Deep-dive reporting | High |
+| Thursday | Business | Markets/startups | Medium |
+| Friday | Feature | Long-form weekend read | Medium |
+| Saturday | Opinion | Editorial perspective | Low |
+| Sunday | Roundup | Week in review | Low |
+
+**Minimum viable:** 3 articles per week
+**Optimal for approval:** 5-7 articles per week
+**Target before applying:** 30+ published articles
+
+---
+
+## 🗓️ Implementation Timeline
+
+### Week 1: Technical Setup ✅ (Mostly Complete)
+- [x] NewsArticle Schema component created
+- [x] Organization Schema added to layout
+- [x] News sitemap created (`/news-sitemap.xml`)
+- [x] RSS feed exists (`/rss.xml`)
+- [ ] Add schema to all article pages
+- [ ] Update robots.txt with news sitemap
+
+### Week 2: Author & Trust Pages
+- [ ] Create `/team` main page with all contributors
+- [ ] Create individual author pages (`/team/[author]`)
+- [ ] Enhance `/about` with ownership details
+- [ ] Enhance `/contact` with all required info
+- [ ] Review and update `/corrections` policy
+
+### Week 3: Assets & Registration
+- [ ] Create all logo assets (various sizes)
+- [ ] Upload OG image for social sharing
+- [ ] Register for Google Publisher Center
+- [ ] Verify site in Google Search Console
+- [ ] Submit MSN Partner Hub application
+
+### Week 4: Content Ramp-Up
+- [ ] Publish 5+ new articles
+- [ ] Establish consistent publishing schedule
+- [ ] Ensure all articles have proper schema
+- [ ] Monitor Google Search Console for issues
+
+### Week 5+: Monitor & Optimize
+- [ ] Check for Google News approval status
+- [ ] Monitor Perplexity citations
+- [ ] Track MSN application status
+- [ ] Continue publishing cadence
+- [ ] Address any feedback from platforms
+
+---
+
+## 🔗 Important URLs & Resources
+
+### Your Site URLs
+- Homepage: https://objectwire.org
+- RSS Feed: https://objectwire.org/rss.xml
+- Sitemap: https://objectwire.org/sitemap.xml
+- News Sitemap: https://objectwire.org/news-sitemap.xml
+- Editorial Standards: https://objectwire.org/editorial-standards
+- About: https://objectwire.org/about
+- Contact: https://objectwire.org/contact
+- Corrections: https://objectwire.org/corrections
+
+### Platform Portals
+- Google Publisher Center: https://publishercenter.google.com
+- Google Search Console: https://search.google.com/search-console
+- MSN Partner Hub: https://partnerhub.msn.com
+- Schema Validator: https://validator.schema.org
+- Rich Results Test: https://search.google.com/test/rich-results
+
+### Documentation
+- [Google News Publisher Help](https://support.google.com/news/publisher-center)
+- [NewsArticle Schema](https://schema.org/NewsArticle)
+- [Google News Content Policies](https://support.google.com/news/publisher-center/answer/6204050)
+- [MSN Content Guidelines](https://partnerhub.msn.com/guidelines)
+
+---
+
+## ✅ Quick Checklist Before Applying
+
+### Technical (All Required)
+- [ ] NewsArticle JSON-LD on all articles
 - [ ] Organization JSON-LD on homepage
+- [ ] Valid RSS feed at `/rss.xml`
 - [ ] News sitemap at `/news-sitemap.xml`
-- [ ] Sitemap index referencing all sitemaps
-- [ ] Mobile-first responsive design verified
-- [ ] Page speed >90 on PageSpeed Insights
-- [ ] All images have alt text
+- [ ] All sitemaps listed in robots.txt
+- [ ] Mobile-responsive design
+- [ ] Page speed score >90
+- [ ] HTTPS everywhere
 - [ ] Canonical URLs on all pages
 
-**Content:**
-- [ ] Minimum 30 published articles
-- [ ] At least 5 articles in last 7 days
-- [ ] Clear news focus (not blog/opinion only)
-- [ ] Original reporting (not aggregation)
-- [ ] Author bylines on all articles
-- [ ] Publication dates visible
+### Content (All Required)
+- [ ] 30+ published original articles
+- [ ] 5+ articles published in last 7 days
+- [ ] Clear author bylines on every article
+- [ ] Visible publication dates
+- [ ] Source citations in articles
 
-**Trust Signals:**
-- [ ] About page complete with address
-- [ ] Editorial standards published
-- [ ] Privacy policy up to date
-- [ ] Contact page with real contact info
-- [ ] Team/masthead page
+### Trust Pages (All Required)
+- [ ] About page with ownership info
+- [ ] Contact page with email + address
+- [ ] Editorial standards page
+- [ ] Privacy policy
 - [ ] Corrections policy
-- [ ] Clear ownership statement
+- [ ] Team/masthead page
+- [ ] Individual author pages
 
-**Publisher Center:**
-- [ ] Account created
-- [ ] Site ownership verified
-- [ ] All logos/assets uploaded
-- [ ] Publication info complete
-- [ ] Categories selected
-- [ ] Initial review submitted
-
----
-
-## 📊 Metrics to Track
-
-### Before Application
-- Pages indexed in Google
-- Google Search Console health
-- Core Web Vitals scores
-- Mobile usability errors
-- Structured data validation
-
-### After Approval
-- Google News impressions
-- Click-through rate
-- Top-performing articles
-- Crawl frequency
-- Coverage topics
+### Assets (For Publisher Center)
+- [ ] Square logo 1000x1000
+- [ ] Small logo 512x512
+- [ ] OG image 1200x630
+- [ ] Favicon
 
 ---
 
-## 🗓️ Timeline
-
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Technical SEO | Schema markup, news sitemap |
-| 2 | Content Pages | About, Contact, Team, Corrections |
-| 3 | Publisher Setup | Logo assets, Publisher Center registration |
-| 4 | Content Ramp | 10+ new articles, establish cadence |
-| 5 | Review & Apply | Final checks, submit for review |
-| 6+ | Monitor | Track approval, address feedback |
-
----
-
-## 📚 Resources
-
-- [Google News Publisher Center](https://publishercenter.google.com)
-- [Google News Publisher Help](https://support.google.com/news/publisher-center)
-- [NewsArticle Schema Reference](https://schema.org/NewsArticle)
-- [Google News Content Policies](https://support.google.com/news/publisher-center/answer/6204050)
-- [Search Console Documentation](https://developers.google.com/search/docs)
-
----
-
-## ✅ Next Immediate Actions
-
-1. **Today:** Implement NewsArticle JSON-LD schema on article pages
-2. **This Week:** Create news sitemap and update robots.txt
-3. **This Week:** Enhance About page with full publisher info
-4. **Next Week:** Create Contact, Team, and Corrections pages
-5. **Next Week:** Design and upload logo assets
-6. **Week 3:** Register in Google Publisher Center
-
----
-
-*Last Updated: January 14, 2026*
-*Document Version: 1.0*
+*Last Updated: January 15, 2026*
+*Document Version: 2.0*

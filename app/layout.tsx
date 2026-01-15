@@ -4,6 +4,7 @@ import "./globals.css";
 import { ArticlesProvider } from "@/lib/articles-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ReadingHighlighter } from "@/components/ReadingHighlighter";
+import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://objectwire.org'),
@@ -64,6 +65,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://objectwire.org" />
+        <OrganizationSchema />
+        <WebSiteSchema />
       </head>
       <body className="bg-white text-gray-900 antialiased">
         <GoogleAnalytics />

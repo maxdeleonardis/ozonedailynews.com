@@ -12,6 +12,17 @@ export const metadata: Metadata = {
 
 const featuredStories = [
   {
+    title: "The 'Trump Tech Force': Inside the White House's New AI Recruitment Drive",
+    excerpt: "Trump administration launches U.S. Tech Force to recruit 1,000 technologists from Silicon Valley, offering $150K-$200K salaries for federal AI modernization.",
+    category: "POLITICS",
+    date: "January 15, 2026",
+    slug: "news/trump-tech-force-white-house-ai-recruitment-drive",
+    author: "ObjectWire Political Desk",
+    readTime: "12 min",
+    featured: true,
+    urgent: true,
+  },
+  {
     title: "D-Wave Qubits Lead Quantum Optimization Revolution",
     excerpt: "Advantage prototype achieves quantum computational supremacy on real-world problems, solving optimization challenges 1000x faster than classical computers.",
     category: "QUANTUM TECH",
@@ -20,7 +31,7 @@ const featuredStories = [
     author: "ObjectWire Quantum Team",
     readTime: "12 min",
     featured: true,
-    urgent: true,
+    urgent: false,
   },
   {
     title: "Nick Shirley Drops Second Part of Fraud Investigation", 
@@ -33,11 +44,6 @@ const featuredStories = [
     featured: true,
     urgent: false,
   },
-  {
-    title: "Feeding Our Future: Inside Minnesota's $250 Million Fraud Scheme",
-    excerpt: "A comprehensive investigation into one of the largest pandemic-era fraud cases in U.S. history, involving falsified meal counts, shell companies, and federal indictments.",
-    category: "FRAUD INVESTIGATION",
-    date: "December 30, 2025",
     slug: "minnesota-feeding-our-future-fraud",
     author: "ObjectWire Investigations",
     readTime: "12 min",
@@ -220,7 +226,7 @@ export default function NewsPage() {
             </span>
             <div className="overflow-hidden flex-1">
               <p className="text-sm font-medium whitespace-nowrap animate-marquee">
-                D-Wave achieves quantum supremacy breakthrough • Nick Shirley releases fraud investigation part 2 • Minnesota hub launches with comprehensive coverage • New quantum computing category added
+                BREAKING: Trump launches U.S. Tech Force to recruit 1,000 Silicon Valley workers • D-Wave achieves quantum supremacy breakthrough • Nick Shirley releases fraud investigation part 2 • Minnesota hub launches with comprehensive coverage
               </p>
             </div>
           </div>
@@ -454,6 +460,15 @@ export default function NewsPage() {
               <div className="p-4">
                 <ul className="space-y-4 text-sm">
                   <li className="flex items-start gap-2">
+                    <span className="bg-red-500 w-2 h-2 rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
+                    <div>
+                      <Link href="/news/trump-tech-force-white-house-ai-recruitment-drive" className="font-semibold hover:underline">
+                        Trump Launches U.S. Tech Force
+                      </Link>
+                      <p className="text-xs text-gray-500">Just now</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
                     <span className="bg-red-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
                     <div>
                       <Link href="/news/quantum-computing/d-wave-quantum-optimization-breakthrough" className="font-semibold hover:underline">
@@ -469,15 +484,6 @@ export default function NewsPage() {
                         Nick Shirley Investigation Part 2
                       </Link>
                       <p className="text-xs text-gray-500">6 hours ago</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bg-green-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
-                    <div>
-                      <Link href="/news/quantum-computing" className="font-semibold hover:underline">
-                        Quantum Computing Hub Launch
-                      </Link>
-                      <p className="text-xs text-gray-500">1 day ago</p>
                     </div>
                   </li>
                 </ul>

@@ -44,6 +44,11 @@ const featuredStories = [
     featured: true,
     urgent: false,
   },
+  {
+    title: "Feeding Our Future: Inside Minnesota's $250 Million Fraud Scheme",
+    excerpt: "A comprehensive investigation into one of the largest pandemic-era fraud cases in U.S. history.",
+    category: "FRAUD INVESTIGATION",
+    date: "December 30, 2025",
     slug: "minnesota-feeding-our-future-fraud",
     author: "ObjectWire Investigations",
     readTime: "12 min",

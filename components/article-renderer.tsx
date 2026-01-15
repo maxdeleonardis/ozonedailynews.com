@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ArticleBlock } from '@/lib/articles-context';
 
 interface ArticleRendererProps {
@@ -118,7 +118,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
 
           case 'heading':
             sectionNumber++;
-            const HeadingTag = `h${block.level || 2}` as keyof JSX.IntrinsicElements;
+            const HeadingTag = `h${block.level || 2}` as keyof React.JSX.IntrinsicElements;
             const headingSizes: Record<number, string> = {
               1: 'text-4xl',
               2: 'text-2xl',

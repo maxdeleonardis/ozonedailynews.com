@@ -1,26 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Quantum Computing News Hub - Latest Developments & Breakthroughs | ObjectWire",
-  description: "Your comprehensive source for quantum computing news, including D-Wave quantum optimization, IBM quantum systems, and breakthrough research from leading institutions.",
-  keywords: [
-    "quantum computing",
-    "D-Wave quantum",
-    "quantum optimization",
-    "quantum annealing",
-    "quantum supremacy",
-    "quantum technology news",
-    "qubits",
-    "quantum research"
-  ],
-  openGraph: {
-    type: "website",
-    title: "Quantum Computing News Hub",
-    description: "Latest developments in quantum computing technology and research breakthroughs.",
-  },
-};
 
 // News Filter Component
 function NewsFilter() {

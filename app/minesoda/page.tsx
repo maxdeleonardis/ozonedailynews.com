@@ -1,28 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Minnesota News Hub - Summer of Love, Fraud Investigation, Tim Walz & More | ObjectWire",
-  description: "Complete Minnesota coverage: 2020 Summer of Love protests, Feeding Our Future fraud case, Governor Tim Walz updates, recent incidents and more.",
-  keywords: [
-    "Minnesota news",
-    "Summer of Love",
-    "Minneapolis protests",
-    "Feeding Our Future fraud",
-    "Tim Walz",
-    "Minnesota investigations",
-    "Minneapolis",
-    "Saint Paul"
-  ],
-  openGraph: {
-    type: "article",
-    title: "Minnesota News Hub - Complete State Coverage",
-    description: "From the Summer of Love to major fraud cases, your complete Minnesota news source.",
-  },
-};
 
 // Interactive Poll Component
 function MinnesotaPoll() {

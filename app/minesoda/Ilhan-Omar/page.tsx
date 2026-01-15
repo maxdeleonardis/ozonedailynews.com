@@ -1,29 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Ilhan Omar Biography - From Somali Refugee to Congress | Minnesota Hub - ObjectWire",
-  description: "Complete biography of Ilhan Omar: her journey from Somalia refugee camps to U.S. Congress, personal life, marriages, and meteoric rise in net worth.",
-  keywords: [
-    "Ilhan Omar",
-    "biography",
-    "Somalia refugee",
-    "Minnesota representative",
-    "Congress",
-    "net worth",
-    "Ahmed Hirsi",
-    "immigration story",
-    "Squad member"
-  ],
-  openGraph: {
-    type: "article",
-    title: "Ilhan Omar: From Refugee to Representative - Complete Biography",
-    description: "The remarkable journey of Ilhan Omar from Somali refugee camps to the halls of Congress.",
-  },
-};
 
 // Interactive Poll Component
 function OmarPoll() {

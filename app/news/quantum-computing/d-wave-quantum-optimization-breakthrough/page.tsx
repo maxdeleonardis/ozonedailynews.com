@@ -1,26 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "D-Wave Quantum Optimization Breakthrough - Advantage Prototype Achieves Supremacy | ObjectWire",
-  description: "D-Wave Quantum Inc. (NYSE: QBTS) demonstrates quantum computational supremacy with Advantage prototype, solving optimization problems 1000x faster than classical computers.",
-  keywords: [
-    "D-Wave Quantum",
-    "quantum optimization",
-    "quantum annealing",
-    "quantum supremacy",
-    "QBTS stock",
-    "quantum computing breakthrough",
-    "Advantage prototype",
-    "optimization problems"
-  ],
-  openGraph: {
-    type: "article",
-    title: "D-Wave Achieves Quantum Optimization Breakthrough",
-    description: "Revolutionary quantum annealing system solves real-world problems in minutes that would take classical computers millions of years.",
-  },
-};
 
 // Performance Metrics Component
 function PerformanceMetrics() {

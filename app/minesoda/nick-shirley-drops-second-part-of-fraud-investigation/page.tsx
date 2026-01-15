@@ -1,27 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Nick Shirley Drops Second Part of Fraud Investigation - New Details on Feeding Our Future | ObjectWire",
-  description: "Independent journalist Nick Shirley releases part two of his comprehensive investigation into the Feeding Our Future fraud case, revealing new details about the $250 million scheme.",
-  keywords: [
-    "Nick Shirley",
-    "Feeding Our Future",
-    "fraud investigation",
-    "Minnesota fraud",
-    "investigative journalism",
-    "Aimee Bock",
-    "federal investigation"
-  ],
-  openGraph: {
-    type: "article",
-    title: "Nick Shirley's Second Fraud Investigation Reveals New Details",
-    description: "Comprehensive coverage of Nick Shirley's latest investigation into the Feeding Our Future fraud case.",
-  },
-};
 
 // Video Player Component (Placeholder)
 function VideoPlayer() {

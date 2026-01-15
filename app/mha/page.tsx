@@ -1,28 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "My Hero Academia Knowledge Hub - Final Season, Vigilantes & Ultra Rumble | ObjectWire",
-  description: "Complete My Hero Academia coverage: final season success, My Hero Vigilantes spin-off series, and Ultra Rumble game popularity. Latest news and analysis.",
-  keywords: [
-    "My Hero Academia",
-    "MHA final season",
-    "My Hero Vigilantes",
-    "Ultra Rumble",
-    "Boku no Hero Academia",
-    "anime series",
-    "manga",
-    "Kohei Horikoshi"
-  ],
-  openGraph: {
-    type: "article",
-    title: "My Hero Academia Knowledge Hub - Complete Franchise Coverage",
-    description: "Everything about MHA: final season success, Vigilantes spin-off, and Ultra Rumble game analysis.",
-  },
-};
 
 // Interactive Character Popularity Poll
 function CharacterPoll() {

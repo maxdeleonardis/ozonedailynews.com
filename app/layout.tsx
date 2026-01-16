@@ -5,6 +5,9 @@ import { ArticlesProvider } from "@/lib/articles-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ReadingHighlighter } from "@/components/ReadingHighlighter";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
+import AuthProvider from "@/components/AuthProvider";
+import CookieConsent from "@/components/CookieConsent";
+import AuthButton from "@/components/AuthButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://objectwire.org'),
@@ -70,32 +73,34 @@ export default function RootLayout({
       </head>
       <body className="bg-white text-gray-900 antialiased">
         <GoogleAnalytics />
-        <ArticlesProvider>
-        {/* Header - Sticky */}
-        <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-          <nav className="container flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="w-9 h-9 bg-black flex items-center justify-center rounded-sm">
-                <span className="text-white font-bold text-lg">O</span>
-              </div>
-              <span className="text-xl font-bold tracking-tight">ObjectWire</span>
-            </Link>
-            
-            <div className="flex items-center gap-6">
-              <Link href="/news" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                News
-              </Link>
-              <Link href="/editorial-standards" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                Standards
-              </Link>
-              <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                About
-              </Link>
-            </div>
-          </nav>
-        </header>
+        <AuthProvider>
+          <ArticlesProvider>
+            {/* Header - Sticky */}
+            <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+              <nav className="container flex justify-between items-center py-4">
+                <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                  <div className="w-9 h-9 bg-black flex items-center justify-center rounded-sm">
+                    <span className="text-white font-bold text-lg">O</span>
+                  </div>
+                  <span className="text-xl font-bold tracking-tight">ObjectWire</span>
+                </Link>
+                
+                <div className="flex items-center gap-6">
+                  <Link href="/news" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                    News
+                  </Link>
+                  <Link href="/editorial-standards" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                    Standards
+                  </Link>
+                  <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                    About
+                  </Link>
+                  <AuthButton />
+                </div>
+              </nav>
+            </header>
 
-        <main className="pt-6">{children}</main>
+            <main className="pt-6">{children}</main>
 
         {/* Footer */}
         <footer className="border-t border-gray-200 bg-gray-50 mt-24">
@@ -166,7 +171,11 @@ export default function RootLayout({
         
         {/* Reading Highlighter - persists across all pages */}
         <ReadingHighlighter />
-        </ArticlesProvider>
+        
+        {/* Cookie Consent Banner */}
+        <CookieConsent />
+          </ArticlesProvider>
+        </AuthProvider>
       </body>
     </html>
   );

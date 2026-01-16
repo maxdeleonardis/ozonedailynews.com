@@ -1,9 +1,11 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { tracking, GA_MEASUREMENT_ID } from '@/lib/tracking';
+import { getCookiePreferences } from '@/lib/cookie-manager';
+import { usePageTracking } from '@/lib/use-page-tracking';
 
 function AnalyticsTracker() {
   const pathname = usePathname();
@@ -22,11 +24,22 @@ function AnalyticsTracker() {
     }
   }, [pathname, searchParams]);
 
+  // Use the new page tracking hook
+  usePageTracking();
+
   return null;
 }
 
 export default function GoogleAnalytics() {
-  if (!GA_MEASUREMENT_ID) {
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    // Only load GA if analytics cookies are accepted
+    const preferences = getCookiePreferences();
+    setShouldLoad(preferences.analytics);
+  }, []);
+
+  if (!GA_MEASUREMENT_ID || !shouldLoad) {
     return null;
   }
 
@@ -47,7 +60,8 @@ export default function GoogleAnalytics() {
             gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
               send_page_view: true,
-              cookie_flags: 'SameSite=None;Secure',
+              cookie_flags: 'SameSite=Lax;Secure',
+              anonymize_ip: true,
             });
           `,
         }}

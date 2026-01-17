@@ -142,7 +142,7 @@ export default function TIChipsPage() {
               <li className="text-gray-700 mb-2">Self-healing mesh that automatically routes around failures</li>
               <li className="text-gray-700 mb-2">No single point of failure</li>
               <li className="text-gray-700 mb-2">Secure by default with AES encryption</li>
-              <li className="text-gray-700 mb-2">Low latency (<50ms node-to-node)</li>
+              <li className="text-gray-700 mb-2">Low latency (&lt;50ms node-to-node)</li>
               <li className="text-gray-700 mb-2">Supports hundreds of nodes per network</li>
               <li className="text-gray-700 mb-2">Foundation for Matter smart home standard</li>
             </ul>

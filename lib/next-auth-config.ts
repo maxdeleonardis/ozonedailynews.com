@@ -15,6 +15,8 @@ export const authOptions: NextAuthOptions = {
       }
     }),
   ],
+  trustHost: true,
+  useSecureCookies: process.env.NODE_ENV === 'production',
   callbacks: {
     async jwt({ token, user, account }) {
       // Persist user info in token

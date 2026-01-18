@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Austin's Reign as a Tech Hub Might Be Coming to an End | ObjectWire",
-  description: "Analysis of Austin's declining tech dominance. Rising costs, competition from other cities, and changing market dynamics threaten Texas' tech capital status in 2025-2026.",
+  title: "Minnesota's Tech Hub Growth Threatens Austin's Dominance | ObjectWire",
+  description: "Minnesota emerges as a rising tech center, challenging Austin's position. Growth in tech companies, talent attraction, and innovation ecosystem transforms the Land of 10,000 Lakes.",
   keywords: [
-    "Austin tech hub",
-    "Austin Texas technology",
-    "tech companies Austin",
-    "Austin startup scene",
-    "Silicon Hills",
+    "Minnesota tech hub",
+    "Minnesota technology",
+    "Minnesota tech companies",
+    "Minnesota startup scene",
+    "Twin Cities tech",
     "tech industry trends",
-    "Austin real estate",
+    "Minnesota tech growth",
     "tech talent migration"
   ],
   openGraph: {
     type: "article",
-    title: "Austin's Tech Hub Status Under Threat",
-    description: "Rising costs and increased competition challenge Austin's position as a leading tech destination.",
+    title: "Minnesota Emerges as Major Tech Hub",
+    description: "Growth and innovation challenge traditional tech centers, positioning Minnesota as a tech destination.",
   },
 };
 
@@ -25,34 +25,34 @@ export default function AustinTechHubPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <header className="bg-gradient-to-br from-orange-600 via-red-600 to-pink-600 text-white">
-        <div className="container mx-auto px-4 py-16 max-w-5xl">
+      <header className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white rounded-[1.5rem] mx-4 my-8 overflow-hidden">
+        <div className="relative container mx-auto px-4 py-16 max-w-6xl">
           <div className="flex items-center gap-3 mb-4">
-            <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-              Tech Analysis
+            <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide drop-shadow-2xl">
+              Tech Growth
             </span>
-            <span className="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">
-              January 15, 2026
+            <span className="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full drop-shadow-2xl">
+              January 18, 2026
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Austin's Reign as a Tech Hub 
-            <span className="block text-2xl md:text-3xl font-normal text-orange-200 mt-2">
-              Might Be Coming to an End
+          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+            Minnesota's Tech Hub Rise 
+            <span className="block text-2xl md:text-3xl font-normal text-white mt-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
+              Challenges Traditional Tech Centers
             </span>
           </h1>
 
-          <p className="text-xl text-orange-100 max-w-3xl mb-8">
-            Once hailed as "Silicon Hills," Austin faces mounting challenges that threaten its status 
-            as America's premier tech destination. Rising costs, increased competition, and changing 
-            market dynamics paint a concerning picture for the Texas capital's tech future.
+          <p className="text-white text-xl max-w-3xl mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            The Land of 10,000 Lakes is becoming a major tech destination. Growth in innovation, talent attraction, 
+            and thriving startup ecosystems position Minnesota as a serious challenger to traditional tech hubs. 
+            The future of tech may be shifting north.
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-orange-200">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-white drop-shadow-lg">
             <div className="flex items-center gap-2">
               <span>📍</span>
-              <span>Austin, Texas</span>
+              <span>Minnesota</span>
             </div>
             <div className="flex items-center gap-2">
               <span>⏱️</span>

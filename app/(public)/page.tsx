@@ -77,8 +77,8 @@ export default function HomePage() {
           
           {/* Masthead Title */}
           <div className="text-center py-6">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none animate-fadeInDown">
-              The Object Wire
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none animate-fadeInDown italic">
+              OBJECTWIRE
             </h1>
             <div className="flex items-center justify-center gap-4 mt-4">
               <div className="h-px w-16 bg-black"></div>
@@ -91,25 +91,24 @@ export default function HomePage() {
 
           {/* Navigation Bar */}
           <nav className="flex flex-wrap justify-center gap-6 pt-4 border-t border-gray-200 text-sm font-medium">
-            <Link href="/case" className="hover:underline underline-offset-4">Investigations</Link>
             <Link href="/news" className="hover:underline underline-offset-4">News</Link>
             <Link href="/opinion" className="hover:underline underline-offset-4">Opinion</Link>
             <Link href="/analyst" className="hover:underline underline-offset-4">Analysis</Link>
-            <Link href="/coding" className="hover:underline underline-offset-4">Technology</Link>
+            <Link href="/news" className="hover:underline underline-offset-4">Technology</Link>
             <Link href="/about" className="hover:underline underline-offset-4">About</Link>
           </nav>
         </div>
       </header>
 
       {/* Breaking News Ticker */}
-      <div className="bg-black text-white py-2 overflow-hidden">
+      <div className="bg-black text-white py-3 overflow-hidden my-6">
         <div className="container">
           <div className="flex items-center gap-4">
             <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 animate-pulse shrink-0">
               BREAKING
             </span>
-            <div className="overflow-hidden flex-1">
-              <p className="text-sm font-medium whitespace-nowrap animate-marquee">
+            <div className="overflow-hidden flex-1 min-w-0">
+              <p className="text-sm font-semibold text-white whitespace-nowrap animate-marquee">
                 Federal prosecutors expand investigation into pandemic relief fraud • New whistleblower evidence emerges in DOJ probe • Markets react to regulatory uncertainty
               </p>
             </div>
@@ -118,26 +117,26 @@ export default function HomePage() {
       </div>
 
       {/* Main Content Grid */}
-      <main className="container py-8">
-        <div className="grid lg:grid-cols-12 gap-8">
+      <main className="container py-12">
+        <div className="grid lg:grid-cols-12 gap-12">
           
           {/* Main Story Column */}
           <div className="lg:col-span-8">
             {/* Lead Story */}
-            <article className="mb-8 pb-8 border-b-2 border-black animate-fadeInUp">
+            <article className="mb-12 pb-10 border-b-2 border-black animate-fadeInUp">
               <Link href={`/${breakingStories[0].slug}`} className="group block">
                 {/* Video Header */}
-                <div className="relative mb-6 overflow-hidden bg-gray-900">
+                <div className="relative mb-8 overflow-hidden bg-gray-900 rounded-[2.5rem]">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-64 md:h-96 object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="w-full h-64 md:h-96 object-cover opacity-80 group-hover:opacity-100 transition-opacity rounded-[2.5rem]"
                   >
                     <source src="/17303815-hd_1280_720_30fps.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-[2.5rem]"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 mb-3">
                       {breakingStories[0].category}
@@ -166,11 +165,11 @@ export default function HomePage() {
             </article>
 
             {/* Secondary Stories Grid */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-10">
               {breakingStories.slice(1).map((story, index) => (
                 <article 
                   key={story.slug} 
-                  className="border-b border-gray-200 pb-6 animate-fadeInUp"
+                  className="border-b border-gray-200 pb-8 mb-4 animate-fadeInUp"
                   style={{ animationDelay: `${(index + 1) * 0.1}s` }}
                 >
                   <Link href={`/${story.slug}`} className="group block">
@@ -197,7 +196,7 @@ export default function HomePage() {
           {/* Sidebar */}
           <aside className="lg:col-span-4">
             {/* Top Stories */}
-            <div className="mb-8 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <div className="mb-12 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               <h3 className="text-xs font-bold tracking-widest border-b-2 border-black pb-2 mb-4">
                 TOP STORIES
               </h3>
@@ -264,7 +263,7 @@ export default function HomePage() {
       </main>
 
       {/* Editorial Standards Bar */}
-      <section className="bg-black text-white py-12">
+      <section className="bg-gradient-to-br from-gray-900 via-black to-black text-white py-16 my-8 rounded-[2.5rem] mx-4">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="animate-fadeInUp">

@@ -76,8 +76,8 @@
   }
 
   ::selection {
-    background: #2563eb;
-    color: white;
+    background: transparent;
+    color: inherit;
   }
 
   /* News page animations */

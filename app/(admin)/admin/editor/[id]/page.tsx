@@ -1,459 +1,1013 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
-import { createClient } from '@/lib/supabase/client';
-import { saveArticleDraft, publishArticle, unpublishArticle } from '@/app/(public)/actions/articles';
+import { getBlogPostById, updateBlogPost, generateSlug, calculateReadTime, BlogPostFull } from '@/lib/blog-service';
+import { ArticleBlock } from '@/lib/articles-context';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { ImageUploader } from '@/components/ImageUploader';
+import Link from 'next/link';
 
-interface ArticleBlock {
-  id: string;
-  type: 'paragraph' | 'heading' | 'image';
-  content: string;
-}
+const BLOCK_TYPES = [
+  // Content
+  { type: 'summary', label: 'Executive Summary', icon: '📋', category: 'Content' },
+  { type: 'heading', label: 'Section Heading', icon: '📌', category: 'Content' },
+  { type: 'paragraph', label: 'Paragraph', icon: '📝', category: 'Content' },
+  { type: 'quote', label: 'Quote', icon: '💬', category: 'Content' },
+  { type: 'list', label: 'Bullet List', icon: '📝', category: 'Content' },
+  { type: 'numbered-list', label: 'Numbered List', icon: '🔢', category: 'Content' },
+  // Data
+  { type: 'stat-grid', label: 'Statistics Grid', icon: '📊', category: 'Data' },
+  { type: 'key-mechanisms', label: 'Key Points List', icon: '🔑', category: 'Data' },
+  { type: 'timeline', label: 'Timeline', icon: '⏱️', category: 'Data' },
+  { type: 'comparison', label: 'Comparison Table', icon: '⚖️', category: 'Data' },
+  { type: 'data-table', label: 'Data Table', icon: '📊', category: 'Data' },
+  { type: 'chart', label: 'Chart', icon: '📈', category: 'Data' },
+  { type: 'pros-cons', label: 'Pros/Cons List', icon: '⚖️', category: 'Data' },
+  // Media
+  { type: 'image', label: 'Image', icon: '🖼️', category: 'Media' },
+  { type: 'video', label: 'Video Embed', icon: '🎥', category: 'Media' },
+  { type: 'gallery', label: 'Image Gallery', icon: '🖼️', category: 'Media' },
+  { type: 'audio', label: 'Audio Player', icon: '🎧', category: 'Media' },
+  // Social
+  { type: 'twitter', label: 'Twitter/X Embed', icon: '🐦', category: 'Social' },
+  { type: 'instagram', label: 'Instagram Embed', icon: '📸', category: 'Social' },
+  { type: 'tiktok', label: 'TikTok Embed', icon: '🎵', category: 'Social' },
+  { type: 'map', label: 'Map Embed', icon: '🗺️', category: 'Social' },
+  // Interactive
+  { type: 'code', label: 'Code Block', icon: '💻', category: 'Interactive' },
+  { type: 'poll', label: 'Poll', icon: '📊', category: 'Interactive' },
+  { type: 'accordion', label: 'Accordion/FAQ', icon: '❓', category: 'Interactive' },
+  // Special
+  { type: 'callout', label: 'Callout Box', icon: '💡', category: 'Special' },
+  { type: 'divider', label: 'Divider', icon: '➖', category: 'Special' },
+  { type: 'author-bio', label: 'Author Bio', icon: '👤', category: 'Special' },
+  { type: 'related-articles', label: 'Related Articles', icon: '🔗', category: 'Special' },
+  { type: 'newsletter', label: 'Newsletter CTA', icon: '📧', category: 'Special' },
+  { type: 'button', label: 'Button/CTA', icon: '🔘', category: 'Special' },
+  { type: 'file-download', label: 'File Download', icon: '📎', category: 'Special' },
+  { type: 'sources', label: 'Sources', icon: '📚', category: 'Special' },
+];
 
-interface Article {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: any;
-  category: string;
-  author: string;
-  featured: boolean;
-  status: string;
-  published_at: string | null;
-  created_at: string;
-  updated_at: string;
-  image_url: string | null;
-  view_count: number;
-}
+const TEXT_COLORS = [
+  { name: 'Red', value: 'red', class: 'bg-red-500' },
+  { name: 'Blue', value: 'blue', class: 'bg-blue-500' },
+  { name: 'Green', value: 'green', class: 'bg-green-500' },
+  { name: 'Orange', value: 'orange', class: 'bg-orange-500' },
+  { name: 'Purple', value: 'purple', class: 'bg-purple-500' },
+  { name: 'Yellow', value: 'yellow', class: 'bg-yellow-500' },
+  { name: 'Gray', value: 'gray', class: 'bg-gray-500' },
+];
 
-export default function AdminEditorPage() {
-  const params = useParams();
+export default function EditBlogPost({ params }: { params: { id: string } }) {
   const router = useRouter();
-  const id = params.id as string;
-  const supabase = createClient();
-  
-  const [article, setArticle] = useState<Partial<Article> | null>(null);
-  const [content, setContent] = useState('');
-  const [saved, setSaved] = useState<Date | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSaving, setIsSaving] = useState(false);
-  const [isPublishing, setIsPublishing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+  const [title, setTitle] = useState('');
+  const [slug, setSlug] = useState('');
+  const [excerpt, setExcerpt] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagInput, setTagInput] = useState('');
+  const [featuredImage, setFeaturedImage] = useState('');
+  const [blocks, setBlocks] = useState<ArticleBlock[]>([]);
+  const [status, setStatus] = useState<'draft' | 'published'>('draft');
+  const [createdAt, setCreatedAt] = useState('');
+  const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
+  const [draggedBlockId, setDraggedBlockId] = useState<string | null>(null);
+  const [showLinkModal, setShowLinkModal] = useState(false);
+  const [linkUrl, setLinkUrl] = useState('');
+  const [linkText, setLinkText] = useState('');
+  const [currentTextareaId, setCurrentTextareaId] = useState<string | null>(null);
+  const [showColorPicker, setShowColorPicker] = useState<string | null>(null);
+  const textareaRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>({});
 
   useEffect(() => {
     if (!isAuthenticated()) {
       router.push('/admin');
       return;
     }
+    loadPost();
+  }, [router, params.id]);
 
-    loadArticle();
-  }, [id]);
+  const loadPost = async () => {
+    try {
+      const { data, error } = await getBlogPostById(params.id);
+      if (error || !data) {
+        setNotFound(true);
+        return;
+      }
+      setTitle(data.title);
+      setSlug(data.slug);
+      setExcerpt(data.excerpt || '');
+      setAuthor(data.author);
+      setCategory(data.category);
+      setTags(data.tags || []);
+      setFeaturedImage(data.featured_image || '');
+      setBlocks(data.blocks || []);
+      setStatus(data.status);
+      setCreatedAt(data.created_at);
+    } catch (error) {
+      console.error('Error loading post:', error);
+      setNotFound(true);
+    } finally {
+      setIsFetching(false);
+    }
+  };
 
-  const loadArticle = async () => {
-    if (id === 'new') {
-      setArticle({
-        title: '',
-        slug: '',
-        excerpt: '',
-        content: [],
-        category: 'News',
-        status: 'draft',
-        author: 'ObjectWire Editorial',
-      });
-      setContent('');
-      setIsLoading(false);
+  const handleTitleChange = (newTitle: string) => {
+    setTitle(newTitle);
+    setSlug(generateSlug(newTitle));
+  };
+
+  const addBlock = (type: string) => {
+    const newBlock: ArticleBlock = {
+      id: `block-${Date.now()}`,
+      type: type as ArticleBlock['type'],
+      content: '',
+      ...(type === 'stat-grid' && { stats: [{ value: '', label: '', color: 'blue' }] }),
+      ...(type === 'key-mechanisms' && { items: [{ num: '01', title: '', desc: '' }] }),
+      ...(type === 'sources' && { sources: [''] }),
+      ...(type === 'timeline' && { items: [{ num: 'Jan 2026', title: '', desc: '' }] }),
+      ...(type === 'comparison' && { content: 'Column 1|Column 2', items: [{ num: '', title: '', desc: '' }] }),
+      ...(type === 'accordion' && { items: [{ num: '', title: '', desc: '' }] }),
+      ...(type === 'pros-cons' && { items: [{ num: 'pro', title: '', desc: '' }] }),
+      ...(type === 'data-table' && { tableData: { headers: ['Column 1', 'Column 2'], rows: [['', '']] } }),
+      ...(type === 'gallery' && { galleryImages: [{ url: '', caption: '' }] }),
+      ...(type === 'poll' && { pollOptions: [{ text: '', votes: 0 }] }),
+      ...(type === 'related-articles' && { relatedLinks: [{ title: '', url: '', image: '' }] }),
+      ...(type === 'code' && { language: 'javascript' }),
+      ...(type === 'chart' && { chartType: 'bar' }),
+      ...(type === 'button' && { buttonStyle: 'primary', buttonUrl: '' }),
+      ...(type === 'author-bio' && { authorName: '', authorImage: '', authorBio: '' }),
+    };
+    setBlocks([...blocks, newBlock]);
+    setActiveBlockId(newBlock.id);
+  };
+
+  const updateBlock = (id: string, updates: Partial<ArticleBlock>) => {
+    setBlocks(blocks.map(block => 
+      block.id === id ? { ...block, ...updates } : block
+    ));
+  };
+
+  const deleteBlock = (id: string) => {
+    if (!confirm('Delete this block?')) return;
+    setBlocks(blocks.filter(block => block.id !== id));
+    if (activeBlockId === id) setActiveBlockId(null);
+  };
+
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, blockId: string) => {
+    setDraggedBlockId(blockId);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetBlockId: string) => {
+    e.preventDefault();
+    if (!draggedBlockId || draggedBlockId === targetBlockId) return;
+
+    const draggedIndex = blocks.findIndex(b => b.id === draggedBlockId);
+    const targetIndex = blocks.findIndex(b => b.id === targetBlockId);
+
+    const newBlocks = [...blocks];
+    const [draggedBlock] = newBlocks.splice(draggedIndex, 1);
+    newBlocks.splice(targetIndex, 0, draggedBlock);
+
+    setBlocks(newBlocks);
+    setDraggedBlockId(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedBlockId(null);
+  };
+
+  // Link insertion functions
+  const openLinkModal = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    if (textarea) {
+      const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+      setLinkText(selectedText);
+    }
+    setCurrentTextareaId(blockId);
+    setLinkUrl('');
+    setShowLinkModal(true);
+  };
+
+  const insertLink = () => {
+    if (!currentTextareaId || !linkUrl) return;
+    
+    const block = blocks.find(b => b.id === currentTextareaId);
+    if (!block) return;
+
+    const textarea = textareaRefs.current[currentTextareaId];
+    const content = block.content || '';
+    
+    // Format: [link text](url)
+    const linkMarkdown = `[${linkText || linkUrl}](${linkUrl})`;
+    
+    if (textarea) {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const newContent = content.substring(0, start) + linkMarkdown + content.substring(end);
+      updateBlock(currentTextareaId, { content: newContent });
+    } else {
+      updateBlock(currentTextareaId, { content: content + ' ' + linkMarkdown });
+    }
+    
+    setShowLinkModal(false);
+    setLinkUrl('');
+    setLinkText('');
+    setCurrentTextareaId(null);
+  };
+
+  const insertBold = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `**${selectedText || 'bold text'}**` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertItalic = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `*${selectedText || 'italic text'}*` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertUnderline = (blockId: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `__${selectedText || 'underlined text'}__` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const insertColor = (blockId: string, color: string) => {
+    const textarea = textareaRefs.current[blockId];
+    const block = blocks.find(b => b.id === blockId);
+    if (!textarea || !block) return;
+    
+    const content = block.content || '';
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = content.substring(start, end);
+    
+    const newContent = content.substring(0, start) + `{color:${color}}${selectedText || 'colored text'}{/color}` + content.substring(end);
+    updateBlock(blockId, { content: newContent });
+  };
+
+  const addTag = () => {
+    if (tagInput.trim() && !tags.includes(tagInput.trim())) {
+      setTags([...tags, tagInput.trim()]);
+      setTagInput('');
+    }
+  };
+
+  const savePost = async (newStatus: 'draft' | 'published') => {
+    if (!title.trim()) {
+      alert('Please enter a title');
+      return;
+    }
+    if (blocks.length === 0) {
+      alert('Please add at least one content block');
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('id', id)
-        .single();
+      const { data, error } = await updateBlogPost(params.id, {
+        title,
+        slug,
+        excerpt,
+        author,
+        category,
+        tags,
+        read_time: calculateReadTime(blocks),
+        blocks,
+        status: newStatus,
+        featured_image: featuredImage,
+      });
 
       if (error) throw error;
-
-      if (data) {
-        setArticle(data);
-        // Convert blocks to plain text for editing
-        if (data.content && Array.isArray(data.content)) {
-          const text = data.content
-            .map((block: ArticleBlock) => block.content)
-            .join('\n\n');
-          setContent(text);
-        }
-      }
-    } catch (error) {
-      console.error('Failed to load article:', error);
-      alert('Failed to load article.');
+      alert(`Post ${newStatus === 'published' ? 'published' : 'saved'} successfully!`);
       router.push('/admin/dashboard');
+    } catch (error) {
+      console.error('Error saving post:', error);
+      alert('Error saving post. Check Supabase configuration.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const generateSlug = (title: string) => {
-    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const renderBlockEditor = (block: ArticleBlock) => {
+    switch (block.type) {
+      case 'paragraph':
+        return (
+          <div className="space-y-2">
+            {/* Formatting Toolbar */}
+            <div className="flex items-center gap-1 p-2 bg-gray-100 rounded-t border border-b-0 border-gray-200 flex-wrap">
+              <button
+                type="button"
+                onClick={() => insertBold(block.id)}
+                className="px-3 py-1 text-sm font-bold hover:bg-gray-200 rounded transition-colors"
+                title="Bold (**text**)"
+              >
+                B
+              </button>
+              <button
+                type="button"
+                onClick={() => insertItalic(block.id)}
+                className="px-3 py-1 text-sm italic hover:bg-gray-200 rounded transition-colors"
+                title="Italic (*text*)"
+              >
+                I
+              </button>
+              <button
+                type="button"
+                onClick={() => insertUnderline(block.id)}
+                className="px-3 py-1 text-sm underline hover:bg-gray-200 rounded transition-colors"
+                title="Underline (__text__)"
+              >
+                U
+              </button>
+              <div className="w-px h-5 bg-gray-300 mx-1"></div>
+              <button
+                type="button"
+                onClick={() => openLinkModal(block.id)}
+                className="px-3 py-1 text-sm text-blue-600 hover:bg-gray-200 rounded transition-colors flex items-center gap-1"
+                title="Insert Link"
+              >
+                🔗 Link
+              </button>
+              <div className="w-px h-5 bg-gray-300 mx-1"></div>
+              {/* Color Picker */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowColorPicker(showColorPicker === block.id ? null : block.id)}
+                  className="px-3 py-1 text-sm hover:bg-gray-200 rounded transition-colors flex items-center gap-1"
+                  title="Text Color"
+                >
+                  🎨 Color
+                </button>
+                {showColorPicker === block.id && (
+                  <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-10">
+                    <div className="grid grid-cols-4 gap-1">
+                      {TEXT_COLORS.map((color) => (
+                        <button
+                          key={color.value}
+                          type="button"
+                          onClick={() => {
+                            insertColor(block.id, color.value);
+                            setShowColorPicker(null);
+                          }}
+                          className={`w-6 h-6 rounded ${color.class} hover:ring-2 hover:ring-offset-1 hover:ring-gray-400`}
+                          title={color.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex-1"></div>
+              <span className="text-xs text-gray-400">
+                Supports: bold, italic, underline, links, colors
+              </span>
+            </div>
+            <Textarea
+              ref={(el) => { textareaRefs.current[block.id] = el; }}
+              placeholder="Paragraph content... Paste text with links - they will be preserved. Use the toolbar for formatting."
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+              rows={4}
+              className="font-mono text-sm rounded-t-none"
+            />
+          </div>
+        );
+
+      case 'summary':
+      case 'callout':
+        return (
+          <Textarea
+            placeholder={block.type === 'summary' ? 'Write executive summary... Use **bold** for key terms.' : 
+                        'Important note or callout...'}
+            value={block.content}
+            onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+            rows={4}
+            className="font-mono text-sm"
+          />
+        );
+
+      case 'heading':
+        return (
+          <div className="space-y-3">
+            <select
+              value={block.level || 2}
+              onChange={(e) => updateBlock(block.id, { level: parseInt(e.target.value) })}
+              className="w-full h-10 px-3 rounded-md border border-gray-300"
+            >
+              <option value="1">Heading 1 (H1)</option>
+              <option value="2">Heading 2 (H2)</option>
+              <option value="3">Heading 3 (H3)</option>
+              <option value="4">Heading 4 (H4)</option>
+              <option value="5">Heading 5 (H5)</option>
+              <option value="6">Heading 6 (H6)</option>
+            </select>
+            <Input
+              placeholder="Section heading..."
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+              className="text-lg font-semibold"
+            />
+          </div>
+        );
+
+      case 'stat-grid':
+        return (
+          <div className="space-y-3">
+            {(block.stats || []).map((stat, idx) => (
+              <div key={idx} className="grid grid-cols-3 gap-2">
+                <Input
+                  placeholder="Value (e.g. $100M)"
+                  value={stat.value}
+                  onChange={(e) => {
+                    const newStats = [...(block.stats || [])];
+                    newStats[idx] = { ...newStats[idx], value: e.target.value };
+                    updateBlock(block.id, { stats: newStats });
+                  }}
+                />
+                <Input
+                  placeholder="Label"
+                  value={stat.label}
+                  onChange={(e) => {
+                    const newStats = [...(block.stats || [])];
+                    newStats[idx] = { ...newStats[idx], label: e.target.value };
+                    updateBlock(block.id, { stats: newStats });
+                  }}
+                />
+                <select
+                  value={stat.color}
+                  onChange={(e) => {
+                    const newStats = [...(block.stats || [])];
+                    newStats[idx] = { ...newStats[idx], color: e.target.value };
+                    updateBlock(block.id, { stats: newStats });
+                  }}
+                  className="h-10 px-3 rounded-md border border-gray-300"
+                >
+                  <option value="blue">Blue</option>
+                  <option value="green">Green</option>
+                  <option value="red">Red</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="purple">Purple</option>
+                </select>
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { 
+                stats: [...(block.stats || []), { value: '', label: '', color: 'blue' }] 
+              })}
+            >
+              + Add Stat
+            </Button>
+          </div>
+        );
+
+      case 'key-mechanisms':
+        return (
+          <div className="space-y-3">
+            {(block.items || []).map((item, idx) => (
+              <div key={idx} className="grid grid-cols-12 gap-2">
+                <Input
+                  placeholder="01"
+                  value={item.num}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], num: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-1"
+                />
+                <Input
+                  placeholder="Title"
+                  value={item.title}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], title: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-4"
+                />
+                <Input
+                  placeholder="Description"
+                  value={item.desc}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], desc: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-7"
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const num = String((block.items?.length || 0) + 1).padStart(2, '0');
+                updateBlock(block.id, { 
+                  items: [...(block.items || []), { num, title: '', desc: '' }] 
+                });
+              }}
+            >
+              + Add Point
+            </Button>
+          </div>
+        );
+
+      case 'quote':
+        return (
+          <Textarea
+            placeholder="Enter quote text..."
+            value={block.content}
+            onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+            rows={3}
+            className="font-serif italic"
+          />
+        );
+
+      case 'list':
+        return (
+          <Textarea
+            placeholder="Enter list items (one per line)..."
+            value={block.content}
+            onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+            rows={6}
+            className="font-mono text-sm"
+          />
+        );
+
+      case 'image':
+        return (
+          <div className="space-y-3">
+            <ImageUploader
+              currentUrl={block.content}
+              onUploadComplete={(url) => updateBlock(block.id, { content: url })}
+            />
+            <Input
+              placeholder="Alt text (for accessibility)"
+              value={block.caption || ''}
+              onChange={(e) => updateBlock(block.id, { caption: e.target.value })}
+            />
+            <Input
+              placeholder="Caption (optional)"
+              value={block.credit || ''}
+              onChange={(e) => updateBlock(block.id, { credit: e.target.value })}
+            />
+          </div>
+        );
+
+      case 'video':
+        return (
+          <div className="space-y-3">
+            <Input
+              placeholder="YouTube or Vimeo URL"
+              value={block.content}
+              onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+            />
+            <Input
+              placeholder="Video title/description"
+              value={block.caption || ''}
+              onChange={(e) => updateBlock(block.id, { caption: e.target.value })}
+            />
+          </div>
+        );
+
+      case 'timeline':
+        return (
+          <div className="space-y-3">
+            {(block.items || []).map((item, idx) => (
+              <div key={idx} className="grid grid-cols-12 gap-2 items-center">
+                <Input
+                  placeholder="Date"
+                  value={item.num}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], num: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-3"
+                />
+                <Input
+                  placeholder="Event title"
+                  value={item.title}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], title: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                  className="col-span-9"
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { 
+                items: [...(block.items || []), { num: 'Jan 2026', title: '', desc: '' }] 
+              })}
+            >
+              + Add Event
+            </Button>
+          </div>
+        );
+
+      case 'comparison':
+        return (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2 mb-2">
+              <Input placeholder="Column 1 Header" className="font-semibold" disabled value="Feature" />
+              <Input placeholder="Column 2 Header" className="font-semibold" disabled value="Details" />
+            </div>
+            {(block.items || []).map((item, idx) => (
+              <div key={idx} className="grid grid-cols-2 gap-2">
+                <Input
+                  placeholder="Feature name"
+                  value={item.title}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], title: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                />
+                <Input
+                  placeholder="Description"
+                  value={item.desc}
+                  onChange={(e) => {
+                    const newItems = [...(block.items || [])];
+                    newItems[idx] = { ...newItems[idx], desc: e.target.value };
+                    updateBlock(block.id, { items: newItems });
+                  }}
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { 
+                items: [...(block.items || []), { num: '', title: '', desc: '' }] 
+              })}
+            >
+              + Add Row
+            </Button>
+          </div>
+        );
+
+      case 'sources':
+        return (
+          <div className="space-y-2">
+            {(block.sources || []).map((source, idx) => (
+              <Input
+                key={idx}
+                placeholder="Source reference..."
+                value={source}
+                onChange={(e) => {
+                  const newSources = [...(block.sources || [])];
+                  newSources[idx] = e.target.value;
+                  updateBlock(block.id, { sources: newSources });
+                }}
+              />
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => updateBlock(block.id, { sources: [...(block.sources || []), ''] })}
+            >
+              + Add Source
+            </Button>
+          </div>
+        );
+
+      default:
+        return null;
+    }
   };
 
-  const contentToBlocks = (text: string): ArticleBlock[] => {
-    const paragraphs = text.split('\n\n').filter(p => p.trim());
-    return paragraphs.map((para, idx) => ({
-      id: `block-${idx}`,
-      type: 'paragraph' as const,
-      content: para.trim(),
-    }));
-  };
-
-  const handleSave = async () => {
-    if (!article || !article.title || !article.slug) {
-      alert('Please add a title before saving');
-      return;
-    }
-
-    setIsSaving(true);
-    const blocks = contentToBlocks(content);
-
-    const articleData = {
-      title: article.title,
-      slug: article.slug,
-      excerpt: article.excerpt || '',
-      content: blocks,
-      category: article.category || 'News',
-      author: article.author || 'ObjectWire Editorial',
-      featured: article.featured || false,
-      image_url: article.image_url || null,
-    };
-
-    try {
-      const result = await saveArticleDraft(id, articleData);
-      
-      if (result.success) {
-        setSaved(new Date());
-        
-        // If it was a new article, redirect to its UUID-based editor
-        if (id === 'new' && result.article) {
-          router.push(`/admin/editor/${result.article.id}`);
-        } else {
-          // After saving existing article, refresh and optionally go back to dashboard
-          await loadArticle();
-          setTimeout(() => {
-            router.push('/admin/dashboard');
-          }, 1500);
-        }
-      } else {
-        alert(result.error || 'Failed to save article');
-      }
-    } catch (error) {
-      console.error('Failed to save article:', error);
-      alert('Failed to save article.');
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const handlePublish = async () => {
-    if (!article?.id || id === 'new') {
-      alert('Please save the article as a draft first before publishing');
-      return;
-    }
-
-    if (!confirm('Are you sure you want to publish this article? It will be visible to the public.')) {
-      return;
-    }
-
-    setIsPublishing(true);
-
-    try {
-      const result = await publishArticle(article.id);
-      
-      if (result.success) {
-        alert('Article published successfully! The public site will refresh shortly.');
-        await loadArticle(); // Reload to show updated status
-      } else {
-        alert(result.error || 'Failed to publish article');
-      }
-    } catch (error) {
-      console.error('Failed to publish article:', error);
-      alert('Failed to publish article.');
-    } finally {
-      setIsPublishing(false);
-    }
-  };
-
-  const handleUnpublish = async () => {
-    if (!article?.id || id === 'new') {
-      return;
-    }
-
-    if (!confirm('Are you sure you want to unpublish this article? It will be hidden from the public.')) {
-      return;
-    }
-
-    setIsPublishing(true);
-
-    try {
-      const result = await unpublishArticle(article.id);
-      
-      if (result.success) {
-        alert('Article unpublished successfully!');
-        await loadArticle(); // Reload to show updated status
-      } else {
-        alert(result.error || 'Failed to unpublish article');
-      }
-    } catch (error) {
-      console.error('Failed to unpublish article:', error);
-      alert('Failed to unpublish article.');
-    } finally {
-      setIsPublishing(false);
-    }
-  };
-
-  if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  if (notFound) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Card className="max-w-md">
+          <CardContent className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-2">Post Not Found</h2>
+            <p className="text-gray-600 mb-6">The post you're looking for doesn't exist.</p>
+            <Link href="/admin/dashboard">
+              <Button>Back to Dashboard</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
-  if (!article) {
-    return <div className="min-h-screen flex items-center justify-center">Article not found</div>;
+  if (isFetching) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Floating Header Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm">
-        <div className="max-w-5xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link 
-              href="/admin/dashboard" 
-              className="inline-flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              <span className="font-medium">Back</span>
+            <Link href="/admin/dashboard">
+              <Button variant="ghost" size="sm">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back
+              </Button>
             </Link>
-            {saved && (
-              <div className="flex items-center gap-1.5 text-xs text-green-600 bg-green-50 px-3 py-1.5 rounded-full animate-fade-in">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="font-medium">Saved {saved.toLocaleTimeString()}</span>
+            <div>
+              <h1 className="text-xl font-bold">Edit Post</h1>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <span className={`px-2 py-0.5 rounded-full text-xs ${
+                  status === 'published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                }`}>
+                  {status}
+                </span>
+                <span>•</span>
+                <span>{blocks.length} blocks</span>
               </div>
-            )}
-            {id !== 'new' && article.status === 'draft' && (
-              <div className="flex items-center gap-1.5 text-xs text-yellow-600 bg-yellow-50 px-3 py-1.5 rounded-full">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                </svg>
-                <span className="font-medium">Draft</span>
-              </div>
-            )}
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleSave}
-              disabled={isSaving}
-              className="flex items-center gap-2 px-5 py-1.5 text-sm bg-gray-100 text-gray-800 font-medium rounded-lg hover:bg-gray-200 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-              </svg>
-              <span>{isSaving ? 'Saving...' : 'Save Draft'}</span>
-            </button>
-            
-            {id !== 'new' && article.status === 'draft' && (
-              <button
-                onClick={handlePublish}
-                disabled={isPublishing}
-                className="flex items-center gap-2 px-5 py-1.5 text-sm bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-                <span>{isPublishing ? 'Publishing...' : 'Publish'}</span>
-              </button>
-            )}
-            
-            {id !== 'new' && article.status === 'published' && (
-              <button
-                onClick={handleUnpublish}
-                disabled={isPublishing}
-                className="flex items-center gap-2 px-5 py-1.5 text-sm bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all shadow-sm hover:shadow-md disabled:opacity-50"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-                <span>{isPublishing ? 'Unpublishing...' : 'Unpublish'}</span>
-              </button>
-            )}
+          <div className="flex gap-2">
+            <Button onClick={() => savePost('draft')} variant="outline" disabled={isLoading}>
+              Save Draft
+            </Button>
+            <Button onClick={() => savePost('published')} disabled={isLoading}>
+              {isLoading ? 'Publishing...' : 'Publish'}
+            </Button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main Content Area */}
-      <div className="pt-20 pb-20">
-        <div className="max-w-3xl mx-auto px-6">
-          
-          {/* Category Selector with Modern Pills */}
-          <div className="mb-8 mt-8">
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-              Category
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {['Technology', 'Business', 'Politics', 'News', 'Education', 'Crime', 'Investigation'].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setArticle(prev => ({ ...prev, category: cat }))}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                    article.category === cat
-                      ? 'bg-black text-white shadow-md scale-105'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+      <main className="max-w-6xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-3 gap-6">
+          {/* Main Editor */}
+          <div className="col-span-2 space-y-6">
+            {/* Post Details */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Post Details</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="title">Meta Title *</Label>
+                  <Input
+                    id="title"
+                    placeholder="Enter SEO-optimized title (50-60 characters)..."
+                    value={title}
+                    onChange={(e) => handleTitleChange(e.target.value)}
+                    className="text-lg font-medium"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">{title.length}/60 characters</p>
+                </div>
+                <div>
+                  <Label htmlFor="slug">URL Slug (supports nested paths)</Label>
+                  <Input
+                    id="slug"
+                    placeholder="technology/ai-news or iran/nuclear-deal"
+                    value={slug}
+                    onChange={(e) => setSlug(e.target.value)}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">URL: /{slug || 'your-slug'}</p>
+                </div>
+                <div>
+                  <Label htmlFor="excerpt">Meta Description</Label>
+                  <Textarea
+                    id="excerpt"
+                    placeholder="SEO-optimized description (150-160 characters)..."
+                    value={excerpt}
+                    onChange={(e) => setExcerpt(e.target.value)}
+                    rows={2}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">{excerpt.length}/160 characters</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="author">Author</Label>
+                    <Input
+                      id="author"
+                      value={author}
+                      onChange={(e) => setAuthor(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="category">Category</Label>
+                    <select
+                      id="category"
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                      className="w-full h-10 px-3 rounded-md border border-gray-300"
+                    >
+                      <option>Technology</option>
+                      <option>Business</option>
+                      <option>Science</option>
+                      <option>Politics</option>
+                      <option>Culture</option>
+                      <option>Opinion</option>
+                      <option>Analysis</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="featuredImage">Featured Image</Label>
+                  <ImageUploader
+                    currentUrl={featuredImage}
+                    onUploadComplete={setFeaturedImage}
+                  />
+                </div>
+                <div>
+                  <Label>Tags</Label>
+                  <div className="flex gap-2 mb-2">
+                    <Input
+                      placeholder="Add tag..."
+                      value={tagInput}
+                      onChange={(e) => setTagInput(e.target.value)}
+                      onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
+                    />
+                    <Button type="button" onClick={addTag} variant="outline">Add</Button>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm flex items-center gap-2">
+                        {tag}
+                        <button onClick={() => setTags(tags.filter(t => t !== tag))}>×</button>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                {createdAt && (
+                  <div className="text-sm text-gray-500">
+                    Created: {new Date(createdAt).toLocaleString()}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Content Blocks */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Content Blocks</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {blocks.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">
+                    <p>No content blocks yet. Add your first block from the sidebar.</p>
+                  </div>
+                ) : (
+                  blocks.map((block, index) => (
+                    <div
+                      key={block.id}
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, block.id)}
+                      onDragOver={handleDragOver}
+                      onDrop={(e) => handleDrop(e, block.id)}
+                      onDragEnd={handleDragEnd}
+                      className={`border rounded-lg p-4 cursor-move ${
+                        activeBlockId === block.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+                      } ${draggedBlockId === block.id ? 'opacity-50' : ''}`}
+                      onClick={() => setActiveBlockId(block.id)}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg cursor-grab">⋮⋮</span>
+                          <span className="text-lg">{BLOCK_TYPES.find(b => b.type === block.type)?.icon}</span>
+                          <span className="font-medium text-sm">{BLOCK_TYPES.find(b => b.type === block.type)?.label}</span>
+                          <span className="text-xs text-gray-400">#{index + 1}</span>
+                        </div>
+                        <div className="flex gap-1">
+                          <Button variant="ghost" size="sm" onClick={(e) => { e.stopPropagation(); deleteBlock(block.id); }} className="text-red-600">×</Button>
+                        </div>
+                      </div>
+                      {renderBlockEditor(block)}
+                    </div>
+                  ))
+                )}
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Title with Larger, More Prominent Design */}
-          <div className="mb-8">
-            <textarea
-              value={article.title}
-              onChange={(e) => {
-                const title = e.target.value;
-                setArticle(prev => ({
-                  ...prev,
-                  title,
-                  slug: generateSlug(title),
-                }));
-              }}
-              placeholder="Give your story a title..."
-              rows={2}
-              className="w-full text-4xl md:text-5xl font-bold leading-tight tracking-tight border-none outline-none resize-none placeholder:text-gray-200 focus:placeholder:text-gray-300 transition-all"
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                textRendering: 'optimizeLegibility'
-              }}
-            />
+          {/* Sidebar */}
+          <div className="space-y-6">
+            <Card className="sticky top-24">
+              <CardHeader>
+                <CardTitle>Add Block</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {BLOCK_TYPES.map((blockType) => (
+                  <Button
+                    key={blockType.type}
+                    variant="outline"
+                    className="w-full justify-start gap-2"
+                    onClick={() => addBlock(blockType.type)}
+                  >
+                    <span>{blockType.icon}</span>
+                    {blockType.label}
+                  </Button>
+                ))}
+              </CardContent>
+            </Card>
           </div>
+        </div>
+      </main>
 
-          {/* Elegant Metadata Bar */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 pb-6 mb-8 border-b border-gray-200">
-            <div className="flex items-center gap-2 group">
-              <svg className="w-4 h-4 text-gray-300 group-hover:text-gray-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <input
-                type="text"
-                value={article.author}
-                onChange={(e) => setArticle(prev => ({ ...prev, author: e.target.value }))}
-                className="font-medium text-gray-700 border-none outline-none bg-transparent hover:text-gray-900 transition-colors"
-                placeholder="Author name"
-              />
-            </div>
-            <span className="text-gray-200">•</span>
-            <div className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <time className="text-gray-500">{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
-            </div>
-            <span className="text-gray-200">•</span>
-            <div className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-gray-500">~5 min read</span>
-            </div>
-          </div>
-
-          {/* Excerpt with Modern Card Design */}
-          <div className="mb-10">
-            <label className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Excerpt
-            </label>
-            <div className="relative">
-              <textarea
-                value={article.excerpt}
-                onChange={(e) => setArticle(prev => ({ ...prev, excerpt: e.target.value }))}
-                placeholder="Write a compelling summary that draws readers in..."
-                rows={3}
-                className="w-full text-base text-gray-700 leading-relaxed bg-gray-50 border-2 border-transparent px-5 py-4 rounded-xl resize-none focus:outline-none focus:bg-white focus:border-gray-900 transition-all placeholder:text-gray-300"
-              />
-              <div className="absolute bottom-3 right-4 text-xs text-gray-300">
-                {article.excerpt?.length || 0} characters
-              </div>
-            </div>
-          </div>
-
-          {/* Main Content Editor - Distraction Free */}
-          <div className="mb-10">
-            <label className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg>
-              Article Content
-            </label>
-            <div className="relative group">
-              <textarea
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                placeholder="Start writing your story...
-
-Separate paragraphs with blank lines. Focus on clarity, accuracy, and compelling narrative. This is where great journalism happens."
-                rows={20}
-                className="w-full text-lg leading-relaxed text-gray-800 bg-white border-2 border-gray-100 px-8 py-6 rounded-2xl resize-none focus:outline-none focus:border-gray-900 transition-all font-serif placeholder:text-gray-200 shadow-sm hover:shadow-md focus:shadow-lg"
-                style={{ 
-                  minHeight: '600px',
-                  lineHeight: '1.8'
-                }}
-              />
-              {/* Word Count Overlay */}
-              <div className="absolute bottom-4 right-6 text-xs text-gray-300 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100">
-                {content.split(/\s+/).filter(w => w.length > 0).length} words
-              </div>
-            </div>
-            <div className="mt-3 flex items-start gap-2 text-xs text-gray-400 bg-blue-50 border border-blue-100 rounded-lg p-3">
-              <svg className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="leading-relaxed">
-                <strong>Writing tip:</strong> Separate paragraphs with blank lines for better readability. Your content will be automatically formatted for the web.
-              </span>
-            </div>
-          </div>
-
-          {/* URL Slug - Sleek Design */}
-          {article.title && (
-            <div className="mb-8 p-5 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
-              <label className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                </svg>
-                Article URL
-              </label>
-              <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg border border-gray-200">
-                <span className="text-sm text-gray-400 font-mono">objectwire.com/blog/</span>
-                <input
-                  type="text"
-                  value={article.slug}
-                  onChange={(e) => setArticle(prev => ({ ...prev, slug: generateSlug(e.target.value) }))}
-                  className="flex-1 text-sm font-mono text-gray-700 bg-transparent border-none outline-none"
+      {/* Link Modal */}
+      {showLinkModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+            <h3 className="text-lg font-bold mb-4">Insert Link</h3>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="linkText">Link Text</Label>
+                <Input
+                  id="linkText"
+                  placeholder="Text to display"
+                  value={linkText}
+                  onChange={(e) => setLinkText(e.target.value)}
                 />
               </div>
+              <div>
+                <Label htmlFor="linkUrl">URL</Label>
+                <Input
+                  id="linkUrl"
+                  placeholder="https://example.com"
+                  value={linkUrl}
+                  onChange={(e) => setLinkUrl(e.target.value)}
+                />
+              </div>
+              <div className="flex gap-3 justify-end pt-2">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setShowLinkModal(false);
+                    setLinkUrl('');
+                    setLinkText('');
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button onClick={insertLink} disabled={!linkUrl}>
+                  Insert Link
+                </Button>
+              </div>
             </div>
-          )}
-
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

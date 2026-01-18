@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Specifically allow Google News crawler
+User-agent: Googlebot-News
+Allow: /
+
+# Sitemap
+Sitemap: https://objectwire.org/sitemap.xml

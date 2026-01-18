@@ -3,6 +3,9 @@ import "../globals.css";
 import { ArticlesProvider } from "@/lib/articles-context-simple";
 import { AuthProvider } from "@/lib/auth-context";
 
+// Force dynamic rendering for all admin pages
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: {
     default: "Admin Dashboard | ObjectWire",

@@ -151,6 +151,13 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
       return;
     }
 
+    if (!supabase) {
+      console.warn('⚠️  Supabase not configured - using sample data');
+      setArticles(sampleArticles);
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data, error } = await supabase
         .from('articles')

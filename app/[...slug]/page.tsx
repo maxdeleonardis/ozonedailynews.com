@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getBlogPostBySlug, BlogPostFull } from '@/lib/blog-service';
 import { ArticleRenderer } from '@/components/article-renderer';
-import { generateSEOMetadata, generateArticleSchema } from '@/lib/seo';
+import { generateArticleMetadata, generateArticleSchema } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,37 +23,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
-  const seo = generateSEOMetadata(post, baseUrl);
   
-  return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
-    authors: [{ name: seo.author || 'ObjectWire Editorial Team' }],
-    openGraph: {
-      title: seo.title,
-      description: seo.description,
-      type: 'article',
-      publishedTime: seo.publishedTime,
-      modifiedTime: seo.modifiedTime,
-      authors: [seo.author || 'ObjectWire Editorial Team'],
-      tags: seo.tags,
-      images: [
-        {
-          url: seo.ogImage || '',
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: seo.title,
-      description: seo.description,
-      images: [seo.ogImage || ''],
-    },
-  };
+  return generateArticleMetadata({
+    title: post.meta_title || post.title,
+    description: post.meta_description || post.excerpt || '',
+    keywords: post.tags,
+    canonical: `${baseUrl}/${post.slug}`,
+    ogImage: post.featured_image || undefined,
+    publishedTime: post.published_at || post.created_at,
+    modifiedTime: post.updated_at,
+    author: post.author,
+    section: post.category,
+    tags: post.tags,
+  });
 }
 
 export default async function DynamicBlogPost({ params }: Props) {
@@ -65,7 +47,17 @@ export default async function DynamicBlogPost({ params }: Props) {
   }
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
-  const schema = generateArticleSchema(post, baseUrl);
+  const schema = generateArticleSchema({
+    title: post.title,
+    description: post.excerpt || '',
+    author: post.author,
+    publishedTime: post.published_at || post.created_at,
+    modifiedTime: post.updated_at,
+    imageUrl: post.featured_image || undefined,
+    articleUrl: `${baseUrl}/${post.slug}`,
+    section: post.category,
+    keywords: post.tags,
+  });
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">

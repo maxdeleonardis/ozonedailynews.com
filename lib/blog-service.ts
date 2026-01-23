@@ -1,6 +1,14 @@
 import { supabase, BlogPost } from './supabase';
 import { ArticleBlock } from './articles-context';
 
+// Helper to check supabase availability
+function ensureSupabase() {
+  if (!supabase) {
+    throw new Error('Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.');
+  }
+  return supabase;
+}
+
 export interface BlogPostInput {
   title: string;
   slug: string;
@@ -42,7 +50,8 @@ export interface BlogPostFull {
 // Create a new blog post
 export async function createBlogPost(post: BlogPostInput): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
-    const { data, error } = await supabase
+    const db = ensureSupabase();
+    const { data, error } = await db
       .from('blog_posts')
       .insert({
         title: post.title,
@@ -79,7 +88,7 @@ export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): 
     
     // Set published_at if publishing for the first time
     if (post.status === 'published') {
-      const { data: existing } = await supabase
+      const { data: existing } = await ensureSupabase()
         .from('blog_posts')
         .select('published_at')
         .eq('id', id)
@@ -90,7 +99,7 @@ export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): 
       }
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await ensureSupabase()
       .from('blog_posts')
       .update(updateData)
       .eq('id', id)
@@ -108,7 +117,7 @@ export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): 
 // Delete a blog post
 export async function deleteBlogPost(id: string): Promise<{ error: Error | null }> {
   try {
-    const { error } = await supabase
+    const { error } = await ensureSupabase()
       .from('blog_posts')
       .delete()
       .eq('id', id);
@@ -124,7 +133,7 @@ export async function deleteBlogPost(id: string): Promise<{ error: Error | null 
 // Get all blog posts (for admin)
 export async function getAllBlogPosts(): Promise<{ data: BlogPostFull[] | null; error: Error | null }> {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await ensureSupabase()
       .from('blog_posts')
       .select('*')
       .order('created_at', { ascending: false });
@@ -140,7 +149,7 @@ export async function getAllBlogPosts(): Promise<{ data: BlogPostFull[] | null; 
 // Get published blog posts only
 export async function getPublishedBlogPosts(): Promise<{ data: BlogPostFull[] | null; error: Error | null }> {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await ensureSupabase()
       .from('blog_posts')
       .select('*')
       .eq('status', 'published')
@@ -157,7 +166,7 @@ export async function getPublishedBlogPosts(): Promise<{ data: BlogPostFull[] | 
 // Get a single blog post by ID
 export async function getBlogPostById(id: string): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await ensureSupabase()
       .from('blog_posts')
       .select('*')
       .eq('id', id)
@@ -174,7 +183,7 @@ export async function getBlogPostById(id: string): Promise<{ data: BlogPostFull 
 // Get a single blog post by slug (supports nested slugs)
 export async function getBlogPostBySlug(slug: string): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await ensureSupabase()
       .from('blog_posts')
       .select('*')
       .eq('slug', slug)
@@ -192,7 +201,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{ data: BlogPostF
 // Check if a slug is available
 export async function isSlugAvailable(slug: string, excludeId?: string): Promise<boolean> {
   try {
-    let query = supabase
+    let query = ensureSupabase()
       .from('blog_posts')
       .select('id')
       .eq('slug', slug);

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function TikTokPage() {
   return (
-    <ArticlePage>
+    <ArticlePage title="TikTok">
       <PageHeader
         title="TikTok"
         subtitle="Short-form video hosting service"
@@ -48,17 +48,17 @@ export default function TikTokPage() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
         <div>
           <TableOfContents
-            sections={[
-              { id: "overview", title: "Overview" },
-              { id: "history", title: "History" },
-              { id: "features", title: "Features and Functionality" },
-              { id: "algorithm", title: "The Algorithm" },
-              { id: "monetization", title: "Monetization" },
-              { id: "demographics", title: "User Demographics" },
-              { id: "controversies", title: "Controversies" },
-              { id: "bans", title: "Bans and Restrictions" },
-              { id: "cultural-impact", title: "Cultural Impact" },
-              { id: "usds-joint-venture", title: "USDS Joint Venture" },
+            items={[
+              { id: "overview", label: "Overview" },
+              { id: "history", label: "History" },
+              { id: "features", label: "Features and Functionality" },
+              { id: "algorithm", label: "The Algorithm" },
+              { id: "monetization", label: "Monetization" },
+              { id: "demographics", label: "User Demographics" },
+              { id: "controversies", label: "Controversies" },
+              { id: "bans", label: "Bans and Restrictions" },
+              { id: "cultural-impact", label: "Cultural Impact" },
+              { id: "usds-joint-venture", label: "USDS Joint Venture" },
             ]}
           />
 
@@ -76,10 +76,9 @@ export default function TikTokPage() {
               influence on popular culture, particularly among younger demographics.
             </p>
 
-            <Quote
-              text="TikTok has fundamentally changed how a generation consumes and creates content. It's not just an app—it's become the primary cultural platform for Gen Z."
-              attribution="Social Media Analyst"
-            />
+            <Quote source="Social Media Analyst">
+              "TikTok has fundamentally changed how a generation consumes and creates content. It's not just an app—it's become the primary cultural platform for Gen Z."
+            </Quote>
           </Section>
 
           <Section id="history" title="History">
@@ -112,8 +111,8 @@ export default function TikTokPage() {
               user growth as people sought entertainment during lockdowns.
             </p>
 
+            <h3 className="text-xl font-bold mt-6 mb-3">TikTok Growth Milestones</h3>
             <DataTable
-              caption="TikTok Growth Milestones"
               headers={["Year", "Milestone", "Monthly Active Users"]}
               rows={[
                 ["2018", "Merger with Musical.ly", "~500 million"],
@@ -201,7 +200,8 @@ export default function TikTokPage() {
               </li>
             </ul>
 
-            <Notice type="info" title="Algorithmic Fairness">
+            <Notice type="info">
+              <p className="font-bold mb-2">Algorithmic Fairness</p>
               <p>
                 Unlike platforms that heavily favor accounts with large followings, TikTok's
                 algorithm gives new creators a chance to go viral. Even users with zero followers
@@ -242,8 +242,8 @@ export default function TikTokPage() {
               TikTok's user base is notably younger compared to other major social media platforms:
             </p>
 
+            <h3 className="text-xl font-bold mt-6 mb-3">TikTok User Demographics by Age (2024)</h3>
             <DataTable
-              caption="TikTok User Demographics by Age (2024)"
               headers={["Age Group", "Percentage of Users", "Notes"]}
               rows={[
                 ["10-19", "25%", "Largest demographic"],
@@ -273,7 +273,8 @@ export default function TikTokPage() {
               under national security laws.
             </p>
 
-            <Notice type="warning" title="Security Concerns">
+            <Notice type="warning">
+              <p className="font-bold mb-2">Security Concerns</p>
               <p>
                 Multiple governments, including the United States, have raised national security
                 concerns about TikTok's data practices. Several countries have banned the app on
@@ -389,7 +390,8 @@ export default function TikTokPage() {
               data security and Chinese influence.
             </p>
 
-            <Notice type="info" title="Latest Development">
+            <Notice type="info">
+              <p className="font-bold mb-2">Latest Development</p>
               <p>
                 For detailed information about the USDS Joint Venture structure, partners, and
                 implications, see the{" "}
@@ -405,7 +407,6 @@ export default function TikTokPage() {
           </Section>
 
           <RelatedLinks
-            title="Related Topics"
             links={[
               { href: "/bytedance", label: "ByteDance" },
               { href: "/social-media", label: "Social Media Platforms" },
@@ -415,7 +416,6 @@ export default function TikTokPage() {
           />
 
           <ExternalLinks
-            title="Official Links"
             links={[
               { href: "https://www.tiktok.com", label: "TikTok Official Website" },
               { href: "https://newsroom.tiktok.com", label: "TikTok Newsroom" },
@@ -430,27 +430,25 @@ export default function TikTokPage() {
             ]}
           />
 
-          <References
-            references={[
-              {
-                id: 1,
-                text: "ByteDance. 'TikTok Company Overview.' TikTok Newsroom. 2024.",
-                href: "https://newsroom.tiktok.com",
-              },
-              {
-                id: 2,
-                text: "Iqbal, Mansoor. 'TikTok Revenue and Usage Statistics (2024).' Business of Apps.",
-              },
-              {
-                id: 3,
-                text: "Anderson, Monica. 'A Majority of Teens Have Used TikTok.' Pew Research Center. 2023.",
-              },
-              {
-                id: 4,
-                text: "Herrman, John. 'How TikTok Is Rewriting the World.' The New York Times. 2019.",
-              },
-            ]}
-          />
+          <References>
+            <ol className="list-decimal list-inside space-y-2">
+              <li>
+                ByteDance. 'TikTok Company Overview.' TikTok Newsroom. 2024.{" "}
+                <a href="https://newsroom.tiktok.com" className="text-blue-600 hover:underline">
+                  Link
+                </a>
+              </li>
+              <li>
+                Iqbal, Mansoor. 'TikTok Revenue and Usage Statistics (2024).' Business of Apps.
+              </li>
+              <li>
+                Anderson, Monica. 'A Majority of Teens Have Used TikTok.' Pew Research Center. 2023.
+              </li>
+              <li>
+                Herrman, John. 'How TikTok Is Rewriting the World.' The New York Times. 2019.
+              </li>
+            </ol>
+          </References>
         </div>
 
         <aside>
@@ -461,7 +459,7 @@ export default function TikTokPage() {
               alt: "TikTok logo",
               caption: "TikTok corporate logo",
             }}
-            rows={[
+            items={[
               { label: "Type", value: "Private" },
               { label: "Industry", value: "Social Media, Technology" },
               { label: "Founded", value: "September 2016 (as Douyin)\nAugust 2018 (global merger)" },

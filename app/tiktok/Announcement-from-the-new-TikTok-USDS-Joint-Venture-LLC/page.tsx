@@ -27,32 +27,26 @@ export const metadata: Metadata = {
 
 export default function TikTokUSDSAnnouncementPage() {
   return (
-    <NewsArticle>
-      <NewsHeader
-        category="BREAKING"
-        categoryColor="red"
-        badges={["Breaking", "Exclusive"]}
-        title="TikTok Announces USDS Joint Venture LLC to Address U.S. Security Concerns"
-        subtitle="Platform unveils unprecedented partnership structure with American tech firms and security experts to maintain U.S. operations"
-        author={{
-          name: "Sarah Chen",
-          avatar: "/avatars/sarah-chen.jpg",
-          role: "Tech Policy Correspondent",
-        }}
-        publishDate="January 23, 2026"
-        readTime="7 min read"
-        heroImage={{
-          src: "/images/tiktok-usds-announcement.jpg",
-          alt: "TikTok USDS Joint Venture press conference",
-          caption: "TikTok executives announce the USDS Joint Venture at Washington D.C. headquarters",
-        }}
-        breadcrumbs={[
-          { href: "/news", label: "News" },
-          { href: "/technology", label: "Technology" },
-          { href: "/tiktok", label: "TikTok" },
-        ]}
-      />
-
+    <NewsArticle
+      title="TikTok Announces USDS Joint Venture LLC to Address U.S. Security Concerns"
+      subtitle="Platform unveils unprecedented partnership structure with American tech firms and security experts to maintain U.S. operations"
+      category="BREAKING"
+      categoryColor="red"
+      publishDate="January 23, 2026"
+      readTime="7 min read"
+      author={{
+        name: "Sarah Chen",
+        avatar: "/avatars/sarah-chen.jpg",
+        role: "Tech Policy Correspondent",
+      }}
+      heroImage={{
+        src: "/images/tiktok-usds-announcement.jpg",
+        alt: "TikTok USDS Joint Venture press conference",
+        caption: "TikTok executives announce the USDS Joint Venture at Washington D.C. headquarters",
+      }}
+      breaking={true}
+      exclusive={true}
+    >
       <p className="text-xl leading-relaxed">
         In a historic move to resolve years of regulatory battles, <strong>TikTok</strong> announced
         today the formation of <strong>TikTok USDS Joint Venture LLC</strong>, a new U.S.-based
@@ -191,41 +185,42 @@ export default function TikTokUSDSAnnouncementPage() {
         national security officials, technology executives, and civil liberties advocates.
       </p>
 
+      <h2 className="text-3xl font-bold mt-12 mb-6">Road to the Joint Venture</h2>
+
       <Timeline
-        title="Road to the Joint Venture"
         events={[
           {
-            date: "August 2020",
+            time: "August 2020",
             title: "Trump Administration Ban Threat",
             description: "President Trump orders ByteDance to sell TikTok or face U.S. ban",
           },
           {
-            date: "November 2020",
+            time: "November 2020",
             title: "Oracle-Walmart Deal Proposed",
             description: "Initial partnership proposal collapses amid legal challenges",
           },
           {
-            date: "June 2021",
+            time: "June 2021",
             title: "Biden Administration Review",
             description: "New administration initiates comprehensive security review",
           },
           {
-            date: "March 2023",
+            time: "March 2023",
             title: "Congressional Hearings",
             description: "CEO Shou Zi Chew testifies before Congress on security concerns",
           },
           {
-            date: "December 2024",
+            time: "December 2024",
             title: "Federal Ban Legislation",
             description: "Congress passes bill requiring divestiture by January 2026",
           },
           {
-            date: "January 19, 2026",
+            time: "January 19, 2026",
             title: "Supreme Court Ruling",
             description: "Court upholds ban but allows extension for divestiture efforts",
           },
           {
-            date: "January 23, 2026",
+            time: "January 23, 2026",
             title: "USDS Joint Venture Announced",
             description: "TikTok unveils joint venture as solution to maintain U.S. presence",
           },
@@ -425,28 +420,19 @@ export default function TikTokUSDSAnnouncementPage() {
             href: "/tiktok",
             image: "/images/tiktok-history.jpg",
             category: "REFERENCE",
-            categoryColor: "blue",
             title: "TikTok: Complete Platform History and Overview",
-            excerpt: "Comprehensive encyclopedia entry covering TikTok's rise, features, controversies, and cultural impact.",
-            readTime: "12 min read",
           },
           {
             href: "/congress-tiktok-ban-legislation",
             image: "/images/congress-tiktok.jpg",
             category: "POLICY",
-            categoryColor: "purple",
             title: "How Congress Forced TikTok to the Negotiating Table",
-            excerpt: "Inside the legislative battle that led to the divestiture requirement.",
-            readTime: "8 min read",
           },
           {
             href: "/creator-economy-tiktok",
             image: "/images/tiktok-creators.jpg",
             category: "BUSINESS",
-            categoryColor: "green",
             title: "What TikTok's Future Means for the Creator Economy",
-            excerpt: "Analyzing the impact of ownership changes on influencers and content creators.",
-            readTime: "6 min read",
           },
         ]}
       />

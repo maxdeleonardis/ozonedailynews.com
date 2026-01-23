@@ -1,4 +1,16 @@
-import { supabase, Subscriber } from './supabase';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { supabase } from './supabase';
+
+export interface Subscriber {
+  id: string;
+  email: string;
+  is_active: boolean;
+  preferences?: {
+    categories?: string[];
+    frequency?: 'daily' | 'weekly' | 'never';
+  };
+  created_at: string;
+}
 
 // Subscribe email to newsletter
 export async function subscribeToNewsletter(
@@ -6,7 +18,7 @@ export async function subscribeToNewsletter(
   categories?: string[],
   frequency: 'daily' | 'weekly' | 'never' = 'weekly'
 ): Promise<Subscriber | null> {
-  const { data, error } = await supabase
+  const { data, error } = await (supabase!)
     .from('subscribers')
     .insert([
       {
@@ -38,7 +50,7 @@ export async function updateSubscriberPreferences(
   email: string,
   updates: { frequency?: string; categories?: string[] }
 ) {
-  const { data, error } = await supabase
+  const { data, error } = await (supabase!)
     .from('subscribers')
     .update({
       preferences: {
@@ -56,7 +68,7 @@ export async function updateSubscriberPreferences(
 
 // Unsubscribe from newsletter
 export async function unsubscribeFromNewsletter(email: string) {
-  const { error } = await supabase
+  const { error } = await (supabase!)
     .from('subscribers')
     .update({ is_active: false })
     .eq('email', email);
@@ -67,7 +79,7 @@ export async function unsubscribeFromNewsletter(email: string) {
 
 // Get subscriber count
 export async function getSubscriberCount(): Promise<number> {
-  const { count, error } = await supabase
+  const { count, error } = await (supabase!)
     .from('subscribers')
     .select('*', { count: 'exact' })
     .eq('is_active', true);

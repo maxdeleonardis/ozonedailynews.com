@@ -207,11 +207,9 @@ export default function AllInPodcastPage() {
           </li>
         </ul>
 
-        <Quote
-          text="We're just four guys talking about the news of the week. The fact that millions listen is wild."
-          author="Jason Calacanis"
-          source="All-In Episode #150"
-        />
+        <Quote source="Jason Calacanis, All-In Episode #150">
+          "We're just four guys talking about the news of the week. The fact that millions listen is wild."
+        </Quote>
       </Section>
 
       <Section id="topics" title="Key Topics">
@@ -382,11 +380,9 @@ export default function AllInPodcastPage() {
           <li>Merchandise and branded content</li>
         </ul>
 
-        <Quote
-          text="All-In represents a new model for media: creator-owned, advertiser-independent, and audience-first."
-          author="Tech Media Analyst"
-          source="The Future of Podcasting Report 2025"
-        />
+        <Quote source="Tech Media Analyst, The Future of Podcasting Report 2025">
+          "All-In represents a new model for media: creator-owned, advertiser-independent, and audience-first."
+        </Quote>
 
         <h3 className="text-xl font-bold text-gray-900 mb-3 mt-6">
           Legacy & Future
@@ -408,15 +404,15 @@ export default function AllInPodcastPage() {
         links={[
           {
             label: "Listen on Apple Podcasts",
-            url: "https://podcasts.apple.com/us/podcast/all-in-with-chamath-jason-sacks-friedberg/id1502871393",
+            href: "https://podcasts.apple.com/us/podcast/all-in-with-chamath-jason-sacks-friedberg/id1502871393",
           },
           {
             label: "Watch on YouTube",
-            url: "https://www.youtube.com/@allin",
+            href: "https://www.youtube.com/@allin",
           },
           {
             label: "All-In Summit Website",
-            url: "https://www.allinpodcast.co/summit",
+            href: "https://www.allinpodcast.co/summit",
           },
         ]}
       />

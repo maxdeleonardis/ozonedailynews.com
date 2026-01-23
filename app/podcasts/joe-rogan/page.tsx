@@ -96,11 +96,9 @@ export default function JoeRoganPage() {
           ]}
         />
 
-        <Quote
-          text="I'm just having conversations with people. The fact that it became this big thing is kind of crazy."
-          author="Joe Rogan"
-          source="Interview about JRE's success"
-        />
+        <Quote source="Joe Rogan, Interview about JRE's success">
+          "I'm just having conversations with people. The fact that it became this big thing is kind of crazy."
+        </Quote>
       </Section>
 
       <Section id="format" title="Show Format">
@@ -275,11 +273,9 @@ export default function JoeRoganPage() {
           for creators across the industry.
         </p>
 
-        <Quote
-          text="Joe Rogan didn't just build a podcast. He built an alternative media empire that challenges traditional gatekeepers."
-          author="Media Analyst"
-          source="Podcast Industry Report 2025"
-        />
+        <Quote source="Media Analyst, Podcast Industry Report 2025">
+          "Joe Rogan didn't just build a podcast. He built an alternative media empire that challenges traditional gatekeepers."
+        </Quote>
 
         <h3 className="text-xl font-bold text-gray-900 mb-3 mt-6">Controversies</h3>
         <p className="text-gray-700 mb-4">
@@ -294,15 +290,15 @@ export default function JoeRoganPage() {
         links={[
           {
             label: "Listen on Spotify",
-            url: "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+            href: "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           },
           {
             label: "Official Website",
-            url: "https://www.joerogan.com",
+            href: "https://www.joerogan.com",
           },
           {
             label: "YouTube Clips",
-            url: "https://www.youtube.com/@joerogan",
+            href: "https://www.youtube.com/@joerogan",
           },
         ]}
       />

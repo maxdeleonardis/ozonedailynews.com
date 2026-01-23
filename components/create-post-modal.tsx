@@ -36,12 +36,13 @@ export function CreatePostModal({ isOpen, onClose }: CreatePostModalProps) {
       title: title.trim(),
       slug,
       excerpt: '',
-      content: [],
+      blocks: [],
       category,
       status: 'draft' as const,
       author,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      readTime: '1 min read',
     };
 
     try {

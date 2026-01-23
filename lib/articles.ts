@@ -1,7 +1,15 @@
-import { supabase, Article } from './supabase';
+import { supabase, isSupabaseConfigured, BlogPost } from './supabase';
+
+// Type alias for backwards compatibility
+type Article = BlogPost;
 
 // Fetch all featured articles
 export async function getFeaturedArticles(): Promise<Article[]> {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('articles')
     .select('*')
@@ -15,6 +23,11 @@ export async function getFeaturedArticles(): Promise<Article[]> {
 
 // Fetch articles by category
 export async function getArticlesByCategory(category: string): Promise<Article[]> {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('articles')
     .select('*')
@@ -27,6 +40,11 @@ export async function getArticlesByCategory(category: string): Promise<Article[]
 
 // Fetch single article by slug
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return null;
+  }
+
   const { data, error } = await supabase
     .from('articles')
     .select('*')
@@ -39,6 +57,11 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 
 // Track article view
 export async function trackArticleView(articleId: string, userId?: string) {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return;
+  }
+
   const { error } = await supabase.rpc('increment_view_count', {
     article_id: articleId,
   });
@@ -58,6 +81,11 @@ export async function trackArticleView(articleId: string, userId?: string) {
 
 // Save article for later
 export async function saveArticle(userId: string, articleId: string) {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return false;
+  }
+
   const { error } = await supabase
     .from('user_preferences')
     .update({
@@ -70,6 +98,11 @@ export async function saveArticle(userId: string, articleId: string) {
 
 // Subscribe to article changes (real-time)
 export function subscribeToArticles(callback: (article: Article) => void) {
+  if (!isSupabaseConfigured || !supabase) {
+    console.warn('Supabase is not configured');
+    return () => {}; // Return no-op function
+  }
+
   const channel = supabase
     .channel('articles-changes')
     .on(
@@ -82,6 +115,8 @@ export function subscribeToArticles(callback: (article: Article) => void) {
     .subscribe();
 
   return () => {
-    supabase.removeChannel(channel);
+    if (supabase) {
+      supabase.removeChannel(channel);
+    }
   };
 }

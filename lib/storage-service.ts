@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { supabase, isSupabaseConfigured } from './supabase';
 
 const BUCKET_NAME = 'blog-images';
 
@@ -15,6 +15,13 @@ export interface UploadResult {
  */
 export async function uploadImage(file: File, path?: string): Promise<UploadResult> {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      return {
+        url: null,
+        error: new Error('Supabase is not configured')
+      };
+    }
+
     // Validate file type
     const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
     if (!validTypes.includes(file.type)) {
@@ -72,6 +79,11 @@ export async function uploadImage(file: File, path?: string): Promise<UploadResu
  */
 export async function deleteImage(url: string): Promise<boolean> {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      console.error('Supabase is not configured');
+      return false;
+    }
+
     // Extract path from public URL
     const urlObj = new URL(url);
     const pathMatch = urlObj.pathname.match(/\/storage\/v1\/object\/public\/blog-images\/(.+)$/);
@@ -106,6 +118,10 @@ export async function deleteImage(url: string): Promise<boolean> {
  */
 export async function listImages(folder: string = 'uploads') {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      return { files: [], error: new Error('Supabase is not configured') };
+    }
+
     const { data, error } = await supabase.storage
       .from(BUCKET_NAME)
       .list(folder, {
@@ -121,7 +137,7 @@ export async function listImages(folder: string = 'uploads') {
 
     // Get public URLs for all files
     const filesWithUrls = data.map(file => {
-      const { data: { publicUrl } } = supabase.storage
+      const { data: { publicUrl } } = supabase!.storage
         .from(BUCKET_NAME)
         .getPublicUrl(`${folder}/${file.name}`);
       

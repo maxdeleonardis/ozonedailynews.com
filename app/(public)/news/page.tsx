@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { getPublishedBlogPosts } from '@/lib/blog-service';
+import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 
 export const metadata: Metadata = {
   title: "Latest News & Investigations | The Object Wire",
@@ -10,179 +12,79 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredStories = [
-  {
-    title: "The 'Trump Tech Force': Inside the White House's New AI Recruitment Drive",
-    excerpt: "Trump administration launches U.S. Tech Force to recruit 1,000 technologists from Silicon Valley, offering $150K-$200K salaries for federal AI modernization.",
-    category: "POLITICS",
-    date: "January 15, 2026",
-    slug: "news/trump-tech-force-white-house-ai-recruitment-drive",
-    author: "ObjectWire Political Desk",
-    readTime: "12 min",
-    featured: true,
-    urgent: true,
-  },
-  {
-    title: "D-Wave Qubits Lead Quantum Optimization Revolution",
-    excerpt: "Advantage prototype achieves quantum computational supremacy on real-world problems, solving optimization challenges 1000x faster than classical computers.",
-    category: "QUANTUM TECH",
-    date: "January 15, 2026",
-    slug: "news/quantum-computing/d-wave-quantum-optimization-breakthrough",
-    author: "ObjectWire Quantum Team",
-    readTime: "12 min",
-    featured: true,
-    urgent: false,
-  },
-  {
-    title: "Nick Shirley Drops Second Part of Fraud Investigation", 
-    excerpt: "Independent journalist releases new details on $250 million Feeding Our Future case with updated financial flow analysis.",
-    category: "INVESTIGATION",
-    date: "January 15, 2026",
-    slug: "minesoda/nick-shirley-drops-second-part-of-fraud-investigation",
-    author: "ObjectWire Team",
-    readTime: "10 min",
-    featured: true,
-    urgent: false,
-  },
-  {
-    title: "Feeding Our Future: Inside Minnesota's $250 Million Fraud Scheme",
-    excerpt: "A comprehensive investigation into one of the largest pandemic-era fraud cases in U.S. history.",
-    category: "FRAUD INVESTIGATION",
-    date: "December 30, 2025",
-    slug: "minnesota-feeding-our-future-fraud",
-    author: "ObjectWire Investigations",
-    readTime: "12 min",
-    featured: false,
-    urgent: false,
-  },
-];
+// Revalidate every 5 minutes to show fresh content
+export const revalidate = 300;
 
-const technologyNews = [
-  {
-    title: "Blitzy: AI-Powered Autonomous Software Development Platform Review",
-    excerpt: "Comprehensive developer review of Blitzy's autonomous coding capabilities and practical applications for 2025.",
-    category: "AI/TECH",
-    date: "January 12, 2026",
-    slug: "blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025",
-    author: "Tech Review Team",
-  },
-  {
-    title: "Render vs Vercel for Free Start-up App Deployment",
-    excerpt: "Detailed comparison of deployment platforms for bootstrapped startups and indie developers.",
-    category: "STARTUP TECH", 
-    date: "January 10, 2026",
-    slug: "render-vs-vercel-for-free-start-up-app-deployment",
-    author: "DevOps Analyst",
-  },
-  {
-    title: "Alphabet Inc: The History of Google",
-    excerpt: "Deep dive into Google's corporate evolution and strategic acquisitions that shaped the modern internet.",
-    category: "TECH HISTORY",
-    date: "January 8, 2026", 
-    slug: "alphabet-inc-the-history-of-google",
-    author: "Business Historian",
-  },
-];
-
-const businessNews = [
-  {
-    title: "Pegatron Opens U.S. Factory in Texas",
-    excerpt: "Apple supplier establishes manufacturing facility in Texas, bringing thousands of jobs and marking shift in tech supply chain.",
-    category: "BUSINESS",
-    date: "January 11, 2026",
-    slug: "pegatron-opens-us-factory-tx", 
-    author: "Industry Reporter",
-  },
-  {
-    title: "OANDA vs Interactive Brokers for Forex Trading USA",
-    excerpt: "Comprehensive comparison of forex trading platforms for US-based retail and professional traders.",
-    category: "FINANCE",
-    date: "January 9, 2026",
-    slug: "oanda-or-interactive-brokers-forex-trading-usa",
-    author: "Financial Analyst",
-  },
-  {
-    title: "TXC Stable Coin: Texas' Entry into Digital Currency",
-    excerpt: "Analysis of Texas-backed stablecoin initiative and its implications for state-level cryptocurrency adoption.",
-    category: "FINTECH",
-    date: "January 7, 2026",
-    slug: "txc-stable-coin",
-    author: "Crypto Specialist",
-  },
-];
-
-const politicsNews = [
-  {
-    title: "The Intercept Sues DOGE",
-    excerpt: "Legal challenge filed against Department of Government Efficiency over transparency and accountability concerns.",
-    category: "POLITICS",
-    date: "January 13, 2026", 
-    slug: "the-intercept-sues-doge",
-    author: "Legal Reporter",
-  },
-  {
-    title: "NYC's Ranked Choice Voting System Faces Scrutiny",
-    excerpt: "Analysis of implementation challenges and voter confusion in New York City's electoral reform experiment.",
-    category: "ELECTIONS",
-    date: "January 6, 2026",
-    slug: "nycs-ranked-choice-voting-system-faces-scrutiny",
-    author: "Political Analyst",
-  },
-  {
-    title: "Ilhan Omar: From Somali Refugee to Congressional Representative",
-    excerpt: "Complete biography covering her immigration journey, political rise, personal life, and meteoric net worth growth.",
-    category: "BIOGRAPHY",
-    date: "January 5, 2026",
-    slug: "minesoda/Ilhan-Omar",
-    author: "Political Biographer",
-  },
-];
-
-const specialReports = [
-  {
-    title: "Avatar: Fire and Ash - James Cameron's Next Epic",
-    excerpt: "Interactive analysis of the upcoming Avatar sequel with behind-the-scenes production insights and box office projections.",
-    category: "ENTERTAINMENT",
-    date: "January 4, 2026",
-    slug: "james-cameron/avatar-fire-and-ash",
-    author: "Entertainment Analyst",
-  },
-  {
-    title: "Austin's Reign as Tech Hub Might Be Coming to an End",
-    excerpt: "Analysis of factors threatening Austin's position as a major technology center amid rising costs and talent migration.",
-    category: "REGIONAL",
-    date: "January 3, 2026", 
-    slug: "austins-reign-as-a-tech-hub-might-be-coming-to-an-end",
-    author: "Regional Reporter",
-  },
-  {
-    title: "My Hero Academia Knowledge Hub",
-    excerpt: "Comprehensive coverage of MHA final season success, Vigilantes spin-off, and Ultra Rumble game popularity.",
-    category: "ANIME/GAMING",
-    date: "January 2, 2026",
-    slug: "mha",
-    author: "Pop Culture Team",
-  },
-];
-
-const categories = [
-  { name: "Quantum Computing", href: "/news/quantum-computing", count: 6, new: true },
-  { name: "Minnesota Hub", href: "/minesoda", count: 8, new: true },
-  { name: "Investigations", href: "/case", count: 24, new: false },
-  { name: "Technology", href: "/coding", count: 18, new: false },
-  { name: "Business & Finance", href: "/analyst", count: 32, new: false },
-  { name: "Opinion & Analysis", href: "/opinion", count: 15, new: false },
-  { name: "Startup News", href: "/start-up-news", count: 12, new: false },
-  { name: "Health", href: "/health", count: 8, new: false },
-];
-
-export default function NewsPage() {
+export default async function NewsPage() {
   const today = new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
+
+  // 1. Scan filesystem for all articles
+  const filesystemArticles = await scanAllContent();
+  
+  // 2. Fetch from Supabase database
+  const { data: databasePosts } = await getPublishedBlogPosts();
+  
+  // 3. Convert database posts to same format
+  const databaseArticles = databasePosts?.map(post => ({
+    title: post.title,
+    excerpt: post.excerpt || 'Read the full article for more details.',
+    category: post.category?.toUpperCase() || 'NEWS',
+    date: post.published_at 
+      ? new Date(post.published_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      : 'Recently published',
+    slug: post.slug,
+    author: post.author || 'ObjectWire Team',
+    readTime: post.read_time || '5 min',
+    urgent: false,
+    filePath: 'database',
+    createdAt: post.published_at ? new Date(post.published_at) : new Date(),
+  })) || [];
+
+  // 4. Combine all content sources
+  const allArticles = [...filesystemArticles, ...databaseArticles];
+  
+  // 5. Sort by date (newest first)
+  allArticles.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+  // 6. Get different article segments
+  const todayArticles = filterByDateRange(allArticles, 1); // Last 24 hours
+  const thisWeekArticles = filterByDateRange(allArticles, 7); // Last 7 days
+  const urgentArticles = getUrgentArticles(allArticles);
+  const categorizedArticles = groupByCategory(allArticles);
+
+  // 7. Build dynamic category list
+  const categories = Object.keys(categorizedArticles).map(cat => ({
+    name: cat.charAt(0) + cat.slice(1).toLowerCase().replace(/_/g, ' '),
+    href: `/news?category=${cat.toLowerCase()}`,
+    count: categorizedArticles[cat].length,
+    new: categorizedArticles[cat].some(a => 
+      a.createdAt.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000
+    ),
+  })).sort((a, b) => b.count - a.count);
+
+  // 8. Prepare sections
+  const featuredStories = allArticles.slice(0, 4);
+  const technologyNews = categorizedArticles['TECHNOLOGY']?.slice(0, 6) || 
+                         categorizedArticles['AI']?.slice(0, 6) ||
+                         categorizedArticles['SOFTWARE']?.slice(0, 6) || [];
+  const businessNews = categorizedArticles['BUSINESS']?.slice(0, 6) || 
+                       categorizedArticles['FINANCE']?.slice(0, 6) || [];
+  const politicsNews = categorizedArticles['POLITICS']?.slice(0, 6) || 
+                       categorizedArticles['GOVERNMENT']?.slice(0, 6) || [];
+  const investigationsNews = categorizedArticles['INVESTIGATION']?.slice(0, 6) || 
+                             categorizedArticles['FRAUD']?.slice(0, 6) || [];
+
+  const totalArticles = allArticles.length;
+  const articlesThisWeek = thisWeekArticles.length;
 
   return (
     <div className="min-h-screen bg-white">
@@ -231,7 +133,10 @@ export default function NewsPage() {
             </span>
             <div className="overflow-hidden flex-1">
               <p className="text-sm font-medium whitespace-nowrap animate-marquee">
-                BREAKING: Trump launches U.S. Tech Force to recruit 1,000 Silicon Valley workers • D-Wave achieves quantum supremacy breakthrough • Nick Shirley releases fraud investigation part 2 • Minnesota hub launches with comprehensive coverage
+                {urgentArticles.length > 0 
+                  ? urgentArticles.map(article => article.title).join(' • ')
+                  : todayArticles.slice(0, 5).map(article => article.title).join(' • ')
+                }
               </p>
             </div>
           </div>
@@ -397,33 +302,110 @@ export default function NewsPage() {
               </div>
             </section>
 
-            {/* Special Reports */}
-            <section className="mb-12">
-              <h2 className="text-xs font-bold tracking-widest border-b-2 border-orange-600 pb-2 mb-6">
-                SPECIAL REPORTS & FEATURES
-              </h2>
-              <div className="space-y-6">
-                {specialReports.map((story, index) => (
-                  <article key={story.slug} className="flex gap-6 border-b border-gray-200 pb-6">
-                    <div className="flex-1">
-                      <Link href={`/${story.slug}`} className="group block">
-                        <span className="text-xs font-bold text-orange-600">{story.category}</span>
-                        <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
-                          {story.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed mb-3">
-                          {story.excerpt}
-                        </p>
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
-                          <span className="font-medium">{story.author}</span>
-                          <span>•</span>
-                          <time>{story.date}</time>
-                        </div>
-                      </Link>
-                    </div>
-                  </article>
-                ))}
+            {/* Investigations & Special Reports */}
+            {investigationsNews.length > 0 && (
+              <section className="mb-12">
+                <h2 className="text-xs font-bold tracking-widest border-b-2 border-orange-600 pb-2 mb-6">
+                  INVESTIGATIONS & SPECIAL REPORTS
+                </h2>
+                <div className="space-y-6">
+                  {investigationsNews.map((story, index) => (
+                    <article key={`${story.slug}-${index}`} className="flex gap-6 border-b border-gray-200 pb-6">
+                      <div className="flex-1">
+                        <Link href={`/${story.slug}`} className="group block">
+                          <span className="text-xs font-bold text-orange-600">{story.category}</span>
+                          <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
+                            {story.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed mb-3">
+                            {story.excerpt}
+                          </p>
+                          <div className="flex items-center gap-2 text-xs text-gray-500">
+                            <span className="font-medium">{story.author}</span>
+                            <span>•</span>
+                            <time>{story.date}</time>
+                            <span>•</span>
+                            <span>{story.readTime}</span>
+                          </div>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Today's Latest Stories - Dynamically Combined */}
+            <section className="mb-12 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 -mx-4 px-4 py-8 md:mx-0 md:px-8 md:rounded-lg border-2 border-indigo-200">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xs font-bold tracking-widest border-b-2 border-indigo-600 pb-2">
+                  🔥 TODAY'S LATEST STORIES • LIVE UPDATES
+                </h2>
+                <span className="text-xs text-gray-500 bg-white px-3 py-1 rounded-full border border-gray-300">
+                  Updated {new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+                </span>
               </div>
+              
+              {todayArticles.length > 0 ? (
+                <>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {todayArticles.slice(0, 12).map((article, index) => (
+                      <article 
+                        key={`${article.slug}-${index}`}
+                        className="border-2 border-indigo-200 hover:border-indigo-400 hover:shadow-xl transition-all bg-white rounded-lg overflow-hidden group"
+                      >
+                        <Link href={`/${article.slug}`} className="block">
+                          <div className="p-4">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="text-xs font-bold text-indigo-600 uppercase bg-indigo-100 px-2 py-1 rounded">
+                                {article.category}
+                              </span>
+                              {article.urgent && (
+                                <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                                  BREAKING
+                                </span>
+                              )}
+                            </div>
+                            
+                            <h3 className="font-bold text-lg mt-2 mb-3 leading-tight group-hover:text-indigo-600 transition-colors line-clamp-2">
+                              {article.title}
+                            </h3>
+                            
+                            <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3">
+                              {article.excerpt}
+                            </p>
+                            
+                            <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium text-gray-700">{article.author}</span>
+                                <span>•</span>
+                                <span>{article.readTime}</span>
+                              </div>
+                              <time className="text-indigo-600 font-medium">{article.date}</time>
+                            </div>
+                          </div>
+                        </Link>
+                      </article>
+                    ))}
+                  </div>
+                  
+                  <div className="text-center pt-4 border-t border-indigo-200">
+                    <p className="text-sm text-gray-600 mb-2">
+                      <span className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-indigo-300">
+                        ✨ <strong>{todayArticles.length} articles</strong> published today across all categories
+                      </span>
+                    </p>
+                    <p className="text-xs text-gray-500 italic">
+                      Content dynamically scanned from entire site • Auto-updated every 5 minutes
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-600 mb-2">No articles published in the last 24 hours.</p>
+                  <p className="text-sm text-gray-500">Showing recent articles from this week below.</p>
+                </div>
+              )}
             </section>
           </div>
 
@@ -464,33 +446,28 @@ export default function NewsPage() {
               </div>
               <div className="p-4">
                 <ul className="space-y-4 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="bg-red-500 w-2 h-2 rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
-                    <div>
-                      <Link href="/news/trump-tech-force-white-house-ai-recruitment-drive" className="font-semibold hover:underline">
-                        Trump Launches U.S. Tech Force
-                      </Link>
-                      <p className="text-xs text-gray-500">Just now</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bg-red-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
-                    <div>
-                      <Link href="/news/quantum-computing/d-wave-quantum-optimization-breakthrough" className="font-semibold hover:underline">
-                        D-Wave Quantum Breakthrough
-                      </Link>
-                      <p className="text-xs text-gray-500">2 hours ago</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bg-blue-500 w-2 h-2 rounded-full mt-2 flex-shrink-0"></span>
-                    <div>
-                      <Link href="/minesoda/nick-shirley-drops-second-part-of-fraud-investigation" className="font-semibold hover:underline">
-                        Nick Shirley Investigation Part 2
-                      </Link>
-                      <p className="text-xs text-gray-500">6 hours ago</p>
-                    </div>
-                  </li>
+                  {allArticles.slice(0, 5).map((article, index) => (
+                    <li key={`sidebar-${article.slug}-${index}`} className="flex items-start gap-2">
+                      <span 
+                        className={`${
+                          index === 0 ? 'bg-red-500 animate-pulse' : 
+                          index === 1 ? 'bg-red-500' : 
+                          'bg-blue-500'
+                        } w-2 h-2 rounded-full mt-2 flex-shrink-0`}
+                      ></span>
+                      <div>
+                        <Link href={`/${article.slug}`} className="font-semibold hover:underline">
+                          {article.title}
+                        </Link>
+                        <p className="text-xs text-gray-500">
+                          {index === 0 ? 'Just now' : 
+                           index === 1 ? '2 hours ago' : 
+                           index === 2 ? '4 hours ago' : 
+                           '6 hours ago'}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -548,17 +525,22 @@ export default function NewsPage() {
               <div className="text-xs tracking-wider text-gray-400">SOURCE VERIFIED</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">50+</div>
-              <div className="text-xs tracking-wider text-gray-400">ARTICLES PUBLISHED</div>
+              <div className="text-3xl font-bold mb-2">{articlesThisWeek}+</div>
+              <div className="text-xs tracking-wider text-gray-400">ARTICLES THIS WEEK</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">8</div>
+              <div className="text-3xl font-bold mb-2">{categories.length}</div>
               <div className="text-xs tracking-wider text-gray-400">NEWS CATEGORIES</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">24HR</div>
+              <div className="text-3xl font-bold mb-2">5MIN</div>
               <div className="text-xs tracking-wider text-gray-400">UPDATE CYCLE</div>
             </div>
+          </div>
+          <div className="text-center mt-8">
+            <p className="text-sm text-gray-400">
+              📊 <strong>{totalArticles} total articles</strong> dynamically discovered across all topics
+            </p>
           </div>
         </div>
       </section>

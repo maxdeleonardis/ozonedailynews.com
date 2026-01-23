@@ -5,7 +5,7 @@
 
 import { Metadata } from 'next';
 
-const BASE_URL = 'https://objectwire.org';
+const BASE_URL = 'https://www.objectwire.org'; // WWW is canonical (Squarespace)
 const SITE_NAME = 'ObjectWire';
 const DEFAULT_OG_IMAGE = '/og-image.png';
 

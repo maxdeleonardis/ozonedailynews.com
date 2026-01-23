@@ -6,7 +6,7 @@
 import { redirect } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
-const BASE_URL = 'https://objectwire.org';
+const BASE_URL = 'https://www.objectwire.org';
 
 // =============================================================================
 // URL NORMALIZATION RULES

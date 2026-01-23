@@ -31,7 +31,7 @@ const ROOT_DIR = path.join(__dirname, '..');
 // CONFIGURATION
 // =============================================================================
 
-const SITE_URL = 'https://objectwire.org';
+const SITE_URL = 'https://www.objectwire.org';
 
 const SEARCH_ENGINE_PING_URLS = [
   `https://www.google.com/ping?sitemap=${SITE_URL}/sitemap.xml`,

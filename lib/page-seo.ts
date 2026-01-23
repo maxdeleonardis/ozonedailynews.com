@@ -5,7 +5,7 @@
 
 import { Metadata } from 'next';
 
-const BASE_URL = 'https://objectwire.org';
+const BASE_URL = 'https://www.objectwire.org';
 const SITE_NAME = 'ObjectWire';
 const DEFAULT_IMAGE = '/og-image.png';
 

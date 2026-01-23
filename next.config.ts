@@ -130,26 +130,6 @@ const nextConfig: NextConfig = {
     // Optimize package imports
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
-  
-  // ==========================================================================
-  // REDIRECTS (SEO)
-  // ==========================================================================
-  async redirects() {
-    return [
-      // WWW to non-WWW
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.objectwire.org',
-          },
-        ],
-        destination: 'https://objectwire.org/:path*',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

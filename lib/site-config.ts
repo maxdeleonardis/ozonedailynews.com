@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   name: 'ObjectWire',
   tagline: 'Precision Intelligence News Network',
   description: 'ObjectWire delivers verified, source-cited intelligence on business, technology, and policy.',
-  url: 'https://objectwire.org',
+  url: 'https://www.objectwire.org', // WWW is canonical (Squarespace requirement)
   locale: 'en_US',
   
   // Contact

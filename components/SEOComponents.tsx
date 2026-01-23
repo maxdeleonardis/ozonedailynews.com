@@ -143,10 +143,10 @@ export function OrganizationJsonLd() {
     '@type': 'NewsMediaOrganization',
     name: 'ObjectWire',
     alternateName: 'ObjectWire News Network',
-    url: 'https://objectwire.org',
+    url: 'https://www.objectwire.org',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://objectwire.org/logo.png',
+      url: 'https://www.objectwire.org/logo.png',
       width: 600,
       height: 60,
     },
@@ -157,12 +157,12 @@ export function OrganizationJsonLd() {
       'https://www.linkedin.com/company/objectwire',
     ],
     // Google News Publisher Center requirements
-    publishingPrinciples: 'https://objectwire.org/editorial-standards',
-    actionableFeedbackPolicy: 'https://objectwire.org/corrections',
-    correctionsPolicy: 'https://objectwire.org/corrections',
-    ethicsPolicy: 'https://objectwire.org/editorial-standards',
-    masthead: 'https://objectwire.org/about',
-    ownershipFundingInfo: 'https://objectwire.org/about',
+    publishingPrinciples: 'https://www.objectwire.org/editorial-standards',
+    actionableFeedbackPolicy: 'https://www.objectwire.org/corrections',
+    correctionsPolicy: 'https://www.objectwire.org/corrections',
+    ethicsPolicy: 'https://www.objectwire.org/editorial-standards',
+    masthead: 'https://www.objectwire.org/about',
+    ownershipFundingInfo: 'https://www.objectwire.org/about',
   };
   
   return <JsonLd data={schema} />;
@@ -177,12 +177,12 @@ export function WebsiteJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ObjectWire',
-    url: 'https://objectwire.org',
+    url: 'https://www.objectwire.org',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://objectwire.org/search?q={search_term_string}',
+        urlTemplate: 'https://www.objectwire.org/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },

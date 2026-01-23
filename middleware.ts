@@ -9,7 +9,7 @@ import type { NextRequest } from 'next/server';
 
 // NOTE: We inline these values here because middleware runs on Edge Runtime
 // and cannot import from lib/ directly in all cases
-const SITE_URL = 'https://objectwire.org';
+const SITE_URL = 'https://www.objectwire.org'; // Changed to www as canonical
 
 // Tracking parameters to strip (prevents index bloat)
 const PARAMS_TO_STRIP = [
@@ -137,12 +137,12 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 6. WWW TO NON-WWW REDIRECT
+  // 6. NON-WWW TO WWW REDIRECT (Squarespace canonical domain)
   // ==========================================================================
   const host = request.headers.get('host') || '';
-  if (host.startsWith('www.')) {
+  if (host === 'objectwire.org') {
     const newUrl = new URL(request.url);
-    newUrl.host = host.replace('www.', '');
+    newUrl.host = 'www.objectwire.org';
     return NextResponse.redirect(newUrl, 308);
   }
   

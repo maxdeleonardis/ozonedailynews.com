@@ -125,30 +125,32 @@ export default function RootLayout({
         <GoogleAnalytics />
         <AuthProvider>
           <ArticlesProvider>
-            {/* Header - Sticky */}
-            <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-              <nav className="container flex justify-between items-center py-4">
-                <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                  <img 
-                    src="/objectwire-logo.png" 
-                    alt="OBJECTWIRE Logo" 
-                    className="h-16 w-auto"
-                  />
-                </Link>
-                
-                <div className="flex items-center gap-6">
-                  <Link href="/news" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                    News
+            {/* Header */}
+            <header className="border-b">
+              <div className="container mx-auto px-4">
+                <nav className="flex items-center justify-between h-14">
+                  <Link href="/" className="flex items-center">
+                    <img 
+                      src="/objectwire-logo.png" 
+                      alt="OBJECTWIRE" 
+                      style={{ height: '100px', width: 'auto' }}
+                    />
                   </Link>
-                  <Link href="/editorial-standards" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                    Standards
-                  </Link>
-                  <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                    About
-                  </Link>
-                  <AuthButton />
-                </div>
-              </nav>
+                  
+                  <div className="flex items-center gap-6">
+                    <Link href="/news" className="text-sm hover:underline">
+                      News
+                    </Link>
+                    <Link href="/editorial-standards" className="text-sm hover:underline">
+                      Standards
+                    </Link>
+                    <Link href="/about" className="text-sm hover:underline">
+                      About
+                    </Link>
+                    <AuthButton />
+                  </div>
+                </nav>
+              </div>
             </header>
 
             <main className="pt-6">{children}</main>

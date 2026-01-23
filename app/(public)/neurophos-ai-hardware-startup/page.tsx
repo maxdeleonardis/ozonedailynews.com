@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Neurophos AI Hardware Startup Achieves 300 Tops/W - ObjectWire.org",
   description: "Neurophos, an Austin, Texas-based photonic AI startup founded in 2020 as a spinout from Duke University and Metacept Inc., is pioneering next-generation AI hardware.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/neurophos-ai-hardware-startup',
+  },
 };
 
 export default function NeurophosAIHardwarePage() {

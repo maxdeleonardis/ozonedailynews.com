@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "survival horror",
     "horror game",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/resident-evil-requiem',
+  },
 };
 
 export default function ResidentEvilRequiemPage() {

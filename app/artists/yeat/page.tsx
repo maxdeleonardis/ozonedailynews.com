@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "Lyfestyle",
     "streaming artist",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/artists/yeat',
+  },
 };
 
 export default function YeatPage() {

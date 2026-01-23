@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "social network",
     "video sharing",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/tiktok',
+  },
 };
 
 export default function TikTokPage() {

@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "ObjectWire Terms of Service - Rules and guidelines for using our platform",
+  alternates: {
+    canonical: 'https://www.objectwire.org/terms-of-service',
+  },
 };
 
 export default function TermsOfServicePage() {

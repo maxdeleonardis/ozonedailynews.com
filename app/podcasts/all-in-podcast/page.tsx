@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "venture capital",
     "business",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/podcasts/all-in-podcast',
+  },
 };
 
 export default function AllInPodcastPage() {

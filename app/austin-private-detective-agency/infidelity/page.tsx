@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Infidelity Investigations Austin TX | Private Detective - ObjectWire",
   description: "Discreet infidelity investigations in Austin, Texas. Professional surveillance, digital forensics, and relationship verification services. Licensed private investigators providing court-admissible evidence.",
   keywords: ["infidelity investigation Austin", "cheating spouse detective Texas", "private investigator infidelity", "Austin PI surveillance", "marriage investigation"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/austin-private-detective-agency/infidelity',
+  },
 };
 
 export default function AustinInfidelityPage() {

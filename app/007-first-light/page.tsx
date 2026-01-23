@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "spy game",
     "espionage",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/007-first-light',
+  },
 };
 
 export default function JamesBondGamePage() {

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "James Cameron - Filmmaker & Explorer | ObjectWire",
   description: "James Cameron is a Canadian filmmaker and deep-sea explorer. Director of Avatar, Titanic, and The Terminator franchise.",
   keywords: ["James Cameron", "Avatar", "Titanic", "filmmaker", "director"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/james-cameron-wiki',
+  },
 };
 
 export default function JamesCameronPage() {

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Superintelligence Forces Meta Into Their 4th Restructuring This Year | ObjectWire",
   description: "Meta announces its fourth major organizational restructuring of 2026 as the company pivots to focus on achieving artificial general intelligence and superintelligence capabilities.",
   keywords: ["Meta", "restructuring", "superintelligence", "AGI", "Mark Zuckerberg", "artificial intelligence", "AI race", "organization change"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/superintelligence-force-meta-into-their-4th-restructuring-this-year',
+  },
 };
 
 export default function MetaSuperintelligenceRestructuringPage() {

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "W2S (Harry Lewis) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of W2S (Harry Lewis), Sidemen member known for his chaotic energy and massive individual success. The wildcard of the group.",
   keywords: ["W2S", "Harry Lewis", "Wroetoshaw", "Sidemen", "FIFA", "UK YouTuber"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/w2s',
+  },
 };
 
 export default function W2SPage() {

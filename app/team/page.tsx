@@ -4,6 +4,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: "Our Team | ObjectWire",
   description: "Meet the ObjectWire editorial team. Our journalists, analysts, and contributors are dedicated to delivering verified, source-cited intelligence.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/team',
+  },
   openGraph: {
     title: "Our Team | ObjectWire",
     description: "Meet the journalists and analysts behind ObjectWire's precision intelligence reporting.",

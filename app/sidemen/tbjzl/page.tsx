@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "TBJZL (Tobi Brown) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of TBJZL (Tobi Brown), Sidemen member known for his positive energy and athletic ability. Career highlights and latest news.",
   keywords: ["TBJZL", "Tobi Brown", "Sidemen", "UK YouTuber", "FIFA content"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/tbjzl',
+  },
 };
 
 export default function TBJZLPage() {

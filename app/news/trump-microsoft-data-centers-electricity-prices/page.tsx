@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Trump and Microsoft Laud Data-Center Commitments to Address Electricity Prices | ObjectWire",
   description: "Microsoft commits to paying higher utility bills for US data centers powering AI models, drawing praise from President Trump amid concerns about rising electricity costs.",
   keywords: ["Trump", "Microsoft", "data centers", "AI", "electricity prices", "utility costs", "artificial intelligence", "Brad Smith"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/trump-microsoft-data-centers-electricity-prices',
+  },
 };
 
 export default function TrumpMicrosoftDataCentersPage() {

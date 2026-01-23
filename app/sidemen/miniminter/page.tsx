@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Miniminter (Simon Minter) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of Miniminter (Simon Minter), Sidemen member and FIFA content creator. Career highlights, achievements, and latest news.",
   keywords: ["Miniminter", "Simon Minter", "Sidemen", "FIFA YouTuber", "UK content creator"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/miniminter',
+  },
 };
 
 export default function MiniminterPage() {

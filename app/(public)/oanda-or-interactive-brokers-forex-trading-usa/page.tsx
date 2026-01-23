@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "OANDA vs Interactive Brokers: Forex Trading for US Citizens - ObjectWire.org",
   description: "In the $7.5 trillion daily forex market of 2025, OANDA and Interactive Brokers (IBKR) stand as titans, each catering to distinct trader profiles and strategies.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/oanda-or-interactive-brokers-forex-trading-usa',
+  },
 };
 
 export default function OANDAvsInteractiveBrokersPage() {

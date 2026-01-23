@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Missing Persons Investigation Austin TX | Private Detective - ObjectWire",
   description: "Professional missing persons locate services in Austin, Texas. Family reunification, runaway recovery, skip tracing, and debtor location. Licensed private investigators with nationwide reach.",
   keywords: ["missing persons Austin", "locate people Texas", "find missing person", "skip tracing Austin", "private investigator locate"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/austin-private-detective-agency/missing-persons',
+  },
 };
 
 export default function AustinMissingPersonsPage() {

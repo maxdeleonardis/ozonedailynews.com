@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Quantum Computing News | ObjectWire',
+  description: 'Latest news and developments in quantum computing technology, research, and applications.',
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/quantum-computing',
+  },
+};
+
 "use client";
 
 import Link from "next/link";

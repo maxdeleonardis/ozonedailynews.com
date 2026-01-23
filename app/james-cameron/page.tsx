@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "director",
     "deep-sea explorer",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/james-cameron',
+  },
 };
 
 export default function JamesCameronPage() {

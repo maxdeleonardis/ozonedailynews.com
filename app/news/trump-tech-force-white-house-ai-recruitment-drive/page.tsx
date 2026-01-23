@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "AI government",
     "Office of Personnel Management"
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/trump-tech-force-white-house-ai-recruitment-drive',
+  },
   authors: [{ name: "ObjectWire Political Desk" }],
   openGraph: {
     type: "article",

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Introducing BitChat: Jack Dorsey's Game-Changing Bluetooth Mesh Messaging App | ObjectWire",
   description: "Jack Dorsey unveils BitChat, a revolutionary Bluetooth mesh messaging app that works without internet, offering censorship-resistant, decentralized communication for the masses.",
   keywords: ["BitChat", "Jack Dorsey", "Bluetooth mesh", "decentralized messaging", "offline messaging", "censorship resistant", "privacy app", "mesh network"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app',
+  },
 };
 
 export default function BitChatJackDorseyPage() {

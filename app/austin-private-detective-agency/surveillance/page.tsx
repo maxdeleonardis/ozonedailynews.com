@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Surveillance Services | Austin Private Detective Agency - ObjectWire",
   description: "Professional covert surveillance operations in Austin, Texas. Infidelity investigations, child custody verification, worker's compensation claims, corporate surveillance, and insurance fraud investigation.",
   keywords: ["Austin surveillance", "private investigator surveillance", "Texas PI", "covert surveillance Austin", "infidelity investigation Texas"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/austin-private-detective-agency/surveillance',
+  },
 };
 
 export default function AustinSurveillancePage() {

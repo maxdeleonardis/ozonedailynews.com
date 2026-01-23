@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Iran News Hub - 2026 Iranian Revolution Coverage | ObjectWire",
   description: "Comprehensive coverage of the 2026 Iranian Revolution and current events in Iran. Real-time verified intelligence on political developments, protests, and regional impact.",
   keywords: ["Iran news", "Iranian revolution 2026", "Iran protests", "Iran political crisis", "Middle East news", "Iran current events", "Tehran news"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/iran',
+  },
   openGraph: {
     title: "Iran News Hub - 2026 Iranian Revolution | ObjectWire",
     description: "Live coverage and analysis of the 2026 Iranian Revolution and ongoing developments in Iran.",

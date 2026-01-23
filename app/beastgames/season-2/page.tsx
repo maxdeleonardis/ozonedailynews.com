@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Beast Games Season 2 - Latest News & Updates | ObjectWire",
   description: "Everything you need to know about Beast Games Season 2. Latest news, casting updates, release date predictions, and what to expect from MrBeast's next reality competition season.",
   keywords: ["Beast Games Season 2", "MrBeast", "reality competition", "Amazon Prime Video", "casting", "release date"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/beastgames/season-2',
+  },
 };
 
 export default function BeastGamesSeason2Page() {

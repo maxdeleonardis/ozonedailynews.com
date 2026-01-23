@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Infidelity Investigations | The Objective Wire - Texas Business & Tech News",
   description: "As a licensed private detective agency based in Austin, Texas, we provide confidential infidelity and domestic investigations designed to bring clarity to difficult situations.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/infidelity',
+  },
 };
 
 export default function InfidelityPage() {

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "Minnesota tech growth",
     "tech talent migration"
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/austins-reign-as-a-tech-hub-might-be-coming-to-an-end',
+  },
   openGraph: {
     type: "article",
     title: "Minnesota Emerges as Major Tech Hub",

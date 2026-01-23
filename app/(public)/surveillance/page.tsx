@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Surveillance - The Objective Wire | Texas Business &Tech News",
-  description: "Covert Surveillance for Legal, Domestic, and Corporate Cases. Infidelity investigations, child custody verification, worker's compensation claims, and more.",
+  description: "Covert Surveillance for Legal, Domestic, and Corporate Cases. Infidelity investigations, child custody verification, worker',
+  alternates: {
+    canonical: 'https://www.objectwire.org/surveillance',
+  },s compensation claims, and more.",
 };
 
 export default function SurveillancePage() {

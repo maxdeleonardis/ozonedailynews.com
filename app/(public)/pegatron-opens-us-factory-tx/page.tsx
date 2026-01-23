@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pegatron Opens U.S. Factory in TX Bringing 100s of New Jobs - ObjectWire.org",
   description: "Taiwanese electronics giant Pegatron announces its inaugural U.S. manufacturing site in Georgetown, Texas, with a $35 million capital commitment.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/pegatron-opens-us-factory-tx',
+  },
 };
 
 export default function PegatronFactoryPage() {

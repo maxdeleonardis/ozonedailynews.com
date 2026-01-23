@@ -130,6 +130,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!article) {
     return {
       title: 'Article Not Found | ObjectWire',
+    alternates: {
+      canonical: 'https://www.objectwire.org/blog/[slug]',
+    },
     };
   }
 

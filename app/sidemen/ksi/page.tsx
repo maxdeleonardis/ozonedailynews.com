@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "KSI (JJ Olatunji) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of KSI (JJ Olatunji), Sidemen member, professional boxer, musician, and entrepreneur. Latest news, career highlights, and achievements.",
   keywords: ["KSI", "JJ Olatunji", "Sidemen", "YouTube boxer", "Prime Hydration", "UK rapper"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/ksi',
+  },
 };
 
 export default function KSIPage() {

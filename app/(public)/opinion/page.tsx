@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Opinion Columns | Object Wire - ObjectWire.org",
   description: "Read independent opinion columns analyzing cultural, political, & economic shifts. Contribute your insights today!",
+  alternates: {
+    canonical: 'https://www.objectwire.org/opinion',
+  },
 };
 
 export default function OpinionPage() {

@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Fact-finding and Evidence Collection - ObjectWire.org",
   description: "We investigate personal injury incidents, insurance fraud, property disputes, harassment allegations, and more. In criminal cases, we locate and interview witnesses.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/fact-finding-and-evidence-collection',
+  },
 };
 
 export default function FactFindingPage() {

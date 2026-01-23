@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "streaming charts",
     "Billboard artists",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/artists',
+  },
 };
 
 export default function ArtistsPage() {

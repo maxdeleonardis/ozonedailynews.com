@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Trump's Credit Card Rate Cap Deadline Looms: Banks Have Questions, No Answers | ObjectWire",
   description: "As President Trump's January 20 deadline for a 10% credit card rate cap approaches, banks, consumer groups, and politicians remain unclear on implementation and consequences.",
   keywords: ["Trump", "credit card rates", "10% cap", "banking", "interest rates", "White House", "financial policy"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/trump-credit-card-rate-cap-deadline-banks-have-questions',
+  },
 };
 
 export default function TrumpCreditCardCapPage() {

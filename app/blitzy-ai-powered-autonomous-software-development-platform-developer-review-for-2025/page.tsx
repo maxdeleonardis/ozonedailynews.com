@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "software development automation",
     "programming assistant"
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025',
+  },
   openGraph: {
     type: "article",
     title: "Blitzy AI Platform - Developer Review 2025",

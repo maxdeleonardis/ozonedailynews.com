@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "EatCookJoy.com: Food Blog, Recipes & Culinary Adventures | ObjectWire",
   description: "Discover EatCookJoy.com, a popular food blog featuring creative recipes, cooking tips, restaurant reviews, and culinary adventures from around the world.",
   keywords: ["EatCookJoy", "food blog", "recipes", "cooking", "culinary", "restaurant reviews", "food photography", "cooking tips"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/https-www-eatcookjoy-com',
+  },
 };
 
 export default function EatCookJoyPage() {

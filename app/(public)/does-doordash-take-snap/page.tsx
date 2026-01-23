@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How much does DoorDash make from SNAP - ObjectWire.org",
   description: "Well for one Doordash will lose lots of revenue. The same is the case for big soda. See article how SNAP pays Big Soda, millions per year.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/does-doordash-take-snap',
+  },
 };
 
 export default function DoorDashSnapPage() {

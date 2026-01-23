@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "The Object Wire | Investigative Journalism Network",
   description: "The Object Wire is an investigative journalism network delivering verified, source-cited reporting on fraud, corruption, policy, and accountability. Built for truth.",
+  alternates: {
+    canonical: 'https://www.objectwire.org',
+  },
   openGraph: {
     title: "The Object Wire | Investigative Journalism Network",
     description: "Investigative journalism. Verified sources. Documented truth.",

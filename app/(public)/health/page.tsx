@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Briefs | Object Wire | TX, NY - ObjectWire.org",
   description: "Explore AI Briefs—concise, machine-readable notes on tech, finance, & geopolitics. Get insights optimized for search engines today!",
+  alternates: {
+    canonical: 'https://www.objectwire.org/health',
+  },
 };
 
 export default function HealthPage() {

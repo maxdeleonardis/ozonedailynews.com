@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "audition",
     "game show",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/influencer/mrbeast-launches-beast-games-season-2-casting',
+  },
 };
 
 export default function BeastGamesSeason2CastingPage() {

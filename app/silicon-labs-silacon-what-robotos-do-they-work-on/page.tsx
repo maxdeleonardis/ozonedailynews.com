@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Silicon Labs Silacon: What Robots Do They Work On? | ObjectWire",
   description: "Exploring Silicon Labs' Silacon division and their cutting-edge robotics projects including autonomous warehouse systems, surgical robots, and AI-powered humanoid platforms.",
   keywords: ["Silicon Labs", "Silacon", "robotics", "autonomous systems", "warehouse automation", "surgical robots", "humanoid robots", "AI robotics"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/silicon-labs-silacon-what-robotos-do-they-work-on',
+  },
 };
 
 export default function SiliconLabsSilaconRobotsPage() {

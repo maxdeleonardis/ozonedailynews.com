@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Behzinga (Ethan Payne) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of Behzinga (Ethan Payne), Sidemen member known for his fitness transformation and mental health advocacy.",
   keywords: ["Behzinga", "Ethan Payne", "Sidemen", "fitness transformation", "mental health"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/behzinga',
+  },
 };
 
 export default function BehzingaPage() {

@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Canada CFIA Slaughters 100s of Ostriches that had natural immunity - ObjectWire.org",
   description: "What began as a local animal-health concern escalated into a high-stakes, internationally scrutinized incident when Canadian authorities forcibly slaughtered ostriches with natural immunity.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/oh-canada-what-has-happened',
+  },
 };
 
 export default function CanadaOstrichPage() {

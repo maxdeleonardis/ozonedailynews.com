@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "PR Branding Press Release | Object Wire - ObjectWire.org",
   description: "At Objective Wire, we specialize in public relations (PR), branding, and press release writing services to help Austin-based businesses, startups, nonprofits, and individuals amplify their message.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/service/press-release',
+  },
 };
 
 export default function PressReleasePage() {

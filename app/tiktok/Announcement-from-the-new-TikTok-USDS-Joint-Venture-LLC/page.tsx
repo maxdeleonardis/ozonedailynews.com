@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "U.S. government",
     "social media regulation",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC',
+  },
 };
 
 export default function TikTokUSDSAnnouncementPage() {

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "NestJS vs Next.js vs Express: Complete Framework Comparison 2026 | ObjectWire",
   description: "Comprehensive comparison of NestJS, Next.js, and Express frameworks. Learn the differences, use cases, performance, and when to choose each framework for your project.",
   keywords: ["NestJS", "Next.js", "Express", "Node.js", "framework comparison", "backend framework", "full-stack framework", "web development"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/coding/nestjs-vs-nextjs-vs-express',
+  },
 };
 
 export default function NestJSvsNextJSvsExpressPage() {

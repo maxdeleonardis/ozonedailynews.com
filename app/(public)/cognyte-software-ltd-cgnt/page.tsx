@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cognyte Software Ltd (CGNT): Investigative Analytics Platform - ObjectWire.org",
   description: "Cognyte develops advanced software solutions for investigative analytics, focusing on data fusion, analysis, and visualization to deliver actionable intelligence.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/cognyte-software-ltd-cgnt',
+  },
 };
 
 export default function CognyteSoftwarePage() {

@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Start-up News | Object Wire - ObjectWire.org",
   description: "Read independent opinion columns analyzing start-up trends, venture capital, & entrepreneurial shifts. Contribute your insights today!",
+  alternates: {
+    canonical: 'https://www.objectwire.org/start-up-news',
+  },
 };
 
 export default function StartUpNewsPage() {

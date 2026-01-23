@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "child nutrition fraud",
     "COVID fraud scheme"
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/minnesota-feeding-our-future-fraud',
+  },
   authors: [{ name: "ObjectWire Investigations" }],
   openGraph: {
     type: "article",

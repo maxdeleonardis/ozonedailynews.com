@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Editorial Standards",
-  description: "ObjectWire's editorial standards ensure accuracy, transparency, and accountability in all published content. Learn about our verification process and commitment to factual reporting.",
+  description: "ObjectWire',
+  alternates: {
+    canonical: 'https://www.objectwire.org/editorial-standards',
+  },s editorial standards ensure accuracy, transparency, and accountability in all published content. Learn about our verification process and commitment to factual reporting.",
   openGraph: {
     title: "Editorial Standards | ObjectWire",
     description: "Our commitment to accuracy, source verification, and transparent journalism.",

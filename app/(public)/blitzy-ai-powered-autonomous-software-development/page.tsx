@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blitzy AI-Powered Autonomous Software Development Review - ObjectWire.org",
   description: "Blitzy, born out of the Harvard Innovation Lab, is a generative AI platform designed to automate custom software development. Unlike traditional low-code tools, Blitzy creates production-ready applications.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/blitzy-ai-powered-autonomous-software-development',
+  },
 };
 
 export default function BlitzyAIPage() {

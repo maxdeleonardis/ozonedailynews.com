@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Nasdaq proposal for Extended trading hours in 2026 - ObjectWire.org",
   description: "In December 2025, Nasdaq filed a proposal with the U.S. Securities and Exchange Commission (SEC) to extend trading hours for U.S.-listed securities.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/nasdaq-proposed-24-7-trading',
+  },
 };
 
 export default function NasdaqExtendedHoursPage() {

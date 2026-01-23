@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Serge Gatari Ai Course Review | ClientAcquisition.io Community - ObjectWire.org",
   description: "Serge Gatari AI expert and infamous guru, is launching a new program an AI Community, that is creating AI agent millionaires.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/who-is-serge-gatari-ai-course-review',
+  },
 };
 
 export default function SergeGatariPage() {

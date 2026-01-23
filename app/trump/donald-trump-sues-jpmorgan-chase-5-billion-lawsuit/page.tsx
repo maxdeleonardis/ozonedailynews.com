@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "financial litigation",
     "Trump legal battles",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/trump/donald-trump-sues-jpmorgan-chase-5-billion-lawsuit',
+  },
 };
 
 export default function TrumpJPMorganLawsuitPage() {

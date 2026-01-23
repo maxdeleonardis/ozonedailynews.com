@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Chicos Toxicos - Latin YouTuber Entertainment Group | ObjectWire",
   description: "Complete coverage of Chicos Toxicos, the Latin American YouTuber entertainment group featuring Felipe, Diego, and Brandom. New videos every Toxico Thursday, collaborations with Zoo Culture and Bradley Martyn.",
   keywords: ["Chicos Toxicos", "Felipito96", "Diegovnoboa", "DonBrandom", "Latin YouTubers", "Toxico Thursdays", "Zoo Culture", "Bradley Martyn"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/chicos-toxicos',
+  },
 };
 
 export default function ChicosToxicosPage() {

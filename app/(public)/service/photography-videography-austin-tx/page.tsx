@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Photography Videography Austin Tx - ObjectWire.org",
   description: "At Objective Wire, we specialize in professional photography and videography services designed for investigative, legal, and private documentation purposes.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/service/photography-videography-austin-tx',
+  },
 };
 
 export default function PhotographyVideographyPage() {

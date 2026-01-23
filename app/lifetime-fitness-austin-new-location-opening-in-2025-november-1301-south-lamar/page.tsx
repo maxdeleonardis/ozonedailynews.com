@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "premium gym Austin",
     "fitness club Austin"
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar',
+  },
   openGraph: {
     type: "article",
     title: "Lifetime Fitness Opens New Austin Location on South Lamar",

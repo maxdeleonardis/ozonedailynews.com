@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "comedy",
     "interviews",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/podcasts/joe-rogan',
+  },
 };
 
 export default function JoeRoganPage() {

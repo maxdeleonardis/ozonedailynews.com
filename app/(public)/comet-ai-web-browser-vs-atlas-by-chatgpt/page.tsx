@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Comet AI Web Browser vs Atlas by ChatGPT - ObjectWire.org",
   description: "AI web browsers are reshaping how we surf the internet, blending machine learning with everyday navigation to deliver smarter, more personalized experiences.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/comet-ai-web-browser-vs-atlas-by-chatgpt',
+  },
 };
 
 export default function CometAIvsAtlasPage() {

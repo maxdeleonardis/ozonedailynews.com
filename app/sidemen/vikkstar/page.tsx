@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Vikkstar123 (Vikram Barn) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of Vikkstar123 (Vikram Barn), Sidemen member, gaming legend, and entrepreneur. Warzone king and business mogul.",
   keywords: ["Vikkstar123", "Vikram Barn", "Sidemen", "Warzone", "gaming entrepreneur"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/vikkstar',
+  },
 };
 
 export default function VikkstarPage() {

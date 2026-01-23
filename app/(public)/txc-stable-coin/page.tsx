@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "What is $ Texit an Investment a Stablecoin, or Scam? - ObjectWire.org",
   description: "More like a digital mirage right now that could someday form into a real asset. $TXC (TEXITcoin) is a volatile, mineable cryptocurrency hyped as a Texas independence token.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/txc-stable-coin',
+  },
 };
 
 export default function TexitCoinPage() {

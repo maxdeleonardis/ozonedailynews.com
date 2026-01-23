@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "Toronto rapper",
     "Gods Plan",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/artists/drake',
+  },
 };
 
 export default function DrakePage() {

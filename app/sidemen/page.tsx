@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "The Sidemen - UK's Biggest YouTube Group | ObjectWire",
   description: "Complete coverage of The Sidemen, the UK's biggest YouTube entertainment group featuring KSI, Miniminter, Zerkaa, TBJZL, Behzinga, Vikkstar123, and W2S. Latest news, videos, and member profiles.",
   keywords: ["Sidemen", "KSI", "Miniminter", "Zerkaa", "TBJZL", "Behzinga", "Vikkstar123", "W2S", "UK YouTubers", "Sidemen Charity Match"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen',
+  },
 };
 
 export default function SidemenPage() {

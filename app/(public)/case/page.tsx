@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us | The Objective Wire - ObjectWire.org",
   description: "Contact Object Wire for inquiries, tips, or story submissions. Get in touch with our team today.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/case',
+  },
 };
 
 export default function CasePage() {

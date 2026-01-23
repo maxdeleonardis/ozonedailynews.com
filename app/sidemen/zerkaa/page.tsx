@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Zerkaa (Josh Bradley) - Sidemen Member Profile | ObjectWire",
   description: "Complete profile of Zerkaa (Josh Bradley), Sidemen member and GTA RP content creator. The 'dad' of the Sidemen group.",
   keywords: ["Zerkaa", "Josh Bradley", "Sidemen", "GTA RP", "UK YouTuber"],
+  alternates: {
+    canonical: 'https://www.objectwire.org/sidemen/zerkaa',
+  },
 };
 
 export default function ZerkaaPage() {

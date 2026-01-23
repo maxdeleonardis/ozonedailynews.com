@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "BitChat : Jack Dorsey's Bluetooth Mesh Offline Messaging App - ObjectWire.org",
   description: "Jack Dorsey unveils BitChat, a revolutionary Bluetooth mesh networking app enabling offline messaging without internet connectivity.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/introducing-bitchat-jack-dorsey',
+  },
 };
 
 export default function BitChatPage() {

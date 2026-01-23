@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "Austin Texas",
     "luxury real estate",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/austin/19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M',
+  },
 };
 
 export default function ElijahWoodAustinHomePage() {

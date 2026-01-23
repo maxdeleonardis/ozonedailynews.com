@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Research Wire | Object Wire - ObjectWire.org",
   description: "Get in-depth news & analysis with timeless explainers. Stay informed on major topics today!",
+  alternates: {
+    canonical: 'https://www.objectwire.org/analyst',
+  },
 };
 
 export default function AnalystPage() {

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "X-Men",
     "PlayStation 5",
   ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/marvels-wolverine',
+  },
 };
 
 export default function WolverineGamePage() {

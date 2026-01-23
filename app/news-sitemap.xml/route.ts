@@ -1,9 +1,10 @@
 import { getAllBlogPosts } from '@/lib/blog-service';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.org';
+  const baseUrl = SITE_CONFIG.url;
   
   try {
     const { data: posts, error } = await getAllBlogPosts();

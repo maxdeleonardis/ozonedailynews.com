@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ArticlesProvider } from "@/lib/articles-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -8,43 +9,79 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchem
 import AuthProvider from "@/components/AuthProvider";
 import CookieConsent from "@/components/CookieConsent";
 import AuthButton from "@/components/AuthButton";
+import { SITE_CONFIG } from "@/lib/site-config";
+
+// =============================================================================
+// FONT OPTIMIZATION - Prevents layout shift (CLS)
+// Next.js handles: subsetting, preloading, self-hosting, font-display: swap
+// =============================================================================
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-serif',
+  preload: true,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+  preload: true,
+});
+
+// =============================================================================
+// VIEWPORT CONFIGURATION - Layout stability
+// =============================================================================
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#ffffff',
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://objectwire.org'),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "ObjectWire | Precision Intelligence News Network",
-    template: "%s | ObjectWire"
+    default: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    template: `%s | ${SITE_CONFIG.name}`
   },
-  description: "ObjectWire delivers verified, source-cited intelligence on business, technology, and policy. Precision journalism for professionals who demand accuracy.",
+  description: SITE_CONFIG.description,
   keywords: ["news", "intelligence", "journalism", "business news", "technology news", "verified news", "fact-checked reporting"],
   authors: [{ name: "ObjectWire Editorial Team" }],
-  creator: "ObjectWire",
-  publisher: "ObjectWire News Network",
+  creator: SITE_CONFIG.name,
+  publisher: `${SITE_CONFIG.name} News Network`,
   formatDetection: {
     email: false,
     telephone: false,
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://objectwire.org",
-    siteName: "ObjectWire",
-    title: "ObjectWire | Precision Intelligence News Network",
-    description: "Verified, source-cited intelligence on business, technology, and policy.",
+    locale: SITE_CONFIG.locale,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: "/og-image.png",
+        url: SITE_CONFIG.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "ObjectWire News Network",
+        alt: `${SITE_CONFIG.name} News Network`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ObjectWire | Precision Intelligence News Network",
-    description: "Verified, source-cited intelligence on business, technology, and policy.",
-    images: ["/og-image.png"],
+    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    images: [SITE_CONFIG.defaultOgImage],
   },
   robots: {
     index: true,
@@ -57,6 +94,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: SITE_CONFIG.url,
+    types: {
+      'application/rss+xml': `${SITE_CONFIG.url}/rss.xml`,
+    },
+  },
+  other: {
+    'llms.txt': `${SITE_CONFIG.url}/llms.txt`,
+  },
 };
 
 export default function RootLayout({
@@ -65,13 +111,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="canonical" href="https://objectwire.org" />
+        <link rel="canonical" href={SITE_CONFIG.url} />
+        <link rel="alternate" type="application/rss+xml" title={`${SITE_CONFIG.name} RSS Feed`} href={`${SITE_CONFIG.url}/rss.xml`} />
+        {/* Preconnect to external resources for faster loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="bg-white text-gray-900 antialiased">
+      <body className="bg-white text-gray-900 antialiased font-sans">
         <GoogleAnalytics />
         <AuthProvider>
           <ArticlesProvider>

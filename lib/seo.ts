@@ -1,8 +1,62 @@
-/**
- * SEO utilities for production-ready blog content
- */
+// =============================================================================
+// SEO UTILITIES - Duda-Level SEO for Next.js
+// Production-ready SEO optimizations for Google, Google News, and news aggregators
+// =============================================================================
 
-import { BlogPostFull } from './blog-service';
+import { Metadata } from 'next';
+
+const BASE_URL = 'https://objectwire.org';
+const SITE_NAME = 'ObjectWire';
+const DEFAULT_OG_IMAGE = '/og-image.png';
+
+// =============================================================================
+// TYPES
+// =============================================================================
+
+export interface SEOConfig {
+  title: string;
+  description: string;
+  keywords?: string[];
+  canonical?: string;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  ogImage?: string;
+  ogType?: 'article' | 'website' | 'profile';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+}
+
+export interface ArticleSEOConfig extends SEOConfig {
+  publishedTime: string;
+  modifiedTime?: string;
+  author: string;
+  section: string;
+  tags?: string[];
+}
+
+export interface WikiSEOConfig extends SEOConfig {
+  subject: string;
+  lastUpdated?: string;
+}
+
+export interface BlogPostFull {
+  slug: string;
+  title: string;
+  meta_title?: string;
+  meta_description?: string;
+  excerpt?: string;
+  featured_image?: string;
+  tags: string[];
+  author: string;
+  published_at?: string;
+  created_at: string;
+  updated_at: string;
+  category: string;
+  blocks: any[];
+}
 
 export interface SEOMetadata {
   title: string;
@@ -17,14 +71,18 @@ export interface SEOMetadata {
   tags?: string[];
 }
 
+// =============================================================================
+// BLOG POST SEO (Legacy support)
+// =============================================================================
+
 /**
  * Generate optimized SEO metadata for a blog post
  */
-export function generateSEOMetadata(post: BlogPostFull, baseUrl: string): SEOMetadata {
+export function generateBlogSEOMetadata(post: BlogPostFull, baseUrl: string = BASE_URL): SEOMetadata {
   const url = `${baseUrl}/${post.slug}`;
   
   return {
-    title: post.meta_title || `${post.title} | ObjectWire`,
+    title: post.meta_title || `${post.title} | ${SITE_NAME}`,
     description: post.meta_description || post.excerpt || generateExcerpt(post),
     canonical: url,
     ogImage: post.featured_image || `${baseUrl}/og-default.png`,
@@ -43,174 +101,408 @@ export function generateSEOMetadata(post: BlogPostFull, baseUrl: string): SEOMet
 function generateExcerpt(post: BlogPostFull): string {
   if (post.excerpt) return post.excerpt;
   
-  // Extract first paragraph from blocks
   const paragraphBlock = post.blocks.find(
     (block: any) => block.type === 'paragraph' || block.type === 'summary'
   );
   
-  if (paragraphBlock && paragraphBlock.content) {
-    const text = paragraphBlock.content.substring(0, 160);
-    return text.length < paragraphBlock.content.length ? `${text}...` : text;
+  if (paragraphBlock?.data?.text) {
+    return truncateDescription(paragraphBlock.data.text, 160);
   }
   
-  return 'Read the latest insights and analysis on ObjectWire.';
+  return `Read about ${post.title} on ${SITE_NAME}`;
+}
+
+// =============================================================================
+// METADATA GENERATORS
+// =============================================================================
+
+/**
+ * Generate SEO-optimized metadata for any page
+ * Follows Duda-level standards for canonical URLs, OG tags, and robots directives
+ */
+export function generateSEOMetadata(config: SEOConfig): Metadata {
+  const {
+    title,
+    description,
+    keywords = [],
+    canonical,
+    noIndex = false,
+    noFollow = false,
+    ogImage = DEFAULT_OG_IMAGE,
+    ogType = 'website',
+    publishedTime,
+    modifiedTime,
+    author,
+    section,
+    tags = [],
+  } = config;
+
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const canonicalUrl = canonical || `${BASE_URL}`;
+  const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
+
+  const metadata: Metadata = {
+    title: fullTitle,
+    description,
+    keywords: keywords.length > 0 ? keywords : undefined,
+    authors: author ? [{ name: author }] : [{ name: 'ObjectWire Editorial Team' }],
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
+    
+    // Canonical URL - CRITICAL for SEO
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    
+    // Robots directives
+    robots: {
+      index: !noIndex,
+      follow: !noFollow,
+      googleBot: {
+        index: !noIndex,
+        follow: !noFollow,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    
+    // Open Graph
+    openGraph: {
+      type: ogType,
+      locale: 'en_US',
+      url: canonicalUrl,
+      siteName: SITE_NAME,
+      title: fullTitle,
+      description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
+      ...(author && { authors: [author] }),
+      ...(section && { section }),
+      ...(tags.length > 0 && { tags }),
+    },
+    
+    // Twitter Card
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description,
+      images: [ogImageUrl],
+      ...(author && { creator: `@${author.toLowerCase().replace(/\s+/g, '')}` }),
+    },
+  };
+
+  return metadata;
 }
 
 /**
- * Generate Schema.org structured data for article
+ * Generate metadata specifically for news articles
+ * Optimized for Google News and news aggregators
  */
-export function generateArticleSchema(post: BlogPostFull, baseUrl: string) {
-  const metadata = generateSEOMetadata(post, baseUrl);
-  
+export function generateArticleMetadata(config: ArticleSEOConfig): Metadata {
+  const baseMetadata = generateSEOMetadata({
+    ...config,
+    ogType: 'article',
+  });
+
   return {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: post.title,
-    description: metadata.description,
-    image: metadata.ogImage,
-    datePublished: post.published_at || post.created_at,
-    dateModified: post.updated_at,
-    author: {
-      '@type': 'Person',
-      name: post.author || 'ObjectWire Editorial Team',
+    ...baseMetadata,
+    other: {
+      'article:published_time': config.publishedTime,
+      'article:modified_time': config.modifiedTime || config.publishedTime,
+      'article:author': config.author,
+      'article:section': config.section,
+      ...(config.tags && { 'article:tag': config.tags.join(', ') }),
+      // Google News specific
+      'news_keywords': config.keywords?.join(', ') || '',
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'ObjectWire',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${baseUrl}/logo.png`,
-      },
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${baseUrl}/${post.slug}`,
-    },
-    articleSection: post.category,
-    keywords: post.tags.join(', '),
   };
 }
 
 /**
- * Calculate reading time based on blocks
+ * Generate metadata for wiki/encyclopedia pages
  */
-export function calculateReadingTime(blocks: any[]): string {
-  let wordCount = 0;
-  
-  blocks.forEach((block) => {
-    if (block.content) {
-      wordCount += block.content.split(/\s+/).length;
-    }
-    if (block.items) {
-      block.items.forEach((item: any) => {
-        if (item.description) {
-          wordCount += item.description.split(/\s+/).length;
-        }
-      });
-    }
+export function generateWikiMetadata(config: WikiSEOConfig): Metadata {
+  const baseMetadata = generateSEOMetadata({
+    ...config,
+    ogType: 'article',
   });
-  
-  const minutes = Math.ceil(wordCount / 200); // Average reading speed
-  return `${minutes} min read`;
+
+  return {
+    ...baseMetadata,
+    other: {
+      'article:section': 'Encyclopedia',
+      ...(config.lastUpdated && { 'article:modified_time': config.lastUpdated }),
+    },
+  };
+}
+
+// =============================================================================
+// STRUCTURED DATA (JSON-LD) GENERATORS
+// =============================================================================
+
+export interface ArticleSchemaData {
+  title: string;
+  description: string;
+  author: string;
+  publishedTime: string;
+  modifiedTime?: string;
+  imageUrl?: string;
+  articleUrl: string;
+  section?: string;
+  keywords?: string[];
+  wordCount?: number;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
 }
 
 /**
- * Calculate SEO score for content
+ * Generate NewsArticle JSON-LD schema
+ * Required for Google News indexing
  */
-export function calculateSEOScore(post: Partial<BlogPostFull>): {
-  score: number;
-  issues: string[];
-  suggestions: string[];
-} {
-  const issues: string[] = [];
-  const suggestions: string[] = [];
-  let score = 100;
-  
-  // Title checks
-  if (!post.title) {
-    issues.push('Missing title');
-    score -= 20;
-  } else {
-    if (post.title.length < 30) {
-      suggestions.push('Title is short. Consider 40-60 characters for better SEO');
-      score -= 5;
-    }
-    if (post.title.length > 70) {
-      issues.push('Title too long (>70 chars). It may be truncated in search results');
-      score -= 10;
-    }
-  }
-  
-  // Meta description checks
-  if (!post.meta_description && !post.excerpt) {
-    issues.push('Missing meta description');
-    score -= 15;
-  } else {
-    const desc = post.meta_description || post.excerpt || '';
-    if (desc.length < 120) {
-      suggestions.push('Meta description is short. Aim for 150-160 characters');
-      score -= 5;
-    }
-    if (desc.length > 160) {
-      issues.push('Meta description too long. Keep it under 160 characters');
-      score -= 5;
-    }
-  }
-  
-  // Slug checks
-  if (post.slug) {
-    if (post.slug.length > 75) {
-      issues.push('URL slug is too long. Keep it concise');
-      score -= 5;
-    }
-  }
-  
-  // Content checks
-  if (post.blocks && post.blocks.length > 0) {
-    const hasHeadings = post.blocks.some((b: any) => b.type === 'heading');
-    if (!hasHeadings) {
-      suggestions.push('Add headings (H2, H3) to improve content structure');
-      score -= 10;
-    }
-    
-    const totalWords = post.blocks.reduce((count: number, block: any) => {
-      if (block.content) count += block.content.split(/\s+/).length;
-      return count;
-    }, 0);
-    
-    if (totalWords < 300) {
-      issues.push('Content is thin (<300 words). Add more detailed content');
-      score -= 15;
-    } else if (totalWords < 600) {
-      suggestions.push('Consider adding more content. Articles with 1000+ words rank better');
-      score -= 5;
-    }
-  }
-  
-  // Tags/Keywords
-  if (!post.tags || post.tags.length === 0) {
-    suggestions.push('Add tags for better content organization and internal linking');
-    score -= 5;
-  }
-  
-  // Featured image
-  if (!post.featured_image) {
-    suggestions.push('Add a featured image for better social sharing');
-    score -= 5;
-  }
-  
-  return { score: Math.max(0, score), issues, suggestions };
+export function generateNewsArticleSchema(data: ArticleSchemaData): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: data.title,
+    description: data.description,
+    image: data.imageUrl ? [data.imageUrl] : [`${BASE_URL}/og-image.png`],
+    datePublished: data.publishedTime,
+    dateModified: data.modifiedTime || data.publishedTime,
+    author: {
+      '@type': 'Person',
+      name: data.author,
+      url: `${BASE_URL}/team/${data.author.toLowerCase().replace(/\s+/g, '-')}`,
+    },
+    publisher: {
+      '@type': 'NewsMediaOrganization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo.png`,
+        width: 600,
+        height: 60,
+      },
+      url: BASE_URL,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': data.articleUrl,
+    },
+    articleSection: data.section || 'News',
+    keywords: data.keywords?.join(', ') || '',
+    isAccessibleForFree: true,
+    inLanguage: 'en-US',
+    ...(data.wordCount && { wordCount: data.wordCount }),
+  };
 }
 
 /**
- * Generate optimized slug from title
+ * Generate Article JSON-LD schema (for non-news articles)
  */
-export function generateOptimizedSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single
-    .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
-    .substring(0, 75); // Limit length
+export function generateArticleSchema(data: ArticleSchemaData): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    description: data.description,
+    image: data.imageUrl ? [data.imageUrl] : [`${BASE_URL}/og-image.png`],
+    datePublished: data.publishedTime,
+    dateModified: data.modifiedTime || data.publishedTime,
+    author: {
+      '@type': 'Person',
+      name: data.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': data.articleUrl,
+    },
+    inLanguage: 'en-US',
+  };
 }
+
+/**
+ * Generate BreadcrumbList JSON-LD schema
+ * Improves SERP appearance with breadcrumb trails
+ */
+export function generateBreadcrumbSchema(items: BreadcrumbItem[]): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
+    })),
+  };
+}
+
+/**
+ * Generate Person JSON-LD schema (for biography pages)
+ */
+export function generatePersonSchema(data: {
+  name: string;
+  description: string;
+  image?: string;
+  jobTitle?: string;
+  birthDate?: string;
+  birthPlace?: string;
+  nationality?: string;
+  url: string;
+  sameAs?: string[];
+}): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: data.name,
+    description: data.description,
+    ...(data.image && { image: data.image }),
+    ...(data.jobTitle && { jobTitle: data.jobTitle }),
+    ...(data.birthDate && { birthDate: data.birthDate }),
+    ...(data.birthPlace && {
+      birthPlace: {
+        '@type': 'Place',
+        name: data.birthPlace,
+      },
+    }),
+    ...(data.nationality && { nationality: data.nationality }),
+    url: data.url,
+    ...(data.sameAs && { sameAs: data.sameAs }),
+  };
+}
+
+/**
+ * Generate FAQPage JSON-LD schema
+ * Great for featured snippets
+ */
+export function generateFAQSchema(
+  faqs: { question: string; answer: string }[]
+): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+// =============================================================================
+// UTILITY FUNCTIONS
+// =============================================================================
+
+/**
+ * Generate a canonical URL from a slug
+ */
+export function getCanonicalUrl(slug: string): string {
+  const cleanSlug = slug.startsWith('/') ? slug : `/${slug}`;
+  return `${BASE_URL}${cleanSlug}`;
+}
+
+/**
+ * Generate a sitemap entry
+ */
+export function generateSitemapEntry(
+  slug: string,
+  options?: {
+    lastModified?: Date;
+    changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+    priority?: number;
+  }
+) {
+  return {
+    url: getCanonicalUrl(slug),
+    lastModified: options?.lastModified || new Date(),
+    changeFrequency: options?.changeFrequency || 'weekly',
+    priority: options?.priority || 0.8,
+  };
+}
+
+/**
+ * Strip HTML tags for meta descriptions
+ */
+export function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').trim();
+}
+
+/**
+ * Truncate text for meta description (max 160 chars)
+ */
+export function truncateDescription(text: string, maxLength: number = 160): string {
+  const stripped = stripHtml(text);
+  if (stripped.length <= maxLength) return stripped;
+  return stripped.substring(0, maxLength - 3).trim() + '...';
+}
+
+/**
+ * Generate keywords from title and content
+ */
+export function extractKeywords(title: string, content?: string): string[] {
+  const text = `${title} ${content || ''}`.toLowerCase();
+  const words = text.split(/\s+/);
+  const stopWords = new Set([
+    'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+    'of', 'with', 'by', 'from', 'is', 'are', 'was', 'were', 'be', 'been',
+    'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
+    'could', 'should', 'may', 'might', 'must', 'shall', 'can', 'need',
+    'it', 'its', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she',
+    'we', 'they', 'what', 'which', 'who', 'when', 'where', 'why', 'how',
+  ]);
+  
+  const keywords = words
+    .filter((word) => word.length > 3 && !stopWords.has(word))
+    .filter((word, index, self) => self.indexOf(word) === index)
+    .slice(0, 10);
+  
+  return keywords;
+}
+
+// =============================================================================
+// EXPORTS
+// =============================================================================
+
+export const SEO = {
+  generateMetadata: generateSEOMetadata,
+  generateBlogSEOMetadata,
+  generateArticleMetadata,
+  generateWikiMetadata,
+  generateNewsArticleSchema,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+  generatePersonSchema,
+  generateFAQSchema,
+  getCanonicalUrl,
+  generateSitemapEntry,
+  stripHtml,
+  truncateDescription,
+  extractKeywords,
+  BASE_URL,
+  SITE_NAME,
+};
+
+export default SEO;

@@ -1,9 +1,10 @@
 import { getAllBlogPosts } from '@/lib/blog-service';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
+  const baseUrl = SITE_CONFIG.url;
   
   try {
     const { data: posts, error } = await getAllBlogPosts();
@@ -18,10 +19,10 @@ export async function GET() {
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ObjectWire - Technology News and Analysis</title>
+    <title>${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}</title>
     <link>${baseUrl}</link>
-    <description>Breaking news, in-depth analysis, and expert insights on technology, finance, and innovation</description>
-    <language>en-us</language>
+    <description>${SITE_CONFIG.description}</description>
+    <language>${SITE_CONFIG.locale.replace('_', '-').toLowerCase()}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     ${publishedPosts.map(post => `
@@ -31,7 +32,7 @@ export async function GET() {
       <guid isPermaLink="true">${baseUrl}/${post.slug}</guid>
       <description><![CDATA[${post.excerpt || ''}]]></description>
       <pubDate>${new Date(post.published_at || post.created_at).toUTCString()}</pubDate>
-      <author>editorial@objectwire.com (${post.author})</author>
+      <author>${SITE_CONFIG.email} (${post.author})</author>
       <category>${post.category}</category>
       ${post.tags.map(tag => `<category>${tag}</category>`).join('\n      ')}
       ${post.featured_image ? `<enclosure url="${post.featured_image}" type="image/jpeg"/>` : ''}

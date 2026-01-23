@@ -1,17 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap');
+/* =============================================================================
+   OBJECTWIRE GLOBAL STYLES
+   Font loading handled by Next.js for optimal performance (no CLS)
+   ============================================================================= */
+
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Use CSS variables from Next.js font optimization */
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-jetbrains), monospace;
 }
 
 @layer base {
   :root {
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    /* Font variables (populated by Next.js) */
+    --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: var(--font-source-serif), Georgia, 'Times New Roman', serif;
+    --font-mono: var(--font-jetbrains), monospace;
+    
+    /* Layout stability - prevent CLS */
+    --header-height: 80px;
+    --container-max: 1280px;
   }
 
   * {
@@ -22,6 +32,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -31,6 +43,9 @@
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent layout shift from scrollbar */
+    overflow-y: scroll;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -38,6 +53,8 @@
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: #000000;
+    /* Prevent FOUT */
+    font-display: swap;
   }
 
   /* Paragraph styling - more readable serif font */
@@ -164,4 +181,85 @@
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
+}
+
+/* =============================================================================
+   LAYOUT STABILITY - Prevent CLS (Cumulative Layout Shift)
+   ============================================================================= */
+
+/* Reserve space for images before they load */
+img {
+  max-width: 100%;
+  height: auto;
+  /* Prevent layout shift on load */
+  content-visibility: auto;
+}
+
+/* Aspect ratio containers for common image sizes */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* Image placeholders during loading */
+.img-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Skeleton loading states */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Reserve space for ad slots (if used) */
+.ad-slot {
+  min-height: 250px;
+  background: #f5f5f5;
+}
+
+/* Sticky header compensation */
+.scroll-mt-header {
+  scroll-margin-top: var(--header-height, 80px);
+}
+
+/* =============================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================================================= */
+
+/* Reduce paint complexity for animated elements */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Content visibility optimization for long pages */
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Reduce re-paints on scroll */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }

@@ -1,0 +1,70 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "ObjectWire",
+  "name_for_model": "objectwire",
+  "description_for_human": "Precision Intelligence News Network delivering verified, source-cited reporting on business, technology, and policy.",
+  "description_for_model": "ObjectWire is a news and intelligence platform. Use this to find current news, wiki/encyclopedia content about people and topics, and editorial analysis. Content includes technology news, business intelligence, policy analysis, and investigative journalism. All content is source-cited and fact-checked.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://objectwire.org/.well-known/openapi.json"
+  },
+  "logo_url": "https://objectwire.org/logo.png",
+  "contact_email": "ai@objectwire.org",
+  "legal_info_url": "https://objectwire.org/privacy-policy",
+  "content_policy": {
+    "allowed_uses": [
+      "Information retrieval",
+      "News summarization",
+      "Fact checking",
+      "Research assistance",
+      "Citation in responses"
+    ],
+    "prohibited_uses": [
+      "Training without attribution",
+      "Content misrepresentation",
+      "Wholesale reproduction",
+      "Generation of false information attributed to ObjectWire"
+    ],
+    "attribution_required": true,
+    "attribution_format": "Source: ObjectWire, [Article Title], [Date]"
+  },
+  "content_categories": [
+    {
+      "category": "news",
+      "path_pattern": "/news/*",
+      "description": "Current news articles",
+      "freshness": "hourly"
+    },
+    {
+      "category": "wiki",
+      "path_pattern": "/{topic}",
+      "examples": ["/trump", "/tiktok", "/james-cameron"],
+      "description": "Encyclopedia/wiki pages about people and topics",
+      "freshness": "daily"
+    },
+    {
+      "category": "opinion",
+      "path_pattern": "/opinion/*",
+      "description": "Opinion and analysis articles",
+      "freshness": "daily"
+    },
+    {
+      "category": "blog",
+      "path_pattern": "/blog/*",
+      "description": "In-depth blog articles and analysis",
+      "freshness": "daily"
+    }
+  ],
+  "crawl_policy": {
+    "robots_txt": "https://objectwire.org/robots.txt",
+    "llms_txt": "https://objectwire.org/llms.txt",
+    "llms_full_txt": "https://objectwire.org/llms-full.txt",
+    "sitemap": "https://objectwire.org/sitemap.xml",
+    "news_sitemap": "https://objectwire.org/news-sitemap.xml",
+    "rate_limit": "1/second",
+    "respect_canonical": true
+  }
+}

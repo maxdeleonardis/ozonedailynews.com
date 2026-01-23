@@ -1,0 +1,12 @@
+# ObjectWire Security Policy
+# https://objectwire.org/.well-known/security.txt
+
+Contact: mailto:security@objectwire.org
+Expires: 2026-12-31T23:59:59.000Z
+Encryption: https://objectwire.org/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://objectwire.org/.well-known/security.txt
+Policy: https://objectwire.org/security-policy
+
+# We appreciate responsible disclosure of security vulnerabilities.
+# Please report any security issues to security@objectwire.org

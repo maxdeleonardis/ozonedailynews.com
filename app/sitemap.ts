@@ -1,59 +1,45 @@
 import { MetadataRoute } from 'next';
 import { getAllBlogPosts } from '@/lib/blog-service';
+import { SITE_CONFIG, ROUTE_REGISTRY, getIndexableRoutes } from '@/lib/site-config';
 
-export const dynamic = 'force-dynamic';
+// Force static generation with daily revalidation for SEO
+export const revalidate = 86400; // 24 hours
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
+  const sitemapEntries: MetadataRoute.Sitemap = [];
   
+  // Get all indexable routes from centralized config
+  const indexableRoutes = getIndexableRoutes();
+  
+  // Add all indexable routes from the registry
+  for (const route of indexableRoutes) {
+    sitemapEntries.push({
+      url: `${SITE_CONFIG.url}${route.path}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    });
+  }
+  
+  // Fetch dynamic blog posts from database
   try {
     const { data: posts, error } = await getAllBlogPosts();
     
-    if (error || !posts) {
-      console.error('Error fetching posts for sitemap:', error);
-      return [
-        {
-          url: baseUrl,
-          lastModified: new Date(),
-          changeFrequency: 'daily',
-          priority: 1,
-        },
-      ];
+    if (!error && posts) {
+      const blogPosts = posts
+        .filter(post => post.status === 'published')
+        .map(post => ({
+          url: `${SITE_CONFIG.url}/${post.slug}`,
+          lastModified: new Date(post.updated_at),
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        }));
+      
+      sitemapEntries.push(...blogPosts);
     }
-    
-    const blogPosts = posts
-      .filter(post => post.status === 'published')
-      .map(post => ({
-        url: `${baseUrl}/${post.slug}`,
-        lastModified: new Date(post.updated_at),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }));
-    
-    return [
-      {
-        url: baseUrl,
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 1,
-      },
-      {
-        url: `${baseUrl}/about`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.5,
-      },
-      ...blogPosts,
-    ];
   } catch (error) {
-    console.error('Error generating sitemap:', error);
-    return [
-      {
-        url: baseUrl,
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 1,
-      },
-    ];
+    console.error('Error fetching posts for sitemap:', error);
   }
+  
+  return sitemapEntries;
 }

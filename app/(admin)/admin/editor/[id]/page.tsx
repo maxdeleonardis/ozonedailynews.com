@@ -64,8 +64,9 @@ const TEXT_COLORS = [
   { name: 'Gray', value: 'gray', class: 'bg-gray-500' },
 ];
 
-export default function EditBlogPost({ params }: { params: { id: string } }) {
+export default function EditBlogPost({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
+  const [postId, setPostId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -90,16 +91,23 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
   const textareaRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>({});
 
   useEffect(() => {
+    params.then(p => setPostId(p.id));
+  }, [params]);
+
+  useEffect(() => {
     if (!isAuthenticated()) {
       router.push('/admin');
       return;
     }
-    loadPost();
-  }, [router, params.id]);
+    if (postId) {
+      loadPost();
+    }
+  }, [router, postId]);
 
   const loadPost = async () => {
+    if (!postId) return;
     try {
-      const { data, error } = await getBlogPostById(params.id);
+      const { data, error } = await getBlogPostById(postId);
       if (error || !data) {
         setNotFound(true);
         return;
@@ -305,10 +313,11 @@ export default function EditBlogPost({ params }: { params: { id: string } }) {
       return;
     }
 
+    if (!postId) return;
     setIsLoading(true);
 
     try {
-      const { data, error } = await updateBlogPost(params.id, {
+      const { data, error } = await updateBlogPost(postId, {
         title,
         slug,
         excerpt,

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
+import RelatedArticles from "@/components/RelatedArticles";
 
 export const metadata: Metadata = {
   title: "Microsoft Gave FBI BitLocker Keys to Unlock Laptops, Report Says | ObjectWire",
@@ -63,14 +65,18 @@ export default function MicrosoftBitLockerFBIPage() {
         <div className="bg-gradient-to-r from-blue-900 via-blue-700 to-blue-900 text-white">
           <div className="container mx-auto px-4 py-16 max-w-7xl">
             <div className="max-w-4xl">
-              {/* Breadcrumb */}
-              <nav className="mb-6 text-sm text-blue-200">
-                <Link href="/microsoft" className="hover:text-white">Microsoft</Link>
-                <span className="mx-2">/</span>
-                <Link href="/news" className="hover:text-white">News</Link>
-                <span className="mx-2">/</span>
-                <span className="text-white font-semibold">BitLocker FBI Investigation</span>
-              </nav>
+              {/* Breadcrumb with Schema */}
+              <div className="mb-6">
+                <Breadcrumb 
+                  items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Microsoft', item: '/microsoft' },
+                    { name: 'News', item: '/news' },
+                    { name: 'BitLocker FBI Investigation', item: '/news/microsoft-gave-fbi-bitlocker-keys' },
+                  ]}
+                  className="text-blue-200"
+                />
+              </div>
 
               <p className="text-blue-200 text-sm font-mono tracking-wider mb-4">
                 BREAKING NEWS • PRIVACY & SECURITY
@@ -403,6 +409,14 @@ export default function MicrosoftBitLockerFBIPage() {
             </div>
 
           </article>
+
+          {/* Related Articles - Automated */}
+          <RelatedArticles 
+            currentSlug="news/microsoft-gave-fbi-bitlocker-keys"
+            currentCategory="Technology"
+            currentTags={["Microsoft", "Privacy", "Security", "Encryption", "FBI"]}
+            maxArticles={3}
+          />
         </div>
 
         {/* Bottom CTA */}

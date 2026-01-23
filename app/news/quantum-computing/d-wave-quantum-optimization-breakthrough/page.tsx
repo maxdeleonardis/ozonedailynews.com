@@ -1,15 +1,6 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'D-Wave Quantum Optimization Breakthrough | ObjectWire',
-  description: 'D-Wave Systems announces major breakthrough in quantum optimization technology.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/news/quantum-computing/d-wave-quantum-optimization-breakthrough',
-  },
-};
-
 "use client";
 
+import type { Metadata } from 'next';
 import Link from "next/link";
 import { useState } from "react";
 

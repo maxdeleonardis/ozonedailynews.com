@@ -8,12 +8,13 @@ import { generateArticleMetadata, generateArticleSchema } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 
 type Props = {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 };
 
 // Generate SEO metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const fullSlug = params.slug.join('/');
+  const { slug } = await params;
+  const fullSlug = slug.join('/');
   const { data: post } = await getBlogPostBySlug(fullSlug);
   
   if (!post) {
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function DynamicBlogPost({ params }: Props) {
-  const fullSlug = params.slug.join('/');
+  const { slug } = await params;
+  const fullSlug = slug.join('/');
   const { data: post, error } = await getBlogPostBySlug(fullSlug);
   
   if (error || !post || post.status !== 'published') {

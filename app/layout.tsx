@@ -9,6 +9,7 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchem
 import AuthProvider from "@/components/AuthProvider";
 import CookieConsent from "@/components/CookieConsent";
 import AuthButton from "@/components/AuthButton";
+import SearchBar from "@/components/SearchBar";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 // =============================================================================
@@ -147,6 +148,7 @@ export default function RootLayout({
                     <Link href="/about" className="text-sm hover:underline">
                       About
                     </Link>
+                    <SearchBar />
                     <AuthButton />
                   </div>
                 </nav>

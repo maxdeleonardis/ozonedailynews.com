@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Alphabet or Nvidia: Here's Who I Think Will Win the AI Chip War - ObjectWire.org",
-  description: "Google',
+  description: "Google's TPUs embody targeted engineering in AI acceleration, purpose-built for deep learning workloads. Analyzing the AI chip war between Alphabet and Nvidia.",
   alternates: {
     canonical: 'https://www.objectwire.org/alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war',
-  },s TPUs embody targeted engineering in AI acceleration, purpose-built for deep learning workloads. Analyzing the AI chip war between Alphabet and Nvidia.",
+  },
 };
 
 export default function AlphabetVsNvidiaAIChipPage() {

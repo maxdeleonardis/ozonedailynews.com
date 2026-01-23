@@ -4,7 +4,8 @@ import { ArticleBlock } from './articles-context';
 // Helper to check supabase availability
 function ensureSupabase() {
   if (!supabase) {
-    throw new Error('Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.');
+    console.warn('⚠️ Supabase is not configured. Database features will be disabled.');
+    return null;
   }
   return supabase;
 }
@@ -51,6 +52,10 @@ export interface BlogPostFull {
 export async function createBlogPost(post: BlogPostInput): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
     const db = ensureSupabase();
+    if (!db) {
+      return { data: null, error: new Error('Supabase not configured') };
+    }
+    
     const { data, error } = await db
       .from('blog_posts')
       .insert({
@@ -84,11 +89,16 @@ export async function createBlogPost(post: BlogPostInput): Promise<{ data: BlogP
 // Update an existing blog post
 export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
+    const db = ensureSupabase();
+    if (!db) {
+      return { data: null, error: new Error('Supabase not configured') };
+    }
+    
     const updateData: any = { ...post };
     
     // Set published_at if publishing for the first time
     if (post.status === 'published') {
-      const { data: existing } = await ensureSupabase()
+      const { data: existing } = await db
         .from('blog_posts')
         .select('published_at')
         .eq('id', id)
@@ -99,7 +109,7 @@ export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): 
       }
     }
 
-    const { data, error } = await ensureSupabase()
+    const { data, error } = await db
       .from('blog_posts')
       .update(updateData)
       .eq('id', id)
@@ -117,7 +127,12 @@ export async function updateBlogPost(id: string, post: Partial<BlogPostInput>): 
 // Delete a blog post
 export async function deleteBlogPost(id: string): Promise<{ error: Error | null }> {
   try {
-    const { error } = await ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return { error: new Error('Supabase not configured') };
+    }
+    
+    const { error } = await db
       .from('blog_posts')
       .delete()
       .eq('id', id);
@@ -133,7 +148,12 @@ export async function deleteBlogPost(id: string): Promise<{ error: Error | null 
 // Get all blog posts (for admin)
 export async function getAllBlogPosts(): Promise<{ data: BlogPostFull[] | null; error: Error | null }> {
   try {
-    const { data, error } = await ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return { data: [], error: null }; // Return empty array if Supabase not configured
+    }
+    
+    const { data, error } = await db
       .from('blog_posts')
       .select('*')
       .order('created_at', { ascending: false });
@@ -142,14 +162,19 @@ export async function getAllBlogPosts(): Promise<{ data: BlogPostFull[] | null; 
     return { data, error: null };
   } catch (error) {
     console.error('Error fetching blog posts:', error);
-    return { data: null, error: error as Error };
+    return { data: [], error: error as Error };
   }
 }
 
 // Get published blog posts only
 export async function getPublishedBlogPosts(): Promise<{ data: BlogPostFull[] | null; error: Error | null }> {
   try {
-    const { data, error } = await ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return { data: [], error: null }; // Return empty array if Supabase not configured
+    }
+    
+    const { data, error } = await db
       .from('blog_posts')
       .select('*')
       .eq('status', 'published')
@@ -159,14 +184,19 @@ export async function getPublishedBlogPosts(): Promise<{ data: BlogPostFull[] | 
     return { data, error: null };
   } catch (error) {
     console.error('Error fetching published posts:', error);
-    return { data: null, error: error as Error };
+    return { data: [], error: error as Error };
   }
 }
 
 // Get a single blog post by ID
 export async function getBlogPostById(id: string): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
-    const { data, error } = await ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return { data: null, error: new Error('Supabase not configured') };
+    }
+    
+    const { data, error } = await db
       .from('blog_posts')
       .select('*')
       .eq('id', id)
@@ -183,7 +213,12 @@ export async function getBlogPostById(id: string): Promise<{ data: BlogPostFull 
 // Get a single blog post by slug (supports nested slugs)
 export async function getBlogPostBySlug(slug: string): Promise<{ data: BlogPostFull | null; error: Error | null }> {
   try {
-    const { data, error } = await ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return { data: null, error: null }; // Gracefully return null if Supabase not configured
+    }
+    
+    const { data, error } = await db
       .from('blog_posts')
       .select('*')
       .eq('slug', slug)
@@ -201,7 +236,12 @@ export async function getBlogPostBySlug(slug: string): Promise<{ data: BlogPostF
 // Check if a slug is available
 export async function isSlugAvailable(slug: string, excludeId?: string): Promise<boolean> {
   try {
-    let query = ensureSupabase()
+    const db = ensureSupabase();
+    if (!db) {
+      return false; // If Supabase not configured, assume slug not available
+    }
+    
+    let query = db
       .from('blog_posts')
       .select('id')
       .eq('slug', slug);

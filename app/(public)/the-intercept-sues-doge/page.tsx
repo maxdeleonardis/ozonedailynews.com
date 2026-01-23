@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "the intercept sues doge - ObjectWire.org",
-  description: "The lawsuits allege that DOGE',
+  description: "The lawsuits allege that DOGE's structure and actions violate federal transparency laws, raising questions about its authority and potential conflicts of interest.",
   alternates: {
     canonical: 'https://www.objectwire.org/the-intercept-sues-doge',
-  },s structure and actions violate federal transparency laws, raising questions about its authority and potential conflicts of interest.",
+  },
 };
 
 export default function InterceptSuesDogePage() {

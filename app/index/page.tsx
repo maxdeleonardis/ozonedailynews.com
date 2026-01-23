@@ -3,6 +3,8 @@ import path from 'path';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Site Index - Complete Sitemap | ObjectWire",
   description: "Comprehensive site index showing all pages and sections of ObjectWire. Navigate our complete content hierarchy.",

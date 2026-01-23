@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "About ObjectWire",
-  description: "Learn about ObjectWire',
+  description: "Learn about ObjectWire's mission to deliver precision intelligence through verified, source-cited reporting.",
   alternates: {
     canonical: 'https://www.objectwire.org/about',
-  },s mission to deliver precision intelligence through verified, source-cited reporting.",
+  },
 };
 
 export default function AboutPage() {

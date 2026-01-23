@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "What are Polymetallic Nodules? A Trillion-Dollar Treasure - ObjectWire.org",
-  description: "Polymetallic Nodules, found in areas like the Clarion-Clipperton Zone (CCZ), contain critical metals: nickel, cobalt, copper, and manganese. Deep-sea mining',
+  description: "Polymetallic Nodules, found in areas like the Clarion-Clipperton Zone (CCZ), contain critical metals: nickel, cobalt, copper, and manganese. Deep-sea mining's trillion-dollar potential.",
   alternates: {
     canonical: 'https://www.objectwire.org/the-trillion-dollar-treasure-trove-in-the-deep-sea',
-  },s trillion-dollar potential.",
+  },
 };
 
 export default function PolymetallicNodulesPage() {

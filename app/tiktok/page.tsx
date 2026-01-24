@@ -1,88 +1,127 @@
 import type { Metadata } from "next";
 import {
   ArticlePage,
-  PageHeader,
-  InfoBox,
-  TableOfContents,
   Section,
   DataTable,
   Notice,
   Quote,
-  Figure,
-  RelatedLinks,
   ExternalLinks,
   References,
 } from "@/components/ArticlePage";
 
 export const metadata: Metadata = {
-  title: "TikTok - The Complete Encyclopedia | ObjectWire",
+  title: "TikTok - Complete Guide, History & Latest News 2026 | ObjectWire",
   description:
-    "Comprehensive information about TikTok, the short-form video hosting service owned by ByteDance. History, features, controversies, and cultural impact.",
+    "Complete guide to TikTok: history from Musical.ly merger, algorithm explained, user demographics, controversies, US ban updates, and cultural impact. Latest TikTok news and USDS Joint Venture updates.",
   keywords: [
     "TikTok",
+    "TikTok news",
+    "TikTok ban",
+    "TikTok algorithm",
     "ByteDance",
     "social media",
     "short-form video",
     "Musical.ly",
     "Zhang Yiming",
+    "TikTok US ban",
+    "TikTok USDS",
     "social network",
     "video sharing",
+    "influencer marketing",
+    "Gen Z social media",
+    "TikTok trends",
+    "For You Page",
+    "TikTok creator fund",
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/tiktok',
   },
+  openGraph: {
+    title: 'TikTok - Complete Guide, History & Latest News 2026',
+    description: 'Everything you need to know about TikTok: algorithm, controversies, US ban updates, and cultural impact',
+    url: 'https://www.objectwire.org/tiktok',
+    type: 'article',
+  },
 };
 
 export default function TikTokPage() {
+  const infoBox = {
+    title: "TikTok",
+    items: [
+      { label: "Type", value: "Short-form video hosting service" },
+      { label: "Owner", value: "ByteDance" },
+      { label: "Founded", value: "September 2016 (as Douyin)" },
+      { label: "Headquarters", value: "Beijing, China / Los Angeles, USA" },
+      { label: "Founder", value: "Zhang Yiming" },
+      { label: "CEO", value: "Shou Zi Chew" },
+      { label: "Users", value: "1.6 billion+ (2024)" },
+      { label: "Revenue", value: "$14.7 billion (2023)" },
+      { label: "Employees", value: "150,000+ (2024)" },
+    ],
+  };
+
+  const tableOfContents = [
+    { id: "overview", label: "Overview" },
+    { id: "history", label: "History" },
+    { id: "features", label: "Features and Functionality" },
+    { id: "algorithm", label: "The Algorithm" },
+    { id: "monetization", label: "Monetization" },
+    { id: "demographics", label: "User Demographics" },
+    { id: "controversies", label: "Controversies" },
+    { id: "bans", label: "Bans and Restrictions" },
+    { id: "cultural-impact", label: "Cultural Impact" },
+    { id: "usds-joint-venture", label: "USDS Joint Venture" },
+  ];
+
+  const relatedLinks = [
+    {
+      href: "/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC",
+      label: "TikTok USDS Joint Venture Announcement",
+      description: "Latest update on TikTok's US operations",
+    },
+    {
+      href: "/news",
+      label: "Social Media News",
+      description: "Latest social media industry updates",
+    },
+    {
+      href: "/coding",
+      label: "Tech & Development",
+      description: "Technology and software development coverage",
+    },
+    {
+      href: "/influencer",
+      label: "Influencer Coverage",
+      description: "Social media influencer news and analysis",
+    },
+  ];
+
   return (
-    <ArticlePage title="TikTok">
-      <PageHeader
-        title="TikTok"
-        subtitle="Short-form video hosting service"
-        category="Technology"
-        lastUpdated="January 23, 2026"
-        breadcrumbs={[
-          { href: "/", label: "Home" },
-          { href: "/technology", label: "Technology" },
-          { href: "/social-media", label: "Social Media" },
-        ]}
-      />
+    <ArticlePage
+      title="TikTok"
+      subtitle="Short-form video hosting service owned by ByteDance"
+      category="Technology"
+      lastUpdated="January 23, 2026"
+      infoBox={infoBox}
+      tableOfContents={tableOfContents}
+      relatedLinks={relatedLinks}
+    >
+      <p className="text-xl font-medium text-gray-700 mb-6 leading-relaxed">
+        <strong>TikTok</strong>, also known as <strong>Douyin</strong> (抖音) in China, is a
+        short-form video hosting service owned by Chinese technology company <a href="https://www.bytedance.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">ByteDance</a>. It
+        hosts user-submitted videos with durations ranging from 15 seconds to 10 minutes.
+      </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
-        <div>
-          <TableOfContents
-            items={[
-              { id: "overview", label: "Overview" },
-              { id: "history", label: "History" },
-              { id: "features", label: "Features and Functionality" },
-              { id: "algorithm", label: "The Algorithm" },
-              { id: "monetization", label: "Monetization" },
-              { id: "demographics", label: "User Demographics" },
-              { id: "controversies", label: "Controversies" },
-              { id: "bans", label: "Bans and Restrictions" },
-              { id: "cultural-impact", label: "Cultural Impact" },
-              { id: "usds-joint-venture", label: "USDS Joint Venture" },
-            ]}
-          />
+      <p className="text-gray-700 mb-6 leading-relaxed">
+        Since its launch in 2016, TikTok has become one of the world's most popular social
+        media platforms, with over <strong>1.6 billion monthly active users</strong> as of 2024. The platform
+        is known for its highly personalized algorithm, viral trends, and significant
+        influence on popular culture, particularly among younger demographics.
+      </p>
 
-          <Section id="overview" title="Overview">
-            <p>
-              <strong>TikTok</strong>, also known as <strong>Douyin</strong> (抖音) in China, is a
-              short-form video hosting service owned by Chinese technology company ByteDance. It
-              hosts user-submitted videos with durations ranging from 15 seconds to 10 minutes.
-            </p>
-
-            <p>
-              Since its launch in 2016, TikTok has become one of the world's most popular social
-              media platforms, with over 1 billion monthly active users as of 2024. The platform
-              is known for its highly personalized algorithm, viral trends, and significant
-              influence on popular culture, particularly among younger demographics.
-            </p>
-
-            <Quote source="Social Media Analyst">
-              "TikTok has fundamentally changed how a generation consumes and creates content. It's not just an app—it's become the primary cultural platform for Gen Z."
-            </Quote>
-          </Section>
+      <Quote source="Social Media Analyst">
+        "TikTok has fundamentally changed how a generation consumes and creates content. It's not just an app—it's become the primary cultural platform for Gen Z."
+      </Quote>
 
           <Section id="history" title="History">
             <h3 className="text-xl font-bold mt-6 mb-3">Musical.ly Era (2014-2018)</h3>
@@ -110,8 +149,8 @@ export default function TikTokPage() {
             <h3 className="text-xl font-bold mt-6 mb-3">Explosive Growth (2019-2020)</h3>
             <p>
               TikTok experienced unprecedented growth, becoming the most downloaded app in the
-              United States in October 2018. The COVID-19 pandemic in 2020 further accelerated
-              user growth as people sought entertainment during lockdowns.
+              United States in October 2018. The <a href="/news" className="text-blue-600 hover:underline">COVID-19 pandemic</a> in 2020 further accelerated
+              user growth as people sought entertainment during lockdowns. This period saw a massive surge in <a href="/influencer" className="text-blue-600 hover:underline">influencer content</a> and brand partnerships.
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-3">TikTok Growth Milestones</h3>
@@ -161,8 +200,8 @@ export default function TikTokPage() {
             <p>
               The For You Page is TikTok's main feed, delivering a personalized stream of content
               based on user interactions, viewing patterns, and engagement. Unlike chronological
-              feeds on other platforms, the FYP is algorithm-driven and is widely considered the
-              key to TikTok's success.
+              feeds on other <a href="/news" className="text-blue-600 hover:underline">social media platforms</a>, the FYP is algorithm-driven and is widely considered the
+              key to TikTok's success. This <a href="/coding" className="text-blue-600 hover:underline">algorithmic approach</a> has revolutionized content discovery.
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-3">Trending Content</h3>
@@ -216,21 +255,21 @@ export default function TikTokPage() {
           <Section id="monetization" title="Monetization">
             <h3 className="text-xl font-bold mt-6 mb-3">Creator Fund</h3>
             <p>
-              Launched in 2020, the TikTok Creator Fund pays eligible creators based on video
+              Launched in 2020, the TikTok Creator Fund pays eligible <a href="/influencer" className="text-blue-600 hover:underline">creators</a> based on video
               views and engagement. To qualify, creators must meet minimum follower and view count
-              requirements.
+              requirements. This has been a game-changer for <a href="/influencer" className="text-blue-600 hover:underline">influencer monetization</a>.
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-3">TikTok Shop</h3>
             <p>
               TikTok Shop, launched in various markets starting in 2021, allows creators and brands
-              to sell products directly through the app via live streams and in-feed videos.
+              to sell products directly through the app via live streams and in-feed videos. This <a href="/news" className="text-blue-600 hover:underline">e-commerce integration</a> has transformed social commerce.
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-3">Brand Partnerships</h3>
             <p>
               TikTok facilitates brand partnerships through its Creator Marketplace, connecting
-              brands with influencers for sponsored content opportunities.
+              brands with <a href="/influencer" className="text-blue-600 hover:underline">influencers</a> for sponsored content opportunities. Major brands are increasingly shifting <a href="/news" className="text-blue-600 hover:underline">marketing budgets</a> to TikTok campaigns.
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-3">Live Gifting</h3>
@@ -382,15 +421,15 @@ export default function TikTokPage() {
 
           <Section id="usds-joint-venture" title="USDS Joint Venture">
             <p>
-              In response to ongoing national security concerns and legislative pressure in the
+              In response to ongoing <a href="/news" className="text-blue-600 hover:underline">national security concerns</a> and legislative pressure in the
               United States, TikTok announced the formation of the <strong>USDS Joint Venture
-              LLC</strong> in January 2026.
+              LLC</strong> in January 2026. This represents one of the most significant developments in <a href="/news" className="text-blue-600 hover:underline">tech policy</a> and international business relations.
             </p>
 
             <p>
               The joint venture represents a compromise solution aimed at allowing TikTok to
               continue operating in the United States while addressing government concerns about
-              data security and Chinese influence.
+              data security and Chinese influence. Read the full details in our <a href="/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC" className="text-blue-600 hover:underline font-semibold">official USDS Joint Venture announcement</a>.
             </p>
 
             <Notice type="info">
@@ -398,25 +437,11 @@ export default function TikTokPage() {
               <p>
                 For detailed information about the USDS Joint Venture structure, partners, and
                 implications, see the{" "}
-                <a
-                  href="/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC"
-                  className="text-blue-600 hover:underline"
-                >
-                  official announcement article
-                </a>
-                .
+                <a href="/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC" className="text-blue-600 hover:underline font-semibold">full USDS Joint Venture announcement</a>
+                . This landmark deal reshapes TikTok's US operations and sets precedent for <a href="/news" className="text-blue-600 hover:underline">foreign tech companies</a> operating in America.
               </p>
             </Notice>
           </Section>
-
-          <RelatedLinks
-            links={[
-              { href: "/bytedance", label: "ByteDance" },
-              { href: "/social-media", label: "Social Media Platforms" },
-              { href: "/content-creation", label: "Content Creation" },
-              { href: "/algorithm", label: "Recommendation Algorithms" },
-            ]}
-          />
 
           <ExternalLinks
             links={[
@@ -452,30 +477,6 @@ export default function TikTokPage() {
               </li>
             </ol>
           </References>
-        </div>
-
-        <aside>
-          <InfoBox
-            title="TikTok"
-            image={{
-              src: "/images/tiktok-logo.png",
-              alt: "TikTok logo",
-              caption: "TikTok corporate logo",
-            }}
-            items={[
-              { label: "Type", value: "Private" },
-              { label: "Industry", value: "Social Media, Technology" },
-              { label: "Founded", value: "September 2016 (as Douyin)\nAugust 2018 (global merger)" },
-              { label: "Headquarters", value: "Culver City, California, U.S.\nBeijing, China" },
-              { label: "Parent Company", value: "ByteDance" },
-              { label: "CEO", value: "Shou Zi Chew" },
-              { label: "Users", value: "1.6+ billion monthly active users" },
-              { label: "Available in", value: "75 languages" },
-              { label: "Website", value: "tiktok.com" },
-            ]}
-          />
-        </aside>
-      </div>
     </ArticlePage>
   );
 }

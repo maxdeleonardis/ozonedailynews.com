@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { tracking } from '@/lib/tracking';
-import { subscribeToNewsletter } from '@/lib/email';
 
 interface EmailCaptureProps {
   source?: string;
@@ -45,24 +44,18 @@ export default function EmailCapture({
 
     setLoading(true);
 
-    try {
-      // Save to Supabase database
-      await subscribeToNewsletter(email, ['News', 'Technology', 'Business'], 'weekly');
-      
-      // Identify user - links all previous anonymous sessions to this email
-      tracking.identifyUser(email, name || undefined);
-      tracking.trackEmailSignup(source);
+    // Identify user - links all previous anonymous sessions to this email
+    tracking.identifyUser(email, name || undefined);
+    tracking.trackEmailSignup(source);
 
-      setSubmitted(true);
-      
-      if (onSuccess) {
-        onSuccess(email);
-      }
-    } catch (error) {
-      console.error('Subscription error:', error);
-      // Could show error message to user here
-    } finally {
-      setLoading(false);
+    // TODO: Send to your backend/email service
+    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email, name, source }) });
+
+    setLoading(false);
+    setSubmitted(true);
+    
+    if (onSuccess) {
+      onSuccess(email);
     }
   };
 

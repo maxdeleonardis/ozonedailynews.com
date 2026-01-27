@@ -491,10 +491,46 @@ export function InvestigativeArticle({
   children,
   sidebar,
 }: InvestigativeArticleProps) {
+  // Generate Schema.org structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": title,
+    "description": subtitle,
+    "datePublished": publishDate,
+    "dateModified": updatedDate || publishDate,
+    "author": {
+      "@type": "Organization",
+      "name": author.name,
+      "url": "https://www.objectwire.org"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ObjectWire",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.objectwire.org/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": typeof window !== 'undefined' ? window.location.href : 'https://www.objectwire.org'
+    },
+    "articleSection": category,
+    "keywords": `${category}, ${secondaryCategory || ''}, investigative journalism, news analysis`
+  };
+
   return (
-    <article className="min-h-screen bg-white">
-      {/* Article Header */}
-      <header className="border-b-2 border-black">
+    <>
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
+      <article className="min-h-screen bg-white">
+        {/* Article Header */}
+        <header className="border-b-2 border-black">
         <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
           {/* Breadcrumb */}
           {breadcrumbs && breadcrumbs.length > 0 && (
@@ -607,6 +643,7 @@ export function InvestigativeArticle({
         </div>
       </footer>
     </article>
+    </>
   );
 }
 

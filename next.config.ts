@@ -117,6 +117,21 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   
   // ==========================================================================
+  // REDIRECTS (301 Permanent Redirects for SEO)
+  // ==========================================================================
+  redirects: async () => {
+    return [
+      // Blog URL migration - old /blog/ paths to root
+      {
+        source: '/blog/sam-altman-visits-hedera-team',
+        destination: '/sam-altman-visits-hedera-team',
+        permanent: true, // 301 redirect
+      },
+      // Add more redirects as needed
+    ];
+  },
+  
+  // ==========================================================================
   // COMPRESSION & BUILD OPTIMIZATION
   // ==========================================================================
   compress: true,

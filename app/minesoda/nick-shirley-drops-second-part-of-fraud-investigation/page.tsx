@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Nick Shirley Drops Second Part of Fraud Investigation | ObjectWire',
-  description: 'YouTuber Nick Shirley releases second part of his investigation into the Feeding Our Future fraud scheme.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/minesoda/nick-shirley-drops-second-part-of-fraud-investigation',
-  },
-};
-
 "use client";
 
 import Link from "next/link";

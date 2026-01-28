@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Ilhan Omar and the Feeding Our Future Fraud | ObjectWire',
-  description: 'Coverage of Congresswoman Ilhan Omar\'s connection to the Feeding Our Future fraud investigation.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/minesoda/Ilhan-Omar',
-  },
-};
-
 "use client";
 
 import Link from "next/link";

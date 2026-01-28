@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact Us | ObjectWire',
-  description: 'Get in touch with the ObjectWire editorial team. Submit tips, corrections, or general inquiries.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/contact',
-  },
-};
-
 'use client';
 
 import { useState } from 'react';

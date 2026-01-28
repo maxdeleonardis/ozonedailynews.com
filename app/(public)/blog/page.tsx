@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Blog & News Articles | ObjectWire',
-  description: 'Latest news, investigative journalism, and in-depth articles from ObjectWire.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/blog',
-  },
-};
-
 'use client';
 
 import Link from 'next/link';

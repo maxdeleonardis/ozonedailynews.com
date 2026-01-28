@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Minnesota Feeding Our Future Fraud Investigation | ObjectWire',
-  description: 'In-depth coverage of the Minnesota Feeding Our Future fraud case, one of the largest pandemic relief fraud schemes in U.S. history.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/minesoda',
-  },
-};
-
 "use client";
 
 import Link from "next/link";

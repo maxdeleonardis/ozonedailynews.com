@@ -1,13 +1,3 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'My Hero Academia | ObjectWire',
-  description: 'Information about My Hero Academia anime and manga series.',
-  alternates: {
-    canonical: 'https://www.objectwire.org/mha',
-  },
-};
-
 "use client";
 
 import Link from "next/link";

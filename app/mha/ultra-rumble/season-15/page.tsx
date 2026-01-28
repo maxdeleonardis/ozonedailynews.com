@@ -36,23 +36,23 @@ export default function Season15Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       <NewsArticleSchema
-        headline="My Hero Ultra Rumble Season 15: New Characters & Updates"
+        title="My Hero Ultra Rumble Season 15: New Characters & Updates"
         description="Season 15 of My Hero Ultra Rumble brings new playable characters, balance updates, and fresh content to the popular free-to-play battle royale game."
-        datePublished="2026-01-27T12:00:00Z"
-        dateModified="2026-01-27T12:00:00Z"
-        authorName="ObjectWire Gaming Desk"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2026-01-27T12:00:00Z"
+        modifiedTime="2026-01-27T12:00:00Z"
+        author="ObjectWire Gaming Desk"
         imageUrl="https://www.objectwire.org/mha-ultra-rumble-season-15.jpg"
-        url="https://www.objectwire.org/mha/ultra-rumble/season-15"
+        articleUrl="https://www.objectwire.org/mha/ultra-rumble/season-15"
+        section="Gaming"
+        keywords={["My Hero Ultra Rumble", "Season 15", "gaming news", "new characters", "battle royale"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'My Hero Academia', href: '/mha' },
-          { label: 'Ultra Rumble', href: '/mha/ultra-rumble' },
-          { label: 'Season 15', href: '/mha/ultra-rumble/season-15' },
+          { name: 'Home', item: '/' },
+          { name: 'My Hero Academia', item: '/mha' },
+          { name: 'Ultra Rumble', item: '/mha/ultra-rumble' },
+          { name: 'Season 15', item: '/mha/ultra-rumble/season-15' },
         ]}
       />
 

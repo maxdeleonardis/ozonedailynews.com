@@ -80,6 +80,7 @@ export default function robots(): MetadataRoute.Robots {
           '/preview/',
           '/*?preview=*',
         ],
+        crawlDelay: 1,
       },
       
       // Google News crawler - more permissive for news content
@@ -93,6 +94,7 @@ export default function robots(): MetadataRoute.Robots {
           '/trump/',
           '/tiktok/',
           '/james-cameron/',
+          '/contributors/',
         ],
         disallow: [
           '/api/',
@@ -105,6 +107,7 @@ export default function robots(): MetadataRoute.Robots {
           '/corrections',
           '/get-help',
         ],
+        crawlDelay: 0,
       },
       
       // Bing crawler

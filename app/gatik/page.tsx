@@ -38,21 +38,21 @@ export default function GatikPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900">
       <NewsArticleSchema
-        headline="Gatik: Autonomous Trucking Company Profile & History"
+        title="Gatik: Autonomous Trucking Company Profile & History"
         description="Complete profile of Gatik, the first U.S. company to operate fully autonomous commercial trucks. Founded 2017, pioneering middle-mile logistics automation."
-        datePublished="2024-08-15T00:00:00Z"
-        dateModified="2026-01-27T16:00:00Z"
-        authorName="ObjectWire Editorial Team"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2024-08-15T00:00:00Z"
+        modifiedTime="2026-01-27T16:00:00Z"
+        author="ObjectWire Editorial Team"
         imageUrl="https://www.objectwire.org/gatik-company.jpg"
-        url="https://www.objectwire.org/gatik"
+        articleUrl="https://www.objectwire.org/gatik"
+        section="Technology"
+        keywords={["Gatik", "autonomous trucks", "self-driving", "logistics", "middle-mile delivery"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'Gatik', href: '/gatik' },
+          { name: 'Home', item: '/' },
+          { name: 'Gatik', item: '/gatik' },
         ]}
       />
 

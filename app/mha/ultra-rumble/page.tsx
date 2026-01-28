@@ -37,22 +37,22 @@ export default function MyHeroUltraRumblePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <NewsArticleSchema
-        headline="My Hero Ultra Rumble: Complete Game Guide & Wiki"
+        title="My Hero Ultra Rumble: Complete Game Guide & Wiki"
         description="Comprehensive guide to My Hero Ultra Rumble, the free-to-play 24-player battle royale based on My Hero Academia. Characters, gameplay, seasons, and competitive scene."
-        datePublished="2024-09-28T00:00:00Z"
-        dateModified="2026-01-27T00:00:00Z"
-        authorName="ObjectWire Editorial Team"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2024-09-28T00:00:00Z"
+        modifiedTime="2026-01-27T00:00:00Z"
+        author="ObjectWire Editorial Team"
         imageUrl="https://www.objectwire.org/mha-ultra-rumble-hero.jpg"
-        url="https://www.objectwire.org/mha/ultra-rumble"
+        articleUrl="https://www.objectwire.org/mha/ultra-rumble"
+        section="Gaming"
+        keywords={["My Hero Academia", "Ultra Rumble", "battle royale", "anime game", "multiplayer"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'My Hero Academia', href: '/mha' },
-          { label: 'Ultra Rumble', href: '/mha/ultra-rumble' },
+          { name: 'Home', item: '/' },
+          { name: 'My Hero Academia', item: '/mha' },
+          { name: 'Ultra Rumble', item: '/mha/ultra-rumble' },
         ]}
       />
 

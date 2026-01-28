@@ -37,22 +37,22 @@ export default function NovartisSupremeCourtPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
       <NewsArticleSchema
-        headline="Novartis Becomes Sixth Drugmaker to Ask Supreme Court to Block Medicare Price Negotiations"
+        title="Novartis Becomes Sixth Drugmaker to Ask Supreme Court to Block Medicare Price Negotiations"
         description="Swiss pharmaceutical giant Novartis joins five other drugmakers in asking the U.S. Supreme Court to block Medicare drug price negotiations, arguing the Inflation Reduction Act is unconstitutional."
-        datePublished="2026-01-27T17:00:00Z"
-        dateModified="2026-01-27T17:00:00Z"
-        authorName="ObjectWire Healthcare Desk"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2026-01-27T17:00:00Z"
+        modifiedTime="2026-01-27T17:00:00Z"
+        author="ObjectWire Healthcare Desk"
         imageUrl="https://www.objectwire.org/novartis-supreme-court.jpg"
-        url="https://www.objectwire.org/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations"
+        articleUrl="https://www.objectwire.org/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations"
+        section="Healthcare"
+        keywords={["Novartis", "Medicare", "Supreme Court", "drug pricing", "Inflation Reduction Act"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'News', href: '/news' },
-          { label: 'Novartis Supreme Court Challenge', href: '/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations' },
+          { name: 'Home', item: '/' },
+          { name: 'News', item: '/news' },
+          { name: 'Novartis Supreme Court Challenge', item: '/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations' },
         ]}
       />
 

@@ -38,22 +38,22 @@ export default function Top10AnimeGames2026() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900">
       <NewsArticleSchema
-        headline="Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales"
+        title="Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales"
         description="Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more."
-        datePublished="2026-01-27T14:00:00Z"
-        dateModified="2026-01-27T14:00:00Z"
-        authorName="ObjectWire Gaming Desk"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2026-01-27T14:00:00Z"
+        modifiedTime="2026-01-27T14:00:00Z"
+        author="ObjectWire Gaming Desk"
         imageUrl="https://www.objectwire.org/top-anime-games-2026.jpg"
-        url="https://www.objectwire.org/video-games/top-10-anime-games-2026"
+        articleUrl="https://www.objectwire.org/video-games/top-10-anime-games-2026"
+        section="Gaming"
+        keywords={["anime games", "best games 2026", "My Hero Ultra Rumble", "Dragon Ball", "gaming rankings"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'Video Games', href: '/video-games' },
-          { label: 'Top 10 Anime Games 2026', href: '/video-games/top-10-anime-games-2026' },
+          { name: 'Home', item: '/' },
+          { name: 'Video Games', item: '/video-games' },
+          { name: 'Top 10 Anime Games 2026', item: '/video-games/top-10-anime-games-2026' },
         ]}
       />
 

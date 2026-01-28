@@ -15,7 +15,7 @@ interface BreadcrumbProps {
  * Breadcrumb component with visible navigation + JSON-LD schema
  * Improves SEO, user navigation, and site structure clarity
  */
-export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
+function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
   // Generate JSON-LD schema for breadcrumbs
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -147,3 +147,7 @@ export const breadcrumbPatterns = {
     { name: child, item: `/${parentSlug}/${childSlug}` },
   ],
 };
+
+// Export both as default and named export for compatibility
+export default Breadcrumb;
+export { Breadcrumb };

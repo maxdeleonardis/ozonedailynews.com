@@ -16,12 +16,35 @@ export interface DiscoveredArticle {
 }
 
 /**
+ * Static registry for client-side pages that can't export metadata
+ * These are manually maintained for interactive/client-component pages
+ * NOTE: This is only needed for pages that use "use client" at the top level
+ * If you need interactivity, use server component + client component pattern instead
+ */
+const CLIENT_SIDE_ARTICLES: DiscoveredArticle[] = [
+  // Add client-only pages here if absolutely necessary
+  // Example:
+  // {
+  //   title: "Example Interactive Page",
+  //   excerpt: "Description...",
+  //   category: "NEWS",
+  //   date: new Date('2026-01-27').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+  //   slug: "example/page",
+  //   author: "ObjectWire Team",
+  //   readTime: "5 min",
+  //   urgent: false,
+  //   filePath: "app/example/page/page.tsx",
+  //   createdAt: new Date('2026-01-27'),
+  // },
+];
+
+/**
  * Recursively scans the app directory for page.tsx files
  * and extracts metadata from them
  */
 export async function scanAllContent(): Promise<DiscoveredArticle[]> {
   const appDir = path.join(process.cwd(), 'app');
-  const articles: DiscoveredArticle[] = [];
+  const articles: DiscoveredArticle[] = [...CLIENT_SIDE_ARTICLES]; // Start with client-side articles
 
   function extractMetadataFromFile(filePath: string): DiscoveredArticle | null {
     try {

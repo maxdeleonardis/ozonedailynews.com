@@ -15,6 +15,8 @@ export interface AuthorInfo {
   role?: string;
   avatar?: string;
   twitter?: string;
+  authorSlug?: string; // For linking to author page (e.g., "conan-boyle")
+  bio?: string; // Optional short bio for author card
 }
 
 export interface NewsArticleProps {

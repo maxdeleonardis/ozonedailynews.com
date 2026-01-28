@@ -3,32 +3,32 @@ import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Jack S | Author & Journalist",
-  description: "Jack S is a journalist at ObjectWire committed to ethical journalism in the misinformation era. Specializes in investigative interviews and fact-based reporting.",
+  title: "Jack Wang | Contributor & Journalist",
+  description: "Jack Wang is a co-founder and contributor at ObjectWire from New York, known for cunning insights and powerful metaphors bridging life and art.",
   alternates: {
-    canonical: `${SITE_CONFIG.url}/author/jack-s`,
+    canonical: `${SITE_CONFIG.url}/contributors/jack-wang`,
   },
   openGraph: {
-    title: "Jack S | ObjectWire Author",
-    description: "Journalist specializing in investigative interviews and fact-based reporting.",
+    title: "Jack Wang | ObjectWire Contributor",
+    description: "Co-founder bringing insightful metaphors and deep perspectives to journalism.",
     type: "profile",
-    url: `${SITE_CONFIG.url}/author/jack-s`,
+    url: `${SITE_CONFIG.url}/contributors/jack-wang`,
   },
 };
 
-// Author JSON-LD structured data
-const authorSchema = {
+// Contributor JSON-LD structured data
+const contributorSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Jack S",
-  jobTitle: "Journalist",
+  name: "Jack Wang",
+  jobTitle: "Co-Founder & Contributor",
   worksFor: {
     "@type": "Organization",
     name: "ObjectWire",
     url: SITE_CONFIG.url,
   },
-  description: "Committed to ethical journalism and accurate, unbiased reporting in an era of misinformation.",
-  url: `${SITE_CONFIG.url}/author/jack-s`,
+  description: "Co-founder of ObjectWire with a long history of cunning and insightful metaphors for life and art.",
+  url: `${SITE_CONFIG.url}/contributors/jack-wang`,
   sameAs: [],
 };
 
@@ -37,7 +37,7 @@ export default function JackSAuthorPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contributorSchema) }}
       />
       <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 py-16 max-w-4xl">

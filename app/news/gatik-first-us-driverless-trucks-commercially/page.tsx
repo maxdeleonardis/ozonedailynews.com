@@ -37,22 +37,22 @@ export default function GatikDriverlessTrucksPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       <NewsArticleSchema
-        headline="Gatik Becomes First U.S. Firm Running Driverless Trucks Commercially"
+        title="Gatik Becomes First U.S. Firm Running Driverless Trucks Commercially"
         description="Gatik AI achieves historic milestone as the first company to operate fully autonomous commercial trucks on U.S. public roads without safety drivers, marking a breakthrough for logistics automation."
-        datePublished="2026-01-27T16:00:00Z"
-        dateModified="2026-01-27T16:00:00Z"
-        authorName="ObjectWire Transportation Desk"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2026-01-27T16:00:00Z"
+        modifiedTime="2026-01-27T16:00:00Z"
+        author="ObjectWire Transportation Desk"
         imageUrl="https://www.objectwire.org/gatik-autonomous-truck.jpg"
-        url="https://www.objectwire.org/news/gatik-first-us-driverless-trucks-commercially"
+        articleUrl="https://www.objectwire.org/news/gatik-first-us-driverless-trucks-commercially"
+        section="Technology"
+        keywords={["Gatik", "autonomous trucks", "self-driving", "commercial vehicles", "logistics"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'News', href: '/news' },
-          { label: 'Gatik Driverless Trucks', href: '/news/gatik-first-us-driverless-trucks-commercially' },
+          { name: 'Home', item: '/' },
+          { name: 'News', item: '/news' },
+          { name: 'Gatik Driverless Trucks', item: '/news/gatik-first-us-driverless-trucks-commercially' },
         ]}
       />
 

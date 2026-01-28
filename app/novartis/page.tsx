@@ -37,21 +37,21 @@ export default function NovartisPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
       <NewsArticleSchema
-        headline="Novartis: Swiss Pharmaceutical Company Profile & History"
+        title="Novartis: Swiss Pharmaceutical Company Profile & History"
         description="Complete profile of Novartis AG, one of the world's largest pharmaceutical companies. Founded 1996, specializing in cardiovascular, oncology, and immunology drugs."
-        datePublished="2024-05-12T00:00:00Z"
-        dateModified="2026-01-27T17:00:00Z"
-        authorName="ObjectWire Editorial Team"
-        publisherName="ObjectWire"
-        publisherLogoUrl="https://www.objectwire.org/logo.png"
+        publishedTime="2024-05-12T00:00:00Z"
+        modifiedTime="2026-01-27T17:00:00Z"
+        author="ObjectWire Editorial Team"
         imageUrl="https://www.objectwire.org/novartis-company.jpg"
-        url="https://www.objectwire.org/novartis"
+        articleUrl="https://www.objectwire.org/novartis"
+        section="Healthcare"
+        keywords={["Novartis", "pharmaceutical", "healthcare", "drug development", "biotechnology"]}
       />
 
       <Breadcrumb
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'Novartis', href: '/novartis' },
+          { name: 'Home', item: '/' },
+          { name: 'Novartis', item: '/novartis' },
         ]}
       />
 

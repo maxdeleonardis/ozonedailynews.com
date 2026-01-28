@@ -293,6 +293,13 @@ function TournamentFormat() {
 function NewsFeed() {
   const newsItems = [
     {
+      date: "Jan 27, 2026",
+      title: "Boycott Calls Intensify Over ICE Immigration Policies",
+      excerpt: "Human rights groups demand World Cup cancellation or relocation citing ICE enforcement concerns.",
+      category: "Breaking News",
+      link: "/world-cup/boycott-controversy",
+    },
+    {
       date: "Jan 20, 2026",
       title: "Final Qualification Matches Conclude",
       excerpt: "The last spots for World Cup 2026 have been determined after intense playoff matches.",
@@ -320,21 +327,42 @@ function NewsFeed() {
 
   return (
     <div className="space-y-4">
-      {newsItems.map((item, idx) => (
-        <div
-          key={idx}
-          className="bg-white border border-gray-200 rounded-xl p-6 hover:border-red-600 hover:shadow-lg transition-all duration-300 cursor-pointer"
-        >
-          <div className="flex items-start justify-between mb-3">
-            <span className="inline-block px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-full">
-              {item.category}
-            </span>
-            <span className="text-sm text-gray-500">{item.date}</span>
+      {newsItems.map((item, idx) => {
+        const content = (
+          <>
+            <div className="flex items-start justify-between mb-3">
+              <span className={`inline-block px-3 py-1 ${item.category === 'Breaking News' ? 'bg-red-600 text-white animate-pulse' : 'bg-red-100 text-red-600'} text-xs font-bold rounded-full`}>
+                {item.category}
+              </span>
+              <span className="text-sm text-gray-500">{item.date}</span>
+            </div>
+            <h4 className="text-xl font-bold mb-2 text-gray-900">{item.title}</h4>
+            <p className="text-gray-600">{item.excerpt}</p>
+            {item.link && (
+              <div className="mt-3 text-teal-600 font-semibold text-sm flex items-center">
+                Read Full Article →
+              </div>
+            )}
+          </>
+        );
+        
+        return item.link ? (
+          <Link
+            key={idx}
+            href={item.link}
+            className="block bg-white border border-gray-200 rounded-xl p-6 hover:border-red-600 hover:shadow-lg transition-all duration-300 cursor-pointer"
+          >
+            {content}
+          </Link>
+        ) : (
+          <div
+            key={idx}
+            className="block bg-white border border-gray-200 rounded-xl p-6 hover:border-red-600 hover:shadow-lg transition-all duration-300 cursor-pointer"
+          >
+            {content}
           </div>
-          <h4 className="text-xl font-bold mb-2 text-gray-900">{item.title}</h4>
-          <p className="text-gray-600">{item.excerpt}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

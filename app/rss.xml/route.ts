@@ -1,5 +1,6 @@
 import { getAllBlogPosts } from '@/lib/blog-service';
 import { SITE_CONFIG } from '@/lib/site-config';
+import { getNewsArticlePages } from '@/lib/page-scanner';
 
 export const dynamic = 'force-dynamic';
 
@@ -7,14 +8,58 @@ export async function GET() {
   const baseUrl = SITE_CONFIG.url;
   
   try {
+    // Automatically discover all NewsArticle component pages
+    const newsArticlePages = getNewsArticlePages();
+    
+    // Convert to RSS format
+    const allArticles: Array<{
+      title: string;
+      slug: string;
+      excerpt: string;
+      author: string;
+      category: string;
+      tags: string[];
+      published_at: string;
+      created_at: string;
+      featured_image?: string | null;
+    }> = newsArticlePages.map(page => ({
+      title: page.title || 'Article',
+      slug: page.path.startsWith('/') ? page.path.substring(1) : page.path,
+      excerpt: page.description || '',
+      author: 'ObjectWire Editorial Team',
+      category: page.category || 'News',
+      tags: page.tags || [],
+      published_at: page.publishDate || page.lastModified.toISOString(),
+      created_at: page.lastModified.toISOString(),
+      featured_image: undefined,
+    }));
+    
+    // Also fetch database posts
     const { data: posts, error } = await getAllBlogPosts();
     
-    if (error || !posts) {
-      console.error('Error fetching posts for RSS:', error);
-      return new Response('Error generating RSS feed', { status: 500 });
+    if (!error && posts) {
+      const publishedPosts = posts
+        .filter(post => post.status === 'published')
+        .map(post => ({
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.excerpt || '',
+          author: post.author,
+          category: post.category,
+          tags: post.tags || [],
+          published_at: post.published_at || post.created_at,
+          created_at: post.created_at,
+          featured_image: post.featured_image,
+        }));
+      allArticles.push(...publishedPosts);
     }
     
-    const publishedPosts = posts.filter(post => post.status === 'published');
+    // Sort by published date (newest first)
+    allArticles.sort((a, b) => {
+      const dateA = new Date(a.published_at || a.created_at || 0).getTime();
+      const dateB = new Date(b.published_at || b.created_at || 0).getTime();
+      return dateB - dateA;
+    });
     
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -25,16 +70,16 @@ export async function GET() {
     <language>${SITE_CONFIG.locale.replace('_', '-').toLowerCase()}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
-    ${publishedPosts.map(post => `
+    ${allArticles.map(post => `
     <item>
       <title><![CDATA[${post.title}]]></title>
       <link>${baseUrl}/${post.slug}</link>
       <guid isPermaLink="true">${baseUrl}/${post.slug}</guid>
       <description><![CDATA[${post.excerpt || ''}]]></description>
       <pubDate>${new Date(post.published_at || post.created_at).toUTCString()}</pubDate>
-      <author>${SITE_CONFIG.email} (${post.author})</author>
+      <author>${SITE_CONFIG.email} (${post.author || 'ObjectWire Editorial Team'})</author>
       <category>${post.category}</category>
-      ${post.tags.map(tag => `<category>${tag}</category>`).join('\n      ')}
+      ${Array.isArray(post.tags) ? post.tags.map(tag => `<category>${tag}</category>`).join('\n      ') : ''}
       ${post.featured_image ? `<enclosure url="${post.featured_image}" type="image/jpeg"/>` : ''}
     </item>`).join('')}
   </channel>

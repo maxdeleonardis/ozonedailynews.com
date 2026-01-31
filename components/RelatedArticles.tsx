@@ -42,6 +42,8 @@ export default async function RelatedArticles({
     readTime: post.read_time || '5 min',
     filePath: 'database',
     createdAt: post.published_at ? new Date(post.published_at) : new Date(),
+    publishedAt: post.published_at ? new Date(post.published_at) : new Date(),
+    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
   })) || [];
 
   // Combine all articles
@@ -162,6 +164,8 @@ export async function RelatedArticlesSidebar({
     readTime: post.read_time || '5 min',
     filePath: 'database',
     createdAt: post.published_at ? new Date(post.published_at) : new Date(),
+    publishedAt: post.published_at ? new Date(post.published_at) : new Date(),
+    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
   })) || [];
 
   // Combine and filter

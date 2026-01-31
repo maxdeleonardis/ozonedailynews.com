@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { parseDate, formatArticleDate } from './date-utils';
 
 export interface DiscoveredArticle {
   title: string;
@@ -13,6 +14,8 @@ export interface DiscoveredArticle {
   featured?: boolean;
   filePath: string;
   createdAt: Date;
+  publishedAt: Date;
+  updatedAt?: Date;
 }
 
 /**
@@ -80,11 +83,25 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
       let publishedDate = new Date();
       const publishedMatch = metadataStr.match(/publishedTime:\s*["']([^"']+)["']/);
       if (publishedMatch) {
-        publishedDate = new Date(publishedMatch[1]);
+        publishedDate = parseDate(publishedMatch[1]);
       } else {
         // Use file creation time as fallback
         const stats = fs.statSync(filePath);
         publishedDate = stats.birthtime;
+      }
+
+      // Extract modified time
+      let modifiedDate: Date | undefined;
+      const modifiedMatch = metadataStr.match(/modifiedTime:\s*["']([^"']+)["']/);
+      if (modifiedMatch) {
+        modifiedDate = parseDate(modifiedMatch[1]);
+      } else {
+        // Check file modification time
+        const stats = fs.statSync(filePath);
+        // Only use mtime if it's significantly different from birthtime (more than 1 hour)
+        if (Math.abs(stats.mtime.getTime() - publishedDate.getTime()) > 3600000) {
+          modifiedDate = stats.mtime;
+        }
       }
 
       // Calculate slug from file path
@@ -119,17 +136,15 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
         title,
         excerpt,
         category,
-        date: publishedDate.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }),
+        date: formatArticleDate(publishedDate),
         slug,
         author,
         readTime,
         urgent,
         filePath,
-        createdAt: publishedDate,
+        createdAt: publishedDate, // For backwards compatibility
+        publishedAt: publishedDate,
+        updatedAt: modifiedDate,
       };
     } catch (error) {
       console.error(`Error parsing ${filePath}:`, error);
@@ -160,8 +175,8 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
 
   scanDirectory(appDir);
 
-  // Sort by creation date (newest first)
-  articles.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+  // Sort by published date (newest first)
+  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
   return articles;
 }
@@ -176,7 +191,7 @@ export function filterByDateRange(
   const cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - daysAgo);
   
-  return articles.filter(article => article.createdAt >= cutoff);
+  return articles.filter(article => article.publishedAt >= cutoff);
 }
 
 /**

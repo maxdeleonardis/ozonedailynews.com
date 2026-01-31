@@ -21,11 +21,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/news/mozilla-deploys-1-4b-to-challenge-openai-anthropic',
   },
+  authors: [{ name: "ObjectWire Tech Desk" }],
   openGraph: {
     title: "Mozilla Deploys $1.4B to Challenge OpenAI, Anthropic Dominance",
     description: "Nonprofit launches massive open-source AI initiative focused on privacy, transparency, and ethical development.",
     type: "article",
     url: "https://www.objectwire.org/news/mozilla-deploys-1-4b-to-challenge-openai-anthropic",
+    publishedTime: "2026-01-27T22:00:00Z",
+    modifiedTime: "2026-01-27T22:00:00Z",
+    section: "Technology",
     images: [
       {
         url: "https://www.objectwire.org/images/mozilla-ai-initiative-og.jpg",

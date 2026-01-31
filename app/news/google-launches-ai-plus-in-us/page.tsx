@@ -21,11 +21,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/news/google-launches-ai-plus-in-us',
   },
+  authors: [{ name: "ObjectWire Tech Desk" }],
   openGraph: {
     title: "Google Launches $7.99 AI Plus Plan, Undercutting OpenAI and Anthropic",
     description: "Mid-tier subscription offers Gemini 3 Pro access at less than half the price of comparable plans.",
     type: "article",
     url: "https://www.objectwire.org/news/google-launches-ai-plus-in-us",
+    publishedTime: "2026-01-27T18:00:00Z",
+    modifiedTime: "2026-01-27T18:00:00Z",
+    section: "Technology",
     images: [
       {
         url: "https://www.objectwire.org/images/google-ai-plus-launch-og.jpg",

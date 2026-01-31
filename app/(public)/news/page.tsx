@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getPublishedBlogPosts } from '@/lib/blog-service';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
+import { formatArticleDate, parseDate, compareDescending, getRelativeTime } from '@/lib/date-utils';
 
 export const metadata: Metadata = {
   title: "Latest News & Investigations | The Object Wire",
@@ -18,6 +19,27 @@ export const metadata: Metadata = {
 // Revalidate every 5 minutes to show fresh content
 export const revalidate = 300;
 
+// Helper function to format article dates with update info
+function formatArticleDateDisplay(article: any) {
+  const wasUpdated = article.updatedAt && 
+    (new Date(article.updatedAt).getTime() - new Date(article.publishedAt).getTime() > 3600000);
+  
+  if (wasUpdated) {
+    const relativeTime = getRelativeTime(article.updatedAt);
+    return {
+      display: `Updated ${article.date}`,
+      relative: relativeTime,
+      isUpdated: true,
+    };
+  }
+  
+  return {
+    display: article.date,
+    relative: getRelativeTime(article.publishedAt),
+    isUpdated: false,
+  };
+}
+
 export default async function NewsPage() {
   const today = new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 
@@ -32,31 +54,38 @@ export default async function NewsPage() {
   // 2. Fetch from Supabase database
   const { data: databasePosts } = await getPublishedBlogPosts();
   
-  // 3. Convert database posts to same format
-  const databaseArticles = databasePosts?.map(post => ({
-    title: post.title,
-    excerpt: post.excerpt || 'Read the full article for more details.',
-    category: post.category?.toUpperCase() || 'NEWS',
-    date: post.published_at 
-      ? new Date(post.published_at).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })
-      : 'Recently published',
-    slug: post.slug,
-    author: post.author || 'ObjectWire Team',
-    readTime: post.read_time || '5 min',
-    urgent: false,
-    filePath: 'database',
-    createdAt: post.published_at ? new Date(post.published_at) : new Date(),
-  })) || [];
+  // 3. Convert database posts to same format with proper date handling
+  const databaseArticles = databasePosts?.map(post => {
+    const publishedAt = post.published_at ? parseDate(post.published_at) : new Date();
+    const updatedAt = post.updated_at && post.updated_at !== post.published_at 
+      ? parseDate(post.updated_at) 
+      : undefined;
+    
+    return {
+      title: post.title,
+      excerpt: post.excerpt || 'Read the full article for more details.',
+      category: post.category?.toUpperCase() || 'NEWS',
+      date: formatArticleDate(publishedAt),
+      slug: post.slug,
+      author: post.author || 'ObjectWire Team',
+      readTime: post.read_time || '5 min',
+      urgent: false,
+      filePath: 'database',
+      createdAt: publishedAt, // For backwards compatibility
+      publishedAt: publishedAt,
+      updatedAt: updatedAt,
+    };
+  }) || [];
 
   // 4. Combine all content sources
   const allArticles = [...filesystemArticles, ...databaseArticles];
   
-  // 5. Sort by date (newest first)
-  allArticles.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+  // 5. Sort by published date (newest first) - using the most recent date (updated or published)
+  allArticles.sort((a, b) => {
+    const dateA = a.updatedAt && a.updatedAt > a.publishedAt ? a.updatedAt : a.publishedAt;
+    const dateB = b.updatedAt && b.updatedAt > b.publishedAt ? b.updatedAt : b.publishedAt;
+    return compareDescending(dateA, dateB);
+  });
 
   // 6. Get different article segments
   const todayArticles = filterByDateRange(allArticles, 1); // Last 24 hours
@@ -69,9 +98,10 @@ export default async function NewsPage() {
     name: cat.charAt(0) + cat.slice(1).toLowerCase().replace(/_/g, ' '),
     href: `/news?category=${cat.toLowerCase()}`,
     count: categorizedArticles[cat].length,
-    new: categorizedArticles[cat].some(a => 
-      a.createdAt.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000
-    ),
+    new: categorizedArticles[cat].some(a => {
+      const checkDate = a.updatedAt && a.updatedAt > a.publishedAt ? a.updatedAt : a.publishedAt;
+      return checkDate.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000;
+    }),
   })).sort((a, b) => b.count - a.count);
 
   // 8. Prepare sections
@@ -171,6 +201,11 @@ export default async function NewsPage() {
                         BREAKING
                       </span>
                     )}
+                    {formatArticleDateDisplay(featuredStories[0]).isUpdated && (
+                      <span className="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 border border-orange-300">
+                        UPDATED
+                      </span>
+                    )}
                     <span className="text-xs text-gray-500">{featuredStories[0].readTime}</span>
                   </div>
                   
@@ -186,7 +221,11 @@ export default async function NewsPage() {
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-black">{featuredStories[0].author}</span>
                       <span>•</span>
-                      <time>{featuredStories[0].date}</time>
+                      <time className={formatArticleDateDisplay(featuredStories[0]).isUpdated ? 'text-orange-600 font-medium' : ''}>
+                        {formatArticleDateDisplay(featuredStories[0]).display}
+                      </time>
+                      <span>•</span>
+                      <span className="text-gray-400">{formatArticleDateDisplay(featuredStories[0]).relative}</span>
                     </div>
                     <span className="font-medium text-black group-hover:underline">
                       Continue Reading →
@@ -197,28 +236,40 @@ export default async function NewsPage() {
 
               {/* Secondary Featured Stories */}
               <div className="grid md:grid-cols-2 gap-8">
-                {featuredStories.slice(1).map((story, index) => (
-                  <article key={story.slug} className="border-b border-gray-200 pb-6">
-                    <Link href={`/${story.slug}`} className="group block">
-                      <span className="text-xs font-bold text-gray-500 tracking-wider">
-                        {story.category}
-                      </span>
-                      <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
-                        {story.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                        {story.excerpt}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <span className="font-medium">{story.author}</span>
-                        <span>•</span>
-                        <time>{story.date}</time>
-                        <span>•</span>
-                        <span>{story.readTime}</span>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
+                {featuredStories.slice(1).map((story, index) => {
+                  const dateInfo = formatArticleDateDisplay(story);
+                  return (
+                    <article key={story.slug} className="border-b border-gray-200 pb-6">
+                      <Link href={`/${story.slug}`} className="group block">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xs font-bold text-gray-500 tracking-wider">
+                            {story.category}
+                          </span>
+                          {dateInfo.isUpdated && (
+                            <span className="text-xs text-orange-600 font-bold">UPDATED</span>
+                          )}
+                        </div>
+                        <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
+                          {story.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                          {story.excerpt}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <span className="font-medium">{story.author}</span>
+                          <span>•</span>
+                          <time className={dateInfo.isUpdated ? 'text-orange-600 font-medium' : ''}>
+                            {dateInfo.display}
+                          </time>
+                          <span>•</span>
+                          <span className="text-gray-400">{dateInfo.relative}</span>
+                          <span>•</span>
+                          <span>{story.readTime}</span>
+                        </div>
+                      </Link>
+                    </article>
+                  );
+                })}
               </div>
             </section>
 
@@ -228,24 +279,34 @@ export default async function NewsPage() {
                 TECHNOLOGY & INNOVATION
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {technologyNews.map((story, index) => (
-                  <article key={story.slug} className="border border-gray-200 hover:shadow-lg transition-shadow">
-                    <Link href={`/${story.slug}`} className="group block p-4">
-                      <span className="text-xs font-bold text-blue-600">{story.category}</span>
-                      <h3 className="font-bold mt-2 mb-2 leading-tight group-hover:underline">
-                        {story.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                        {story.excerpt}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <span>{story.author}</span>
-                        <span>•</span>
-                        <time>{story.date}</time>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
+                {technologyNews.map((story, index) => {
+                  const dateInfo = formatArticleDateDisplay(story);
+                  return (
+                    <article key={story.slug} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                      <Link href={`/${story.slug}`} className="group block p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-bold text-blue-600">{story.category}</span>
+                          {dateInfo.isUpdated && (
+                            <span className="text-xs text-orange-600 font-bold">●</span>
+                          )}
+                        </div>
+                        <h3 className="font-bold mt-2 mb-2 leading-tight group-hover:underline">
+                          {story.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                          {story.excerpt}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <span>{story.author}</span>
+                          <span>•</span>
+                          <time className={dateInfo.isUpdated ? 'text-orange-600' : ''}>
+                            {dateInfo.relative}
+                          </time>
+                        </div>
+                      </Link>
+                    </article>
+                  );
+                })}
               </div>
             </section>
 
@@ -255,24 +316,34 @@ export default async function NewsPage() {
                 BUSINESS & FINANCE
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {businessNews.map((story, index) => (
-                  <article key={story.slug} className="border border-gray-200 hover:shadow-lg transition-shadow">
-                    <Link href={`/${story.slug}`} className="group block p-4">
-                      <span className="text-xs font-bold text-green-600">{story.category}</span>
-                      <h3 className="font-bold mt-2 mb-2 leading-tight group-hover:underline">
-                        {story.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                        {story.excerpt}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <span>{story.author}</span>
-                        <span>•</span>
-                        <time>{story.date}</time>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
+                {businessNews.map((story, index) => {
+                  const dateInfo = formatArticleDateDisplay(story);
+                  return (
+                    <article key={story.slug} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                      <Link href={`/${story.slug}`} className="group block p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-bold text-green-600">{story.category}</span>
+                          {dateInfo.isUpdated && (
+                            <span className="text-xs text-orange-600 font-bold">●</span>
+                          )}
+                        </div>
+                        <h3 className="font-bold mt-2 mb-2 leading-tight group-hover:underline">
+                          {story.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                          {story.excerpt}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <span>{story.author}</span>
+                          <span>•</span>
+                          <time className={dateInfo.isUpdated ? 'text-orange-600' : ''}>
+                            {dateInfo.relative}
+                          </time>
+                        </div>
+                      </Link>
+                    </article>
+                  );
+                })}
               </div>
             </section>
 
@@ -282,26 +353,36 @@ export default async function NewsPage() {
                 POLITICS & INVESTIGATIONS
               </h2>
               <div className="space-y-6">
-                {politicsNews.map((story, index) => (
-                  <article key={story.slug} className="flex gap-6 border-b border-gray-200 pb-6">
-                    <div className="flex-1">
-                      <Link href={`/${story.slug}`} className="group block">
-                        <span className="text-xs font-bold text-purple-600">{story.category}</span>
-                        <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
-                          {story.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed mb-3">
-                          {story.excerpt}
-                        </p>
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
-                          <span className="font-medium">{story.author}</span>
-                          <span>•</span>
-                          <time>{story.date}</time>
-                        </div>
-                      </Link>
-                    </div>
-                  </article>
-                ))}
+                {politicsNews.map((story, index) => {
+                  const dateInfo = formatArticleDateDisplay(story);
+                  return (
+                    <article key={story.slug} className="flex gap-6 border-b border-gray-200 pb-6">
+                      <div className="flex-1">
+                        <Link href={`/${story.slug}`} className="group block">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="text-xs font-bold text-purple-600">{story.category}</span>
+                            {dateInfo.isUpdated && (
+                              <span className="text-xs text-orange-600 font-bold">UPDATED</span>
+                            )}
+                          </div>
+                          <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
+                            {story.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed mb-3">
+                            {story.excerpt}
+                          </p>
+                          <div className="flex items-center gap-2 text-xs text-gray-500">
+                            <span className="font-medium">{story.author}</span>
+                            <span>•</span>
+                            <time className={dateInfo.isUpdated ? 'text-orange-600' : ''}>
+                              {dateInfo.relative}
+                            </time>
+                          </div>
+                        </Link>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </section>
 
@@ -312,28 +393,38 @@ export default async function NewsPage() {
                   INVESTIGATIONS & SPECIAL REPORTS
                 </h2>
                 <div className="space-y-6">
-                  {investigationsNews.map((story, index) => (
-                    <article key={`${story.slug}-${index}`} className="flex gap-6 border-b border-gray-200 pb-6">
-                      <div className="flex-1">
-                        <Link href={`/${story.slug}`} className="group block">
-                          <span className="text-xs font-bold text-orange-600">{story.category}</span>
-                          <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
-                            {story.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed mb-3">
-                            {story.excerpt}
-                          </p>
-                          <div className="flex items-center gap-2 text-xs text-gray-500">
-                            <span className="font-medium">{story.author}</span>
-                            <span>•</span>
-                            <time>{story.date}</time>
-                            <span>•</span>
-                            <span>{story.readTime}</span>
-                          </div>
-                        </Link>
-                      </div>
-                    </article>
-                  ))}
+                  {investigationsNews.map((story, index) => {
+                    const dateInfo = formatArticleDateDisplay(story);
+                    return (
+                      <article key={`${story.slug}-${index}`} className="flex gap-6 border-b border-gray-200 pb-6">
+                        <div className="flex-1">
+                          <Link href={`/${story.slug}`} className="group block">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-xs font-bold text-orange-600">{story.category}</span>
+                              {dateInfo.isUpdated && (
+                                <span className="text-xs text-orange-600 font-bold">UPDATED</span>
+                              )}
+                            </div>
+                            <h3 className="text-xl font-bold mt-2 mb-3 leading-tight group-hover:underline">
+                              {story.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed mb-3">
+                              {story.excerpt}
+                            </p>
+                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                              <span className="font-medium">{story.author}</span>
+                              <span>•</span>
+                              <time className={dateInfo.isUpdated ? 'text-orange-600' : ''}>
+                                {dateInfo.relative}
+                              </time>
+                              <span>•</span>
+                              <span>{story.readTime}</span>
+                            </div>
+                          </Link>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
               </section>
             )}

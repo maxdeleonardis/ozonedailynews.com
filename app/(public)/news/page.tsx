@@ -153,9 +153,47 @@ export default async function NewsPage() {
             <Link href="/analyst" className="hover:underline underline-offset-4">Business</Link>
             <Link href="/coding" className="hover:underline underline-offset-4">Technology</Link>
             <Link href="/opinion" className="hover:underline underline-offset-4">Opinion</Link>
+            <Link href="/rss.xml" className="hover:underline underline-offset-4 text-orange-600 font-bold">RSS Feed</Link>
+            <Link href="/sitemap.xml" className="hover:underline underline-offset-4 text-blue-600 font-bold">Sitemap</Link>
           </nav>
         </div>
       </header>
+
+      {/* RSS & Sitemap Info Banner */}
+      <div className="bg-gradient-to-r from-orange-50 via-blue-50 to-purple-50 border-y border-gray-200 py-4">
+        <div className="container">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"/>
+                <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1z"/>
+                <path d="M3 15a2 2 0 114 0 2 2 0 01-4 0z"/>
+              </svg>
+              <span className="text-gray-700">
+                <strong>RSS Feed:</strong> <Link href="/rss.xml" className="text-orange-600 hover:underline font-medium">Subscribe to updates</Link>
+              </span>
+            </div>
+            <div className="hidden sm:block h-4 w-px bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="text-gray-700">
+                <strong>Sitemap:</strong> <Link href="/sitemap.xml" className="text-blue-600 hover:underline font-medium">{totalArticles} pages indexed</Link>
+              </span>
+            </div>
+            <div className="hidden sm:block h-4 w-px bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
+              </svg>
+              <span className="text-gray-700">
+                <strong>Auto-updated:</strong> <span className="text-green-600 font-medium">Every 5 minutes</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Breaking News Ticker */}
       <div className="bg-red-600 text-white py-2 overflow-hidden">
@@ -609,6 +647,247 @@ export default async function NewsPage() {
           </aside>
         </div>
       </main>
+
+      {/* RSS Feed & Sitemap Information Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 border-t-2 border-gray-200">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">Stay Connected & Discover Content</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Access our content through multiple channels optimized for readers, search engines, and news aggregators
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            {/* RSS Feed Card */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-orange-200 hover:shadow-2xl transition-shadow">
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"/>
+                    <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1z"/>
+                    <path d="M3 15a2 2 0 114 0 2 2 0 01-4 0z"/>
+                  </svg>
+                  <h3 className="text-2xl font-bold">RSS Feed</h3>
+                </div>
+                <p className="text-orange-100">
+                  Get real-time updates delivered to your feed reader
+                </p>
+              </div>
+              
+              <div className="p-6">
+                <div className="mb-6">
+                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                    <span className="text-orange-600">🔔</span> What's Included
+                  </h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600 mt-1">✓</span>
+                      <span><strong>All NewsArticle pages</strong> automatically discovered and included</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600 mt-1">✓</span>
+                      <span><strong>Database-published articles</strong> from our CMS</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600 mt-1">✓</span>
+                      <span><strong>Full metadata:</strong> title, description, author, category, publish date</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600 mt-1">✓</span>
+                      <span><strong>Featured images</strong> with proper enclosure tags</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600 mt-1">✓</span>
+                      <span><strong>Category tags</strong> for filtering by topic</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-orange-700">🤖 Automated Discovery:</strong> Our RSS feed uses intelligent page scanning to automatically detect all NewsArticle component pages across the entire site. No manual maintenance required!
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-bold text-sm mb-2 text-gray-500 uppercase tracking-wider">Subscribe with:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">Feedly</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">Inoreader</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">NewsBlur</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">The Old Reader</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">RSS readers</span>
+                  </div>
+                </div>
+
+                <Link 
+                  href="/rss.xml" 
+                  target="_blank"
+                  className="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center font-bold py-3 rounded-lg transition-colors"
+                >
+                  Subscribe to RSS Feed →
+                </Link>
+                
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  Copy URL: <code className="bg-gray-100 px-2 py-1 rounded">https://www.objectwire.org/rss.xml</code>
+                </p>
+              </div>
+            </div>
+
+            {/* Sitemap Card */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-blue-200 hover:shadow-2xl transition-shadow">
+              <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <h3 className="text-2xl font-bold">XML Sitemap</h3>
+                </div>
+                <p className="text-blue-100">
+                  Complete site structure for search engines
+                </p>
+              </div>
+              
+              <div className="p-6">
+                <div className="mb-6">
+                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                    <span className="text-blue-600">📊</span> What's Included
+                  </h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>{totalArticles}+ pages</strong> automatically indexed across all categories</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>Wikipedia-style company profiles</strong> (Intel, SpaceX, Nintendo, Novartis, etc.)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>News articles</strong> with optimal crawl priority</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>Last modified dates</strong> from file system</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>Smart prioritization:</strong> News=1.0, Companies=0.9, Articles=0.7-0.8</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">✓</span>
+                      <span><strong>Change frequency hints</strong> (daily/weekly/monthly)</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                  <p className="text-sm text-gray-700">
+                    <strong className="text-blue-700">⚡ Automatic Scanning:</strong> Our sitemap dynamically scans the entire app/ directory to discover all pages. Every new page you create is automatically indexed—no manual updates needed!
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-bold text-sm mb-2 text-gray-500 uppercase tracking-wider">Optimized for:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">Google</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">Bing</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">DuckDuckGo</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">Yandex</span>
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs border border-gray-300">All crawlers</span>
+                  </div>
+                </div>
+
+                <Link 
+                  href="/sitemap.xml" 
+                  target="_blank"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-3 rounded-lg transition-colors"
+                >
+                  View XML Sitemap →
+                </Link>
+                
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  Submit to: <span className="font-medium">Google Search Console</span> • <span className="font-medium">Bing Webmaster</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Details */}
+          <div className="mt-12 max-w-5xl mx-auto">
+            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-6 text-center">🛠️ Technical Implementation</h3>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-bold text-lg mb-3 text-orange-600">RSS Feed Technology</h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600">→</span>
+                      <span><code className="bg-gray-100 px-1 rounded text-xs">getNewsArticlePages()</code> - Scans app/ directory for NewsArticle imports</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600">→</span>
+                      <span><code className="bg-gray-100 px-1 rounded text-xs">extractMetadata()</code> - Parses file content for title, description, author</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600">→</span>
+                      <span>Combines with database posts from Supabase CMS</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600">→</span>
+                      <span>Sorts by publish date (newest first)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-600">→</span>
+                      <span>RSS 2.0 compliant with Atom extensions</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg mb-3 text-blue-600">Sitemap Technology</h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600">→</span>
+                      <span><code className="bg-gray-100 px-1 rounded text-xs">scanAllPages()</code> - Recursively reads entire app/ directory</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600">→</span>
+                      <span><code className="bg-gray-100 px-1 rounded text-xs">getSitemapPriority()</code> - Auto-assigns crawl priority by URL pattern</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600">→</span>
+                      <span>Excludes admin routes, API endpoints, dynamic [...slug] paths</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600">→</span>
+                      <span>Uses file modification dates for lastmod</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600">→</span>
+                      <span>Revalidates every 24 hours (86400s)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6">
+                <h4 className="font-bold text-lg mb-3 text-purple-700 flex items-center gap-2">
+                  <span>✨</span> Zero Manual Maintenance
+                </h4>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Both systems use the <strong>lib/page-scanner.ts</strong> utility to automatically discover content through file system scanning and content parsing. 
+                  When you create a new page, it's automatically added to the sitemap. When you use the NewsArticle component, it's automatically added to the RSS feed. 
+                  No arrays to update, no manual configuration—just create content and publish!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Editorial Standards */}
       <section className="bg-black text-white py-12">

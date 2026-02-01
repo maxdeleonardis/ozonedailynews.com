@@ -129,26 +129,29 @@ export default function RootLayout({
             {/* Header */}
             <header className="border-b">
               <div className="container mx-auto px-4">
-                <nav className="flex items-center justify-between h-14">
+                <nav className="flex items-center justify-between h-20">
                   <Link href="/" className="flex items-center">
                     <img 
                       src="/objectwire-logo.png" 
                       alt="OBJECTWIRE" 
-                      style={{ height: '100px', width: 'auto' }}
+                      style={{ height: '60px', width: 'auto' }}
                     />
                   </Link>
                   
                   <div className="flex items-center gap-6">
-                    <Link href="/finance" className="text-sm font-semibold text-blue-600 hover:underline">
+                    <Link href="/finance" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       Finance
                     </Link>
-                    <Link href="/news" className="text-sm hover:underline">
+                    <Link href="/technology" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
+                      Technology
+                    </Link>
+                    <Link href="/news" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       News
                     </Link>
-                    <Link href="/editorial-standards" className="text-sm hover:underline">
+                    <Link href="/editorial-standards" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       Standards
                     </Link>
-                    <Link href="/about" className="text-sm hover:underline">
+                    <Link href="/about" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       About
                     </Link>
                     <SearchBar />
@@ -182,7 +185,8 @@ export default function RootLayout({
                 <h4 className="font-semibold text-sm uppercase tracking-wide mb-4">Useful Links</h4>
                 <div className="flex flex-col gap-2.5">
                   <Link href="/" className="text-sm text-gray-600 hover:text-black transition-colors">Home</Link>
-                  <Link href="/finance" className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Finance</Link>
+                  <Link href="/finance" className="text-sm text-gray-600 hover:text-black transition-colors">Finance</Link>
+                  <Link href="/technology" className="text-sm text-gray-600 hover:text-black transition-colors">Technology</Link>
                   <Link href="/news" className="text-sm text-gray-600 hover:text-black transition-colors">News</Link>
                   <Link href="/editorial-standards" className="text-sm text-gray-600 hover:text-black transition-colors">Editorial Standards</Link>
                   <Link href="/about" className="text-sm text-gray-600 hover:text-black transition-colors">About</Link>

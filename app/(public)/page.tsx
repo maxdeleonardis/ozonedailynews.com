@@ -51,7 +51,8 @@ const topStories = [
 
 const categories = [
   { name: "Investigations", href: "/case", count: 24 },
-  { name: "Technology", href: "/coding", count: 18 },
+  { name: "Technology", href: "/technology", count: 42 },
+  { name: "Finance", href: "/finance", count: 38 },
   { name: "Business & Finance", href: "/analyst", count: 32 },
   { name: "Opinion & Analysis", href: "/opinion", count: 15 },
   { name: "Health", href: "/health", count: 8 },
@@ -97,7 +98,7 @@ export default function HomePage() {
             <Link href="/news" className="hover:underline underline-offset-4">News</Link>
             <Link href="/opinion" className="hover:underline underline-offset-4">Opinion</Link>
             <Link href="/analyst" className="hover:underline underline-offset-4">Analysis</Link>
-            <Link href="/news" className="hover:underline underline-offset-4">Technology</Link>
+            <Link href="/technology" className="hover:underline underline-offset-4">Technology</Link>
             <Link href="/about" className="hover:underline underline-offset-4">About</Link>
           </nav>
         </div>

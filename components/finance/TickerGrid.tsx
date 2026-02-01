@@ -20,17 +20,8 @@ export default function TickerGrid() {
 
   const fetchMarketData = async () => {
     try {
-      // Static mock data for stability - avoids 500 errors from backend rate limits
-      const mockData = [
-        { symbol: "ES=F", name: "S&P 500 Futures", price: 5842.25, change: 15.50, change_percent: 0.27, is_up: true },
-        { symbol: "NQ=F", name: "Nasdaq 100 Futures", price: 20450.50, change: -42.00, change_percent: -0.21, is_up: false },
-        { symbol: "GC=F", name: "Gold Futures", price: 2685.10, change: 12.40, change_percent: 0.46, is_up: true },
-        { symbol: "CL=F", name: "Crude Oil", price: 71.45, change: -0.85, change_percent: -1.18, is_up: false },
-        { symbol: "VIX", name: "Volatility Index", price: 14.20, change: 0.35, change_percent: 2.53, is_up: true },
-        { symbol: "DXY", name: "US Dollar Index", price: 103.85, change: -0.12, change_percent: -0.12, is_up: false },
-        { symbol: "TLT", name: "20+ Year Treasury", price: 91.20, change: -0.45, change_percent: -0.49, is_up: false },
-        { symbol: "BTC", name: "Bitcoin USD", price: 92450.00, change: 1250.00, change_percent: 1.37, is_up: true },
-      ];
+      // Placeholder - will integrate real financial data source later
+      const mockData: TickerData[] = [];
       
       setTickers(mockData);
       setLastUpdated(new Date());
@@ -50,10 +41,18 @@ export default function TickerGrid() {
   if (loading && tickers.length === 0) {
     return (
       <div className="w-full bg-black text-white py-4 px-4 overflow-hidden border-b border-gray-800">
-        <div className="animate-pulse flex gap-8">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-12 w-48 bg-gray-800 rounded"></div>
-          ))}
+        <div className="container mx-auto px-4">
+          <p className="text-sm text-gray-500 italic">Market ticker data coming soon...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (tickers.length === 0) {
+    return (
+      <div className="w-full bg-black text-white py-4 px-4 overflow-hidden border-b border-gray-800">
+        <div className="container mx-auto px-4">
+          <p className="text-sm text-gray-500 italic">Market ticker data coming soon...</p>
         </div>
       </div>
     );

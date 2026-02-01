@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'Sam Altman',
     'Greg Brockman',
     'OpenAI financials',
-    'AI burn rate',
+    'AI burn rate',``
     'Microsoft OpenAI merger',
     'ChatGPT ads',
     'AI national security',

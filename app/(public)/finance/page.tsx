@@ -18,10 +18,10 @@ export default function FinancePage() {
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8">
-                <div className="flex items-center gap-3 mb-8">
-                    <div className="h-8 w-1.5 bg-blue-600 rounded-full"></div>
-                    <h1 className="text-2xl font-black uppercase tracking-tighter">
-                        Financial News
+                <div className="flex items-center gap-3 mb-12">
+                    <div className="h-6 w-1.5 bg-gray-900"></div>
+                    <h1 className="text-sm font-black uppercase tracking-[0.3em] text-gray-900">
+                        Financial Research Archive
                     </h1>
                 </div>
                 <FinanceNewsFeed />

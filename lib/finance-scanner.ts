@@ -13,6 +13,7 @@ export interface FinanceArticle {
   filePath: string;
   createdAt: Date;
   publishedAt: Date;
+  isPinned?: boolean;
 }
 
 /**
@@ -77,6 +78,9 @@ export async function scanFinanceArticles(): Promise<FinanceArticle[]> {
       const readTimeMatch = content.match(/(\d+)\s*min(?:ute)?(?:\s+read)?/i);
       const readTime = readTimeMatch ? `${readTimeMatch[1]} min` : '5 min';
 
+      // Check if pinned
+      const isPinned = content.includes('pinned: true') || content.includes('isPinned: true');
+
       return {
         title,
         excerpt,
@@ -88,6 +92,7 @@ export async function scanFinanceArticles(): Promise<FinanceArticle[]> {
         filePath,
         createdAt: publishedDate,
         publishedAt: publishedDate,
+        isPinned,
       };
     } catch (error) {
       console.error(`Error parsing ${filePath}:`, error);
@@ -117,8 +122,12 @@ export async function scanFinanceArticles(): Promise<FinanceArticle[]> {
 
   scanDirectory(financeArticlesDir);
 
-  // Sort by published date (newest first)
-  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+  // Sort by pinned status first, then by published date (newest first)
+  articles.sort((a, b) => {
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    return b.publishedAt.getTime() - a.publishedAt.getTime();
+  });
 
   return articles;
 }

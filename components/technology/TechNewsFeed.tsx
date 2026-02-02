@@ -68,7 +68,7 @@ export default function TechNewsFeed() {
             </span>
           </div>
           <Link href={`/${articles[0].slug}`} className="block">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-gray-900 group-hover:text-gray-600 transition-colors mb-6">
+            <h2 className="font-serif text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-gray-900 group-hover:text-gray-600 transition-colors mb-6">
               {articles[0].title}
             </h2>
           </Link>
@@ -100,12 +100,12 @@ export default function TechNewsFeed() {
                   {article.title}
                 </h3>
               </Link>
-              <p className="font-sans text-sm text-gray-500 leading-relaxed max-w-xl">
+              <p className="font-sans text-lg text-gray-500 leading-relaxed max-w-xl">
                 {article.excerpt}
               </p>
               
               {/* Mobile Meta */}
-              <div className="mt-3 md:hidden flex items-center gap-3">
+              <div className="mt-4 md:hidden flex items-center gap-3">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-black">
                   {article.category}
                 </span>

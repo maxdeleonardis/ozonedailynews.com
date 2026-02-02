@@ -18,47 +18,50 @@ export default async function FinanceNewsFeed() {
 
   return (
     <div className="space-y-6">
-      {financeArticles.map((article, index) => (
-        <Card key={`${article.slug}-${index}`} className={`border-0 border-b border-gray-100 rounded-none shadow-none hover:bg-gray-50 transition-colors ${article.isPinned ? 'bg-gray-50/50' : ''}`}>
-          <CardContent className="p-0">
-            <Link href={`/finance/articles/${article.slug}`} className="group block p-8">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
-                      {article.category}
-                    </span>
-                    {article.isPinned && (
-                      <span className="flex items-center gap-1 text-[10px] font-black uppercase text-gray-900 border-l border-gray-300 pl-4 tracking-widest">
-                        Featured
+      {financeArticles.map((article, index) => {
+        const isFirst = index === 0;
+        return (
+          <Card key={`${article.slug}-${index}`} className={`border-0 border-b border-gray-100 rounded-none shadow-none hover:bg-gray-50 transition-colors ${article.isPinned ? 'bg-gray-50/50' : ''}`}>
+            <CardContent className="p-0">
+              <Link href={`/finance/articles/${article.slug}`} className={`group block ${isFirst ? 'p-8 md:p-12' : 'p-8'}`}>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+                        {article.category}
                       </span>
-                    )}
+                      {article.isPinned && (
+                        <span className="flex items-center gap-1 text-[10px] font-black uppercase text-gray-900 border-l border-gray-300 pl-4 tracking-widest">
+                          Featured
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[10px] font-mono text-gray-400 uppercase tracking-tighter">
+                      {article.readTime}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-mono text-gray-400 uppercase tracking-tighter">
-                    {article.readTime}
-                  </span>
-                </div>
-                
-                <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-gray-600 transition-colors tracking-tighter uppercase leading-tight">
-                  {article.title}
-                </h2>
-                
-                <p className="text-gray-500 font-serif leading-relaxed line-clamp-2 text-lg">
-                  {article.excerpt}
-                </p>
-                
-                <div className="flex items-center gap-6 pt-6 text-[10px] font-black uppercase tracking-widest text-gray-400">
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-900">{article.author}</span>
+                  
+                  <h2 className={`${isFirst ? 'text-2xl md:text-5xl lg:text-6xl' : 'text-2xl md:text-3xl'} font-black text-gray-900 group-hover:text-gray-600 transition-colors tracking-tighter uppercase leading-tight`}>
+                    {article.title}
+                  </h2>
+                  
+                  <p className={`text-gray-500 font-serif leading-relaxed line-clamp-2 ${isFirst ? 'text-lg md:text-xl max-w-3xl' : 'text-lg'}`}>
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center gap-6 pt-6 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-900">{article.author}</span>
+                    </div>
+                    <span>•</span>
+                    <time>{article.date}</time>
                   </div>
-                  <span>•</span>
-                  <time>{article.date}</time>
                 </div>
-              </div>
-            </Link>
-          </CardContent>
-        </Card>
-      ))}
+              </Link>
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   );
 }

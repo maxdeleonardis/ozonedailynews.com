@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     section: "Market Intelligence",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/16-trillion-on-chain-tokenization-revolution-2026',
+  },
 };
 
 /* pinned: true */

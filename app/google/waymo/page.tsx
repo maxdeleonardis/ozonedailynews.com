@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     title: "Waymo Coverage | ObjectWire",
     description: "In-depth reporting on Waymo's autonomous vehicle technology and operations.",
     type: "website",
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/google/waymo',
+  },
 };
 
 const latestNews = [

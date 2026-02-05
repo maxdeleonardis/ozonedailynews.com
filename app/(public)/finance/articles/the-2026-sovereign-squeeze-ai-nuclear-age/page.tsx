@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     section: "Finance",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age',
+  },
 };
 
 /* pinned: true */

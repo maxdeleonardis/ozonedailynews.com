@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     section: "Finance",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture',
+  },
 };
 
 /* pinned: true */

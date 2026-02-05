@@ -10,7 +10,10 @@ export const metadata: Metadata = {
     description: "Historic partnership brings Google's Gemini AI to Apple devices, reshaping the competitive landscape of AI-powered consumer technology.",
     type: "article",
     publishedTime: "2026-01-23T00:00:00Z",
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/apple-google-gemini-partnership',
+  },
 };
 
 export default function AppleGoogleGeminiPartnershipPage() {

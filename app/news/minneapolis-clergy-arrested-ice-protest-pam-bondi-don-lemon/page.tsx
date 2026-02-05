@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   },
   other: {
     'news_keywords': 'Minneapolis, ICE protest, clergy arrests, Pam Bondi, Don Lemon, immigration enforcement, deportation, MSP Airport, criminal charges, First Amendment',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon',
+  },
 };
 
 // Article structured data for Google News

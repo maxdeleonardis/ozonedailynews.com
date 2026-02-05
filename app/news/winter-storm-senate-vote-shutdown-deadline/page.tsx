@@ -10,7 +10,10 @@ export const metadata: Metadata = {
     description: "Senate cancels Monday session due to winter weather, leaving just days to pass $1.2 trillion spending package before shutdown deadline.",
     type: "article",
     publishedTime: "2026-01-23T14:30:00Z",
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/winter-storm-senate-vote-shutdown-deadline',
+  },
 };
 
 export default function WinterStormSenatePage() {

@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     section: "Quantitative Finance",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/statistical-edge-permutation-testing-trading',
+  },
 };
 
 /* pinned: true */

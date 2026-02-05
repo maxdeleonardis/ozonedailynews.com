@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   },
   other: {
     'news_keywords': 'California, WHO, World Health Organization, Gavin Newsom, Trump administration, US withdrawal, GOARN, public health, disease outbreak',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/california-joins-who-disease-network-after-us-withdrawal',
+  },
 };
 
 // Article structured data for Google News

@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     section: "Market Infrastructure",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/oanda-or-interactive-brokers-forex-trading-usa',
+  },
 };
 
 /* pinned: false */

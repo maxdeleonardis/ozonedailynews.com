@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   },
   other: {
     'news_keywords': 'NTSB, Waymo, school bus safety, autonomous vehicles, robotaxi, federal investigation, Austin Texas, Atlanta Georgia, NHTSA, self-driving cars',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/google/waymo/ntsb-investigation-school-bus-violations',
+  },
 };
 
 // Article structured data for Google News

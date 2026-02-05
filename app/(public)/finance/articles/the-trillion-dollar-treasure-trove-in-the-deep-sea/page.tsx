@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     section: "Resource Intelligence",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea',
+  },
 };
 
 /* pinned: false */

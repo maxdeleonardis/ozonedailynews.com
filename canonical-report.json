@@ -1,18 +1,17 @@
 {
-  "timestamp": "2026-02-05T18:59:55.600Z",
+  "timestamp": "2026-02-05T19:16:55.756Z",
   "summary": {
     "total": 187,
-    "withCanonical": 158,
-    "withoutCanonical": 29,
+    "withCanonical": 176,
+    "withoutCanonical": 11,
     "byHelperFunction": 4,
-    "byHardcoded": 154
+    "byHardcoded": 172
   },
   "pagesWithoutCanonical": [
     {
       "route": "//blog",
       "path": "app/(public)/blog/page.tsx",
       "issues": [
-        "Client component without canonical tag",
         "No metadata export found"
       ]
     },
@@ -25,51 +24,6 @@
       ]
     },
     {
-      "route": "//finance/articles/16-trillion-on-chain-tokenization-revolution-2026",
-      "path": "app/(public)/finance/articles/16-trillion-on-chain-tokenization-revolution-2026/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/nasdaq-proposed-24-7-trading",
-      "path": "app/(public)/finance/articles/nasdaq-proposed-24-7-trading/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/oanda-or-interactive-brokers-forex-trading-usa",
-      "path": "app/(public)/finance/articles/oanda-or-interactive-brokers-forex-trading-usa/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/starlink-economic-analysis",
-      "path": "app/(public)/finance/articles/starlink-economic-analysis/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/statistical-edge-permutation-testing-trading",
-      "path": "app/(public)/finance/articles/statistical-edge-permutation-testing-trading/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age",
-      "path": "app/(public)/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture",
-      "path": "app/(public)/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "//finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea",
-      "path": "app/(public)/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/apple-google-gemini-partnership",
-      "path": "app/apple-google-gemini-partnership/page.tsx",
-      "issues": []
-    },
-    {
       "route": "/contact",
       "path": "app/contact/page.tsx",
       "issues": [
@@ -78,32 +32,12 @@
       ]
     },
     {
-      "route": "/google",
-      "path": "app/google/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/google/waymo/ntsb-investigation-school-bus-violations",
-      "path": "app/google/waymo/ntsb-investigation-school-bus-violations/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/google/waymo",
-      "path": "app/google/waymo/page.tsx",
-      "issues": []
-    },
-    {
       "route": "/mha",
       "path": "app/mha/page.tsx",
       "issues": [
         "Client component without canonical tag",
         "No metadata export found"
       ]
-    },
-    {
-      "route": "/microsoft",
-      "path": "app/microsoft/page.tsx",
-      "issues": []
     },
     {
       "route": "/minesoda/Ilhan-Omar",
@@ -130,21 +64,6 @@
       ]
     },
     {
-      "route": "/news/california-joins-who-disease-network-after-us-withdrawal",
-      "path": "app/news/california-joins-who-disease-network-after-us-withdrawal/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/news/microsoft-gave-fbi-bitlocker-keys",
-      "path": "app/news/microsoft-gave-fbi-bitlocker-keys/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon",
-      "path": "app/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon/page.tsx",
-      "issues": []
-    },
-    {
       "route": "/news/quantum-computing/d-wave-quantum-optimization-breakthrough",
       "path": "app/news/quantum-computing/d-wave-quantum-optimization-breakthrough/page.tsx",
       "issues": [
@@ -159,16 +78,6 @@
         "Client component without canonical tag",
         "No metadata export found"
       ]
-    },
-    {
-      "route": "/news/winter-storm-senate-vote-shutdown-deadline",
-      "path": "app/news/winter-storm-senate-vote-shutdown-deadline/page.tsx",
-      "issues": []
-    },
-    {
-      "route": "/search",
-      "path": "app/search/page.tsx",
-      "issues": []
     },
     {
       "route": "/world-cup/boycott-calls-ice-immigration",
@@ -309,7 +218,6 @@
       "hasCanonical": false,
       "method": "none",
       "issues": [
-        "Client component without canonical tag",
         "No metadata export found"
       ]
     },
@@ -396,57 +304,57 @@
     {
       "route": "//finance/articles/16-trillion-on-chain-tokenization-revolution-2026",
       "path": "app/(public)/finance/articles/16-trillion-on-chain-tokenization-revolution-2026/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/nasdaq-proposed-24-7-trading",
       "path": "app/(public)/finance/articles/nasdaq-proposed-24-7-trading/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/oanda-or-interactive-brokers-forex-trading-usa",
       "path": "app/(public)/finance/articles/oanda-or-interactive-brokers-forex-trading-usa/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/starlink-economic-analysis",
       "path": "app/(public)/finance/articles/starlink-economic-analysis/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/statistical-edge-permutation-testing-trading",
       "path": "app/(public)/finance/articles/statistical-edge-permutation-testing-trading/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age",
       "path": "app/(public)/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture",
       "path": "app/(public)/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea",
       "path": "app/(public)/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -704,8 +612,8 @@
     {
       "route": "/apple-google-gemini-partnership",
       "path": "app/apple-google-gemini-partnership/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -931,22 +839,22 @@
     {
       "route": "/google",
       "path": "app/google/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/google/waymo/ntsb-investigation-school-bus-violations",
       "path": "app/google/waymo/ntsb-investigation-school-bus-violations/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/google/waymo",
       "path": "app/google/waymo/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -1081,8 +989,8 @@
     {
       "route": "/microsoft",
       "path": "app/microsoft/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -1167,8 +1075,8 @@
     {
       "route": "/news/california-joins-who-disease-network-after-us-withdrawal",
       "path": "app/news/california-joins-who-disease-network-after-us-withdrawal/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -1202,15 +1110,15 @@
     {
       "route": "/news/microsoft-gave-fbi-bitlocker-keys",
       "path": "app/news/microsoft-gave-fbi-bitlocker-keys/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon",
       "path": "app/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -1299,8 +1207,8 @@
     {
       "route": "/news/winter-storm-senate-vote-shutdown-deadline",
       "path": "app/news/winter-storm-senate-vote-shutdown-deadline/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {
@@ -1362,8 +1270,8 @@
     {
       "route": "/search",
       "path": "app/search/page.tsx",
-      "hasCanonical": false,
-      "method": "none",
+      "hasCanonical": true,
+      "method": "hardcoded",
       "issues": []
     },
     {

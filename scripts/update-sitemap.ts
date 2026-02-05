@@ -192,11 +192,16 @@ function updateSiteConfig(routes: DiscoveredRoute[]): void {
   },`;
   }).join('\n');
   
-  console.log('\n   📋 New route entries to add to ROUTE_REGISTRY:');
-  console.log('   ' + '-'.repeat(50));
-  console.log(newEntries);
-  console.log('   ' + '-'.repeat(50));
-  console.log('\n   ℹ️  Add these entries manually to lib/site-config.ts');
+  console.log('\n   📋 New route entries added to ROUTE_REGISTRY.');
+  
+  // Actually update the file
+  const updatedConfig = existingConfig.replace(
+    /export const ROUTE_REGISTRY: RouteConfig\[\] = \[/,
+    `export const ROUTE_REGISTRY: RouteConfig[] = [\n${newEntries}`
+  );
+  
+  fs.writeFileSync(siteConfigPath, updatedConfig);
+  console.log('   ✅ lib/site-config.ts has been updated.');
 }
 
 // =============================================================================

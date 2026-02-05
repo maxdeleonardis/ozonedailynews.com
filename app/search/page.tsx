@@ -21,6 +21,9 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
       index: false, // Don't index search results pages
       follow: true,
     },
+    alternates: {
+      canonical: 'https://www.objectwire.org/search',
+    },
   };
 }
 

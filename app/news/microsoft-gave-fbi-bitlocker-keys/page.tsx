@@ -19,7 +19,10 @@ export const metadata: Metadata = {
   },
   other: {
     'news_keywords': 'Microsoft, BitLocker, FBI, encryption keys, privacy, law enforcement access, cloud storage, recovery keys, data security',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/microsoft-gave-fbi-bitlocker-keys',
+  },
 };
 
 // Article structured data for Google News

@@ -47,11 +47,9 @@ export default function AnalystPage() {
               </div>
             </div>
           </div>
-        </section>              business, technology, and economic developments. Our team of analysts delivers thorough 
-              research reports that go beyond the headlines.
-            </p>
-          </div>
+        </section>
 
+        <section className="mt-8">
           <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               What We Cover

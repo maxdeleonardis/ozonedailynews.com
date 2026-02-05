@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-02T12:00:00Z",
     section: "Finance",
   },
+  alternates: {
+    canonical: "https://www.objectwire.org/finance/articles/starlink-economic-analysis",
+  },
   authors: [{ name: "ObjectWire Financial Desk" }],
 };
 

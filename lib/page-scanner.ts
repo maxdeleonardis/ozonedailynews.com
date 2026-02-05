@@ -40,7 +40,14 @@ export function scanAllPages(): PageInfo[] {
           const content = fs.readFileSync(fullPath, 'utf-8');
           
           // Determine URL path (remove /page from end)
-          let pagePath = urlPath || '/';
+          // Clean up route groups (e.g., (public), (admin)) from the path
+          let pagePath = urlPath.split('/').filter(part => {
+            return part && !part.startsWith('(') && !part.endsWith(')');
+          }).join('/');
+          
+          pagePath = '/' + pagePath;
+          if (pagePath.endsWith('/')) pagePath = pagePath.slice(0, -1);
+          if (pagePath === '') pagePath = '/';
           
           // Check if this is a NewsArticle component page
           const isNewsArticle = content.includes('from \'@/components/NewsArticle\'') || 

@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     title: "Microsoft Corporation Coverage | ObjectWire",
     description: "In-depth reporting on Microsoft, its products, services, and business operations.",
     type: "website",
-  }
+  },
+  alternates: {
+    canonical: "https://www.objectwire.org/microsoft",
+  },
 };
 
 const recentNews = [

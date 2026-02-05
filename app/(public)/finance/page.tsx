@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Finance | ObjectWire",
   description: "Real-time market look, financial news, and investigative economic reporting.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/finance',
+  },
 };
 
 export default function FinancePage() {

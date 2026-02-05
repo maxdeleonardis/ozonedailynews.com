@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     title: "Google & Alphabet Inc Coverage | ObjectWire",
     description: "In-depth reporting on Google, Alphabet, and all subsidiary companies.",
     type: "website",
-  }
+  },
+  alternates: {
+    canonical: "https://www.objectwire.org/google",
+  },
 };
 
 const recentNews = [

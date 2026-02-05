@@ -81,19 +81,6 @@ const defaultArticles: Article[] = [
     blocks: []
   },
   {
-    id: '4',
-    title: "Here's Another Thing to Worry About: AI Scanning Your Rental Car for Damage",
-    slug: 'here-s-another-thing-to-worry-about',
-    excerpt: 'The rental car industry is adopting artificial intelligence (AI) to inspect vehicles and charge customers for damages. Here\'s what renters should watch out for.',
-    category: 'Technology',
-    status: 'published',
-    author: 'ObjectWire Team',
-    createdAt: '2025-07-07',
-    updatedAt: '2025-07-07',
-    readTime: '5 min read',
-    blocks: []
-  },
-  {
     id: '5',
     title: "$2.5 Billion Federal Reserve Headquarters Renovation Sparks Political Controversy",
     slug: 'jerome-powell-federal-reserve-headquarters-renovation',
@@ -390,19 +377,6 @@ const defaultArticles: Article[] = [
     createdAt: '2025-09-10',
     updatedAt: '2025-09-10',
     readTime: '7 min read',
-    blocks: []
-  },
-  {
-    id: '28',
-    title: "TopStep Trading Combine: Is It Worth It?",
-    slug: 'https-www-topstep-com-trading-combine',
-    excerpt: 'Comprehensive review of TopStep\'s funded trader program: costs, rules, success rates, and whether it\'s the right path for aspiring traders.',
-    category: 'Business',
-    status: 'published',
-    author: 'ObjectWire Team',
-    createdAt: '2025-08-30',
-    updatedAt: '2025-08-30',
-    readTime: '8 min read',
     blocks: []
   },
   {

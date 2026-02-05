@@ -1,26 +1,196 @@
 {
-  "timestamp": "2026-01-23T21:41:51.980Z",
+  "timestamp": "2026-02-05T18:59:55.600Z",
   "summary": {
-    "total": 126,
-    "withCanonical": 126,
-    "withoutCanonical": 0,
-    "byHelperFunction": 2,
-    "byHardcoded": 124
+    "total": 187,
+    "withCanonical": 158,
+    "withoutCanonical": 29,
+    "byHelperFunction": 4,
+    "byHardcoded": 154
   },
-  "pagesWithoutCanonical": [],
-  "allPages": [
+  "pagesWithoutCanonical": [
     {
-      "route": "//admin/dashboard",
-      "path": "app\\(admin)\\admin\\dashboard\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
+      "route": "//blog",
+      "path": "app/(public)/blog/page.tsx",
       "issues": [
-        "Noindex route - canonical not required"
+        "Client component without canonical tag",
+        "No metadata export found"
       ]
     },
     {
-      "route": "//admin/editor",
-      "path": "app\\(admin)\\admin\\editor\\page.tsx",
+      "route": "//clear-cache",
+      "path": "app/(public)/clear-cache/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "//finance/articles/16-trillion-on-chain-tokenization-revolution-2026",
+      "path": "app/(public)/finance/articles/16-trillion-on-chain-tokenization-revolution-2026/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/nasdaq-proposed-24-7-trading",
+      "path": "app/(public)/finance/articles/nasdaq-proposed-24-7-trading/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/oanda-or-interactive-brokers-forex-trading-usa",
+      "path": "app/(public)/finance/articles/oanda-or-interactive-brokers-forex-trading-usa/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/starlink-economic-analysis",
+      "path": "app/(public)/finance/articles/starlink-economic-analysis/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/statistical-edge-permutation-testing-trading",
+      "path": "app/(public)/finance/articles/statistical-edge-permutation-testing-trading/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age",
+      "path": "app/(public)/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture",
+      "path": "app/(public)/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea",
+      "path": "app/(public)/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/apple-google-gemini-partnership",
+      "path": "app/apple-google-gemini-partnership/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "path": "app/contact/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/google",
+      "path": "app/google/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/google/waymo/ntsb-investigation-school-bus-violations",
+      "path": "app/google/waymo/ntsb-investigation-school-bus-violations/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/google/waymo",
+      "path": "app/google/waymo/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/mha",
+      "path": "app/mha/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/microsoft",
+      "path": "app/microsoft/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/minesoda/Ilhan-Omar",
+      "path": "app/minesoda/Ilhan-Omar/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/minesoda/nick-shirley-drops-second-part-of-fraud-investigation",
+      "path": "app/minesoda/nick-shirley-drops-second-part-of-fraud-investigation/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/minesoda",
+      "path": "app/minesoda/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/news/california-joins-who-disease-network-after-us-withdrawal",
+      "path": "app/news/california-joins-who-disease-network-after-us-withdrawal/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/news/microsoft-gave-fbi-bitlocker-keys",
+      "path": "app/news/microsoft-gave-fbi-bitlocker-keys/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon",
+      "path": "app/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/news/quantum-computing/d-wave-quantum-optimization-breakthrough",
+      "path": "app/news/quantum-computing/d-wave-quantum-optimization-breakthrough/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/news/quantum-computing",
+      "path": "app/news/quantum-computing/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/news/winter-storm-senate-vote-shutdown-deadline",
+      "path": "app/news/winter-storm-senate-vote-shutdown-deadline/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/search",
+      "path": "app/search/page.tsx",
+      "issues": []
+    },
+    {
+      "route": "/world-cup/boycott-calls-ice-immigration",
+      "path": "app/world-cup/boycott-calls-ice-immigration/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/world-cup",
+      "path": "app/world-cup/page.tsx",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    }
+  ],
+  "allPages": [
+    {
+      "route": "//admin/dashboard",
+      "path": "app/(admin)/admin/dashboard/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": [
@@ -29,7 +199,16 @@
     },
     {
       "route": "//admin/editor/[id]",
-      "path": "app\\(admin)\\admin\\editor\\[id]\\page.tsx",
+      "path": "app/(admin)/admin/editor/[id]/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": [
+        "Noindex route - canonical not required"
+      ]
+    },
+    {
+      "route": "//admin/editor",
+      "path": "app/(admin)/admin/editor/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": [
@@ -38,7 +217,16 @@
     },
     {
       "route": "//admin",
-      "path": "app\\(admin)\\admin\\page.tsx",
+      "path": "app/(admin)/admin/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": [
+        "Noindex route - canonical not required"
+      ]
+    },
+    {
+      "route": "//admin/static-articles",
+      "path": "app/(admin)/admin/static-articles/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": [
@@ -47,857 +235,1310 @@
     },
     {
       "route": "//2025-nissan-z-vs-toyota-gr-supra-comparison",
-      "path": "app\\(public)\\2025-nissan-z-vs-toyota-gr-supra-comparison\\page.tsx",
+      "path": "app/(public)/2025-nissan-z-vs-toyota-gr-supra-comparison/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//about",
-      "path": "app\\(public)\\about\\page.tsx",
+      "path": "app/(public)/about/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//alphabet-inc-the-history-of-google",
-      "path": "app\\(public)\\alphabet-inc-the-history-of-google\\page.tsx",
+      "path": "app/(public)/alphabet-inc-the-history-of-google/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war",
-      "path": "app\\(public)\\alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war\\page.tsx",
+      "path": "app/(public)/alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//analyst",
-      "path": "app\\(public)\\analyst\\page.tsx",
+      "path": "app/(public)/analyst/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//asset-collection",
-      "path": "app\\(public)\\asset-collection\\page.tsx",
+      "path": "app/(public)/asset-collection/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//austin-private-detective-agency",
-      "path": "app\\(public)\\austin-private-detective-agency\\page.tsx",
+      "path": "app/(public)/austin-private-detective-agency/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//black-lady-blacklives-matter",
-      "path": "app\\(public)\\black-lady-blacklives-matter\\page.tsx",
+      "path": "app/(public)/black-lady-blacklives-matter/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//blitzy-ai-powered-autonomous-software-development",
-      "path": "app\\(public)\\blitzy-ai-powered-autonomous-software-development\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "//blog",
-      "path": "app\\(public)\\blog\\page.tsx",
+      "path": "app/(public)/blitzy-ai-powered-autonomous-software-development/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//blog/[slug]",
-      "path": "app\\(public)\\blog\\[slug]\\page.tsx",
+      "path": "app/(public)/blog/[slug]/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
+      "route": "//blog",
+      "path": "app/(public)/blog/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
       "route": "//case",
-      "path": "app\\(public)\\case\\page.tsx",
+      "path": "app/(public)/case/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//chatgpt-staffers-to-offer-secondary-sale-at-500b-valuation",
-      "path": "app\\(public)\\chatgpt-staffers-to-offer-secondary-sale-at-500b-valuation\\page.tsx",
+      "path": "app/(public)/chatgpt-staffers-to-offer-secondary-sale-at-500b-valuation/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//clear-cache",
-      "path": "app\\(public)\\clear-cache\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
+      "path": "app/(public)/clear-cache/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
     },
     {
       "route": "//coding/nestjs-vs-nextjs-express",
-      "path": "app\\(public)\\coding\\nestjs-vs-nextjs-express\\page.tsx",
+      "path": "app/(public)/coding/nestjs-vs-nextjs-express/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//cognyte-software-ltd-cgnt",
-      "path": "app\\(public)\\cognyte-software-ltd-cgnt\\page.tsx",
+      "path": "app/(public)/cognyte-software-ltd-cgnt/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//comet-ai-web-browser-vs-atlas-by-chatgpt",
-      "path": "app\\(public)\\comet-ai-web-browser-vs-atlas-by-chatgpt\\page.tsx",
+      "path": "app/(public)/comet-ai-web-browser-vs-atlas-by-chatgpt/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//difference-between-http-and-rest-api-servers",
-      "path": "app\\(public)\\difference-between-http-and-rest-api-servers\\page.tsx",
+      "path": "app/(public)/difference-between-http-and-rest-api-servers/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//does-doordash-take-snap",
-      "path": "app\\(public)\\does-doordash-take-snap\\page.tsx",
+      "path": "app/(public)/does-doordash-take-snap/page.tsx",
       "hasCanonical": true,
-      "method": "hardcoded",
+      "method": "helper-function",
       "issues": []
     },
     {
       "route": "//editorial-standards/authors",
-      "path": "app\\(public)\\editorial-standards\\authors\\page.tsx",
+      "path": "app/(public)/editorial-standards/authors/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//editorial-standards",
-      "path": "app\\(public)\\editorial-standards\\page.tsx",
+      "path": "app/(public)/editorial-standards/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//fact-finding-and-evidence-collection",
-      "path": "app\\(public)\\fact-finding-and-evidence-collection\\page.tsx",
+      "path": "app/(public)/fact-finding-and-evidence-collection/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/16-trillion-on-chain-tokenization-revolution-2026",
+      "path": "app/(public)/finance/articles/16-trillion-on-chain-tokenization-revolution-2026/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/nasdaq-proposed-24-7-trading",
+      "path": "app/(public)/finance/articles/nasdaq-proposed-24-7-trading/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/oanda-or-interactive-brokers-forex-trading-usa",
+      "path": "app/(public)/finance/articles/oanda-or-interactive-brokers-forex-trading-usa/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/starlink-economic-analysis",
+      "path": "app/(public)/finance/articles/starlink-economic-analysis/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/statistical-edge-permutation-testing-trading",
+      "path": "app/(public)/finance/articles/statistical-edge-permutation-testing-trading/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age",
+      "path": "app/(public)/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture",
+      "path": "app/(public)/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea",
+      "path": "app/(public)/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "//finance",
+      "path": "app/(public)/finance/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//get-help",
-      "path": "app\\(public)\\get-help\\page.tsx",
+      "path": "app/(public)/get-help/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//github-universe-october-28th-and-29th-san-francisco",
-      "path": "app\\(public)\\github-universe-october-28th-and-29th-san-francisco\\page.tsx",
+      "path": "app/(public)/github-universe-october-28th-and-29th-san-francisco/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//health",
-      "path": "app\\(public)\\health\\page.tsx",
+      "path": "app/(public)/health/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//hedera-vs-solana-for-dapps",
-      "path": "app\\(public)\\hedera-vs-solana-for-dapps\\page.tsx",
+      "path": "app/(public)/hedera-vs-solana-for-dapps/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//infidelity",
-      "path": "app\\(public)\\infidelity\\page.tsx",
+      "path": "app/(public)/infidelity/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//introducing-bitchat-jack-dorsey",
-      "path": "app\\(public)\\introducing-bitchat-jack-dorsey\\page.tsx",
+      "path": "app/(public)/introducing-bitchat-jack-dorsey/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//jerome-powell-federal-reserve-headquarters-renovation",
-      "path": "app\\(public)\\jerome-powell-federal-reserve-headquarters-renovation\\page.tsx",
+      "path": "app/(public)/jerome-powell-federal-reserve-headquarters-renovation/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//luxury-watch-heists-at-the-us-grand-prix",
-      "path": "app\\(public)\\luxury-watch-heists-at-the-us-grand-prix\\page.tsx",
+      "path": "app/(public)/luxury-watch-heists-at-the-us-grand-prix/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//missing-persons",
-      "path": "app\\(public)\\missing-persons\\page.tsx",
+      "path": "app/(public)/missing-persons/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//nasdaq-proposed-24-7-trading",
-      "path": "app\\(public)\\nasdaq-proposed-24-7-trading\\page.tsx",
+      "path": "app/(public)/nasdaq-proposed-24-7-trading/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//neurophos-ai-hardware-startup",
-      "path": "app\\(public)\\neurophos-ai-hardware-startup\\page.tsx",
+      "path": "app/(public)/neurophos-ai-hardware-startup/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//news",
-      "path": "app\\(public)\\news\\page.tsx",
+      "path": "app/(public)/news/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//non-degree-studies-at-university-of-texas-austin",
-      "path": "app\\(public)\\non-degree-studies-at-university-of-texas-austin\\page.tsx",
+      "path": "app/(public)/non-degree-studies-at-university-of-texas-austin/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//nycs-ranked-choice-voting-system-faces-scrutiny",
-      "path": "app\\(public)\\nycs-ranked-choice-voting-system-faces-scrutiny\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "//oanda-or-interactive-brokers-forex-trading-usa",
-      "path": "app\\(public)\\oanda-or-interactive-brokers-forex-trading-usa\\page.tsx",
+      "path": "app/(public)/nycs-ranked-choice-voting-system-faces-scrutiny/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//oh-canada-what-has-happened",
-      "path": "app\\(public)\\oh-canada-what-has-happened\\page.tsx",
+      "path": "app/(public)/oh-canada-what-has-happened/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//opinion",
-      "path": "app\\(public)\\opinion\\page.tsx",
+      "path": "app/(public)/opinion/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/",
-      "path": "app\\(public)\\page.tsx",
+      "path": "app/(public)/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//pegatron-opens-us-factory-tx",
-      "path": "app\\(public)\\pegatron-opens-us-factory-tx\\page.tsx",
+      "path": "app/(public)/pegatron-opens-us-factory-tx/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//privacy-policy",
-      "path": "app\\(public)\\privacy-policy\\page.tsx",
+      "path": "app/(public)/privacy-policy/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//prophet-ebo-noah-s-flood-prophecy",
-      "path": "app\\(public)\\prophet-ebo-noah-s-flood-prophecy\\page.tsx",
+      "path": "app/(public)/prophet-ebo-noah-s-flood-prophecy/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//render-vs-vercel-for-free-start-up-app-deployment",
-      "path": "app\\(public)\\render-vs-vercel-for-free-start-up-app-deployment\\page.tsx",
+      "path": "app/(public)/render-vs-vercel-for-free-start-up-app-deployment/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//sam-altman-visits-hedera-team",
-      "path": "app\\(public)\\sam-altman-visits-hedera-team\\page.tsx",
+      "path": "app/(public)/sam-altman-visits-hedera-team/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//service/photography-videography-austin-tx",
-      "path": "app\\(public)\\service\\photography-videography-austin-tx\\page.tsx",
+      "path": "app/(public)/service/photography-videography-austin-tx/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//service/press-release",
-      "path": "app\\(public)\\service\\press-release\\page.tsx",
+      "path": "app/(public)/service/press-release/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//start-up-news",
-      "path": "app\\(public)\\start-up-news\\page.tsx",
+      "path": "app/(public)/start-up-news/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//surveillance",
-      "path": "app\\(public)\\surveillance\\page.tsx",
+      "path": "app/(public)/surveillance/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "//technology",
+      "path": "app/(public)/technology/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//terms-of-service",
-      "path": "app\\(public)\\terms-of-service\\page.tsx",
+      "path": "app/(public)/terms-of-service/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//the-intercept-sues-doge",
-      "path": "app\\(public)\\the-intercept-sues-doge\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "//the-trillion-dollar-treasure-trove-in-the-deep-sea",
-      "path": "app\\(public)\\the-trillion-dollar-treasure-trove-in-the-deep-sea\\page.tsx",
+      "path": "app/(public)/the-intercept-sues-doge/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//txc-stable-coin",
-      "path": "app\\(public)\\txc-stable-coin\\page.tsx",
+      "path": "app/(public)/txc-stable-coin/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "//who-is-serge-gatari-ai-course-review",
-      "path": "app\\(public)\\who-is-serge-gatari-ai-course-review\\page.tsx",
+      "path": "app/(public)/who-is-serge-gatari-ai-course-review/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/007-first-light",
-      "path": "app\\007-first-light\\page.tsx",
+      "path": "app/007-first-light/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/[...slug]",
+      "path": "app/[...slug]/page.tsx",
+      "hasCanonical": true,
+      "method": "helper-function",
+      "issues": []
+    },
+    {
+      "route": "/apple/apple-iphone-18-delay-2027-foldable",
+      "path": "app/apple/apple-iphone-18-delay-2027-foldable/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/apple",
+      "path": "app/apple/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/apple-google-gemini-partnership",
+      "path": "app/apple-google-gemini-partnership/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/artists/don-toliver/octane-review-features",
+      "path": "app/artists/don-toliver/octane-review-features/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/artists/don-toliver",
+      "path": "app/artists/don-toliver/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/artists/drake",
-      "path": "app\\artists\\drake\\page.tsx",
+      "path": "app/artists/drake/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/artists",
-      "path": "app\\artists\\page.tsx",
+      "path": "app/artists/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/artists/yeat",
-      "path": "app\\artists\\yeat\\page.tsx",
+      "path": "app/artists/yeat/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/austin/19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M",
-      "path": "app\\austin\\19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M\\page.tsx",
+      "path": "app/austin/19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/austin-private-detective-agency/infidelity",
-      "path": "app\\austin-private-detective-agency\\infidelity\\page.tsx",
+      "path": "app/austin-private-detective-agency/infidelity/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/austin-private-detective-agency/missing-persons",
-      "path": "app\\austin-private-detective-agency\\missing-persons\\page.tsx",
+      "path": "app/austin-private-detective-agency/missing-persons/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/austin-private-detective-agency/surveillance",
-      "path": "app\\austin-private-detective-agency\\surveillance\\page.tsx",
+      "path": "app/austin-private-detective-agency/surveillance/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/austins-reign-as-a-tech-hub-might-be-coming-to-an-end",
-      "path": "app\\austins-reign-as-a-tech-hub-might-be-coming-to-an-end\\page.tsx",
+      "path": "app/austins-reign-as-a-tech-hub-might-be-coming-to-an-end/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
-      "route": "/author/conan-d",
-      "path": "app\\author\\conan-d\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "/author/jack-s",
-      "path": "app\\author\\jack-s\\page.tsx",
+      "route": "/bank-of-america",
+      "path": "app/bank-of-america/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/beastgames",
-      "path": "app\\beastgames\\page.tsx",
+      "path": "app/beastgames/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/beastgames/season-2",
-      "path": "app\\beastgames\\season-2\\page.tsx",
+      "path": "app/beastgames/season-2/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025",
-      "path": "app\\blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025\\page.tsx",
+      "path": "app/blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/chicos-toxicos",
-      "path": "app\\chicos-toxicos\\page.tsx",
+      "path": "app/chicos-toxicos/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/coding/nestjs-vs-nextjs-vs-express",
-      "path": "app\\coding\\nestjs-vs-nextjs-vs-express\\page.tsx",
+      "path": "app/coding/nestjs-vs-nextjs-vs-express/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/contact",
-      "path": "app\\contact\\page.tsx",
+      "path": "app/contact/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/contributors/conan-boyle",
+      "path": "app/contributors/conan-boyle/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/contributors/jack-wang",
+      "path": "app/contributors/jack-wang/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/corrections",
-      "path": "app\\corrections\\page.tsx",
+      "path": "app/corrections/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/davos/all-in-podcast/david-sacks",
+      "path": "app/davos/all-in-podcast/david-sacks/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/davos/all-in-podcast/jason",
+      "path": "app/davos/all-in-podcast/jason/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/davos/all-in-podcast",
+      "path": "app/davos/all-in-podcast/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/davos",
+      "path": "app/davos/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/elon-musk/spacex",
+      "path": "app/elon-musk/spacex/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/elon-musk/sun-shading-the-billionaire-wants-ai-satellites-to-block-the-sun",
-      "path": "app\\elon-musk\\sun-shading-the-billionaire-wants-ai-satellites-to-block-the-sun\\page.tsx",
+      "path": "app/elon-musk/sun-shading-the-billionaire-wants-ai-satellites-to-block-the-sun/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/example-investigation",
+      "path": "app/example-investigation/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/gatik",
+      "path": "app/gatik/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/github",
+      "path": "app/github/page.tsx",
+      "hasCanonical": true,
+      "method": "helper-function",
+      "issues": []
+    },
+    {
+      "route": "/google/agentic-vision/gemini-3-flash",
+      "path": "app/google/agentic-vision/gemini-3-flash/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/google/agentic-vision",
+      "path": "app/google/agentic-vision/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/google",
+      "path": "app/google/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/google/waymo/ntsb-investigation-school-bus-violations",
+      "path": "app/google/waymo/ntsb-investigation-school-bus-violations/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/google/waymo",
+      "path": "app/google/waymo/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/hashicorp",
+      "path": "app/hashicorp/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/https-www-eatcookjoy-com",
-      "path": "app\\https-www-eatcookjoy-com\\page.tsx",
+      "path": "app/https-www-eatcookjoy-com/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/index",
-      "path": "app\\index\\page.tsx",
+      "path": "app/index/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/influencer/mrbeast-launches-beast-games-season-2-casting",
-      "path": "app\\influencer\\mrbeast-launches-beast-games-season-2-casting\\page.tsx",
+      "path": "app/influencer/mrbeast-launches-beast-games-season-2-casting/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube",
-      "path": "app\\influencer\\steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube\\page.tsx",
+      "path": "app/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/intel/18a-high-volume-manufacturing",
+      "path": "app/intel/18a-high-volume-manufacturing/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/intel",
+      "path": "app/intel/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app",
-      "path": "app\\introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app\\page.tsx",
+      "path": "app/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/iran",
-      "path": "app\\iran\\page.tsx",
+      "path": "app/iran/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/ironspring-ventures-startups-are-changing-construction-goodship-track3d-fleetpulse",
-      "path": "app\\ironspring-ventures-startups-are-changing-construction-goodship-track3d-fleetpulse\\page.tsx",
+      "path": "app/ironspring-ventures-startups-are-changing-construction-goodship-track3d-fleetpulse/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/james-cameron",
-      "path": "app\\james-cameron\\page.tsx",
+      "path": "app/james-cameron/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/james-cameron-wiki",
-      "path": "app\\james-cameron-wiki\\page.tsx",
+      "path": "app/james-cameron-wiki/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar",
-      "path": "app\\lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar\\page.tsx",
+      "path": "app/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/marvels-wolverine",
-      "path": "app\\marvels-wolverine\\page.tsx",
+      "path": "app/marvels-wolverine/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/meta-platforms-may-ditch-nvidia-for-googles-parent-company-tpus-custom-compute-chips-for-ai",
-      "path": "app\\meta-platforms-may-ditch-nvidia-for-googles-parent-company-tpus-custom-compute-chips-for-ai\\page.tsx",
+      "path": "app/meta-platforms-may-ditch-nvidia-for-googles-parent-company-tpus-custom-compute-chips-for-ai/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/mha",
-      "path": "app\\mha\\page.tsx",
+      "path": "app/mha/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/mha/ultra-rumble",
+      "path": "app/mha/ultra-rumble/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/mha/ultra-rumble/season-15",
+      "path": "app/mha/ultra-rumble/season-15/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/microsoft",
+      "path": "app/microsoft/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
       "issues": []
     },
     {
       "route": "/minesoda/Ilhan-Omar",
-      "path": "app\\minesoda\\Ilhan-Omar\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
+      "path": "app/minesoda/Ilhan-Omar/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
     },
     {
       "route": "/minesoda/nick-shirley-drops-second-part-of-fraud-investigation",
-      "path": "app\\minesoda\\nick-shirley-drops-second-part-of-fraud-investigation\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
+      "path": "app/minesoda/nick-shirley-drops-second-part-of-fraud-investigation/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
     },
     {
       "route": "/minesoda",
-      "path": "app\\minesoda\\page.tsx",
+      "path": "app/minesoda/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/mozilla-firefox",
+      "path": "app/mozilla-firefox/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
-      "route": "/minnesota-feeding-our-future-fraud",
-      "path": "app\\minnesota-feeding-our-future-fraud\\page.tsx",
+      "route": "/nasa/europa/juno-ice-shell-18-miles-thick",
+      "path": "app/nasa/europa/juno-ice-shell-18-miles-thick/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/nasa/europa",
+      "path": "app/nasa/europa/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/nasa",
+      "path": "app/nasa/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/nelk-boys",
-      "path": "app\\nelk-boys\\page.tsx",
+      "path": "app/nelk-boys/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/altman-amodei-condemn-ice-shooting-praise-trump",
+      "path": "app/news/altman-amodei-condemn-ice-shooting-praise-trump/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/bank-of-america-nvidia-ai-software-too-hard",
+      "path": "app/news/bank-of-america-nvidia-ai-software-too-hard/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/california-joins-who-disease-network-after-us-withdrawal",
+      "path": "app/news/california-joins-who-disease-network-after-us-withdrawal/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/news/gatik-first-us-driverless-trucks-commercially",
+      "path": "app/news/gatik-first-us-driverless-trucks-commercially/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/google-launches-ai-plus-in-us",
+      "path": "app/news/google-launches-ai-plus-in-us/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/hashicorp-vault-identity-based-secrets-management-blockchain-security",
+      "path": "app/news/hashicorp-vault-identity-based-secrets-management-blockchain-security/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/johns-hopkins-psychedelic-psychiatry-clinical-guidance",
+      "path": "app/news/johns-hopkins-psychedelic-psychiatry-clinical-guidance/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/microsoft-gave-fbi-bitlocker-keys",
+      "path": "app/news/microsoft-gave-fbi-bitlocker-keys/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon",
+      "path": "app/news/minneapolis-clergy-arrested-ice-protest-pam-bondi-don-lemon/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/news/minnesota-feeding-our-future-fraud",
+      "path": "app/news/minnesota-feeding-our-future-fraud/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/mozilla-deploys-1-4b-to-challenge-openai-anthropic",
+      "path": "app/news/mozilla-deploys-1-4b-to-challenge-openai-anthropic/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations",
+      "path": "app/news/novartis-sixth-drugmaker-supreme-court-medicare-negotiations/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/openai-vs-elon-musk-lawsuit-financial-burn-2026",
+      "path": "app/news/openai-vs-elon-musk-lawsuit-financial-burn-2026/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/news/quantum-computing/d-wave-quantum-optimization-breakthrough",
-      "path": "app\\news\\quantum-computing\\d-wave-quantum-optimization-breakthrough\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
+      "path": "app/news/quantum-computing/d-wave-quantum-optimization-breakthrough/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
     },
     {
       "route": "/news/quantum-computing",
-      "path": "app\\news\\quantum-computing\\page.tsx",
+      "path": "app/news/quantum-computing/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/news/spacex-fcc-ai-data-center-satellites",
+      "path": "app/news/spacex-fcc-ai-data-center-satellites/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/news/trump-credit-card-rate-cap-deadline-banks-have-questions",
-      "path": "app\\news\\trump-credit-card-rate-cap-deadline-banks-have-questions\\page.tsx",
+      "path": "app/news/trump-credit-card-rate-cap-deadline-banks-have-questions/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/news/trump-microsoft-data-centers-electricity-prices",
-      "path": "app\\news\\trump-microsoft-data-centers-electricity-prices\\page.tsx",
+      "path": "app/news/trump-microsoft-data-centers-electricity-prices/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/news/trump-tech-force-white-house-ai-recruitment-drive",
-      "path": "app\\news\\trump-tech-force-white-house-ai-recruitment-drive\\page.tsx",
+      "path": "app/news/trump-tech-force-white-house-ai-recruitment-drive/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/ubc-crispr-topical-gene-therapy-skin",
+      "path": "app/news/ubc-crispr-topical-gene-therapy-skin/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/news/winter-storm-senate-vote-shutdown-deadline",
+      "path": "app/news/winter-storm-senate-vote-shutdown-deadline/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": []
+    },
+    {
+      "route": "/nintendo/google-project-genie-ai-knockoffs",
+      "path": "app/nintendo/google-project-genie-ai-knockoffs/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/nintendo",
+      "path": "app/nintendo/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/novartis",
+      "path": "app/novartis/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/nvidia",
+      "path": "app/nvidia/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/podcasts/all-in-podcast",
-      "path": "app\\podcasts\\all-in-podcast\\page.tsx",
+      "path": "app/podcasts/all-in-podcast/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/podcasts/joe-rogan",
-      "path": "app\\podcasts\\joe-rogan\\page.tsx",
+      "path": "app/podcasts/joe-rogan/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/proof-of-engagement-blockchain-vs-proof-of-authority",
-      "path": "app\\proof-of-engagement-blockchain-vs-proof-of-authority\\page.tsx",
+      "path": "app/proof-of-engagement-blockchain-vs-proof-of-authority/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/resident-evil-requiem",
-      "path": "app\\resident-evil-requiem\\page.tsx",
+      "path": "app/resident-evil-requiem/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/search",
+      "path": "app/search/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
       "issues": []
     },
     {
       "route": "/semiconductor-supplier-asml-to-open-in-hutto-co-op-district",
-      "path": "app\\semiconductor-supplier-asml-to-open-in-hutto-co-op-district\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "/service/photography-videography-austintx",
-      "path": "app\\service\\photography-videography-austintx\\page.tsx",
-      "hasCanonical": true,
-      "method": "hardcoded",
-      "issues": []
-    },
-    {
-      "route": "/service/pr-branding/press-release",
-      "path": "app\\service\\pr-branding\\press-release\\page.tsx",
+      "path": "app/semiconductor-supplier-asml-to-open-in-hutto-co-op-district/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/behzinga",
-      "path": "app\\sidemen\\behzinga\\page.tsx",
+      "path": "app/sidemen/behzinga/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/ksi",
-      "path": "app\\sidemen\\ksi\\page.tsx",
+      "path": "app/sidemen/ksi/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/miniminter",
-      "path": "app\\sidemen\\miniminter\\page.tsx",
+      "path": "app/sidemen/miniminter/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen",
-      "path": "app\\sidemen\\page.tsx",
+      "path": "app/sidemen/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/tbjzl",
-      "path": "app\\sidemen\\tbjzl\\page.tsx",
+      "path": "app/sidemen/tbjzl/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/vikkstar",
-      "path": "app\\sidemen\\vikkstar\\page.tsx",
+      "path": "app/sidemen/vikkstar/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/w2s",
-      "path": "app\\sidemen\\w2s\\page.tsx",
+      "path": "app/sidemen/w2s/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sidemen/zerkaa",
-      "path": "app\\sidemen\\zerkaa\\page.tsx",
+      "path": "app/sidemen/zerkaa/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/silicon-labs-silacon-what-robotos-do-they-work-on",
-      "path": "app\\silicon-labs-silacon-what-robotos-do-they-work-on\\page.tsx",
+      "path": "app/silicon-labs-silacon-what-robotos-do-they-work-on/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/superintelligence-force-meta-into-their-4th-restructuring-this-year",
-      "path": "app\\superintelligence-force-meta-into-their-4th-restructuring-this-year\\page.tsx",
+      "path": "app/superintelligence-force-meta-into-their-4th-restructuring-this-year/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/survivor",
-      "path": "app\\survivor\\page.tsx",
+      "path": "app/survivor/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/sxsw",
-      "path": "app\\sxsw\\page.tsx",
+      "path": "app/sxsw/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/team",
-      "path": "app\\team\\page.tsx",
+      "path": "app/team/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/texas-instruments-ti-cc23xx-and-cc26xx-long-range-low-energy-mesh-for-edge-computing",
-      "path": "app\\texas-instruments-ti-cc23xx-and-cc26xx-long-range-low-energy-mesh-for-edge-computing\\page.tsx",
+      "path": "app/texas-instruments-ti-cc23xx-and-cc26xx-long-range-low-energy-mesh-for-edge-computing/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC",
-      "path": "app\\tiktok\\Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC\\page.tsx",
+      "path": "app/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/tiktok",
-      "path": "app\\tiktok\\page.tsx",
+      "path": "app/tiktok/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/trump/donald-trump-sues-jpmorgan-chase-5-billion-lawsuit",
-      "path": "app\\trump\\donald-trump-sues-jpmorgan-chase-5-billion-lawsuit\\page.tsx",
+      "path": "app/trump/donald-trump-sues-jpmorgan-chase-5-billion-lawsuit/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/trump/newborn-investment-accounts-wealth-building",
+      "path": "app/trump/newborn-investment-accounts-wealth-building/page.tsx",
       "hasCanonical": true,
       "method": "hardcoded",
       "issues": []
     },
     {
       "route": "/trump",
-      "path": "app\\trump\\page.tsx",
+      "path": "app/trump/page.tsx",
       "hasCanonical": true,
       "method": "helper-function",
       "issues": []
     },
     {
-      "route": "/[...slug]",
-      "path": "app\\[...slug]\\page.tsx",
+      "route": "/video-games/top-10-anime-games-2026",
+      "path": "app/video-games/top-10-anime-games-2026/page.tsx",
       "hasCanonical": true,
-      "method": "helper-function",
+      "method": "hardcoded",
       "issues": []
+    },
+    {
+      "route": "/world-cup/boycott-calls-ice-immigration",
+      "path": "app/world-cup/boycott-calls-ice-immigration/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
+    },
+    {
+      "route": "/world-cup/boycott-controversy",
+      "path": "app/world-cup/boycott-controversy/page.tsx",
+      "hasCanonical": true,
+      "method": "hardcoded",
+      "issues": []
+    },
+    {
+      "route": "/world-cup",
+      "path": "app/world-cup/page.tsx",
+      "hasCanonical": false,
+      "method": "none",
+      "issues": [
+        "Client component without canonical tag",
+        "No metadata export found"
+      ]
     }
   ]
 }

@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Technology | ObjectWire",
   description: "Latest technology news covering AI, blockchain, computing, software development, and cybersecurity.",
+  alternates: {
+    canonical: 'https://www.objectwire.org/technology',
+  },
 };
 
 export default function TechnologyPage() {

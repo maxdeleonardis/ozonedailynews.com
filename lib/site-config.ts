@@ -45,7 +45,7 @@ export interface RouteConfig {
   changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
   indexable: boolean;
   includeInNewsSitemap: boolean;
-  type: 'static' | 'wiki' | 'news' | 'category' | 'utility';
+  type: 'static' | 'wiki' | 'news' | 'category' | 'utility' | 'article' | 'unknown';
 }
 
 export const ROUTE_REGISTRY: RouteConfig[] = [

@@ -25,6 +25,7 @@ const CONTENT_DIRECTORIES = [
   'finance',
   'crypto',
   'technology',
+  'open-ai',
   'videogames',
   'entertainment',
   'winter-olympics',

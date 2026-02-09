@@ -87,6 +87,10 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
     destination: '/news/texas/austin-tech-hub-decline',
     permanent: true
   },
+  '/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar': {
+    destination: '/news/texas/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar',
+    permanent: true
+  },
   // Other news articles moved to /news
   '/does-doordash-take-snap': {
     destination: '/news/doordash-snap-ebt',
@@ -104,7 +108,7 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
   },
   // Video game articles moved to /videogames
   '/nintendo': {
-    destination: '/videogames/nintendo',
+    destination: '/videogame/nintendo',
     permanent: true
   },
   // SaaS company profiles moved to /saas

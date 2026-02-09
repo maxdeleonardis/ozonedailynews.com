@@ -75,15 +75,15 @@ export default async function HomePage() {
         {/* Featured Story */}
         {featuredArticle && (
           <section className="mb-16 pb-16 border-b-2 border-black">
-            <div className="text-center mb-2">
-              <span className="inline-block px-3 py-1 bg-black text-white text-xs font-bold tracking-wider">
+            <div className="text-center mb-6">
+              <span className="inline-block px-4 py-2 bg-black text-white text-xs font-bold tracking-wider">
                 FEATURED STORY
               </span>
             </div>
             <article className="max-w-4xl mx-auto">
               <Link href={featuredArticle.slug} className="group">
                 <div className="space-y-4">
-                  <span className="text-xs font-bold tracking-wider text-red-600">
+                  <span className="text-xs font-bold tracking-wider text-red-600 uppercase">
                     {featuredArticle.category}
                   </span>
                   <h2 className="text-4xl md:text-6xl font-black leading-tight group-hover:text-gray-700 transition-colors">
@@ -94,8 +94,8 @@ export default async function HomePage() {
                       {featuredArticle.excerpt}
                     </p>
                   )}
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <span>{featuredArticle.author || 'ObjectWire Team'}</span>
+                  <div className="flex items-center gap-4 text-sm text-gray-600 pt-2">
+                    <span className="font-semibold">{featuredArticle.author || 'ObjectWire Team'}</span>
                     <span>•</span>
                     <span>{featuredArticle.date}</span>
                     {featuredArticle.readTime && (
@@ -164,10 +164,10 @@ export default async function HomePage() {
               {[
                 { name: 'News', href: '/news', icon: '📰' },
                 { name: 'Finance', href: '/finance', icon: '💰' },
-                { name: 'Technology', href: '/saas', icon: '💻' },
-                { name: 'Entertainment', href: '/entertainment', icon: '🎬' },
-                { name: 'Crypto', href: '/crypto', icon: '₿' },
-                { name: 'Video Games', href: '/videogames', icon: '🎮' },
+                { name: 'SaaS', href: '/saas/cognyte', icon: '💻' },
+                { name: 'Entertainment', href: '/entertainment/netflix', icon: '🎬' },
+                { name: 'NGO Investigations', href: '/ngos', icon: '🏛️' },
+                { name: 'James Cameron', href: '/entertainment/james-cameron', icon: '�' },
                 { name: 'Winter Olympics', href: '/winter-olympics', icon: '⛷️' },
                 { name: 'World Cup', href: '/world-cup', icon: '⚽' },
               ].map((category) => (

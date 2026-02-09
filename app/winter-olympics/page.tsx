@@ -371,6 +371,29 @@ export default function WinterOlympicsPage() {
           </h2>
           
           <div className="space-y-4">
+            
+            {/* New breaking story - Vonn crash */}
+            <Link href="/winter-olympics/lindsey-vonn/emergency-surgery-after-crash" className="block p-6 bg-gradient-to-r from-red-600/30 to-rose-600/30 rounded-lg hover:from-red-600/40 hover:to-rose-600/40 transition-colors border-2 border-red-500 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🚨</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-gradient-to-r from-red-600 to-red-700 text-white animate-pulse">
+                      🔴 Breaking
+                    </span>
+                    <span className="text-sm text-gray-300">Just now • Alpine Skiing</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-200">
+                    Lindsey Vonn Undergoes Emergency Surgery After Crash at Olympics
+                  </h3>
+                  <p className="text-gray-200 text-lg">
+                    American ski legend airlifted to Milan hospital after devastating crash during Olympic downhill event. 
+                    Emergency ACL reconstruction performed. Stable condition following three-hour surgery.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
             <Link href="/winter-olympics/italy-first-gold-lollobrigida" className="block p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-lg hover:from-blue-600/30 hover:to-cyan-600/30 transition-colors border-2 border-blue-500/50 group">
               <div className="flex items-start gap-4">
                 <div className="text-3xl">🥇</div>

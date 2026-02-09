@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 
 export default async function IranHubPage() {
   // Fetch all published posts and filter for Iran-related content
-  const { data: allPosts } = await getPublishedBlogPosts();
+  const allPosts = await getPublishedBlogPosts();
   
-  const iranPosts = allPosts?.filter(post => 
-    post.tags.some(tag => tag.toLowerCase().includes('iran')) ||
+  const iranPosts = allPosts?.filter((post: any) => 
+    post.tags?.some((tag: string) => tag.toLowerCase().includes('iran')) ||
     post.category.toLowerCase().includes('iran') ||
     post.title.toLowerCase().includes('iran') ||
     post.slug.includes('iran')
@@ -122,7 +122,7 @@ export default async function IranHubPage() {
 
           {iranPosts.length > 0 ? (
             <div className="grid gap-8">
-              {iranPosts.map((post) => (
+              {iranPosts.map((post: any) => (
                 <article 
                   key={post.id} 
                   className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
@@ -134,7 +134,7 @@ export default async function IranHubPage() {
                           {post.category}
                         </span>
                         <span className="text-xs text-gray-500 font-mono">
-                          {new Date(post.published_at || post.created_at).toLocaleDateString('en-US', {
+                          {new Date(post.publishedAt || post.published_at || post.created_at || Date.now()).toLocaleDateString('en-US', {
                             month: 'short',
                             day: 'numeric',
                             year: 'numeric'
@@ -155,14 +155,14 @@ export default async function IranHubPage() {
                       )}
                       
                       <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <span>By {post.author}</span>
+                        <span>By {post.author || 'ObjectWire Team'}</span>
                         <span>•</span>
-                        <span>{post.read_time}</span>
-                        {post.tags.length > 0 && (
+                        <span>{post.read_time || '5 min'}</span>
+                        {post.tags && post.tags.length > 0 && (
                           <>
                             <span>•</span>
                             <div className="flex gap-2">
-                              {post.tags.slice(0, 3).map(tag => (
+                              {post.tags.slice(0, 3).map((tag: string) => (
                                 <span key={tag} className="px-2 py-0.5 bg-gray-100 rounded text-xs">
                                   {tag}
                                 </span>

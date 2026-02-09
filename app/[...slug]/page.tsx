@@ -15,7 +15,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const fullSlug = slug.join('/');
-  const { data: post } = await getBlogPostBySlug(fullSlug);
+  const post = await getBlogPostBySlug(fullSlug);
   
   if (!post) {
     return {
@@ -23,52 +23,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
-  
-  return generateArticleMetadata({
+  return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt || '',
-    keywords: post.tags,
-    canonical: `${baseUrl}/${post.slug}`,
-    ogImage: post.featured_image || undefined,
-    publishedTime: post.published_at || post.created_at,
-    modifiedTime: post.updated_at,
-    author: post.author,
-    section: post.category,
-    tags: post.tags,
-  });
+  };
 }
 
 export default async function DynamicBlogPost({ params }: Props) {
   const { slug } = await params;
   const fullSlug = slug.join('/');
-  const { data: post, error } = await getBlogPostBySlug(fullSlug);
+  const post = await getBlogPostBySlug(fullSlug);
   
-  if (error || !post || post.status !== 'published') {
+  if (!post || post.status !== 'published') {
     notFound();
   }
   
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://objectwire.com';
-  const schema = generateArticleSchema({
-    title: post.title,
-    description: post.excerpt || '',
-    author: post.author,
-    publishedTime: post.published_at || post.created_at,
-    modifiedTime: post.updated_at,
-    imageUrl: post.featured_image || undefined,
-    articleUrl: `${baseUrl}/${post.slug}`,
-    section: post.category,
-    keywords: post.tags,
-  });
-  
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Schema.org structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-      
       {/* Article Header with Title and Featured Image */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 md:px-12 py-8">
@@ -82,11 +53,11 @@ export default async function DynamicBlogPost({ params }: Props) {
                 {post.title}
               </h1>
               <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                <span>By {post.author}</span>
+                <span>By {post.author || 'ObjectWire Team'}</span>
                 <span>•</span>
-                <span>{new Date(post.published_at || post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>{new Date(post.published_at || post.created_at || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 <span>•</span>
-                <span className="px-2 py-0.5 bg-gray-100 rounded text-xs font-medium">{post.category}</span>
+                <span className="px-2 py-0.5 bg-gray-100 rounded text-xs font-medium">{post.category || 'News'}</span>
               </div>
             </div>
             {/* Featured Image */}
@@ -109,7 +80,7 @@ export default async function DynamicBlogPost({ params }: Props) {
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Main Content */}
             <div className="flex-1 lg:max-w-[calc(100%-320px)]">
-              <ArticleRenderer blocks={post.blocks} />
+              <ArticleRenderer blocks={post.blocks || []} />
             </div>
             {/* Sidebar */}
             <aside className="w-full lg:w-80 flex-shrink-0">
@@ -120,7 +91,7 @@ export default async function DynamicBlogPost({ params }: Props) {
           </div>
         ) : (
           <div className="max-w-4xl mx-auto">
-            <ArticleRenderer blocks={post.blocks} />
+            <ArticleRenderer blocks={post.blocks || []} />
           </div>
         )}
       </div>
@@ -131,13 +102,15 @@ export default async function DynamicBlogPost({ params }: Props) {
           <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium">
             ← Back to ObjectWire
           </Link>
-          <div className="flex gap-2 flex-wrap">
-            {post.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-gray-100 rounded-full text-xs">
-                {tag}
-              </span>
-            ))}
-          </div>
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex gap-2 flex-wrap">
+              {post.tags.map((tag: string) => (
+                <span key={tag} className="px-3 py-1 bg-gray-100 rounded-full text-xs">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </footer>
     </div>

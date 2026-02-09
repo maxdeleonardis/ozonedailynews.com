@@ -78,12 +78,12 @@ export async function GET() {
     });
     
     // Get dynamic posts from database
-    const { data: posts, error } = await getAllBlogPosts();
+    const posts = await getAllBlogPosts();
     
-    const recentPosts = posts && !error
+    const recentPosts = posts
       ? posts
-          .filter(post => post.status === 'published')
-          .filter(post => new Date(post.published_at || post.created_at) > twoDaysAgo)
+          .filter((post: any) => post.status === 'published')
+          .filter((post: any) => new Date(post.published_at || post.publishedAt || post.created_at || Date.now()) > twoDaysAgo)
       : [];
     
     // Combine static and dynamic articles
@@ -96,11 +96,11 @@ export async function GET() {
         keywords: article.keywords,
       })),
       // Dynamic posts
-      ...recentPosts.map(post => ({
+      ...recentPosts.map((post: any) => ({
         loc: `${baseUrl}/${post.slug}`,
         title: post.title,
-        publicationDate: new Date(post.published_at || post.created_at).toISOString(),
-        keywords: post.tags?.join(', ') || post.category,
+        publicationDate: new Date(post.published_at || post.publishedAt || post.created_at || Date.now()).toISOString(),
+        keywords: post.tags?.join(', ') || post.category || '',
       })),
     ];
     

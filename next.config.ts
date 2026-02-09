@@ -127,7 +127,62 @@ const nextConfig: NextConfig = {
         destination: '/sam-altman-visits-hedera-team',
         permanent: true, // 301 redirect
       },
-      // Add more redirects as needed
+      
+      // ==========================================================================
+      // SIDEMEN CONTENT MIGRATION - Moved from /sidemen to /youtube/sidemen
+      // Date: February 7, 2026
+      // ==========================================================================
+      
+      // Main Sidemen hub page
+      {
+        source: '/sidemen',
+        destination: '/youtube/sidemen',
+        permanent: true,
+      },
+      
+      // Individual Sidemen member pages
+      {
+        source: '/sidemen/ksi',
+        destination: '/youtube/sidemen/ksi',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/miniminter',
+        destination: '/youtube/sidemen/miniminter',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/zerkaa',
+        destination: '/youtube/sidemen/zerkaa',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/tbjzl',
+        destination: '/youtube/sidemen/tbjzl',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/behzinga',
+        destination: '/youtube/sidemen/behzinga',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/vikkstar',
+        destination: '/youtube/sidemen/vikkstar',
+        permanent: true,
+      },
+      {
+        source: '/sidemen/w2s',
+        destination: '/youtube/sidemen/w2s',
+        permanent: true,
+      },
+      
+      // Wildcard catch-all for any other /sidemen/* paths
+      {
+        source: '/sidemen/:path*',
+        destination: '/youtube/sidemen/:path*',
+        permanent: true,
+      },
     ];
   },
   

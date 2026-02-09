@@ -39,17 +39,17 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
     // Fetch all content
     const filesystemArticles = await scanAllContent();
-    const { data: databasePosts } = await getPublishedBlogPosts();
+    const databasePosts = await getPublishedBlogPosts();
 
     // Combine sources
     const allArticles = [
       ...filesystemArticles,
-      ...(databasePosts?.map(post => ({
+      ...(databasePosts?.map((post: any) => ({
         title: post.title,
         excerpt: post.excerpt || '',
         category: post.category || 'News',
-        date: post.published_at 
-          ? new Date(post.published_at).toLocaleDateString('en-US', {
+        date: post.published_at || post.publishedAt
+          ? new Date(post.published_at || post.publishedAt).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
@@ -58,7 +58,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         slug: post.slug,
         author: post.author || 'ObjectWire Team',
         readTime: post.read_time || '5 min',
-        createdAt: post.published_at ? new Date(post.published_at) : new Date(),
+        createdAt: post.published_at || post.publishedAt ? new Date(post.published_at || post.publishedAt) : new Date(),
       })) || [])
     ];
 

@@ -28,8 +28,7 @@ export default function AdminDashboard() {
     setError(null);
     
     try {
-      const { data, error } = await getAllBlogPosts();
-      if (error) throw error;
+      const data = await getAllBlogPosts();
       setPosts(data || []);
     } catch (err) {
       console.error('Error loading posts:', err);
@@ -48,8 +47,7 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      const { error } = await deleteBlogPost(id);
-      if (error) throw error;
+      await deleteBlogPost(id);
       setPosts(posts.filter(post => post.id !== id));
     } catch (err) {
       console.error('Error deleting post:', err);
@@ -208,7 +206,7 @@ export default function AdminDashboard() {
                           <span>•</span>
                           <span>{post.blocks?.length || 0} blocks</span>
                           <span>•</span>
-                          <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                          <span>{post.created_at ? new Date(post.created_at).toLocaleDateString() : 'N/A'}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 ml-4">

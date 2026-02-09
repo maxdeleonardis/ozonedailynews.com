@@ -30,7 +30,7 @@ export default function AdminLogin() {
     try {
       // Trim whitespace to handle copy-paste issues
       if (validateCredentials(username.trim(), password.trim())) {
-        createSession();
+        createSession('admin-user');
         router.push('/admin/dashboard');
       } else {
         setError('Invalid username or password');

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useArticles } from '@/lib/articles-context';
 
 interface CreatePostModalProps {
   isOpen: boolean;
@@ -11,7 +10,6 @@ interface CreatePostModalProps {
 
 export function CreatePostModal({ isOpen, onClose }: CreatePostModalProps) {
   const router = useRouter();
-  const { addArticle } = useArticles();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('ObjectWire Editorial');
   const [category, setCategory] = useState('News');
@@ -46,7 +44,8 @@ export function CreatePostModal({ isOpen, onClose }: CreatePostModalProps) {
     };
 
     try {
-      await addArticle(newArticle);
+      // TODO: Save article to database when backend is implemented
+      console.log('Creating article:', newArticle);
       // Close modal and redirect to editor
       onClose();
       router.push(`/blog/${slug}/edit`);

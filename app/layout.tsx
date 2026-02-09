@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ArticlesProvider } from "@/lib/articles-context";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 import AuthProvider from "@/components/AuthProvider";
@@ -125,7 +124,6 @@ export default function RootLayout({
       <body className="bg-white text-gray-900 antialiased font-sans">
         <GoogleAnalytics />
         <AuthProvider>
-          <ArticlesProvider>
             {/* Header */}
             <header className="border-b">
               <div className="container mx-auto px-4">
@@ -234,7 +232,6 @@ export default function RootLayout({
         
         {/* Cookie Consent Banner */}
         <CookieConsent />
-          </ArticlesProvider>
         </AuthProvider>
       </body>
     </html>

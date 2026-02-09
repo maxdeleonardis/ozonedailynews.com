@@ -23,13 +23,14 @@ export default async function RelatedArticles({
 }: RelatedArticlesProps) {
   // Fetch all available content
   const filesystemArticles = await scanAllContent();
-  const { data: databasePosts } = await getPublishedBlogPosts();
+  const databasePosts = await getPublishedBlogPosts();
 
   // Convert database posts to unified format
-  const databaseArticles: DiscoveredArticle[] = databasePosts?.map(post => ({
+  const databaseArticles: DiscoveredArticle[] = (databasePosts as any[])?.map((post: any) => ({
     title: post.title,
     excerpt: post.excerpt || '',
     category: post.category?.toUpperCase() || 'NEWS',
+    publishDate: post.publishedAt || post.published_at || new Date().toISOString(),
     date: post.published_at 
       ? new Date(post.published_at).toLocaleDateString('en-US', {
           year: 'numeric',
@@ -71,9 +72,9 @@ export default async function RelatedArticles({
     }
 
     // Recency bonus (lower priority)
-    const daysSincePublished = Math.floor(
-      (Date.now() - article.createdAt.getTime()) / (1000 * 60 * 60 * 24)
-    );
+    const daysSincePublished = article.createdAt 
+      ? Math.floor((Date.now() - article.createdAt.getTime()) / (1000 * 60 * 60 * 24))
+      : 999;
     if (daysSincePublished < 7) score += 3;
     if (daysSincePublished < 30) score += 1;
 
@@ -145,13 +146,14 @@ export async function RelatedArticlesSidebar({
 }: RelatedArticlesProps) {
   // Fetch all available content
   const filesystemArticles = await scanAllContent();
-  const { data: databasePosts } = await getPublishedBlogPosts();
+  const databasePosts = await getPublishedBlogPosts();
 
   // Convert database posts to unified format
-  const databaseArticles: DiscoveredArticle[] = databasePosts?.map(post => ({
+  const databaseArticles: DiscoveredArticle[] = (databasePosts as any[])?.map((post: any) => ({
     title: post.title,
     excerpt: post.excerpt || '',
     category: post.category?.toUpperCase() || 'NEWS',
+    publishDate: post.publishedAt || post.published_at || new Date().toISOString(),
     date: post.published_at 
       ? new Date(post.published_at).toLocaleDateString('en-US', {
           year: 'numeric',

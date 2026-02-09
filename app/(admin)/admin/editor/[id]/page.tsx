@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
 import { getBlogPostById, updateBlogPost, generateSlug, calculateReadTime, BlogPostFull } from '@/lib/blog-service';
-import { ArticleBlock } from '@/lib/articles-context';
+import { ArticleBlock } from '@/lib/article-types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -107,21 +107,21 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
   const loadPost = async () => {
     if (!postId) return;
     try {
-      const { data, error } = await getBlogPostById(postId);
-      if (error || !data) {
+      const data = await getBlogPostById(postId);
+      if (!data) {
         setNotFound(true);
         return;
       }
       setTitle(data.title);
       setSlug(data.slug);
       setExcerpt(data.excerpt || '');
-      setAuthor(data.author);
-      setCategory(data.category);
+      setAuthor(data.author || '');
+      setCategory(data.category || '');
       setTags(data.tags || []);
       setFeaturedImage(data.featured_image || '');
       setBlocks(data.blocks || []);
-      setStatus(data.status);
-      setCreatedAt(data.created_at);
+      setStatus(data.status || 'draft');
+      setCreatedAt(data.created_at || new Date().toISOString());
     } catch (error) {
       console.error('Error loading post:', error);
       setNotFound(true);
@@ -157,7 +157,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       ...(type === 'author-bio' && { authorName: '', authorImage: '', authorBio: '' }),
     };
     setBlocks([...blocks, newBlock]);
-    setActiveBlockId(newBlock.id);
+    setActiveBlockId(newBlock.id || null);
   };
 
   const updateBlock = (id: string, updates: Partial<ArticleBlock>) => {
@@ -317,7 +317,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
     setIsLoading(true);
 
     try {
-      const { data, error } = await updateBlogPost(postId, {
+      await updateBlogPost(postId, {
         title,
         slug,
         excerpt,
@@ -330,7 +330,6 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
         featured_image: featuredImage,
       });
 
-      if (error) throw error;
       alert(`Post ${newStatus === 'published' ? 'published' : 'saved'} successfully!`);
       router.push('/admin/dashboard');
     } catch (error) {
@@ -467,7 +466,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       case 'stat-grid':
         return (
           <div className="space-y-3">
-            {(block.stats || []).map((stat, idx) => (
+            {(block.stats || []).map((stat: any, idx: number) => (
               <div key={idx} className="grid grid-cols-3 gap-2">
                 <Input
                   placeholder="Value (e.g. $100M)"
@@ -520,7 +519,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       case 'key-mechanisms':
         return (
           <div className="space-y-3">
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2">
                 <Input
                   placeholder="01"
@@ -631,7 +630,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       case 'timeline':
         return (
           <div className="space-y-3">
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2 items-center">
                 <Input
                   placeholder="Date"
@@ -675,7 +674,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
               <Input placeholder="Column 1 Header" className="font-semibold" disabled value="Feature" />
               <Input placeholder="Column 2 Header" className="font-semibold" disabled value="Details" />
             </div>
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-2 gap-2">
                 <Input
                   placeholder="Feature name"
@@ -713,7 +712,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       case 'sources':
         return (
           <div className="space-y-2">
-            {(block.sources || []).map((source, idx) => (
+            {(block.sources || []).map((source: any, idx: number) => (
               <Input
                 key={idx}
                 placeholder="Source reference..."

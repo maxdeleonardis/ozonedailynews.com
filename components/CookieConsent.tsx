@@ -71,7 +71,7 @@ export default function CookieConsent() {
   };
 
   const handleSavePreferences = () => {
-    const hasAccepted = preferences.analytics || preferences.marketing || preferences.preferences;
+    const hasAccepted = !!(preferences.analytics || preferences.marketing || preferences.preferences);
     setCookieConsent(hasAccepted);
     setCookiePreferences(preferences);
     setShowBanner(false);

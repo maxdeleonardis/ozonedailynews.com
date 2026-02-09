@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
 import { createBlogPost, generateSlug, calculateReadTime } from '@/lib/blog-service';
-import { ArticleBlock } from '@/lib/articles-context';
+import { ArticleBlock } from '@/lib/article-types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -308,7 +308,7 @@ export default function BlogEditor() {
     setIsLoading(true);
 
     try {
-      const { data, error } = await createBlogPost({
+      await createBlogPost({
         title,
         slug,
         excerpt,
@@ -323,7 +323,6 @@ export default function BlogEditor() {
         featured_image: featuredImage,
       });
 
-      if (error) throw error;
       alert(`Post ${status === 'published' ? 'published' : 'saved as draft'} successfully!`);
       router.push('/admin/dashboard');
     } catch (error) {
@@ -488,7 +487,7 @@ export default function BlogEditor() {
       case 'timeline':
         return (
           <div className="space-y-3">
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2 items-center">
                 <Input
                   placeholder="Date"
@@ -548,7 +547,7 @@ export default function BlogEditor() {
                 }}
               />
             </div>
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-2 gap-2">
                 <Input
                   placeholder="Value 1"
@@ -610,7 +609,7 @@ export default function BlogEditor() {
       case 'stat-grid':
         return (
           <div className="space-y-3">
-            {(block.stats || []).map((stat, idx) => (
+            {(block.stats || []).map((stat: any, idx: number) => (
               <div key={idx} className="grid grid-cols-3 gap-2">
                 <Input
                   placeholder="Value (e.g. $100M)"
@@ -663,7 +662,7 @@ export default function BlogEditor() {
       case 'key-mechanisms':
         return (
           <div className="space-y-3">
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2">
                 <Input
                   placeholder="01"
@@ -716,7 +715,7 @@ export default function BlogEditor() {
       case 'sources':
         return (
           <div className="space-y-2">
-            {(block.sources || []).map((source, idx) => (
+            {(block.sources || []).map((source: any, idx: number) => (
               <Input
                 key={idx}
                 placeholder="Source reference..."
@@ -824,7 +823,7 @@ export default function BlogEditor() {
       case 'gallery':
         return (
           <div className="space-y-3">
-            {(block.galleryImages || []).map((img, idx) => (
+            {(block.galleryImages || []).map((img: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2 items-center">
                 <Input
                   placeholder="Image URL"
@@ -899,7 +898,7 @@ export default function BlogEditor() {
         return (
           <div className="space-y-3">
             <div className="flex gap-2 mb-2">
-              {(block.tableData?.headers || []).map((header, idx) => (
+              {(block.tableData?.headers || []).map((header: any, idx: number) => (
                 <Input
                   key={idx}
                   placeholder={`Header ${idx + 1}`}
@@ -918,16 +917,16 @@ export default function BlogEditor() {
                 size="sm"
                 onClick={() => {
                   const newHeaders = [...(block.tableData?.headers || []), `Column ${(block.tableData?.headers?.length || 0) + 1}`];
-                  const newRows = (block.tableData?.rows || []).map(row => [...row, '']);
+                  const newRows = (block.tableData?.rows || []).map((row: any) => [...row, '']);
                   updateBlock(block.id, { tableData: { headers: newHeaders, rows: newRows } });
                 }}
               >
                 + Col
               </Button>
             </div>
-            {(block.tableData?.rows || []).map((row, rowIdx) => (
+            {(block.tableData?.rows || []).map((row: any, rowIdx: number) => (
               <div key={rowIdx} className="flex gap-2">
-                {row.map((cell, cellIdx) => (
+                {row.map((cell: any, cellIdx: number) => (
                   <Input
                     key={cellIdx}
                     placeholder="Cell value"
@@ -994,7 +993,7 @@ export default function BlogEditor() {
               onChange={(e) => updateBlock(block.id, { content: e.target.value })}
               className="font-semibold"
             />
-            {(block.pollOptions || []).map((option, idx) => (
+            {(block.pollOptions || []).map((option: any, idx: number) => (
               <Input
                 key={idx}
                 placeholder={`Option ${idx + 1}`}
@@ -1022,7 +1021,7 @@ export default function BlogEditor() {
       case 'accordion':
         return (
           <div className="space-y-3">
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="space-y-2 p-3 bg-gray-50 rounded-lg">
                 <Input
                   placeholder="Question/Title"
@@ -1100,7 +1099,7 @@ export default function BlogEditor() {
       case 'related-articles':
         return (
           <div className="space-y-3">
-            {(block.relatedLinks || []).map((link, idx) => (
+            {(block.relatedLinks || []).map((link: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2 items-center">
                 <Input
                   placeholder="Article title"
@@ -1218,7 +1217,7 @@ export default function BlogEditor() {
               onChange={(e) => updateBlock(block.id, { content: e.target.value })}
               className="font-semibold"
             />
-            {(block.items || []).map((item, idx) => (
+            {(block.items || []).map((item: any, idx: number) => (
               <div key={idx} className="grid grid-cols-12 gap-2 items-center">
                 <select
                   value={item.num}

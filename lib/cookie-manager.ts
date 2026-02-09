@@ -1,77 +1,41 @@
-"use client";
-
-import { getCookie, setCookie } from "cookies-next";
-
+// Cookie management utilities
 export interface CookiePreferences {
-  essential: boolean;
+  essential?: boolean;
   analytics: boolean;
   marketing: boolean;
-  preferences: boolean;
+  functional?: boolean;
+  preferences?: boolean;
 }
 
-const COOKIE_CONSENT_KEY = "ow_cookie_consent";
-const COOKIE_PREFERENCES_KEY = "ow_cookie_preferences";
-
 export function getCookieConsent(): boolean | null {
-  const consent = getCookie(COOKIE_CONSENT_KEY);
-  if (consent === undefined) return null;
-  return consent === "true";
+  if (typeof window === 'undefined') return null;
+  const consent = localStorage.getItem('cookieConsent');
+  return consent ? consent === 'true' : null;
 }
 
 export function setCookieConsent(consent: boolean): void {
-  setCookie(COOKIE_CONSENT_KEY, consent.toString(), {
-    maxAge: 365 * 24 * 60 * 60, // 1 year
-    path: "/",
-    sameSite: "lax",
-  });
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('cookieConsent', consent.toString());
 }
 
 export function getCookiePreferences(): CookiePreferences {
-  const preferences = getCookie(COOKIE_PREFERENCES_KEY);
-  if (!preferences) {
-    return {
-      essential: true,
-      analytics: false,
-      marketing: false,
-      preferences: false,
-    };
+  if (typeof window === 'undefined') {
+    return { essential: true, analytics: false, marketing: false, functional: true, preferences: false };
   }
-
-  try {
-    return JSON.parse(preferences as string);
-  } catch {
-    return {
-      essential: true,
-      analytics: false,
-      marketing: false,
-      preferences: false,
-    };
+  const prefs = localStorage.getItem('cookiePreferences');
+  if (!prefs) {
+    return { essential: true, analytics: false, marketing: false, functional: true, preferences: false };
   }
+  return JSON.parse(prefs);
 }
 
-export function setCookiePreferences(preferences: CookiePreferences): void {
-  setCookie(COOKIE_PREFERENCES_KEY, JSON.stringify(preferences), {
-    maxAge: 365 * 24 * 60 * 60, // 1 year
-    path: "/",
-    sameSite: "lax",
-  });
+export function setCookiePreferences(prefs: CookiePreferences): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
 }
 
 export function clearAllCookies(): void {
-  // This will clear all non-essential cookies
-  const cookies = document.cookie.split(";");
-
-  cookies.forEach((cookie) => {
-    const eqPos = cookie.indexOf("=");
-    const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
-
-    // Don't clear essential cookies
-    if (
-      name !== COOKIE_CONSENT_KEY &&
-      name !== COOKIE_PREFERENCES_KEY &&
-      !name.startsWith("next-auth")
-    ) {
-      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-    }
-  });
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem('cookieConsent');
+  localStorage.removeItem('cookiePreferences');
 }

@@ -51,10 +51,12 @@ export default async function NewsPage() {
   // 1. Scan filesystem for all articles
   const filesystemArticles = await scanAllContent();
   
-  // 2. Fetch from Supabase database
-  const { data: databasePosts } = await getPublishedBlogPosts();
+  // 2. Fetch from Supabase database (disabled for now - focusing on filesystem content)
+  // const databasePosts = await getPublishedBlogPosts();
   
-  // 3. Convert database posts to same format with proper date handling
+  // 3. Convert database posts to same format with proper date handling (disabled)
+  const databaseArticles: any[] = [];
+  /*
   const databaseArticles = databasePosts?.map(post => {
     const publishedAt = post.published_at ? parseDate(post.published_at) : new Date();
     const updatedAt = post.updated_at && post.updated_at !== post.published_at 
@@ -76,14 +78,15 @@ export default async function NewsPage() {
       updatedAt: updatedAt,
     };
   }) || [];
+  */
 
   // 4. Combine all content sources
   const allArticles = [...filesystemArticles, ...databaseArticles];
   
   // 5. Sort by published date (newest first) - using the most recent date (updated or published)
   allArticles.sort((a, b) => {
-    const dateA = a.updatedAt && a.updatedAt > a.publishedAt ? a.updatedAt : a.publishedAt;
-    const dateB = b.updatedAt && b.updatedAt > b.publishedAt ? b.updatedAt : b.publishedAt;
+    const dateA = (a as any).updatedAt && (a as any).updatedAt > (a as any).publishedAt ? (a as any).updatedAt : (a as any).publishedAt || a.publishDate;
+    const dateB = (b as any).updatedAt && (b as any).updatedAt > (b as any).publishedAt ? (b as any).updatedAt : (b as any).publishedAt || b.publishDate;
     return compareDescending(dateA, dateB);
   });
 
@@ -99,7 +102,7 @@ export default async function NewsPage() {
     href: `/news?category=${cat.toLowerCase()}`,
     count: categorizedArticles[cat].length,
     new: categorizedArticles[cat].some(a => {
-      const checkDate = a.updatedAt && a.updatedAt > a.publishedAt ? a.updatedAt : a.publishedAt;
+      const checkDate = (a.updatedAt && a.publishedAt && a.updatedAt > a.publishedAt) ? a.updatedAt : (a.publishedAt || new Date(a.publishDate));
       return checkDate.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000;
     }),
   })).sort((a, b) => b.count - a.count);
@@ -227,6 +230,8 @@ export default async function NewsPage() {
                 FEATURED STORIES
               </h2>
               
+              {featuredStories.length > 0 ? (
+                <>
               {/* Lead Story */}
               <article className="mb-8 pb-8 border-b-2 border-black">
                 <Link href={`/${featuredStories[0].slug}`} className="group block">
@@ -309,6 +314,12 @@ export default async function NewsPage() {
                   );
                 })}
               </div>
+                </>
+              ) : (
+                <div className="text-center py-12 text-gray-500">
+                  <p>No articles available at the moment.</p>
+                </div>
+              )}
             </section>
 
             {/* Technology Section */}

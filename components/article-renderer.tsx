@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { ArticleBlock } from '@/lib/articles-context';
+import { ArticleBlock } from '@/lib/article-types';
 import Link from 'next/link';
 
 interface ArticleRendererProps {
@@ -328,7 +328,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 className={sectionClass(block.id)}
               >
                 <ul className="space-y-2 text-gray-600">
-                  {block.content.split('\n').filter(Boolean).map((item, i) => (
+                  {block.content.split('\n').filter(Boolean).map((item: any, i: number) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="text-red-500 mt-1">•</span>
                       <span>{parseText(item.replace(/^[•\-]\s*/, ''))}</span>
@@ -438,7 +438,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 className={sectionClass(block.id)}
               >
                 <div className="space-y-6 border-l-2 border-gray-300 pl-6 my-8">
-                  {block.items?.map((item, i) => (
+                  {block.items?.map((item: any, i: number) => (
                     <div key={i} className="relative">
                       <div className="absolute -left-[29px] w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
                       <div className="font-mono text-sm text-red-500 mb-1">{item.num}</div>
@@ -462,13 +462,13 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   <table className="w-full border-collapse">
                     <thead>
                       <tr className="bg-gray-900 text-white">
-                        {block.content?.split('|').map((header, i) => (
+                        {block.content?.split('|').map((header: any, i: number) => (
                           <th key={i} className="p-4 text-left font-semibold">{header}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
-                      {block.items?.map((row, i) => (
+                      {block.items?.map((row: any, i: number) => (
                         <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                           <td className="p-4 border-b border-gray-200">{row.title}</td>
                           <td className="p-4 border-b border-gray-200">{row.desc}</td>
@@ -491,7 +491,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 <div className="bg-gray-50 p-6 md:p-8 rounded-lg border border-gray-200">
                   <p className="text-xs font-mono text-red-500 mb-6 tracking-widest font-semibold">KEY MECHANISMS</p>
                   <div className="space-y-4">
-                    {block.items?.map((item, i) => (
+                    {block.items?.map((item: any, i: number) => (
                       <div
                         key={i}
                         className="mechanism-item flex gap-4 p-4 rounded-lg transition-all duration-300 hover:bg-white hover:pl-6 hover:border-l-4 hover:border-red-500"
@@ -553,7 +553,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   className={sectionClass(block.id)}
                 >
                   <div className="grid md:grid-cols-3 gap-4 my-8">
-                    {block.stats?.map((stat, idx) => (
+                    {block.stats?.map((stat: any, idx: number) => (
                       <div
                         key={idx}
                         className={`stat-card bg-gradient-to-br ${getColor(stat.color)} p-6 text-center text-white rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
@@ -582,7 +582,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
               >
                 <p className="text-xs font-mono text-gray-400 mb-6 tracking-widest">SOURCES & CITATIONS</p>
                 <ul className="space-y-3 text-sm text-gray-500">
-                  {block.sources?.map((source, i) => (
+                  {block.sources?.map((source: any, i: number) => (
                     <li key={i} className="flex items-start gap-3 hover:text-gray-700 transition-colors duration-200">
                       <span className="text-red-400">•</span>
                       <span>{source}</span>
@@ -603,7 +603,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 className={sectionClass(block.id)}
               >
                 <ol className="list-decimal list-inside space-y-2 text-gray-600 leading-relaxed">
-                  {block.content?.split('\n').filter(Boolean).map((item, i) => {
+                  {block.content?.split('\n').filter(Boolean).map((item: any, i: number) => {
                     const text = item.replace(/^\d+\.\s*/, '');
                     return (
                       <li key={i} className="pl-2">
@@ -768,7 +768,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 className={sectionClass(block.id)}
               >
                 <div className="my-8 grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {block.galleryImages?.map((img, i) => (
+                  {block.galleryImages?.map((img: any, i: number) => (
                     <figure key={i} className="relative group">
                       <img 
                         src={img.url} 
@@ -825,15 +825,15 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   <table className="w-full border-collapse">
                     <thead>
                       <tr className="bg-gray-900 text-white">
-                        {block.tableData?.headers?.map((header, i) => (
+                        {block.tableData?.headers?.map((header: any, i: number) => (
                           <th key={i} className="p-4 text-left font-semibold">{header}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
-                      {block.tableData?.rows?.map((row, i) => (
+                      {block.tableData?.rows?.map((row: any, i: number) => (
                         <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                          {row.map((cell, j) => (
+                          {row.map((cell: any, j: number) => (
                             <td key={j} className="p-4 border-b border-gray-200">{cell}</td>
                           ))}
                         </tr>
@@ -865,7 +865,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   )}
                   {block.chartType === 'bar' && (
                     <div className="space-y-3">
-                      {chartData.map((item, i) => (
+                      {chartData.map((item: any, i: number) => (
                         <div key={i} className="flex items-center gap-4">
                           <span className="w-24 text-sm text-gray-600 truncate">{item.label}</span>
                           <div className="flex-1 bg-gray-200 rounded-full h-6 overflow-hidden">
@@ -881,7 +881,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                   )}
                   {block.chartType === 'pie' && (
                     <div className="flex flex-wrap justify-center gap-4">
-                      {chartData.map((item, i) => (
+                      {chartData.map((item: any, i: number) => (
                         <div key={i} className="flex items-center gap-2">
                           <div className={`w-4 h-4 rounded-full`} style={{ backgroundColor: ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899'][i % 6] }} />
                           <span className="text-sm text-gray-600">{item.label}: {item.value}</span>
@@ -909,7 +909,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 <div className="my-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-4">{block.content}</h4>
                   <div className="space-y-2">
-                    {block.pollOptions?.map((option, i) => (
+                    {block.pollOptions?.map((option: any, i: number) => (
                       <button 
                         key={i}
                         className="w-full text-left px-4 py-3 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors"
@@ -932,7 +932,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 className={sectionClass(block.id)}
               >
                 <div className="my-8 space-y-2">
-                  {block.items?.map((item, i) => (
+                  {block.items?.map((item: any, i: number) => (
                     <details key={i} className="bg-white border border-gray-200 rounded-lg group">
                       <summary className="px-4 py-3 font-semibold text-gray-900 cursor-pointer hover:bg-gray-50 list-none flex items-center justify-between">
                         {item.title}
@@ -1006,7 +1006,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 <div className="my-8">
                   <p className="text-xs font-mono text-gray-400 mb-4 tracking-widest">RELATED ARTICLES</p>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {block.relatedLinks?.map((link, i) => (
+                    {block.relatedLinks?.map((link: any, i: number) => (
                       <a 
                         key={i}
                         href={link.url}
@@ -1056,6 +1056,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
               secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
               outline: 'border-2 border-gray-900 text-gray-900 hover:bg-gray-100',
             };
+            const buttonStyle = (block.buttonStyle || 'primary') as 'primary' | 'secondary' | 'outline';
             return (
               <section
                 key={block.id}
@@ -1066,7 +1067,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                 <div className="my-8 flex justify-center">
                   <a 
                     href={block.buttonUrl || '#'}
-                    className={`px-8 py-3 rounded-lg font-semibold transition-colors ${buttonStyles[block.buttonStyle || 'primary']}`}
+                    className={`px-8 py-3 rounded-lg font-semibold transition-colors ${buttonStyles[buttonStyle]}`}
                   >
                     {block.content || 'Click Here'}
                   </a>
@@ -1102,8 +1103,8 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
             );
 
           case 'pros-cons':
-            const pros = block.items?.filter(item => item.num === 'pro') || [];
-            const cons = block.items?.filter(item => item.num === 'con') || [];
+            const pros = block.items?.filter((item: any) => item.num === 'pro') || [];
+            const cons = block.items?.filter((item: any) => item.num === 'con') || [];
             return (
               <section
                 key={block.id}
@@ -1121,7 +1122,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                         <span>✓</span> Pros
                       </h5>
                       <ul className="space-y-2">
-                        {pros.map((item, i) => (
+                        {pros.map((item: any, i: number) => (
                           <li key={i} className="text-green-700 flex items-start gap-2">
                             <span className="text-green-500 mt-1">•</span>
                             {item.title}
@@ -1134,7 +1135,7 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
                         <span>✗</span> Cons
                       </h5>
                       <ul className="space-y-2">
-                        {cons.map((item, i) => (
+                        {cons.map((item: any, i: number) => (
                           <li key={i} className="text-red-700 flex items-start gap-2">
                             <span className="text-red-500 mt-1">•</span>
                             {item.title}

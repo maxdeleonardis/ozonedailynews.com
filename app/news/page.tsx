@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getPublishedBlogPosts } from '@/lib/blog-service';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 import { formatArticleDate, parseDate, compareDescending, getRelativeTime } from '@/lib/date-utils';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Latest News & Investigations | The Object Wire",
@@ -124,6 +125,11 @@ export default async function NewsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumb Navigation */}
+      <div className="container pt-4">
+        <Breadcrumbs currentPage="News" />
+      </div>
+
       {/* Newspaper-Style Header */}
       <header className="border-b-4 border-double border-black">
         <div className="container py-6">

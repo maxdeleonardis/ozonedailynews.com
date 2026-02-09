@@ -70,6 +70,53 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
   '/service/jack-s': { destination: '/author/jack-s', permanent: true },
   // Removed authors
   '/service/skip-s': { destination: '/about', permanent: true },
+  // Texas news articles moved to /news/texas
+  '/texas-instruments-ti-cc23xx-and-cc26xx-long-range-low-energy-mesh-for-edge-computing': { 
+    destination: '/news/texas/texas-instruments-ti-cc23xx-and-cc26xx', 
+    permanent: true 
+  },
+  '/pegatron-opens-us-factory-tx': {
+    destination: '/news/texas/pegatron-opens-us-factory',
+    permanent: true
+  },
+  '/semiconductor-supplier-asml-to-open-in-hutto-co-op-district': {
+    destination: '/news/texas/asml-hutto-semiconductor',
+    permanent: true
+  },
+  '/austins-reign-as-a-tech-hub-might-be-coming-to-an-end': {
+    destination: '/news/texas/austin-tech-hub-decline',
+    permanent: true
+  },
+  // Other news articles moved to /news
+  '/does-doordash-take-snap': {
+    destination: '/news/doordash-snap-ebt',
+    permanent: true
+  },
+  // Canada news articles moved to /news/canada
+  '/oh-canada-what-has-happened': {
+    destination: '/news/canada/canada-political-crisis',
+    permanent: true
+  },
+  // Crypto articles moved to /crypto
+  '/txc-stable-coin': {
+    destination: '/crypto/txc-stablecoin',
+    permanent: true
+  },
+  // Video game articles moved to /videogames
+  '/nintendo': {
+    destination: '/videogames/nintendo',
+    permanent: true
+  },
+  // SaaS company profiles moved to /saas
+  '/cognyte-software-ltd-cgnt': {
+    destination: '/saas/cognyte',
+    permanent: true
+  },
+
+  '/mha/ultra-rumble': {
+    destination: '/videogame/mha/ultra-rumble',
+    permanent: true
+  }
 };
 
 export function middleware(request: NextRequest) {

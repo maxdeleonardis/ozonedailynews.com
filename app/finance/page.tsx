@@ -2,6 +2,7 @@ import TickerGrid from "@/components/finance/TickerGrid";
 import FinanceHeader from "@/components/finance/FinanceHeader";
 import FinanceNewsFeed from "@/components/finance/FinanceNewsFeed";
 import FinanceSidebar from "@/components/finance/FinanceSidebar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
 export default function FinancePage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
+      <div className="container mx-auto px-4 pt-4">
+        <Breadcrumbs currentPage="Finance" />
+      </div>
       <TickerGrid />
       <FinanceHeader />
       

@@ -1,123 +1,62 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import { scanTechnologyArticles } from "@/lib/technology-scanner";
 
-interface TechArticle {
-  title: string;
-  slug: string;
-  category: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  tags?: string[];
-}
+export default async function TechNewsFeed() {
+  const articles = await scanTechnologyArticles();
 
-export default function TechNewsFeed() {
-  const [articles] = useState<TechArticle[]>([
-    {
-      title: "Claude Sonnet 4.5: Benchmarks reveal 24% gain in reasoning capabilities",
-      slug: "claude-sonnet-4-5-release",
-      category: "Intelligence",
-      excerpt: "Anthropic's latest model demonstrates significant improvements in complex problem solving and code generation, challenging current state-of-the-art benchmarks.",
-      date: "FEB 01",
-      readTime: "5 MIN",
-      tags: ["AI", "Anthropic"],
-    },
-    {
-      title: "GitHub Copilot Workspace redefines the developer environment",
-      slug: "github-verse-copilot",
-      category: "Software",
-      excerpt: "The shift from autocomplete to full-context awareness marks the beginning of the agentic development era.",
-      date: "JAN 31",
-      readTime: "7 MIN",
-      tags: ["DevTools", "Microsoft"],
-    },
-    {
-      title: "Institutional adoption drives Bitcoin past $95k resistance levels",
-      slug: "bitcoin-institutional",
-      category: "Infrastructure",
-      excerpt: "Major treasury acquisitions signal a shift in corporate asset allocation strategies despite regulatory headwinds.",
-      date: "JAN 30",
-      readTime: "4 MIN",
-      tags: ["Crypto", "Finance"],
-    },
-    {
-      title: "D-Wave announces breakthrough in quantum annealing optimization",
-      slug: "quantum-optimization",
-      category: "Physics",
-      excerpt: "New error-correction techniques pave the way for commercial viability in logistics and supply chain modeling.",
-      date: "JAN 29",
-      readTime: "6 MIN",
-      tags: ["Quantum", "Hardware"],
-    },
-  ]);
+  if (articles.length === 0) {
+    return (
+      <div className="py-12 text-center text-gray-500 bg-white rounded-lg border border-gray-100 font-mono">
+        SYSTEM READY // NO NEW INTEL FOUND
+      </div>
+    );
+  }
 
   return (
-    <div className="space-y-16">
-      {/* Featured / Lead Story */}
-      {articles[0] && (
-        <article className="group">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-blue-600">
-              {articles[0].category}
-            </span>
-            <span className="w-8 h-px bg-gray-200"></span>
-            <span className="font-mono text-[10px] text-gray-400">
-              {articles[0].date}
-            </span>
-          </div>
-          <Link href={`/${articles[0].slug}`} className="block">
-            <h2 className="font-serif text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-gray-900 group-hover:text-gray-600 transition-colors mb-6">
-              {articles[0].title}
-            </h2>
-          </Link>
-          <p className="font-sans text-lg text-gray-500 leading-relaxed max-w-2xl">
-            {articles[0].excerpt}
-          </p>
-        </article>
-      )}
-
-      {/* Divider */}
-      <hr className="border-gray-100" />
-
-      {/* Secondary Articles List */}
-      <div className="space-y-12">
-        {articles.slice(1).map((article) => (
-          <article key={article.slug} className="group grid md:grid-cols-4 gap-4 items-baseline">
-            <div className="md:col-span-1 hidden md:block">
-              <span className="font-mono text-[10px] text-gray-400 block mb-1">
-                {article.date}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-black">
-                {article.category}
-              </span>
-            </div>
-            
-            <div className="md:col-span-3">
-              <Link href={`/${article.slug}`} className="block">
-                <h3 className="font-serif text-2xl md:text-3xl text-gray-900 leading-tight group-hover:text-blue-600 transition-colors mb-3">
+    <div className="space-y-6">
+      {articles.map((article, index) => {
+        const isFirst = index === 0;
+        return (
+          <div 
+            key={`${article.slug}-${index}`}
+            className={`group bg-white border border-gray-200 hover:border-blue-500 transition-all duration-300 ${isFirst ? 'p-8 md:p-12' : 'p-6 md:p-8'}`}
+          >
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <span className="bg-blue-600 text-white text-[9px] font-black px-2 py-0.5 uppercase tracking-widest">
+                    {article.category}
+                  </span>
+                  <span className="text-gray-400 text-[9px] font-mono uppercase tracking-tighter">
+                    REF: {article.slug.substring(0, 8).toUpperCase()}
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-tighter">
+                  {article.readTime}
+                </span>
+              </div>
+              
+              <Link href={`/technology/articles/${article.slug}`}>
+                <h2 className={`${isFirst ? 'text-2xl md:text-5xl lg:text-6xl' : 'text-xl md:text-2xl'} font-black text-gray-900 group-hover:text-blue-600 transition-colors tracking-tighter uppercase leading-tight mb-4`}>
                   {article.title}
-                </h3>
+                </h2>
               </Link>
-              <p className="font-sans text-lg text-gray-500 leading-relaxed max-w-xl">
+              
+              <p className={`text-gray-600 font-serif leading-relaxed line-clamp-2 ${isFirst ? 'text-lg' : 'text-sm'}`}>
                 {article.excerpt}
               </p>
               
-              {/* Mobile Meta */}
-              <div className="mt-4 md:hidden flex items-center gap-3">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-black">
-                  {article.category}
-                </span>
-                <span className="text-gray-300">•</span>
-                <span className="font-mono text-[10px] text-gray-400">
-                  {article.date}
-                </span>
+              <div className="flex items-center gap-6 pt-6 text-[9px] font-black uppercase tracking-widest text-gray-400 border-t border-gray-50">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-900">{article.author}</span>
+                </div>
+                <span>•</span>
+                <time>{article.date}</time>
               </div>
             </div>
-          </article>
-        ))}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

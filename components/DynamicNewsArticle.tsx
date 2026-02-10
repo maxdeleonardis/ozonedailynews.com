@@ -340,18 +340,18 @@ export function DynamicNewsArticle({
 
             {/* Newsletter Signup */}
             {showNewsletter && (
-              <div className="bg-black text-white p-6">
-                <h3 className="font-bold mb-2">{newsletterTitle}</h3>
-                <p className="text-sm text-gray-300 mb-4">
+              <div className="bg-white border border-gray-200 p-6">
+                <h3 className="font-bold mb-2 text-gray-900">{newsletterTitle}</h3>
+                <p className="text-sm text-gray-600 mb-4">
                   {newsletterDescription}
                 </p>
                 <input
                   type="email"
                   placeholder="Enter email"
-                  className="w-full px-3 py-2 text-black text-sm mb-2"
+                  className="w-full px-3 py-2 text-gray-900 text-sm mb-2 border border-gray-300 rounded"
                   aria-label="Email address"
                 />
-                <button className="w-full bg-red-600 py-2 text-sm font-bold hover:bg-red-700 transition-colors">
+                <button className="w-full bg-gray-900 text-white py-2 text-sm font-bold hover:bg-black transition-colors">
                   SUBSCRIBE
                 </button>
               </div>

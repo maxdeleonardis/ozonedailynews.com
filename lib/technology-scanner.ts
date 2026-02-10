@@ -1,6 +1,6 @@
 import { scanAllContent, Article } from './content-scanner';
 
-export interface FinanceArticle {
+export interface TechnologyArticle {
   title: string;
   slug: string;
   publishDate: string;
@@ -12,16 +12,14 @@ export interface FinanceArticle {
   date?: string;
 }
 
-export async function scanFinanceArticles(): Promise<FinanceArticle[]> {
+export async function scanTechnologyArticles(): Promise<TechnologyArticle[]> {
   const allArticles = await scanAllContent();
   
-  // Filter for articles in the finance directory
-  // The content-scanner uses the directory name as the category
+  // Filter for articles in the technology directory
   return allArticles
-    .filter(article => article.category === 'FINANCE')
+    .filter(article => article.category === 'TECHNOLOGY')
     .map(article => {
-      // Extract the slug (last part of the path if it's in finance/articles/)
-      // article.slug from content-scanner is /finance/articles/slug-name
+      // Extract the slug (last part of the path if it's in technology/articles/)
       const slugParts = article.slug.split('/');
       const slug = slugParts[slugParts.length - 1];
 
@@ -30,9 +28,9 @@ export async function scanFinanceArticles(): Promise<FinanceArticle[]> {
         slug: slug,
         publishDate: article.publishDate,
         category: article.category,
-        isPinned: false, // We can add logic for pinning later
+        isPinned: false,
         excerpt: article.excerpt,
-        author: article.author || 'ObjectWire Financial Desk',
+        author: article.author || 'ObjectWire Technology Desk',
         readTime: article.readTime,
         date: article.publishDate
       };

@@ -60,15 +60,15 @@ export interface ArticlePageProps {
 
 export function InfoBox({ title, image, items }: InfoBoxProps) {
   return (
-    <aside className="bg-white border-2 border-gray-900 rounded-none sticky top-4">
+    <aside className="bg-white border border-gray-200 rounded-none sticky top-4">
       {title && (
-        <div className="bg-gray-900 text-white px-4 py-3 border-b-2 border-gray-900">
-          <h3 className="font-black text-sm uppercase tracking-wider text-center">{title}</h3>
+        <div className="bg-white px-4 py-3 border-b border-gray-200">
+          <h3 className="font-black text-sm uppercase tracking-wider text-center text-gray-900">{title}</h3>
         </div>
       )}
       
       {image && (
-        <div className="p-4 border-b-2 border-gray-200">
+        <div className="p-4 border-b border-gray-200">
           <img 
             src={image.src} 
             alt={image.alt} 
@@ -98,7 +98,7 @@ export function InfoBox({ title, image, items }: InfoBoxProps) {
 
 export function TableOfContents({ items }: { items: TableOfContentsItem[] }) {
   return (
-    <nav className="bg-gray-50 border-l-4 border-black p-6 mb-8">
+    <nav className="bg-gray-50 border-l-2 border-gray-300 p-6 mb-8">
       <h2 className="font-black text-sm uppercase tracking-wider text-gray-900 mb-4">Contents</h2>
       <ol className="space-y-2 text-sm">
         {items.map((item, index) => (
@@ -133,7 +133,7 @@ export function Section({
 }) {
   const HeadingTag = level === 2 ? 'h2' : 'h3';
   const headingClass = level === 2 
-    ? "text-3xl font-black text-gray-900 mb-6 pb-3 border-b-2 border-black"
+    ? "text-3xl font-black text-gray-900 mb-6 pb-3 border-b border-gray-200"
     : "text-2xl font-bold text-gray-900 mb-4";
 
   return (
@@ -152,14 +152,14 @@ export function Section({
 
 export function RelatedLinks({ links }: { links: RelatedLink[] }) {
   return (
-    <section className="mt-12 pt-8 border-t-2 border-black">
+    <section className="mt-12 pt-8 border-t border-gray-200">
       <h2 className="text-2xl font-black text-gray-900 mb-6">Related Coverage</h2>
       <div className="grid md:grid-cols-2 gap-4">
         {links.map((link, index) => (
           <Link 
             key={index}
             href={link.href}
-            className="block p-4 border-2 border-gray-200 hover:border-black transition-colors group"
+            className="block p-4 border border-gray-200 hover:border-black transition-colors group"
           >
             <h3 className="font-bold text-gray-900 group-hover:underline mb-1">
               {link.label}
@@ -228,7 +228,7 @@ export function Quote({
   source?: string;
 }) {
   return (
-    <blockquote className="border-l-4 border-gray-400 pl-4 my-4 italic text-gray-700">
+    <blockquote className="border-l-2 border-gray-300 pl-4 my-4 italic text-gray-700">
       {children}
       {source && (
         <footer className="text-sm text-gray-500 mt-2 not-italic">— {source}</footer>
@@ -262,7 +262,7 @@ export function PageHeader({
   breadcrumbs,
 }: PageHeaderProps) {
   return (
-    <header className="border-b-4 border-black bg-white">
+    <header className="border-b border-gray-200 bg-white">
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
@@ -293,7 +293,7 @@ export function PageHeader({
         {/* Category Badge */}
         {category && (
           <div className="mb-4">
-            <span className="inline-block bg-black text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block bg-gray-100 text-gray-900 px-3 py-1 text-xs font-bold uppercase tracking-wider border border-gray-300">
               {category}
             </span>
           </div>
@@ -379,7 +379,7 @@ export function ArticlePage({
       </div>
 
       {/* Footer */}
-      <footer className="border-t-2 border-gray-200 bg-gray-50 mt-16">
+      <footer className="border-t border-gray-200 bg-gray-50 mt-16">
         <div className="container mx-auto px-4 py-8 max-w-6xl">
           <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
             <span>Part of</span>

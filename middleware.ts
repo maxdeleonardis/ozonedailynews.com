@@ -60,11 +60,14 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
   '/tik-tok': { destination: '/tiktok', permanent: true },
   '/tik_tok': { destination: '/tiktok', permanent: true },
   // James Cameron variations
-  '/cameron': { destination: '/james-cameron', permanent: true },
-  '/jamescameron': { destination: '/james-cameron', permanent: true },
+  '/cameron': { destination: '/entertainment/james-cameron', permanent: true },
+  '/jamescameron': { destination: '/entertainment/james-cameron', permanent: true },
+  '/james-cameron': { destination: '/entertainment/james-cameron', permanent: true },
   // Old URL patterns
   '/articles': { destination: '/blog', permanent: true },
   '/posts': { destination: '/blog', permanent: true },
+  '/technology': { destination: '/', permanent: true },
+  '/start-up-news': { destination: '/news', permanent: true },
   // Author page redirects (old service URLs -> new author URLs)
   '/service/conan-d': { destination: '/author/conan-d', permanent: true },
   '/service/jack-s': { destination: '/author/jack-s', permanent: true },
@@ -91,6 +94,11 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
     destination: '/news/texas/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar',
     permanent: true
   },
+  // Finance articles
+  '/oanda-or-interactive-brokers-forex-trading-usa': {
+    destination: '/finance',
+    permanent: true
+  },
   // Other news articles moved to /news
   '/does-doordash-take-snap': {
     destination: '/news/doordash-snap-ebt',
@@ -109,6 +117,39 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
   // Video game articles moved to /videogames
   '/nintendo': {
     destination: '/videogame/nintendo',
+    permanent: true
+  },
+  '/video-games/top-10-anime-games-2026': {
+    destination: '/videogame/top-10-anime-games-2026',
+    permanent: true
+  },
+  // Influencer pages
+  '/who-is-serge-gatari-ai-course-review': {
+    destination: '/influencer/serge-gatari',
+    permanent: true
+  },
+  // Cars articles
+  '/2025-nissan-z-vs-toyota-gr-supra-comparison': {
+    destination: '/cars/2025-nissan-z-vs-toyota-gr-supra-comparison',
+    permanent: true
+  },
+  // College guides
+  '/non-degree-studies-at-university-of-texas-austin': {
+    destination: '/college/guides/non-degree-studies-at-university-of-texas-austin',
+    permanent: true
+  },
+  // SaaS articles
+  '/render-vs-vercel-for-free-start-up-app-deployment': {
+    destination: '/saas/news/render-vs-vercel-for-free-start-up-app-deployment',
+    permanent: true
+  },
+  '/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app': {
+    destination: '/saas/news/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app',
+    permanent: true
+  },
+  // Define articles
+  '/hedera-vs-solana-for-dapps': {
+    destination: '/define/hedera-vs-solana-for-dapps',
     permanent: true
   },
   // SaaS company profiles moved to /saas

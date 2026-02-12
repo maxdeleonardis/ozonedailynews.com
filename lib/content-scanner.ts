@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { ARTICLE_DATES } from './article-dates';
 
 export interface Article {
   title: string;
@@ -114,6 +115,85 @@ async function scanDirectory(dirPath: string, category: string): Promise<Article
 }
 
 /**
+ * Try to extract a publish date from the file content itself.
+ * This is critical for production/Vercel where filesystem timestamps
+ * all collapse to the deployment time, making sort order meaningless.
+ *
+ * Priority order:
+ *   0. ARTICLE_DATES registry (central config — highest priority)
+ *   1. publishDate="Month DD, YYYY" (component prop — most common)
+ *   2. datePublished: "YYYY-MM-DDTHH:MM:SSZ" (JSON-LD schema)
+ *   3. published_time.*content="YYYY-MM-DD" (OpenGraph meta)
+ *   4. Filesystem birthtime (local dev only — unreliable on deploy)
+ *   5. Fallback: Jan 1 2025 (ensures undated pages sort LAST)
+ */
+function extractDateFromContent(fileContent: string, filePath: string, slug?: string): { publishedAt: Date; updatedAt: Date | undefined; hasEmbeddedDate: boolean } {
+  // 0. Check the central date registry first
+  if (slug && ARTICLE_DATES[slug]) {
+    const d = new Date(ARTICLE_DATES[slug]);
+    if (!isNaN(d.getTime())) {
+      return { publishedAt: d, updatedAt: undefined, hasEmbeddedDate: true };
+    }
+  }
+
+  // 1. publishDate="February 11, 2026"
+  const propMatch = fileContent.match(/publishDate\s*=\s*["']([A-Z][a-z]+ \d{1,2},\s*\d{4})["']/);
+  if (propMatch) {
+    const d = new Date(propMatch[1]);
+    if (!isNaN(d.getTime())) {
+      // Also look for an updateDate prop
+      const updateMatch = fileContent.match(/updateDate\s*=\s*["']([A-Z][a-z]+ \d{1,2},\s*\d{4})["']/);
+      const updatedAt = updateMatch ? new Date(updateMatch[1]) : undefined;
+      return { publishedAt: d, updatedAt: updatedAt && !isNaN(updatedAt.getTime()) ? updatedAt : undefined, hasEmbeddedDate: true };
+    }
+  }
+
+  // 2. datePublished: "2026-01-23T17:00:00Z"
+  const jsonLdMatch = fileContent.match(/datePublished\s*:\s*["'](\d{4}-\d{2}-\d{2}[T ]?\d{0,2}:?\d{0,2}:?\d{0,2}Z?)["']/);
+  if (jsonLdMatch) {
+    const d = new Date(jsonLdMatch[1]);
+    if (!isNaN(d.getTime())) {
+      const modMatch = fileContent.match(/dateModified\s*:\s*["'](\d{4}-\d{2}-\d{2}[T ]?\d{0,2}:?\d{0,2}:?\d{0,2}Z?)["']/);
+      const updatedAt = modMatch ? new Date(modMatch[1]) : undefined;
+      return { publishedAt: d, updatedAt: updatedAt && !isNaN(updatedAt.getTime()) ? updatedAt : undefined, hasEmbeddedDate: true };
+    }
+  }
+
+  // 3. article:published_time content="2026-01-23"
+  const ogMatch = fileContent.match(/published_time.*?content\s*=\s*["'](\d{4}-\d{2}-\d{2})["']/);
+  if (ogMatch) {
+    const d = new Date(ogMatch[1]);
+    if (!isNaN(d.getTime())) {
+      return { publishedAt: d, updatedAt: undefined, hasEmbeddedDate: true };
+    }
+  }
+
+  // 4. Filesystem timestamps (useful in local dev only)
+  try {
+    const stats = fs.statSync(filePath);
+    const birthtime = stats.birthtime || stats.mtime;
+    const mtime = stats.mtime;
+    // Detect deploy-collapsed timestamps: if birthtime is within the last 10 minutes
+    // of mtime, they were likely set during deployment and are unreliable.
+    const timeDiff = Math.abs(mtime.getTime() - birthtime.getTime());
+    if (timeDiff < 600_000) {
+      // Timestamps look like they were set during deploy — fall through to fallback
+    } else {
+      return {
+        publishedAt: birthtime,
+        updatedAt: mtime.getTime() !== birthtime.getTime() ? mtime : undefined,
+        hasEmbeddedDate: false,
+      };
+    }
+  } catch {
+    // ignore
+  }
+
+  // 5. Fallback — pages without any date signal sort to the back
+  return { publishedAt: new Date('2025-01-01T00:00:00Z'), updatedAt: undefined, hasEmbeddedDate: false };
+}
+
+/**
  * Extract metadata from a page.tsx file
  */
 async function extractArticleMetadata(
@@ -144,10 +224,8 @@ async function extractArticleMetadata(
     const relativePath = path.relative(appDir, dirPath);
     const slug = '/' + relativePath.replace(/\\/g, '/');
 
-    // Try to get file stats for dates
-    const stats = fs.statSync(filePath);
-    const publishedAt = stats.birthtime || stats.mtime;
-    const updatedAt = stats.mtime;
+    // Extract dates from content (not filesystem!) for reliable production sorting
+    const { publishedAt, updatedAt } = extractDateFromContent(fileContent, filePath, slug);
 
     // Extract author if present
     const authorMatch = fileContent.match(/author[:\s]*['"](.*?)['"]/);
@@ -175,7 +253,7 @@ async function extractArticleMetadata(
       date,
       filePath,
       publishedAt,
-      updatedAt: updatedAt.getTime() !== publishedAt.getTime() ? updatedAt : undefined,
+      updatedAt: updatedAt && updatedAt.getTime() !== publishedAt.getTime() ? updatedAt : undefined,
       createdAt: publishedAt,
     };
   } catch (error) {

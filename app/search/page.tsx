@@ -141,7 +141,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     key={`${article.slug}-${index}`}
                     className="border-b border-gray-200 pb-8 last:border-0"
                   >
-                    <Link href={`/${article.slug}`} className="group block">
+                    <Link href={article.slug.startsWith('/') ? article.slug : `/${article.slug}`} className="group block">
                       {/* Category Badge */}
                       <span className="inline-block text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-1 rounded mb-2">
                         {article.category}

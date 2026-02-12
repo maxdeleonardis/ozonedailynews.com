@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Comprehensive site index showing all pages and sections of ObjectWire. Navigate our complete content hierarchy.",
   keywords: ["sitemap", "site index", "navigation", "ObjectWire pages"],
   alternates: {
-    canonical: 'https://www.objectwire.org/index',
+    canonical: 'https://www.objectwire.org/site-index',
   },
 };
 

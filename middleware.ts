@@ -51,6 +51,8 @@ const PARAMS_TO_STRIP = [
 
 // Redirect rules (old URL -> new URL)
 const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
+  // Site index (Next.js reserves /index internally)
+  '/index': { destination: '/site-index', permanent: true },
   // Trump variations
   '/donaldtrump': { destination: '/trump', permanent: true },
   '/donald-trump': { destination: '/trump', permanent: true },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Austin, Texas Private Detective Agency - ObjectWire.org",
@@ -76,6 +77,8 @@ export default function AustinPrivateDetectivePage() {
               We maintain strict confidentiality and provide detailed, court-admissible reports.
             </p>
           </div>
+
+          <ServiceInterlinks currentPath="/austin-private-detective-agency" />
         </section>
       </div>
     </main>

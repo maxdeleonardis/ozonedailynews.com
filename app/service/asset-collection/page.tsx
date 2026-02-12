@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Photography and Videography as a Service - ObjectWire.org",
@@ -193,6 +194,8 @@ export default function AssetCollectionPage() {
               </li>
             </ul>
           </div>
+
+          <ServiceInterlinks currentPath="/service/asset-collection" />
         </section>
       </div>
     </main>

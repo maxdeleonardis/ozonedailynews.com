@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Infidelity Investigations | The Objective Wire - Texas Business & Tech News",
@@ -137,6 +138,8 @@ export default function InfidelityPage() {
               ensuring your privacy is protected at every step.
             </p>
           </div>
+
+          <ServiceInterlinks currentPath="/service/infidelity" />
         </section>
       </div>
     </main>

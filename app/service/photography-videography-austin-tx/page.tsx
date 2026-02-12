@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Photography & Videography Services Austin TX | ObjectWire",
@@ -449,6 +450,11 @@ export default function PhotographyVideographyAustinPage() {
               <p className="text-sm text-gray-400">Comprehensive investigative services</p>
             </Link>
           </div>
+        </section>
+
+        {/* Service Interlinks */}
+        <section className="bg-white rounded-xl p-8 mt-16">
+          <ServiceInterlinks currentPath="/service/photography-videography-austin-tx" />
         </section>
       </div>
     </main>

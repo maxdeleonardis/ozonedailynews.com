@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Press Release Writing & Distribution Services | Austin TX - ObjectWire",
@@ -623,6 +624,11 @@ export default function PRBrandingPressReleasePage() {
               <p className="text-sm text-gray-400">PR tips, news, and industry insights</p>
             </Link>
           </div>
+        </section>
+
+        {/* Service Interlinks */}
+        <section className="bg-white rounded-xl p-8 mt-16">
+          <ServiceInterlinks currentPath="/service/press-release" />
         </section>
       </div>
     </main>

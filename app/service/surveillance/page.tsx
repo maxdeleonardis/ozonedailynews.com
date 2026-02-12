@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Surveillance - The Objective Wire | Texas Business &Tech News",
@@ -147,6 +148,8 @@ export default function SurveillancePage() {
               collection methods are legally admissible in court proceedings.
             </p>
           </div>
+
+          <ServiceInterlinks currentPath="/service/surveillance" />
         </section>
       </div>
     </main>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceInterlinks from "@/components/ServiceInterlinks";
 
 export const metadata: Metadata = {
   title: "Fact-finding and Evidence Collection - ObjectWire.org",
@@ -115,6 +116,8 @@ export default function FactFindingPage() {
               <li>• 24/7 emergency response</li>
             </ul>
           </div>
+
+          <ServiceInterlinks currentPath="/service/fact-finding-and-evidence-collection" />
         </section>
       </div>
     </main>

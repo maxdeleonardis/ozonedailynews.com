@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { href: '/news', label: 'News' },
   { href: '/finance', label: 'Finance' },
   { href: '/technology', label: 'Technology' },
-  { href: '/investigations', label: 'Investigations' },
+  { href: '/service', label: 'Services' },
   { href: '/entertainment', label: 'Entertainment' },
   { href: '/winter-olympics', label: 'Winter Olympics' },
   { href: '/editorial-standards', label: 'Editorial Standards' },

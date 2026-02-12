@@ -5,9 +5,11 @@ import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
+import AutoSEO from "@/components/AutoSEO";
 import AuthProvider from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
 import SearchBar from "@/components/SearchBar";
+import MobileNav from "@/components/MobileNav";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 // =============================================================================
@@ -41,7 +43,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   themeColor: '#ffffff',
 };
 
@@ -122,9 +126,10 @@ export default function RootLayout({
       </head>
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans">
         <GoogleAnalytics />
+        <AutoSEO />
         <AuthProvider>
             {/* Header */}
-            <header className="border-b">
+            <header className="border-b bg-white sticky top-0 z-40">
               <div className="container mx-auto px-4">
                 <nav className="flex items-center justify-between h-20">
                   <Link href="/" className="flex items-center">
@@ -132,10 +137,18 @@ export default function RootLayout({
                       src="/objectwire-logo.png" 
                       alt="OBJECTWIRE" 
                       style={{ height: '60px', width: 'auto' }}
+                      className="hidden md:block"
+                    />
+                    <img 
+                      src="/objectwire-logo.png" 
+                      alt="OBJECTWIRE" 
+                      style={{ height: '44px', width: 'auto' }}
+                      className="md:hidden"
                     />
                   </Link>
                   
-                  <div className="flex items-center gap-6">
+                  {/* Desktop Navigation */}
+                  <div className="hidden md:flex items-center gap-6">
                     <Link href="/finance" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       Finance
                     </Link>
@@ -154,6 +167,9 @@ export default function RootLayout({
                     <SearchBar />
                     <AuthButton />
                   </div>
+
+                  {/* Mobile Navigation */}
+                  <MobileNav />
                 </nav>
               </div>
             </header>

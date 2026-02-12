@@ -71,7 +71,7 @@ export default async function HomePage() {
           <div className="text-center py-6">
             <div className="flex items-center justify-center gap-6 mb-1">
               <div className="hidden md:block h-px flex-1 bg-black" />
-              <h1 className="text-7xl md:text-[6.5rem] font-black tracking-[-0.04em] leading-none select-none">
+              <h1 className="text-[2.75rem] sm:text-7xl md:text-[6.5rem] font-black tracking-[-0.04em] leading-none select-none">
                 OBJECTWIRE
               </h1>
               <div className="hidden md:block h-px flex-1 bg-black" />

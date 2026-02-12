@@ -34,6 +34,8 @@
     scroll-behavior: smooth;
     /* Prevent text size adjustment on orientation change */
     -webkit-text-size-adjust: 100%;
+    /* Prevent horizontal scroll / zoom-out on mobile */
+    overflow-x: hidden;
   }
 
   body {
@@ -46,6 +48,8 @@
     -moz-osx-font-smoothing: grayscale;
     /* Prevent layout shift from scrollbar */
     overflow-y: scroll;
+    /* Prevent horizontal scroll / zoom-out on mobile */
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

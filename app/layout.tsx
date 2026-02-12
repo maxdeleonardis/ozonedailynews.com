@@ -121,7 +121,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="bg-white text-gray-900 antialiased font-sans">
+      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans">
         <GoogleAnalytics />
         <AuthProvider>
             {/* Header */}
@@ -159,7 +159,7 @@ export default function RootLayout({
               </div>
             </header>
 
-            <main className="pt-6">{children}</main>
+            <main style={{ marginLeft: '10px', marginRight: '10px' }}>{children}</main>
 
         {/* Footer */}
         <footer className="border-t border-gray-200 bg-gray-50 mt-24">

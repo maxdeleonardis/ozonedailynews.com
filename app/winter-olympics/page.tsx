@@ -372,21 +372,129 @@ export default function WinterOlympicsPage() {
           
           <div className="space-y-4">
             
-            {/* New breaking story - Vonn crash */}
-            <Link href="/winter-olympics/lindsey-vonn/emergency-surgery-after-crash" className="block p-6 bg-gradient-to-r from-red-600/30 to-rose-600/30 rounded-lg hover:from-red-600/40 hover:to-rose-600/40 transition-colors border-2 border-red-500 group">
+            {/* New breaking story - Chloe Kim three-peat bid */}
+            <Link href="/winter-olympics/chloe-kim-historic-three-peat-bid" className="block p-6 bg-gradient-to-r from-red-600/30 to-rose-600/30 rounded-lg hover:from-red-600/40 hover:to-rose-600/40 transition-colors border-2 border-red-500 group">
               <div className="flex items-start gap-4">
-                <div className="text-3xl">🚨</div>
+                <div className="text-3xl">🏂</div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-gradient-to-r from-red-600 to-red-700 text-white animate-pulse">
                       🔴 Breaking
                     </span>
-                    <span className="text-sm text-gray-300">Just now • Alpine Skiing</span>
+                    <span className="text-sm text-gray-300">Just now • Snowboarding</span>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-200">
-                    Lindsey Vonn Undergoes Emergency Surgery After Crash at Olympics
+                    Chloe Kim Faces Unfamiliar Hurdles in Historic Three-Peat Bid
                   </h3>
                   <p className="text-gray-200 text-lg">
+                    American snowboarding icon confronts wrist injury, fierce competition, and immense expectations as she pursues unprecedented third consecutive Olympic halfpipe gold medal.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Malinin figure skating lead */}
+            <Link href="/winter-olympics/usa/malinin-surges-into-lead-olympic-figure-skating" className="block p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-lg hover:from-blue-600/30 hover:to-cyan-600/30 transition-colors border-2 border-blue-500/50 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">⛸️</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-blue-600 text-white">
+                      🔴 Breaking
+                    </span>
+                    <span className="text-sm text-gray-300">1 hour ago • Figure Skating</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-300">
+                    Malinin Surges Into Lead in Olympic Men's Figure Skating
+                  </h3>
+                  <p className="text-gray-300">
+                    Ilia Malinin scores 108.16 points with two quad jumps and signature backflip, leading by five points over Japan's Yuma Kagiyama.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/winter-olympics/usa/team-usa-wins-two-skiing-silvers" className="block p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-lg hover:from-blue-600/30 hover:to-cyan-600/30 transition-colors border-2 border-blue-500/50 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🎿</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-600/80 text-white">
+                      Breaking
+                    </span>
+                    <span className="text-sm text-gray-300">2 hours ago • Skiing</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-300">
+                    Team USA Wins Two Skiing Silvers at Milano Cortina
+                  </h3>
+                  <p className="text-gray-300">
+                    Alex Hall earns silver in freestyle slopestyle while Ben Ogden captures silver in cross-country sprint classic, ending a 50-year medal drought.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* von Allmen third gold */}
+            <Link href="/winter-olympics/swiss-skier-von-allmen-wins-third-gold" className="block p-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg hover:from-purple-600/30 hover:to-pink-600/30 transition-colors border-2 border-purple-500/50 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🥇</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+                      � Historic
+                    </span>
+                    <span className="text-sm text-gray-300">3 hours ago • Alpine Skiing</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-300">
+                    Swiss Skier von Allmen Wins Third Gold, Joins All-Time Greats
+                  </h3>
+                  <p className="text-gray-300">
+                    Franjo von Allmen secured his place among Alpine skiing's legends, winning men's super-G to claim his third gold medal in five days. Only the third male skier to win three events at a single Winter Olympics, joining Killy and Sailer.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/winter-olympics/usa-sweeps-gold-silver-in-womens-moguls" className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/10 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🥇</div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-400 mb-2">4 hours ago • Freestyle Skiing</div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">
+                    USA Sweeps Gold, Silver in Women's Moguls at Winter Olympics
+                  </h3>
+                  <p className="text-gray-300">
+                    Team USA dominated the women's moguls competition at Milano Cortina, sweeping the gold and silver medals in a spectacular display of freestyle skiing excellence on the Italian slopes.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/winter-olympics/usa/team-usa-wins-five-medals-across-five-sports" className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/10 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🏅</div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-400 mb-2">Earlier Today • Multiple Sports</div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">
+                    Team USA Wins Five Medals Across Five Sports in Single Day
+                  </h3>
+                  <p className="text-gray-300">
+                    Historic achievement includes Team USA's first-ever mixed doubles curling medal. Cory Thiesse and Korey Dropkin earn silver, plus breakthroughs in cross-country skiing and three additional medals.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Previous story - Vonn crash */}
+            <Link href="/winter-olympics/lindsey-vonn/emergency-surgery-after-crash" className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/10 group">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🚨</div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-400 mb-2">Earlier Today • Alpine Skiing</div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">
+                    Lindsey Vonn Undergoes Emergency Surgery After Crash at Olympics
+                  </h3>
+                  <p className="text-gray-300">
                     American ski legend airlifted to Milan hospital after devastating crash during Olympic downhill event. 
                     Emergency ACL reconstruction performed. Stable condition following three-hour surgery.
                   </p>
@@ -394,17 +502,12 @@ export default function WinterOlympicsPage() {
               </div>
             </Link>
 
-            <Link href="/winter-olympics/italy-first-gold-lollobrigida" className="block p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-lg hover:from-blue-600/30 hover:to-cyan-600/30 transition-colors border-2 border-blue-500/50 group">
+            <Link href="/winter-olympics/italy-first-gold-lollobrigida" className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/10 group">
               <div className="flex items-start gap-4">
                 <div className="text-3xl">🥇</div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-red-600 text-white animate-pulse">
-                      🔴 Breaking
-                    </span>
-                    <span className="text-sm text-gray-300">39 minutes ago • Speed Skating</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-300">
+                  <div className="text-sm text-gray-400 mb-2">February 7, 2026 • Speed Skating</div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">
                     Italy Wins First Gold as Milano Cortina Olympics Open
                   </h3>
                   <p className="text-gray-300">
@@ -415,17 +518,12 @@ export default function WinterOlympicsPage() {
               </div>
             </Link>
 
-            <Link href="/winter-olympics/lindsey-vonn-training-downhill" className="block p-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg hover:from-purple-600/30 hover:to-pink-600/30 transition-colors border-2 border-purple-500/50 group">
+            <Link href="/winter-olympics/lindsey-vonn-training-downhill" className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/10 group">
               <div className="flex items-start gap-4">
                 <div className="text-3xl">⛷️</div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="inline-flex items-center px-2 py-1 rounded text-xs font-black uppercase tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 text-white">
-                      🔥 Trending
-                    </span>
-                    <span className="text-sm text-gray-300">10 hours ago • Alpine Skiing</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-300">
+                  <div className="text-sm text-gray-400 mb-2">February 7, 2026 • Alpine Skiing</div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">
                     Lindsey Vonn Posts Third-Fastest Training Time Before Olympic Downhill
                   </h3>
                   <p className="text-gray-300">

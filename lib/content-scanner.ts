@@ -19,19 +19,39 @@ export interface Article {
 
 export type DiscoveredArticle = Article;
 
-// Categories to scan for content
+// Categories to scan for content - comprehensive list of ALL content directories
 const CONTENT_DIRECTORIES = [
   'news',
   'finance',
   'crypto',
   'technology',
   'open-ai',
-  'videogames',
   'entertainment',
   'winter-olympics',
   'world-cup',
   'saas',
-  'coding',
+  'disney',
+  'apple',
+  'google',
+  'elon-musk',
+  'nasa',
+  'nvidia',
+  'intel',
+  'microsoft',
+  'social',
+  'youtube',
+  'influencer',
+  'investigations',
+  'video-games',
+  'clothing',
+  'podcasts',
+  'events',
+  'define',
+  'artists',
+  'cars',
+  'college',
+  'ngos',
+  'blog',
 ];
 
 /**

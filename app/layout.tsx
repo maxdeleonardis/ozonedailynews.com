@@ -6,7 +6,6 @@ import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 import AuthProvider from "@/components/AuthProvider";
-import CookieConsent from "@/components/CookieConsent";
 import AuthButton from "@/components/AuthButton";
 import SearchBar from "@/components/SearchBar";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -230,8 +229,6 @@ export default function RootLayout({
           </div>
         </footer>
         
-        {/* Cookie Consent Banner */}
-        <CookieConsent />
         </AuthProvider>
       </body>
     </html>

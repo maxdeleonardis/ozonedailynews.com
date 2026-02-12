@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import CoverageMap from '@/components/CoverageMap';
 
 export const dynamic = 'force-static';
 
@@ -246,6 +247,9 @@ export default async function IndexPage() {
             </div>
           </div>
         </section>
+
+        {/* ═══════════════════ COVERAGE MAP (auto-updating component) ═══════════════════ */}
+        <CoverageMap showLatest={true} />
 
         {/* Quick Links by Category */}
         <section className="mb-12">

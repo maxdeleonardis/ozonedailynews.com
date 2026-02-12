@@ -110,9 +110,9 @@ export default async function NewsPage() {
         {/* ─── LEAD STORY ─── */}
         {featuredStories.length > 0 && (
           <section className="mb-14" id="latest">
-            <article className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
-              <Link href={`/${featuredStories[0].slug}`} className="group block">
-                <div className="p-8 md:p-12">
+            <article>
+              <Link href={featuredStories[0].slug} className="group block">
+                <div className="py-8 md:py-12">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                       {featuredStories[0].category}
@@ -129,7 +129,7 @@ export default async function NewsPage() {
                     )}
                   </div>
                   
-                  <h2 className="text-3xl md:text-5xl font-black leading-[1.1] mb-6 text-slate-900 group-hover:text-blue-700 transition-colors">
+                  <h2 className="text-4xl md:text-6xl font-black leading-[1.05] mb-6 text-slate-900 group-hover:text-blue-700 transition-colors">
                     {featuredStories[0].title}
                   </h2>
                   
@@ -137,7 +137,7 @@ export default async function NewsPage() {
                     {featuredStories[0].excerpt}
                   </p>
                   
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-4 text-sm text-slate-500">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="text-blue-700 font-bold text-xs">
@@ -147,12 +147,9 @@ export default async function NewsPage() {
                       <span className="font-semibold text-slate-800">{featuredStories[0].author}</span>
                     </div>
                     <span className="text-slate-300">|</span>
-                    <time className="text-slate-500">{formatArticleDateDisplay(featuredStories[0]).display}</time>
+                    <time>{formatArticleDateDisplay(featuredStories[0]).display}</time>
                     <span className="text-slate-300">|</span>
-                    <span className="text-slate-500">{featuredStories[0].readTime}</span>
-                    <span className="ml-auto text-blue-600 font-semibold group-hover:underline hidden sm:inline">
-                      Read full story →
-                    </span>
+                    <span>{formatArticleDateDisplay(featuredStories[0]).relative}</span>
                   </div>
                 </div>
               </Link>
@@ -168,7 +165,7 @@ export default async function NewsPage() {
                 const dateInfo = formatArticleDateDisplay(story);
                 return (
                   <article key={story.slug} className="bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-blue-200 transition-all overflow-hidden">
-                    <Link href={`/${story.slug}`} className="group block p-6">
+                    <Link href={story.slug} className="group block p-6">
                       <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">
                         {story.category}
                       </span>
@@ -252,7 +249,7 @@ export default async function NewsPage() {
                   key={`${article.slug}-${index}`} 
                   className={`group ${index > 0 ? 'border-t border-slate-200' : ''}`}
                 >
-                  <Link href={`/${article.slug}`} className="flex items-start gap-5 py-5 hover:bg-white rounded-lg px-4 -mx-4 transition-colors">
+                  <Link href={article.slug} className="flex items-start gap-5 py-5 hover:bg-white rounded-lg px-4 -mx-4 transition-colors">
                     {/* Number */}
                     <span className="text-3xl font-black text-slate-200 group-hover:text-blue-200 transition-colors tabular-nums leading-none pt-1 hidden sm:block w-10 shrink-0 text-right">
                       {String(index + 1).padStart(2, '0')}
@@ -315,7 +312,7 @@ export default async function NewsPage() {
               {technologyNews.map((story, index) => {
                 const dateInfo = formatArticleDateDisplay(story);
                 return (
-                  <Link key={story.slug} href={`/${story.slug}`} className="group block px-6 py-4 hover:bg-blue-50/50 transition-colors">
+                  <Link key={story.slug} href={story.slug} className="group block px-6 py-4 hover:bg-blue-50/50 transition-colors">
                     <h3 className="font-semibold text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-1 line-clamp-2">
                       {story.title}
                     </h3>
@@ -345,7 +342,7 @@ export default async function NewsPage() {
               {businessNews.map((story, index) => {
                 const dateInfo = formatArticleDateDisplay(story);
                 return (
-                  <Link key={story.slug} href={`/${story.slug}`} className="group block px-6 py-4 hover:bg-emerald-50/50 transition-colors">
+                  <Link key={story.slug} href={story.slug} className="group block px-6 py-4 hover:bg-emerald-50/50 transition-colors">
                     <h3 className="font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug mb-1 line-clamp-2">
                       {story.title}
                     </h3>
@@ -378,7 +375,7 @@ export default async function NewsPage() {
                 {investigationsNews.map((story, index) => {
                   const dateInfo = formatArticleDateDisplay(story);
                   return (
-                    <Link key={`${story.slug}-${index}`} href={`/${story.slug}`} className="group block px-6 py-5 hover:bg-orange-50/50 transition-colors">
+                    <Link key={`${story.slug}-${index}`} href={story.slug} className="group block px-6 py-5 hover:bg-orange-50/50 transition-colors">
                       <h3 className="font-semibold text-slate-900 group-hover:text-orange-700 transition-colors leading-snug mb-2">
                         {story.title}
                       </h3>
@@ -469,7 +466,7 @@ export default async function NewsPage() {
                       {articles.slice(0, 5).map((article, idx) => (
                         <li key={`${article.slug}-${idx}`}>
                           <Link 
-                            href={`/${article.slug}`} 
+                            href={article.slug} 
                             className="block px-5 py-3 hover:bg-blue-50/50 transition-colors"
                           >
                             <h4 className="text-sm font-semibold leading-snug line-clamp-2 text-slate-800 hover:text-blue-700">

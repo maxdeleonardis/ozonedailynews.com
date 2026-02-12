@@ -26,195 +26,6 @@ export const metadata: Metadata = {
 // Revalidate every 5 minutes to show fresh content
 export const revalidate = 300;
 
-/* ─── TOPIC TREE DATA ─── */
-const topicTrees = [
-  {
-    id: 'tech',
-    name: 'Technology',
-    icon: '💻',
-    color: 'blue',
-    href: '/technology',
-    branches: [
-      {
-        name: 'Big Tech',
-        items: [
-          { name: 'Google', href: '/google', sub: ['Waymo', 'Agentic Vision', 'Gemini 3 Flash'] },
-          { name: 'Apple', href: '/apple', sub: ['iPhone 18', 'Google Gemini Partnership'] },
-          { name: 'Microsoft', href: '/microsoft', sub: [] },
-          { name: 'Nvidia', href: '/nvidia', sub: [] },
-          { name: 'Intel', href: '/intel', sub: ['18A Manufacturing'] },
-        ],
-      },
-      {
-        name: 'AI & Software',
-        items: [
-          { name: 'OpenAI', href: '/open-ai', sub: ['AI Insurance Apps'] },
-          { name: 'SaaS', href: '/saas', sub: ['Cognyte', 'HashiCorp', 'SailPoint', 'Gatik', 'Apptronik'] },
-          { name: 'Crypto', href: '/crypto', sub: ['TXC Stablecoin'] },
-          { name: 'Comparisons', href: '/define', sub: ['NestJS vs Next.js', 'Hedera vs Solana', 'HTTP vs REST'] },
-        ],
-      },
-      {
-        name: 'Social Platforms',
-        items: [
-          { name: 'Meta', href: '/social/meta', sub: ['TPU Chip War'] },
-          { name: 'TikTok', href: '/social/tiktok', sub: ['USDS Joint Venture'] },
-          { name: 'X / Twitter', href: '/social/x-twitter', sub: [] },
-          { name: 'GitHub', href: '/github', sub: [] },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'news',
-    name: 'News & Investigations',
-    icon: '📰',
-    color: 'red',
-    href: '/news',
-    branches: [
-      {
-        name: 'Breaking News',
-        items: [
-          { name: 'Latest', href: '/news', sub: ['xAI Layoffs', 'DoorDash SNAP EBT'] },
-          { name: 'Texas', href: '/news/texas', sub: ['ASML Hutto', 'Austin Tech Hub', 'Pegatron Factory'] },
-          { name: 'World', href: '/news/world', sub: ['China-Japan Standoff'] },
-          { name: 'Canada', href: '/news/canada', sub: ['Political Crisis'] },
-        ],
-      },
-      {
-        name: 'Investigations',
-        items: [
-          { name: 'Minnesota', href: '/investigations/minesoda', sub: ['Ilhan Omar', 'Nick Shirley Pt. 2'] },
-          { name: 'NGOs', href: '/ngos', sub: ['Get Free Together'] },
-          { name: 'Missing Persons', href: '/missing-persons', sub: [] },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'finance',
-    name: 'Finance & Business',
-    icon: '💰',
-    color: 'green',
-    href: '/finance',
-    branches: [
-      {
-        name: 'Markets & Analysis',
-        items: [
-          { name: 'Finance Hub', href: '/finance', sub: ['Tokenization Revolution', 'CME Rules the World', 'NASDAQ 24/7 Trading'] },
-          { name: 'Sovereign Debt', href: '/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age', sub: [] },
-          { name: 'Deep Sea Mining', href: '/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea', sub: [] },
-        ],
-      },
-      {
-        name: 'Industry',
-        items: [
-          { name: 'Elon Musk', href: '/elon-musk', sub: ['SpaceX', 'AI Sun Shading'] },
-          { name: 'Bank of America', href: '/bank-of-america', sub: [] },
-          { name: 'General Motors', href: '/saas/general-motors', sub: [] },
-          { name: 'Starlink', href: '/finance/articles/starlink-economic-analysis', sub: [] },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'sports',
-    name: 'Sports',
-    icon: '🏆',
-    color: 'indigo',
-    href: '/winter-olympics',
-    branches: [
-      {
-        name: 'Winter Olympics 2026',
-        items: [
-          { name: 'Olympics Hub', href: '/winter-olympics', sub: ['Medal Count', 'Daily Results'] },
-          { name: 'Team USA', href: '/winter-olympics/usa/team-usa-wins-five-medals-across-five-sports', sub: ['Breezy Johnson 🥇', 'Ilia Malinin ⛸️', 'Skiing Silvers'] },
-          { name: 'Athletes', href: '/winter-olympics/mikaela-shiffrin', sub: ['Chloe Kim', 'Eileen Gu 🇨🇳', 'Klæbo 🇳🇴', 'Lindsey Vonn'] },
-          { name: 'Historic Runs', href: '/winter-olympics/swiss-skier-von-allmen-wins-third-gold', sub: ['Italy First Gold'] },
-        ],
-      },
-      {
-        name: 'FIFA World Cup',
-        items: [
-          { name: 'World Cup', href: '/world-cup', sub: ['Boycott Controversy', 'ICE Immigration'] },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'entertainment',
-    name: 'Entertainment',
-    icon: '🎬',
-    color: 'purple',
-    href: '/entertainment',
-    branches: [
-      {
-        name: 'Studios & Streaming',
-        items: [
-          { name: 'Disney', href: '/disney', sub: ['Films in Fortnite 🎮', 'Josh D\'Amaro CEO'] },
-          { name: 'Netflix', href: '/entertainment/netflix', sub: [] },
-          { name: 'HBO Max', href: '/entertainment/hbomax', sub: [] },
-          { name: 'James Cameron', href: '/entertainment/james-cameron', sub: [] },
-        ],
-      },
-      {
-        name: 'YouTube & Creators',
-        items: [
-          { name: 'Sidemen', href: '/youtube/sidemen', sub: ['KSI', 'Miniminter', 'Behzinga', 'Vikkstar', 'TBJZL', 'W2S', 'Zerkaa'] },
-          { name: 'MrBeast', href: '/beastgames', sub: ['Season 2 Casting'] },
-          { name: 'Influencers', href: '/influencer', sub: ['Iman Gadzhi', 'SteveWillDoIt', 'Serge Gatari'] },
-          { name: 'Podcasts', href: '/podcasts', sub: ['All-In Podcast', 'Joe Rogan'] },
-        ],
-      },
-      {
-        name: 'Video Games',
-        items: [
-          { name: 'Nintendo', href: '/video-games/nintendo', sub: ['Google Genie AI'] },
-          { name: 'Upcoming', href: '/video-games', sub: ['007 First Light', 'Marvel\'s Wolverine', 'RE: Requiem'] },
-          { name: 'MHA', href: '/video-games/mha', sub: ['All\'s Justice', 'Ultra Rumble S15'] },
-          { name: 'Top 10 2026', href: '/video-games/top-10-anime-games-2026', sub: [] },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'lifestyle',
-    name: 'Lifestyle & Culture',
-    icon: '👕',
-    color: 'pink',
-    href: '/clothing',
-    branches: [
-      {
-        name: 'Fashion & Brands',
-        items: [
-          { name: 'SKIMS', href: '/clothing/skims', sub: ['CEO', 'Creative Director'] },
-          { name: 'Gymshark', href: '/clothing/gymshark', sub: [] },
-          { name: 'New Balance', href: '/clothing/new-balance', sub: [] },
-          { name: 'Young LA', href: '/clothing/young-la', sub: [] },
-          { name: 'Vans', href: '/clothing/vans', sub: [] },
-        ],
-      },
-      {
-        name: 'Science & Space',
-        items: [
-          { name: 'NASA', href: '/nasa', sub: ['Europa Ice Shell Discovery'] },
-          { name: 'Orbital AI', href: '/technology/articles/dawn-of-orbital-ai', sub: [] },
-        ],
-      },
-    ],
-  },
-];
-
-/* ─── COLOR MAP ─── */
-const colorMap: Record<string, { bg: string; border: string; text: string; light: string; dot: string; hoverBg: string }> = {
-  blue:   { bg: 'bg-blue-600',   border: 'border-blue-600',   text: 'text-blue-600',   light: 'bg-blue-50',   dot: 'bg-blue-400',   hoverBg: 'hover:bg-blue-50'   },
-  red:    { bg: 'bg-red-600',    border: 'border-red-600',    text: 'text-red-600',    light: 'bg-red-50',    dot: 'bg-red-400',    hoverBg: 'hover:bg-red-50'    },
-  green:  { bg: 'bg-green-600',  border: 'border-green-600',  text: 'text-green-600',  light: 'bg-green-50',  dot: 'bg-green-400',  hoverBg: 'hover:bg-green-50'  },
-  indigo: { bg: 'bg-indigo-600', border: 'border-indigo-600', text: 'text-indigo-600', light: 'bg-indigo-50', dot: 'bg-indigo-400', hoverBg: 'hover:bg-indigo-50' },
-  purple: { bg: 'bg-purple-600', border: 'border-purple-600', text: 'text-purple-600', light: 'bg-purple-50', dot: 'bg-purple-400', hoverBg: 'hover:bg-purple-50' },
-  pink:   { bg: 'bg-pink-600',   border: 'border-pink-600',   text: 'text-pink-600',   light: 'bg-pink-50',   dot: 'bg-pink-400',   hoverBg: 'hover:bg-pink-50'   },
-};
-
 export default async function HomePage() {
   const allArticles = await scanAllContent();
   const latestArticles = allArticles.slice(0, 12);
@@ -233,7 +44,7 @@ export default async function HomePage() {
     <div className="min-h-screen bg-[#faf9f6]">
 
       {/* ═══════════════════ MASTHEAD ═══════════════════ */}
-      <header className="bg-white pb-[6px]">
+      <header className="bg-[#faf9f6] md:bg-white pb-[6px]">
         <div className="container">
           {/* Top rule */}
           <div className="flex items-center justify-between text-[10px] tracking-[.25em] text-gray-500 font-mono pt-4 pb-3 border-b border-gray-200 uppercase">
@@ -282,9 +93,10 @@ export default async function HomePage() {
             {featuredArticle && (
               <article>
                 <Link href={featuredArticle.slug} className="group block">
-                  <span className="inline-block text-[11px] font-black tracking-widest text-red-600 uppercase mb-3">
-                    {featuredArticle.category} &mdash; Featured
-                  </span>
+                  <div className="flex items-center gap-2 mb-3">
+                    <TopicTag topic={inferTopicTag(featuredArticle.category, featuredArticle.slug)} size="sm" />
+                    <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Featured</span>
+                  </div>
                   <h2 className="text-4xl md:text-5xl font-black leading-[1.1] mb-4 group-hover:text-gray-600 transition-colors">
                     {featuredArticle.title}
                   </h2>
@@ -309,40 +121,49 @@ export default async function HomePage() {
               {latestArticles.slice(1, 5).map((article) => (
                 <article key={article.slug} className="border-t border-gray-300 pt-4">
                   <Link href={article.slug} className="group block space-y-2">
-                    <span className="text-[10px] font-bold tracking-widest text-red-600 uppercase">
-                      {article.category}
-                    </span>
+                    <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" />
                     <h3 className="text-base font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
                       {article.title}
                     </h3>
-                    <p className="text-xs text-gray-500">{article.date}</p>
+                    {article.excerpt && (
+                      <p className="text-xs text-gray-500 line-clamp-2">{article.excerpt}</p>
+                    )}
+                    <p className="text-xs text-gray-400">{article.date}</p>
                   </Link>
                 </article>
               ))}
             </div>
           </div>
 
-          {/* Sidebar – latest headlines */}
+          {/* Sidebar – latest headlines with descriptions */}
           <aside className="lg:col-span-5">
             <div className="border-b-2 border-black pb-2 mb-4 flex items-center justify-between">
-              <h2 className="text-xs font-black tracking-widest uppercase">Latest Headlines</h2>
-              <Link href="/news" className="text-xs font-bold text-red-600 hover:underline">View All →</Link>
+              <h2 className="text-xs font-black tracking-widest uppercase">Trending Headlines</h2>
+              <Link href="/news" className="text-xs font-bold text-blue-600 hover:underline">View All →</Link>
             </div>
             <ul className="space-y-0 divide-y divide-gray-200">
-              {latestArticles.slice(0, 10).map((article, i) => (
+              {latestArticles.slice(0, 5).map((article, i) => (
                 <li key={article.slug}>
-                  <Link href={article.slug} className="group flex items-start gap-3 py-3 hover:bg-gray-50 -mx-2 px-2 transition-colors">
+                  <Link href={article.slug} className="group flex items-start gap-3 py-3.5 hover:bg-gray-50/80 -mx-2 px-2 rounded transition-colors">
                     <span className="text-2xl font-black text-gray-200 leading-none mt-0.5 w-8 shrink-0 text-right">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div className="flex-1 min-w-0">
+                      <div className="mb-1">
+                        <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" showIcon={false} />
+                      </div>
                       <h3 className="text-sm font-bold leading-snug group-hover:text-gray-600 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
-                      <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-1">
-                        <span className="font-bold text-red-600 uppercase">{article.category}</span>
+                      {article.excerpt && (
+                        <p className="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
+                          {article.excerpt}
+                        </p>
+                      )}
+                      <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-1.5">
+                        <span>{article.author || 'ObjectWire Team'}</span>
                         <span>•</span>
-                        <span>{article.date}</span>
+                        <span>{article.readTime}</span>
                       </div>
                     </div>
                   </Link>
@@ -352,7 +173,7 @@ export default async function HomePage() {
           </aside>
         </section>
 
-        {/* ═══════════════════ TOPIC TREES ═══════════════════ */}
+        {/* ═══════════════════ SPOTLIGHT SECTIONS ═══════════════════ */}
         <section className="mb-16">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-4 mb-3">
@@ -361,69 +182,63 @@ export default async function HomePage() {
               <div className="h-px w-16 bg-black" />
             </div>
             <p className="text-gray-600 text-sm max-w-xl mx-auto">
-              Explore ObjectWire&apos;s full coverage across {topicTrees.length} major beats and 100+ topics. Click any node to dive in.
+              Explore ObjectWire&apos;s featured coverage areas and dive into our top beats.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {topicTrees.map((tree) => {
-              const c = colorMap[tree.color];
-              return (
-                <div key={tree.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Tree header */}
-                  <Link href={tree.href} className={`flex items-center gap-3 px-5 py-4 ${c.bg} text-white group`}>
-                    <span className="text-2xl">{tree.icon}</span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-black tracking-wide">{tree.name}</h3>
-                    </div>
-                    <svg className="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+          <div className="grid lg:grid-cols-2 gap-8">
 
-                  {/* Branches */}
-                  <div className="divide-y divide-gray-100">
-                    {tree.branches.map((branch) => (
-                      <div key={branch.name} className="px-5 py-3">
-                        <p className={`text-[10px] font-black tracking-widest uppercase ${c.text} mb-2`}>
-                          {branch.name}
-                        </p>
-                        <ul className="space-y-1.5">
-                          {branch.items.map((item) => (
-                            <li key={item.name}>
-                              <div className="flex items-start gap-2">
-                                {/* Trunk line + dot */}
-                                <div className="flex flex-col items-center mt-1.5 shrink-0">
-                                  <div className={`w-2 h-2 rounded-full ${c.dot}`} />
-                                  {item.sub.length > 0 && (
-                                    <div className={`w-px flex-1 min-h-[12px] ${c.dot} opacity-30 mt-0.5`} />
-                                  )}
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <Link href={item.href} className={`text-sm font-semibold hover:underline underline-offset-2 ${c.hoverBg} rounded px-1 -mx-1 transition-colors`}>
-                                    {item.name}
-                                  </Link>
-                                  {/* Sub-nodes */}
-                                  {item.sub.length > 0 && (
-                                    <div className="flex flex-wrap gap-1.5 mt-1 ml-1">
-                                      {item.sub.map((s) => (
-                                        <span key={s} className={`text-[10px] ${c.light} ${c.text} px-2 py-0.5 rounded-full font-medium`}>
-                                          {s}
-                                        </span>
-                                      ))}
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+            {/* Winter Olympics Spotlight */}
+            <section className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg p-6 text-white">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">⛷️</span>
+                <h2 className="text-xl font-black">Milan Cortina 2026</h2>
+                <span className="ml-auto bg-white/20 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">LIVE</span>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { title: 'Breezy Johnson Wins First U.S. Gold', href: '/winter-olympics/usa/breezy-johnson', tag: '🥇' },
+                  { title: 'Ilia Malinin Leads Men\'s Figure Skating', href: '/winter-olympics/usa/ilia-malinin', tag: '⛸️' },
+                  { title: 'Chloe Kim\'s Historic Three-Peat Bid', href: '/winter-olympics/chloe-kim-historic-three-peat-bid', tag: '🏂' },
+                  { title: 'Eileen Gu Claims Slopestyle Silver', href: '/winter-olympics/china/eileen-gu', tag: '🎿' },
+                  { title: 'Klæbo Targets 6 Gold Medals', href: '/winter-olympics/norway/johannes-klaebo', tag: '🇳🇴' },
+                  { title: 'Mikaela Shiffrin: GOAT Returns', href: '/winter-olympics/mikaela-shiffrin', tag: '⛷️' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="flex items-center gap-3 bg-white/10 hover:bg-white/20 rounded-lg px-4 py-2.5 transition-colors">
+                    <span className="text-lg">{item.tag}</span>
+                    <span className="text-sm font-semibold flex-1">{item.title}</span>
+                    <span className="text-white/40">→</span>
+                  </Link>
+                ))}
+              </div>
+              <Link href="/winter-olympics" className="mt-4 inline-flex items-center gap-2 text-sm font-bold bg-white text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                Full Olympics Coverage →
+              </Link>
+            </section>
+
+            {/* Disney Spotlight */}
+            <section className="bg-gradient-to-br from-purple-600 via-blue-600 to-pink-600 rounded-lg p-6 text-white">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">🏰</span>
+                <h2 className="text-xl font-black">Disney Coverage</h2>
+                <span className="ml-auto bg-white/20 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">NEW</span>
+              </div>
+              <div className="space-y-3">
+                <Link href="/disney/news/incoming-ceo-floats-premiering-films-in-fortnite" className="block bg-white/10 hover:bg-white/20 rounded-lg px-4 py-3 transition-colors">
+                  <span className="text-[10px] font-bold text-pink-300 tracking-wider uppercase">Breaking</span>
+                  <h3 className="text-base font-bold mt-1">Disney Films Coming to Fortnite</h3>
+                  <p className="text-xs text-blue-200 mt-1">Incoming CEO D&apos;Amaro envisions movie premieres inside Epic Games&apos; platform</p>
+                </Link>
+                <Link href="/disney/josh-damaro" className="block bg-white/10 hover:bg-white/20 rounded-lg px-4 py-3 transition-colors">
+                  <span className="text-[10px] font-bold text-blue-300 tracking-wider uppercase">Profile</span>
+                  <h3 className="text-base font-bold mt-1">Josh D&apos;Amaro: Disney&apos;s Next CEO</h3>
+                  <p className="text-xs text-blue-200 mt-1">Complete biography of the incoming chief executive, March 2026</p>
+                </Link>
+              </div>
+              <Link href="/disney" className="mt-4 inline-flex items-center gap-2 text-sm font-bold bg-white text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                All Disney Coverage →
+              </Link>
+            </section>
           </div>
         </section>
 
@@ -437,12 +252,10 @@ export default async function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-            {latestArticles.slice(0, 9).map((article) => (
+            {latestArticles.slice(0, 5).map((article) => (
               <article key={article.slug} className="border-t border-gray-300 pt-4 group">
                 <Link href={article.slug} className="block space-y-2">
-                  <span className="text-[10px] font-bold tracking-widest text-red-600 uppercase">
-                    {article.category}
-                  </span>
+                  <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" />
                   <h3 className="text-lg font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
                     {article.title}
                   </h3>
@@ -459,62 +272,6 @@ export default async function HomePage() {
             ))}
           </div>
         </section>
-
-        {/* ═══════════════════ SPOTLIGHT SECTIONS ═══════════════════ */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-
-          {/* Winter Olympics Spotlight */}
-          <section className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg p-6 text-white">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">⛷️</span>
-              <h2 className="text-xl font-black">Milan Cortina 2026</h2>
-              <span className="ml-auto bg-white/20 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">LIVE</span>
-            </div>
-            <div className="space-y-3">
-              {[
-                { title: 'Breezy Johnson Wins First U.S. Gold', href: '/winter-olympics/usa/breezy-johnson', tag: '🥇' },
-                { title: 'Ilia Malinin Leads Men\'s Figure Skating', href: '/winter-olympics/usa/ilia-malinin', tag: '⛸️' },
-                { title: 'Chloe Kim\'s Historic Three-Peat Bid', href: '/winter-olympics/chloe-kim-historic-three-peat-bid', tag: '🏂' },
-                { title: 'Eileen Gu Claims Slopestyle Silver', href: '/winter-olympics/china/eileen-gu', tag: '🎿' },
-                { title: 'Klæbo Targets 6 Gold Medals', href: '/winter-olympics/norway/johannes-klaebo', tag: '🇳🇴' },
-                { title: 'Mikaela Shiffrin: GOAT Returns', href: '/winter-olympics/mikaela-shiffrin', tag: '⛷️' },
-              ].map((item) => (
-                <Link key={item.href} href={item.href} className="flex items-center gap-3 bg-white/10 hover:bg-white/20 rounded-lg px-4 py-2.5 transition-colors">
-                  <span className="text-lg">{item.tag}</span>
-                  <span className="text-sm font-semibold flex-1">{item.title}</span>
-                  <span className="text-white/40">→</span>
-                </Link>
-              ))}
-            </div>
-            <Link href="/winter-olympics" className="mt-4 inline-flex items-center gap-2 text-sm font-bold bg-white text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-              Full Olympics Coverage →
-            </Link>
-          </section>
-
-          {/* Disney Spotlight */}
-          <section className="bg-gradient-to-br from-purple-600 via-blue-600 to-pink-600 rounded-lg p-6 text-white">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">🏰</span>
-              <h2 className="text-xl font-black">Disney Coverage</h2>
-              <span className="ml-auto bg-white/20 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">NEW</span>
-            </div>
-            <div className="space-y-3">
-              <Link href="/disney/news/incoming-ceo-floats-premiering-films-in-fortnite" className="block bg-white/10 hover:bg-white/20 rounded-lg px-4 py-3 transition-colors">
-                <span className="text-[10px] font-bold text-pink-300 tracking-wider uppercase">Breaking</span>
-                <h3 className="text-base font-bold mt-1">Disney Films Coming to Fortnite</h3>
-                <p className="text-xs text-blue-200 mt-1">Incoming CEO D&apos;Amaro envisions movie premieres inside Epic Games&apos; platform</p>
-              </Link>
-              <Link href="/disney/josh-damaro" className="block bg-white/10 hover:bg-white/20 rounded-lg px-4 py-3 transition-colors">
-                <span className="text-[10px] font-bold text-blue-300 tracking-wider uppercase">Profile</span>
-                <h3 className="text-base font-bold mt-1">Josh D&apos;Amaro: Disney&apos;s Next CEO</h3>
-                <p className="text-xs text-blue-200 mt-1">Complete biography of the incoming chief executive, March 2026</p>
-              </Link>
-            </div>
-            <Link href="/disney" className="mt-4 inline-flex items-center gap-2 text-sm font-bold bg-white text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
-              All Disney Coverage →
-            </Link>
-          </section>
-        </div>
 
         {/* ═══════════════════ ABOUT STRIP ═══════════════════ */}
         <section className="border-t-2 border-b-2 border-black py-10 mb-16 text-center">

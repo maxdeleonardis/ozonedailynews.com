@@ -9,7 +9,7 @@ export async function GET() {
   
   try {
     // Automatically discover all NewsArticle component pages
-    const newsArticlePages = await getNewsArticlePages();
+    const newsArticlePages = getNewsArticlePages();
     
     // Convert to RSS format
     const allArticles: Array<{
@@ -22,33 +22,33 @@ export async function GET() {
       published_at: string;
       created_at: string;
       featured_image?: string | null;
-    }> = newsArticlePages.map((page: any) => ({
+    }> = newsArticlePages.map(page => ({
       title: page.title || 'Article',
-      slug: page.path?.startsWith('/') ? page.path.substring(1) : (page.path || ''),
+      slug: page.path.startsWith('/') ? page.path.substring(1) : page.path,
       excerpt: page.description || '',
       author: 'ObjectWire Editorial Team',
       category: page.category || 'News',
       tags: page.tags || [],
-      published_at: page.publishDate || page.lastModified || new Date().toISOString(),
-      created_at: page.lastModified || new Date().toISOString(),
+      published_at: page.publishDate || page.lastModified.toISOString(),
+      created_at: page.lastModified.toISOString(),
       featured_image: undefined,
     }));
     
     // Also fetch database posts
-    const posts = await getAllBlogPosts();
+    const { data: posts, error } = await getAllBlogPosts();
     
-    if (posts) {
+    if (!error && posts) {
       const publishedPosts = posts
-        .filter((post: any) => post.status === 'published')
-        .map((post: any) => ({
+        .filter(post => post.status === 'published')
+        .map(post => ({
           title: post.title,
           slug: post.slug,
           excerpt: post.excerpt || '',
-          author: post.author || 'ObjectWire Team',
-          category: post.category || 'News',
+          author: post.author,
+          category: post.category,
           tags: post.tags || [],
-          published_at: post.published_at || post.publishedAt || post.created_at || new Date().toISOString(),
-          created_at: post.created_at || new Date().toISOString(),
+          published_at: post.published_at || post.created_at,
+          created_at: post.created_at,
           featured_image: post.featured_image,
         }));
       allArticles.push(...publishedPosts);

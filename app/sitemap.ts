@@ -10,27 +10,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapEntries: MetadataRoute.Sitemap = [];
   
   // Automatically scan all pages in the app directory
-  const allPages = await getSitemapPages();
+  const allPages = getSitemapPages();
   
   for (const page of allPages) {
     sitemapEntries.push({
-      url: `${SITE_CONFIG.url}${page.path || ''}`,
+      url: `${SITE_CONFIG.url}${page.path}`,
       lastModified: page.lastModified,
-      changeFrequency: getChangeFrequency(page.path || '') as any,
-      priority: getSitemapPriority(page.path || ''),
+      changeFrequency: getChangeFrequency(page.path),
+      priority: getSitemapPriority(page.path),
     });
   }
   
   // Fetch dynamic blog posts from database
   try {
-    const posts = await getAllBlogPosts();
+    const { data: posts, error } = await getAllBlogPosts();
     
-    if (posts) {
+    if (!error && posts) {
       const blogPosts = posts
-        .filter((post: any) => post.status === 'published')
-        .map((post: any) => ({
+        .filter(post => post.status === 'published')
+        .map(post => ({
           url: `${SITE_CONFIG.url}/${post.slug}`,
-          lastModified: new Date(post.updated_at || post.publishedAt || Date.now()),
+          lastModified: new Date(post.updated_at),
           changeFrequency: 'weekly' as const,
           priority: 0.8,
         }));

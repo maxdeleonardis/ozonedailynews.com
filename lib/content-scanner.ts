@@ -1,23 +1,24 @@
 import fs from 'fs';
 import path from 'path';
-import { ARTICLE_DATES } from './article-dates';
+import { parseDate, formatArticleDate } from './date-utils';
 
-export interface Article {
+export interface DiscoveredArticle {
   title: string;
-  slug: string;
-  publishDate: string;
+  excerpt: string;
   category: string;
+  date: string;
+  slug: string;
+  author: string;
+  readTime: string;
   urgent?: boolean;
-  excerpt?: string;
-  author?: string;
-  readTime?: string;
-  date?: string;
-  filePath?: string;
-  publishedAt?: Date;
+  featured?: boolean;
+  filePath: string;
+  createdAt: Date;
+  publishedAt: Date;
   updatedAt?: Date;
-  createdAt?: Date;
 }
 
+<<<<<<< Updated upstream
 export type DiscoveredArticle = Article;
 
 // Categories to scan for content - comprehensive list of ALL content directories
@@ -54,240 +55,213 @@ const CONTENT_DIRECTORIES = [
   'college',
   'ngos',
   'blog',
+=======
+/**
+ * Static registry for client-side pages that can't export metadata
+ * These are manually maintained for interactive/client-component pages
+ * NOTE: This is only needed for pages that use "use client" at the top level
+ * If you need interactivity, use server component + client component pattern instead
+ */
+const CLIENT_SIDE_ARTICLES: DiscoveredArticle[] = [
+  // Add client-only pages here if absolutely necessary
+  // Example:
+  // {
+  //   title: "Example Interactive Page",
+  //   excerpt: "Description...",
+  //   category: "NEWS",
+  //   date: new Date('2026-01-27').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+  //   slug: "example/page",
+  //   author: "ObjectWire Team",
+  //   readTime: "5 min",
+  //   urgent: false,
+  //   filePath: "app/example/page/page.tsx",
+  //   createdAt: new Date('2026-01-27'),
+  // },
+>>>>>>> Stashed changes
 ];
 
 /**
- * Recursively scan directories for page.tsx files and extract article metadata
+ * Recursively scans the app directory for page.tsx files
+ * and extracts metadata from them
  */
-export async function scanAllContent(): Promise<Article[]> {
-  const articles: Article[] = [];
+export async function scanAllContent(): Promise<DiscoveredArticle[]> {
   const appDir = path.join(process.cwd(), 'app');
+  const articles: DiscoveredArticle[] = [...CLIENT_SIDE_ARTICLES]; // Start with client-side articles
 
-  for (const dir of CONTENT_DIRECTORIES) {
-    const categoryPath = path.join(appDir, dir);
-    
-    if (!fs.existsSync(categoryPath)) {
-      continue;
+  function extractMetadataFromFile(filePath: string): DiscoveredArticle | null {
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      
+      // Extract metadata export
+      const metadataMatch = content.match(/export const metadata[:\s]*Metadata\s*=\s*{([^}]+(?:{[^}]*}[^}]*)*)/s);
+      if (!metadataMatch) return null;
+
+      const metadataStr = metadataMatch[0];
+      
+      // Extract title
+      const titleMatch = metadataStr.match(/title:\s*["'`]([^"'`]+)["'`]/);
+      const title = titleMatch ? titleMatch[1].replace(/\s*\|\s*ObjectWire.*$/i, '').trim() : null;
+      
+      if (!title) return null;
+
+      // Extract description/excerpt
+      const descMatch = metadataStr.match(/description:\s*["'`]([^"'`]+)["'`]/);
+      const excerpt = descMatch ? descMatch[1] : '';
+
+      // Extract author from authors array or openGraph
+      let author = 'ObjectWire Team';
+      const authorMatch = metadataStr.match(/authors:\s*\[.*?name:\s*["']([^"']+)["']/s);
+      if (authorMatch) author = authorMatch[1];
+
+      // Extract category from openGraph section or keywords
+      let category = 'NEWS';
+      const sectionMatch = metadataStr.match(/section:\s*["']([^"']+)["']/);
+      if (sectionMatch) category = sectionMatch[1].toUpperCase();
+
+      // Extract published time
+      let publishedDate = new Date();
+      const publishedMatch = metadataStr.match(/publishedTime:\s*["']([^"']+)["']/);
+      if (publishedMatch) {
+        publishedDate = parseDate(publishedMatch[1]);
+      } else {
+        // Use file creation time as fallback
+        const stats = fs.statSync(filePath);
+        publishedDate = stats.birthtime;
+      }
+
+      // Extract modified time
+      let modifiedDate: Date | undefined;
+      const modifiedMatch = metadataStr.match(/modifiedTime:\s*["']([^"']+)["']/);
+      if (modifiedMatch) {
+        modifiedDate = parseDate(modifiedMatch[1]);
+      } else {
+        // Check file modification time
+        const stats = fs.statSync(filePath);
+        // Only use mtime if it's significantly different from birthtime (more than 1 hour)
+        if (Math.abs(stats.mtime.getTime() - publishedDate.getTime()) > 3600000) {
+          modifiedDate = stats.mtime;
+        }
+      }
+
+      // Calculate slug from file path
+      const relativePath = path.relative(appDir, filePath);
+      const slug = relativePath
+        .replace(/\/page\.tsx$/, '')
+        .replace(/^\(public\)\//, '')
+        .replace(/^\(admin\)\//, '')
+        .replace(/^\//, '');
+
+      // Skip certain paths
+      if (
+        slug === '' || 
+        slug === 'page.tsx' ||
+        slug.includes('api/') ||
+        slug.includes('(admin)') ||
+        slug.startsWith('_') ||
+        !excerpt
+      ) {
+        return null;
+      }
+
+      // Extract read time from content
+      const readTimeMatch = content.match(/(\d+)\s*min(?:ute)?(?:\s+read)?/i);
+      const readTime = readTimeMatch ? `${readTimeMatch[1]} min` : '5 min';
+
+      // Check if urgent/breaking
+      const urgent = content.toLowerCase().includes('breaking') || 
+                    content.toLowerCase().includes('urgent');
+
+      return {
+        title,
+        excerpt,
+        category,
+        date: formatArticleDate(publishedDate),
+        slug,
+        author,
+        readTime,
+        urgent,
+        filePath,
+        createdAt: publishedDate, // For backwards compatibility
+        publishedAt: publishedDate,
+        updatedAt: modifiedDate,
+      };
+    } catch (error) {
+      console.error(`Error parsing ${filePath}:`, error);
+      return null;
     }
-
-    const categoryArticles = await scanDirectory(categoryPath, dir);
-    articles.push(...categoryArticles);
   }
 
-  // Sort by published date (newest first)
-  articles.sort((a, b) => {
-    const dateA = a.publishedAt || new Date(a.publishDate || 0);
-    const dateB = b.publishedAt || new Date(b.publishDate || 0);
-    return dateB.getTime() - dateA.getTime();
-  });
+  function scanDirectory(dir: string) {
+    const items = fs.readdirSync(dir);
 
-  return articles;
-}
+    for (const item of items) {
+      const fullPath = path.join(dir, item);
+      const stat = fs.statSync(fullPath);
 
-/**
- * Recursively scan a directory for page.tsx files
- */
-async function scanDirectory(dirPath: string, category: string): Promise<Article[]> {
-  const articles: Article[] = [];
-  
-  try {
-    const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = path.join(dirPath, entry.name);
-
-      if (entry.isDirectory()) {
-        // Recursively scan subdirectories
-        const subArticles = await scanDirectory(fullPath, category);
-        articles.push(...subArticles);
-      } else if (entry.name === 'page.tsx' || entry.name === 'page.ts') {
-        // Found an article page
-        const article = await extractArticleMetadata(fullPath, dirPath, category);
+      if (stat.isDirectory()) {
+        // Skip node_modules, .next, etc.
+        if (!item.startsWith('.') && !item.startsWith('_') && item !== 'node_modules') {
+          scanDirectory(fullPath);
+        }
+      } else if (item === 'page.tsx' || item === 'page.ts') {
+        const article = extractMetadataFromFile(fullPath);
         if (article) {
           articles.push(article);
         }
       }
     }
-  } catch (error) {
-    console.error(`Error scanning directory ${dirPath}:`, error);
   }
+
+  scanDirectory(appDir);
+
+  // Sort by published date (newest first)
+  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
   return articles;
 }
 
 /**
- * Try to extract a publish date from the file content itself.
- * This is critical for production/Vercel where filesystem timestamps
- * all collapse to the deployment time, making sort order meaningless.
- *
- * Priority order:
- *   0. ARTICLE_DATES registry (central config — highest priority)
- *   1. publishDate="Month DD, YYYY" (component prop — most common)
- *   2. datePublished: "YYYY-MM-DDTHH:MM:SSZ" (JSON-LD schema)
- *   3. published_time.*content="YYYY-MM-DD" (OpenGraph meta)
- *   4. Filesystem birthtime (local dev only — unreliable on deploy)
- *   5. Fallback: Jan 1 2025 (ensures undated pages sort LAST)
+ * Get articles from a specific time period
  */
-function extractDateFromContent(fileContent: string, filePath: string, slug?: string): { publishedAt: Date; updatedAt: Date | undefined; hasEmbeddedDate: boolean } {
-  // 0. Check the central date registry first
-  if (slug && ARTICLE_DATES[slug]) {
-    const d = new Date(ARTICLE_DATES[slug]);
-    if (!isNaN(d.getTime())) {
-      return { publishedAt: d, updatedAt: undefined, hasEmbeddedDate: true };
-    }
-  }
-
-  // 1. publishDate="February 11, 2026"
-  const propMatch = fileContent.match(/publishDate\s*=\s*["']([A-Z][a-z]+ \d{1,2},\s*\d{4})["']/);
-  if (propMatch) {
-    const d = new Date(propMatch[1]);
-    if (!isNaN(d.getTime())) {
-      // Also look for an updateDate prop
-      const updateMatch = fileContent.match(/updateDate\s*=\s*["']([A-Z][a-z]+ \d{1,2},\s*\d{4})["']/);
-      const updatedAt = updateMatch ? new Date(updateMatch[1]) : undefined;
-      return { publishedAt: d, updatedAt: updatedAt && !isNaN(updatedAt.getTime()) ? updatedAt : undefined, hasEmbeddedDate: true };
-    }
-  }
-
-  // 2. datePublished: "2026-01-23T17:00:00Z"
-  const jsonLdMatch = fileContent.match(/datePublished\s*:\s*["'](\d{4}-\d{2}-\d{2}[T ]?\d{0,2}:?\d{0,2}:?\d{0,2}Z?)["']/);
-  if (jsonLdMatch) {
-    const d = new Date(jsonLdMatch[1]);
-    if (!isNaN(d.getTime())) {
-      const modMatch = fileContent.match(/dateModified\s*:\s*["'](\d{4}-\d{2}-\d{2}[T ]?\d{0,2}:?\d{0,2}:?\d{0,2}Z?)["']/);
-      const updatedAt = modMatch ? new Date(modMatch[1]) : undefined;
-      return { publishedAt: d, updatedAt: updatedAt && !isNaN(updatedAt.getTime()) ? updatedAt : undefined, hasEmbeddedDate: true };
-    }
-  }
-
-  // 3. article:published_time content="2026-01-23"
-  const ogMatch = fileContent.match(/published_time.*?content\s*=\s*["'](\d{4}-\d{2}-\d{2})["']/);
-  if (ogMatch) {
-    const d = new Date(ogMatch[1]);
-    if (!isNaN(d.getTime())) {
-      return { publishedAt: d, updatedAt: undefined, hasEmbeddedDate: true };
-    }
-  }
-
-  // 4. Filesystem timestamps (useful in local dev only)
-  try {
-    const stats = fs.statSync(filePath);
-    const birthtime = stats.birthtime || stats.mtime;
-    const mtime = stats.mtime;
-    // Detect deploy-collapsed timestamps: if birthtime is within the last 10 minutes
-    // of mtime, they were likely set during deployment and are unreliable.
-    const timeDiff = Math.abs(mtime.getTime() - birthtime.getTime());
-    if (timeDiff < 600_000) {
-      // Timestamps look like they were set during deploy — fall through to fallback
-    } else {
-      return {
-        publishedAt: birthtime,
-        updatedAt: mtime.getTime() !== birthtime.getTime() ? mtime : undefined,
-        hasEmbeddedDate: false,
-      };
-    }
-  } catch {
-    // ignore
-  }
-
-  // 5. Fallback — pages without any date signal sort to the back
-  return { publishedAt: new Date('2025-01-01T00:00:00Z'), updatedAt: undefined, hasEmbeddedDate: false };
+export function filterByDateRange(
+  articles: DiscoveredArticle[], 
+  daysAgo: number
+): DiscoveredArticle[] {
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - daysAgo);
+  
+  return articles.filter(article => article.publishedAt >= cutoff);
 }
 
 /**
- * Extract metadata from a page.tsx file
+ * Get articles by category
  */
-async function extractArticleMetadata(
-  filePath: string,
-  dirPath: string,
+export function filterByCategory(
+  articles: DiscoveredArticle[],
   category: string
-): Promise<Article | null> {
-  try {
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    
-    // Extract metadata export
-    const metadataMatch = fileContent.match(/export const metadata[:\s]*Metadata\s*=\s*{([^}]+(?:{[^}]*}[^}]*)*?)};/s);
-    
-    if (!metadataMatch) {
-      return null;
+): DiscoveredArticle[] {
+  return articles.filter(article => 
+    article.category.toLowerCase() === category.toLowerCase()
+  );
+}
+
+/**
+ * Get featured/urgent articles
+ */
+export function getUrgentArticles(articles: DiscoveredArticle[]): DiscoveredArticle[] {
+  return articles.filter(article => article.urgent);
+}
+
+/**
+ * Group articles by category
+ */
+export function groupByCategory(articles: DiscoveredArticle[]): Record<string, DiscoveredArticle[]> {
+  return articles.reduce((acc, article) => {
+    const category = article.category || 'OTHER';
+    if (!acc[category]) {
+      acc[category] = [];
     }
-
-    // Extract title
-    const titleMatch = fileContent.match(/title:\s*['"](.*?)['"]/);
-    const title = titleMatch ? titleMatch[1].split('|')[0].trim() : 'Untitled';
-
-    // Extract description
-    const descMatch = fileContent.match(/description:\s*['"](.*?)['"]/s);
-    const excerpt = descMatch ? descMatch[1].substring(0, 200) : '';
-
-    // Generate slug from file path
-    const appDir = path.join(process.cwd(), 'app');
-    const relativePath = path.relative(appDir, dirPath);
-    const slug = '/' + relativePath.replace(/\\/g, '/');
-
-    // Extract dates from content (not filesystem!) for reliable production sorting
-    const { publishedAt, updatedAt } = extractDateFromContent(fileContent, filePath, slug);
-
-    // Extract author if present
-    const authorMatch = fileContent.match(/author[:\s]*['"](.*?)['"]/);
-    const author = authorMatch ? authorMatch[1] : 'ObjectWire Team';
-
-    // Calculate read time (rough estimate: 200 words per minute)
-    const wordCount = fileContent.split(/\s+/).length;
-    const readTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
-
-    // Format date
-    const date = publishedAt.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-
-    return {
-      title,
-      slug,
-      publishDate: date,
-      category: category.toUpperCase(),
-      excerpt,
-      author,
-      readTime,
-      date,
-      filePath,
-      publishedAt,
-      updatedAt: updatedAt && updatedAt.getTime() !== publishedAt.getTime() ? updatedAt : undefined,
-      createdAt: publishedAt,
-    };
-  } catch (error) {
-    console.error(`Error extracting metadata from ${filePath}:`, error);
-    return null;
-  }
-}
-
-export function filterByDateRange(articles: Article[], days: number, referenceDate?: Date): Article[] {
-  const reference = referenceDate || new Date();
-  const cutoffDate = new Date(reference);
-  cutoffDate.setDate(cutoffDate.getDate() - days);
-
-  return articles.filter(article => {
-    const articleDate = article.publishedAt || new Date(article.publishDate);
-    return articleDate >= cutoffDate;
-  });
-}
-
-export function groupByCategory(articles: Article[]): Record<string, Article[]> {
-  const grouped: Record<string, Article[]> = {};
-
-  for (const article of articles) {
-    const category = article.category || 'UNCATEGORIZED';
-    if (!grouped[category]) {
-      grouped[category] = [];
-    }
-    grouped[category].push(article);
-  }
-
-  return grouped;
-}
-
-export function getUrgentArticles(articles: Article[]): Article[] {
-  return articles.filter(a => a.urgent);
+    acc[category].push(article);
+    return acc;
+  }, {} as Record<string, DiscoveredArticle[]>);
 }

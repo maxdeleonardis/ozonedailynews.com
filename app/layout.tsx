@@ -152,8 +152,8 @@ export default function RootLayout({
                     <Link href="/finance" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       Finance
                     </Link>
-                    <Link href="/technology" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      Technology
+                    <Link href="/tech" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
+                      Tech
                     </Link>
                     <Link href="/news" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       News

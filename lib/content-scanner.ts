@@ -24,8 +24,9 @@ export type DiscoveredArticle = Article;
 const CONTENT_DIRECTORIES = [
   'news',
   'finance',
-  'crypto',
+  'tech',
   'technology',
+  'crypto',
   'open-ai',
   'entertainment',
   'winter-olympics',

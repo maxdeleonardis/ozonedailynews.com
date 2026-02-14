@@ -6,7 +6,13 @@ import { Clock, User, Pin } from "lucide-react";
 
 export default async function FinanceNewsFeed() {
   // Fetch articles from the finance folder only
-  const financeArticles = await scanFinanceArticles();
+  const allFinanceArticles = await scanFinanceArticles();
+
+  // Filter out any "mock" articles if they exist in the filesystem
+  const financeArticles = allFinanceArticles.filter(article => 
+    !article.title.toLowerCase().includes('mock') && 
+    !article.slug.toLowerCase().includes('mock')
+  );
 
   if (financeArticles.length === 0) {
     return (

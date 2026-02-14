@@ -7,7 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 const NAV_LINKS = [
   { href: '/news', label: 'News' },
   { href: '/finance', label: 'Finance' },
-  { href: '/technology', label: 'Technology' },
+  { href: '/tech', label: 'Tech' },
   { href: '/service', label: 'Services' },
   { href: '/entertainment', label: 'Entertainment' },
   { href: '/winter-olympics', label: 'Winter Olympics' },

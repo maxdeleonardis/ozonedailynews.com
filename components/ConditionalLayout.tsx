@@ -29,6 +29,12 @@ export default function ConditionalLayout({ children }: { children: React.ReactN
             <Link href="/blog" className="text-base font-medium text-gray-700 hover:text-black transition-colors duration-200">
               News
             </Link>
+            <Link href="/finance" className="text-base font-medium text-gray-700 hover:text-black transition-colors duration-200">
+              Finance
+            </Link>
+            <Link href="/tech" className="text-base font-medium text-gray-700 hover:text-black transition-colors duration-200">
+              Tech
+            </Link>
             <Link href="/editorial-standards" className="text-base font-medium text-gray-700 hover:text-black transition-colors duration-200">
               Standards
             </Link>

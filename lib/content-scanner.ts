@@ -18,44 +18,6 @@ export interface DiscoveredArticle {
   updatedAt?: Date;
 }
 
-<<<<<<< Updated upstream
-export type DiscoveredArticle = Article;
-
-// Categories to scan for content - comprehensive list of ALL content directories
-const CONTENT_DIRECTORIES = [
-  'news',
-  'finance',
-  'tech',
-  'technology',
-  'crypto',
-  'open-ai',
-  'entertainment',
-  'winter-olympics',
-  'world-cup',
-  'saas',
-  'disney',
-  'apple',
-  'google',
-  'elon-musk',
-  'nasa',
-  'nvidia',
-  'intel',
-  'microsoft',
-  'social',
-  'youtube',
-  'influencer',
-  'investigations',
-  'video-games',
-  'clothing',
-  'podcasts',
-  'events',
-  'define',
-  'artists',
-  'cars',
-  'college',
-  'ngos',
-  'blog',
-=======
 /**
  * Static registry for client-side pages that can't export metadata
  * These are manually maintained for interactive/client-component pages
@@ -77,7 +39,6 @@ const CLIENT_SIDE_ARTICLES: DiscoveredArticle[] = [
   //   filePath: "app/example/page/page.tsx",
   //   createdAt: new Date('2026-01-27'),
   // },
->>>>>>> Stashed changes
 ];
 
 /**

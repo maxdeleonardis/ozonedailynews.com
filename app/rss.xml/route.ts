@@ -35,23 +35,25 @@ export async function GET() {
     }));
     
     // Also fetch database posts
-    const { data: posts, error } = await getAllBlogPosts();
-    
-    if (!error && posts) {
-      const publishedPosts = posts
-        .filter(post => post.status === 'published')
-        .map(post => ({
+    try {
+      const posts = await getAllBlogPosts();
+      
+      if (posts && posts.length > 0) {
+        const publishedPosts = posts.map(post => ({
           title: post.title,
           slug: post.slug,
-          excerpt: post.excerpt || '',
-          author: post.author,
-          category: post.category,
-          tags: post.tags || [],
-          published_at: post.published_at || post.created_at,
-          created_at: post.created_at,
-          featured_image: post.featured_image,
+          excerpt: '',
+          author: 'ObjectWire Editorial Team',
+          category: post.category || 'News',
+          tags: [],
+          published_at: post.publishedAt,
+          created_at: post.publishedAt,
+          featured_image: undefined,
         }));
-      allArticles.push(...publishedPosts);
+        allArticles.push(...publishedPosts);
+      }
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
     }
     
     // Sort by published date (newest first)

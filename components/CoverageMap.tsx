@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { scanAllContent, groupByCategory, type Article } from '@/lib/content-scanner';
+import { scanAllContent, groupByCategory, type DiscoveredArticle } from '@/lib/content-scanner';
 
 /* ─── TOPIC TREE STRUCTURE ─── */
 interface SubTopic {

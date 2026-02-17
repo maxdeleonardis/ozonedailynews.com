@@ -116,13 +116,13 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
     destination: '/crypto/txc-stablecoin',
     permanent: true
   },
-  // Video game articles moved to /videogames
+  // Video game articles moved to /video-games
   '/nintendo': {
-    destination: '/videogame/nintendo',
+    destination: '/video-games/nintendo',
     permanent: true
   },
   '/video-games/top-10-anime-games-2026': {
-    destination: '/videogame/top-10-anime-games-2026',
+    destination: '/video-games/top-10-anime-games-2026',
     permanent: true
   },
   // Influencer pages
@@ -154,6 +154,10 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
     destination: '/define/hedera-vs-solana-for-dapps',
     permanent: true
   },
+  '/coding/nestjs-vs-nextjs-vs-express': {
+    destination: '/define/nestjs-vs-nextjs-express',
+    permanent: true
+  },
   // SaaS company profiles moved to /saas
   '/cognyte-software-ltd-cgnt': {
     destination: '/saas/cognyte',
@@ -161,7 +165,7 @@ const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
   },
 
   '/mha/ultra-rumble': {
-    destination: '/videogame/mha/ultra-rumble',
+    destination: '/video-games/mha/ultra-rumble',
     permanent: true
   }
 };

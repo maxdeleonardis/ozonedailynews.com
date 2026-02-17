@@ -1,6 +1,5 @@
 import TickerGrid from "@/components/finance/TickerGrid";
 import FinanceHeader from "@/components/finance/FinanceHeader";
-import FinanceNewsFeed from "@/components/finance/FinanceNewsFeed";
 import FinanceSidebar from "@/components/finance/FinanceSidebar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -60,7 +59,9 @@ export default function FinancePage() {
                         Financial Research Archive
                     </h1>
                 </div>
-                <FinanceNewsFeed />
+                <div className="bg-white p-8 rounded-lg border border-gray-200">
+                  <p className="text-gray-600">Finance articles will be displayed here.</p>
+                </div>
             </div>
             
             <div className="lg:col-span-4">

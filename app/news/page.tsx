@@ -66,8 +66,8 @@ export default async function NewsPage() {
     href: `/news?category=${cat.toLowerCase()}`,
     count: categorizedArticles[cat].length,
     new: categorizedArticles[cat].some(a => {
-      const checkDate = (a.updatedAt && a.publishedAt && a.updatedAt > a.publishedAt) ? a.updatedAt : (a.publishedAt || new Date(a.publishDate));
-      return checkDate.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000;
+      const checkDate = (a.updatedAt && a.publishedAt && a.updatedAt > a.publishedAt) ? a.updatedAt : a.publishedAt;
+      return checkDate && checkDate.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000;
     }),
   })).sort((a, b) => b.count - a.count);
 

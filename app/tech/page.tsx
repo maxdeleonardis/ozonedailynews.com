@@ -1,5 +1,4 @@
 import TechHeader from "@/components/tech/TechHeader";
-import TechNewsFeed from "@/components/tech/TechNewsFeed";
 import TechSidebar from "@/components/tech/TechSidebar";
 import TechStatsBar from "@/components/tech/TechStatsBar";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -58,7 +57,9 @@ export default function TechPage() {
                         Tech Intelligence Archive
                     </h1>
                 </div>
-                <TechNewsFeed />
+                <div className="bg-white p-8 rounded-lg border border-gray-200">
+                  <p className="text-gray-600">Tech articles will be displayed here.</p>
+                </div>
             </div>
             
             <div className="lg:col-span-4">

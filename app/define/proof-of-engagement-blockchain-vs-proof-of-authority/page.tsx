@@ -334,7 +334,7 @@ export default function ProofOfEngagementVsProofOfAuthorityPage() {
                 <p className="text-sm text-gray-600">Jack Dorsey's mesh network app</p>
               </Link>
               <Link 
-                href="/coding/nestjs-vs-nextjs-vs-express"
+                href="/define/nestjs-vs-nextjs-express"
                 className="block p-4 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all"
               >
                 <h4 className="font-bold text-gray-900 mb-2">Framework Comparison Guide</h4>

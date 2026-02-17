@@ -128,6 +128,13 @@ const nextConfig: NextConfig = {
         permanent: true, // 301 redirect
       },
       
+      // Blitzy review URL consolidation
+      {
+        source: '/blitzy-ai-powered-autonomous-software-development-platform-developer-review-for-2025',
+        destination: '/blitzy-ai-powered-autonomous-software-development',
+        permanent: true, // 301 redirect
+      },
+      
       // ==========================================================================
       // SIDEMEN CONTENT MIGRATION - Moved from /sidemen to /youtube/sidemen
       // Date: February 7, 2026

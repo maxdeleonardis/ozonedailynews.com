@@ -23,17 +23,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // Fetch dynamic blog posts from database
   try {
-    const { data: posts, error } = await getAllBlogPosts();
+    const posts = await getAllBlogPosts();
     
-    if (!error && posts) {
-      const blogPosts = posts
-        .filter(post => post.status === 'published')
-        .map(post => ({
-          url: `${SITE_CONFIG.url}/${post.slug}`,
-          lastModified: new Date(post.updated_at),
-          changeFrequency: 'weekly' as const,
-          priority: 0.8,
-        }));
+    if (posts && posts.length > 0) {
+      const blogPosts = posts.map(post => ({
+        url: `${SITE_CONFIG.url}/${post.slug}`,
+        lastModified: new Date(post.publishedAt),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      }));
       
       sitemapEntries.push(...blogPosts);
     }

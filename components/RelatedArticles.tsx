@@ -23,27 +23,27 @@ export default async function RelatedArticles({
 }: RelatedArticlesProps) {
   // Fetch all available content
   const filesystemArticles = await scanAllContent();
-  const { data: databasePosts } = await getPublishedBlogPosts();
+  const databasePosts = await getPublishedBlogPosts();
 
   // Convert database posts to unified format
   const databaseArticles: DiscoveredArticle[] = databasePosts?.map(post => ({
     title: post.title,
-    excerpt: post.excerpt || '',
+    excerpt: '',
     category: post.category?.toUpperCase() || 'NEWS',
-    date: post.published_at 
-      ? new Date(post.published_at).toLocaleDateString('en-US', {
+    date: post.publishedAt 
+      ? new Date(post.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         })
       : 'Recently published',
     slug: post.slug,
-    author: post.author || 'ObjectWire Team',
-    readTime: post.read_time || '5 min',
+    author: 'ObjectWire Team',
+    readTime: '5 min',
     filePath: 'database',
-    createdAt: post.published_at ? new Date(post.published_at) : new Date(),
-    publishedAt: post.published_at ? new Date(post.published_at) : new Date(),
-    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+    createdAt: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    publishedAt: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    updatedAt: undefined,
   })) || [];
 
   // Combine all articles
@@ -145,27 +145,27 @@ export async function RelatedArticlesSidebar({
 }: RelatedArticlesProps) {
   // Fetch all available content
   const filesystemArticles = await scanAllContent();
-  const { data: databasePosts } = await getPublishedBlogPosts();
+  const databasePosts = await getPublishedBlogPosts();
 
   // Convert database posts to unified format
   const databaseArticles: DiscoveredArticle[] = databasePosts?.map(post => ({
     title: post.title,
-    excerpt: post.excerpt || '',
+    excerpt: '',
     category: post.category?.toUpperCase() || 'NEWS',
-    date: post.published_at 
-      ? new Date(post.published_at).toLocaleDateString('en-US', {
+    date: post.publishedAt 
+      ? new Date(post.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         })
       : 'Recently published',
     slug: post.slug,
-    author: post.author || 'ObjectWire Team',
-    readTime: post.read_time || '5 min',
+    author: 'ObjectWire Team',
+    readTime: '5 min',
     filePath: 'database',
-    createdAt: post.published_at ? new Date(post.published_at) : new Date(),
-    publishedAt: post.published_at ? new Date(post.published_at) : new Date(),
-    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+    createdAt: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    publishedAt: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    updatedAt: undefined,
   })) || [];
 
   // Combine and filter

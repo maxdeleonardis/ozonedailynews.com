@@ -105,20 +105,24 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
       }
 
       // Calculate slug from file path
-      const relativePath = path.relative(appDir, filePath);
-      const slug = relativePath
+      // Normalise to forward slashes (Windows uses backslashes)
+      const relativePath = path.relative(appDir, filePath).replace(/\\/g, '/');
+      const slug = '/' + relativePath
         .replace(/\/page\.tsx$/, '')
+        .replace(/^page\.tsx$/, '')
         .replace(/^\(public\)\//, '')
         .replace(/^\(admin\)\//, '')
         .replace(/^\//, '');
 
       // Skip certain paths
       if (
+        slug === '/' ||
         slug === '' || 
         slug === 'page.tsx' ||
-        slug.includes('api/') ||
+        slug === '/page.tsx' ||
+        slug.includes('/api/') ||
         slug.includes('(admin)') ||
-        slug.startsWith('_') ||
+        slug.startsWith('/_') ||
         !excerpt
       ) {
         return null;

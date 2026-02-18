@@ -123,7 +123,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans">
+      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans" style={{ background: '#faf9f6' }}>
         <GoogleAnalytics />
         <AuthProvider>
             {/* Header */}

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { scanAllContent } from '@/lib/content-scanner';
+import { getLatestArticles, getFeaturedArticles } from '@/lib/content-registry';
 import { TopicTag, inferTopicTag } from '@/components/NewsArticle';
 
 export const metadata: Metadata = {
@@ -23,13 +23,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Revalidate every 5 minutes to show fresh content
-export const revalidate = 300;
+// Homepage is statically generated at build time — content-registry provides real dates
+export const dynamic = 'force-static';
 
-export default async function HomePage() {
-  const allArticles = await scanAllContent();
+export default function HomePage() {
+  // Pull articles from the content registry (real publish dates — never filesystem timestamps)
+  const allArticles = getLatestArticles(30);
   const latestArticles = allArticles.slice(0, 12);
-  const featuredArticle = allArticles[0];
+  const featuredArticle = getFeaturedArticles()[0] ?? allArticles[0];
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -100,17 +101,15 @@ export default async function HomePage() {
                   <h2 className="text-4xl md:text-5xl font-black leading-[1.1] mb-4 group-hover:text-gray-600 transition-colors">
                     {featuredArticle.title}
                   </h2>
-                  {featuredArticle.excerpt && (
+                  {featuredArticle.description && (
                     <p className="text-lg text-gray-700 leading-relaxed mb-4 first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none first-letter:mt-1">
-                      {featuredArticle.excerpt}
+                      {featuredArticle.description}
                     </p>
                   )}
                   <div className="flex items-center gap-3 text-xs text-gray-500 pt-3 border-t border-gray-200">
                     <span className="font-bold text-black">{featuredArticle.author || 'ObjectWire Team'}</span>
                     <span>•</span>
-                    <span>{featuredArticle.date}</span>
-                    <span>•</span>
-                    <span>{featuredArticle.readTime}</span>
+                    <span>{featuredArticle.publishDate}</span>
                   </div>
                 </Link>
               </article>
@@ -125,10 +124,10 @@ export default async function HomePage() {
                     <h3 className="text-base font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
                       {article.title}
                     </h3>
-                    {article.excerpt && (
-                      <p className="text-xs text-gray-500 line-clamp-2">{article.excerpt}</p>
+                    {article.description && (
+                      <p className="text-xs text-gray-500 line-clamp-2">{article.description}</p>
                     )}
-                    <p className="text-xs text-gray-400">{article.date}</p>
+                    <p className="text-xs text-gray-400">{article.publishDate}</p>
                   </Link>
                 </article>
               ))}
@@ -155,15 +154,15 @@ export default async function HomePage() {
                       <h3 className="text-sm font-bold leading-snug group-hover:text-gray-600 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
-                      {article.excerpt && (
+                      {article.description && (
                         <p className="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                          {article.excerpt}
+                          {article.description}
                         </p>
                       )}
                       <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-1.5">
-                        <span>{article.author || 'ObjectWire Team'}</span>
+                        <span>{article.author}</span>
                         <span>•</span>
-                        <span>{article.readTime}</span>
+                        <span>{article.publishDate}</span>
                       </div>
                     </div>
                   </Link>
@@ -259,13 +258,13 @@ export default async function HomePage() {
                   <h3 className="text-lg font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
                     {article.title}
                   </h3>
-                  {article.excerpt && (
-                    <p className="text-sm text-gray-600 line-clamp-2">{article.excerpt}</p>
+                  {article.description && (
+                    <p className="text-sm text-gray-600 line-clamp-2">{article.description}</p>
                   )}
                   <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <span>{article.author || 'ObjectWire Team'}</span>
+                    <span>{article.author}</span>
                     <span>•</span>
-                    <span>{article.date}</span>
+                    <span>{article.publishDate}</span>
                   </div>
                 </Link>
               </article>

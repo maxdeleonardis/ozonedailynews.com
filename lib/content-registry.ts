@@ -30,7 +30,11 @@ export interface ContentEntry {
   priority: number;         // Sitemap priority 0.0–1.0
   changeFrequency: ChangeFrequency;
   featured?: boolean;       // Show in homepage hero/featured slot
-  imageUrl?: string;        // OG / article hero image
+  imageUrl?: string;        // OG / article hero image (host on objectwire.org or Supabase — never hotlink)
+  imageWidth?: number;      // Pixel width  — required for Google Top Stories carousel (min 1200)
+  imageHeight?: number;     // Pixel height — required for Google Top Stories carousel (min 675, 16:9)
+  imageAlt?: string;        // Alt text for the hero image
+  imageCredit?: string;     // Attribution string, e.g. "NASA / JPL-Caltech (Public Domain)"
 }
 
 export const contentRegistry: ContentEntry[] = [

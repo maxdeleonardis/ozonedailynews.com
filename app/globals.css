@@ -32,6 +32,7 @@
 
   html {
     scroll-behavior: smooth;
+    background: #faf9f6;
     /* Prevent text size adjustment on orientation change */
     -webkit-text-size-adjust: 100%;
     /* Prevent horizontal scroll / zoom-out on mobile */
@@ -39,8 +40,8 @@
   }
 
   body {
-    background: #faf9f6;
-    color: #000000;
+    background: #faf9f6 !important;
+    color: #1a1a1a;
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.7;
@@ -53,42 +54,43 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: #000000;
+    color: #0f0f0f;
     /* Prevent FOUT */
     font-display: swap;
   }
 
-  /* Paragraph styling - more readable serif font */
+  /* Paragraph styling - clean sans-serif (Perplexity-style) */
   p {
-    font-family: var(--font-serif);
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #000000;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #1a1a1a;
     font-weight: 400;
   }
 
   /* Article prose styling */
   .prose p {
-    font-family: var(--font-serif);
-    font-size: 1.125rem;
-    line-height: 1.85;
-    color: #000000;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #1a1a1a;
     margin-bottom: 1.5rem;
   }
 
   .prose li {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 1.0625rem;
     line-height: 1.75;
-    color: #000000;
+    color: #1a1a1a;
   }
 
   .prose blockquote {
-    font-family: var(--font-serif);
-    color: #000000;
+    font-family: var(--font-sans);
+    color: #1a1a1a;
   }
 
   a {
@@ -112,7 +114,53 @@
   }
 }
 
-/* Utility Classes */
+/* =============================================================================
+   BRAND OVERRIDES — Eggshell white background, clean sans-serif everywhere
+   All dark page-level backgrounds are stripped in favor of the global bg.
+   ============================================================================= */
+
+/* Force eggshell background — overrides any dark tailwind bg-* utility on page wrappers */
+.min-h-screen {
+  background-color: #faf9f6 !important;
+  color: #1a1a1a;
+}
+
+/* Cards, panels, and article sections should use white or light surface */
+.bg-slate-900, .bg-slate-800, .bg-gray-900, .bg-gray-800,
+.bg-zinc-900, .bg-zinc-800, .bg-black, .bg-neutral-900 {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+/* Override dark gradient hero sections to eggshell */
+[class*="from-slate-9"], [class*="from-gray-9"],
+[class*="from-zinc-9"], [class*="from-indigo-9"] {
+  background: #faf9f6 !important;
+}
+
+/* Ensure all text in formerly-dark containers is readable */
+.bg-slate-800\/50, .bg-slate-900\/50 {
+  background-color: rgba(255,255,255,0.6) !important;
+}
+
+/* =============================================================================
+   TYPOGRAPHY SCALE — Perplexity-style clean sans-serif
+   ============================================================================= */
+
+/* Consistent heading weights */
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+
+/* Dark text on formerly-dark badge/tag elements */
+.text-white {
+  color: #0f0f0f !important;
+}
+.text-gray-300, .text-gray-400 {
+  color: #4a4a4a !important;
+}
+
+/* Utility Classes - keep these light */
 .container {
   max-width: 1200px;
   margin: 0 auto;

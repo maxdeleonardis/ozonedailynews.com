@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getPublishedBlogPosts } from '@/lib/blog-service';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
-import { formatArticleDate, parseDate, compareDescending, getRelativeTime } from '@/lib/date-utils';
+import { contentRegistry } from '@/lib/content-registry';
+import { formatArticleDate, compareDescending, getRelativeTime } from '@/lib/date-utils';
 
 export const metadata: Metadata = {
   title: "ObjectWire — News That Matters",
@@ -47,12 +47,27 @@ export default async function NewsPage() {
   });
 
   const filesystemArticles = await scanAllContent();
-  const databaseArticles: any[] = [];
-  const allArticles = [...filesystemArticles, ...databaseArticles];
+
+  // Merge: registry entries override filesystem dates so we never rely on deploy timestamps
+  const registryMap = new Map(contentRegistry.map(e => [e.slug, e]));
+  const allArticles = filesystemArticles.map(a => {
+    const reg = registryMap.get(a.slug);
+    if (reg) {
+      return {
+        ...a,
+        publishedAt: new Date(reg.publishDate),
+        updatedAt: new Date(reg.modifiedDate),
+        date: reg.publishDate,
+        category: reg.category.toUpperCase(),
+        author: reg.author,
+      };
+    }
+    return a;
+  });
   
   allArticles.sort((a, b) => {
-    const dateA = (a as any).updatedAt && (a as any).updatedAt > (a as any).publishedAt ? (a as any).updatedAt : (a as any).publishedAt || a.publishDate;
-    const dateB = (b as any).updatedAt && (b as any).updatedAt > (b as any).publishedAt ? (b as any).updatedAt : (b as any).publishedAt || b.publishDate;
+    const dateA = a.updatedAt && a.updatedAt > a.publishedAt ? a.updatedAt : a.publishedAt;
+    const dateB = b.updatedAt && b.updatedAt > b.publishedAt ? b.updatedAt : b.publishedAt;
     return compareDescending(dateA, dateB);
   });
 

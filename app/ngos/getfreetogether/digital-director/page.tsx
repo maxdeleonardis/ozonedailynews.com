@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -27,13 +27,12 @@ export default function DigitalDirectorPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="container mx-auto px-4 pt-4 max-w-4xl">
-        <Breadcrumbs 
-          items={[
-            { label: 'NGOs', href: '/ngos' },
-            { label: 'Get Free Together', href: '/ngos/getfreetogether' }
-          ]}
-          currentPage="Digital Director"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'NGOs', item: '/ngos' },
+          { name: 'Get Free Together', item: '/ngos/getfreetogether' },
+          { name: 'Digital Director', item: '/ngos/getfreetogether/digital-director' },
+        ]} />
       </div>
 
       <article className="container mx-auto px-4 py-12 max-w-4xl">

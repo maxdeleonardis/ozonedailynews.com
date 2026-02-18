@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Minnesota's Tech Hub Growth Threatens Austin's Dominance | ObjectWire",
@@ -29,13 +29,12 @@ export default function AustinTechHubPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="container mx-auto px-4 pt-4 max-w-4xl">
-        <Breadcrumbs 
-          items={[
-            { label: 'News', href: '/news' },
-            { label: 'Texas', href: '/news/texas' }
-          ]}
-          currentPage="Austin Tech Hub Decline"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'News', item: '/news' },
+          { name: 'Texas', item: '/news/texas' },
+          { name: 'Austin Tech Hub Decline', item: '/news/texas/austin-tech-hub-decline' },
+        ]} />
       </div>
       {/* Hero Section */}
       <header className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white rounded-[1.5rem] mx-4 my-8 overflow-hidden">

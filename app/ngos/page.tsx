@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "NGO Investigations | ObjectWire",
@@ -28,7 +28,7 @@ export default function NGOsPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="container mx-auto px-4 pt-4 max-w-6xl">
-        <Breadcrumbs currentPage="NGOs" />
+        <Breadcrumb items={[{ name: 'Home', item: '/' }, { name: 'NGOs', item: '/ngos' }]} />
       </div>
 
       {/* Header */}

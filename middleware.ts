@@ -49,126 +49,7 @@ const PARAMS_TO_STRIP = [
   'mkt_tok',
 ];
 
-// Redirect rules (old URL -> new URL)
-const REDIRECTS: Record<string, { destination: string; permanent: boolean }> = {
-  // Site index (Next.js reserves /index internally)
-  '/index': { destination: '/site-index', permanent: true },
-  // Trump variations
-  '/donaldtrump': { destination: '/trump', permanent: true },
-  '/donald-trump': { destination: '/trump', permanent: true },
-  '/president-trump': { destination: '/trump', permanent: true },
-  '/trump-wiki': { destination: '/trump', permanent: true },
-  // TikTok variations
-  '/tik-tok': { destination: '/tiktok', permanent: true },
-  '/tik_tok': { destination: '/tiktok', permanent: true },
-  // James Cameron variations
-  '/cameron': { destination: '/entertainment/james-cameron', permanent: true },
-  '/jamescameron': { destination: '/entertainment/james-cameron', permanent: true },
-  '/james-cameron': { destination: '/entertainment/james-cameron', permanent: true },
-  // Old URL patterns
-  '/articles': { destination: '/blog', permanent: true },
-  '/posts': { destination: '/blog', permanent: true },
-  '/technology': { destination: '/', permanent: true },
-  '/start-up-news': { destination: '/news', permanent: true },
-  // Author page redirects (old service URLs -> new author URLs)
-  '/service/conan-d': { destination: '/author/conan-d', permanent: true },
-  '/service/jack-s': { destination: '/author/jack-s', permanent: true },
-  // Removed authors
-  '/service/skip-s': { destination: '/about', permanent: true },
-  // Texas news articles moved to /news/texas
-  '/texas-instruments-ti-cc23xx-and-cc26xx-long-range-low-energy-mesh-for-edge-computing': { 
-    destination: '/news/texas/texas-instruments-ti-cc23xx-and-cc26xx', 
-    permanent: true 
-  },
-  '/pegatron-opens-us-factory-tx': {
-    destination: '/news/texas/pegatron-opens-us-factory',
-    permanent: true
-  },
-  '/semiconductor-supplier-asml-to-open-in-hutto-co-op-district': {
-    destination: '/news/texas/asml-hutto-semiconductor',
-    permanent: true
-  },
-  '/austins-reign-as-a-tech-hub-might-be-coming-to-an-end': {
-    destination: '/news/texas/austin-tech-hub-decline',
-    permanent: true
-  },
-  '/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar': {
-    destination: '/news/texas/lifetime-fitness-austin-new-location-opening-in-2025-november-1301-south-lamar',
-    permanent: true
-  },
-  // Finance articles
-  '/oanda-or-interactive-brokers-forex-trading-usa': {
-    destination: '/finance',
-    permanent: true
-  },
-  // Other news articles moved to /news
-  '/does-doordash-take-snap': {
-    destination: '/news/doordash-snap-ebt',
-    permanent: true
-  },
-  // Canada news articles moved to /news/canada
-  '/oh-canada-what-has-happened': {
-    destination: '/news/canada/canada-political-crisis',
-    permanent: true
-  },
-  // Crypto articles moved to /crypto
-  '/txc-stable-coin': {
-    destination: '/crypto/txc-stablecoin',
-    permanent: true
-  },
-  // Video game articles moved to /video-games
-  '/nintendo': {
-    destination: '/video-games/nintendo',
-    permanent: true
-  },
-  '/video-games/top-10-anime-games-2026': {
-    destination: '/video-games/top-10-anime-games-2026',
-    permanent: true
-  },
-  // Influencer pages
-  '/who-is-serge-gatari-ai-course-review': {
-    destination: '/influencer/serge-gatari',
-    permanent: true
-  },
-  // Cars articles
-  '/2025-nissan-z-vs-toyota-gr-supra-comparison': {
-    destination: '/cars/2025-nissan-z-vs-toyota-gr-supra-comparison',
-    permanent: true
-  },
-  // College guides
-  '/non-degree-studies-at-university-of-texas-austin': {
-    destination: '/college/guides/non-degree-studies-at-university-of-texas-austin',
-    permanent: true
-  },
-  // SaaS articles
-  '/render-vs-vercel-for-free-start-up-app-deployment': {
-    destination: '/saas/news/render-vs-vercel-for-free-start-up-app-deployment',
-    permanent: true
-  },
-  '/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app': {
-    destination: '/saas/news/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app',
-    permanent: true
-  },
-  // Define articles
-  '/hedera-vs-solana-for-dapps': {
-    destination: '/define/hedera-vs-solana-for-dapps',
-    permanent: true
-  },
-  '/coding/nestjs-vs-nextjs-vs-express': {
-    destination: '/define/nestjs-vs-nextjs-express',
-    permanent: true
-  },
-  // SaaS company profiles moved to /saas
-  '/cognyte-software-ltd-cgnt': {
-    destination: '/saas/cognyte',
-    permanent: true
-  },
-
-  '/mha/ultra-rumble': {
-    destination: '/video-games/mha/ultra-rumble',
-    permanent: true
-  }
-};
+// Redirect rules removed to prevent redirect loops
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
@@ -184,19 +65,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 1. EXPLICIT REDIRECTS
-  // ==========================================================================
-  const lowercasePath = pathname.toLowerCase();
-  const redirect = REDIRECTS[lowercasePath];
-  if (redirect) {
-    return NextResponse.redirect(
-      new URL(redirect.destination, request.url),
-      redirect.permanent ? 308 : 307
-    );
-  }
-  
-  // ==========================================================================
-  // 2. TRAILING SLASH NORMALIZATION (Remove trailing slashes)
+  // 1. TRAILING SLASH NORMALIZATION (Remove trailing slashes)
   // ==========================================================================
   if (pathname !== '/' && pathname.endsWith('/')) {
     url.pathname = pathname.slice(0, -1);
@@ -204,7 +73,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 3. LOWERCASE ENFORCEMENT
+  // 2. LOWERCASE ENFORCEMENT
   // ==========================================================================
   if (pathname !== pathname.toLowerCase()) {
     url.pathname = pathname.toLowerCase();
@@ -212,7 +81,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 4. DOUBLE SLASH NORMALIZATION
+  // 3. DOUBLE SLASH NORMALIZATION
   // ==========================================================================
   if (pathname.includes('//')) {
     url.pathname = pathname.replace(/\/+/g, '/');
@@ -220,7 +89,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 5. STRIP TRACKING PARAMETERS (Canonical enforcement)
+  // 4. STRIP TRACKING PARAMETERS (Canonical enforcement)
   // ==========================================================================
   let hasTrackingParams = false;
   for (const param of PARAMS_TO_STRIP) {
@@ -235,7 +104,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 6. NON-WWW TO WWW REDIRECT (Squarespace canonical domain)
+  // 5. NON-WWW TO WWW REDIRECT (Canonical domain)
   // ==========================================================================
   const host = request.headers.get('host') || '';
   if (host === 'objectwire.org') {
@@ -245,7 +114,7 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
-  // 7. SET SEO HEADERS
+  // 6. SET SEO HEADERS
   // ==========================================================================
   const response = NextResponse.next();
   

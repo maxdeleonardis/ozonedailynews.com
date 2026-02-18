@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: "Serge Gatari AI Course Review | ClientAcquisition.io Community - ObjectWire.org",
@@ -14,13 +14,12 @@ export default function SergeGatariCourseReviewPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 py-16 max-w-4xl">
-        <Breadcrumbs 
-          items={[
-            { label: 'Influencer', href: '/influencer' },
-            { label: 'Serge Gatari', href: '/influencer/serge-gatari' }
-          ]}
-          currentPage="AI Course Review"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'Influencer', item: '/influencer' },
+          { name: 'Serge Gatari', item: '/influencer/serge-gatari' },
+          { name: 'AI Course Review', item: '/influencer/serge-gatari/ai-course-review' },
+        ]} />
 
         <header className="mb-12 mt-8">
           <div className="text-sm text-gray-500 mb-2">September 11, 2025</div>

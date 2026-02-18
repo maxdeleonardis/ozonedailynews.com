@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
-import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Introducing BitChat: Jack Dorsey\'s Game-Changing Bluetooth Mesh Messaging App | Object Wire',
@@ -19,10 +18,9 @@ export default function BitChatArticle() {
   return (
     <ArticleLayout
       customBreadcrumbs={[
-        { label: 'Home', href: '/' },
-        { label: 'SaaS', href: '/saas' },
-        { label: 'News', href: '/saas/news' },
-        { label: 'BitChat: Jack Dorsey\'s Bluetooth Mesh Messaging App', href: '/saas/news/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app' },
+        { name: 'SaaS', item: '/saas' },
+        { name: 'News', item: '/saas/news' },
+        { name: "BitChat: Jack Dorsey's Bluetooth Mesh Messaging App", item: '/saas/news/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app' },
       ]}
     >
       <article className="prose prose-lg dark:prose-invert max-w-none">

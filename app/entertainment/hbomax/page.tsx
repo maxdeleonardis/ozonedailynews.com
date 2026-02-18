@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'HBO Max - Streaming Platform Profile | ObjectWire',
@@ -17,10 +17,11 @@ export default function HBOMaxPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-5xl mx-auto px-4 pt-4">
-        <Breadcrumbs 
-          items={[{ label: 'Entertainment', href: '/entertainment' }]}
-          currentPage="HBO Max"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'Entertainment', item: '/entertainment' },
+          { name: 'HBO Max', item: '/entertainment/hbomax' },
+        ]} />
       </div>
       <article className="max-w-5xl mx-auto px-4 py-12">
         

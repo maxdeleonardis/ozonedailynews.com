@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
-import Breadcrumbs, { generateBreadcrumbs } from './Breadcrumbs';
+import { Breadcrumb } from './Breadcrumb';
 
 interface ArticleLayoutProps {
   children: ReactNode;
   pathname?: string;
-  customBreadcrumbs?: Array<{ label: string; href: string }>;
+  customBreadcrumbs?: Array<{ name: string; item: string }>;
   currentPage?: string;
   className?: string;
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
@@ -23,7 +23,10 @@ export default function ArticleLayout({
   maxWidth = '4xl',
 }: ArticleLayoutProps) {
   // Auto-generate breadcrumbs from pathname if not provided
-  const breadcrumbItems = customBreadcrumbs || (pathname ? generateBreadcrumbs(pathname) : []);
+  const breadcrumbItems = customBreadcrumbs || (pathname ? pathname.split('/').filter(Boolean).map((seg, i, arr) => ({
+    name: seg.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
+    item: '/' + arr.slice(0, i + 1).join('/'),
+  })) : []);
 
   const maxWidthClass = {
     'sm': 'max-w-sm',
@@ -39,9 +42,12 @@ export default function ArticleLayout({
   return (
     <div className={`min-h-screen ${className}`}>
       <div className={`container mx-auto px-4 pt-4 ${maxWidthClass}`}>
-        <Breadcrumbs 
-          items={breadcrumbItems}
-          currentPage={currentPage}
+        <Breadcrumb
+          items={[
+            { name: 'Home', item: '/' },
+            ...breadcrumbItems,
+            ...(currentPage ? [{ name: currentPage, item: '' }] : []),
+          ]}
         />
       </div>
       {children}

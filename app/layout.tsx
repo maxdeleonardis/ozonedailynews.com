@@ -5,7 +5,6 @@ import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
-import AutoSEO from "@/components/AutoSEO";
 import AuthProvider from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
 import SearchBar from "@/components/SearchBar";
@@ -126,7 +125,6 @@ export default function RootLayout({
       </head>
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans">
         <GoogleAnalytics />
-        <AutoSEO />
         <AuthProvider>
             {/* Header */}
             <header className="border-b bg-white sticky top-0 z-40">

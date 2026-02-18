@@ -216,4 +216,11 @@ export const ARTICLE_DATES: Record<string, string> = {
   // ─── Authors ───────────────────────────────────────────────
   '/authors/conan-boyle': '2025-01-15',
   '/authors/jack-wang': '2025-01-15',
+
+  // ─── Winter Olympics 2026 ──────────────────────────────────
+  '/winter-olympics/usa/elana-meyers-taylor-bobsled-gold': '2026-02-17',
+  '/winter-olympics/italy/speedskating-team-pursuit-gold-2026': '2026-02-17',
+  '/winter-olympics/georgia/first-winter-olympic-medal-figure-skating': '2026-02-17',
+  '/winter-olympics/france/biathlon-relay-gold-perrot-2026': '2026-02-17',
+  '/winter-olympics/norway/oftebro-second-nordic-combined-gold': '2026-02-17',
 };

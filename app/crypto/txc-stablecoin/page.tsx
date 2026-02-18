@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "What is $ Texit an Investment a Stablecoin, or Scam? - ObjectWire.org",
@@ -13,10 +13,11 @@ export default function TexitCoinPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 pt-4 max-w-4xl">
-        <Breadcrumbs 
-          items={[{ label: 'Crypto', href: '/crypto' }]}
-          currentPage="TXC Stablecoin"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'Crypto', item: '/crypto' },
+          { name: 'TXC Stablecoin', item: '/crypto/txc-stablecoin' },
+        ]} />
       </div>
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <header className="mb-12">

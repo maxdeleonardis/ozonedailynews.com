@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Kim Kardashian - SKIMS Creative Director | OBJECTWIRE',
@@ -18,13 +18,12 @@ export default function KimKardashianPage() {
   return (
     <main className="min-h-screen bg-white">
       <article className="max-w-4xl mx-auto px-4 py-8">
-        <Breadcrumbs 
-          items={[
-            { label: 'Clothing', href: '/clothing' },
-            { label: 'SKIMS', href: '/clothing/skims' }
-          ]}
-          currentPage="Creative Director"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'Clothing', item: '/clothing' },
+          { name: 'SKIMS', item: '/clothing/skims' },
+          { name: 'Creative Director', item: '/clothing/skims/creative-director' },
+        ]} />
 
         <header className="mb-8 pb-6 border-b-2 border-gray-900">
           <h1 className="text-5xl font-bold mb-4">Kim Kardashian</h1>

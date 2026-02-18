@@ -1,7 +1,7 @@
 import TechHeader from "@/components/tech/TechHeader";
 import TechSidebar from "@/components/tech/TechSidebar";
 import TechStatsBar from "@/components/tech/TechStatsBar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function TechPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <div className="container mx-auto px-4 pt-4">
-        <Breadcrumbs currentPage="Tech" />
+        <Breadcrumb items={[{ name: 'Home', item: '/' }, { name: 'Tech', item: '/tech' }]} />
       </div>
       
       <TechStatsBar />

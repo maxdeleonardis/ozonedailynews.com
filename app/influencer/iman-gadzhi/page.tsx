@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Iman Gadzhi - Digital Marketing Entrepreneur & Educator | OBJECTWIRE',
@@ -18,12 +18,11 @@ export default function ImanGadzhiPage() {
   return (
     <main className="min-h-screen bg-white">
       <article className="max-w-4xl mx-auto px-4 py-8">
-        <Breadcrumbs 
-          items={[
-            { label: 'Influencer', href: '/influencer' }
-          ]}
-          currentPage="Iman Gadzhi"
-        />
+        <Breadcrumb items={[
+          { name: 'Home', item: '/' },
+          { name: 'Influencer', item: '/influencer' },
+          { name: 'Iman Gadzhi', item: '/influencer/iman-gadzhi' },
+        ]} />
 
         <header className="mb-8 pb-6 border-b-2 border-gray-900">
           <h1 className="text-5xl font-bold mb-4">Iman Gadzhi</h1>

@@ -65,6 +65,36 @@ export function middleware(request: NextRequest) {
   }
   
   // ==========================================================================
+  // 0. PERMANENT 301 REDIRECTS
+  // ==========================================================================
+  const REDIRECTS: Record<string, string> = {
+    // No matching page - redirect to nearest relevant section
+    '/nycs-ranked-choice-voting-system-faces-scrutiny-after-mayoral-upset': '/news',
+    '/ethiopia-evacuates-80-000-after-earthquakes-fears-of-volcanic-eruption': '/news',
+    '/semiconductor-supplier-asml-to-open-in-hutto-co-op-district': '/tech',
+    '/render-vs-vercel-for-free-start-up-app-deployment': '/tech',
+    '/does-doordash-take-snap': '/news/doordash-snap-ebt',
+    '/start-up-news': '/news',
+    '/james-cameron': '/entertainment/james-cameron',
+    '/opinion': '/',
+    // Articles found under /define
+    '/comet-ai-web-browser-vs-atlas-by-chatgpt': '/define/comet-ai-web-browser-vs-atlas-by-chatgpt',
+    '/coding/nestjs-vs-nextjs-vs-express': '/define/nestjs-vs-nextjs-express',
+    '/hedera-vs-solana-for-dapps': '/define/hedera-vs-solana-for-dapps',
+    '/non-degree-studies-at-university-of-texas-austin': '/college/guides/non-degree-studies-at-university-of-texas-austin',
+    '/2025-nissan-z-vs-toyota-gr-supra-comparison': '/cars/2025-nissan-z-vs-toyota-gr-supra-comparison',
+    '/who-is-serge-gatari-ai-course-review': '/influencer/serge-gatari/ai-course-review',
+    '/oanda-or-interactive-brokers-forex-trading-usa': '/finance/articles/oanda-or-interactive-brokers-forex-trading-usa',
+    // Detective agency service pages
+    '/austin-private-detective-agency/infidelity': '/service/infidelity',
+  };
+
+  if (REDIRECTS[pathname]) {
+    url.pathname = REDIRECTS[pathname];
+    return NextResponse.redirect(url, 301);
+  }
+
+  // ==========================================================================
   // 1. TRAILING SLASH NORMALIZATION (Remove trailing slashes)
   // ==========================================================================
   if (pathname !== '/' && pathname.endsWith('/')) {

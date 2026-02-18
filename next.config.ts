@@ -190,6 +190,7 @@ const nextConfig: NextConfig = {
         destination: '/youtube/sidemen/:path*',
         permanent: true,
       },
+
     ];
   },
   

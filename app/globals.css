@@ -99,8 +99,8 @@
   }
 
   ::selection {
-    background: transparent;
-    color: inherit;
+    background: #b3d4fc;
+    color: #0f0f0f;
   }
 
   /* News page animations */

@@ -461,6 +461,21 @@ export const contentRegistry: ContentEntry[] = [
   },
 
   // ===========================================================================
+  // VIDEO GAMES — MHA ULTRA RUMBLE
+  // ===========================================================================
+  {
+    slug: '/video-games/mha/ultra-rumble/season-15/strike-overhaul',
+    title: 'Overhaul Blighted Precipice Quick Skill — MHA Ultra Rumble Season 15',
+    description: 'Bandai Namco releases Overhaul\'s Blighted Precipice Quick Skill variation in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning, and gameplay guide.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Gaming',
+    tags: ['My Hero Ultra Rumble', 'Overhaul', 'Season 15', 'Bandai Namco', 'My Hero Academia', 'Quick Skill'],
+    author: 'ObjectWire Gaming Desk',
+    priority: 0.8,
+    changeFrequency: 'weekly',
+  },
+
   // NASA / SPACE
   // ===========================================================================
   {
@@ -474,6 +489,24 @@ export const contentRegistry: ContentEntry[] = [
     author: 'ObjectWire Editorial',
     priority: 0.7,
     changeFrequency: 'weekly',
+  },
+
+  // ===========================================================================
+  // VIDEO GAMES — MHA ULTRA RUMBLE
+  // ===========================================================================
+  {
+    slug: '/video-games/mha/ultra-rumble/season-15/overhaul-blighted-precipice-quick-skill',
+    title: 'Overhaul Blighted Precipice Quick Skill — Season 15 My Hero Ultra Rumble',
+    description:
+      'Bandai Namco drops the Overhaul \"Blighted Precipice\" Quick Skill in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning guide, and roll strategy.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Video Games',
+    tags: ['My Hero Ultra Rumble', 'Overhaul', 'Season 15', 'Blighted Precipice', 'Bandai Namco', 'Quick Skill', 'MHA', 'Battle Royale'],
+    author: 'ObjectWire Gaming Desk',
+    priority: 0.8,
+    changeFrequency: 'weekly',
+    featured: true,
   },
 
 ];

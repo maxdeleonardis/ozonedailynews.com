@@ -102,6 +102,13 @@ export const metadata: Metadata = {
       'application/rss+xml': `${SITE_CONFIG.url}/rss.xml`,
     },
   },
+  icons: {
+    icon: [
+      { url: '/Favicon (1).png', type: 'image/png' },
+    ],
+    shortcut: '/Favicon (1).png',
+    apple: '/Favicon (1).png',
+  },
   other: {
     'llms.txt': `${SITE_CONFIG.url}/llms.txt`,
   },

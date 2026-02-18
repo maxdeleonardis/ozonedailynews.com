@@ -120,7 +120,7 @@ export default function MHAPage() {
               Anime & Gaming Hub
             </span>
             <span className="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">
-              Updated January 15, 2026
+              Updated February 18, 2026
             </span>
           </div>
 
@@ -551,6 +551,11 @@ export default function MHAPage() {
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
                 <h3 className="font-bold text-gray-900 mb-4">📰 Latest MHA News</h3>
                 <ul className="space-y-3 text-sm">
+                  <li>
+                    <Link href="/video-games/mha/ultra-rumble/season-15/overhaul-blighted-precipice-quick-skill" className="text-blue-600 hover:underline font-medium">
+                      Overhaul Blighted Precipice — Season 15 Quick Skill →
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/mha/ultra-rumble-season-15-everything-we-know" className="text-blue-600 hover:underline font-medium">
                       Ultra Rumble Season 15 Details →

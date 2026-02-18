@@ -38,7 +38,7 @@ export default function AuthorsPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-2xl">👤</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Conan D</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Conan Boyle</h3>
               <p className="text-sm text-gray-600 mb-3">Narrative Journalist</p>
               <p className="text-gray-700 text-sm">
                 Influenced by Joseph Campbell and bell hooks, Conan approaches journalism as 
@@ -50,7 +50,7 @@ export default function AuthorsPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-2xl">👤</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Skip S</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Phil De.</h3>
               <p className="text-sm text-gray-600 mb-3">Investigative Reporter</p>
               <p className="text-gray-700 text-sm">
                 Committed to journalism that informs, inspires, and empowers, Skip brings 
@@ -62,7 +62,7 @@ export default function AuthorsPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-2xl">👤</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Jack S</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Jack Sterling</h3>
               <p className="text-sm text-gray-600 mb-3">Senior Analyst</p>
               <p className="text-gray-700 text-sm">
                 In an era of misinformation, Jack prioritizes accurate and unbiased reporting, 

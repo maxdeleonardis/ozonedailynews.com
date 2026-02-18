@@ -36,7 +36,7 @@ const statRows = [
 
 const quirks = [
   {
-    key: 'Î±',
+    key: '',
     name: 'Showering Shot',
     color: 'bg-blue-600',
     description:
@@ -44,13 +44,13 @@ const quirks = [
     note: 'Aim Mode variant â†’ Rubble of the End: Fire sharp stone bullets while in Aim Mode. Trades homing for higher velocity and precision.',
   },
   {
-    key: 'Î²',
+    key: '',
     name: 'Blighted Precipice',
     color: 'bg-purple-600',
     badge: 'Signature Skill',
     description:
-      'Ride a rising stone pillar that changes angle with movement input. Jump during ascent for extra lift. Quirk Skill Î± (Showering Shot) can be used while ascending â€” simultaneously repositioning and attacking.',
-    note: 'The defining mechanic of this Quick Skill. Mastering movement input during Î² activation is the highest-skill expression on this character.',
+      'Ride a rising stone pillar that changes angle with movement input. Jump during ascent for extra lift. Quirk Skill  (Showering Shot) can be used while ascending  ” simultaneously repositioning and attacking.',
+    note: 'The defining mechanic of this Quick Skill. Mastering movement input during  activation is the highest-skill expression on this character.',
   },
   {
     key: 'Î³',
@@ -58,7 +58,7 @@ const quirks = [
     color: 'bg-orange-600',
     description:
       'Dash forward and strike to launch the opponent. Goes in different directions while on the ground vs. following aim direction in midair. Restrains the target in stone on hit, then detonates.',
-    note: 'Direction changes based on air vs. ground state â€” critical for mid-air combo confirms.',
+    note: 'Direction changes based on air vs. ground state  ” critical for mid-air combo confirms.',
   },
 ];
 
@@ -69,7 +69,7 @@ const assaultRows = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Overhaul Blighted Precipice Quick Skill â€” Season 15 My Hero Ultra Rumble | ObjectWire',
+  title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 My Hero Ultra Rumble | ObjectWire',
   description:
     'Bandai Namco drops the Overhaul "Blighted Precipice" Quick Skill in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning guide, roll strategy, and playstyle breakdown.',
   keywords: [
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/mha/ultra-rumble/season-15/strike-overhaul',
   },
   openGraph: {
-    title: 'Overhaul Blighted Precipice Quick Skill â€” Season 15 Ultra Rumble',
+    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 Ultra Rumble',
     description:
       'Bandai Namco drops the Overhaul "Blighted Precipice" Quick Skill variant in My Hero Ultra Rumble Season 15. Full stats, quirk breakdown, and roll guide.',
     type: 'article',
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Overhaul Blighted Precipice Quick Skill â€” Season 15 Ultra Rumble',
+    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 Ultra Rumble',
     description:
       'Full breakdown of the new Overhaul Quick Skill variant released February 18, 2026 in My Hero Ultra Rumble Season 15.',
   },
@@ -114,7 +114,7 @@ export default function OverhaulBlightedPrecipicePage() {
   return (
     <SEOWrapper slug={SLUG}>
       <NewsArticleSchema
-        title="Overhaul Blighted Precipice Quick Skill â€” Season 15 My Hero Ultra Rumble"
+        title="Overhaul Blighted Precipice Quick Skill  ” Season 15 My Hero Ultra Rumble"
         description="Bandai Namco drops the Overhaul 'Blighted Precipice' Quick Skill in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, and roll strategy."
         author="ObjectWire Gaming Desk"
         publishedTime="2026-02-18T13:00:00+09:00"
@@ -136,7 +136,7 @@ export default function OverhaulBlightedPrecipicePage() {
                 { name: 'My Hero Academia', item: '/video-games/mha' },
                 { name: 'Ultra Rumble', item: '/video-games/mha/ultra-rumble' },
                 { name: 'Season 15', item: '/video-games/mha/ultra-rumble/season-15' },
-                { name: 'Overhaul â€” Blighted Precipice', item: SLUG },
+                { name: 'Overhaul  ” Blighted Precipice', item: SLUG },
               ]}
             />
           </div>
@@ -161,7 +161,7 @@ export default function OverhaulBlightedPrecipicePage() {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-black leading-tight mb-4">
-              Overhaul â€” Blighted Precipice
+              Overhaul  ” Blighted Precipice
               <span className="block text-lg md:text-2xl font-normal text-purple-300 mt-2">
                 My Hero Ultra Rumble Â· Season 15 Quick Skill Variant
               </span>
@@ -172,7 +172,7 @@ export default function OverhaulBlightedPrecipicePage() {
               <strong className="text-white">Overhaul (Blighted Precipice)</strong> Quick Skill variant
               in My Hero Ultra Rumble Season 15 on February 18, 2026. Available exclusively through
               rolls, this new variant turns the Shie Hassaikai boss into a mobile ground-control
-              threat capable of ascending stone pillars while continuing to fire â€” a fundamental shift
+              threat capable of ascending stone pillars while continuing to fire  ” a fundamental shift
               from the base character&apos;s horizontal kit.
             </p>
 
@@ -206,15 +206,15 @@ export default function OverhaulBlightedPrecipicePage() {
                     >
                       My Hero Ultra Rumble
                     </a>{' '}
-                    introduces Quick Skill variants â€” alternate versions of existing characters that
+                    introduces Quick Skill variants  ” alternate versions of existing characters that
                     ship with a reworked moveset while keeping the same core identity. Season 15 brings
                     the <strong>Overhaul (Blighted Precipice)</strong> variant, named after its
-                    signature Quirk Skill Î², which adds dramatic vertical ascent to an already
+                    signature Quirk Skill , which adds dramatic vertical ascent to an already
                     oppressive ground-control kit.
                   </p>
                   <p>
                     The base Overhaul design in Ultra Rumble has always been about environmental
-                    control â€” using Showering Shot to harass at range and Coffin Shot to punish
+                    control  ” using Showering Shot to harass at range and Coffin Shot to punish
                     overextension. Blighted Precipice doesn&apos;t change those fundamentals. It amplifies
                     them. The rising pillar mechanic creates three-dimensional pressure that forces
                     opponents to react both horizontally and vertically, making him harder to escape
@@ -232,7 +232,7 @@ export default function OverhaulBlightedPrecipicePage() {
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/mNjwmhNuYFc?si=VV7UR2IijLoMocls"
-                    title="My Hero Ultra Rumble â€” Overhaul Blighted Precipice Season 15 Trailer"
+                    title="My Hero Ultra Rumble  ” Overhaul Blighted Precipice Season 15 Trailer"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -256,7 +256,7 @@ export default function OverhaulBlightedPrecipicePage() {
                 </div>
                 <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm mb-4">
                   <div className="bg-gray-800 px-5 py-3">
-                    <h3 className="text-white font-bold">Assault â€” Team Defense UP</h3>
+                    <h3 className="text-white font-bold">Assault  ” Team Defense UP</h3>
                     <p className="text-gray-300 text-sm mt-1">
                       Gives your entire team Defense UP. The more teammates with the same role, the stronger the effect.
                     </p>
@@ -275,7 +275,7 @@ export default function OverhaulBlightedPrecipicePage() {
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Running three Assault-role characters gives your squad a 20% damage reduction for the
-                  entire match â€” one of the strongest defensive compositions in Season 15.
+                  entire match  ” one of the strongest defensive compositions in Season 15.
                 </p>
               </section>
 
@@ -314,9 +314,9 @@ export default function OverhaulBlightedPrecipicePage() {
                   <h3 className="font-bold text-gray-900 mb-2">Why Blighted Precipice Changes Everything</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">
                     The standard Overhaul kit is almost entirely horizontal in its threat coverage.
-                    Blighted Precipice (Î²) adds a vertical axis â€” riding a rising stone pillar gives
+                    Blighted Precipice () adds a vertical axis  ” riding a rising stone pillar gives
                     elevation advantage, repositioning mid-fight, and the ability to fire Showering
-                    Shot (Î±) during the ascent. Skilled players can angle the pillar toward clustered
+                    Shot () during the ascent. Skilled players can angle the pillar toward clustered
                     enemies using the movement input, creating area-denial setups before landing
                     into a Coffin Shot (Î³) confirm.
                   </p>
@@ -331,7 +331,7 @@ export default function OverhaulBlightedPrecipicePage() {
                     <h3 className="font-bold text-gray-900 mb-2">Restoration</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Fully restores GP and HP of nearby allies. Hold to restore your own GP and HP.
-                      Makes Overhaul a hybrid support-assault threat â€” sustain teammates between
+                      Makes Overhaul a hybrid support-assault threat  ” sustain teammates between
                       engagements while maintaining offensive pressure.
                     </p>
                   </div>
@@ -339,9 +339,9 @@ export default function OverhaulBlightedPrecipicePage() {
                     <h3 className="font-bold text-gray-900 mb-2">Disassembly</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Wide arm swing knocks away nearby opponents.{' '}
-                      <strong>Can be used while under attack</strong> â€” critical escape when opponents
+                      <strong>Can be used while under attack</strong>  ” critical escape when opponents
                       close the gap and bypass his range-oriented kit. Interrupt combos, create space,
-                      reactivate Î².
+                      reactivate .
                     </p>
                   </div>
                 </div>
@@ -356,10 +356,10 @@ export default function OverhaulBlightedPrecipicePage() {
                   </div>
                   <div className="divide-y divide-gray-100">
                     <div className="px-5 py-4">
-                      <p className="font-semibold text-gray-800 text-sm">Quirk Skill Î² Defense+</p>
+                      <p className="font-semibold text-gray-800 text-sm">Quirk Skill  Defense+</p>
                       <p className="text-gray-500 text-sm mt-1">
-                        Decreases damage taken from enemy Quirk Skill Î² attacks. Recommended against
-                        high-damage Î² characters who can interrupt your pillar ascent.
+                        Decreases damage taken from enemy Quirk Skill  attacks. Recommended against
+                        high-damage  characters who can interrupt your pillar ascent.
                       </p>
                     </div>
                     <div className="px-5 py-4">
@@ -377,7 +377,7 @@ export default function OverhaulBlightedPrecipicePage() {
                     <p className="font-semibold text-gray-800 text-sm">PU Rejection</p>
                     <p className="text-gray-600 text-sm mt-1">
                       When activating PU PC, any launched opponent takes damage. Creates a punish
-                      window every time your PU triggers â€” rewards aggressive tempo and snowballs
+                      window every time your PU triggers  ” rewards aggressive tempo and snowballs
                       leads once Overhaul is powered up.
                     </p>
                   </div>
@@ -388,30 +388,30 @@ export default function OverhaulBlightedPrecipicePage() {
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Playstyle Guide</h2>
                 <div className="prose prose-gray max-w-none">
-                  <h3>Opening â€” Establish Ground Control</h3>
+                  <h3>Opening  ” Establish Ground Control</h3>
                   <p>
-                    At range, use Î± (Showering Shot) on the move. The homing property lets you advance,
+                    At range, use  (Showering Shot) on the move. The homing property lets you advance,
                     retreat, and strafe while maintaining consistent damage. Pre-position slightly above
                     opponents whenever possible.
                   </p>
                   <h3>The Blighted Precipice Loop</h3>
                   <ol>
-                    <li>Activate <strong>Î²</strong> â€” start ascending, angle toward the enemy with movement input</li>
-                    <li>Fire <strong>Î±</strong> during the rise â€” homing shots track grounded targets below</li>
+                    <li>Activate <strong></strong>  ” start ascending, angle toward the enemy with movement input</li>
+                    <li>Fire <strong></strong> during the rise  ” homing shots track grounded targets below</li>
                     <li>Jump at the apex for extra height, switch to Aim Mode</li>
-                    <li>Descend with <strong>Rubble of the End</strong> (Aim Mode Î±) for precision shots</li>
-                    <li>Land and confirm with <strong>Î³ (Coffin Shot)</strong> â€” stone restraint into guaranteed burst</li>
+                    <li>Descend with <strong>Rubble of the End</strong> (Aim Mode ) for precision shots</li>
+                    <li>Land and confirm with <strong>Î³ (Coffin Shot)</strong>  ” stone restraint into guaranteed burst</li>
                   </ol>
                   <h3>Sustain and Team Play</h3>
                   <p>
                     After every fight, trigger Restoration on your most-damaged teammate before looting.
                     Combined with triple-Assault 20% Defense UP, your squad repeatedly enters fights at
-                    full HP â€” exhausting teams trying to third-party.
+                    full HP  ” exhausting teams trying to third-party.
                   </p>
                   <h3>Emergency Reset: Disassembly</h3>
                   <p>
                     If caught in a combo, Disassembly (&quot;usable under attack&quot;) interrupts most
-                    non-Quirk melee strings and creates space to reactivate Î² and escape upward.
+                    non-Quirk melee strings and creates space to reactivate  and escape upward.
                   </p>
                 </div>
               </section>
@@ -421,7 +421,7 @@ export default function OverhaulBlightedPrecipicePage() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Full Character Stats</h2>
                 <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
                   <div className="bg-gray-800 px-5 py-3">
-                    <h3 className="text-white font-bold text-sm">Overhaul (Blighted Precipice) â€” Base Stats</h3>
+                    <h3 className="text-white font-bold text-sm">Overhaul (Blighted Precipice)  ” Base Stats</h3>
                   </div>
                   <div className="divide-y divide-gray-100">
                     {statRows.map((row) => (
@@ -447,12 +447,12 @@ export default function OverhaulBlightedPrecipicePage() {
 
               {/* How to Obtain */}
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">How to Obtain â€” Roll Strategy</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">How to Obtain  ” Roll Strategy</h2>
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-5">
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">ðŸŽ²</span>
+                    <span className="text-2xl">²</span>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">Rolls Only â€” Not in Battle Pass</h3>
+                      <h3 className="font-bold text-gray-900 mb-1">Rolls Only  ” Not in Battle Pass</h3>
                       <p className="text-sm text-gray-700 leading-relaxed">
                         Overhaul (Blighted Precipice) is not available through story progression, Battle
                         Pass rewards, or direct purchase. The only acquisition method is the in-game
@@ -472,7 +472,7 @@ export default function OverhaulBlightedPrecipicePage() {
                     <p className="text-orange-900 font-bold text-sm mb-1">âš ï¸ Limited Pool Advisory</p>
                     <p className="text-orange-800 text-sm">
                       Quick Skill variants are historically removed from the standard pool after their
-                      season ends. Roll before the Season 15 pool closes â€” he may return in future
+                      season ends. Roll before the Season 15 pool closes  ” he may return in future
                       Featured banners but is not guaranteed to re-enter the permanent pool.
                     </p>
                   </div>
@@ -491,14 +491,14 @@ export default function OverhaulBlightedPrecipicePage() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">ObjectWire Verdict</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Overhaul (Blighted Precipice) is one of the stronger Quick Skill releases in recent
-                  seasons. The Î² Skill&apos;s vertical pillar doesn&apos;t just add mobility â€” it adds
+                  seasons. The  Skill&apos;s vertical pillar doesn&apos;t just add mobility  ” it adds
                   decision-forcing pressure that makes every engagement happen on Overhaul&apos;s terms.
                   The ability to fire Showering Shot mid-ascent eliminates the typical tradeoff between
                   repositioning and attacking, and Restoration means skilled teams can run Overhaul as
                   a hybrid front-line support rather than pure backline damage.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  If you run Assault-heavy compositions, this is a roll target worth spending resources
+                  If you run <a href="https://ultrarumble.com/character/34" target="_blank" rel="noopener" className="text-blue-600 hover:underline">Assault-heavy compositions</a>, this is a roll target worth spending resources
                   on. New and returning players looking for a high-ceiling villain with genuine
                   solo-carry potential will find Blighted Precipice one of the most complete kits
                   in Season 15.
@@ -538,7 +538,7 @@ export default function OverhaulBlightedPrecipicePage() {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        Bandai Namco EU â€” Ultra Rumble â†’
+                        Bandai Namco EU  ” Ultra Rumble â†’
                       </a>
                     </li>
                     <li>
@@ -548,7 +548,7 @@ export default function OverhaulBlightedPrecipicePage() {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        Overhaul Stats â€” ultrarumble.com â†’
+                        Overhaul Stats  ” ultrarumble.com â†’
                       </a>
                     </li>
                   </ul>

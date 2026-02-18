@@ -445,6 +445,74 @@ export const contentRegistry: ContentEntry[] = [
   },
 
   // ===========================================================================
+  // NEWS — BREAKING ARTICLES (Feb 18 2026)
+  // ===========================================================================
+  {
+    slug: '/news/anthropic-claude-sonnet-4-6-saas-selloff',
+    title: 'Anthropic Claude Sonnet 4.6 Lands as SaaS Stocks Hit Fresh Lows | ObjectWire',
+    description: 'Anthropic launches Claude Sonnet 4.6 with expanded hybrid reasoning as SaaS valuations sink to multi-year lows. What the model means for enterprise software buyers and investors.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Tech',
+    tags: ['Anthropic', 'Claude', 'Claude Sonnet 4.6', 'AI', 'SaaS', 'Stock Market', 'Enterprise AI'],
+    author: 'ObjectWire Tech Desk',
+    priority: 0.9,
+    changeFrequency: 'daily',
+    featured: true,
+  },
+  {
+    slug: '/trump/japan-36-billion-us-energy-critical-minerals',
+    title: 'Japan Commits $36 Billion to U.S. Energy & Critical Minerals | ObjectWire',
+    description: 'Japan pledges a $36 billion investment tranche in U.S. LNG, clean energy infrastructure, and critical mineral supply chains — a cornerstone of the Trump-Ishiba trade framework.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Politics',
+    tags: ['Japan', 'Trump', 'LNG', 'Critical Minerals', 'Energy', 'Trade', 'US-Japan Relations'],
+    author: 'ObjectWire News Desk',
+    priority: 0.9,
+    changeFrequency: 'daily',
+    featured: true,
+  },
+  {
+    slug: '/apple/news/apple-video-podcasts-youtube',
+    title: 'Apple Launches Full Video Podcasts — Taking On YouTube | ObjectWire',
+    description: 'Apple Podcasts adds native full-video support, enabling creators to publish video shows directly in the app and challenging YouTube\'s dominance in the creator economy.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Tech',
+    tags: ['Apple', 'Apple Podcasts', 'Video Podcasts', 'YouTube', 'Creator Economy', 'Streaming'],
+    author: 'ObjectWire Tech Desk',
+    priority: 0.9,
+    changeFrequency: 'daily',
+    featured: true,
+  },
+  {
+    slug: '/copyright/elemental-atlus-royalties',
+    title: 'Elemental Royalty Merges with Atlus, Tether Backs $100M Tokenized Gold | ObjectWire',
+    description: 'Elemental Royalty Corporation (ELE) completes its merger with EMX Royalty and secures a $100 million Tether investment, launching a tokenized gold dividend program on the blockchain.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Finance',
+    tags: ['Elemental Royalty', 'EMX Royalty', 'Tether', 'Gold', 'Tokenization', 'Blockchain', 'Royalties', 'Mining'],
+    author: 'ObjectWire Finance Desk',
+    priority: 0.9,
+    changeFrequency: 'daily',
+    featured: true,
+  },
+  {
+    slug: '/crypto/tether',
+    title: 'Tether (USDT) — The World\'s Largest Stablecoin | ObjectWire',
+    description: 'Comprehensive profile of Tether (USDT) — history, reserve structure, regulatory controversies, XAUT gold token, and its role anchoring global crypto liquidity.',
+    publishDate: '2026-02-18',
+    modifiedDate: '2026-02-18',
+    category: 'Finance',
+    tags: ['Tether', 'USDT', 'Stablecoin', 'Crypto', 'DeFi', 'XAUT', 'Blockchain'],
+    author: 'ObjectWire Finance Desk',
+    priority: 0.8,
+    changeFrequency: 'weekly',
+  },
+
+  // ===========================================================================
   // GITHUB / DEVELOPER
   // ===========================================================================
   {
@@ -465,15 +533,16 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/video-games/mha/ultra-rumble/season-15/strike-overhaul',
-    title: 'Overhaul Blighted Precipice Quick Skill — MHA Ultra Rumble Season 15',
-    description: 'Bandai Namco releases Overhaul\'s Blighted Precipice Quick Skill variation in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning, and gameplay guide.',
+    title: 'Strike Overhaul (Blighted Precipice) — MHA Ultra Rumble Season 15 Guide',
+    description: 'Complete guide to Overhaul\'s Strike variation "Blighted Precipice" in My Hero Ultra Rumble Season 15. Quirk skills, full stats, tuning builds, and roll strategy for the Kai Chisaki assault character.',
     publishDate: '2026-02-18',
     modifiedDate: '2026-02-18',
-    category: 'Gaming',
-    tags: ['My Hero Ultra Rumble', 'Overhaul', 'Season 15', 'Bandai Namco', 'My Hero Academia', 'Quick Skill'],
+    category: 'Video Games',
+    tags: ['My Hero Ultra Rumble', 'Overhaul', 'Season 15', 'Blighted Precipice', 'Bandai Namco', 'My Hero Academia', 'Strike', 'Battle Royale'],
     author: 'ObjectWire Gaming Desk',
     priority: 0.8,
     changeFrequency: 'weekly',
+    featured: true,
   },
 
   // NASA / SPACE
@@ -491,23 +560,7 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: 'weekly',
   },
 
-  // ===========================================================================
-  // VIDEO GAMES — MHA ULTRA RUMBLE
-  // ===========================================================================
-  {
-    slug: '/video-games/mha/ultra-rumble/season-15/overhaul-blighted-precipice-quick-skill',
-    title: 'Overhaul Blighted Precipice Quick Skill — Season 15 My Hero Ultra Rumble',
-    description:
-      'Bandai Namco drops the Overhaul \"Blighted Precipice\" Quick Skill in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning guide, and roll strategy.',
-    publishDate: '2026-02-18',
-    modifiedDate: '2026-02-18',
-    category: 'Video Games',
-    tags: ['My Hero Ultra Rumble', 'Overhaul', 'Season 15', 'Blighted Precipice', 'Bandai Namco', 'Quick Skill', 'MHA', 'Battle Royale'],
-    author: 'ObjectWire Gaming Desk',
-    priority: 0.8,
-    changeFrequency: 'weekly',
-    featured: true,
-  },
+
 
 ];
 

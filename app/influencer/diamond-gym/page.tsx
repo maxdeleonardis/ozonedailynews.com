@@ -118,7 +118,7 @@ export default function DiamondGymPage() {
         </div>
 
         {/* Hero Banner */}
-        <header style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #7c3aed 100%)' }}>
+        <header style={{ background: '#1a1a1a', borderBottom: '4px solid #111' }}>
           <div className="max-w-5xl mx-auto px-4 py-14">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               {/* Thumbnail */}
@@ -366,7 +366,7 @@ export default function DiamondGymPage() {
 
                 {/* Infobox */}
                 <div className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                  <div style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a5f, #7c3aed)', padding: '0' }}>
+                  <div style={{ background: '#1a1a1a', padding: '0' }}>
                     <div className="relative w-full h-48">
                       <Image
                         src="/influncer/Diamond Gym.PNG"

@@ -1,7 +1,7 @@
 # Why Duda's Built-In SEO Is So Strong — And How to Replicate It in JavaScript
 
 > Internal reference document for ObjectWire engineering.
-> Last updated: February 12, 2026
+> Last updated: February 21, 2026
 
 ---
 
@@ -66,33 +66,50 @@ Duda's navigation system automatically created crawlable internal links. The hea
 
 Our current setup is missing several critical SEO systems that Duda handled automatically:
 
-### ❌ No Real Sitemap
+### ✅ FIXED — Sitemap with Real Dates
 
-Our `sitemap.xml` route exists but relies on `scanAllContent()` which uses **filesystem timestamps**. On Vercel, every file gets the **deploy timestamp**, so `<lastmod>` is identical for all 200+ pages. Google sees this as "nothing changed" and crawls less frequently.
+`lib/content-registry.ts` now drives `app/sitemap.ts`. Every registered entry has a real `publishDate` and `modifiedDate` — no more deploy-timestamp faking.
 
-### ❌ No Automatic `lastmod` Tracking
+### ✅ FIXED — Structured Data on Key Pages
 
-Duda tracked when a page was actually edited. Our site has no CMS — dates are either hardcoded props or filesystem guesses.
+`SEOWrapper` (`components/SEOWrapper.tsx`) injects `NewsArticle` + `BreadcrumbList` JSON-LD on any page that wraps with it — driven entirely by the content registry.
 
-### ❌ Inconsistent Structured Data
+### ✅ FIXED — Real Author Attribution with Profile URLs
 
-Only ~30 of 200+ pages have `NewsArticleSchema`. Duda put structured data on **every single page**.
+`ContentEntry` now has an optional `authorSlug` field. `SEOWrapper` automatically resolves the author's profile URL (`/authors/{slug}`) and emits it in the JSON-LD `author.url` and `sameAs` fields — enabling Google News author verification for **Conan Boyle** and other named contributors.
 
-### ❌ Missing Breadcrumbs on Most Pages
+Named author entries in the registry so far:
+- **Conan Boyle** (`authorSlug: 'conan-boyle'`) — Neurophos, NASA, Blitzy, IronSpring, Anthropic/Claude article
 
-The `Breadcrumbs` component exists, but it's only on a fraction of pages. Duda generated breadcrumb markup on every page automatically.
+For entries using generic desk names (e.g. "ObjectWire Tech Desk"), no author URL is emitted — intentional, since desks don't have profile pages.
+
+### ❌ INCOMPLETE — Only 38 of 251 Pages in the Registry
+
+The site has **251 `page.tsx` files** but the content registry only has **38 entries**. The `/site-index` therefore shows 38 pages. Every unregistered page is also invisible to the sitemap and gets no `SEOWrapper` structured data.
+
+**Priority: register all content pages.** Skip admin/api/feeds routes.
+
+### ⚠️ DUPLICATE JSON-LD ON ~30 PAGES
+
+Pages that were built before `SEOWrapper` existed use inline `<NewsArticleSchema>` components AND are wrapped in `<SEOWrapper>`. This emits two `NewsArticle` JSON-LD blocks per page. Google tolerates it but it's noise.
+
+Fix: remove the inline `<NewsArticleSchema ... />` call from any page that already uses `<SEOWrapper>`.
+
+Affected pages (sample):
+- `news/anthropic-claude-sonnet-4-6-saas-selloff`
+- `trump/japan-36-billion-us-energy-critical-minerals`
+- `apple/news/apple-video-podcasts-youtube`
+- `copyright/elemental-atlus-royalties`
+- `video-games/mha/ultra-rumble/season-15/strike-overhaul`
+- ~25 others
 
 ### ❌ No Automatic Meta Fallbacks
 
-If a page is missing a `description` in its `metadata` export, Next.js renders nothing. Duda would have auto-generated one.
-
-### ❌ Content Date Problem (The Sidemen Issue)
-
-Because there's no CMS tracking publish dates, the content scanner falls back to filesystem timestamps. On deploy, all files share the same timestamp, so sort order is random — that's why Sidemen articles dominated the homepage and news page.
+If a page is missing a `description` in its `metadata` export, Next.js renders nothing. Duda would have auto-generated one. Unregistered pages with no `description` in their `metadata` export are at risk.
 
 ### ❌ No Google Ping on Publish
 
-Duda pinged Google every time content was published. Our site only gets re-crawled when Google decides to visit.
+Duda pinged Google every time content was published. Our site only gets re-crawled when Google decides to visit. Script exists at `scripts/ping-google.ts` but is not wired to a deploy hook.
 
 ---
 
@@ -281,31 +298,59 @@ export function RelatedArticles({ currentSlug, category, tags }: {
 
 ---
 
-## Part 4: SEO Architecture Comparison
+## Part 4: SEO Architecture Comparison (Feb 21 2026)
 
-| System | Duda (automatic) | ObjectWire (current) | What to Build |
-|--------|------------------|---------------------:|---------------|
-| Sitemap with real `lastmod` | ✅ | ❌ Fake dates | Content registry |
-| Structured data every page | ✅ | ⚠️ ~30/200 pages | SEOWrapper component |
-| Breadcrumbs every page | ✅ | ⚠️ ~20/200 pages | SEOWrapper component |
-| Meta description fallback | ✅ | ❌ Missing on many | Content registry |
-| Canonical URLs | ✅ | ⚠️ Partial | Content registry |
-| Google ping on publish | ✅ | ❌ Never | Post-deploy script |
-| Real publish dates | ✅ | ❌ Filesystem guesses | Content registry + article-dates.ts |
-| Image optimization | ✅ | ⚠️ No images used | Next.js `<Image>` component |
-| Core Web Vitals | ✅ Auto-optimized | ⚠️ Untested | Lighthouse audit |
+| System | Duda (automatic) | ObjectWire (current) | Status |
+|--------|------------------|---------------------:|--------|
+| Sitemap with real `lastmod` | ✅ | ✅ Content registry drives sitemap | Done |
+| Structured data every page | ✅ | ⚠️ ~38/251 pages via SEOWrapper | Partial — need to register all pages |
+| Breadcrumbs every page | ✅ | ⚠️ Auto-generated by SEOWrapper for registered pages only | Partial |
+| Named author with profile URL | ✅ | ✅ `authorSlug` → `/authors/conan-boyle` in JSON-LD | Done |
+| Meta description fallback | ✅ | ❌ Missing on unregistered pages | Not built |
+| Canonical URLs | ✅ | ⚠️ Partial — set per page in `metadata` exports | Partial |
+| Google ping on publish | ✅ | ❌ Script exists, not wired to deploy hook | Not wired |
+| Real publish dates | ✅ | ✅ Registry stores real ISO dates | Done |
+| Image optimization | ✅ | ⚠️ Next.js `<Image>` used on some pages | Partial |
+| Core Web Vitals | ✅ Auto-optimized | ⚠️ Untested | Needs audit |
+| Duplicate JSON-LD | N/A | ❌ ~30 pages have both `NewsArticleSchema` + `SEOWrapper` | Needs cleanup |
 
 ---
 
-## Part 5: Priority Implementation Order
+## Part 5: Priority Implementation Order (Updated Feb 21 2026)
 
-1. **Content Registry** — Central file mapping every URL to real metadata (most impactful)
-2. **Fix Sitemap** — Use registry dates for `<lastmod>` so Google crawls changed pages
-3. **SEOWrapper on all pages** — Structured data + breadcrumbs on every page
-4. **Post-deploy Google ping** — Notify search engines of new content
-5. **Meta fallback system** — Auto-generate missing descriptions from page content
-6. **Related articles on every page** — Automatic internal linking for crawl depth
-7. **Google Search Console Indexing API** — Direct indexing requests for breaking news
+| # | Task | Status | Impact |
+|---|------|--------|--------|
+| 1 | Content Registry — central metadata for all URLs | ✅ Done (`lib/content-registry.ts`) | Highest |
+| 2 | Fix Sitemap — use registry dates for `<lastmod>` | ✅ Done (`app/sitemap.ts`) | High |
+| 3 | SEOWrapper — structured data + breadcrumbs | ✅ Done (`components/SEOWrapper.tsx`) | High |
+| 4 | Named author attribution with profile URL | ✅ Done (`authorSlug` in ContentEntry + SEOWrapper) | High |
+| **5** | **Register all 251 pages in the content registry** | **❌ Only 38/251 done** | **Highest** |
+| 6 | Remove duplicate `<NewsArticleSchema>` from SEOWrapper pages | ❌ Pending | Medium |
+| 7 | Post-deploy Google ping | ❌ Script exists, not wired | Medium |
+| 8 | Meta description fallback system | ❌ Not built | Medium |
+| 9 | Related articles on every page | ✅ `getRelatedArticles()` exists, used on some pages | Low |
+| 10 | Google Search Console Indexing API | ❌ Not built | Low |
+
+### Next Immediate Action: Fill the Registry
+
+Every unregistered page is invisible to Google's sitemap signal and gets no JSON-LD. With 213 pages missing, this is the single biggest SEO gap remaining.
+
+Template for each entry:
+```typescript
+{
+  slug: '/section/article-slug',
+  title: 'Article Title | ObjectWire',
+  description: 'Max 160 char meta description.',
+  publishDate: '2026-MM-DD',
+  modifiedDate: '2026-MM-DD',
+  category: 'Tech' | 'Finance' | 'News' | 'YouTube' | 'Video Games' | 'Entertainment' | 'Sports',
+  tags: ['tag1', 'tag2'],
+  author: 'Conan Boyle',      // use real name when known
+  authorSlug: 'conan-boyle',  // links to /authors/conan-boyle for Google author verification
+  priority: 0.7,
+  changeFrequency: 'weekly',
+}
+```
 
 ---
 

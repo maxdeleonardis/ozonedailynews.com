@@ -36,6 +36,16 @@ export function SEOWrapper({ slug, children }: SEOWrapperProps) {
   const entry = getEntry(slug);
 
   // ── NewsArticle schema ──────────────────────────────────────────────────────
+  // Resolve author URL: use explicit authorSlug, or derive from author name if it
+  // looks like a personal name (contains a space, doesn't start with "ObjectWire").
+  const authorUrl = (() => {
+    if (!entry) return undefined;
+    if (entry.authorSlug) return `${SITE_URL}/authors/${entry.authorSlug}`;
+    const name = entry.author;
+    if (name.startsWith('ObjectWire') || !name.includes(' ')) return undefined;
+    return `${SITE_URL}/authors/${name.toLowerCase().replace(/\s+/g, '-')}`;
+  })();
+
   const articleSchema = entry
     ? {
         '@context': 'https://schema.org',
@@ -47,7 +57,10 @@ export function SEOWrapper({ slug, children }: SEOWrapperProps) {
         author: {
           '@type': 'Person',
           name: entry.author,
+          ...(authorUrl ? { url: authorUrl } : {}),
         },
+        // sameAs let Google cross-reference the author profile
+        ...(authorUrl ? { sameAs: [authorUrl] } : {}),
         publisher: {
           '@type': 'Organization',
           name: ORG_NAME,

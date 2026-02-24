@@ -111,7 +111,7 @@ function CardCatalogSearch({ value, onChange, totalArticles }: {
   return (
     <div className="relative flex-1 max-w-xl">
       <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-        <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       </div>
@@ -120,12 +120,12 @@ function CardCatalogSearch({ value, onChange, totalArticles }: {
         placeholder={`Search ${totalArticles} articles…`}
         value={value}
         onChange={e => onChange(e.target.value)}
-        className="w-full pl-10 pr-10 py-2.5 bg-amber-50 border-2 border-amber-200 rounded-lg text-sm text-gray-800 placeholder:text-amber-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all font-medium"
+        className="w-full pl-10 pr-10 py-2.5 bg-blue-50 border-2 border-blue-200 rounded-lg text-sm text-gray-800 placeholder:text-blue-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-medium"
       />
       {value && (
         <button
           onClick={() => onChange('')}
-          className="absolute inset-y-0 right-0 flex items-center pr-3 text-amber-400 hover:text-amber-700"
+          className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue-400 hover:text-blue-700"
           aria-label="Clear search"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,15 +144,15 @@ function ViewToggle({ mode, onChange }: { mode: ViewMode; onChange: (m: ViewMode
     { key: 'list',    icon: '☰',  label: 'List' },
   ];
   return (
-    <div className="flex items-center bg-amber-100 rounded-lg p-1 gap-1">
+    <div className="flex items-center bg-blue-100 rounded-lg p-1 gap-1">
       {modes.map(m => (
         <button
           key={m.key}
           onClick={() => onChange(m.key)}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
             mode === m.key
-              ? 'bg-white shadow text-amber-900'
-              : 'text-amber-600 hover:text-amber-900'
+              ? 'bg-white shadow text-blue-900'
+              : 'text-blue-600 hover:text-blue-900'
           }`}
           title={m.label}
         >
@@ -202,7 +202,7 @@ function BookSpine({ article, index }: { article: LibraryArticle; index: number 
           <span className="text-xs text-gray-400 font-medium truncate max-w-[120px]">{article.author}</span>
           <div className="flex items-center gap-1.5">
             {article.isUpdated && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-700">UPD</span>
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">UPD</span>
             )}
             <time className="text-[10px] text-gray-400">{article.relativeDate}</time>
           </div>
@@ -240,7 +240,7 @@ function BookCard({ article }: { article: LibraryArticle }) {
         <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
           <span className="font-medium text-gray-600 truncate max-w-[130px]">{article.author}</span>
           <div className="flex items-center gap-2">
-            {article.isUpdated && <span className="font-bold text-amber-600">Updated</span>}
+            {article.isUpdated && <span className="font-bold text-purple-600">Updated</span>}
             <time>{article.relativeDate}</time>
             {article.readTime && <span>· {article.readTime}</span>}
           </div>
@@ -279,7 +279,7 @@ function ListRow({ article, index }: { article: LibraryArticle; index: number })
             <span className="text-[10px] font-black text-red-600 animate-pulse">● LIVE</span>
           )}
           {article.isUpdated && (
-            <span className="text-[10px] font-bold text-amber-600">UPDATED</span>
+            <span className="text-[10px] font-bold text-purple-600">UPDATED</span>
           )}
         </div>
         <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-1 line-clamp-2">
@@ -386,18 +386,18 @@ function ReadingTable({ articles }: { articles: LibraryArticle[] }) {
   return (
     <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm mb-8">
       {/* Header bar */}
-      <div className="flex items-center justify-between px-5 py-3 bg-[#1a1208] border-b border-[#2e1f0e]">
+      <div className="flex items-center justify-between px-5 py-3 bg-[#0f0c1f] border-b border-[#1e1a3f]">
         <div className="flex items-center gap-2">
-          <span className="text-amber-400 text-sm">📖</span>
-          <span className="text-amber-200 text-xs font-bold uppercase tracking-widest">Reading Table</span>
-          <span className="text-amber-600 text-xs">— Top Stories</span>
+          <span className="text-blue-400 text-sm">📖</span>
+          <span className="text-blue-100 text-xs font-bold uppercase tracking-widest">Reading Table</span>
+          <span className="text-purple-400 text-xs">— Top Stories</span>
         </div>
         <div className="flex items-center gap-1">
           {featured.map((_, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-all ${i === active ? 'bg-amber-400 w-4' : 'bg-white/20 hover:bg-white/40'}`}
+              className={`w-2 h-2 rounded-full transition-all ${i === active ? 'bg-blue-400 w-4' : 'bg-white/20 hover:bg-white/40'}`}
               aria-label={`Story ${i + 1}`}
             />
           ))}
@@ -534,35 +534,35 @@ export default function NewsLibrary({
       {urgentTicker.length > 0 && <TickerBanner headlines={urgentTicker} />}
 
       {/* ── Library Masthead ──────────────────────────────────────── */}
-      <header style={{ background: 'linear-gradient(180deg, #1a1208 0%, #2c1f0e 60%, #3b2a12 100%)' }}>
+      <header style={{ background: 'linear-gradient(180deg, #0f0c1f 0%, #1a1340 60%, #2d1b69 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 py-10">
           {/* Date & edition */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <span className="text-amber-500 text-xs font-bold uppercase tracking-widest">📚 The ObjectWire Library</span>
-              <span className="text-amber-800 text-[10px]">|</span>
-              <span className="text-amber-600 text-[11px]">{today}</span>
+              <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">📚 The ObjectWire Library</span>
+              <span className="text-purple-600/50 text-[10px]">|</span>
+              <span className="text-purple-300 text-[11px]">{today}</span>
             </div>
             <div className="hidden sm:flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-amber-600 text-[11px]">{articlesThisWeek} new this week</span>
+              <span className="text-blue-300 text-[11px]">{articlesThisWeek} new this week</span>
             </div>
           </div>
 
           {/* Title */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-black text-amber-100 tracking-tight mb-2">
+            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-2">
               ObjectWire News
             </h1>
-            <p className="text-amber-400 text-sm">
+            <p className="text-blue-300 text-sm">
               {totalArticles} volumes in the collection — browse by aisle, search, or explore
             </p>
           </div>
 
           {/* Card catalog search bar */}
           <div className="max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 bg-amber-50 border-2 border-amber-300 rounded-xl px-4 py-3 shadow-inner">
-              <svg className="w-5 h-5 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-3 bg-white/10 border-2 border-blue-500 rounded-xl px-4 py-3 shadow-inner">
+              <svg className="w-5 h-5 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -571,10 +571,10 @@ export default function NewsLibrary({
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder={`Search ${totalArticles} articles… (press / to focus)`}
-                className="flex-1 bg-transparent text-gray-800 placeholder:text-amber-400 text-base font-medium focus:outline-none"
+                className="flex-1 bg-transparent text-white placeholder:text-blue-300/60 text-base font-medium focus:outline-none"
               />
               {query && (
-                <button onClick={() => setQuery('')} className="text-amber-400 hover:text-amber-700 shrink-0">
+                <button onClick={() => setQuery('')} className="text-blue-300 hover:text-white shrink-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -582,7 +582,7 @@ export default function NewsLibrary({
               )}
             </div>
             {query && (
-              <p className="text-amber-500 text-xs text-center mt-2">
+              <p className="text-blue-300 text-xs text-center mt-2">
                 {filtered.length} result{filtered.length !== 1 ? 's' : ''} for &ldquo;{query}&rdquo;
               </p>
             )}
@@ -590,7 +590,7 @@ export default function NewsLibrary({
         </div>
 
         {/* ── Aisle Navigation (category strip) ── */}
-        <div className="border-t border-[#3d2c14]">
+        <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-1 overflow-x-auto py-2 scrollbar-hide">
               {/* All button */}
@@ -598,12 +598,12 @@ export default function NewsLibrary({
                 onClick={() => { setActiveCat(null); }}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                   activeCat === null && !query
-                    ? 'bg-amber-400 text-amber-900'
-                    : 'text-amber-400 hover:bg-white/10 hover:text-amber-200'
+                    ? 'bg-blue-500 text-white'
+                    : 'text-blue-300 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 🗂️ All Aisles
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeCat === null && !query ? 'bg-amber-900/20' : 'bg-white/10'}`}>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeCat === null && !query ? 'bg-white/20' : 'bg-white/10'}`}>
                   {totalArticles}
                 </span>
               </button>
@@ -618,7 +618,7 @@ export default function NewsLibrary({
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                       isActive
                         ? 'text-white shadow'
-                        : 'text-amber-400 hover:bg-white/10 hover:text-amber-200'
+                        : 'text-blue-300 hover:bg-white/10 hover:text-white'
                     }`}
                     style={isActive ? { background: colors.bg } : {}}
                   >
@@ -744,8 +744,8 @@ export default function NewsLibrary({
         )}
 
         {/* ── Library stats footer ── */}
-        <div className="mt-16 rounded-2xl overflow-hidden" style={{ background: '#1a1208' }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#2e1f0e]">
+        <div className="mt-16 rounded-2xl overflow-hidden" style={{ background: '#0f0c1f' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1e1a3f]">
             {[
               { value: `${totalArticles}`, label: 'Volumes' },
               { value: `${articlesThisWeek}+`, label: 'Added This Week' },
@@ -753,21 +753,21 @@ export default function NewsLibrary({
               { value: '100%', label: 'Source Verified' },
             ].map(stat => (
               <div key={stat.label} className="py-8 text-center">
-                <div className="text-3xl font-black text-amber-300">{stat.value}</div>
-                <div className="text-xs text-amber-700 font-bold uppercase tracking-wider mt-1">{stat.label}</div>
+                <div className="text-3xl font-black text-blue-300">{stat.value}</div>
+                <div className="text-xs text-purple-400 font-bold uppercase tracking-wider mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
-          <div className="border-t border-[#2e1f0e] px-6 py-5">
-            <div className="flex flex-wrap justify-center gap-6 text-xs text-amber-700">
-              <Link href="/editorial-standards" className="hover:text-amber-400 transition-colors">Editorial Standards</Link>
-              <Link href="/about" className="hover:text-amber-400 transition-colors">About ObjectWire</Link>
-              <Link href="/rss.xml" className="hover:text-amber-400 transition-colors">RSS Feed</Link>
-              <Link href="/corrections" className="hover:text-amber-400 transition-colors">Corrections</Link>
-              <Link href="/authors" className="hover:text-amber-400 transition-colors">Authors</Link>
-              <Link href="/privacy-policy" className="hover:text-amber-400 transition-colors">Privacy</Link>
+          <div className="border-t border-[#1e1a3f] px-6 py-5">
+            <div className="flex flex-wrap justify-center gap-6 text-xs text-purple-400">
+              <Link href="/editorial-standards" className="hover:text-blue-300 transition-colors">Editorial Standards</Link>
+              <Link href="/about" className="hover:text-blue-300 transition-colors">About ObjectWire</Link>
+              <Link href="/rss.xml" className="hover:text-blue-300 transition-colors">RSS Feed</Link>
+              <Link href="/corrections" className="hover:text-blue-300 transition-colors">Corrections</Link>
+              <Link href="/authors" className="hover:text-blue-300 transition-colors">Authors</Link>
+              <Link href="/privacy-policy" className="hover:text-blue-300 transition-colors">Privacy</Link>
             </div>
-            <p className="text-center text-amber-800 text-[11px] mt-4">
+            <p className="text-center text-purple-800 text-[11px] mt-4">
               © {new Date().getFullYear()} ObjectWire. Independent journalism, always.
             </p>
           </div>

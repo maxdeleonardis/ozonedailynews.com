@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "What is $ Texit an Investment a Stablecoin, or Scam? - ObjectWire.org",
   description: "More like a digital mirage right now that could someday form into a real asset. $TXC (TEXITcoin) is a volatile, mineable cryptocurrency hyped as a Texas independence token.",
   alternates: {
-    canonical: 'https://www.objectwire.org/crypto/txc-stablecoin',
+    canonical: 'https://www.objectwire.org/define/crypto/txc-stablecoin',
   },
 };
 
@@ -15,8 +15,9 @@ export default function TexitCoinPage() {
       <div className="container mx-auto px-4 pt-4 max-w-4xl">
         <Breadcrumb items={[
           { name: 'Home', item: '/' },
-          { name: 'Crypto', item: '/crypto' },
-          { name: 'TXC Stablecoin', item: '/crypto/txc-stablecoin' },
+          { name: 'Define', item: '/define' },
+          { name: 'Crypto', item: '/define/crypto' },
+          { name: 'TXC Stablecoin', item: '/define/crypto/txc-stablecoin' },
         ]} />
       </div>
       <div className="container mx-auto px-4 py-16 max-w-4xl">

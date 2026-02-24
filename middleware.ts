@@ -87,6 +87,9 @@ export function middleware(request: NextRequest) {
     '/oanda-or-interactive-brokers-forex-trading-usa': '/finance/articles/oanda-or-interactive-brokers-forex-trading-usa',
     // Detective agency service pages
     '/austin-private-detective-agency/infidelity': '/service/infidelity',
+    // MHA consolidated under /video-games
+    '/mha': '/video-games/mha',
+    '/mha/ultra-rumble-season-15-everything-we-know': '/video-games/mha/ultra-rumble/season-15',
   };
 
   if (REDIRECTS[pathname]) {

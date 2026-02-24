@@ -1,380 +1,312 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Hub } from '@/components/Hub';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+import { SEOWrapper } from '@/components/SEOWrapper';
 
 export const metadata: Metadata = {
-  title: "Microsoft Corporation - News, Analysis & Technology Updates | ObjectWire",
-  description: "Comprehensive coverage of Microsoft, including Windows, Azure, Office, Xbox, and all Microsoft products and services. Latest news, business analysis, and technology updates.",
-  keywords: ["Microsoft", "Windows", "Azure", "Office 365", "Xbox", "Satya Nadella", "tech news", "cloud computing", "AI"],
+  title: 'Microsoft Corporation â€” Products, News & Analysis | ObjectWire',
+
+  description: "ObjectWire's full coverage hub for Microsoft Corporation â€” Azure, Xbox, Windows, GitHub, LinkedIn, Copilot AI, leadership, history, and all breaking business and technology news.",
+  keywords: ['Microsoft', 'Azure', 'Xbox', 'Windows', 'GitHub', 'LinkedIn', 'Satya Nadella', 'Copilot', 'OpenAI', 'cloud computing', 'AI', 'tech news'],
   openGraph: {
-    title: "Microsoft Corporation Coverage | ObjectWire",
-    description: "In-depth reporting on Microsoft, its products, services, and business operations.",
-    type: "website",
+    title: 'Microsoft Corporation â€” Products, News & Analysis | ObjectWire',
+    description: 'ObjectWire coverage of Microsoft: Azure cloud, Xbox gaming, Windows, GitHub, LinkedIn, Copilot AI, executive leadership, and all breaking news.',
+    type: 'website',
   },
   alternates: {
-    canonical: "https://www.objectwire.org/microsoft",
+    canonical: 'https://www.objectwire.org/microsoft',
   },
 };
 
-const recentNews = [
-  {
-    title: "Microsoft Gave FBI BitLocker Keys to Unlock Laptops, Report Says",
-    excerpt: "First known instance of major tech company providing encryption keys to law enforcement, reigniting privacy debates.",
-    date: "January 23, 2026",
-    slug: "news/microsoft-gave-fbi-bitlocker-keys",
-    category: "Privacy & Security",
-    urgent: true,
-  },
-  {
-    title: "Trump & Microsoft Data Centers: Electricity Prices Under Scrutiny",
-    excerpt: "Administration examines impact of AI data centers on electricity infrastructure and pricing.",
-    date: "January 2026",
-    slug: "news/trump-microsoft-data-centers-electricity-prices",
-    category: "Infrastructure",
-    urgent: false,
-  },
-];
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// PAGE
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-const products = [
-  {
-    name: "Windows",
-    description: "Operating system powering billions of devices worldwide",
-    slug: "microsoft/windows",
-    icon: "🪟",
-  },
-  {
-    name: "Azure",
-    description: "Cloud computing platform and services",
-    slug: "microsoft/azure",
-    icon: "☁️",
-  },
-  {
-    name: "Microsoft 365",
-    description: "Productivity suite including Office, Teams, and OneDrive",
-    slug: "microsoft/microsoft-365",
-    icon: "📊",
-  },
-  {
-    name: "Xbox",
-    description: "Gaming console and entertainment platform",
-    slug: "microsoft/xbox",
-    icon: "🎮",
-  },
-  {
-    name: "GitHub",
-    description: "Software development and version control platform",
-    slug: "microsoft/github",
-    icon: "💻",
-  },
-  {
-    name: "LinkedIn",
-    description: "Professional networking and career platform",
-    slug: "microsoft/linkedin",
-    icon: "💼",
-  },
-];
-
-const businessMetrics = [
-  { label: "Market Cap", value: "$3.1 Trillion", change: "+6.8%" },
-  { label: "Annual Revenue", value: "$245 Billion", year: "FY 2025" },
-  { label: "Employees", value: "238,000+", change: "Global" },
-  { label: "Stock Price", value: "$423.15", change: "+4.2%" },
-];
-
-export default function MicrosoftPage() {
+export default function MicrosoftHubPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 text-white">
-        <div className="container mx-auto px-4 py-16 max-w-7xl">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-5xl">🪟</span>
-              <h1 className="text-5xl md:text-6xl font-bold">
-                Microsoft Corporation
-              </h1>
-            </div>
-            <p className="text-xl text-gray-100 leading-relaxed mb-6">
-              Comprehensive coverage of Microsoft's technology ecosystem, from Windows and Azure to Xbox and AI. 
-              Track the innovations, business strategies, and regulatory challenges shaping one of the world's most 
-              influential technology companies.
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <span className="bg-white/20 px-4 py-2 rounded-full">Cloud Computing</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full">Artificial Intelligence</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full">Enterprise Software</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full">Gaming</span>
-            </div>
-          </div>
+    <SEOWrapper slug="/microsoft">
+      <NewsArticleSchema
+        title="Microsoft Corporation â€” News, Products & Analysis"
+        description="ObjectWire's full coverage hub for Microsoft Corporation covering Azure, Xbox, Windows, GitHub, LinkedIn, Copilot, and all breaking business and technology news."
+        author="ObjectWire Technology Desk"
+        publishedTime="2026-02-23T00:00:00Z"
+        modifiedTime="2026-02-23T00:00:00Z"
+        articleUrl="https://www.objectwire.org/microsoft"
+        section="Technology"
+        keywords={['Microsoft', 'Azure', 'Xbox', 'Windows', 'Satya Nadella', 'Copilot', 'GitHub']}
+      />
+
+      <div className="border-b border-white/10 bg-slate-900">
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <Breadcrumb
+            items={[
+              { name: 'Home', item: '/' },
+              { name: 'Microsoft', item: '/microsoft' },
+            ]}
+          />
         </div>
       </div>
 
-      {/* Business Metrics */}
-      <div className="bg-gray-50 border-y border-gray-200">
-        <div className="container mx-auto px-4 py-8 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {businessMetrics.map((metric) => (
-              <div key={metric.label} className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">{metric.value}</div>
-                <div className="text-sm text-gray-600 mb-1">{metric.label}</div>
-                {metric.change && (
-                  <div className={`text-xs font-semibold ${
-                    metric.change.startsWith('+') ? 'text-green-600' : 'text-gray-500'
-                  }`}>
-                    {metric.change}
-                  </div>
-                )}
-                {metric.year && (
-                  <div className="text-xs text-gray-500">{metric.year}</div>
-                )}
+      <Hub
+        badge="MICROSOFT CORPORATION"
+        badgeColor="from-blue-600 to-cyan-500"
+        title="ðŸªŸ Microsoft"
+        subtitle="Cloud computing, AI, gaming, productivity software, and the infrastructure of the modern enterprise â€” all in one company."
+        meta={
+          <>
+            <span>ðŸ¢ Redmond, Washington</span>
+            <span className="hidden md:inline">â€¢</span>
+            <span>ðŸ“ˆ ~$3.1T Market Cap</span>
+            <span className="hidden md:inline">â€¢</span>
+            <span>ðŸ‘¤ CEO: Satya Nadella</span>
+          </>
+        }
+      >
+
+        {/* Key Metrics */}
+        <Hub.InfoGrid
+          title="Key Business Metrics"
+          icon="ðŸ“Š"
+          items={[
+            { label: 'Market Capitalization', value: '~$3.1 Trillion' },
+            { label: 'Annual Revenue (FY2025)', value: '$245 Billion' },
+            { label: 'Global Employees', value: '238,000+' },
+            { label: 'Cloud Revenue (Azure)', value: '$100B+ run rate' },
+            { label: 'Xbox Game Pass Subscribers', value: '34M+' },
+            { label: 'GitHub Users', value: '100M+ developers' },
+            { label: 'OpenAI Investment', value: '$13B+ total' },
+            { label: 'Founded', value: 'April 4, 1975' },
+          ]}
+          columns={4}
+        />
+
+        {/* Breaking & Latest News */}
+        <Hub.Section title="Latest News" icon="ðŸ“°" variant="default">
+          <div className="space-y-4">
+            <Hub.Card
+              href="/news/microsoft-gave-fbi-bitlocker-keys"
+              title="Microsoft Gave FBI BitLocker Keys to Unlock Laptops"
+              description="First known instance of a major tech company providing full-disk encryption keys to law enforcement â€” reigniting debates about tech company obligations and user privacy."
+              badge="Breaking"
+              badgeStyle="breaking"
+              emoji="ðŸ”"
+              meta="January 23, 2026 â€¢ Privacy & Security"
+            />
+            <Hub.Card
+              href="/news/trump-microsoft-data-centers-electricity-prices"
+              title="Trump & Microsoft Data Centers: Electricity Prices Under Scrutiny"
+              description="The administration examines the impact of AI data center expansion on electricity infrastructure, pricing, and the grid â€” with Microsoft's Azure build-out squarely in focus."
+              badge="Policy"
+              emoji="âš¡"
+              meta="January 2026 â€¢ Infrastructure"
+            />
+            <Hub.Card
+              href="/news/ai"
+              title="Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts to Copy Claude"
+              description="DeepSeek, Moonshot AI, and MiniMax allegedly made 16M coordinated prompts to extract Claude's capabilities â€” a development with direct implications for Microsoft's competing Copilot ecosystem."
+              badge="AI"
+              emoji="ðŸ¤–"
+              meta="February 23, 2026 â€¢ AI Competition"
+            />
+          </div>
+        </Hub.Section>
+
+        {/* Products & Divisions */}
+        <Hub.Section title="Microsoft Products & Divisions" icon="ðŸ—ï¸" variant="card">
+          <Hub.LinkGrid
+            columns={3}
+            items={[
+              {
+                href: '/microsoft/xbox',
+                emoji: 'ðŸŽ®',
+                label: 'Xbox',
+                sub: 'Gaming console, Game Pass, Activision Blizzard',
+              },
+              {
+                href: '/github',
+                emoji: 'ðŸ’»',
+                label: 'GitHub',
+                sub: '100M+ developers, Copilot, Actions, Codespaces',
+              },
+              {
+                href: '/microsoft/azure',
+                emoji: 'â˜ï¸',
+                label: 'Azure',
+                sub: 'Cloud computing, AI services, enterprise infrastructure',
+              },
+              {
+                href: '/microsoft/windows',
+                emoji: 'ðŸªŸ',
+                label: 'Windows',
+                sub: 'Windows 11, Recall AI, consumer & enterprise OS',
+              },
+              {
+                href: '/microsoft/microsoft-365',
+                emoji: 'ðŸ“Š',
+                label: 'Microsoft 365',
+                sub: 'Office, Teams, OneDrive, Copilot integration',
+              },
+              {
+                href: '/microsoft/linkedin',
+                emoji: 'ðŸ’¼',
+                label: 'LinkedIn',
+                sub: '1B+ members, professional network & recruiting',
+              },
+            ]}
+          />
+        </Hub.Section>
+
+        {/* AI & Copilot */}
+        <Hub.Section title="Microsoft AI & Copilot" icon="ðŸ¤–" variant="highlight">
+          <Hub.Prose>
+            <p>
+              Microsoft&apos;s multibillion-dollar partnership with{' '}
+              <Link href="/open-ai" className="text-cyan-300 hover:underline font-semibold">
+                OpenAI
+              </Link>{' '}
+              â€” totaling over $13 billion in cumulative investment â€” has transformed the company&apos;s product strategy across every division. Copilot, powered by GPT-4 and subsequent models, is now embedded in Windows 11, Microsoft 365, Azure, GitHub, and Bing.
+            </p>
+            <p>
+              Azure OpenAI Service gives enterprise customers API access to GPT-4, DALL-E, Whisper, and other models within Microsoft&apos;s cloud compliance boundaries â€” a commercially significant differentiator. GitHub Copilot, the AI coding assistant, surpassed 1.8 million paid subscribers and has become one of the most widely used developer tools in history.
+            </p>
+          </Hub.Prose>
+
+          <div className="mt-6 grid sm:grid-cols-3 gap-4">
+            {[
+              { label: 'GitHub Copilot Subscribers', value: '1.8M+', sub: 'Paid developer seats' },
+              { label: 'Azure OpenAI Customers', value: '65,000+', sub: 'Enterprise accounts' },
+              { label: 'Copilot for M365', value: '$30/user/mo', sub: 'Enterprise add-on pricing' },
+            ].map((s) => (
+              <div key={s.label} className="bg-white/10 rounded-lg p-4">
+                <p className="text-2xl font-black text-white">{s.value}</p>
+                <p className="text-sm font-semibold text-gray-200">{s.label}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{s.sub}</p>
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
-        
-        {/* Latest News */}
-        <section className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Latest News & Updates</h2>
-            <Link href="/news" className="text-blue-600 hover:text-blue-800 font-medium">
-              View all news →
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {recentNews.map((article) => (
-              <article 
-                key={article.slug}
-                className={`border rounded-lg overflow-hidden hover:shadow-xl transition-shadow ${
-                  article.urgent ? 'border-red-500 border-2' : 'border-gray-200'
-                }`}
-              >
-                <Link href={`/${article.slug}`} className="block">
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                        article.urgent 
-                          ? 'bg-red-100 text-red-700' 
-                          : 'bg-blue-100 text-blue-700'
-                      }`}>
-                        {article.category}
-                      </span>
-                      {article.urgent && (
-                        <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                          BREAKING
-                        </span>
-                      )}
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-                      {article.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <span>{article.date}</span>
-                      <span className="text-blue-600 font-medium">Read more →</span>
-                    </div>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Microsoft Products & Services */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Microsoft Products & Services</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <div
-                key={product.slug}
-                className="block p-6 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-lg transition-all group"
-              >
-                <div className="text-4xl mb-4">{product.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* About Microsoft */}
-        <section className="mb-16 bg-gray-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">About Microsoft Corporation</h2>
-          
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington. 
-              Founded by Bill Gates and Paul Allen in 1975, Microsoft has evolved from a PC software vendor to a 
-              diversified technology giant spanning cloud computing, artificial intelligence, gaming, and productivity 
-              software.
-            </p>
-            
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Under CEO Satya Nadella's leadership since 2014, Microsoft has transformed into a cloud-first, AI-first 
-              company. Azure has become the second-largest cloud platform globally, while the company's partnership 
-              with OpenAI has positioned it at the forefront of the generative AI revolution.
-            </p>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 mt-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Milestones</h3>
-              <ul className="space-y-3">
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">1975</span>
-                  <span className="text-gray-700">Microsoft founded by Bill Gates and Paul Allen</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">1985</span>
-                  <span className="text-gray-700">Windows 1.0 released</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">1986</span>
-                  <span className="text-gray-700">Microsoft goes public (IPO)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2001</span>
-                  <span className="text-gray-700">Xbox gaming console launches</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2010</span>
-                  <span className="text-gray-700">Azure cloud platform launches commercially</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2014</span>
-                  <span className="text-gray-700">Satya Nadella becomes CEO</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2016</span>
-                  <span className="text-gray-700">Acquires LinkedIn for $26.2 billion</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2018</span>
-                  <span className="text-gray-700">Acquires GitHub for $7.5 billion</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2023</span>
-                  <span className="text-gray-700">Invests $10 billion in OpenAI; integrates ChatGPT into products</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-blue-600 min-w-[80px]">2024</span>
-                  <span className="text-gray-700">Completes $69 billion Activision Blizzard acquisition</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        </Hub.Section>
 
         {/* Leadership */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Leadership</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Satya Nadella</h3>
-              <p className="text-sm text-blue-700 font-semibold mb-3">Chairman & CEO</p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Leading Microsoft since 2014, Nadella transformed the company's culture and strategy with a focus 
-                on cloud computing, AI, and cross-platform collaboration. Under his leadership, Microsoft's market 
-                cap has grown from $300 billion to over $3 trillion.
-              </p>
-            </div>
+        <Hub.Section title="Executive Leadership" icon="ðŸ‘”" variant="default">
+          <Hub.Table
+            columns={[
+              { key: 'name', label: 'Name', bold: true },
+              { key: 'title', label: 'Title' },
+              { key: 'note', label: 'Known For' },
+            ]}
+            rows={[
+              {
+                name: 'Satya Nadella',
+                title: 'Chairman & CEO',
+                note: 'Cloud-first transformation; grew market cap from $300B to $3T+ since 2014',
+              },
+              {
+                name: 'Brad Smith',
+                title: 'Vice Chair & President',
+                note: 'Antitrust, regulatory affairs, responsible AI, government relations',
+              },
+              {
+                name: 'Amy Hood',
+                title: 'Executive VP & CFO',
+                note: 'Financial strategy, investor relations, $190B+ revenue growth under tenure',
+              },
+              {
+                name: 'Phil Spencer',
+                title: 'CEO, Microsoft Gaming',
+                note: 'Xbox ecosystem, Activision Blizzard acquisition, Game Pass growth',
+              },
+              {
+                name: 'Scott Guthrie',
+                title: 'Executive VP, Cloud + AI',
+                note: 'Azure platform, OpenAI service integration, enterprise cloud strategy',
+              },
+              {
+                name: 'Mustafa Suleyman',
+                title: 'CEO, Microsoft AI',
+                note: 'Consumer AI products including Copilot; former DeepMind and Inflection AI co-founder',
+              },
+            ]}
+          />
+        </Hub.Section>
 
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Brad Smith</h3>
-              <p className="text-sm text-blue-700 font-semibold mb-3">Vice Chair & President</p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Serving as Microsoft's chief legal officer and leading the company's work on regulatory affairs, 
-                corporate philanthropy, and responsible AI. Key figure in navigating antitrust challenges and 
-                government relations.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* History Timeline */}
+        <Hub.Section title="Company History & Key Milestones" icon="ðŸ•°ï¸" variant="card">
+          <Hub.Table
+            columns={[
+              { key: 'year', label: 'Year', bold: true, align: 'center' },
+              { key: 'event', label: 'Milestone' },
+            ]}
+            rows={[
+              { year: '1975', event: 'Founded by Bill Gates and Paul Allen in Albuquerque, NM' },
+              { year: '1985', event: 'Windows 1.0 released' },
+              { year: '1986', event: 'Microsoft IPO â€” shares open at $21, close at $28' },
+              { year: '1990', event: 'Microsoft Office suite launches' },
+              { year: '1995', event: 'Windows 95 and Internet Explorer launch; pivots to internet' },
+              { year: '2001', event: 'Xbox gaming console launches; enters consumer hardware' },
+              { year: '2008', event: 'Azure cloud platform first announced (commercial launch 2010)' },
+              { year: '2014', event: 'Satya Nadella becomes CEO; acquires Minecraft for $2.5B' },
+              { year: '2016', event: 'Acquires LinkedIn for $26.2 billion' },
+              { year: '2018', event: 'Acquires GitHub for $7.5 billion' },
+              { year: '2019', event: 'Becomes second US company to reach $1 trillion market cap' },
+              { year: '2022', event: 'Announces $69B Activision Blizzard acquisition' },
+              { year: '2023', event: 'Invests $10B+ in OpenAI; launches Bing Chat, Copilot' },
+              { year: '2024', event: 'Activision Blizzard acquisition closes after global regulatory approval' },
+              { year: '2026', event: 'Market cap ~$3.1 trillion; Copilot embedded across all products' },
+            ]}
+          />
+        </Hub.Section>
 
-        {/* Coverage Categories */}
-        <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Coverage</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">☁️ Cloud & AI</h3>
-              <p className="text-gray-700 mb-4">
-                Coverage of Azure, OpenAI partnership, Copilot, and Microsoft's artificial intelligence initiatives.
-              </p>
-              <Link href="/news?category=cloud" className="text-blue-600 font-medium hover:text-blue-800">
-                View cloud coverage →
-              </Link>
-            </div>
-            
-            <div className="p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">🔒 Privacy & Security</h3>
-              <p className="text-gray-700 mb-4">
-                In-depth reporting on data privacy, encryption, cybersecurity, and law enforcement access issues.
-              </p>
-              <Link href="/news/microsoft-gave-fbi-bitlocker-keys" className="text-red-600 font-medium hover:text-red-800">
-                View security coverage →
-              </Link>
-            </div>
-            
-            <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">💼 Business & Strategy</h3>
-              <p className="text-gray-700 mb-4">
-                Analysis of Microsoft's business operations, acquisitions, financial performance, and market positioning.
-              </p>
-              <Link href="/analyst" className="text-purple-600 font-medium hover:text-purple-800">
-                View business analysis →
-              </Link>
-            </div>
-            
-            <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">⚖️ Regulation & Policy</h3>
-              <p className="text-gray-700 mb-4">
-                Coverage of antitrust cases, regulatory challenges, government contracts, and policy developments.
-              </p>
-              <Link href="/news?category=regulation" className="text-green-600 font-medium hover:text-green-800">
-                View policy coverage →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      {/* Bottom CTA */}
-      <div className="bg-gradient-to-r from-blue-700 to-cyan-600 text-white">
-        <div className="container mx-auto px-4 py-12 max-w-4xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated on Microsoft</h2>
-          <p className="text-xl text-gray-100 mb-6">
-            Get the latest news, analysis, and insights on Microsoft's technology and business.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Link
+        {/* Coverage Areas */}
+        <Hub.Section title="ObjectWire Coverage Areas" icon="ðŸ“‚" variant="default">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <Hub.Card
+              href="/tech"
+              title="Cloud & AI"
+              description="Azure, OpenAI partnership, Copilot, and Microsoft's AI infrastructure investments."
+              emoji="â˜ï¸"
+            />
+            <Hub.Card
+              href="/microsoft/xbox"
+              title="Xbox & Gaming"
+              description="Xbox consoles, Game Pass, Activision Blizzard titles, and the future of cloud gaming."
+              emoji="ðŸŽ®"
+            />
+            <Hub.Card
+              href="/github"
+              title="GitHub & Developer Tools"
+              description="GitHub Copilot, Actions, Codespaces, enterprise developer platform strategy."
+              emoji="ðŸ’»"
+            />
+            <Hub.Card
               href="/news"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Latest News
-            </Link>
-            <Link
-              href="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
-            >
-              Subscribe
-            </Link>
+              title="Policy & Regulation"
+              description="Antitrust proceedings, AI regulation, government contracts, and privacy enforcement."
+              emoji="âš–ï¸"
+            />
           </div>
-        </div>
-      </div>
-    </main>
+        </Hub.Section>
+
+        {/* Related Topics */}
+        <Hub.Section title="Related Topics" icon="ðŸ”—" variant="default">
+          <Hub.LinkGrid
+            columns={4}
+            items={[
+              { href: '/open-ai', emoji: 'ðŸ§ ', label: 'OpenAI', sub: 'GPT models & partnership' },
+              { href: '/nvidia', emoji: 'ðŸŸ¢', label: 'Nvidia', sub: 'AI chips powering Azure' },
+              { href: '/saas', emoji: 'ðŸ“¦', label: 'SaaS', sub: 'Enterprise software sector' },
+              { href: '/tech', emoji: 'ðŸ”­', label: 'Tech News', sub: 'Broader technology coverage' },
+              { href: '/finance', emoji: 'ðŸ’°', label: 'Finance', sub: 'MSFT stock & markets' },
+              { href: '/define/nestjs-vs-nextjs-express', emoji: 'âš™ï¸', label: 'Dev Frameworks', sub: 'Node.js, Next.js, NestJS' },
+              { href: '/news/ai', emoji: 'ðŸ¤–', label: 'AI News', sub: 'Latest AI developments' },
+              { href: '/intel', emoji: 'ðŸ”µ', label: 'Intel', sub: 'Chip partner & competitor' },
+            ]}
+          />
+        </Hub.Section>
+
+      </Hub>
+    </SEOWrapper>
   );
 }
+

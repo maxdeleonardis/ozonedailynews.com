@@ -44,9 +44,7 @@ export default function SidemenWikiPage() {
         <header className="border-b border-gray-200 pb-6 mb-6">
           <div className="container mx-auto px-4 max-w-6xl">
             <h1 className="text-4xl font-serif mb-2">The Sidemen</h1>
-            <p className="text-gray-600 italic">
-              From ObjectWire, the verification-first intelligence platform
-            </p>
+      
           </div>
         </header>
 
@@ -215,39 +213,39 @@ export default function SidemenWikiPage() {
 
                 <h3 className="text-lg font-semibold mb-3">Individual Profiles</h3>
                 
-                <h4 className="font-semibold text-gray-900 mb-2">KSI (JJ Olatunji)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/ksi" className="text-blue-600 hover:underline">KS I (JJ Olatunji)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  The most prominent member, KSI has expanded beyond YouTube into professional boxing, music (reaching number one on the UK charts), and acting. His boxing matches against Logan Paul drew massive pay-per-view audiences and helped legitimize influencer boxing as an entertainment category.
+                  The most prominent member, <Link href="/youtube/sidemen/ksi" className="text-blue-600 hover:underline">KSI</Link> has expanded beyond YouTube into professional boxing, music (reaching number one on the UK charts), and acting. His boxing matches against Logan Paul drew massive pay-per-view audiences and helped legitimize influencer boxing as an entertainment category. With 24M+ subscribers, he's built a business empire including PRIME Hydration.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">Miniminter (Simon Minter)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/miniminter" className="text-blue-600 hover:underline">Miniminter (Simon Minter)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  Known for his consistency and chemistry with the group, Miniminter maintains one of the most regularly updated channels. His content spans FIFA gameplay, real-life football challenges, and vlogs documenting his life and relationship with fellow creator Talia Mar.
+                  Known for his consistency and chemistry with the group, <Link href="/youtube/sidemen/miniminter" className="text-blue-600 hover:underline">Miniminter</Link> maintains one of the most regularly updated channels with daily uploads since 2013. His content spans FIFA gameplay, real-life football challenges, and vlogs documenting his life and relationship with fellow creator Talia Mar.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">Zerkaa (Josh Bradley)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/zerkaa" className="text-blue-600 hover:underline">Zerkaa (Josh Bradley)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  Often called the "dad" of the group due to his mature demeanor, Zerkaa has found significant success in GTA RP (Grand Theft Auto roleplay) content. He also co-hosts the popular "What's Good" podcast with Miniminter.
+                  Often called the "dad" of the group due to his mature demeanor, <Link href="/youtube/sidemen/zerkaa" className="text-blue-600 hover:underline">Zerkaa</Link> has found significant success in GTA RP (Grand Theft Auto roleplay) content. He also co-hosts the popular "What's Good" podcast with Miniminter and is the unofficial leader of the Sidemen.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">TBJZL (Tobi Brown)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/tbjzl" className="text-blue-600 hover:underline">TBJZL (Tobi Brown)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  Known for his positive energy and athletic abilities, TBJZL frequently excels in physical challenges. His channel features FIFA content, lifestyle vlogs, and collaborations with other creators.
+                  Known for his positive energy and athletic abilities, <Link href="/youtube/sidemen/tbjzl" className="text-blue-600 hover:underline">TBJZL</Link> frequently excels in physical challenges. His channel features FIFA content, lifestyle vlogs, and collaborations with other creators. His infectious laugh and genuine personality have made him a fan favorite.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">Behzinga (Ethan Payne)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/behzinga" className="text-blue-600 hover:underline">Behzinga (Ethan Payne)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  Behzinga's documented fitness transformation and mental health advocacy have made him an inspiration to many viewers. His content emphasizes authenticity and personal growth alongside entertainment.
+                  <Link href="/youtube/sidemen/behzinga" className="text-blue-600 hover:underline">Behzinga's</Link> documented fitness transformation (20kg+ weight loss) and mental health advocacy have made him an inspiration to many viewers. His content emphasizes authenticity and personal growth alongside entertainment, with partnerships with mental health charities.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">Vikkstar123 (Vikram Barn)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/vikkstar" className="text-blue-600 hover:underline">Vikkstar123 (Vikram Barn)</Link></h4>
                 <p className="mb-4 leading-relaxed">
-                  A versatile gamer known for Minecraft content and Call of Duty: Warzone expertise. Vikkstar co-owns the esports organization Luminosity Gaming and has competed professionally in battle royale tournaments.
+                  A versatile gamer known for Minecraft content and Call of Duty: Warzone expertise, <Link href="/youtube/sidemen/vikkstar" className="text-blue-600 hover:underline">Vikkstar</Link> has transitioned into successful entrepreneurship with a business portfolio exceeding £15 million. He co-owns the esports organization Luminosity Gaming and has competed professionally in battle royale tournaments.
                 </p>
 
-                <h4 className="font-semibold text-gray-900 mb-2">W2S (Harry Lewis)</h4>
+                <h4 className="font-semibold text-gray-900 mb-2"><Link href="/youtube/sidemen/w2s" className="text-blue-600 hover:underline">W2S (Harry Lewis)</Link></h4>
                 <p className="leading-relaxed">
-                  Known for his chaotic energy and unpredictable content, W2S has built a massive following through FIFA pack openings and rage compilations. His high-energy style contrasts with the more measured approaches of other members.
+                  Known for his chaotic energy and unpredictable content, <Link href="/youtube/sidemen/w2s" className="text-blue-600 hover:underline">W2S</Link> has built a massive following (16.7M+ subscribers - the second-most subscribed Sidemen) through FIFA pack openings and rage compilations. His high-energy style contrasts with the more measured approaches of other members.
                 </p>
               </section>
 
@@ -435,19 +433,29 @@ export default function SidemenWikiPage() {
               {/* See Also Section */}
               <section id="seealso" className="mb-10">
                 <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">See Also</h2>
-                <div className="columns-2 gap-8">
-                  <ul>
-                    <li><Link href="/youtube" className="text-blue-600 hover:underline">YouTube</Link></li>
-                    <li><Link href="/youtube/ksi" className="text-blue-600 hover:underline">KSI</Link></li>
-                    <li><Link href="/youtube/miniminter" className="text-blue-600 hover:underline">Miniminter</Link></li>
-                    <li><Link href="/sidemen/charity-match" className="text-blue-600 hover:underline">Sidemen Charity Match</Link></li>
-                  </ul>
-                  <ul>
-                    <li><Link href="/mrbeast" className="text-blue-600 hover:underline">MrBeast</Link></li>
-                    <li><Link href="/nelk-boys" className="text-blue-600 hover:underline">NELK Boys</Link></li>
-                    <li><Link href="/logan-paul" className="text-blue-600 hover:underline">Logan Paul</Link></li>
-                    <li><Link href="/creator-economy" className="text-blue-600 hover:underline">Creator Economy</Link></li>
-                  </ul>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2 text-sm">Sidemen Members</h3>
+                    <ul className="space-y-1">
+                      <li><Link href="/youtube/sidemen/ksi" className="text-blue-600 hover:underline">KSI (JJ Olatunji)</Link></li>
+                      <li><Link href="/youtube/sidemen/miniminter" className="text-blue-600 hover:underline">Miniminter (Simon Minter)</Link></li>
+                      <li><Link href="/youtube/sidemen/zerkaa" className="text-blue-600 hover:underline">Zerkaa (Josh Bradley)</Link></li>
+                      <li><Link href="/youtube/sidemen/tbjzl" className="text-blue-600 hover:underline">TBJZL (Tobi Brown)</Link></li>
+                      <li><Link href="/youtube/sidemen/behzinga" className="text-blue-600 hover:underline">Behzinga (Ethan Payne)</Link></li>
+                      <li><Link href="/youtube/sidemen/vikkstar" className="text-blue-600 hover:underline">Vikkstar123 (Vikram Barn)</Link></li>
+                      <li><Link href="/youtube/sidemen/w2s" className="text-blue-600 hover:underline">W2S (Harry Lewis)</Link></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2 text-sm">Related Content</h3>
+                    <ul className="space-y-1">
+                      <li><Link href="/youtube/sidemen/inside-uk" className="text-blue-600 hover:underline">Inside — Netflix Documentary</Link></li>
+                      <li><Link href="/youtube/sidemen/charity-match" className="text-blue-600 hover:underline">Sidemen Charity Match</Link></li>
+                      <li><Link href="/youtube" className="text-blue-600 hover:underline">YouTube Platform</Link></li>
+                      <li><Link href="/netflix" className="text-blue-600 hover:underline">Netflix</Link></li>
+                      <li><Link href="/creator-economy" className="text-blue-600 hover:underline">Creator Economy</Link></li>
+                    </ul>
+                  </div>
                 </div>
               </section>
 
@@ -518,13 +526,13 @@ export default function SidemenWikiPage() {
                   <div>
                     <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-1 mb-2">Members</h3>
                     <ul className="space-y-1 text-xs">
-                      <li>• KSI (JJ Olatunji)</li>
-                      <li>• Miniminter (Simon Minter)</li>
-                      <li>• W2S (Harry Lewis)</li>
-                      <li>• Vikkstar123 (Vik Barn)</li>
-                      <li>• TBJZL (Tobi Brown)</li>
-                      <li>• Behzinga (Ethan Payne)</li>
-                      <li>• Zerkaa (Josh Bradley)</li>
+                      <li>• <Link href="/youtube/sidemen/ksi" className="text-blue-600 hover:underline">KSI (JJ Olatunji)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/miniminter" className="text-blue-600 hover:underline">Miniminter (Simon Minter)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/w2s" className="text-blue-600 hover:underline">W2S (Harry Lewis)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/vikkstar" className="text-blue-600 hover:underline">Vikkstar123 (Vikram Barn)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/tbjzl" className="text-blue-600 hover:underline">TBJZL (Tobi Brown)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/behzinga" className="text-blue-600 hover:underline">Behzinga (Ethan Payne)</Link></li>
+                      <li>• <Link href="/youtube/sidemen/zerkaa" className="text-blue-600 hover:underline">Zerkaa (Josh Bradley)</Link></li>
                     </ul>
                   </div>
 
@@ -552,16 +560,22 @@ export default function SidemenWikiPage() {
                     <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-1 mb-2">Related</h3>
                     <ul className="space-y-1">
                       <li>
-                        <Link href="/youtube/ksi" className="text-blue-600 hover:underline text-xs">KSI Profile</Link>
+                        <Link href="/youtube/sidemen/ksi" className="text-blue-600 hover:underline text-xs">KSI Profile</Link>
+                      </li>
+                      <li>
+                        <Link href="/youtube/sidemen/miniminter" className="text-blue-600 hover:underline text-xs">Miniminter Profile</Link>
+                      </li>
+                      <li>
+                        <Link href="/youtube/sidemen/zerkaa" className="text-blue-600 hover:underline text-xs">Zerkaa Profile</Link>
+                      </li>
+                      <li>
+                        <Link href="/youtube/sidemen/vikkstar" className="text-blue-600 hover:underline text-xs">Vikkstar Profile</Link>
+                      </li>
+                      <li>
+                        <Link href="/youtube/sidemen/inside-uk" className="text-blue-600 hover:underline text-xs">Inside Netflix Doc</Link>
                       </li>
                       <li>
                         <Link href="/sidemen/charity-match" className="text-blue-600 hover:underline text-xs">Charity Match</Link>
-                      </li>
-                      <li>
-                        <Link href="/youtube" className="text-blue-600 hover:underline text-xs">YouTube Platform</Link>
-                      </li>
-                      <li>
-                        <Link href="/creator-economy" className="text-blue-600 hover:underline text-xs">Creator Economy</Link>
                       </li>
                     </ul>
                   </div>

@@ -191,6 +191,27 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ==========================================================================
+      // CRYPTO CONTENT MIGRATION - Moved from /crypto to /define/crypto
+      // Date: February 23, 2026
+      // ==========================================================================
+
+      {
+        source: '/crypto',
+        destination: '/define/crypto',
+        permanent: true,
+      },
+      {
+        source: '/crypto/tether',
+        destination: '/define/crypto/tether',
+        permanent: true,
+      },
+      {
+        source: '/crypto/txc-stablecoin',
+        destination: '/define/crypto/txc-stablecoin',
+        permanent: true,
+      },
+
     ];
   },
   

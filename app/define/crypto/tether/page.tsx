@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 
-const SLUG = '/crypto/tether';
+const SLUG = '/define/crypto/tether';
 
 export const metadata: Metadata = {
   title: 'Tether (USDT) - What Is It? Stablecoin, Reserves & History | ObjectWire',
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     'Tether reserves',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/crypto/tether',
+    canonical: 'https://www.objectwire.org/define/crypto/tether',
   },
   openGraph: {
     title: 'Tether (USDT) - World\'s Largest Stablecoin',
     description:
       'Full profile of Tether: how it works, its reserve structure, Tether Gold (XAUT), controversies, and its expanding investment arm.',
     type: 'article',
-    url: 'https://www.objectwire.org/crypto/tether',
+    url: 'https://www.objectwire.org/define/crypto/tether',
     siteName: 'ObjectWire',
   },
   twitter: {
@@ -63,7 +63,8 @@ export default function TetherPage() {
           <Breadcrumb
             items={[
               { name: 'Home', item: '/' },
-              { name: 'Crypto', item: '/crypto' },
+              { name: 'Define', item: '/define' },
+              { name: 'Crypto', item: '/define/crypto' },
               { name: 'Tether', item: SLUG },
             ]}
           />
@@ -337,7 +338,7 @@ export default function TetherPage() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/crypto" className="text-blue-600 hover:underline text-sm">
+                    <Link href="/define/crypto" className="text-blue-600 hover:underline text-sm">
                       → Crypto Hub
                     </Link>
                   </li>
@@ -347,7 +348,7 @@ export default function TetherPage() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/crypto/txc-stablecoin" className="text-blue-600 hover:underline text-sm">
+                    <Link href="/define/crypto/txc-stablecoin" className="text-blue-600 hover:underline text-sm">
                       → TXC Stablecoin Analysis
                     </Link>
                   </li>

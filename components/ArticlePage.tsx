@@ -35,7 +35,8 @@ export interface ArticleSection {
 
 export interface RelatedLink {
   href: string;
-  label: string;
+  label?: string;
+  text?: string; // alias for label (used by older pages)
   description?: string;
 }
 
@@ -162,7 +163,7 @@ export function RelatedLinks({ links }: { links: RelatedLink[] }) {
             className="block p-4 border border-gray-200 hover:border-black transition-colors group"
           >
             <h3 className="font-bold text-gray-900 group-hover:underline mb-1">
-              {link.label}
+              {link.label ?? link.text}
             </h3>
             {link.description && (
               <p className="text-sm text-gray-600">{link.description}</p>
@@ -222,16 +223,25 @@ export function ExternalLinks({ links }: { links: { href: string; label: string 
 
 export function Quote({ 
   children, 
-  source 
+  source,
+  text,
+  author,
+  context,
 }: { 
-  children: React.ReactNode; 
+  children?: React.ReactNode; 
   source?: string;
+  // Legacy prop aliases used by older pages
+  text?: string;
+  author?: string;
+  context?: string;
 }) {
+  const body = children ?? text;
+  const footer = source ?? (author && context ? `${author} — ${context}` : author ?? context);
   return (
     <blockquote className="border-l-2 border-gray-300 pl-4 my-4 italic text-gray-700">
-      {children}
-      {source && (
-        <footer className="text-sm text-gray-500 mt-2 not-italic">— {source}</footer>
+      {body}
+      {footer && (
+        <footer className="text-sm text-gray-500 mt-2 not-italic">— {footer}</footer>
       )}
     </blockquote>
   );
@@ -351,9 +361,9 @@ export function ArticlePage({
 
       {/* Article Content */}
       <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Main Content Column */}
-          <article className="lg:col-span-8">
+          <article className="md:col-span-8 order-2 md:order-1">
             {/* Table of Contents */}
             {tableOfContents && tableOfContents.length > 0 && (
               <TableOfContents items={tableOfContents} />
@@ -371,7 +381,7 @@ export function ArticlePage({
           </article>
 
           {/* Sidebar Column */}
-          <aside className="lg:col-span-4">
+          <aside className="md:col-span-4 order-1 md:order-2">
             {/* Info Box */}
             {infoBox && <InfoBox {...infoBox} />}
           </aside>

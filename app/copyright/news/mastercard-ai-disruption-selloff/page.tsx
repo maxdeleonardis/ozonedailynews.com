@@ -150,6 +150,7 @@ export default function MastercardAISelloffPage() {
         author={{
           name: 'Alfansa',
           role: 'Finance & Markets Reporter',
+          authorSlug: 'alfansa',
         }}
         tags={[
           'Mastercard',

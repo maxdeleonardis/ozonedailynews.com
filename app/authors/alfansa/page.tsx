@@ -3,24 +3,24 @@ import Link from 'next/link';
 
 // ─── Google News optimised author profile ──────────────────────────────────
 export const metadata: Metadata = {
-  title: 'Alfansa — Anime & Gaming Editor | ObjectWire',
+  title: 'Alfansa — Finance & Markets Reporter | ObjectWire',
   description:
-    'Alfansa is ObjectWire\'s Anime & Gaming Editor, specialising in My Hero Academia, battle royale games, seasonal anime coverage, and the intersection of gaming culture with mainstream media.',
+    'Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering markets, payments, fintech, My Hero Academia, and gaming culture.',
   alternates: {
     canonical: 'https://www.objectwire.org/authors/alfansa',
   },
   openGraph: {
-    title: 'Alfansa | Anime & Gaming Editor at ObjectWire',
+    title: 'Alfansa | Finance & Markets Reporter at ObjectWire',
     description:
-      'Covering My Hero Academia, Ultra Rumble, seasonal anime, and gaming culture for ObjectWire.',
+      'Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire. Covering payments, fintech, markets, MHA, and gaming culture.',
     url: 'https://www.objectwire.org/authors/alfansa',
     siteName: 'ObjectWire',
     type: 'profile',
   },
   twitter: {
     card: 'summary',
-    title: 'Alfansa — Anime & Gaming Editor',
-    description: 'ObjectWire Anime & Gaming Editor. MHA, Ultra Rumble, seasonal anime coverage.',
+    title: 'Alfansa — Finance & Markets Reporter',
+    description: 'ObjectWire Finance & Markets Reporter and Anime & Gaming Editor. Covering fintech, payments, MHA, and gaming.',
   },
 };
 
@@ -29,9 +29,9 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Alfansa',
-  jobTitle: 'Anime & Gaming Editor',
+  jobTitle: 'Finance & Markets Reporter',
   description:
-    'Anime and gaming journalist at ObjectWire specialising in My Hero Academia, battle royale games, and seasonal anime coverage.',
+    'Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering payments, fintech, markets, My Hero Academia, and gaming culture.',
   url: 'https://www.objectwire.org/authors/alfansa',
   worksFor: {
     '@type': 'Organization',
@@ -39,19 +39,28 @@ const personSchema = {
     url: 'https://www.objectwire.org',
   },
   knowsAbout: [
+    'Finance',
+    'Markets',
+    'Fintech',
+    'Payments',
+    'Stock Market',
+    'AI Disruption',
     'My Hero Academia',
     'Anime',
     'Gaming',
     'Battle Royale Games',
     'My Hero Ultra Rumble',
-    'Manga',
-    'Esports',
-    'Gaming Culture',
     'Seasonal Anime',
   ],
 };
 
 const articles = [
+  {
+    href: '/copyright/news/mastercard-ai-disruption-selloff',
+    title: 'Mastercard Shares Drop Below $500 as AI Disruption Note and Tariff Concerns Hit Payments Sector',
+    date: 'February 24, 2026',
+    category: 'Finance & Markets',
+  },
   {
     href: '/video-games/mha',
     title: 'My Hero Academia Hub — Final Season, Vigilantes & Ultra Rumble',
@@ -190,22 +199,22 @@ export default function AlfansaAuthorPage() {
               <div className="mb-6">
                 <h1 className="text-4xl font-bold text-gray-900 mb-1">Alfansa</h1>
                 <p className="text-xl text-green-600 font-semibold mb-1">
-                  Anime &amp; Gaming Editor
+                  Finance &amp; Markets Reporter · Anime &amp; Gaming Editor
                 </p>
                 <p className="text-gray-500 text-sm">ObjectWire · Austin, TX</p>
 
                 <div className="flex flex-wrap gap-3 mt-4">
+                  <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
+                    💰 Finance &amp; Markets
+                  </span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                    🏦 Fintech &amp; Payments
+                  </span>
                   <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
                     🦸 My Hero Academia
                   </span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                    🎮 Battle Royale
-                  </span>
                   <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    📺 Seasonal Anime
-                  </span>
-                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">
-                    🏆 Esports
+                    🎮 Gaming &amp; Anime
                   </span>
                 </div>
               </div>
@@ -217,23 +226,25 @@ export default function AlfansaAuthorPage() {
                     <h2 className="text-xl font-bold text-gray-900 mb-4">About Alfansa</h2>
                     <div className="text-gray-700 space-y-3 leading-relaxed">
                       <p>
-                        Alfansa is ObjectWire&apos;s Anime &amp; Gaming Editor, leading coverage of
-                        the My Hero Academia franchise across both its manga/anime universe and its
-                        expanding video game catalogue. She joined ObjectWire to bring genuine fan
-                        knowledge and critical depth to a beat that too often settles for surface-level
-                        recap journalism.
+                        Alfansa is a Finance &amp; Markets Reporter and Anime &amp; Gaming Editor at
+                        ObjectWire. Her financial coverage focuses on payments infrastructure,
+                        fintech disruption, market events, and the intersection of emerging technology
+                        with capital markets — bringing the same analytical depth to Wall Street that
+                        she brings to the gaming world.
                       </p>
                       <p>
-                        Her work emphasises the intersection of anime culture and interactive
-                        entertainment — tracking how series like MHA translate into games, how
-                        competitive communities form around Licensed titles, and what seasonal anime
-                        trends reveal about broader pop-culture shifts.
+                        On the finance beat, Alfansa covers breaking market events, sector selloffs,
+                        and structural shifts in industries being reshaped by AI and digital finance.
+                        Her reporting on the February 2026 payments sector selloff — driven by an AI
+                        disruption note and tariff uncertainty — drew significant readership across
+                        ObjectWire&apos;s finance audience.
                       </p>
                       <p>
-                        Alfansa covers My Hero Ultra Rumble season by season, maintains ObjectWire&apos;s
-                        character and season guides for the game, and contributes broader seasonal
-                        anime commentary. She approaches every piece with the conviction that anime
-                        and gaming deserve the same thoughtful editorial standard as any other beat.
+                        Alfansa also leads ObjectWire&apos;s Anime &amp; Gaming coverage, heading the
+                        My Hero Academia franchise desk across its manga/anime universe and video game
+                        catalogue. She covers My Hero Ultra Rumble season by season and contributes
+                        broader seasonal anime commentary, approaching every beat with the conviction
+                        that it deserves rigorous editorial standards.
                       </p>
                     </div>
                   </div>
@@ -267,12 +278,12 @@ export default function AlfansaAuthorPage() {
                   <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
                     <h3 className="text-lg font-bold text-gray-900 mb-3">Specialisations</h3>
                     <ul className="space-y-2 text-sm text-gray-700">
+                      <li>💰 Finance &amp; capital markets</li>
+                      <li>🏦 Fintech &amp; payments infrastructure</li>
+                      <li>🤖 AI disruption in financial services</li>
                       <li>🦸 My Hero Academia (all media)</li>
                       <li>🎮 My Hero Ultra Rumble</li>
                       <li>📺 Seasonal anime coverage</li>
-                      <li>🏆 Anime esports &amp; competitive gaming</li>
-                      <li>🎌 Japanese gaming culture</li>
-                      <li>📖 Manga-to-game adaptations</li>
                     </ul>
                   </div>
 

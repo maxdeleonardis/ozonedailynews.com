@@ -649,7 +649,16 @@ export function NewsArticle({
               )}
               <div>
                 <p className="text-sm text-gray-500">Written by</p>
-                <p className="font-bold text-gray-900">{author.name}</p>
+                {author.authorSlug ? (
+                  <Link
+                    href={`/authors/${author.authorSlug}`}
+                    className="font-bold text-gray-900 hover:text-purple-600 transition-colors"
+                  >
+                    {author.name}
+                  </Link>
+                ) : (
+                  <p className="font-bold text-gray-900">{author.name}</p>
+                )}
                 {author.role && (
                   <p className="text-sm text-gray-600">{author.role}</p>
                 )}

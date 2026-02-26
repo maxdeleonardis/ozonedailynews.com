@@ -9,6 +9,7 @@ import AuthProvider from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
 import SearchBar from "@/components/SearchBar";
 import MobileNav from "@/components/MobileNav";
+import NewsletterDropdown from "@/components/NewsletterDropdown";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 // =============================================================================
@@ -169,6 +170,7 @@ export default function RootLayout({
                     <Link href="/about" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
                       About
                     </Link>
+                    <NewsletterDropdown />
                     <SearchBar />
                     <AuthButton />
                   </div>

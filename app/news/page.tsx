@@ -75,18 +75,22 @@ export default async function NewsPage() {
 
   // â”€â”€ Shape data for NewsLibrary â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-  const libraryArticles: LibraryArticle[] = allArticles.map(a => ({
-    slug: a.slug,
-    title: a.title,
-    excerpt: a.excerpt ?? '',
-    category: a.category,
-    author: a.author,
-    date: a.date ?? '',
-    relativeDate: toRelativeDate(a),
-    readTime: a.readTime,
-    urgent: a.urgent,
-    isUpdated: isUpdatedArticle(a),
-  }));
+  const libraryArticles: LibraryArticle[] = allArticles.map(a => {
+    const reg = registryMap.get(a.slug);
+    return {
+      slug: a.slug,
+      title: a.title,
+      excerpt: a.excerpt ?? '',
+      category: a.category,
+      author: a.author,
+      date: a.date ?? '',
+      relativeDate: toRelativeDate(a),
+      readTime: a.readTime,
+      urgent: a.urgent,
+      isUpdated: isUpdatedArticle(a),
+      imageUrl: reg?.imageUrl,
+    };
+  });
 
   const libraryCategories: LibraryCategory[] = Object.keys(categorizedArticles)
     .map(rawName => ({

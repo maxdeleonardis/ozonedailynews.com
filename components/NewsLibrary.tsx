@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -16,6 +17,7 @@ export interface LibraryArticle {
   readTime?: string;
   urgent?: boolean;
   isUpdated?: boolean;
+  imageUrl?: string;
 }
 
 export interface LibraryCategory {
@@ -164,45 +166,63 @@ function ViewToggle({ mode, onChange }: { mode: ViewMode; onChange: (m: ViewMode
   );
 }
 
-// Book spine – small compact card for the shelves view
+// Book spine – compact card for shelves view
 function BookSpine({ article, index }: { article: LibraryArticle; index: number }) {
   const colors = getCategoryColor(article.category);
+  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
+
   return (
     <Link
       href={article.slug}
-      className="group relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+      className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
     >
-      {/* Colored top stripe */}
-      <div className="h-1.5 w-full" style={{ background: colors.bg }} />
-
-      <div className="p-4 flex-1 flex flex-col">
-        <div className="flex items-center gap-2 mb-2">
+      {/* Thumbnail or colored placeholder */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden shrink-0">
+        {article.imageUrl ? (
+          <Image
+            src={article.imageUrl}
+            alt={article.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-4xl" style={{ background: colors.light }}>
+            {colors.icon}
+          </div>
+        )}
+        {/* Overlay badges */}
+        <div className="absolute top-2 left-2 flex items-center gap-1.5">
           <span
-            className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-            style={{ background: colors.badge, color: colors.bg }}
+            className="text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm"
+            style={{ background: colors.bg, color: '#fff' }}
           >
-            {colors.icon} {article.category}
+            {article.category}
           </span>
           {article.urgent && (
-            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-100 text-red-700 animate-pulse">
-              LIVE
-            </span>
+            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-600 text-white animate-pulse">LIVE</span>
           )}
         </div>
+      </div>
 
-        <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug flex-1 line-clamp-3">
+      <div className="p-3 flex-1 flex flex-col">
+        <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug line-clamp-2 mb-1.5">
           {article.title}
         </h3>
-
-        <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 mt-2 hidden sm:block">
+        <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-2">
           {article.excerpt}
         </p>
-
-        <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-100">
-          <span className="text-xs text-gray-400 font-medium truncate max-w-[120px]">{article.author}</span>
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
+          <div
+            className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black text-white shrink-0"
+            style={{ background: colors.bg }}
+          >
+            {initials}
+          </div>
+          <span className="text-[11px] text-gray-600 font-medium truncate flex-1">{article.author}</span>
+          <div className="flex items-center gap-1 shrink-0">
             {article.isUpdated && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">UPD</span>
+              <span className="text-[10px] font-bold px-1 py-0.5 rounded bg-purple-100 text-purple-700">UPD</span>
             )}
             <time className="text-[10px] text-gray-400">{article.relativeDate}</time>
           </div>
@@ -215,34 +235,59 @@ function BookSpine({ article, index }: { article: LibraryArticle; index: number 
 // Full card for grid view
 function BookCard({ article }: { article: LibraryArticle }) {
   const colors = getCategoryColor(article.category);
+  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
+
   return (
     <Link
       href={article.slug}
       className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
     >
-      {/* Colored band */}
-      <div className="h-2 w-full" style={{ background: colors.bg }} />
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs font-bold px-2.5 py-0.5 rounded-full" style={{ background: colors.badge, color: colors.bg }}>
+      {/* Thumbnail */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden">
+        {article.imageUrl ? (
+          <Image
+            src={article.imageUrl}
+            alt={article.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-5xl" style={{ background: colors.light }}>
+            {colors.icon}
+          </div>
+        )}
+        <div className="absolute top-3 left-3 flex items-center gap-2">
+          <span className="text-xs font-bold px-2.5 py-0.5 rounded-full shadow" style={{ background: colors.bg, color: '#fff' }}>
             {colors.icon} {article.category}
           </span>
           {article.urgent && (
-            <span className="text-xs font-black px-2 py-0.5 rounded-full bg-red-100 text-red-700 animate-pulse">BREAKING</span>
+            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-600 text-white animate-pulse shadow">BREAKING</span>
           )}
         </div>
-        <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-2 line-clamp-3">
+      </div>
+
+      <div className="p-5">
+        <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-2 line-clamp-2">
           {article.title}
         </h3>
         <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-4">
           {article.excerpt}
         </p>
-        <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
-          <span className="font-medium text-gray-600 truncate max-w-[130px]">{article.author}</span>
-          <div className="flex items-center gap-2">
-            {article.isUpdated && <span className="font-bold text-purple-600">Updated</span>}
-            <time>{article.relativeDate}</time>
-            {article.readTime && <span>· {article.readTime}</span>}
+        <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white shrink-0"
+            style={{ background: colors.bg }}
+          >
+            {initials}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-semibold text-gray-700 truncate">{article.author}</p>
+            <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
+              {article.isUpdated && <span className="font-bold text-purple-600">Updated ·</span>}
+              <time>{article.relativeDate}</time>
+              {article.readTime && <><span>·</span><span>{article.readTime}</span></>}
+            </div>
           </div>
         </div>
       </div>
@@ -253,40 +298,41 @@ function BookCard({ article }: { article: LibraryArticle }) {
 // List row for list view
 function ListRow({ article, index }: { article: LibraryArticle; index: number }) {
   const colors = getCategoryColor(article.category);
+  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
+
   return (
     <Link
       href={article.slug}
       className="group flex items-start gap-4 py-4 px-4 -mx-4 hover:bg-white rounded-xl transition-colors"
     >
       <span
-        className="text-2xl font-black tabular-nums leading-none pt-0.5 shrink-0 w-8 text-right"
+        className="text-2xl font-black tabular-nums leading-none pt-1 shrink-0 w-8 text-right hidden sm:block"
         style={{ color: colors.badge }}
       >
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      <div
-        className="w-1 self-stretch rounded-full shrink-0"
-        style={{ background: colors.bg }}
-      />
+      <div className="w-1 self-stretch rounded-full shrink-0" style={{ background: colors.bg }} />
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: colors.bg }}>
             {article.category}
           </span>
-          {article.urgent && (
-            <span className="text-[10px] font-black text-red-600 animate-pulse">● LIVE</span>
-          )}
-          {article.isUpdated && (
-            <span className="text-[10px] font-bold text-purple-600">UPDATED</span>
-          )}
+          {article.urgent && <span className="text-[10px] font-black text-red-600 animate-pulse">● LIVE</span>}
+          {article.isUpdated && <span className="text-[10px] font-bold text-purple-600">UPDATED</span>}
         </div>
         <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-1 line-clamp-2">
           {article.title}
         </h3>
-        <p className="text-xs text-gray-500 line-clamp-1 mb-1.5">{article.excerpt}</p>
+        <p className="text-xs text-gray-500 line-clamp-2 mb-1.5">{article.excerpt}</p>
         <div className="flex items-center gap-2 text-[11px] text-gray-400">
+          <div
+            className="w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-black text-white shrink-0"
+            style={{ background: colors.bg }}
+          >
+            {initials}
+          </div>
           <span className="font-medium text-gray-500">{article.author}</span>
           <span>·</span>
           <time>{article.relativeDate}</time>
@@ -294,9 +340,22 @@ function ListRow({ article, index }: { article: LibraryArticle; index: number })
         </div>
       </div>
 
-      <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
+      {/* Thumbnail */}
+      <div className="relative w-20 h-14 rounded-lg overflow-hidden shrink-0 hidden sm:block">
+        {article.imageUrl ? (
+          <Image
+            src={article.imageUrl}
+            alt={article.title}
+            fill
+            sizes="80px"
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-xl" style={{ background: colors.light }}>
+            {colors.icon}
+          </div>
+        )}
+      </div>
     </Link>
   );
 }
@@ -352,7 +411,7 @@ function AisleShelf({ category, articles, isActive, onSelect }: {
       {/* Article spines on the shelf */}
       {isActive && (
         <div className="p-4 bg-white">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 gap-3">
             {topArticles.map((a, i) => (
               <BookSpine key={a.slug} article={a} index={i} />
             ))}
@@ -551,7 +610,7 @@ export default function NewsLibrary({
 
           {/* Title */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-2">
+            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-2 drop-shadow-lg">
               ObjectWire News
             </h1>
             <p className="text-blue-300 text-sm">
@@ -687,8 +746,8 @@ export default function NewsLibrary({
                 </div>
               )
             ) : (
-              // Default: one aisle/shelf per category
-              <div>
+              // Default: two shelves per row
+              <div className="grid md:grid-cols-2 gap-4">
                 {categories
                   .filter(cat => (grouped.get(cat.rawName) ?? []).length > 0)
                   .map(cat => (

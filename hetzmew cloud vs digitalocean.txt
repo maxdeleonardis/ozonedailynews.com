@@ -1,0 +1,34 @@
+Hetzner Cloud and DigitalOcean Droplets both provide virtual servers for hosting applications, but they differ in resource allocation, pricing structures, and typical deployments. Hetzner often supplies higher core counts and RAM at lower monthly rates for compute-intensive tasks, while DigitalOcean offers per-second billing (effective January 1, 2026) and a broader suite of integrated developer tools. For resource-heavy workloads — such as blockchain nodes or bot frameworks like Moltbot — Hetzner configurations deliver more vCPU and RAM per dollar based on current listings. Simpler web projects, including Next.js sites, frequently align with DigitalOcean's entry-level Droplets due to predictable scaling and included transfer allowances. This comparison draws from official pricing pages and third-party benchmarks as of February 2026, prior to Hetzner's announced April 1, 2026 adjustments.
+Current Pricing Structures
+DigitalOcean Droplets use per-second billing with a 60-second minimum or $0.01 charge (whichever is higher), capped at monthly equivalents — DigitalOcean Droplet Pricing. Basic plans start at $4.00/month for 512 MiB RAM, 1 vCPU, 10 GiB SSD, and 500 GiB transfer. Standard configurations include:
+
+$6.00/month — 1 GiB RAM, 1 vCPU, 25 GiB SSD, 1,000 GiB transfer
+$12.00/month — 2 GiB RAM, 1 vCPU, 50 GiB SSD, 2,000 GiB transfer
+$24.00/month (approximate for 2 vCPU/4 GiB variants in Basic tier) — higher specs scale accordingly
+
+Hetzner Cloud applies hourly billing rounded to full hours, with monthly caps — Hetzner Cloud. Shared vCPU plans (pre-April 2026 increases) start around €3.49–€4.99/month (~$4.09–$5.59) for models like CX23 (2 vCPU, 4 GB RAM, 40 GB SSD, 20 TB traffic included). Dedicated vCPU options begin higher, at €12.49/month for general-purpose instances. Note: Hetzner announced price increases of 25–40% effective April 1, 2026, due to hardware cost rises — Hetzner Price Adjustment.
+Resource Allocation Comparison
+Direct spec-for-spec matches show differences in value:
+
+For ~2 vCPU / 4 GB RAM: Hetzner CX23 or similar at €3.49–€5.49/month (20 TB traffic) vs DigitalOcean Basic ~$24.00/month (4 TB transfer in comparable tiers) — GetDeploying Comparison
+For ~4 vCPU / 8 GB RAM: Hetzner CX33 at €5.49–€7.99/month vs DigitalOcean ~$48.00/month — VPSBenchmarks Comparison
+For ~8 vCPU / 16 GB RAM: Hetzner CX43 at €11–€15/month range vs DigitalOcean CPU-Optimized ~$168.00/month
+
+Hetzner includes substantially more included traffic (often 20 TB) compared to DigitalOcean's 1–4 TB baselines, reducing overage risk for data-intensive applications.
+Suitability for Compute-Intensive Projects
+Blockchain nodes and high-throughput bots (e.g., Moltbot-style automation) benefit from higher baseline CPU cores and generous bandwidth. Benchmarks indicate Hetzner instances deliver stronger raw performance per dollar in CPU-bound tasks, with reports of 1.2x faster CPUs and 8x bandwidth in migrations from DigitalOcean — Talk Python Migration to Hetzner. Dedicated vCPU options on Hetzner avoid shared-resource contention common in entry-level shared plans. DigitalOcean provides GPU Droplets for AI/ML extensions (starting ~$0.76/GPU/hour on-demand), but Hetzner focuses on cost-effective dedicated GPU servers for similar workloads.
+Suitability for Next.js and Simpler Web Projects
+Next.js deployments — often involving static generation, API routes, and moderate traffic — fit well within DigitalOcean's ecosystem. One-click apps, managed databases (starting ~$15–$60/month), and Kubernetes integration simplify setup. Droplets include free outbound transfer up to tier limits, with predictable scaling via the dashboard. Hetzner requires more manual configuration for managed services but offers lower base costs for equivalent or higher specs if traffic remains under included allowances.
+Additional Cost Factors
+
+Block/Object Storage: DigitalOcean Volumes at $10.00/100 GB/month; Spaces (object) at $20.00/1 TiB — Hetzner Volumes at ~€5.18/100 GB (~$5.18), Object Storage base €6.49/month post-increase for 1 TB — GetDeploying
+Networking: Both include IPv6; DigitalOcean offers free reserved IPs when assigned, while Hetzner charges €0.50–€3.00/month for additional IPv4.
+Locations: DigitalOcean spans 12+ global datacenters; Hetzner focuses on Germany/Finland (low latency in EU), US, and Singapore.
+
+Key Statistics Summary
+
+Hetzner 4 vCPU / 8 GB config: €6–€8/month (pre-April 2026) — DigitalOcean equivalent: $48.00/month
+Included traffic: Hetzner 20 TB standard — DigitalOcean 1–4 TB baseline
+Performance edge: Hetzner shows higher cores/RAM per dollar in VPS benchmarks
+
+When bandwidth allowances exceed typical web needs, the choice often comes down to raw compute versus integrated tooling.

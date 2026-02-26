@@ -39,6 +39,10 @@ export interface NewsArticleProps {
     caption?: string;
     credit?: string;
   };
+  thumbnail?: {
+    src: string;
+    alt: string;
+  };
   tags?: string[];
   children: React.ReactNode;
   trending?: boolean;
@@ -154,6 +158,7 @@ export function NewsHeader({
   readTime,
   author,
   heroImage,
+  thumbnail,
   trending,
   breaking,
   exclusive,
@@ -222,7 +227,13 @@ export function NewsHeader({
                         {author.name.charAt(0)}
                       </div>
                     )}
-                    <span className="font-medium text-white">{author.name}</span>
+                    {author.authorSlug ? (
+                      <Link href={`/authors/${author.authorSlug}`} className="font-medium text-white hover:underline hover:text-white/80 transition-colors">
+                        {author.name}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-white">{author.name}</span>
+                    )}
                   </div>
                 )}
                 <span className="text-gray-400">•</span>
@@ -241,68 +252,95 @@ export function NewsHeader({
 
       {/* No Hero Image - Gradient Header */}
       {!heroImage && (
-        <div className={`bg-gradient-to-r ${categoryColors[categoryColor]} py-16 md:py-24`}>
-          <div className="container mx-auto px-6 max-w-4xl">
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              {breaking && (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur animate-pulse">
-                  🔴 Breaking
-                </span>
-              )}
-              {exclusive && (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-400 text-black">
-                  ⭐ Exclusive
-                </span>
-              )}
-              {trending && (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur">
-                  🔥 Trending
-                </span>
-              )}
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/30 text-white backdrop-blur">
-                {category}
-              </span>
-            </div>
+        <div
+          className={`bg-gradient-to-r ${categoryColors[categoryColor]} py-16 md:py-24`}
+          style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)' }}
+        >
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="flex items-center gap-8">
 
-            {/* Title */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
-              {title}
-            </h1>
+              {/* Left column — all text content (fills remaining space) */}
+              <div className="flex-1 min-w-0">
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  {breaking && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur animate-pulse">
+                      🔴 Breaking
+                    </span>
+                  )}
+                  {exclusive && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-400 text-black">
+                      ⭐ Exclusive
+                    </span>
+                  )}
+                  {trending && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur">
+                      🔥 Trending
+                    </span>
+                  )}
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/30 text-white backdrop-blur">
+                    {category}
+                  </span>
+                </div>
 
-            {/* Subtitle */}
-            {subtitle && (
-              <p className="text-lg md:text-xl text-white/90 mb-6 max-w-3xl">
-                {subtitle}
-              </p>
-            )}
+                {/* Title */}
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+                  {title}
+                </h1>
 
-            {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
-              {author && (
-                <div className="flex items-center gap-2">
-                  {author.avatar ? (
-                    <img
-                      src={author.avatar}
-                      alt={author.name}
-                      className="w-8 h-8 rounded-full border-2 border-white"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center text-white font-bold text-sm">
-                      {author.name.charAt(0)}
+                {/* Subtitle */}
+                {subtitle && (
+                  <p className="text-lg md:text-xl text-white/90 mb-6 max-w-3xl">
+                    {subtitle}
+                  </p>
+                )}
+
+                {/* Meta Info */}
+                <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
+                  {author && (
+                    <div className="flex items-center gap-2">
+                      {author.avatar ? (
+                        <img
+                          src={author.avatar}
+                          alt={author.name}
+                          className="w-8 h-8 rounded-full border-2 border-white"
+                        />
+                      ) : (
+                        <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center text-white font-bold text-sm">
+                          {author.name.charAt(0)}
+                        </div>
+                      )}
+                      {author.authorSlug ? (
+                        <Link href={`/authors/${author.authorSlug}`} className="font-medium text-white hover:underline hover:text-white/80 transition-colors">
+                          {author.name}
+                        </Link>
+                      ) : (
+                        <span className="font-medium text-white">{author.name}</span>
+                      )}
                     </div>
                   )}
-                  <span className="font-medium text-white">{author.name}</span>
+                  <span className="text-white/50">•</span>
+                  <span>{publishDate}</span>
+                  {readTime && (
+                    <>
+                      <span className="text-white/50">•</span>
+                      <span>📖 {readTime}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Right column — thumbnail (20% width, only renders if thumbnail prop set) */}
+              {thumbnail && (
+                <div className="hidden md:block shrink-0" style={{ width: '20%' }}>
+                  <img
+                    src={thumbnail.src}
+                    alt={thumbnail.alt}
+                    className="w-full aspect-[4/3] object-cover rounded-xl shadow-xl ring-2 ring-white/20"
+                  />
                 </div>
               )}
-              <span className="text-white/50">•</span>
-              <span>{publishDate}</span>
-              {readTime && (
-                <>
-                  <span className="text-white/50">•</span>
-                  <span>📖 {readTime}</span>
-                </>
-              )}
+
             </div>
           </div>
         </div>

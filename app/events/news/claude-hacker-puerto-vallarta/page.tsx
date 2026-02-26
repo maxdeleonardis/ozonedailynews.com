@@ -166,6 +166,10 @@ export default function ClaudeHackerPuertoVallartaPage() {
         publishDate="February 25, 2026"
         readTime="8 min read"
         breaking={true}
+        thumbnail={{
+          src: '/influncer/pexels-pok-rie-33563-5957005.jpg',
+          alt: 'Puerto Vallarta',
+        }}
         author={{
           name: AUTHOR_NAME,
           role: 'Finance & Markets Reporter',

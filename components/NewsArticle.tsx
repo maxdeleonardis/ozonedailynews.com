@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import ReactionBar from '@/components/ReactionBar';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -332,11 +333,11 @@ export function NewsHeader({
 
               {/* Right column — thumbnail (20% width, only renders if thumbnail prop set) */}
               {thumbnail && (
-                <div className="hidden md:block shrink-0" style={{ width: '20%' }}>
+                <div className="hidden md:flex shrink-0 self-stretch -my-16 md:-my-24 -mr-6" style={{ width: '20%' }}>
                   <img
                     src={thumbnail.src}
                     alt={thumbnail.alt}
-                    className="w-full aspect-[4/3] object-cover rounded-xl shadow-xl ring-2 ring-white/20"
+                    className="w-full h-full object-cover rounded-l-xl shadow-xl ring-2 ring-white/20"
                   />
                 </div>
               )}
@@ -503,32 +504,9 @@ export function Timeline({
   );
 }
 
-// =============================================================================
-// REACTION BAR (Social Engagement)
-// =============================================================================
-
-export function ReactionBar() {
-  return (
-    <div className="my-8 flex flex-wrap items-center justify-center gap-4 p-4 bg-gray-50 rounded-xl">
-      <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-colors">
-        <span>❤️</span>
-        <span className="text-sm font-medium text-gray-700">Like</span>
-      </button>
-      <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-        <span>💬</span>
-        <span className="text-sm font-medium text-gray-700">Comment</span>
-      </button>
-      <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors">
-        <span>🔗</span>
-        <span className="text-sm font-medium text-gray-700">Share</span>
-      </button>
-      <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 hover:border-yellow-300 hover:bg-yellow-50 transition-colors">
-        <span>🔖</span>
-        <span className="text-sm font-medium text-gray-700">Save</span>
-      </button>
-    </div>
-  );
-}
+// ReactionBar is now a standalone 'use client' component in components/ReactionBar.tsx
+// It is re-exported here for backwards-compatible named imports.
+export { default as ReactionBar } from '@/components/ReactionBar';
 
 // =============================================================================
 // TAGS SECTION
@@ -621,6 +599,7 @@ export function NewsArticle({
   readTime,
   author,
   heroImage,
+  thumbnail,
   tags,
   children,
   trending,
@@ -639,6 +618,7 @@ export function NewsArticle({
         readTime={readTime}
         author={author}
         heroImage={heroImage}
+        thumbnail={thumbnail}
         trending={trending}
         breaking={breaking}
         exclusive={exclusive}
@@ -661,8 +641,8 @@ export function NewsArticle({
           {children}
         </div>
 
-        {/* Reaction Bar */}
-        <ReactionBar />
+        {/* Reaction Bar — Like/Comment/Share/Save (Google sign-in gated) */}
+        <ReactionBar title={title} />
 
         {/* Tags */}
         {tags && tags.length > 0 && <TagsSection tags={tags} />}

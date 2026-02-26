@@ -4,9 +4,13 @@ import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 
 export default function SignInButton() {
+  // Return the user to the exact page they were on, not the homepage
+  const callbackUrl =
+    typeof window !== 'undefined' ? window.location.href : '/';
+
   return (
     <Button
-      onClick={() => signIn("google", { callbackUrl: "/" })}
+      onClick={() => signIn("google", { callbackUrl })}
       variant="outline"
       className="flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-900 border-gray-300"
     >

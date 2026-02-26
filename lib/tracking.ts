@@ -239,4 +239,31 @@ export const tracking = {
       is_returning: visitor.isReturningVisitor,
     });
   },
+
+  /**
+   * Track a user reaction on an article (like, save, share, comment click).
+   * Called from ReactionBar. Fires a GA4 custom event that shows up in
+   * Explore → "article_reaction" with reaction_type, article_slug, direction.
+   *
+   * @param action  - The reaction type ('like' | 'save' | 'share' | 'comment_click')
+   * @param slug    - The article slug / path used as a stable identifier
+   * @param title   - The article title for readability in GA4 reports
+   * @param direction - 'add' when engaging, 'remove' when un-liking/un-saving
+   */
+  trackArticleReaction(
+    action: 'like' | 'save' | 'share' | 'comment_click',
+    slug: string,
+    title: string,
+    direction: 'add' | 'remove',
+  ): void {
+    const visitor = loadVisitor();
+    gtag('event', 'article_reaction', {
+      reaction_type: action,
+      reaction_direction: direction,
+      article_slug: slug,
+      article_title: title,
+      visit_count: visitor.visitCount,
+      is_returning_visitor: visitor.isReturningVisitor,
+    });
+  },
 };

@@ -96,6 +96,27 @@ function Tag({ category, slug }: { category: string; slug: string }) {
   );
 }
 
+// ─── Coverage beats — actual sections in the registry ────────────────────────
+
+const COVERAGE_BEATS: { icon: string; label: string; href: string; desc: string }[] = [
+  { icon: '📰', label: 'Breaking News',    href: '/news',            desc: 'Verified breaking stories & investigations' },
+  { icon: '💰', label: 'Finance',          href: '/finance',         desc: 'Markets, crypto & macro intelligence' },
+  { icon: '🤖', label: 'AI & Tech',        href: '/tech',            desc: 'OpenAI, Nvidia, Google & the AI race' },
+  { icon: '🏅', label: 'Winter Olympics',  href: '/winter-olympics', desc: 'Milan Cortina 2026 medal coverage' },
+  { icon: '⚽', label: 'World Cup 2026',   href: '/world-cup',       desc: 'FIFA coverage, boycotts & host cities' },
+  { icon: '🏎️', label: 'Formula 1',        href: '/formula-1',       desc: 'F1 2026 season, teams & Apple TV deal' },
+  { icon: '🎬', label: 'Entertainment',    href: '/entertainment',   desc: 'Netflix, Disney, YouTube & culture' },
+  { icon: '🔬', label: 'Investigations',   href: '/investigations',  desc: 'Long-form investigative journalism' },
+  { icon: '🌍', label: 'Earth & Science',  href: '/earth',           desc: 'Deep-sea mining, climate & environment' },
+  { icon: '🎮', label: 'Video Games',      href: '/video-games',     desc: 'MHA Ultra Rumble, Nintendo, GTA 6' },
+  { icon: '🏦', label: 'Big Tech',         href: '/google',          desc: 'Google, Apple, Microsoft & Amazon' },
+  { icon: '🚀', label: 'Space & NASA',     href: '/nasa',            desc: 'Artemis, Europa & commercial space' },
+  { icon: '🎭', label: 'Influencers',      href: '/influencer',      desc: 'Creator economy, YouTube & TikTok' },
+  { icon: '🔍', label: 'Explainers',       href: '/define',          desc: 'How things work — tech, finance & more' },
+  { icon: '🕵️', label: 'Private Detective', href: '/service',        desc: 'Austin TX investigative services' },
+  { icon: '🌐', label: 'NGOs & Nonprofits', href: '/ngos',           desc: 'Accountability reporting on 501(c) orgs' },
+];
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 interface Props {
@@ -181,7 +202,7 @@ export default function ArticleColumns({ latestArticles }: Props) {
         )}
 
         {/* Ranked runner-up list */}
-        <ul className="divide-y divide-gray-100">
+        <ul className="divide-y divide-gray-100 mb-10">
           {(runnerUp.length ? runnerUp : Array(7).fill(null)).map((article, i) => (
             <li key={article?.slug ?? i}>
               {article ? (
@@ -217,6 +238,30 @@ export default function ArticleColumns({ latestArticles }: Props) {
             </li>
           ))}
         </ul>
+
+        {/* ── Coverage Library ──────────────────────────────────────── */}
+        <div className="border-t-2 border-black pt-6">
+          <h2 className="text-xs font-black tracking-widest uppercase mb-5">Coverage Library</h2>
+          <div className="grid grid-cols-2 gap-3">
+            {COVERAGE_BEATS.map((beat) => (
+              <Link
+                key={beat.href}
+                href={beat.href}
+                className="group flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all"
+              >
+                <span className="text-xl leading-none mt-0.5 shrink-0">{beat.icon}</span>
+                <div className="min-w-0">
+                  <p className="text-xs font-black uppercase tracking-wide group-hover:text-black text-gray-700 leading-tight">
+                    {beat.label}
+                  </p>
+                  <p className="text-[10px] text-gray-400 mt-0.5 leading-snug line-clamp-2">
+                    {beat.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* ── RIGHT: Latest Headlines ─────────────────────────────────── */}

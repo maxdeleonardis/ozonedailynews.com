@@ -693,6 +693,70 @@ export function JackVideo({
 }
 
 // =============================================================================
+// SCIENCE CALLOUT — alias for JackCallout styled for science/health articles
+// Exported so bio-hacking article pages can import { ScienceCallout }
+// =============================================================================
+
+export type CalloutType = 'key-finding' | 'clinical-data' | 'warning' | 'source' | 'definition';
+
+const calloutMeta: Record<CalloutType, { icon: string; label: string; accent: JackAccentColor }> = {
+  'key-finding':   { icon: '🔬', label: 'Key Finding',   accent: 'green'  },
+  'clinical-data': { icon: '📊', label: 'Clinical Data', accent: 'blue'   },
+  'warning':       { icon: '⚠️', label: 'Important Note',accent: 'orange' },
+  'source':        { icon: '📎', label: 'Source',        accent: 'gray'   },
+  'definition':    { icon: '📖', label: 'Definition',    accent: 'purple' },
+};
+
+export function ScienceCallout({
+  type = 'key-finding',
+  children,
+}: {
+  type?: CalloutType;
+  children: React.ReactNode;
+}) {
+  const meta = calloutMeta[type];
+  return (
+    <JackCallout label={`${meta.icon} ${meta.label}`} accentColor={meta.accent}>
+      {children}
+    </JackCallout>
+  );
+}
+
+// =============================================================================
+// FACT LIST — alias for JackCaseOverview styled for trial/company data tables
+// Exported so bio-hacking article pages can import { FactList }
+// =============================================================================
+
+export function FactList({
+  title,
+  items,
+}: {
+  title?: string;
+  items: { label: string; value: React.ReactNode }[];
+}) {
+  // JackCaseOverview takes { label, value: string } — we render ReactNode via wrapper
+  return (
+    <div className="my-6 rounded-none border border-gray-200 bg-white overflow-hidden shadow-sm not-prose">
+      {title && (
+        <div className="bg-gray-900 px-5 py-3">
+          <p className="text-xs font-black uppercase tracking-widest text-white">{title}</p>
+        </div>
+      )}
+      <dl className="divide-y divide-gray-100 text-sm">
+        {items.map((row, i) => (
+          <div key={i} className="flex gap-4 px-5 py-3">
+            <dt className="w-44 shrink-0 text-xs font-semibold text-gray-500 uppercase tracking-wide leading-relaxed">
+              {row.label}
+            </dt>
+            <dd className="text-gray-800 leading-relaxed">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+// =============================================================================
 // JACK ARTICLE — Main wrapper
 // =============================================================================
 

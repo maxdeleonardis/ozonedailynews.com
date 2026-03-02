@@ -3216,10 +3216,53 @@ export function getFeaturedArticles(): ContentEntry[] {
     .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 }
 
-/** Get the most recently published articles */
+// Hub/index slugs that should never appear as "latest articles"
+const HUB_SLUGS = new Set([
+  '/', '/news', '/tech', '/technology', '/finance', '/search', '/site-index',
+  '/youtube', '/editorial-standards', '/social', '/entertainment', '/blog',
+  '/about', '/team', '/privacy-policy', '/terms-of-service', '/copyright',
+  '/corrections', '/get-help', '/service', '/index', '/feeds', '/crypto',
+  '/artists', '/influencer', '/saas', '/research', '/objectwire',
+  '/podcasts', '/video-games', '/winter-olympics', '/world-cup', '/formula-1',
+  '/redbull', '/disney', '/elon-musk', '/google', '/apple', '/nvidia',
+  '/microsoft', '/open-ai', '/github', '/nasa', '/intel', '/beastgames',
+  '/bio-hacking', '/earth', '/ngos', '/cars', '/clothing', '/events',
+  '/bank-of-america', '/austin-private-detective-agency', '/missing-persons',
+  '/investigations', '/college', '/define', '/authors', '/politics',
+  '/amazon', '/tiktok', '/trump', '/cuba',
+]);
+
+// Category slugs that are topic hubs, not articles
+const HUB_CATEGORIES = new Set([
+  'Meta', 'Support', 'Services', 'Legal',
+]);
+
+function isRealArticle(e: ContentEntry): boolean {
+  if (HUB_SLUGS.has(e.slug)) return false;
+  if (HUB_CATEGORIES.has(e.category)) return false;
+  // Must have at least 2 path segments (e.g. /news/my-article)
+  const parts = e.slug.split('/').filter(Boolean);
+  if (parts.length < 2) return false;
+  // Skip stubs: very short descriptions or breadcrumb-only titles
+  if (e.description.length < 60) return false;
+  if (e.title.startsWith('›') || e.title.startsWith('ObjectWire coverage')) return false;
+  return true;
+}
+
+/** Get the most recently published real articles (no hub/index pages) */
 export function getLatestArticles(limit = 10): ContentEntry[] {
   return [...contentRegistry]
-    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+    .filter(isRealArticle)
+    .sort((a, b) => {
+      // Primary: publishDate desc
+      const dateDiff = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+      if (dateDiff !== 0) return dateDiff;
+      // Tiebreaker: modifiedDate desc (more recently updated first)
+      const modDiff = new Date(b.modifiedDate).getTime() - new Date(a.modifiedDate).getTime();
+      if (modDiff !== 0) return modDiff;
+      // Final tiebreaker: higher priority first
+      return (b.priority ?? 0) - (a.priority ?? 0);
+    })
     .slice(0, limit);
 }
 

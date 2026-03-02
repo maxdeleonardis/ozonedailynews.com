@@ -35,12 +35,9 @@ yarn-error.log*
 # Allow the example template — it has no real secrets
 !.env.example
 
-# GCP service account keys — NEVER commit
-*-service-account*.json
-objectwireorg-*.json
-
 # vercel
 .vercel
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

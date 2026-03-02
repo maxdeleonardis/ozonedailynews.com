@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import CoverageMap from '@/components/CoverageMap';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: "Site Index - Complete Sitemap | ObjectWire",

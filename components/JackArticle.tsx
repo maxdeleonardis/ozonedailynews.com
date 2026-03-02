@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import ArticleViews from '@/components/ui/ArticleViews';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -909,10 +908,6 @@ export default function JackArticle({
                         <p className="text-xs text-gray-500">{author.department}</p>
                       )}
                     </div>
-                    {/* 7-day view count badge */}
-                    {articleUrl && (
-                      <ArticleViews slug={new URL(articleUrl).pathname} />
-                    )}
                   </div>
                 )}
 
@@ -1104,10 +1099,6 @@ export default function JackArticle({
                     {publishDate}
                   </time>
                 </div>
-                {/* 7-day view count badge */}
-                {articleUrl && (
-                  <ArticleViews slug={new URL(articleUrl).pathname} />
-                )}
               </div>
             </div>
           </header>

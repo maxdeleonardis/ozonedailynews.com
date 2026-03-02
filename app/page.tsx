@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getLatestArticles, getFeaturedArticles } from '@/lib/content-registry';
+import { getLatestArticles, getFeaturedArticles, getPopularArticles } from '@/lib/content-registry';
 import { TopicTag, inferTopicTag } from '@/components/NewsArticle';
+import LatestArticlesSection from '@/components/ui/LatestArticlesSection';
+import MostReadSection from '@/components/ui/MostReadSection';
+import HeroLatestFeed from '@/components/ui/HeroLatestFeed';
+import HeroLeadSection from '@/components/ui/HeroLeadSection';
 
 export const metadata: Metadata = {
   title: "ObjectWire | Independent Investigative Journalism & Tech News",
@@ -28,9 +32,12 @@ export const dynamic = 'force-static';
 
 export default function HomePage() {
   // Pull articles from the content registry (real publish dates — never filesystem timestamps)
-  const allArticles = getLatestArticles(30);
+  const allArticles = getLatestArticles(50);
   const latestArticles = allArticles.slice(0, 12);
   const featuredArticle = getFeaturedArticles()[0] ?? allArticles[0];
+  const latest15 = getLatestArticles(15);
+  const popular15 = getPopularArticles(15);
+  const popularForHero = getPopularArticles(20);
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -87,88 +94,18 @@ export default function HomePage() {
 
       <main className="container py-10">
 
-        {/* ═══════════════════ HERO: LEAD STORY + SIDEBAR ═══════════════════ */}
-        <section className="grid lg:grid-cols-12 gap-8 mb-14">
-          {/* Lead */}
-          <div className="lg:col-span-7 border-r-0 lg:border-r border-gray-300 lg:pr-8">
-            {featuredArticle && (
-              <article>
-                <Link href={featuredArticle.slug} className="group block">
-                  <div className="flex items-center gap-2 mb-3">
-                    <TopicTag topic={inferTopicTag(featuredArticle.category, featuredArticle.slug)} size="sm" />
-                    <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Featured</span>
-                  </div>
-                  <h2 className="text-4xl md:text-5xl font-black leading-[1.1] mb-4 group-hover:text-gray-600 transition-colors">
-                    {featuredArticle.title}
-                  </h2>
-                  {featuredArticle.description && (
-                    <p className="text-lg text-gray-700 leading-relaxed mb-4 first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none first-letter:mt-1">
-                      {featuredArticle.description}
-                    </p>
-                  )}
-                  <div className="flex items-center gap-3 text-xs text-gray-500 pt-3 border-t border-gray-200">
-                    <span className="font-bold text-black">{featuredArticle.author || 'ObjectWire Team'}</span>
-                    <span>•</span>
-                    <span>{featuredArticle.publishDate}</span>
-                  </div>
-                </Link>
-              </article>
-            )}
+        {/* ═══════════════════ HERO: MOST POPULAR + LATEST NEWS ═══════════════════ */}
+        <section className="grid lg:grid-cols-12 gap-8 mb-14 border-b-2 border-black pb-14">
 
-            {/* Secondary stories under lead */}
-            <div className="grid grid-cols-2 gap-6 mt-8 pt-8 border-t-2 border-black">
-              {latestArticles.slice(1, 5).map((article) => (
-                <article key={article.slug} className="border-t border-gray-300 pt-4">
-                  <Link href={article.slug} className="group block space-y-2">
-                    <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" />
-                    <h3 className="text-base font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
-                      {article.title}
-                    </h3>
-                    {article.description && (
-                      <p className="text-xs text-gray-500 line-clamp-2">{article.description}</p>
-                    )}
-                    <p className="text-xs text-gray-400">{article.publishDate}</p>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
+          {/* ── Left: Most Popular (curated + GA4 live views) ── */}
+          <HeroLeadSection
+            featuredArticle={popularForHero[0] ?? featuredArticle}
+            secondaryArticles={popularForHero.slice(1)}
+          />
 
-          {/* Sidebar – latest headlines with descriptions */}
-          <aside className="lg:col-span-5">
-            <div className="border-b-2 border-black pb-2 mb-4 flex items-center justify-between">
-              <h2 className="text-xs font-black tracking-widest uppercase">Trending Headlines</h2>
-              <Link href="/news" className="text-xs font-bold text-blue-600 hover:underline">View All →</Link>
-            </div>
-            <ul className="space-y-0 divide-y divide-gray-200">
-              {latestArticles.slice(0, 5).map((article, i) => (
-                <li key={article.slug}>
-                  <Link href={article.slug} className="group flex items-start gap-3 py-3.5 hover:bg-gray-50/80 -mx-2 px-2 rounded transition-colors">
-                    <span className="text-2xl font-black text-gray-200 leading-none mt-0.5 w-8 shrink-0 text-right">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="mb-1">
-                        <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" showIcon={false} />
-                      </div>
-                      <h3 className="text-sm font-bold leading-snug group-hover:text-gray-600 transition-colors line-clamp-2">
-                        {article.title}
-                      </h3>
-                      {article.description && (
-                        <p className="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                          {article.description}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-1.5">
-                        <span>{article.author}</span>
-                        <span>•</span>
-                        <span>{article.publishDate}</span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* ── Right: Latest News feed (chronological) ── */}
+          <aside className="lg:col-span-5 flex flex-col">
+            <HeroLatestFeed articles={allArticles.slice(0, 8)} />
           </aside>
         </section>
 
@@ -241,34 +178,30 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ═══════════════════ LATEST NEWS GRID ═══════════════════ */}
+        {/* ═══════════════════ LATEST + MOST READ (COMBINED HERO) ═══════════════════ */}
         <section className="mb-16">
-          <div className="flex items-center justify-between mb-6 border-b-2 border-black pb-2">
-            <h2 className="text-xs font-black tracking-widest uppercase">Latest News</h2>
-            <Link href="/news" className="text-xs font-bold hover:underline flex items-center gap-1">
-              All Stories <span>→</span>
-            </Link>
+          {/* Section header bar */}
+          <div className="grid lg:grid-cols-12 gap-x-12 mb-0">
+            <div className="lg:col-span-7 flex items-center justify-between border-b-2 border-black pb-2">
+              <h2 className="text-xs font-black tracking-widest uppercase">Latest Articles</h2>
+              <Link href="/news" className="text-xs font-bold text-blue-600 hover:underline">All Stories →</Link>
+            </div>
+            <div className="lg:col-span-5 flex items-center justify-between border-b-2 border-black pb-2 mt-4 lg:mt-0">
+              <h2 className="text-xs font-black tracking-widest uppercase">Most Read</h2>
+              <span className="text-[10px] font-bold text-green-600 tracking-wide" id="most-read-live-badge" />
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-            {latestArticles.slice(0, 5).map((article) => (
-              <article key={article.slug} className="border-t border-gray-300 pt-4 group">
-                <Link href={article.slug} className="block space-y-2">
-                  <TopicTag topic={inferTopicTag(article.category, article.slug)} size="xs" />
-                  <h3 className="text-lg font-bold leading-tight group-hover:text-gray-600 transition-colors line-clamp-3">
-                    {article.title}
-                  </h3>
-                  {article.description && (
-                    <p className="text-sm text-gray-600 line-clamp-2">{article.description}</p>
-                  )}
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <span>{article.author}</span>
-                    <span>•</span>
-                    <span>{article.publishDate}</span>
-                  </div>
-                </Link>
-              </article>
-            ))}
+          {/* Two-column body */}
+          <div className="grid lg:grid-cols-12 gap-x-12">
+            {/* ── Left: Latest 15 ── */}
+            <div className="lg:col-span-7">
+              <LatestArticlesSection articles={latest15} hideHeader />
+            </div>
+            {/* ── Right: Most Read (GA4 live) ── */}
+            <div className="lg:col-span-5 lg:border-l lg:border-gray-200 lg:pl-10">
+              <MostReadSection curatedArticles={popular15} hideHeader />
+            </div>
           </div>
         </section>
 

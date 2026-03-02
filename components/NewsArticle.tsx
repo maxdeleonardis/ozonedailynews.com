@@ -331,14 +331,55 @@ export function NewsHeader({
                 </div>
               </div>
 
-              {/* Right column — thumbnail (20% width, only renders if thumbnail prop set) */}
+              {/* Right column — thumbnail with genie float + flare animation */}
               {thumbnail && (
                 <div className="hidden md:flex shrink-0 self-stretch -my-16 md:-my-24 -mr-6" style={{ width: '20%' }}>
-                  <img
-                    src={thumbnail.src}
-                    alt={thumbnail.alt}
-                    className="w-full h-full object-cover rounded-l-xl shadow-xl ring-2 ring-white/20"
-                  />
+                  <style>{`
+                    @keyframes genieFloat {
+                      0%,100% { transform: translateY(0px) rotate(0deg) scale(1); }
+                      33%     { transform: translateY(-7px) rotate(0.6deg) scale(1.01); }
+                      66%     { transform: translateY(-3px) rotate(-0.4deg) scale(1.005); }
+                    }
+                    @keyframes genieGlow {
+                      0%,100% { box-shadow: 0 0 18px 4px rgba(251,191,36,0.25), 0 0 40px 8px rgba(251,191,36,0.08); }
+                      50%     { box-shadow: 0 0 36px 12px rgba(251,191,36,0.55), 0 0 80px 24px rgba(251,191,36,0.18); }
+                    }
+                    @keyframes genieFlare {
+                      0%,100% { opacity: 0;   transform: translateX(-20%) rotate(-10deg) scale(0.7); }
+                      40%,60% { opacity: 0.7; transform: translateX(60%)  rotate(8deg)  scale(1.1); }
+                    }
+                    @keyframes genieFlare2 {
+                      0%,100% { opacity: 0;   transform: translateY(80%)  scale(0.8); }
+                      50%     { opacity: 0.4; transform: translateY(-10%) scale(1.15); }
+                    }
+                    .genie-img   { animation: genieFloat 3.8s ease-in-out infinite; will-change: transform; }
+                    .genie-wrap  { animation: genieGlow  2.8s ease-in-out infinite; }
+                    .genie-flare1{ animation: genieFlare  3.2s ease-in-out infinite; }
+                    .genie-flare2{ animation: genieFlare2 4.1s ease-in-out infinite 0.9s; }
+                  `}</style>
+                  <div className="relative w-full h-full rounded-l-xl overflow-hidden genie-wrap">
+                    <img
+                      src={thumbnail.src}
+                      alt={thumbnail.alt}
+                      className="w-full h-full object-cover genie-img"
+                    />
+                    {/* Sweep flare 1 — diagonal golden streak */}
+                    <span
+                      className="absolute inset-0 pointer-events-none genie-flare1"
+                      style={{
+                        background: 'linear-gradient(120deg, transparent 25%, rgba(255,220,80,0.55) 45%, rgba(255,255,200,0.9) 50%, rgba(255,220,80,0.55) 55%, transparent 75%)',
+                        mixBlendMode: 'screen',
+                      }}
+                    />
+                    {/* Radial glow flare 2 — bottom-up bloom */}
+                    <span
+                      className="absolute inset-0 pointer-events-none genie-flare2"
+                      style={{
+                        background: 'radial-gradient(ellipse at 50% 90%, rgba(255,200,50,0.6) 0%, rgba(255,150,0,0.25) 40%, transparent 70%)',
+                        mixBlendMode: 'screen',
+                      }}
+                    />
+                  </div>
                 </div>
               )}
 

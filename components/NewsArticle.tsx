@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import ReactionBar from '@/components/ReactionBar';
+import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -742,8 +743,22 @@ export function NewsArticle({
             </Link>
             <span>coverage</span>
           </div>
+
+          {/* Newsletter signup */}
+          <NewsletterSignupInline />
         </div>
       </footer>
+
+      {/* Full-size thumbnail — spans the full container width at the very end */}
+      {thumbnail && (
+        <div className="w-full mt-0 overflow-hidden">
+          <img
+            src={thumbnail.src}
+            alt={thumbnail.alt}
+            className="w-full h-auto block"
+          />
+        </div>
+      )}
     </main>
   );
 }

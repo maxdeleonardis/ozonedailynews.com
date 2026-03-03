@@ -361,7 +361,7 @@ export function NewsHeader({
                     <img
                       src={thumbnail.src}
                       alt={thumbnail.alt}
-                      className="w-full h-full object-cover genie-img"
+                      className="w-full h-full object-fill genie-img"
                     />
                     {/* Sweep flare 1 — diagonal golden streak */}
                     <span

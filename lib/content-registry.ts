@@ -4224,6 +4224,21 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+  {
+    slug: "/youtube/sidemen/ksi/dagenham-redbridge",
+    title: "KSI Becomes Co-Owner of Dagenham & Redbridge FC — Vows to Take Club to Premier League | ObjectWire",
+    description: "KSI (JJ Olatunji) acquired a 20% stake in Dagenham & Redbridge FC on March 3, 2026, becoming co-owner of the National League South club. The Sidemen founder vowed to take the Daggers to the Premier League, calling it a full-circle moment.",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "YouTube",
+    tags: ["KSI", "Sidemen", "YouTube", "Football", "Dagenham & Redbridge", "Non-League Football", "Andy Carroll", "Premier League"],
+    author: "ObjectWire Sports Desk",
+    priority: 0.9,
+    changeFrequency: "weekly",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/entertainment/ksi%20buys%20club.PNG",
+    imageAlt: "KSI announced as co-owner of Dagenham & Redbridge FC — March 3, 2026",
+  },
 ];
 
 // =============================================================================

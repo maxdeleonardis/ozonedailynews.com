@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AuthorSchema } from '@/components/AuthorSchema';
+import AuthorArticles from '@/components/AuthorArticles';
+import { getEntriesByAuthor } from '@/lib/content-registry';
+
+const AUTHOR_SLUG = 'alfansa';
+const authorArticles = getEntriesByAuthor(AUTHOR_SLUG);
 
 // ─── Google News optimised author profile ──────────────────────────────────
 export const metadata: Metadata = {
   title: 'Alfansa — Finance & Markets Reporter | ObjectWire',
   description:
-    'Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering markets, payments, fintech, My Hero Academia, and gaming culture.',
+    `Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire. ${authorArticles.length} published articles covering markets, payments, fintech, My Hero Academia, and gaming culture.`,
   alternates: {
     canonical: 'https://www.objectwire.org/authors/alfansa',
   },
@@ -24,37 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── Schema.org Person markup for Google News author verification ──────────
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Alfansa',
-  jobTitle: 'Finance & Markets Reporter',
-  description:
-    'Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering payments, fintech, markets, My Hero Academia, and gaming culture.',
-  url: 'https://www.objectwire.org/authors/alfansa',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'ObjectWire',
-    url: 'https://www.objectwire.org',
-  },
-  knowsAbout: [
-    'Finance',
-    'Markets',
-    'Fintech',
-    'Payments',
-    'Stock Market',
-    'AI Disruption',
-    'My Hero Academia',
-    'Anime',
-    'Gaming',
-    'Battle Royale Games',
-    'My Hero Ultra Rumble',
-    'Seasonal Anime',
-  ],
-};
-
-const articles = [
+const extraArticles = [
   {
     href: '/copyright/news/mastercard-ai-disruption-selloff',
     title: 'Mastercard Shares Drop Below $500 as AI Disruption Note and Tariff Concerns Hit Payments Sector',
@@ -90,10 +66,28 @@ const articles = [
 export default function AlfansaAuthorPage() {
   return (
     <>
-      {/* Schema.org JSON-LD for Google News verification */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      {/* Comprehensive Person JSON-LD for E-E-A-T */}
+      <AuthorSchema
+        name="Alfansa"
+        jobTitle="Finance & Markets Reporter"
+        description="Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering payments, fintech, markets, My Hero Academia, and gaming culture."
+        url="https://www.objectwire.org/authors/alfansa"
+        knowsAbout={[
+          'Finance',
+          'Markets',
+          'Fintech',
+          'Payments',
+          'Stock Market',
+          'AI Disruption',
+          'My Hero Academia',
+          'Anime',
+          'Gaming',
+          'Battle Royale Games',
+          'My Hero Ultra Rumble',
+          'Seasonal Anime',
+        ]}
+        location={{ city: 'Austin', region: 'Texas' }}
+        articleCount={authorArticles.length + extraArticles.length}
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -249,28 +243,8 @@ export default function AlfansaAuthorPage() {
                     </div>
                   </div>
 
-                  {/* Recent articles */}
-                  <div className="bg-white rounded-xl border border-gray-200 p-6">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4">Recent Articles</h2>
-                    <ul className="space-y-4">
-                      {articles.map((a) => (
-                        <li key={a.href} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                          <Link
-                            href={a.href}
-                            className="text-gray-900 font-semibold hover:text-green-600 transition-colors"
-                          >
-                            {a.title}
-                          </Link>
-                          <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
-                            <span className="px-2 py-0.5 bg-gray-100 rounded text-xs font-medium">
-                              {a.category}
-                            </span>
-                            <span>{a.date}</span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Recent articles — auto-populated from registry */}
+                  <AuthorArticles authorSlug={AUTHOR_SLUG} extraArticles={extraArticles} />
                 </div>
 
                 {/* Sidebar */}

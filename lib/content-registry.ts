@@ -3497,6 +3497,36 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
   },
   {
+    slug: "/video-games/switch2/pokemon-pokopia",
+    title: "Pokémon Pokopia Achieves Highest Review Scores in Pokémon Franchise History on Nintendo Switch 2 | ObjectWire",
+    description: "Pokémon Pokopia scored 93 on OpenCritic and 90 on Metacritic — the highest marks ever recorded for a Pokémon title. The life simulation game launches exclusively on Nintendo Switch 2 on March 5, 2026.",
+    publishDate: "2026-03-02",
+    modifiedDate: "2026-03-02",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Pokémon", "Pokopia", "Nintendo Switch 2", "Game Freak", "Omega Force", "Nintendo"],
+    author: "ObjectWire Gaming Desk",
+    priority: 0.9,
+    changeFrequency: "weekly",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/entertainment/new_pokemon_game.PNG",
+    imageAlt: "Pokémon Pokopia — Nintendo Switch 2 exclusive, March 5, 2026",
+  },
+  {
+    slug: "/video-games/racing/polyphony-gran-turismo",
+    title: "Gran Turismo 7 Review & Polyphony Digital Now Hiring for Next Gran Turismo | ObjectWire",
+    description: "Gran Turismo 7 is the benchmark PlayStation sim racer with 2M active players. Polyphony Digital posted 18 job openings March 2, 2026 for next-gen Gran Turismo development targeting PlayStation 6.",
+    publishDate: "2026-03-02",
+    modifiedDate: "2026-03-02",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Gran Turismo", "Gran Turismo 7", "Polyphony Digital", "PlayStation", "Racing", "Kazunori Yamauchi"],
+    author: "ObjectWire Gaming Desk",
+    priority: 0.8,
+    changeFrequency: "weekly",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/entertainment/gran_turismo.PNG",
+    imageAlt: "Gran Turismo 7 — Polyphony Digital, PlayStation 4 and PlayStation 5",
+  },
+  {
     slug: "/video-games/Digital-Foundry",
     title: "Crimson Desert Delivers Native 4K 60fps With Ray Tracing on Ultra Settings — Digital Foundry Tech Preview February 2026 | ObjectWire",
     description: "Digital Foundry",
@@ -4092,6 +4122,108 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.7,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-03 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/forza-horizon-6",
+    title: "Forza Horizon 6: Release Date, Map, Cars & Everything Known — March 2026 | ObjectWire",
+    description: "Forza Horizon 6 releases May 19, 2026 on Xbox Series X|S, PC, and later PlayStation 5. Japan open world, 550+ cars, Toyota GR GT cover vehicle, early access May",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Forza Horizon 6"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-03 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/news/gta-6-pre-orders-playstation-store-database-update-march-2026",
+    title: "GTA 6 Pre-Orders May Be Near After PlayStation Store Database Update — March 2026 | ObjectWire",
+    description: "Two Grand Theft Auto VI title IDs — PPSA01547_00 and PPSA29660_00 — were added to the PlayStation Store backend database on March 1, 2026, fueling speculation t",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "News", "Gta 6 Pre Orders Playstation Store Database Update March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-03 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay",
+    title: "GTA 6 Pre-Orders Near as PlayStation Database Lists Title IDs — Take-Two Assures Sony & Microsoft No Delay | ObjectWire",
+    description: "Two Grand Theft Auto VI title IDs appeared in the PlayStation Store backend on March 1, 2026, signaling imminent pre-orders. Separately, Take-Two Interactive re",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "News", "Gta6 Pre Orders As Take Two Ausures Sony Microsoft No More Delay"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-03 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Technology (1) ---
+  {
+    slug: "/tech/news/gaming-industry-layoffs-ea-sony-riot-ubisoft-february-2026",
+    title: "Gaming Industry Sheds Jobs Across EA, Sony, Riot, and Ubisoft in February 2026 | ObjectWire",
+    description: "Bluepoint Games closed. Full Circle restructured after Skate launch. Riot shed ~160 roles across publishing and 2XKO. Ubisoft Toronto lost 40 with 200 more targ",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Technology",
+    tags: ["Technology", "News", "Gaming Industry Layoffs Ea Sony Riot Ubisoft February 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-03 — 2 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Tags (2) ---
+  {
+    slug: "/tags",
+    title: "All Topics & Tags | ObjectWire",
+    description: "Browse all topics covered by ObjectWire — technology, gaming, finance, entertainment, sports, and more.",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Tags",
+    tags: ["Tags"],
+    author: "ObjectWire Editorial",
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/tags/[tag]",
+    title: "${tag} — ${articles.length} Articles | ObjectWire",
+    description: "All ObjectWire articles tagged",
+    publishDate: "2026-03-03",
+    modifiedDate: "2026-03-03",
+    category: "Tags",
+    tags: ["Tags"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================
@@ -4185,6 +4317,34 @@ export function getRelatedArticles(slug: string, limit = 5): ContentEntry[] {
 /** Look up a single entry by slug */
 export function getEntry(slug: string): ContentEntry | undefined {
   return contentRegistry.find((e) => e.slug === slug);
+}
+
+/** Get every unique tag and its article count, sorted by count desc */
+export function getAllTags(): { tag: string; count: number }[] {
+  const tagMap = new Map<string, number>();
+  for (const entry of contentRegistry) {
+    for (const tag of entry.tags) {
+      tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+    }
+  }
+  return [...tagMap.entries()]
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+/** Get articles matching a specific tag, sorted by publishDate desc */
+export function getEntriesByTag(tag: string, limit?: number): ContentEntry[] {
+  const results = contentRegistry
+    .filter((e) => e.tags.some((t) => t.toLowerCase() === tag.toLowerCase()))
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+  return limit ? results.slice(0, limit) : results;
+}
+
+/** Get articles by author slug */
+export function getEntriesByAuthor(authorSlug: string): ContentEntry[] {
+  return contentRegistry
+    .filter((e) => e.authorSlug === authorSlug)
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 }
 
 // =============================================================================

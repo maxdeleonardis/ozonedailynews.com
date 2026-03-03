@@ -1,18 +1,24 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/lib/site-config';
+import { AuthorSchema } from '@/components/AuthorSchema';
+import AuthorArticles from '@/components/AuthorArticles';
+import { getEntriesByAuthor } from '@/lib/content-registry';
+
+const AUTHOR_SLUG = 'conan-boyle';
+const authorArticles = getEntriesByAuthor(AUTHOR_SLUG);
 
 // Google News optimized author profile metadata
 export const metadata: Metadata = {
   title: "Conan Boyle - Science & Technology Journalist | ObjectWire",
-  description: "Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate specializing in biotechnology, CRISPR, medical research, and emerging technologies.",
+  description: `Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate. ${authorArticles.length} published articles on biotechnology, CRISPR, medical research, and emerging technologies.`,
   alternates: {
-    canonical: `${SITE_CONFIG.url}/contributors/conan-boyle`,
+    canonical: `${SITE_CONFIG.url}/authors/conan-boyle`,
   },
   openGraph: {
     title: "Conan Boyle | ObjectWire Founding Writer",
     description: "Science & technology journalist covering biotechnology, CRISPR, medical breakthroughs, and emerging tech.",
-    url: `${SITE_CONFIG.url}/contributors/conan-boyle`,
+    url: `${SITE_CONFIG.url}/authors/conan-boyle`,
     siteName: "ObjectWire",
     type: "profile",
   },
@@ -23,53 +29,32 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org Person markup for Google News author verification
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Conan Boyle",
-  jobTitle: "Founding Writer & Science Journalist",
-  description: "Science and technology journalist specializing in biotechnology, CRISPR gene editing, medical research breakthroughs, and emerging technologies.",
-  url: `${SITE_CONFIG.url}/contributors/conan-boyle`,
-  worksFor: {
-    "@type": "Organization",
-    name: "ObjectWire",
-    url: SITE_CONFIG.url,
-  },
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: "North Carolina State University",
-    department: "School of Journalism and Mass Communication",
-  },
-  knowsAbout: [
-    "Biotechnology",
-    "CRISPR Gene Editing",
-    "Medical Research",
-    "Science Journalism",
-    "Emerging Technologies",
-    "Healthcare Innovation",
-    "Genetic Therapies",
-    "Clinical Trials",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Austin",
-    addressRegion: "Texas",
-    addressCountry: "United States",
-  },
-  sameAs: [
-    "https://twitter.com/conan_boyle_ow",
-    "https://linkedin.com/in/conanboyle-objectwire",
-  ],
-};
-
 export default function ConanBoyleAuthorPage() {
   return (
     <>
-      {/* Schema.org JSON-LD for Google News verification */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      {/* Comprehensive Person JSON-LD for E-E-A-T */}
+      <AuthorSchema
+        name="Conan Boyle"
+        jobTitle="Founding Writer & Science Journalist"
+        description="Science and technology journalist specializing in biotechnology, CRISPR gene editing, medical research breakthroughs, and emerging technologies."
+        url={`${SITE_CONFIG.url}/authors/conan-boyle`}
+        knowsAbout={[
+          'Biotechnology',
+          'CRISPR Gene Editing',
+          'Medical Research',
+          'Science Journalism',
+          'Emerging Technologies',
+          'Healthcare Innovation',
+          'Genetic Therapies',
+          'Clinical Trials',
+        ]}
+        sameAs={[
+          'https://twitter.com/conan_boyle_ow',
+          'https://linkedin.com/in/conanboyle-objectwire',
+        ]}
+        alumniOf={[{ name: 'North Carolina State University', department: 'School of Journalism and Mass Communication' }]}
+        location={{ city: 'Austin', region: 'Texas' }}
+        articleCount={authorArticles.length}
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -345,44 +330,19 @@ export default function ConanBoyleAuthorPage() {
                 </div>
               </div>
 
-              {/* Recent Articles */}
+              {/* Recent Articles — auto-populated from registry */}
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                  <span className="text-purple-600">📰</span>
-                  Recent Articles by Conan Boyle
-                </h3>
-                <div className="space-y-4">
-                  <Link 
-                    href="/news/ubc-crispr-topical-gene-therapy-skin"
-                    className="block p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200 hover:shadow-lg transition group"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase shrink-0">
-                        Breaking
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition">
-                          UBC Researchers Develop First Topical CRISPR Therapy for Skin
-                        </h4>
-                        <p className="text-gray-600 mb-3">
-                          Groundbreaking gene editing technique corrects genetic mutations when applied directly to human skin
-                        </p>
-                        <div className="flex items-center gap-3 text-sm text-gray-500">
-                          <span>January 27, 2026</span>
-                          <span>•</span>
-                          <span>7 min read</span>
-                          <span>•</span>
-                          <span className="text-purple-600 font-medium">Science & Technology</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  {/* Placeholder for more articles */}
-                  <div className="text-center py-8 text-gray-500">
-                    More articles by Conan Boyle coming soon...
-                  </div>
-                </div>
+                <AuthorArticles
+                  authorSlug={AUTHOR_SLUG}
+                  extraArticles={[
+                    {
+                      href: '/news/ubc-crispr-topical-gene-therapy-skin',
+                      title: 'UBC Researchers Develop First Topical CRISPR Therapy for Skin',
+                      date: 'January 27, 2026',
+                      category: 'Science & Technology',
+                    },
+                  ]}
+                />
               </div>
 
               {/* Contact & Social */}

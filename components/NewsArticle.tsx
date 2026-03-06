@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import ReactionBar from '@/components/ReactionBar';
 import NewsletterSignupInline from '@/components/NewsletterSignupInline';
+import ArticleViewTracker from '@/components/ArticleViewTracker';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -50,6 +51,10 @@ export interface NewsArticleProps {
   trending?: boolean;
   breaking?: boolean;
   exclusive?: boolean;
+  /** Article slug (e.g. "my-article") — used to record view history for logged-in users. */
+  slug?: string;
+  /** Canonical URL path (e.g. "/news/my-article") — used to record view history. */
+  url?: string;
 }
 
 // =============================================================================
@@ -334,7 +339,7 @@ export function NewsHeader({
 
               {/* Right column — thumbnail with genie float + flare animation */}
               {thumbnail && (
-                <div className="hidden md:flex shrink-0 self-stretch -my-16 md:-my-24 -mr-6" style={{ width: '20%' }}>
+                <div className="hidden md:flex shrink-0 self-stretch -my-16 md:-my-24 -mr-6" style={{ width: '30%' }}>
                   <style>{`
                     @keyframes genieFloat {
                       0%,100% { transform: translateY(0px) rotate(0deg) scale(1); }
@@ -362,7 +367,7 @@ export function NewsHeader({
                     <img
                       src={thumbnail.src}
                       alt={thumbnail.alt}
-                      className="w-full h-full object-fill genie-img"
+                      className="w-full h-full object-cover genie-img"
                     />
                     {/* Sweep flare 1 — diagonal golden streak */}
                     <span
@@ -647,9 +652,21 @@ export function NewsArticle({
   trending,
   breaking,
   exclusive,
+  slug,
+  url,
 }: NewsArticleProps) {
   return (
     <main className="min-h-screen bg-white">
+      {/* Record view in reading history for logged-in users */}
+      {slug && url && (
+        <ArticleViewTracker
+          slug={slug}
+          title={title}
+          url={url}
+          image={heroImage?.src}
+          category={category}
+        />
+      )}
       {/* Header */}
       <NewsHeader
         title={title}
@@ -684,7 +701,13 @@ export function NewsArticle({
         </div>
 
         {/* Reaction Bar — Like/Comment/Share/Save (Google sign-in gated) */}
-        <ReactionBar title={title} />
+        <ReactionBar
+          slug={slug}
+          title={title}
+          url={url}
+          image={heroImage?.src}
+          category={category}
+        />
 
         {/* Tags */}
         {tags && tags.length > 0 && <TagsSection tags={tags} />}

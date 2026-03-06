@@ -165,7 +165,7 @@ export default function BioHackingHubPage() {
             <p>
               Bio-hacking is the practice of using science, technology, and self-experimentation to optimize human biology beyond natural baselines. It spans:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li><strong>Longevity hacking:</strong> protocols to extend lifespan and reverse biological aging (peptides, NAD+ infusions, caloric restriction mimetics)</li>
               <li><strong>Cognitive enhancement:</strong> nootropics, neurofeedback, transcranial stimulation to boost focus, memory, and processing speed</li>
               <li><strong>Performance optimization:</strong> hormones, adaptogens, sleep tracking, genetic testing for athletic and mental peak performance</li>

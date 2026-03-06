@@ -51,7 +51,7 @@ function CharacterPoll() {
 
   return (
     <div className="space-y-3">
-      <p className="text-gray-300 text-sm mb-4">
+      <p className="text-gray-600 text-sm mb-4">
         Who&apos;s your #1 hero from My Hero Academia?
       </p>
       {options.map(({ key, label, icon }) => {
@@ -73,10 +73,10 @@ function CharacterPoll() {
             disabled={voted}
             className={`w-full text-left p-3 rounded-lg border relative overflow-hidden transition-all ${
               selected === key
-                ? "border-green-400 bg-green-900/40"
+                ? "border-green-400 bg-green-100"
                 : voted
-                ? "border-white/20 bg-white/5"
-                : "border-white/20 bg-white/5 hover:border-green-400 hover:bg-green-900/20"
+                ? "border-gray-200 bg-gray-50"
+                : "border-gray-200 bg-gray-50 hover:border-green-400 hover:bg-green-50"
             }`}
           >
             {voted && (
@@ -86,7 +86,7 @@ function CharacterPoll() {
               />
             )}
             <div className="relative flex justify-between items-center">
-              <span className="flex items-center gap-2 text-white">
+              <span className="flex items-center gap-2 text-gray-900">
                 <span>{icon}</span>
                 <span className="font-medium">{label}</span>
               </span>
@@ -127,7 +127,7 @@ export default function MHAPage() {
               ✍️{" "}
               <Link
                 href="/authors/alfansa"
-                className="hover:text-white underline underline-offset-2"
+                className="hover:text-gray-900 underline underline-offset-2"
               >
                 Alfansa
               </Link>
@@ -241,7 +241,7 @@ export default function MHAPage() {
             />
           </div>
 
-          <blockquote className="mt-6 border-l-4 border-green-400 pl-6 italic text-gray-300">
+          <blockquote className="mt-6 border-l-4 border-green-400 pl-6 italic text-gray-600">
             &ldquo;My Hero Academia&apos;s final season proves that when a series knows its
             destination, every step of the journey becomes more meaningful.&rdquo;
             <footer className="text-sm text-gray-400 mt-2 not-italic">
@@ -315,7 +315,7 @@ export default function MHAPage() {
 
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-bold text-white mb-3">Publication Details</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Publication Details</h3>
               <Hub.Table
                 columns={[
                   { key: "field", label: "Field", bold: true },
@@ -333,7 +333,7 @@ export default function MHAPage() {
                         href="https://shonenjumpplus.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-cyan-300 hover:underline"
+                        className="text-cyan-600 hover:underline"
                       >
                         Shonen Jump+
                       </a>
@@ -343,7 +343,7 @@ export default function MHAPage() {
               />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white mb-3">Main Cast</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Main Cast</h3>
               <Hub.Table
                 columns={[
                   { key: "hero", label: "Hero Name", bold: true },
@@ -403,7 +403,7 @@ export default function MHAPage() {
           />
 
           <div className="mt-8">
-            <h3 className="text-xl font-bold text-white mb-4">Character Win Rates</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Character Win Rates</h3>
             <Hub.Table
               columns={[
                 { key: "char", label: "Character", bold: true },
@@ -423,7 +423,7 @@ export default function MHAPage() {
 
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-bold text-white mb-3">Platform Distribution</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Platform Distribution</h3>
               <Hub.Table
                 columns={[
                   { key: "platform", label: "Platform", bold: true },
@@ -438,33 +438,33 @@ export default function MHAPage() {
               />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white mb-3">2026 Roadmap</h3>
-              <ul className="space-y-2 text-gray-300 text-sm">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">2026 Roadmap</h3>
+              <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex gap-2">
                   <span className="text-green-400">✓</span>
                   <span>
-                    <strong className="text-white">Season 15</strong> — Overhaul +
+                    <strong className="text-gray-900">Season 15</strong> — Overhaul +
                     Blighted Precipice map
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-white">Movie Characters</strong> — MHA film
+                    <strong className="text-gray-900">Movie Characters</strong> — MHA film
                     trilogy roster additions
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-white">Ranked Mode</strong> — Competitive
+                    <strong className="text-gray-900">Ranked Mode</strong> — Competitive
                     ladder system
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-white">Custom Matches</strong> — Private
+                    <strong className="text-gray-900">Custom Matches</strong> — Private
                     tournament lobbies
                   </span>
                 </li>
@@ -472,7 +472,7 @@ export default function MHAPage() {
             </div>
           </div>
 
-          <blockquote className="mt-6 border-l-4 border-cyan-400 pl-6 italic text-gray-300">
+          <blockquote className="mt-6 border-l-4 border-cyan-400 pl-6 italic text-gray-600">
             &ldquo;Ultra Rumble succeeds where many licensed games fail — it&apos;s a faithful
             translation of MHA&apos;s core themes into interactive entertainment, not just a battle
             royale dressed in anime skins.&rdquo;
@@ -556,14 +556,14 @@ export default function MHAPage() {
         </div>
 
         {/* ── Author byline ───────────────────────────────────────────────── */}
-        <div className="mt-4 border-t border-white/10 pt-6 flex items-center gap-4">
+        <div className="mt-4 border-t border-gray-200 pt-6 flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shrink-0">
             A
           </div>
           <div>
             <Link
               href="/authors/alfansa"
-              className="text-white font-semibold hover:text-green-300"
+              className="text-gray-900 font-semibold hover:text-green-600"
             >
               Alfansa
             </Link>

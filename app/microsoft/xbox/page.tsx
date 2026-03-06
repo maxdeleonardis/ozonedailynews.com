@@ -51,7 +51,7 @@ export default function XboxHubPage() {
         keywords={['Xbox', 'Xbox Series X', 'Game Pass', 'Microsoft Gaming', 'Activision Blizzard', 'Phil Spencer']}
       />
 
-      <div className="border-b border-white/10 bg-slate-900">
+      <div className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Breadcrumb
             items={[
@@ -189,9 +189,9 @@ export default function XboxHubPage() {
               { label: 'Game Pass Standard', value: '$14.99/mo', sub: 'Full catalogue, no day-one titles' },
               { label: 'Game Pass Ultimate', value: '$19.99/mo', sub: 'Console + PC + Cloud + EA Play' },
             ].map((s) => (
-              <div key={s.label} className="bg-white/10 rounded-lg p-4">
-                <p className="text-2xl font-black text-white">{s.value}</p>
-                <p className="text-sm font-semibold text-gray-200">{s.label}</p>
+              <div key={s.label} className="bg-gray-50 rounded-lg p-4">
+                <p className="text-2xl font-black text-gray-900">{s.value}</p>
+                <p className="text-sm font-semibold text-gray-700">{s.label}</p>
                 <p className="text-xs text-gray-400 mt-0.5">{s.sub}</p>
               </div>
             ))}

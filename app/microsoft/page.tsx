@@ -38,7 +38,7 @@ export default function MicrosoftHubPage() {
         keywords={['Microsoft', 'Azure', 'Xbox', 'Windows', 'Satya Nadella', 'Copilot', 'GitHub']}
       />
 
-      <div className="border-b border-white/10 bg-slate-900">
+      <div className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Breadcrumb
             items={[
@@ -179,9 +179,9 @@ export default function MicrosoftHubPage() {
               { label: 'Azure OpenAI Customers', value: '65,000+', sub: 'Enterprise accounts' },
               { label: 'Copilot for M365', value: '$30/user/mo', sub: 'Enterprise add-on pricing' },
             ].map((s) => (
-              <div key={s.label} className="bg-white/10 rounded-lg p-4">
-                <p className="text-2xl font-black text-white">{s.value}</p>
-                <p className="text-sm font-semibold text-gray-200">{s.label}</p>
+              <div key={s.label} className="bg-gray-50 rounded-lg p-4">
+                <p className="text-2xl font-black text-gray-900">{s.value}</p>
+                <p className="text-sm font-semibold text-gray-700">{s.label}</p>
                 <p className="text-xs text-gray-400 mt-0.5">{s.sub}</p>
               </div>
             ))}

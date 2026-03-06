@@ -77,6 +77,12 @@ export default function UserProfile() {
             <DropdownMenuItem onClick={() => window.location.href = "/preferences"}>
               Preferences
             </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => window.location.href = "/history"}>
+              📖 Reading History
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => window.location.href = "/saved"}>
+              🔖 Saved Articles
+            </DropdownMenuItem>
             <DropdownMenuItem
               onSelect={(e) => { e.preventDefault(); setShowNewsletter(true); }}
               className="flex items-center justify-between"

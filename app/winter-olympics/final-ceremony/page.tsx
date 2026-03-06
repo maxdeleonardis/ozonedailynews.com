@@ -117,13 +117,13 @@ export default function ClosingCeremonyPage() {
         <Hub.Section title="Where Is the Closing Ceremony?" icon="🏛️">
           <Hub.Prose>
             <p>
-              The closing ceremony will be held at the <strong className="text-white">Arena di Verona</strong> — the breathtaking Roman amphitheater in the heart of Verona, Italy, dating back to 30 AD and seating nearly 22,000 people. Roughly two hours from Milan and three hours from Cortina d&apos;Ampezzo, Verona is among the most iconic settings in all of European culture.
+              The closing ceremony will be held at the <strong className="text-gray-900">Arena di Verona</strong> — the breathtaking Roman amphitheater in the heart of Verona, Italy, dating back to 30 AD and seating nearly 22,000 people. Roughly two hours from Milan and three hours from Cortina d&apos;Ampezzo, Verona is among the most iconic settings in all of European culture.
             </p>
             <p>
               The choice of the Verona Arena is a deliberate, powerful statement. The venue has hosted world-class opera performances — most famously <em>Aida</em> — for over a century. Staging the Olympic closing ceremony inside it elevates the farewell to something closer to theater than sport, connecting the Games to thousands of years of Italian history in a single visual image.
             </p>
             <p>
-              It is a striking contrast to the opening ceremony at <strong className="text-white">Stadio Giuseppe Meazza (San Siro)</strong> in Milan on February 6 — with dual Olympic cauldrons lit at the <em>Arco della Pace</em> in Milan and <em>Piazza Dibona</em> in Cortina d&apos;Ampezzo, reflecting the Games&apos; unprecedented dual-city format.
+              It is a striking contrast to the opening ceremony at <strong className="text-gray-900">Stadio Giuseppe Meazza (San Siro)</strong> in Milan on February 6 — with dual Olympic cauldrons lit at the <em>Arco della Pace</em> in Milan and <em>Piazza Dibona</em> in Cortina d&apos;Ampezzo, reflecting the Games&apos; unprecedented dual-city format.
             </p>
           </Hub.Prose>
         </Hub.Section>
@@ -136,10 +136,10 @@ export default function ClosingCeremonyPage() {
               { emoji: '🦚', label: 'Peacock Streaming', value: 'NBCOlympics.com · live + on-demand' },
               { emoji: '🌍', label: 'Prime-time Replay', value: 'NBC 9:00 PM ET · BBC · CBC · RAI · Eurosport' },
             ].map((item) => (
-              <div key={item.label} className="bg-white/10 rounded-lg p-5 border border-white/10">
+              <div key={item.label} className="bg-gray-50 rounded-lg p-5 border border-gray-200">
                 <div className="text-3xl mb-2">{item.emoji}</div>
-                <h3 className="font-semibold text-white mb-1">{item.label}</h3>
-                <p className="text-sm text-gray-300">{item.value}</p>
+                <h3 className="font-semibold text-gray-900 mb-1">{item.label}</h3>
+                <p className="text-sm text-gray-600">{item.value}</p>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default function ClosingCeremonyPage() {
         <Hub.Section title='The Theme: "Beauty in Action"' icon="🎭">
           <Hub.Prose>
             <p>
-              The ceremony&apos;s creative concept, <em>Beauty in Action</em>, was developed by artistic director <strong className="text-white">Alfredo Accatino</strong> and celebrates Italian cultural identity through music, visual art, and storytelling — while carrying a pointed message about climate change and the existential threat rising temperatures pose to the future of winter sport.
+              The ceremony&apos;s creative concept, <em>Beauty in Action</em>, was developed by artistic director <strong className="text-gray-900">Alfredo Accatino</strong> and celebrates Italian cultural identity through music, visual art, and storytelling — while carrying a pointed message about climate change and the existential threat rising temperatures pose to the future of winter sport.
             </p>
             <p>
               It is a theme that resonates with unusual force at these Games. Milano Cortina 2026 took place against the backdrop of ongoing debates about snowpack reliability across the Alpine region, and several events required additional artificial snow. The closing ceremony will not shy away from that context.
@@ -186,12 +186,12 @@ export default function ClosingCeremonyPage() {
                 desc: 'Co-creator of Blue (Da Ba Dee) and one of Europe\'s biggest electronic producers, anchoring the ceremonial soundscape.',
               },
             ].map((p) => (
-              <div key={p.name} className="bg-white/5 rounded-lg p-6 border border-white/10 flex gap-4">
+              <div key={p.name} className="bg-white rounded-lg p-6 border border-gray-200 flex gap-4">
                 <div className="text-4xl shrink-0">{p.emoji}</div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-1">{p.name}</h3>
-                  <p className="text-sm text-blue-400 mb-2">{p.role}</p>
-                  <p className="text-sm text-gray-300">{p.desc}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{p.name}</h3>
+                  <p className="text-sm text-blue-600 mb-2">{p.role}</p>
+                  <p className="text-sm text-gray-600">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -210,15 +210,15 @@ export default function ClosingCeremonyPage() {
               { emoji: '🎭', step: 'Artistic Performances', desc: 'Roberto Bolle, Achille Lauro, Gabry Ponte, and Benedetta Porcaroli throughout.' },
               { emoji: '🎙️', step: 'Official Closing Declaration', desc: 'IOC President Thomas Bach formally declares the Games closed.' },
             ].map((item, i) => (
-              <div key={item.step} className="flex gap-4 bg-white/5 rounded-lg p-4 border border-white/10">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600/30 text-white font-bold text-sm shrink-0">
+              <div key={item.step} className="flex gap-4 bg-white rounded-lg p-4 border border-gray-200">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold text-sm shrink-0">
                   {i + 1}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white flex items-center gap-2">
+                  <h3 className="font-semibold text-gray-900 flex items-center gap-2">
                     <span>{item.emoji}</span> {item.step}
                   </h3>
-                  <p className="text-sm text-gray-300 mt-1">{item.desc}</p>
+                  <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -229,20 +229,20 @@ export default function ClosingCeremonyPage() {
         <Hub.Section title="The 2030 Handoff: French Alps Next" icon="🏔️" variant="card">
           <Hub.Prose>
             <p>
-              At Verona on February 22, Milano Cortina 2026 will formally hand the Winter Olympic flag to <strong className="text-white">the French Alps</strong>, host of the <strong className="text-white">2030 Winter Games</strong> — scheduled for <strong className="text-white">February 1–17, 2030</strong>.
+              At Verona on February 22, Milano Cortina 2026 will formally hand the Winter Olympic flag to <strong className="text-gray-900">the French Alps</strong>, host of the <strong className="text-gray-900">2030 Winter Games</strong> — scheduled for <strong className="text-gray-900">February 1–17, 2030</strong>.
             </p>
             <p>
               The 2030 Games span the southeastern French Alps — centered on Provence-Alpes-Côte d&apos;Azur and Auvergne-Rhône-Alpes — and mark France&apos;s return to Winter Olympic hosting for the first time since the 1992 Albertville Games. The mayor of the French Alps host region will receive the flag on the floor of the Verona Arena.
             </p>
           </Hub.Prose>
           <div className="mt-6 flex flex-wrap gap-4">
-            <div className="bg-white/10 rounded-lg px-6 py-3 text-white font-semibold">
+            <div className="bg-gray-50 rounded-lg px-6 py-3 text-gray-900 font-semibold">
               🇫🇷 French Alps 2030
             </div>
-            <div className="bg-white/10 rounded-lg px-6 py-3 text-gray-300">
+            <div className="bg-gray-50 rounded-lg px-6 py-3 text-gray-700">
               Feb 1–17, 2030
             </div>
-            <div className="bg-white/10 rounded-lg px-6 py-3 text-gray-300">
+            <div className="bg-gray-50 rounded-lg px-6 py-3 text-gray-700">
               First French Winter Games since Albertville 1992
             </div>
           </div>
@@ -334,15 +334,15 @@ export default function ClosingCeremonyPage() {
         <Hub.Section variant="highlight">
           <Hub.Prose>
             <p>
-              The <strong className="text-white">2026 Winter Olympics</strong> spanned two cities, dozens of mountain venues, and more than 2,900 athletes from over 90 nations. Games shaped by a dual-host format tried for the first time, cauldrons lit simultaneously in a major city and a mountain village, events staged from the Dolomite peaks to the Lombardy plains.
+              The <strong className="text-gray-900">2026 Winter Olympics</strong> spanned two cities, dozens of mountain venues, and more than 2,900 athletes from over 90 nations. Games shaped by a dual-host format tried for the first time, cauldrons lit simultaneously in a major city and a mountain village, events staged from the Dolomite peaks to the Lombardy plains.
             </p>
             <p>
               Games shaped by people. By a 41-year-old from Georgia crying on the finish ice in Cortina. By a 21-year-old from California landing a triple axel in front of 22 million viewers. By a team pulling off a comeback in overtime in Milan. By a kid from Temple, Texas, racing head-first down an Olympic track for the first time and making history doing it.
             </p>
-            <p className="text-white font-bold text-xl">
+            <p className="text-gray-900 font-bold text-xl">
               When the cauldrons go dark on February 22, inside the Verona Arena where opera has echoed for two thousand years, the 2026 Winter Olympics will be over. The memories will not be.
             </p>
-            <p className="text-blue-400 font-semibold text-lg">See you in the French Alps. 2030. 🏔️🇫🇷</p>
+            <p className="text-blue-600 font-semibold text-lg">See you in the French Alps. 2030. 🏔️🇫🇷</p>
           </Hub.Prose>
         </Hub.Section>
 

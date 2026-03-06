@@ -286,8 +286,19 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
           <p className="text-gray-700 font-medium mb-1">
             Sign in with Discord to join the conversation
           </p>
-          <p className="text-sm text-gray-500 mb-5">
-            Your comments are synced to our Discord community.
+          <p className="text-sm text-gray-500 mb-1">
+            Your comments appear live in our Discord server — every post grows the community.
+          </p>
+          <p className="text-xs text-gray-400 mb-5">
+            Don&apos;t have Discord?{' '}
+            <a
+              href="https://discord.gg/objectwire"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#5865F2] hover:underline"
+            >
+              Join our server first →
+            </a>
           </p>
           <button
             onClick={() =>
@@ -347,7 +358,17 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
                 <p className="text-xs text-red-600 mt-2" role="alert">{error}</p>
               )}
               {successMsg && (
-                <p className="text-xs text-green-600 mt-2" role="status">{successMsg}</p>
+                <p className="text-xs text-green-600 mt-2" role="status">
+                  {successMsg}{' '}
+                  <a
+                    href="https://discord.gg/objectwire"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#5865F2] hover:underline ml-1"
+                  >
+                    See it live in Discord →
+                  </a>
+                </p>
               )}
             </div>
           </div>
@@ -384,8 +405,32 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         </div>
       )}
 
+      {/* ── Discord community growth banner ───────────────────────────────── */}
+      <div className="mt-8 rounded-xl bg-[#5865F2]/5 border border-[#5865F2]/20 p-4 flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <DiscordIcon className="w-8 h-8 text-[#5865F2] shrink-0" />
+          <div>
+            <p className="text-sm font-semibold text-gray-900">
+              Every comment appears live in our Discord server.
+            </p>
+            <p className="text-xs text-gray-500 mt-0.5">
+              Join to see the full conversation, get notified on new articles, and connect with the community.
+            </p>
+          </div>
+        </div>
+        <a
+          href="https://discord.gg/objectwire"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 inline-flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] active:bg-[#3C45A5] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
+        >
+          <DiscordIcon className="w-4 h-4" />
+          Join ObjectWire Discord
+        </a>
+      </div>
+
       {/* Footer note */}
-      <p className="text-xs text-gray-400 mt-6 text-center">
+      <p className="text-xs text-gray-400 mt-4 text-center">
         Comments sync to our{' '}
         <a
           href="https://discord.gg/objectwire"

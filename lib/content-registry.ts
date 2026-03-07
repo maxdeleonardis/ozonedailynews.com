@@ -4397,6 +4397,210 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
   },
 
+<<<<<<< Updated upstream
+=======
+  // --- Pending Home Sales Historic Low ---
+  {
+    slug: "/tech/real-estate",
+    title: "Pending Home Sales Hit Historic Floor as 2026 Opens — PHSI Drops to 70.9",
+    description: "The Pending Home Sales Index plunged to 70.9 in January 2026, the lowest reading in the index's 25-year history, falling below the 2008 financial crisis trough.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Technology",
+    tags: ["Real Estate", "Housing Market", "Pending Home Sales", "NAR", "Mortgage Rates", "Economy", "Affordability"],
+    author: "Jack Want",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Florida HB 175 Stablecoin Law ---
+  {
+    slug: "/crypto/news/florida-hb175-stablecoin-law-payment-regulation",
+    title: "Florida Passes First State-Level Stablecoin Law in the US — HB 175",
+    description: "Florida HB 175 passed the House 102–2 and Senate 37–0, creating the first full state-level rulebook for payment stablecoins in the US with a live pilot for government fee payments.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Finance",
+    tags: ["Stablecoin", "Florida", "Crypto Regulation", "HB 175", "GENIUS Act", "DeSantis", "OFR", "Digital Currency"],
+    author: "ObjectWire Finance Desk",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- RBA CBDC HashSphere Hedera ---
+  {
+    slug: "/crypto/hbar/rba-cbdc-hashsphere-hedera-project-acacia",
+    title: "RBA Completes Real-Money CBDC Trials via Hedera-Linked HashSphere — Project Acacia",
+    description: "The Reserve Bank of Australia confirmed March 5, 2026, that Project Acacia successfully settled real-world assets using HashSphere, a private permissioned network built on Hedera technology, across 24 use cases.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Finance",
+    tags: ["Hedera", "HBAR", "CBDC", "RBA", "HashSphere", "Project Acacia", "Digital Currency", "Australia", "Blockchain", "Tokenization"],
+    author: "Aflansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Nvidia Photonics $4B ---
+  {
+    slug: "/nvidia/news/nvidia-4-billion-photonics-lumentum-coherent-ai-bottleneck",
+    title: "Nvidia Invests $4 Billion in Photonics — Lumentum & Coherent Deal to Solve AI Bottlenecks",
+    description: "Nvidia announced a $4B investment into Lumentum and Coherent on March 2, 2026, replacing copper interconnects with light-based data links to eliminate AI data center bottlenecks.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Technology",
+    tags: ["Nvidia", "Photonics", "Lumentum", "Coherent", "Silicon Photonics", "AI Data Centers", "Co-Packaged Optics", "GPU Interconnect", "Semiconductors"],
+    author: "ObjectWire Tech Desk",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/images/nvidia-photonics-investment.jpg",
+    imageWidth: 1200,
+    imageHeight: 675,
+    imageAlt: "Nvidia silicon photonics chip with laser interconnects in a data center rack",
+  },
+
+  // --- Resident Evil Requiem Steam Launch Record ---
+  {
+    slug: "/video-games/resident-evil-requiem/steam-launch-record-267k-concurrent-players",
+    title: "Resident Evil Requiem Shatters Steam Records — 267K Concurrent Players at Launch",
+    description: "Resident Evil Requiem hit 267,509 concurrent Steam players on launch day February 27, 2026, nearly doubling Village and beating the RE4 remake record by 100,000 players.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Resident Evil", "Capcom", "Steam", "PC Gaming", "Horror", "Requiem", "SteamDB", "Concurrent Players"],
+    author: "ObjectWire Gaming Desk",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Slay the Spire 2 Steam Launch ---
+  {
+    slug: "/video-games/news/slay-the-spire-2",
+    title: 'Slay the Spire 2 Shatters Records and Briefly "Slays" Steam — 430K Peak Players',
+    description: "Slay the Spire 2 hit 430,456 concurrent Steam players within 24 hours of Early Access launch on March 5, 2026, crashing the Steam cart system and setting the all-time roguelike record.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Slay the Spire 2", "Mega Crit", "Steam", "Roguelike", "Indie Games", "Early Access", "Godot Engine", "Co-op"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Windrose Pirate Survival Indie ---
+  {
+    slug: "/video-games/news/windrose",
+    title: "Windrose Hits 1M Steam Wishlists — Uzbek Pirate Survival Game Breaks Out",
+    description: "Windrose Crew's debut pirate survival game from Uzbekistan surpassed 1 million Steam wishlists after a viral Steam Next Fest demo peaking at 22,396 concurrent players.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Windrose", "Indie Games", "Pirate", "Survival", "Steam", "Co-op", "Uzbekistan", "Steam Next Fest"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/entertainment/windrose.PNG",
+    imageWidth: 1200,
+    imageHeight: 675,
+    imageAlt: "Windrose pirate survival game key art",
+  },
+
+  // --- Crimson Desert 3M Wishlists ---
+  {
+    slug: "/video-games/news/crimson-desert",
+    title: "Crimson Desert Hits 3 Million Wishlists Before March 19 Launch",
+    description: "Pearl Abyss's open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026 release — rivaling Elden Ring and Starfield pre-launch numbers.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Crimson Desert", "Pearl Abyss", "RPG", "Open World", "PS5", "Xbox", "Steam", "Single Player", "Wishlists"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Windrose Release Date Holdoff ---
+  {
+    slug: "/video-games/new/windrose/release-date-holdoff",
+    title: "Windrose Dev Holds Off on Release Date Despite 1M Wishlists",
+    description: "Windrose Crew says the pirate survival game won't get a release date until the studio is confident the build meets its quality bar, despite crossing 1 million Steam wishlists.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Windrose", "Indie Games", "Release Date", "Steam", "Windrose Crew"],
+    author: "Alfansa",
+    priority: 0.8,
+    changeFrequency: "daily",
+  },
+
+  // --- Crimson Desert Console Footage Pushback ---
+  {
+    slug: "/video-games/new/crimson-desert/console-footage-pushback",
+    title: "Crimson Desert Dev Pushes Back on Claims of Hiding Console Footage",
+    description: "Pearl Abyss responds to fan accusations that the studio is deliberately hiding PS5 and Xbox Series X|S footage of Crimson Desert ahead of its March 19, 2026 launch.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Crimson Desert", "Pearl Abyss", "PS5", "Xbox", "Console", "Controversy"],
+    author: "Alfansa",
+    priority: 0.8,
+    changeFrequency: "daily",
+  },
+
+  // --- Arc Raiders Discord Plaintext Security ---
+  {
+    slug: "/video-games/news/arc-raiders-discord-plaintext-security",
+    title: "Arc Raiders Logged Discord DMs and Tokens in Plaintext — Embark Says Hotfix Coming",
+    description: "Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and authentication tokens to plaintext files when Discord integration was enabled. Embark Studios announced an emergency hotfix.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Arc Raiders", "Embark Studios", "Discord", "Security", "Privacy", "Hotfix"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Epic Games Sues Fortnite Leaks Contractor ---
+  {
+    slug: "/video-games/news/epic-games-sues-fortnite-leaks-contractor",
+    title: "Epic Games Sues Contractor Who Ran Fortnite Leaks Account",
+    description: "Epic Games filed a lawsuit on March 5 against former contractor Hayden Cohen, who allegedly ran the AdiraInfo Fortnite leaks account on X and Discord while working inside the company.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["Epic Games", "Fortnite", "Lawsuit", "Leaks", "Legal", "Contractor"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Rockstar GTA 6 PSN Profile Exploit ---
+  {
+    slug: "/video-games/news/rockstar-gta6-psn-profile-exploit",
+    title: "Rockstar Pulls GTA 6 IDs from PlayStation Store After Profile Exploit",
+    description: "Rockstar Games and Sony removed Grand Theft Auto 6 title IDs from the PlayStation Store backend after fans exploited a glitch to add the unreleased game to their PSN Recently Played lists.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Gaming",
+    tags: ["GTA 6", "Rockstar", "PlayStation", "Sony", "PSN", "Exploit"],
+    author: "Alfansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+>>>>>>> Stashed changes
   // --- Saved (1) ---
   {
     slug: "/saved",
@@ -4518,6 +4722,48 @@ export const contentRegistry: ContentEntry[] = [
     tags: ["Microsoft", "Big Tech", "News", "Yamanaka Factors Reverse Cellular Aging Markers"],
     author: "ObjectWire Editorial",
     priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-07 — 3 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Gaming (3) ---
+  {
+    slug: "/video-games/new/crimson-desert",
+    title: "Crimson Desert Hits 3 Million Wishlists Before March 19 Launch | ObjectWire",
+    description: "Pearl Abyss\\",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Crimson Desert"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/video-games/new/slay-the-spire-2",
+    title: "Slay the Spire 2 Shatters Records and Briefly",
+    description: "Slay the Spire 2 hit 430,456 concurrent Steam players within 24 hours of Early Access launch on March 5, 2026, crashing the Steam cart system and setting the al",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Slay The Spire 2"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/video-games/new/windrose",
+    title: "Windrose Hits 1M Steam Wishlists — Uzbek Pirate Survival Game Breaks Out | ObjectWire",
+    description: "Windrose Crew\\",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Windrose"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
     changeFrequency: "weekly",
   },
 ];

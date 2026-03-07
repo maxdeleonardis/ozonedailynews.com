@@ -23,6 +23,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+// Load .env.local so Supabase env vars are available when run via tsx
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const dotenv = require('dotenv') as { config: (opts?: { path?: string }) => void };
+  dotenv.config({ path: path.resolve(__dirname, '..', '.env.local') });
+} catch { /* dotenv not installed — env vars must be set externally */ }
+
 // ---------------------------------------------------------------------------
 // config
 // ---------------------------------------------------------------------------
@@ -256,10 +263,76 @@ function generateEntry(meta: PageMeta): string {
   },`;
 }
 
+// Supabase row shape (snake_case column names)
+interface RegistryRow {
+  slug: string;
+  title: string;
+  description: string;
+  publish_date: string;
+  modified_date: string;
+  category: string;
+  tags: string[];
+  author: string;
+  priority: number;
+  change_frequency: string;
+}
+
+function buildEntryObject(meta: PageMeta): RegistryRow {
+  const { category, tags } = detectCategory(meta.slug);
+  return {
+    slug: meta.slug,
+    title: meta.title.slice(0, 300),
+    description: meta.description.slice(0, 500),
+    publish_date: TODAY,
+    modified_date: TODAY,
+    category,
+    tags,
+    author: meta.author,
+    priority: detectPriority(meta.slug, category),
+    change_frequency: detectChangeFrequency(category),
+  };
+}
+
+async function upsertToSupabase(rows: RegistryRow[]): Promise<void> {
+  const url  = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key  = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+            ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    console.warn('⚠️   NEXT_PUBLIC_SUPABASE_URL or SUPABASE key not set — skipping Supabase upsert.');
+    return;
+  }
+
+  // Dynamic import so the script doesn't crash if @supabase/supabase-js isn't found
+  let createClient: (url: string, key: string) => { from: (t: string) => { upsert: (rows: RegistryRow[], opts?: object) => Promise<{ error: { message: string } | null }> } };
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    ({ createClient } = require('@supabase/supabase-js'));
+  } catch {
+    console.warn('⚠️   @supabase/supabase-js not found — skipping Supabase upsert.');
+    return;
+  }
+
+  const supabase = createClient(url, key);
+  const BATCH = 200;
+
+  for (let i = 0; i < rows.length; i += BATCH) {
+    const batch = rows.slice(i, i + BATCH);
+    const { error } = await supabase
+      .from('content_registry')
+      .upsert(batch, { onConflict: 'slug' });
+    if (error) {
+      console.error(`❌  Supabase upsert failed (batch ${i / BATCH + 1}): ${error.message}`);
+    } else {
+      console.log(`    ✓ Supabase: upserted batch ${i / BATCH + 1} (${batch.length} rows)`);
+    }
+  }
+}
+
 // ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
-function main() {
+async function main() {
   console.log('🔍  Scanning app directory for page.tsx files…');
   const allPages = scanApp(APP_DIR);
   console.log(`    Found ${allPages.length} pages\n`);
@@ -310,10 +383,7 @@ function main() {
     return;
   }
 
-  // inject before the `];\n\n// === HELPER` separator (i.e. closing of the array)
-  // Uses a regex to be robust against CRLF vs LF and varying whitespace.
-  // IMPORTANT: use a replacer function, NOT a string, to avoid $ being treated
-  //            as a backreference when descriptions contain e.g. "$16 trillion".
+  // --- 1. Update the TypeScript file (keeps legacy consumers working) -------
   const ARRAY_CLOSE_RE = /(\r?\n\];\r?\n\r?\n\/\/ =+\r?\n\/\/ HELPER FUNCTIONS)/;
   if (!ARRAY_CLOSE_RE.test(registrySource)) {
     console.error('❌  Could not locate the end of the contentRegistry array.\n   Aborting.');
@@ -327,7 +397,13 @@ function main() {
 
   fs.writeFileSync(REGISTRY_PATH, updated, 'utf-8');
   console.log(`✅  Wrote ${missing.length} new entries to lib/content-registry.ts`);
+
+  // --- 2. Also upsert to Supabase (new source of truth) ---------------------
+  const rows = missing.map(buildEntryObject);
+  await upsertToSupabase(rows);
+
   console.log('    Review the entries, fill in real publishDates, and add imageUrls where needed.');
 }
 
-main();
+main().catch(err => { console.error(err); process.exit(1); });
+

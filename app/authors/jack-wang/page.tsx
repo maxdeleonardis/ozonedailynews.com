@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { AuthorSchema } from "@/components/AuthorSchema";
 import AuthorArticles from "@/components/AuthorArticles";
-import { getEntriesByAuthor } from "@/lib/content-registry";
+import { getEntriesByAuthor } from '@/lib/content-registry';
 
 const AUTHOR_SLUG = "jack-wang";
 const authorArticles = getEntriesByAuthor(AUTHOR_SLUG);

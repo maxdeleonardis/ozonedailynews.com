@@ -4397,6 +4397,70 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
   },
 
+  // --- Pending Home Sales Historic Low ---
+  {
+    slug: "/tech/real-estate",
+    title: "Pending Home Sales Hit Historic Floor as 2026 Opens — PHSI Drops to 70.9",
+    description: "The Pending Home Sales Index plunged to 70.9 in January 2026, the lowest reading in the index's 25-year history, falling below the 2008 financial crisis trough.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Technology",
+    tags: ["Real Estate", "Housing Market", "Pending Home Sales", "NAR", "Mortgage Rates", "Economy", "Affordability"],
+    author: "Jack Want",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Florida HB 175 Stablecoin Law ---
+  {
+    slug: "/crypto/news/florida-hb175-stablecoin-law-payment-regulation",
+    title: "Florida Passes First State-Level Stablecoin Law in the US — HB 175",
+    description: "Florida HB 175 passed the House 102–2 and Senate 37–0, creating the first full state-level rulebook for payment stablecoins in the US with a live pilot for government fee payments.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Finance",
+    tags: ["Stablecoin", "Florida", "Crypto Regulation", "HB 175", "GENIUS Act", "DeSantis", "OFR", "Digital Currency"],
+    author: "ObjectWire Finance Desk",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- RBA CBDC HashSphere Hedera ---
+  {
+    slug: "/crypto/hbar/rba-cbdc-hashsphere-hedera-project-acacia",
+    title: "RBA Completes Real-Money CBDC Trials via Hedera-Linked HashSphere — Project Acacia",
+    description: "The Reserve Bank of Australia confirmed March 5, 2026, that Project Acacia successfully settled real-world assets using HashSphere, a private permissioned network built on Hedera technology, across 24 use cases.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Finance",
+    tags: ["Hedera", "HBAR", "CBDC", "RBA", "HashSphere", "Project Acacia", "Digital Currency", "Australia", "Blockchain", "Tokenization"],
+    author: "Aflansa",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+  },
+
+  // --- Nvidia Photonics $4B ---
+  {
+    slug: "/nvidia/news/nvidia-4-billion-photonics-lumentum-coherent-ai-bottleneck",
+    title: "Nvidia Invests $4 Billion in Photonics — Lumentum & Coherent Deal to Solve AI Bottlenecks",
+    description: "Nvidia announced a $4B investment into Lumentum and Coherent on March 2, 2026, replacing copper interconnects with light-based data links to eliminate AI data center bottlenecks.",
+    publishDate: "2026-03-06",
+    modifiedDate: "2026-03-06",
+    category: "Technology",
+    tags: ["Nvidia", "Photonics", "Lumentum", "Coherent", "Silicon Photonics", "AI Data Centers", "Co-Packaged Optics", "GPU Interconnect", "Semiconductors"],
+    author: "ObjectWire Tech Desk",
+    priority: 0.9,
+    changeFrequency: "daily",
+    featured: true,
+    imageUrl: "https://www.objectwire.org/images/nvidia-photonics-investment.jpg",
+    imageWidth: 1200,
+    imageHeight: 675,
+    imageAlt: "Nvidia silicon photonics chip with laser interconnects in a data center rack",
+  },
+
   // --- Saved (1) ---
   {
     slug: "/saved",

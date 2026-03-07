@@ -4397,8 +4397,6 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
   },
 
-<<<<<<< Updated upstream
-=======
   // --- Pending Home Sales Historic Low ---
   {
     slug: "/tech/real-estate",
@@ -4600,7 +4598,6 @@ export const contentRegistry: ContentEntry[] = [
     featured: true,
   },
 
->>>>>>> Stashed changes
   // --- Saved (1) ---
   {
     slug: "/saved",

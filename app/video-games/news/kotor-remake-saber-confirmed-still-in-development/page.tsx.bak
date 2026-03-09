@@ -1,0 +1,334 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+import { SEOWrapper } from '@/components/SEOWrapper';
+import NewsArticle from '@/components/NewsArticle';
+
+const SLUG = '/video-games/news/kotor-remake-saber-confirmed-still-in-development';
+const PUBLISH_ISO = '2026-03-07T18:00:00Z';
+const CANONICAL = `https://www.objectwire.org${SLUG}`;
+
+export const metadata: Metadata = {
+  title: 'KOTOR Remake Still in Development, Saber Confirms — 5 Years After Reveal | ObjectWire',
+  description:
+    'Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development — five years after its cinematic reveal at a PlayStation Showcase, with no gameplay footage ever shown.',
+  keywords: [
+    'KOTOR remake 2026',
+    'Knights of the Old Republic remake Saber Interactive',
+    'KOTOR remake still in development',
+    'Tim Willits KOTOR IGN interview',
+    'KOTOR remake Aspyr Saber',
+    'Star Wars KOTOR remake PS5',
+    'KOTOR remake Mad Head Games',
+    'KOTOR II remake Juliet codename',
+    'KOTOR remake release date',
+    'Star Wars game 2026',
+    'KOTOR remake gameplay',
+    'KOTOR remake canceled',
+    'Saber Interactive Star Wars',
+    'KOTOR remake development update',
+  ],
+  alternates: { canonical: CANONICAL },
+  openGraph: {
+    title: "KOTOR Remake Still Alive, Saber Says — 5 Years After Reveal, Still No Gameplay",
+    description:
+      'Tim Willits offered exactly 11 words: "Yes, it is still in development. That\'s all I can say." Five years on, no screenshot, no footage, and a developer shuffle that keeps growing.',
+    type: 'article',
+    url: CANONICAL,
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Editorial'],
+    publishedTime: PUBLISH_ISO,
+    modifiedTime: PUBLISH_ISO,
+    section: 'Gaming',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KOTOR Remake Is Still in Development — Saber Confirms, 5 Years On',
+    description:
+      '11 words from Saber\'s CCO Tim Willits keep the hope alive. But after half a decade with zero gameplay shown, the Star Wars community\'s patience is running thin.',
+  },
+};
+
+export default function KOTORRemakePage() {
+  const breadcrumbItems = [
+    { name: 'Home', item: '/' },
+    { name: 'Video Games', item: '/video-games' },
+    { name: 'News', item: '/video-games/news' },
+    { name: 'KOTOR Remake Update', item: SLUG },
+  ];
+
+  return (
+    <SEOWrapper slug={SLUG}>
+      <NewsArticleSchema
+        title="KOTOR Remake Still in Development, Saber Confirms — 5 Years After Reveal"
+        description="Saber Interactive CCO Tim Willits confirmed in an IGN interview that the Star Wars: Knights of the Old Republic remake is still in development, five years after its cinematic reveal and with no gameplay footage ever shown publicly."
+        author="ObjectWire Editorial"
+        authorUrl="https://www.objectwire.org/team"
+        publishedTime={PUBLISH_ISO}
+        modifiedTime={PUBLISH_ISO}
+        articleUrl={CANONICAL}
+        section="Gaming"
+        keywords={[
+          'KOTOR remake',
+          'Saber Interactive',
+          'Knights of the Old Republic',
+          'Tim Willits',
+          'Star Wars game 2026',
+          'KOTOR remake development',
+        ]}
+      />
+
+      <div className="container mx-auto px-4 pt-4 max-w-5xl">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
+
+      <NewsArticle
+        title="KOTOR Remake Still in Development, Saber Says — 5 Years After Reveal With Nothing to Show"
+        subtitle="Saber Interactive's CCO Tim Willits confirmed the Star Wars: Knights of the Old Republic remake is still alive with exactly 11 words. After half a decade of silence, developer shuffles, and a scrubbed Sony marketing page, it's the most expensive confirmation of 'we're working on it' in gaming history."
+        category="Gaming"
+        categoryColor="blue"
+        topicTag="gaming"
+        publishDate="March 7, 2026"
+        readTime="5 min read"
+        author={{
+          name: 'ObjectWire Editorial',
+          role: 'Gaming Desk',
+          authorSlug: 'objectwire-editorial',
+        }}
+        tags={[
+          'KOTOR',
+          'Star Wars',
+          'Saber Interactive',
+          'Remake',
+          'Aspyr',
+          'PS5',
+          'Xbox',
+          'Tim Willits',
+          'Mad Head Games',
+          'Development Update',
+        ]}
+        slug="kotor-remake-saber-confirmed-still-in-development"
+        url={SLUG}
+      >
+
+        <p className="text-lg leading-relaxed mb-6">
+          <strong>REDMOND, WA</strong> — Five years after its spine-tingling cinematic reveal
+          at a PlayStation Showcase, the remake of{' '}
+          <strong>Star Wars: Knights of the Old Republic</strong> is still in development.
+          That confirmation came from <strong>Saber Interactive</strong> Chief Creative Officer{' '}
+          <strong>Tim Willits</strong> in an interview with IGN on March 6, 2026, in the
+          form of exactly 11 words:
+        </p>
+
+        <blockquote className="border-l-4 border-blue-500 pl-5 py-2 my-6 bg-blue-50 rounded-r-lg">
+          <p className="italic text-gray-800 text-xl leading-relaxed">
+            &ldquo;Yes, it is still in development. That&apos;s all I can say.&rdquo;
+          </p>
+          <footer className="text-sm text-gray-500 mt-2">
+            — Tim Willits, Chief Creative Officer, Saber Interactive
+          </footer>
+        </blockquote>
+
+        <p className="leading-relaxed mb-6">
+          The terse statement marks the first direct on-record confirmation of the
+          project&apos;s status since a December 2025 report shed new light on the
+          remake&apos;s turbulent behind-the-scenes history. It also, bittersweet as it
+          is, prevents another wave of cancellation rumors that the{' '}
+          <Link href="/video-games" className="text-blue-600 hover:underline">
+            Star Wars gaming community
+          </Link>{' '}
+          has endured with increasing regularity since 2022.
+        </p>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">
+          A Troubled Legacy: From Aspyr to Saber — and Now Mad Head Games
+        </h2>
+
+        <p className="leading-relaxed mb-6">
+          The KOTOR remake was originally announced on September 9, 2021, at a PlayStation
+          Showcase — a cinematic teaser with no gameplay, no engine footage, and a{' '}
+          <strong>&ldquo;In Development&rdquo;</strong> label rather than a release
+          window. The initial buzz was enormous; KOTOR (2003) is widely considered one of
+          the greatest RPGs of all time, and fans had waited nearly two decades for a
+          modern reimagining.
+        </p>
+
+        <p className="leading-relaxed mb-6">
+          What followed was a development story that has become one of gaming&apos;s
+          most closely watched — and most disheartening — sagas:
+        </p>
+
+        <ul className="mb-6 space-y-5">
+          <li className="flex gap-3">
+            <span className="text-blue-500 font-bold text-lg mt-0.5 shrink-0">■</span>
+            <div>
+              <strong>The Aspyr Pause (2022).</strong> The project was originally helmed by
+              Austin-based studio <strong>Aspyr Media</strong>, known for its high-fidelity
+              ports of classic Star Wars titles. In mid-2022, Bloomberg and other outlets
+              reported the project had been &ldquo;paused indefinitely&rdquo; after Aspyr
+              showed a preview build to Lucasfilm and Sony that was deemed insufficient.
+              Key leads on the project were let go. No official statement was issued.
+            </div>
+          </li>
+          <li className="flex gap-3">
+            <span className="text-blue-500 font-bold text-lg mt-0.5 shrink-0">■</span>
+            <div>
+              <strong>The Saber Handoff.</strong> Development responsibility was transferred
+              to <strong>Saber Interactive</strong> — the studio behind the{' '}
+              <em>World War Z</em> game and most recently <em>Space Marine 2</em>. Saber
+              officially confirmed their involvement in 2023 but offered no timeline,
+              no screenshots, and no engine details. The studio has said only that it
+              is &ldquo;rebuilding&rdquo; the project from earlier work.
+            </div>
+          </li>
+          <li className="flex gap-3">
+            <span className="text-blue-500 font-bold text-lg mt-0.5 shrink-0">■</span>
+            <div>
+              <strong>Mad Head Games Co-Development (2025–2026).</strong> Reports from
+              late 2025 — corroborated by multiple sources familiar with the project — indicate
+              that <strong>Mad Head Games</strong>, the Serbian studio currently working on{' '}
+              <em>Hellraiser: Revival</em>, has joined as a co-developer on the remake.
+              The exact division of responsibilities between Saber and Mad Head is not
+              publicly known.
+            </div>
+          </li>
+        </ul>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">Sony&apos;s Retreat</h2>
+
+        <p className="leading-relaxed mb-6">
+          One of the most visible signs of the project&apos;s uncertain trajectory is{' '}
+          <strong>Sony Interactive Entertainment&apos;s</strong> progressive withdrawal from
+          public association with the title. Sony originally marketed the KOTOR remake as a{' '}
+          <strong>PS5 console launch exclusive</strong> — a flagship title meant to demonstrate
+          the platform&apos;s power and Sony&apos;s relationship with the Star Wars franchise.
+          That positioning has quietly evaporated. The title has been scrubbed from Sony&apos;s
+          official PS5 landing pages, blog posts promoting the showcase, and first-party
+          marketing materials. Sony has not confirmed whether the exclusivity arrangement
+          remains in force.
+        </p>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">
+          The &ldquo;Juliet&rdquo; Codename: A KOTOR II Remake That May Never Be
+        </h2>
+
+        <p className="leading-relaxed mb-6">
+          Perhaps the most striking detail to emerge from late 2025 reporting was the
+          existence of a project internally codenamed <strong>&ldquo;Juliet&rdquo;</strong> —
+          a full remake of <em>KOTOR II: The Sith Lords</em> (Obsidian Entertainment, 2004)
+          that was at one point on the roadmap alongside the first remake. Sources described
+          &ldquo;Juliet&rdquo; as contingent on the commercial and critical success of the
+          first game, and those plans are now reportedly <strong>shelved indefinitely</strong>{' '}
+          until — and only if — the original remake actually ships.
+        </p>
+
+        <p className="leading-relaxed mb-6">
+          For fans of <em>The Sith Lords</em> — widely considered the superior game by a
+          vocal subset of KOTOR devotees — that news adds an additional layer of stakes
+          to a project that already feels like it is balancing on a knife&apos;s edge.
+        </p>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">Five Years of Waiting: The Numbers</h2>
+
+        <div className="overflow-x-auto mb-8 rounded-lg border border-gray-200 shadow-sm">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 text-white">
+                <th className="px-4 py-3 text-left font-semibold">Date</th>
+                <th className="px-4 py-3 text-left font-semibold">Event</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              <tr className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-900">Sept 9, 2021</td>
+                <td className="px-4 py-3 text-gray-700">PlayStation Showcase reveal — cinematic teaser, no gameplay, no date. Developer: Aspyr Media.</td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-900">Mid-2022</td>
+                <td className="px-4 py-3 text-gray-700">Project "paused indefinitely." Aspyr leads reportedly let go after preview build fails to impress Lucasfilm/Sony.</td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-900">2023</td>
+                <td className="px-4 py-3 text-gray-700">Saber Interactive confirmed as new lead developer. No timeline, screenshots, or engine details provided.</td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-900">Late 2025</td>
+                <td className="px-4 py-3 text-gray-700">Reports surface: Mad Head Games co-developing. "Juliet" (KOTOR II remake) codename revealed and shelved.</td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-900">March 6, 2026</td>
+                <td className="px-4 py-3 text-gray-700">Tim Willits (Saber CCO) confirms to IGN: "Yes, it is still in development. That's all I can say."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">What Fans Are Saying</h2>
+
+        <p className="leading-relaxed mb-6">
+          Reaction across Reddit, the official Star Wars fan communities, and{' '}
+          <Link href="/video-games/news" className="text-blue-600 hover:underline">
+            gaming forums
+          </Link>{' '}
+          ranges from cautious relief to exasperated disbelief. The confirmation does forestall
+          the most feared outcome — an official cancellation announcement — but many fans note
+          that &ldquo;still in development&rdquo; after five years with zero gameplay shown
+          is a phrase that offers cold comfort.
+        </p>
+
+        <blockquote className="border-l-4 border-gray-400 pl-5 py-2 my-6 bg-gray-50 rounded-r-lg">
+          <p className="italic text-gray-800 text-lg leading-relaxed">
+            &ldquo;At this point, &lsquo;still in development&rsquo; is doing the same
+            work as &lsquo;we haven&rsquo;t given up.&rsquo; It&rsquo;s the digital
+            equivalent of a light still being on.&rdquo;
+          </p>
+          <footer className="text-sm text-gray-500 mt-2">
+            — Community reaction, r/kotor
+          </footer>
+        </blockquote>
+
+        <p className="leading-relaxed mb-6">
+          The community remembers that <em>Duke Nukem Forever</em> was also &ldquo;in
+          development&rdquo; for 14 years before its 2011 release — and that game
+          arrived to significant critical disappointment. The pressure on Saber to
+          deliver something that honors the original is immense by any measure.
+        </p>
+
+        <h2 className="text-2xl font-bold mb-3 mt-8">The Bigger Picture</h2>
+
+        <p className="leading-relaxed mb-6">
+          The KOTOR remake sits inside a broader moment of accountability for the{' '}
+          <Link href="/video-games" className="text-blue-600 hover:underline">
+            AAA gaming industry
+          </Link>{' '}
+          around announcement practices. The trend of revealing games years — sometimes a
+          decade — before they ship has drawn sustained criticism from players, developers,
+          and analysts who argue that early reveals build unsustainable hype and damage
+          trust when development realities intervene. Saber&apos;s 11-word statement is,
+          in its own way, a product of that culture: a studio that genuinely cannot say
+          more than it can say.
+        </p>
+
+        <p className="leading-relaxed mb-6">
+          For now, the light is still on. Whether the remake that eventually emerges
+          will live up to one of the most beloved RPGs in gaming history — or whether
+          &ldquo;still in development&rdquo; eventually becomes the epitaph of a
+          decade-long development saga — remains entirely to be seen.
+        </p>
+
+        <hr className="my-8 border-gray-200" />
+
+        <p className="text-sm text-gray-500 leading-relaxed">
+          Related ObjectWire coverage:{' '}
+          <Link href="/video-games" className="text-blue-600 hover:underline">Video Games Hub</Link>
+          {' · '}
+          <Link href="/video-games/news" className="text-blue-600 hover:underline">Gaming News</Link>
+          {' · '}
+          <Link href="/video-games/gta-6" className="text-blue-600 hover:underline">GTA 6 Full Guide</Link>
+        </p>
+
+      </NewsArticle>
+    </SEOWrapper>
+  );
+}

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ArticleRenderer } from '@/components/article-renderer';
+import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+import { calculateReadTime } from '@/lib/blog-service';
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, { bg: string; text: string }> = {
@@ -38,8 +40,23 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
+  const readTime = calculateReadTime(article.content || []);
+  const articleUrl = `https://www.objectwire.org/blog/${slug}`;
+
   return (
     <>
+      <NewsArticleSchema
+        title={article.title}
+        description={article.excerpt || article.title}
+        author={article.author_name || 'ObjectWire Editorial'}
+        authorUrl={article.author_slug ? `https://www.objectwire.org/authors/${article.author_slug}` : undefined}
+        publishedTime={article.published_at || article.created_at}
+        modifiedTime={article.updated_at || undefined}
+        imageUrl={article.image_url || undefined}
+        articleUrl={articleUrl}
+        section={article.category || 'News'}
+        keywords={article.tags || []}
+      />
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 z-50" />
 
@@ -74,7 +91,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <span className="font-medium">{article.author}</span>
+              <span className="font-medium">{article.author_name}</span>
             </div>
             <span className="text-gray-300">•</span>
             <div className="flex items-center gap-1.5">
@@ -88,7 +105,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>~5 min read</span>
+              <span>~{readTime} min read</span>
             </div>
           </div>
         </header>
@@ -130,20 +147,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     .single();
 
   if (!article) {
-    return {
-      title: 'Article Not Found | ObjectWire',
-    alternates: {
-      canonical: 'https://www.objectwire.org/blog/[slug]',
-    },
-    };
+    return { title: 'Article Not Found | ObjectWire' };
   }
+
+  const articleUrl = `https://www.objectwire.org/blog/${slug}`;
 
   return {
     title: `${article.title} | ObjectWire`,
     description: article.excerpt || article.title,
+    alternates: {
+      canonical: articleUrl,
+    },
     openGraph: {
       title: article.title,
       description: article.excerpt || article.title,
+      url: articleUrl,
+      type: 'article',
+      publishedTime: article.published_at,
+      modifiedTime: article.updated_at,
+      images: article.image_url ? [{ url: article.image_url }] : [],
     },
   };
 }

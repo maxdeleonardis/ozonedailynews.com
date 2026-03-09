@@ -1,0 +1,493 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+
+export const metadata: Metadata = {
+  title: 'Alibaba Group — Global E-Commerce & Technology Conglomerate | ObjectWire',
+  description:
+    'Comprehensive profile of Alibaba Group Holding Limited. Covers company history from 1999 founding through regulatory crackdowns, leadership under Jack Ma and Eddie Wu, and future prospects in AI, cloud, and global logistics.',
+  keywords: [
+    'Alibaba Group',
+    'Jack Ma',
+    'Eddie Wu Alibaba CEO',
+    'Alibaba history',
+    'Alibaba AI',
+    'Alibaba Cloud',
+    'Taobao',
+    'Tmall',
+    'AliExpress',
+    'Alipay',
+    'Ant Group',
+    'Alibaba restructuring 2023',
+    'Alibaba Qwen AI',
+    'Joseph Tsai Alibaba',
+    'Alibaba NYSE BABA',
+    'Chinese tech company',
+  ],
+  alternates: {
+    canonical: 'https://www.objectwire.org/technology/alibaba',
+  },
+  openGraph: {
+    title: 'Alibaba Group — Global E-Commerce & Technology Conglomerate | ObjectWire',
+    description:
+      'From a Hangzhou apartment in 1999 to a $200B+ empire: the full profile of Alibaba Group, Jack Ma, leadership succession, regulatory crackdowns, and the company\'s AI pivot.',
+    type: 'article',
+    url: 'https://www.objectwire.org/technology/alibaba',
+    siteName: 'ObjectWire',
+    publishedTime: '2026-03-07T14:00:00Z',
+    modifiedTime: '2026-03-07T14:00:00Z',
+    section: 'Technology',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alibaba Group — Full Company Profile | ObjectWire',
+    description:
+      'History, leadership, AI strategy, and future prospects of Alibaba Group. From Jack Ma to Eddie Wu — the full story.',
+  },
+};
+
+export default function AlibabaPage() {
+  const breadcrumbItems = [
+    { name: 'Home', item: '/' },
+    { name: 'Technology', item: '/technology' },
+    { name: 'Alibaba', item: '/technology/alibaba' },
+  ];
+
+  return (
+    <>
+      <NewsArticleSchema
+        title="Alibaba Group — Global E-Commerce & Technology Conglomerate"
+        description="Full profile of Alibaba Group: founding in 1999, rise to global dominance, regulatory crackdowns, leadership under Jack Ma and Eddie Wu, and 2026 AI and cloud strategy."
+        author="ObjectWire Editorial"
+        authorUrl="https://www.objectwire.org/team"
+        publishedTime="2026-03-07T14:00:00Z"
+        modifiedTime="2026-03-07T14:00:00Z"
+        articleUrl="https://www.objectwire.org/technology/alibaba"
+        section="Technology"
+        keywords={['Alibaba Group', 'Jack Ma', 'Eddie Wu', 'Alibaba Cloud', 'Qwen AI', 'e-commerce China']}
+      />
+
+      <div className="min-h-screen bg-white">
+        <div className="container mx-auto px-4 pt-4 max-w-6xl">
+          <Breadcrumb items={breadcrumbItems} />
+        </div>
+
+        <header className="border-b border-gray-200 pb-6 mb-6">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h1 className="text-4xl font-serif mb-2">Alibaba Group</h1>
+            <p className="text-gray-600 italic">
+              From ObjectWire, the verification-first intelligence platform
+            </p>
+          </div>
+        </header>
+
+        <div className="container mx-auto px-4 max-w-6xl pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            {/* Main Content */}
+            <main className="lg:col-span-8 order-2 lg:order-1">
+
+              {/* Lead */}
+              <p className="text-lg leading-relaxed mb-6">
+                <strong>Alibaba Group Holding Limited</strong> (Chinese: 阿里巴巴集团控股有限公司) is a Chinese multinational technology conglomerate specializing in{' '}
+                <strong>e-commerce, cloud computing, digital media, logistics, and artificial intelligence</strong>.
+                Founded in <strong>1999</strong> by <strong>Jack Ma</strong> and 17 co-founders in a Hangzhou apartment,
+                Alibaba grew into one of the world&apos;s largest companies by revenue and market capitalization,
+                operating an ecosystem that touches virtually every aspect of Chinese digital commerce.
+                The company is listed on the <strong>New York Stock Exchange</strong> (NYSE: BABA) and the{' '}
+                <strong>Hong Kong Stock Exchange</strong> (HKEX: 9988).
+              </p>
+
+              {/* Table of Contents */}
+              <nav className="bg-gray-50 border border-gray-200 p-4 mb-8 rounded-lg">
+                <h2 className="font-bold text-gray-900 mb-3 border-b border-gray-300 pb-2">Contents</h2>
+                <ol className="space-y-1 text-sm">
+                  <li><a href="#history" className="text-blue-600 hover:underline">1 History &amp; Founding</a></li>
+                  <li>
+                    <a href="#growth" className="text-blue-600 hover:underline">2 Growth &amp; Global Expansion</a>
+                    <ol className="ml-4 mt-1 space-y-1">
+                      <li><a href="#ipo" className="text-blue-600 hover:underline">2.1 Record-Breaking IPO (2014)</a></li>
+                      <li><a href="#ant" className="text-blue-600 hover:underline">2.2 Ant Group &amp; Alipay</a></li>
+                    </ol>
+                  </li>
+                  <li><a href="#crackdown" className="text-blue-600 hover:underline">3 Regulatory Crackdown (2020–2023)</a></li>
+                  <li><a href="#restructuring" className="text-blue-600 hover:underline">4 Six-Unit Restructuring (2023)</a></li>
+                  <li><a href="#leadership" className="text-blue-600 hover:underline">5 Leadership Team</a></li>
+                  <li><a href="#businesses" className="text-blue-600 hover:underline">6 Core Businesses</a></li>
+                  <li><a href="#ai" className="text-blue-600 hover:underline">7 Artificial Intelligence &amp; Qwen</a></li>
+                  <li><a href="#prospects" className="text-blue-600 hover:underline">8 Future Prospects</a></li>
+                  <li><a href="#seealso" className="text-blue-600 hover:underline">9 See Also</a></li>
+                </ol>
+              </nav>
+
+              {/* History */}
+              <section id="history" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  History &amp; Founding
+                </h2>
+                <p className="mb-4 leading-relaxed">
+                  Alibaba was founded on <strong>April 4, 1999</strong>, by{' '}
+                  <strong>Jack Ma</strong> (Ma Yun) — a former English teacher from Hangzhou — along with{' '}
+                  18 co-founders who pooled together <strong>$60,000</strong> in startup capital
+                  in Ma&apos;s apartment. The initial vision was an English-language business-to-business
+                  (B2B) marketplace connecting Chinese manufacturers with overseas buyers.
+                  Alibaba.com launched in the same year and attracted early investment from{' '}
+                  <strong>Goldman Sachs</strong> ($5 million, 1999) and{' '}
+                  <strong>SoftBank</strong> ($20 million, 2000), with Masayoshi Son&apos;s bet on Alibaba
+                  becoming one of the most celebrated venture investments in history.
+                </p>
+                <p className="mb-4 leading-relaxed">
+                  In <strong>2003</strong>, Alibaba launched <strong>Taobao</strong> — a consumer-to-consumer
+                  marketplace directly challenging eBay&apos;s then-dominant position in China. By offering
+                  zero listing fees and building an escrow-based trust system, Taobao gained rapid
+                  adoption. eBay ultimately withdrew from the Chinese market in 2006. That same year,
+                  Alibaba launched <strong>Alipay</strong>, an independent online payment platform that
+                  would later evolve into one of the largest financial technology companies in the world.
+                </p>
+                <p className="leading-relaxed mb-4">
+                  <strong>Tmall</strong> (formerly Taobao Mall) launched in 2008 as a premium business-
+                  to-consumer platform allowing established brands to sell directly to Chinese consumers,
+                  creating a structured, brand-controlled retail environment alongside Taobao&apos;s
+                  open marketplace.
+                </p>
+              </section>
+
+              {/* Growth */}
+              <section id="growth" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Growth &amp; Global Expansion
+                </h2>
+
+                <h3 id="ipo" className="text-xl font-semibold mb-3">Record-Breaking IPO (2014)</h3>
+                <p className="mb-4 leading-relaxed">
+                  On <strong>September 19, 2014</strong>, Alibaba listed on the New York Stock Exchange,
+                  raising <strong>$25 billion</strong> — the largest IPO in history at the time. Shares
+                  opened at $92.70, valuing the company at over <strong>$231 billion</strong>. The listing
+                  cemented Alibaba&apos;s status as a global technology giant and made Jack Ma China&apos;s
+                  richest person. SoftBank&apos;s $20 million investment had grown to over $60 billion.
+                </p>
+
+                <h3 id="ant" className="text-xl font-semibold mb-3">Ant Group &amp; Alipay</h3>
+                <p className="leading-relaxed mb-4">
+                  Alipay was spun off into a separate entity — ultimately incorporated as{' '}
+                  <strong>Ant Group</strong> — in 2011. Ant Group grew to operate Alipay, which by
+                  2020 had over <strong>1.3 billion users</strong> and processed tens of trillions
+                  of yuan annually, functioning as the financial backbone of the Alibaba ecosystem.
+                  Ant Group filed for what would have been the world&apos;s largest IPO ($37 billion)
+                  in late 2020, before regulators abruptly halted it.
+                </p>
+              </section>
+
+              {/* Crackdown */}
+              <section id="crackdown" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Regulatory Crackdown (2020–2023)
+                </h2>
+                <p className="mb-4 leading-relaxed">
+                  In October 2020, Jack Ma delivered a speech in Shanghai publicly criticizing
+                  Chinese state banks and financial regulators, calling them &ldquo;pawnshops.&rdquo;
+                  Days later, Ant Group&apos;s IPO was suspended by regulators. Ma subsequently
+                  withdrew from public life for months, sparking widespread speculation about his
+                  status. Chinese authorities launched an <strong>antitrust investigation into
+                  Alibaba</strong> in December 2020.
+                </p>
+                <p className="mb-4 leading-relaxed">
+                  In April 2021, Alibaba was fined a record{' '}
+                  <strong>18.2 billion yuan ($2.8 billion)</strong> by the State Administration for
+                  Market Regulation for monopolistic practices, specifically its policy of{' '}
+                  &ldquo;choosing one from two&rdquo; — requiring merchants to list exclusively on
+                  Alibaba platforms. Ant Group was simultaneously ordered to restructure as a
+                  financial holding company under direct regulatory supervision, effectively
+                  blocking its public listing indefinitely. The crackdown wiped hundreds of
+                  billions of dollars from Alibaba&apos;s market capitalization.
+                </p>
+              </section>
+
+              {/* Restructuring */}
+              <section id="restructuring" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Six-Unit Restructuring (2023)
+                </h2>
+                <p className="mb-4 leading-relaxed">
+                  In March 2023, Alibaba announced its most dramatic organizational change since
+                  founding — a plan to split the company into{' '}
+                  <strong>six independent business units</strong>, each with its own CEO and the
+                  ability to raise external capital or pursue independent IPOs. The units were:
+                </p>
+                <ul className="list-disc ml-6 mb-4 space-y-1 leading-relaxed text-gray-800">
+                  <li><strong>Cloud Intelligence Group</strong> (Alibaba Cloud)</li>
+                  <li><strong>Taobao Tmall Commerce Group</strong> (domestic e-commerce)</li>
+                  <li><strong>Local Services Group</strong> (Ele.me, Amap)</li>
+                  <li><strong>Cainiao Smart Logistics Network</strong></li>
+                  <li><strong>Global Digital Commerce Group</strong> (AliExpress, Lazada)</li>
+                  <li><strong>Digital Media &amp; Entertainment Group</strong> (Youku, Damai)</li>
+                </ul>
+                <p className="leading-relaxed mb-4">
+                  The restructuring was widely seen as a response to regulatory pressure and a bid
+                  to unlock shareholder value. However, by late 2023 Alibaba shelved the planned
+                  Alibaba Cloud spin-off following the U.S. government&apos;s expansion of chip
+                  export controls targeting China, which created uncertainty around cloud hardware
+                  procurement.
+                </p>
+              </section>
+
+              {/* Leadership */}
+              <section id="leadership" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Leadership Team
+                </h2>
+
+                <h3 className="text-xl font-semibold mb-2">Eddie Wu — Group CEO</h3>
+                <p className="mb-4 leading-relaxed">
+                  <strong>Eddie Wu Yongming</strong> became Alibaba Group CEO in September 2023,
+                  succeeding Daniel Zhang. One of Alibaba&apos;s original 18 co-founders, Wu has
+                  been a central figure in the company since 1999. He was previously CEO of Taobao
+                  and serves concurrently as CEO of the Taobao Tmall Commerce Group. Wu is widely
+                  regarded as a steadying hand with deep operational command and the internal
+                  credibility that comes from founding-team status. His declared priority is
+                  embedding AI across all of Alibaba&apos;s consumer and enterprise products.
+                </p>
+
+                <h3 className="text-xl font-semibold mb-2">Joseph Tsai — Executive Chairman</h3>
+                <p className="mb-4 leading-relaxed">
+                  <strong>Joseph Tsai</strong> (Cai Chongxin) co-founded Alibaba alongside Jack Ma
+                  and has served as Executive Chairman since 2023, transitioning from Vice Chairman.
+                  Born in Taiwan and educated at Yale Law School, Tsai is Alibaba&apos;s primary
+                  interface with international investors, regulators, and media. He also serves as
+                  owner and chairman of the <strong>Brooklyn Nets</strong> and{' '}
+                  <strong>New York Liberty</strong>.
+                </p>
+
+                <h3 className="text-xl font-semibold mb-2">Jack Ma — Founder (Non-Executive)</h3>
+                <p className="leading-relaxed mb-4">
+                  <strong>Jack Ma</strong> (Ma Yun) stepped down as Executive Chairman in 2019 and
+                  retains a minor ownership stake. He has maintained a low public profile since the
+                  2020–2021 regulatory crisis, spending time between Japan, Europe, and China. In
+                  early 2023, SoftBank divested most of its remaining Alibaba stake. Ma remains a
+                  symbolic figure for the company&apos;s founding ethos but holds no operational role.
+                </p>
+              </section>
+
+              {/* Core Businesses */}
+              <section id="businesses" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Core Businesses
+                </h2>
+                <ul className="space-y-3 leading-relaxed text-gray-800">
+                  <li>
+                    <strong>Taobao</strong> — China&apos;s largest consumer-to-consumer and small
+                    business e-commerce platform, with over 900 million annual active users.
+                  </li>
+                  <li>
+                    <strong>Tmall</strong> — Premium B2C marketplace for established brands including
+                    Apple, Nike, L&apos;Oréal, and thousands of domestic Chinese brands.
+                  </li>
+                  <li>
+                    <strong>Alibaba Cloud (Aliyun)</strong> — Asia&apos;s largest cloud provider.
+                    Provides IaaS, PaaS, and AI services across data centers in China and 30+
+                    international regions.
+                  </li>
+                  <li>
+                    <strong>AliExpress</strong> — Cross-border B2C platform selling to consumers
+                    in Europe, Latin America, Southeast Asia, and the Middle East.
+                  </li>
+                  <li>
+                    <strong>Lazada</strong> — Southeast Asian e-commerce platform operating in
+                    six countries. Acquired in 2016.
+                  </li>
+                  <li>
+                    <strong>Cainiao</strong> — Global logistics network managing last-mile delivery,
+                    international freight, and smart warehousing infrastructure.
+                  </li>
+                  <li>
+                    <strong>Ele.me</strong> — On-demand food delivery platform, competing directly
+                    with Meituan across Chinese cities.
+                  </li>
+                  <li>
+                    <strong>Youku</strong> — Chinese video streaming platform, often described as
+                    China&apos;s YouTube.
+                  </li>
+                  <li>
+                    <strong>Amap (AutoNavi)</strong> — China&apos;s leading digital mapping and
+                    navigation platform, integrated across Alibaba&apos;s mobile ecosystem.
+                  </li>
+                </ul>
+              </section>
+
+              {/* AI */}
+              <section id="ai" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Artificial Intelligence &amp; Qwen
+                </h2>
+                <p className="mb-4 leading-relaxed">
+                  Alibaba has positioned AI as the central pillar of its post-restructuring strategy.
+                  The company&apos;s large language model family, <strong>Qwen (通义千问)</strong>, is
+                  developed by Alibaba Cloud&apos;s DAMO Academy and has emerged as one of the most
+                  capable open-source model series globally. In 2025–2026, Qwen 2.5 and Qwen 3 models
+                  achieved top-tier benchmark rankings on reasoning, coding, and multilingual tasks —
+                  competing directly with OpenAI&apos;s GPT-4o,{' '}
+                  <Link href="/claude" className="text-blue-600 hover:underline">
+                    Anthropic&apos;s Claude
+                  </Link>
+                  , and{' '}
+                  <Link href="/google" className="text-blue-600 hover:underline">
+                    Google&apos;s Gemini
+                  </Link>
+                  .
+                </p>
+                <p className="mb-4 leading-relaxed">
+                  Alibaba has released many Qwen variants under open-source licenses via Hugging Face,
+                  driving rapid adoption across Asian enterprises, startups, and research institutions.
+                  Alibaba Cloud also operates <strong>Model Studio</strong> — a model-as-a-service API
+                  platform — and <strong>PAI</strong> (Platform for AI), an enterprise MLOps environment
+                  for fine-tuning and deploying custom models at scale.
+                </p>
+                <p className="leading-relaxed mb-4">
+                  CEO Eddie Wu has stated publicly that Alibaba intends to integrate AI agents across
+                  Taobao, Tmall, Amap, and Ele.me — transforming shopping discovery, customer service,
+                  and logistics optimization with AI-native interfaces rather than traditional search
+                  and browse paradigms.
+                </p>
+              </section>
+
+              {/* Future Prospects */}
+              <section id="prospects" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">
+                  Future Prospects
+                </h2>
+                <p className="mb-4 leading-relaxed">
+                  Alibaba enters 2026 in a structurally different position than at its 2020 peak.
+                  The regulatory overhang has largely cleared — the government&apos;s priorities
+                  have shifted toward economic stimulus and tech sector rehabilitation — and the
+                  company is aggressively investing in AI infrastructure and international commerce
+                  to offset slower domestic growth. Key strategic bets include:
+                </p>
+                <ul className="list-disc ml-6 mb-4 space-y-2 leading-relaxed text-gray-800">
+                  <li>
+                    <strong>AI-native commerce</strong> — Rebuilding Taobao and Tmall around large
+                    language model-powered agents for product discovery, personalization, and
+                    customer service, with the goal of shifting from keyword search to conversational
+                    shopping.
+                  </li>
+                  <li>
+                    <strong>Alibaba Cloud international expansion</strong> — Targeting Southeast Asia,
+                    Middle East, and European data center buildout to grow cloud revenue outside of
+                    China, where U.S. export controls on advanced chips create procurement headwinds.
+                  </li>
+                  <li>
+                    <strong>Qwen open-source ecosystem</strong> — Building developer mindshare and
+                    enterprise lock-in by releasing frontier-class models openly, mimicking
+                    Meta&apos;s Llama strategy to establish Qwen as Asia&apos;s default AI foundation.
+                  </li>
+                  <li>
+                    <strong>Global logistics via Cainiao</strong> — Scaling Cainiao&apos;s
+                    international freight and last-mile infrastructure to support AliExpress and
+                    Lazada cross-border volume as Western brands increasingly diversify sourcing
+                    toward Southeast Asia.
+                  </li>
+                  <li>
+                    <strong>Domestic market defense</strong> — Competing with resurgent rivals
+                    <strong> JD.com</strong>, <strong>Pinduoduo (PDD/Temu)</strong>, and ByteDance&apos;s
+                    TikTok Shop, which have eroded Alibaba&apos;s domestic market share significantly
+                    since 2021.
+                  </li>
+                </ul>
+                <p className="leading-relaxed">
+                  Analyst consensus heading into 2026 is cautiously constructive: Alibaba&apos;s
+                  cloud and AI units offer genuine upside in a global AI infrastructure cycle,
+                  but sustained domestic e-commerce pressure from Pinduoduo and the structural
+                  friction of U.S.–China technology decoupling remain the principal risks to
+                  long-term growth.
+                </p>
+              </section>
+
+              {/* See Also */}
+              <section id="seealso" className="mb-10">
+                <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">See Also</h2>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/technology" className="text-blue-600 hover:underline">
+                      Technology Hub — Full coverage of global tech companies
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/open-ai" className="text-blue-600 hover:underline">
+                      OpenAI — Profile &amp; coverage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/claude" className="text-blue-600 hover:underline">
+                      Anthropic &amp; Claude — Profile &amp; coverage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/google" className="text-blue-600 hover:underline">
+                      Google — Profile &amp; coverage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/microsoft" className="text-blue-600 hover:underline">
+                      Microsoft — Profile &amp; coverage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/nvidia" className="text-blue-600 hover:underline">
+                      NVIDIA — Profile &amp; coverage
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+
+            </main>
+
+            {/* Sidebar Infobox */}
+            <aside className="lg:col-span-4 order-1 lg:order-2">
+              <div className="bg-white border border-gray-200 shadow-sm overflow-hidden sticky top-6">
+                <div className="bg-gray-900 px-4 py-3">
+                  <h3 className="font-black text-xs uppercase tracking-widest text-center text-white">
+                    Alibaba Group
+                  </h3>
+                </div>
+
+                {/* Logo placeholder */}
+                <div className="border-b-2 border-orange-500 bg-orange-50 flex items-center justify-center py-8">
+                  <span className="text-5xl font-black text-orange-500 tracking-tight">alibaba</span>
+                </div>
+
+                <dl className="divide-y divide-gray-100">
+                  {[
+                    { label: 'Founded', value: 'April 4, 1999' },
+                    { label: 'Founders', value: 'Jack Ma & 17 co-founders' },
+                    { label: 'Headquarters', value: 'Hangzhou, Zhejiang, China' },
+                    { label: 'CEO', value: 'Eddie Wu Yongming (2023–present)' },
+                    { label: 'Chairman', value: 'Joseph Tsai' },
+                    { label: 'Founder', value: 'Jack Ma (non-executive)' },
+                    { label: 'Listed', value: 'NYSE: BABA · HKEX: 9988' },
+                    { label: 'Revenue', value: '~¥941B ($130B) FY2024' },
+                    { label: 'Employees', value: '~220,000 (2025)' },
+                    { label: 'Key Products', value: 'Taobao, Tmall, Alibaba Cloud, AliExpress, Alipay (Ant Group), Cainiao' },
+                    { label: 'AI Model', value: 'Qwen (通义千问)' },
+                    { label: 'Cloud Rank', value: '#1 Asia-Pacific cloud provider' },
+                    { label: 'IPO', value: '$25B · Sep 19, 2014 (NYSE)' },
+                    { label: 'Website', value: 'alibaba.com' },
+                  ].map((row, i) => (
+                    <div key={i} className="px-4 py-2.5 flex gap-3">
+                      <dt className="text-[11px] font-bold text-gray-400 uppercase tracking-wide min-w-[90px] pt-0.5 shrink-0">
+                        {row.label}
+                      </dt>
+                      <dd className="text-sm text-gray-900 font-medium leading-snug">
+                        {row.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </aside>
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

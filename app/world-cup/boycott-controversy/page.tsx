@@ -1,7 +1,10 @@
-import { Metadata } from "next";
-import WorldCupBoycottClient from "./WorldCupBoycottClient";
+import type { Metadata } from 'next';
+import { WikiArticle } from '@/components/WikiArticle';
 
-// Server-side metadata for SEO (automatically detected by content scanner & sitemap)
+// Page renders dynamically — content fetched from Supabase at request time.
+// Run 'npm run wiki:migrate' to update content in Supabase.
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "2026 World Cup Boycott Controversy: ICE Immigration Policies Spark Calls for Cancellation | ObjectWire",
   description: "UPDATED JAN 27 2026: Human rights groups demand World Cup cancellation or relocation citing ICE enforcement concerns, family separations, and fan safety issues. FIFA faces mounting pressure.",
@@ -41,7 +44,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Server component that renders client component
 export default function WorldCupBoycottPage() {
-  return <WorldCupBoycottClient />;
+  return <WikiArticle slug="world-cup-boycott-controversy" />;
 }

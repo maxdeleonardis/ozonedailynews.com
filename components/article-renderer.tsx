@@ -1148,6 +1148,17 @@ export function ArticleRenderer({ blocks }: ArticleRendererProps) {
               </section>
             );
 
+          // Raw HTML block — used for wiki pages migrated from static page.tsx files
+          // Content comes from our own codebase (not user input), so dangerouslySetInnerHTML is safe here
+          case 'html':
+            return (
+              <div
+                key={block.id}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: block.content || '' }}
+              />
+            );
+
           default:
             return null;
         }

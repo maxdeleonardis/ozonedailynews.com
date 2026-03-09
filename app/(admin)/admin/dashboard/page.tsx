@@ -211,7 +211,7 @@ export default function AdminDashboard() {
                       </div>
                       <div className="flex items-center gap-2 ml-4">
                         {post.status === 'published' && (
-                          <Link href={`/${post.slug}`} target="_blank">
+                          <Link href={`/blog/${post.slug}`} target="_blank">
                             <Button variant="outline" size="sm">
                               View
                             </Button>

@@ -1,11 +1,12 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 import { contentRegistry } from '@/lib/content-registry';
 import { SITE_CONFIG } from '@/lib/site-config';
+import { getPublishedBlogPosts } from '@/lib/blog-service';
 
 // Regenerate daily — but dates come from content-registry, not filesystem
 export const revalidate = 86400;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_CONFIG.url;
 
   // Homepage
@@ -18,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // All registered content — real publish/modify dates, never filesystem timestamps
+  // All registered static content
   const registryEntries: MetadataRoute.Sitemap = contentRegistry.map((entry) => ({
     url: `${baseUrl}${entry.slug}`,
     lastModified: new Date(entry.modifiedDate),
@@ -26,7 +27,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: entry.priority,
   }));
 
-  const all = [...staticEntries, ...registryEntries];
+  // Supabase-published articles at /blog/[slug]
+  let supabaseEntries: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await getPublishedBlogPosts();
+    supabaseEntries = posts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
+  } catch {
+    // Supabase unavailable — continue with static entries only
+  }
+
+  const all = [...staticEntries, ...registryEntries, ...supabaseEntries];
 
   // Deduplicate (registry takes precedence over static)
   const unique = Array.from(
@@ -42,4 +57,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return unique;
 }
-

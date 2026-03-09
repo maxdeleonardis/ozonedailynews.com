@@ -4584,6 +4584,184 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.7,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-07 — 3 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Gaming (3) ---
+  {
+    slug: "/video-games/new/crimson-desert",
+    title: "Crimson Desert Hits 3 Million Wishlists Before March 19 Launch | ObjectWire",
+    description: "Pearl Abyss\\",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Crimson Desert"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/video-games/new/slay-the-spire-2",
+    title: "Slay the Spire 2 Shatters Records and Briefly",
+    description: "Slay the Spire 2 hit 430,456 concurrent Steam players within 24 hours of Early Access launch on March 5, 2026, crashing the Steam cart system and setting the al",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Slay The Spire 2"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/video-games/new/windrose",
+    title: "Windrose Hits 1M Steam Wishlists — Uzbek Pirate Survival Game Breaks Out | ObjectWire",
+    description: "Windrose Crew\\",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Windrose"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-07 — 10 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Claude (1) ---
+  {
+    slug: "/claude/news/datatalks-course-wiped-by-claudecode",
+    title: "Claude Code AI Wiped a Production Database — Erasing 2.5 Years of Student Data | ObjectWire",
+    description: "ObjectWire coverage of Claude Code AI Wiped a Production Database — Erasing 2.5 Years of Student Data | ObjectWire.",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Claude",
+    tags: ["Claude"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Finance (2) ---
+  {
+    slug: "/crypto/xrp",
+    title: "XRP — Digital Asset, XRP Ledger & Ripple Network | ObjectWire",
+    description: "Comprehensive profile of XRP: the native digital asset of the XRP Ledger (XRPL). Covers history, how XRP works, the Ripple company, SEC lawsuit, use cases in cr",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Xrp"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/crypto/xrp/80b-ledger-exploit-confirmed-by-ceo",
+    title: "AI Tool Thwarts $80B XRP Ledger Exploit Before Activation | ObjectWire",
+    description: "The XRP Ledger Foundation confirmed a",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Xrp", "80b Ledger Exploit Confirmed By Ceo"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Gaming (2) ---
+  {
+    slug: "/video-games/bellwright",
+    title: "Bellwright — Medieval Survival RPG Tops 1 Million Sales | ObjectWire",
+    description: "Bellwright has crossed 1 million units sold on Steam while still in Early Access, publisher Snail, Inc. announced on March 6, 2026. Full profile of the medieval",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Bellwright"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/video-games/news/kotor-remake-saber-confirmed-still-in-development",
+    title: "KOTOR Remake Still in Development, Saber Confirms — 5 Years After Reveal | ObjectWire",
+    description: "Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development — five years after its ci",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "News", "Kotor Remake Saber Confirmed Still In Development"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- News (1) ---
+  {
+    slug: "/news/alibaba-ai-agent-mined-crypto-during-training",
+    title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training | ObjectWire",
+    description: "An AI agent developed by Alibaba researchers spontaneously began mining cryptocurrency during a training run without being instructed to do so. The incident is",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "News",
+    tags: ["News", "Alibaba Ai Agent Mined Crypto During Training"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Politics (3) ---
+  {
+    slug: "/trump/china/OpenClaw-hacks-china-gov-in-shocking-report",
+    title: "CYBER ALERT: China Warns Agencies to Limit OpenClaw AI Over Critical Security Flaws | ObjectWire",
+    description: "Beijing has issued an urgent directive warning government agencies and SOEs to restrict OpenClaw — the viral open-source AI agent with 180K GitHub stars. The MI",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "China", "OpenClaw Hacks China Gov In Shocking Report"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/trump/kristi-noem/fired",
+    title: "Kristi Noem Fired: Trump Removes DHS Secretary Amid $120M Horse Ad Scandal | ObjectWire",
+    description: "President Trump has fired Kristi Noem as U.S. Secretary of Homeland Security. The removal follows a growing $120 million contract scandal tied to the now-infamo",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Kristi Noem", "Fired"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/trump/shadow-license-problem",
+    title: "The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming | ObjectWire",
+    description: "The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips — without permiss",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Shadow License Problem"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Technology (1) ---
+  {
+    slug: "/technology/alibaba",
+    title: "Alibaba Group — Global E-Commerce & Technology Conglomerate | ObjectWire",
+    description: "Comprehensive profile of Alibaba Group Holding Limited. Covers company history from 1999 founding through regulatory crackdowns, leadership under Jack Ma and Ed",
+    publishDate: "2026-03-07",
+    modifiedDate: "2026-03-07",
+    category: "Technology",
+    tags: ["Technology", "Alibaba"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

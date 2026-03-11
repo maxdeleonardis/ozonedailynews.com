@@ -182,6 +182,44 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: 'monthly',
   },
+  {
+    slug: '/youtube/spanish',
+    title: 'Top Spanish YouTubers 2026 — Ibai, AuronPlay, ElRubius & More | ObjectWire',
+    description: 'Complete rankings and profiles of the biggest Spanish-language YouTubers in 2026 — Ibai Llanos, AuronPlay, ElRubius, TheGrefg, Vegetta777, Alana Flores and more.',
+    publishDate: '2026-03-11',
+    modifiedDate: '2026-03-11',
+    category: 'YouTube',
+    tags: ['Spanish YouTubers', 'Ibai Llanos', 'AuronPlay', 'ElRubius', 'TheGrefg', 'Vegetta777', 'Alana Flores', 'YouTube España'],
+    author: 'ObjectWire Editorial Team',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+    featured: true,
+  },
+  {
+    slug: '/youtube/thefellas',
+    title: 'The Fellas Studios — Podcast Network, Founders & Shows 2026 | ObjectWire',
+    description: 'Complete profile of The Fellas Studios — the UK podcast network founded by Calfreezy and TheBurntChip. All 13+ shows including The Fellas, Saving Grace, Pitch Side, DEEP IT! and more.',
+    publishDate: '2026-03-11',
+    modifiedDate: '2026-03-11',
+    category: 'YouTube',
+    tags: ['The Fellas Studios', 'Calfreezy', 'TheBurntChip', 'GK Barry', 'UK podcast', 'ArthurTV', 'Saving Grace', 'Pitch Side'],
+    author: 'ObjectWire Editorial Team',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+    featured: true,
+  },
+  {
+    slug: '/youtube/thefellas/punchin',
+    title: "Punchin' Podcast — Danny Aarons & Tennessee Thresher | ObjectWire",
+    description: "Full profile of Punchin' — the weekly couple podcast hosted by Danny Aarons and Tennessee Thresher on The Fellas Studios network. Episodes, topics, style, and how to listen.",
+    publishDate: '2026-03-11',
+    modifiedDate: '2026-03-11',
+    category: 'YouTube',
+    tags: ["Punchin' podcast", 'Danny Aarons', 'Tennessee Thresher', 'The Fellas Studios', 'UK podcast', 'couple podcast', 'comedy podcast'],
+    author: 'ObjectWire Editorial Team',
+    priority: 0.7,
+    changeFrequency: 'weekly',
+  },
 
   // ===========================================================================
   // VIDEO GAMES
@@ -913,6 +951,32 @@ export const contentRegistry: ContentEntry[] = [
     author: "ObjectWire Editorial",
     priority: 0.6,
     changeFrequency: "weekly",
+  },
+  {
+    slug: "/events/gdc-2026",
+    title: "GDC 2026 — Game Developers Conference Coverage | ObjectWire",
+    description: "Full coverage of the Game Developers Conference 2026. Sessions, awards, announcements, industry trends, and everything happening at the world's largest professional game development event.",
+    publishDate: "2026-03-11",
+    modifiedDate: "2026-03-11",
+    category: "Events",
+    tags: ["GDC 2026", "Game Developers Conference", "GDC", "game development", "gaming industry", "San Francisco"],
+    author: "ObjectWire Editorial Team",
+    priority: 0.8,
+    changeFrequency: "daily",
+    featured: true,
+  },
+  {
+    slug: "/events/gdc-2026/valve-steam-machine-steam-frame-compatibility-gdc-2026",
+    title: "Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026 | ObjectWire",
+    description: "Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026 — both remain on track for a 2026 launch despite RAM supply-chain delays.",
+    publishDate: "2026-03-11",
+    modifiedDate: "2026-03-11",
+    category: "Events",
+    tags: ["Valve", "Steam Machine", "Steam Frame", "GDC 2026", "SteamOS", "VR headset", "game development", "gaming industry"],
+    author: "ObjectWire Staff",
+    priority: 0.8,
+    changeFrequency: "weekly",
+    featured: true,
   },
 
   // --- Finance (11) ---
@@ -4761,6 +4825,24 @@ export const contentRegistry: ContentEntry[] = [
     tags: ["Video Games", "Gaming", "New", "Windrose"],
     author: "ObjectWire Editorial",
     priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-11 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Technology (1) ---
+  {
+    slug: "/google/news/gemini-embedding-2-multimodal-embedding-model",
+    title: "Gemini Embedding 2 – Google\\",
+    description: "Discover Gemini Embedding 2, Google\\",
+    publishDate: "2026-03-11",
+    modifiedDate: "2026-03-11",
+    category: "Technology",
+    tags: ["Google", "Big Tech", "News", "Gemini Embedding 2 Multimodal Embedding Model"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
     changeFrequency: "weekly",
   },
 ];

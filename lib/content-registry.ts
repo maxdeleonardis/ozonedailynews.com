@@ -4827,6 +4827,7 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+<<<<<<< Updated upstream
   // ===========================================================================
   // AUTO-SYNCED 2026-03-11 — 1 entries added by scripts/sync-registry.ts
   // Review publishDate / modifiedDate / featured / imageUrl on each entry.
@@ -4845,6 +4846,8 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.7,
     changeFrequency: "weekly",
   },
+=======
+>>>>>>> Stashed changes
 ];
 
 // =============================================================================

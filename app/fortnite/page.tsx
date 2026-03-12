@@ -88,13 +88,17 @@ export default function FortniteHubPage() {
           icon="📋"
           items={[
             { label: 'Developer', value: 'Epic Games' },
+            { label: 'Epic Founded', value: '1991 — Tim Sweeney' },
+            { label: 'Save the World Launch', value: 'Jul 25, 2017' },
             { label: 'Battle Royale Launch', value: 'Sep 26, 2017' },
+            { label: 'Years Active (BR)', value: '8+ years (2017–2026)' },
             { label: 'Registered Players', value: '500M+' },
-            { label: 'Current Chapter', value: 'Chapter 6' },
+            { label: 'Monthly Active', value: '80M+' },
+            { label: 'Current Chapter', value: 'Chapter 6, Season 2' },
             { label: 'Platforms', value: 'All Major + Mobile' },
             { label: 'Price', value: 'Free-to-Play' },
-            { label: 'Engine', value: 'Unreal Engine 5' },
-            { label: 'Revenue (2024)', value: '$6B+ Lifetime' },
+            { label: 'Engine', value: 'Unreal Engine 5.7' },
+            { label: 'Peak Revenue Year', value: '$5.4B (2018)' },
           ]}
           columns={4}
         />
@@ -105,8 +109,10 @@ export default function FortniteHubPage() {
           items={[
             { value: '500M+', label: 'Accounts' },
             { value: '80M+', label: 'Monthly Active' },
+            { value: '8+ yrs', label: 'Battle Royale Era' },
+            { value: '35 yrs', label: 'Epic Games (est. 1991)' },
             { value: '7+', label: 'Game Modes' },
-            { value: '$6B+', label: 'Lifetime Revenue' },
+            { value: '$5.4B', label: 'Peak Year Revenue (2018)' },
           ]}
         />
 
@@ -119,7 +125,7 @@ export default function FortniteHubPage() {
             { id: 'collabs', label: 'Collaborations & Crossovers' },
             { id: 'creative', label: 'Creative 2.0 & UEFN' },
             { id: 'cultural', label: 'Cultural Impact' },
-            { id: 'history', label: 'Game History' },
+            { id: 'history', label: 'Game History & Founding' },
             { id: 'related', label: 'Related Coverage' },
           ]}
         />
@@ -383,29 +389,64 @@ export default function FortniteHubPage() {
         </Hub.Section>
 
         {/* ── History ────────────────────────────────────────────────────── */}
-        <Hub.Section id="history" title="Game History" icon="📖" variant="default">
+        <Hub.Section id="history" title="Game History & Founding" icon="📖" variant="default">
           <Hub.Prose>
             <p>
-              Fortnite began as <strong>Save the World</strong>, a co-op PvE survival game announced
-              in 2011 and released in paid Early Access in July 2017. Two months later, Epic Games
-              pivoted to launch <strong>Fortnite Battle Royale</strong> as a free-to-play mode
-              on September 26, 2017 — riding the wave of PUBG&apos;s genre-defining success.
+              Fortnite is published by <strong>Epic Games</strong>, founded in <strong>1991</strong> by
+              programmer <strong>Tim Sweeney</strong> out of his parents&apos; basement in Potomac,
+              Maryland. The company originally shipped text-adventure and PC shareware titles before
+              building the <strong>Unreal Engine</strong> in 1998 — the same engine that now powers
+              both Fortnite and over 500 film and TV productions worldwide. By 2022, Epic Games was
+              valued at <strong>$31.5 billion</strong> and employed over 9,000 people globally.
             </p>
             <p>
-              By early 2018, Fortnite had exploded into a global phenomenon, breaking Twitch records
-              (with Ninja&apos;s Drake stream reaching 635K concurrent viewers), generating
+              Fortnite itself began as <strong>Save the World</strong>, a co-op PvE survival game
+              first shown publicly at the <strong>Spike Video Game Awards in 2011</strong> and
+              released in paid Early Access on <strong>July 25, 2017</strong>. Two months later, Epic
+              pivoted hard: <strong>Fortnite Battle Royale</strong> launched as a free-to-play mode
+              on <strong>September 26, 2017</strong> — riding the wave of PUBG&apos;s genre-defining
+              success and immediately eclipsing it.
+            </p>
+            <p>
+              By early 2018 the game had exploded globally, breaking Twitch records (Ninja&apos;s
+              Drake stream peaked at 635K concurrent viewers), generating
               <strong> $5.4 billion in revenue in 2018 alone</strong>, and introducing the
-              <strong> Battle Pass</strong> monetization model that would become the industry standard.
-            </p>
-            <p>
-              Key moments include the <strong>Black Hole event</strong> (October 2019) that
-              &quot;deleted&quot; the game for 2 days, the <strong>Chapter 2</strong> relaunch with a
-              new map, the <strong>Epic v. Apple lawsuit</strong> (2020–2024), the
-              <strong> no-build mode</strong> introduction (Chapter 3, 2022), <strong>Fortnite OG</strong>
-              returning the original map (2023), and the expansion into the multi-experience
-              platform model with Lego Fortnite, Festival, and Rocket Racing in late 2023.
+              <strong> Battle Pass</strong> monetization model that became the industry standard.
+              As of March 2026, Fortnite Battle Royale has been live for over <strong>8 years</strong> —
+              a remarkable run in a genre that burns through titles quickly.
             </p>
           </Hub.Prose>
+
+          {/* Milestone Timeline */}
+          <div className="border border-gray-200 rounded-xl overflow-hidden mt-6">
+            <div className="bg-gray-800 text-white px-5 py-3 font-semibold text-sm">
+              Fortnite &amp; Epic Games — Key Milestones
+            </div>
+            <div className="divide-y divide-gray-100">
+              {[
+                { year: '1991', event: 'Epic Games (then Epic MegaGames) founded by Tim Sweeney', icon: '🏠' },
+                { year: '1998', event: 'Unreal Engine 1 released — the foundation of the modern toolchain', icon: '⚙️' },
+                { year: '2011', event: 'Fortnite Save the World first revealed at Spike VGAs', icon: '🎬' },
+                { year: 'Jul 2017', event: 'Save the World launches in paid Early Access', icon: '🌍' },
+                { year: 'Sep 2017', event: 'Fortnite Battle Royale launches free-to-play — 10M players in 2 weeks', icon: '🚀' },
+                { year: '2018', event: 'Peak cultural moment — $5.4B revenue, 250M registered accounts, Ninja/Drake stream', icon: '💰' },
+                { year: 'Oct 2019', event: 'Black Hole event — game &quot;deleted&quot; for 2 days; 15.3M concurrent viewers', icon: '⚫' },
+                { year: '2020', event: 'Epic v. Apple antitrust lawsuit filed; Travis Scott Astronomical draws 12.3M', icon: '⚖️' },
+                { year: '2022', event: 'No-Build mode added; Epic valued at $31.5B; Chapter 3 launches', icon: '🏗️' },
+                { year: 'Nov 2023', event: 'Fortnite OG brings back original Chapter 1 map — 44.7M players in one day', icon: '🔁' },
+                { year: 'Dec 2023', event: 'Lego Fortnite, Festival, and Rocket Racing launch — platform era begins', icon: '🧱' },
+                { year: '2024', event: 'UEFN creator economy expands; Chapter 5 launches', icon: '🎨' },
+                { year: 'Late 2025', event: 'Chapter 6 launches with Greek mythology island; UE 5.7 released', icon: '🏛️' },
+                { year: 'Mar 2026', event: 'Chapter 6 Season 2 active; 500M+ accounts; 8+ years of Battle Royale', icon: '🎯' },
+              ].map((row) => (
+                <div key={row.year} className="flex items-start gap-4 px-5 py-3 text-sm">
+                  <div className="w-20 font-bold text-violet-700 shrink-0 pt-0.5">{row.year}</div>
+                  <div className="text-lg shrink-0">{row.icon}</div>
+                  <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: row.event }} />
+                </div>
+              ))}
+            </div>
+          </div>
         </Hub.Section>
 
         {/* ── Related Coverage ────────────────────────────────────────────── */}
@@ -424,6 +465,12 @@ export default function FortniteHubPage() {
                 emoji: '🚗',
                 label: 'Rocket League',
                 sub: 'Also by Epic / Psyonix',
+              },
+              {
+                href: '/entertainment/news/fortnite-moves-into-movies',
+                emoji: '🎬',
+                label: 'Unreal Engine in Hollywood',
+                sub: '153 film & TV productions in 2025',
               },
               {
                 href: '/video-games/rainbow-6-siege',

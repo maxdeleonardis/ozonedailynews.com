@@ -327,6 +327,68 @@ export default function GDC2026Page() {
         </div>
       </div>
 
+      {/* ── GDC 2026 Stories ── */}
+      <div className="container mx-auto px-4 py-14 max-w-7xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">GDC 2026 Coverage</h2>
+        <p className="text-gray-600 mb-8">Sessions, announcements, and analysis from Moscone Center.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Link
+            href="/video-games/game-of-the-year-2026-Clair-Obscur"
+            className="group block border border-gray-200 rounded-xl overflow-hidden hover:border-violet-400 hover:shadow-md transition-all"
+          >
+            <div className="bg-gradient-to-r from-violet-600 to-indigo-700 px-5 py-3 flex items-center gap-2">
+              <span className="text-white text-xs font-bold uppercase tracking-wider">GDC 2026 · Programming</span>
+              <span className="ml-auto bg-white/20 text-white text-xs px-2 py-0.5 rounded-full font-medium">🔥 Trending</span>
+            </div>
+            <div className="p-5">
+              <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-700 transition-colors leading-tight">
+                Clair Obscur Devs Reveal GOTY Giant Built by Just 4 Programmers
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                Sandfall Interactive confirmed 95% of Clair Obscur: Expedition 33 was scripted in Unreal Engine 5 Blueprints — by a team that started with a single programmer. The game has now surpassed Elden Ring as the most awarded title in history with 436 GOTY wins.
+              </p>
+              <span className="text-violet-600 text-sm font-medium group-hover:underline">Read more →</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/events/gdc-2026/valve-steam-machine-steam-frame-compatibility-gdc-2026"
+            className="group block border border-gray-200 rounded-xl overflow-hidden hover:border-indigo-400 hover:shadow-md transition-all"
+          >
+            <div className="bg-gradient-to-r from-gray-700 to-gray-900 px-5 py-3 flex items-center gap-2">
+              <span className="text-white text-xs font-bold uppercase tracking-wider">GDC 2026 · Hardware</span>
+            </div>
+            <div className="p-5">
+              <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-700 transition-colors leading-tight">
+                Valve Outlines Steam Machine & Steam Frame Compatibility Standards
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                Valve confirmed 2026 launch targets for Steam Machine and Steam Frame VR, published Verified certification requirements, and blamed RAM supply-chain shortages for ongoing delays at a session attended by 450 developers.
+              </p>
+              <span className="text-indigo-600 text-sm font-medium group-hover:underline">Read more →</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/video-games/news/outersloth-rejects-ai"
+            className="group block border border-gray-200 rounded-xl overflow-hidden hover:border-green-400 hover:shadow-md transition-all"
+          >
+            <div className="bg-gradient-to-r from-green-600 to-emerald-700 px-5 py-3 flex items-center gap-2">
+              <span className="text-white text-xs font-bold uppercase tracking-wider">GDC 2026 · Indie &amp; Funding</span>
+            </div>
+            <div className="p-5">
+              <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-green-700 transition-colors leading-tight">
+                Outersloth Rejects 100% of Generative AI Pitches
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                The indie fund backed by Among Us profits has processed ~3,400 submissions since 2022. Every single generative AI pitch has been turned down. Communications Director Victoria Tran: "I really like a game that has soul."
+              </p>
+              <span className="text-green-600 text-sm font-medium group-hover:underline">Read more →</span>
+            </div>
+          </Link>
+        </div>
+      </div>
+
       {/* ── Coverage Links ── */}
       <div className="bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4 py-12 max-w-7xl">

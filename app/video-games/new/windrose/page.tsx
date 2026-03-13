@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/WikiArticle';
-
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
@@ -23,14 +21,15 @@ export const metadata: Metadata = {
     'Windrose co-op PvE',
     'Steam Next Fest 2026',
   ],
-  alternates: { canonical: 'https://www.objectwire.org/video-games/new/windrose' },
+  alternates: { canonical: 'https://www.objectwire.org/video-games/news/windrose' },
   openGraph: {
     title: 'Windrose Hits 1M Wishlists — Uzbek Pirate Survival Indie Breaks Out',
     description:
       'A small studio from Uzbekistan captured gaming\'s spotlight. Windrose topped Steam Next Fest with 351K wishlists in one week, a 22K player demo peak, and 93% positive reviews.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/new/windrose',
+    url: 'https://www.objectwire.org/video-games/news/windrose',
     siteName: 'ObjectWire',
+    authors: ['Alfansa'],
     publishedTime: '2026-03-06T19:00:00Z',
     modifiedTime: '2026-03-06T19:00:00Z',
     section: 'Gaming',
@@ -53,5 +52,5 @@ export const metadata: Metadata = {
 };
 
 export default function WindrosePage() {
-  return <WikiArticle slug="video-games-new-windrose" />;
+  return <WikiArticle slug="/video-games/news/windrose" />;
 }

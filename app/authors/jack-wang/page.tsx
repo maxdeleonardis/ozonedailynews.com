@@ -1,14 +1,5 @@
-<<<<<<< Updated upstream
-import type { Metadata } from "next";
-import Link from "next/link";
-import { SITE_CONFIG } from "@/lib/site-config";
-import { AuthorSchema } from "@/components/AuthorSchema";
-import AuthorArticles from "@/components/AuthorArticles";
-import { getEntriesByAuthor } from '@/lib/content-registry';
-=======
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/WikiArticle';
->>>>>>> Stashed changes
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.

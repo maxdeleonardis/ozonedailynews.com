@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 
 export const metadata: Metadata = {
@@ -40,17 +39,7 @@ export const metadata: Metadata = {
 export default function XboxHubPage() {
   return (
     <SEOWrapper slug="/microsoft/xbox">
-      <NewsArticleSchema
-        title="Xbox — Microsoft Gaming: Consoles, Game Pass & Industry Coverage"
-        description="ObjectWire's hub for Xbox and Microsoft Gaming — covering Xbox Series X|S hardware, Game Pass, Activision Blizzard, cloud gaming, and all breaking news from Microsoft's gaming division."
-        author="ObjectWire Gaming Desk"
-        publishedTime="2026-02-23T00:00:00Z"
-        modifiedTime="2026-02-23T00:00:00Z"
-        articleUrl="https://www.objectwire.org/microsoft/xbox"
-        section="Gaming"
-        keywords={['Xbox', 'Xbox Series X', 'Game Pass', 'Microsoft Gaming', 'Activision Blizzard', 'Phil Spencer']}
-      />
-
+      
       <div className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Breadcrumb

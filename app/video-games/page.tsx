@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 import { scanAllContent, filterByCategory } from '@/lib/content-scanner';
 
@@ -100,24 +99,7 @@ export default async function VideoGamesHubPage() {
 
   return (
     <SEOWrapper slug="/video-games">
-      <NewsArticleSchema
-        title="Video Games — News, Reviews & Guides | ObjectWire"
-        description="ObjectWire's complete video games coverage hub — GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, anime games, and the latest gaming news."
-        author="ObjectWire Gaming Desk"
-        publishedTime="2026-01-01T00:00:00Z"
-        modifiedTime={new Date().toISOString()}
-        articleUrl="https://www.objectwire.org/video-games"
-        section="Video Games"
-        keywords={[
-          'video games',
-          'GTA 6',
-          "Marvel's Wolverine",
-          'Resident Evil',
-          'Nintendo',
-          'gaming',
-        ]}
-      />
-
+      
       {/* Breadcrumb bar */}
       <div className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-3">

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -43,17 +42,7 @@ export const metadata: Metadata = {
 export default function RocketLeagueHubPage() {
   return (
     <SEOWrapper slug="/rocket-league">
-      <NewsArticleSchema
-        title="Rocket League — News, Esports, Ranks & Updates"
-        description="Complete Rocket League coverage — season updates, RLCS esports, ranked meta, and Psyonix's roadmap."
-        author="ObjectWire Gaming Desk"
-        publishedTime="2026-03-01T00:00:00Z"
-        modifiedTime="2026-03-03T00:00:00Z"
-        articleUrl="https://www.objectwire.org/rocket-league"
-        section="Video Games"
-        keywords={['Rocket League', 'RLCS', 'Psyonix', 'esports', 'ranked']}
-      />
-
+      
       {/* Breadcrumb bar */}
       <Hub.Breadcrumbs
         items={[

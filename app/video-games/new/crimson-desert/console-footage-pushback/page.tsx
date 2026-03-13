@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/WikiArticle';
-
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
@@ -27,6 +25,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://www.objectwire.org/video-games/new/crimson-desert/console-footage-pushback',
     siteName: 'ObjectWire',
+    authors: ['Alfansa'],
     publishedTime: '2026-03-06T21:30:00Z',
     modifiedTime: '2026-03-06T21:30:00Z',
     section: 'Gaming',
@@ -39,6 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CrimsonDesertConsoleFootagePage() {
-  return <WikiArticle slug="video-games-new-crimson-desert-console-footage-pushback" />;
+export default function ConsoleFootagePushbackPage() {
+  return <WikiArticle slug="/video-games/new/crimson-desert/console-footage-pushback" />;
 }

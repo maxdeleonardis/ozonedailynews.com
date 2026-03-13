@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/WikiArticle';
-
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
@@ -29,6 +27,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://www.objectwire.org/video-games/news/epic-games-sues-fortnite-leaks-contractor',
     siteName: 'ObjectWire',
+    authors: ['Alfansa'],
     publishedTime: '2026-03-06T22:15:00Z',
     modifiedTime: '2026-03-06T22:15:00Z',
     section: 'Gaming',
@@ -41,6 +40,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EpicSuesFortniteLeakerPage() {
-  return <WikiArticle slug="video-games-news-epic-games-sues-fortnite-leaks-contractor" />;
+export default function EpicGamesSuesFortniteLeaksContractorPage() {
+  return <WikiArticle slug="/video-games/news/epic-games-sues-fortnite-leaks-contractor" />;
 }

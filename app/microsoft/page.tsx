@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 
 export const metadata: Metadata = {
@@ -27,17 +26,7 @@ export const metadata: Metadata = {
 export default function MicrosoftHubPage() {
   return (
     <SEOWrapper slug="/microsoft">
-      <NewsArticleSchema
-        title="Microsoft Corporation â€” News, Products & Analysis"
-        description="ObjectWire's full coverage hub for Microsoft Corporation covering Azure, Xbox, Windows, GitHub, LinkedIn, Copilot, and all breaking business and technology news."
-        author="ObjectWire Technology Desk"
-        publishedTime="2026-02-23T00:00:00Z"
-        modifiedTime="2026-02-23T00:00:00Z"
-        articleUrl="https://www.objectwire.org/microsoft"
-        section="Technology"
-        keywords={['Microsoft', 'Azure', 'Xbox', 'Windows', 'Satya Nadella', 'Copilot', 'GitHub']}
-      />
-
+      
       <div className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Breadcrumb

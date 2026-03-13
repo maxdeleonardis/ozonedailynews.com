@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 import Hub from '@/components/Hub';
 import fs from 'fs';
@@ -95,23 +94,6 @@ export default function BioHackingHubPage() {
 
   return (
     <SEOWrapper slug={SLUG}>
-      <NewsArticleSchema
-        title="Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization"
-        description="Complete coverage of the bio-hacking movement — from Bryan Johnson's Blueprint protocol to looksmaxxing, peptides, nootropics, and the extreme measures people take to optimize performance, appearance, and lifespan."
-        author="ObjectWire Editorial"
-        publishedTime="2026-02-20T14:00:00Z"
-        modifiedTime="2026-02-20T14:00:00Z"
-        articleUrl={`https://www.objectwire.org${SLUG}`}
-        section="Science & Health"
-        keywords={[
-          'bio-hacking',
-          'Bryan Johnson Blueprint',
-          'looksmaxxing Clavicular',
-          'longevity protocol',
-          'human enhancement',
-          'performance optimization',
-        ]}
-      />
 
       <div className="border-b border-gray-200 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-3">

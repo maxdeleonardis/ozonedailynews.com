@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { SEOWrapper } from '@/components/SEOWrapper';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -43,17 +42,7 @@ export const metadata: Metadata = {
 export default function RainbowSixSiegeHubPage() {
   return (
     <SEOWrapper slug="/video-games/rainbow-6-siege">
-      <NewsArticleSchema
-        title="Rainbow Six Siege — News, Operators, Maps & Esports"
-        description="Complete Rainbow Six Siege coverage — Year 11 updates, operators, ranked meta, esports, and Ubisoft's tactical FPS roadmap."
-        author="ObjectWire Gaming Desk"
-        publishedTime="2026-03-01T00:00:00Z"
-        modifiedTime="2026-03-03T00:00:00Z"
-        articleUrl="https://www.objectwire.org/video-games/rainbow-6-siege"
-        section="Video Games"
-        keywords={['Rainbow Six Siege', 'R6', 'Ubisoft', 'esports', 'tactical shooter']}
-      />
-
+      
       {/* Breadcrumb bar */}
       <Hub.Breadcrumbs
         items={[

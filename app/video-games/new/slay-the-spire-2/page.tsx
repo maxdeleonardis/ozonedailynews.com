@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/WikiArticle';
-
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
@@ -23,14 +21,15 @@ export const metadata: Metadata = {
     'Slay the Spire 2 review',
     'indie game record 2026',
   ],
-  alternates: { canonical: 'https://www.objectwire.org/video-games/new/slay-the-spire-2' },
+  alternates: { canonical: 'https://www.objectwire.org/video-games/news/slay-the-spire-2' },
   openGraph: {
     title: 'Slay the Spire 2 Shatters Records — 430K Peak, Steam Cart Crash, 97% Positive Reviews',
     description:
       'Mega Crit\'s sequel hit 430,456 concurrent players within 24 hours, crashed the Steam store for 30 minutes, and set the all-time roguelike concurrent player record.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/new/slay-the-spire-2',
+    url: 'https://www.objectwire.org/video-games/news/slay-the-spire-2',
     siteName: 'ObjectWire',
+    authors: ['Alfansa'],
     publishedTime: '2026-03-06T18:00:00Z',
     modifiedTime: '2026-03-06T18:00:00Z',
     section: 'Gaming',
@@ -44,6 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SlayTheSpire2LaunchPage() {
-  return <WikiArticle slug="video-games-new-slay-the-spire-2" />;
+export default function SlayTheSpire2Page() {
+  return <WikiArticle slug="/video-games/news/slay-the-spire-2" />;
 }

@@ -1,7 +1,7 @@
 ﻿import { MetadataRoute } from 'next';
-import { contentRegistry } from '@/lib/content-registry';
 import { SITE_CONFIG } from '@/lib/site-config';
 import { getPublishedBlogPosts } from '@/lib/blog-service';
+import { createClient } from '@/lib/supabase/server';
 
 // Regenerate daily — but dates come from content-registry, not filesystem
 export const revalidate = 86400;
@@ -19,13 +19,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // All registered static content
-  const registryEntries: MetadataRoute.Sitemap = contentRegistry.map((entry) => ({
-    url: `${baseUrl}${entry.slug}`,
-    lastModified: new Date(entry.modifiedDate),
-    changeFrequency: entry.changeFrequency,
-    priority: entry.priority,
-  }));
+  // All registered static content — from Supabase content_registry (auto-synced on build)
+  let registryEntries: MetadataRoute.Sitemap = [];
+  try {
+    const supabase = await createClient();
+    const { data: regRows } = await supabase
+      .from('content_registry')
+      .select('slug, modified_date, change_frequency, priority');
+    registryEntries = (regRows || []).map((entry) => ({
+      url: `${baseUrl}${entry.slug}`,
+      lastModified: new Date(entry.modified_date),
+      changeFrequency: entry.change_frequency as MetadataRoute.Sitemap[number]['changeFrequency'],
+      priority: Number(entry.priority),
+    }));
+  } catch {
+    // Supabase unavailable — sitemap will include homepage + blog posts only
+  }
 
   // Supabase-published articles at /blog/[slug]
   let supabaseEntries: MetadataRoute.Sitemap = [];

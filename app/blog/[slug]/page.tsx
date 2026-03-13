@@ -3,7 +3,15 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ArticleRenderer } from '@/components/article-renderer';
 import { NewsArticleSchema } from '@/components/NewsArticleSchema';
-import { calculateReadTime } from '@/lib/blog-service';
+import { calculateReadTime, getPublishedBlogPosts } from '@/lib/blog-service';
+
+// Cache rendered pages for 5 minutes; Next.js revalidates in the background
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const posts = await getPublishedBlogPosts();
+  return posts.slice(0, 50).map(p => ({ slug: p.slug }));
+}
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, { bg: string; text: string }> = {

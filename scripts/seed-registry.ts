@@ -37,8 +37,12 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // ---------------------------------------------------------------------------
 async function loadRegistry() {
   const registryPath = path.resolve(__dirname, '../lib/content-registry.ts');
+  // On Windows, dynamic import() requires a file:// URL for absolute paths
+  const registryUrl = registryPath.startsWith('/')
+    ? `file://${registryPath}`
+    : `file:///${registryPath.replace(/\\/g, '/')}`;
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const mod = await import(registryPath);
+  const mod = await import(registryUrl);
   return mod.contentRegistry as Array<Record<string, unknown>>;
 }
 

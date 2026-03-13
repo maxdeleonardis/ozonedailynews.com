@@ -9,9 +9,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/entertainment/Ben%20Aflecc.PNG';
 
 export const metadata: Metadata = {
-  title: 'Netflix Acquires Ben Affleck AI Startup InterPositive After Dropping Warner Bros. Bid',
+  title: 'Netflix Drops $600M for Ben Affleck\'s InterPositive AI Startup After Warner Bros. Bid Collapse | ObjectWire',
   description:
-    "Netflix abandons its $111 billion Warner Bros. Discovery pursuit and acquires InterPositive, Ben Affleck's AI filmmaking startup. Breaking down what the deal means for Hollywood, AI in post-production, and the future of streaming.",
+    "Netflix confirmed a deal worth up to $600 million to acquire InterPositive, Ben Affleck's AI filmmaking startup — a smart pivot after the collapse of Netflix's $82.7 billion bid for Warner Bros. Discovery. Deal structure includes initial cash plus performance-based earnouts.",
   keywords: [
     'Netflix acquires InterPositive',
     'Ben Affleck AI startup',
@@ -25,18 +25,18 @@ export const metadata: Metadata = {
     'Netflix acquisition news',
   ],
   openGraph: {
-    title: 'Netflix Acquires Ben Affleck AI Startup InterPositive After Dropping Warner Bros. Bid',
+    title: 'Netflix Drops $600M for Ben Affleck\'s InterPositive After Warner Bros. Bid Collapse',
     description:
-      "Netflix pivots from a $111B Warner Bros. bid to acquire Ben Affleck's AI filmmaking startup InterPositive — bringing 16 engineers and a new vision for AI-assisted post-production into the Netflix ecosystem.",
+      "Netflix confirms up to $600M to acquire InterPositive — Ben Affleck's AI filmmaking startup. Initial cash plus earnouts. The deal follows Netflix walking away from its $82.7B WBD bid after Paramount Skydance's $111B offer.",
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Ben Affleck InterPositive Netflix acquisition' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Netflix Acquires Ben Affleck AI Startup InterPositive After Dropping Warner Bros. Bid',
+    title: 'Netflix Confirms $600M for Ben Affleck\'s InterPositive After WB Bid Collapse',
     description:
-      "Netflix walks away from a $111B WBD bid — then acquires Ben Affleck's AI filmmaking startup InterPositive days later.",
+      "Netflix confirms up to $600M deal for InterPositive — initial cash + earnouts. Follows Netflix's failed $82.7B WBD bid, outbid by Paramount Skydance at $111B.",
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },
@@ -70,8 +70,8 @@ export default function NetflixInterPositiveAcquisitionPage() {
         title="Netflix Acquires Ben Affleck AI Startup InterPositive After Dropping Warner Bros. Bid"
         description={`Netflix abandons its $111 billion Warner Bros. Discovery pursuit and acquires InterPositive, Ben Affleck's AI filmmaking startup focused on Visual Logic and Editorial Continuity in post-production.`}
         author="Alfanasa"
-        publishedTime="2026-03-05T12:00:00Z"
-        modifiedTime="2026-03-05T12:00:00Z"
+        publishedTime="2026-03-12T00:00:00Z"
+        modifiedTime="2026-03-12T00:00:00Z"
         articleUrl={FULL_URL}
         imageUrl={IMAGE_URL}
         section="Entertainment"
@@ -83,12 +83,12 @@ export default function NetflixInterPositiveAcquisitionPage() {
         </div>
       </div>
       <NewsArticle
-        title="Netflix Acquires Ben Affleck's AI Startup InterPositive After Dropping Warner Bros. Bid"
-        subtitle="Days after walking away from a $111 billion battle for Warner Bros. Discovery, Netflix is betting on human-first AI filmmaking technology — and hiring an Oscar winner to help steer it."
+        title="Netflix Drops $600M for Ben Affleck's InterPositive After Warner Bros. Bid Collapse"
+        subtitle="Netflix confirmed on March 12, 2026 that it will pay up to $600 million — initial cash plus performance-based earnouts — for InterPositive, Ben Affleck's AI filmmaking startup. The deal is a sharp pivot after Netflix walked away from its $82.7 billion WBD bid, outgunned by Paramount Skydance's $111 billion all-cash offer."
         category="Entertainment"
         categoryColor="blue"
         topicTag="entertainment"
-        publishDate="March 5, 2026"
+        publishDate="March 12, 2026"
         readTime="6 min read"
         author={{ name: 'Alfanasa', role: 'Entertainment Reporter' }}
         thumbnail={{ src: IMAGE_URL, alt: 'Ben Affleck InterPositive Netflix acquisition' }}
@@ -103,31 +103,37 @@ export default function NetflixInterPositiveAcquisitionPage() {
         {/* ------------------------------------------------------------------ */}
         <h2>Netflix Pivots From the Content Arms Race to a Technology Arms Race in Hollywood</h2>
         <p>
-          LOS ANGELES, CA — Netflix has officially acquired <strong>InterPositive</strong>, an
-          AI-driven filmmaking startup founded by Academy Award winner{' '}
-          <strong>Ben Affleck</strong>, in a deal announced Thursday. The move arrives just one
-          week after Netflix shocked the media industry by abruptly withdrawing from a bidding war
-          for{' '}
+          <strong>LOS GATOS, CA</strong> — Netflix confirmed on <strong>March 12, 2026</strong>{' '}
+          that it will pay <strong>up to $600 million</strong> to acquire{' '}
+          <strong>InterPositive</strong>, an AI-driven filmmaking startup founded by Academy Award
+          winner <strong>Ben Affleck</strong>. The deal — structured as an initial cash payment
+          supplemented by <strong>performance-based earnouts</strong> — represents one of
+          Netflix's largest strategic acquisitions to date, second only to its $700 million
+          purchase of the Roald Dahl Story Company.
+        </p>
+        <p>
+          The move arrives just two weeks after Netflix shocked the{' '}
+          <a href="/entertainment">entertainment industry</a> by abruptly withdrawing from a
+          bidding war for{' '}
           <a href="/entertainment/news/paramount-skydance-acquires-warner-bros-discovery-110-billion">
             Warner Bros. Discovery
           </a>{' '}
-          — a pursuit ultimately won by Paramount Skydance at a $111 billion enterprise
-          valuation.
-        </p>
-        <p>
-          Co-CEO Ted Sarandos had declared the WBD deal "no longer financially attractive" before
-          Netflix walked away with a <strong>$2.8 billion breakup fee</strong>. Now, at least a
-          portion of that capital is being redirected into something fundamentally different: not a
-          legacy catalog, but a next-generation toolkit for how movies and television are built
+          — a pursuit that started with Netflix's own <strong>$82.7 billion bid</strong> before
+          Paramount Skydance, backed by David Ellison's Skydance Media, submitted a "superior"
+          <strong> $111 billion all-cash offer</strong>. Netflix exited cleanly, pocketing a{' '}
+          <strong>$2.8 billion breakup fee</strong>. That capital is now being redirected not into
+          a legacy catalog, but a next-generation toolkit for how movies and television are built
           from the inside out.
         </p>
 
         <HighlightBox color="blue">
           <ul>
+            <li><strong>Deal Value:</strong> Up to $600 million (initial cash + performance earnouts)</li>
             <li><strong>Target:</strong> InterPositive (founded 2022 by Ben Affleck)</li>
             <li><strong>Team absorbed:</strong> All 16 employees — engineers, researchers, and creative staff</li>
             <li><strong>Affleck's role:</strong> Senior Advisor at Netflix post-acquisition</li>
-            <li><strong>Strategic signal:</strong> Netflix choosing AI tooling over legacy media assets</li>
+            <li><strong>Context:</strong> Netflix's failed $82.7B WBD bid → Paramount Skydance wins at $111B → $2.8B breakup fee collected</li>
+            <li><strong>Strategic signal:</strong> Netflix choosing AI production tooling over legacy media IP</li>
           </ul>
         </HighlightBox>
 
@@ -169,25 +175,27 @@ export default function NetflixInterPositiveAcquisitionPage() {
         {/* ------------------------------------------------------------------ */}
         {/* SECTION 3 */}
         {/* ------------------------------------------------------------------ */}
-        <h2>How Netflix's Collapse of the Warner Bros. Discovery Bid Set Up This Acquisition</h2>
+        <h2>The Smart Pivot: How a Failed $82.7B Bid Led to a $600M AI Bet</h2>
         <p>
-          The timing of the InterPositive deal cannot be divorced from the WBD saga. Just days
-          before this acquisition, Netflix was a serious contender in what industry insiders had
-          called the{' '}
+          The timing of the InterPositive deal cannot be divorced from the WBD saga. In February
+          2026, Netflix entered what industry insiders called the{' '}
           <a href="/entertainment/news/paramount-skydance-acquires-warner-bros-discovery-110-billion">
             biggest media consolidation move since the AT&amp;T–Time Warner deal
-          </a>
-          . The prize: Warner Bros.' film library, DC Comics IP, HBO's production slate, and
-          ownership of{' '}
+          </a>{' '}
+          with an <strong>$82.7 billion bid</strong> for Warner Bros. Discovery. The prize:
+          Warner Bros.' film library, DC Comics IP, HBO's production slate, and ownership of{' '}
           <a href="/entertainment/hbomax">HBO Max (now Max)</a>.
         </p>
         <p>
-          But Paramount Skydance — backed in part by Oracle founder Larry Ellison — submitted what
-          WBD's board described as a "superior" $111 billion offer. Netflix exited cleanly, citing
-          financial discipline. The $2.8 billion breakup fee effectively becomes seed capital for
-          a different hypothesis: that the future of{' '}
+          But Paramount Skydance — backed by David Ellison and Oracle's Larry Ellison — submitted
+          what WBD's board described as a "superior" $111 billion all-cash offer. Netflix
+          co-CEO <strong>Ted Sarandos</strong> declared the deal "no longer financially attractive"
+          and walked, pocketing a <strong>$2.8 billion breakup fee</strong>. The InterPositive
+          acquisition, at up to $600 million, redirects a fraction of that fee toward a different
+          hypothesis: the future of{' '}
           <a href="/entertainment/netflix">Netflix's competitive edge</a> lives not in IP
-          catalogs but in production infrastructure advantages.
+          catalogs but in production infrastructure advantages that competitors cannot buy off a
+          shelf.
         </p>
 
         {/* ------------------------------------------------------------------ */}
@@ -295,7 +303,12 @@ export default function NetflixInterPositiveAcquisitionPage() {
         <p>
           Whether Netflix can thread the needle — deploying AI post-production tools while
           maintaining trust with unions, talent, and audiences — will be one of the defining
-          storylines of the 2026 entertainment landscape. The{' '}
+          storylines of the 2026 entertainment landscape. Netflix's rivals are already watching:
+          the same pressures reshaping how{' '}
+          <a href="/entertainment/news/fortnite-moves-into-movies">gaming franchises like Fortnite move into film</a>{' '}
+          and how directors like{' '}
+          <a href="/entertainment/james-cameron">James Cameron</a> push the limits of production
+          technology signal that the tools fight is only beginning. The{' '}
           <a href="/entertainment">entertainment industry</a> is watching closely.
         </p>
 

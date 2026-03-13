@@ -1,8 +1,14 @@
-name: Weekly SEO Registry Sync
+name: SEO Registry Sync
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/**/page.tsx'        # triggers whenever a new or edited article is pushed
+      - 'lib/content-registry.ts' # or when the registry itself changes
   schedule:
-    # Every Monday at 6:00 AM UTC
+    # Every Monday at 6:00 AM UTC (safety net full-pass)
     - cron: '0 6 * * 1'
   workflow_dispatch: # allow manual trigger from GitHub Actions UI
 

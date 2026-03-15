@@ -5106,6 +5106,104 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-15 — 7 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Business (1) ---
+  {
+    slug: "/elon-musk/news/tesla-terafab-chip-fabrication-launch-march-21-2026",
+    title: "BREAKING: Elon Musk Announces Tesla",
+    description: "Elon Musk announced on March 14, 2026 that Tesla\\",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Business",
+    tags: ["Elon Musk", "Tesla", "xAI", "News", "Tesla Terafab Chip Fabrication Launch March 21 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Entertainment (3) ---
+  {
+    slug: "/entertainment/apple-tv/spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles",
+    title: "Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More | ObjectWire",
+    description: "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks — from March 18 to April 15. Headlined by the SXSW breakout M",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Entertainment",
+    tags: ["Entertainment", "Apple Tv", "Spring 2026 Premiere Schedule Imperfect Women For All Mankind Outcome Margos Got Money Troubles"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/entertainment/news/conan-obrien-hosting-98th-oscars-abc-hulu",
+    title: "98th Oscars Air Sunday on ABC and Hulu With Conan O\\",
+    description: "The 98th Academy Awards take place Sunday, March 15, 2026 at the Dolby Theatre in Hollywood. Conan O",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Entertainment",
+    tags: ["Entertainment", "News", "Conan Obrien Hosting 98th Oscars Abc Hulu"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/entertainment/news/marty-supreme-enters-oscar-weekend-nine-nominations-low-odds",
+    title: "› entertainment › news › marty-supreme-enters-oscar-weekend-nine-nominations-low-odds",
+    description: "Josh Safdie",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Entertainment",
+    tags: ["Entertainment", "News", "Marty Supreme Enters Oscar Weekend Nine Nominations Low Odds"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Events (1) ---
+  {
+    slug: "/events/gtc-2026",
+    title: "GTC 2026 — Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership | ObjectWire",
+    description: "Full coverage of Nvidia GTC 2026 in San Jose, CA — the world",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Events",
+    tags: ["Events", "Gtc 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/mythmatch",
+    title: "Mythmatch — Gameplay, Story, Developer & Pricing | ObjectWire",
+    description: "Complete guide to Mythmatch — the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by Olymp",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Mythmatch"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Politics (1) ---
+  {
+    slug: "/trump/news/trump-administration-10-billion-fee-tiktok-deal",
+    title: "Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal | ObjectWire",
+    description: "The Trump administration is set to collect approximately $10 billion from investors involved in the deal transferring TikTok",
+    publishDate: "2026-03-15",
+    modifiedDate: "2026-03-15",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "News", "Trump Administration 10 Billion Fee Tiktok Deal"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

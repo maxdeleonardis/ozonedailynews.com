@@ -126,6 +126,16 @@ function extractComponentName(source: string): string {
 function buildThinFile(metadata: string, componentName: string, slug: string, source: string): string {
   // Keep generateArticleMetadata import when the metadata uses it
   const needsGenerate = metadata.includes('generateArticleMetadata');
+
+  // Extract any const SLUG / FULL_URL / IMAGE_URL / ARTICLE_URL declarations
+  // that the original file defined and the metadata still references by name.
+  const constLines: string[] = [];
+  const constPattern = /^(?:export\s+)?const\s+(SLUG|FULL_URL|IMAGE_URL|ARTICLE_URL|PAGE_URL|CANONICAL|ARTICLE_CANONICAL)\s*=\s*.+$/gm;
+  let m: RegExpExecArray | null;
+  while ((m = constPattern.exec(source)) !== null) {
+    constLines.push(m[0]);
+  }
+
   return [
     `import type { Metadata } from 'next';`,
     `import { WikiArticle } from '@/components/WikiArticle';`,
@@ -134,6 +144,7 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
     `// Page renders dynamically — content fetched from Supabase at request time.`,
     `// Run 'npm run wiki:migrate' to update content in Supabase.`,
     `export const dynamic = 'force-dynamic';`,
+    ...(constLines.length ? [``, ...constLines] : []),
     ``,
     metadata,
     ``,

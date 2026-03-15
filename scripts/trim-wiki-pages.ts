@@ -61,6 +61,8 @@ function findNewsArticlePages(dir: string): string[] {
       if (path.dirname(full) === APP_DIR) continue; // skip root home page
       const source = fs.readFileSync(full, 'utf-8');
       if (source.includes('WikiArticle')) continue; // already trimmed
+      if (source.includes('NewsArticleDB')) continue; // already using NewsArticleDB
+      if (source.includes('JackArticleDB')) continue; // already using JackArticleDB
       if (/^['"](use client)['"]/.test(source.trimStart())) continue;
       if (!source.includes('export const metadata')) continue;
       results.push(full);

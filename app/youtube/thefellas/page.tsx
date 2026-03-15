@@ -37,5 +37,5 @@ export const metadata: Metadata = {
 };
 
 export default function ThefellasPage() {
-  return <WikiArticle slug="/youtube/thefellas" />;
+  return <WikiArticle slug="youtube-thefellas" />;
 }

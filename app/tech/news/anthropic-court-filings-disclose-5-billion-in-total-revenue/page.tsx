@@ -57,5 +57,5 @@ export const metadata: Metadata = {
 };
 
 export default function AnthropicCourtFilingsDisclose5BillionInTotalRevenuePage() {
-  return <WikiArticle slug="/tech/news/anthropic-court-filings-disclose-5-billion-in-total-revenue" />;
+  return <WikiArticle slug="tech-news-anthropic-court-filings-disclose-5-billion-in-total-revenue" />;
 }

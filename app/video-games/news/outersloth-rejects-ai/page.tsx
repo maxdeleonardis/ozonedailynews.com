@@ -56,5 +56,5 @@ export const metadata: Metadata = {
 };
 
 export default function OuterslothRejectsAiPage() {
-  return <WikiArticle slug="/video-games/news/outersloth-rejects-ai" />;
+  return <WikiArticle slug="video-games-news-outersloth-rejects-ai" />;
 }

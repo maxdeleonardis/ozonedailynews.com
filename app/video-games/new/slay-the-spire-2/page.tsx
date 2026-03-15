@@ -44,5 +44,5 @@ export const metadata: Metadata = {
 };
 
 export default function SlayTheSpire2Page() {
-  return <WikiArticle slug="/video-games/news/slay-the-spire-2" />;
+  return <WikiArticle slug="video-games-new-slay-the-spire-2" />;
 }

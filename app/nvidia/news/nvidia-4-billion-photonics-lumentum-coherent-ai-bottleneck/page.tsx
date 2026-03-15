@@ -29,5 +29,5 @@ export const metadata: Metadata = {
 };
 
 export default function NvidiaPhotonicsPage() {
-  return <WikiArticle slug="/nvidia/news/nvidia-4-billion-photonics-lumentum-coherent-ai-bottleneck" />;
+  return <WikiArticle slug="nvidia-news-nvidia-4-billion-photonics-lumentum-coherent-ai-bottleneck" />;
 }

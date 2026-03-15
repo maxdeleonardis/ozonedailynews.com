@@ -44,5 +44,5 @@ export const metadata: Metadata = {
 };
 
 export default function CrimsonDesertPage() {
-  return <WikiArticle slug="/video-games/news/crimson-desert" />;
+  return <WikiArticle slug="video-games-new-crimson-desert" />;
 }

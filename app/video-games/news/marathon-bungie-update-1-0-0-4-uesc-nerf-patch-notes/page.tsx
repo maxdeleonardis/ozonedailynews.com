@@ -46,5 +46,5 @@ export const metadata: Metadata = {
 };
 
 export default function MarathonBungieUpdate1004UescNerfPatchNotesPage() {
-  return <WikiArticle slug="/video-games/news/marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes" />;
+  return <WikiArticle slug="video-games-news-marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes" />;
 }

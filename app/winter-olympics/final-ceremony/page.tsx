@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function FinalCeremonyPage() {
-  return <WikiArticle slug="/winter-olympics/final-ceremony" />;
+  return <WikiArticle slug="winter-olympics-final-ceremony" />;
 }

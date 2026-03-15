@@ -24,12 +24,20 @@ import * as dotenv from 'dotenv';
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const SUPABASE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ??
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const APP_DIR = path.resolve(process.cwd(), 'app');
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
   console.error('❌  Missing Supabase env vars in .env.local');
   process.exit(1);
+}
+
+if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  console.log('🔑  Using service_role key (bypasses RLS)');
+} else {
+  console.warn('⚠️   No SUPABASE_SERVICE_ROLE_KEY found — using anon key.\n    jack_articles inserts may fail due to RLS. Add SUPABASE_SERVICE_ROLE_KEY to .env.local to fix.');
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -364,6 +372,37 @@ function convertSubComponents(jsx: string): string {
   return h;
 }
 
+// ── Extract module-level const array definitions (e.g. const items = [...]) ──
+// Returns a map of variable name → raw serialized array string
+function extractModuleConsts(source: string): Map<string, string> {
+  const consts = new Map<string, string>();
+  const rx = /^const\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*(\[)/gm;
+  let m: RegExpExecArray | null;
+  while ((m = rx.exec(source)) !== null) {
+    const name = m[1];
+    const startIdx = m.index + m[0].length - 1; // position of '['
+    let depth = 0;
+    let i = startIdx;
+    let inStr: string | null = null;
+    while (i < source.length) {
+      const ch = source[i];
+      if (inStr) {
+        if (ch === inStr && source[i - 1] !== '\\') inStr = null;
+      } else if (ch === '"' || ch === "'" || ch === '`') {
+        inStr = ch;
+      } else if (ch === '[' || ch === '{') {
+        depth++;
+      } else if (ch === ']' || ch === '}') {
+        depth--;
+        if (depth === 0 && ch === ']') { i++; break; }
+      }
+      i++;
+    }
+    consts.set(name, source.substring(startIdx, i));
+  }
+  return consts;
+}
+
 // ── Find end position of a JSX opening tag (first > outside braces/strings) ──
 function findOpenTagEnd(source: string, startAt: number): number {
   let i = startAt;
@@ -634,7 +673,9 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
           title: newsData.title,
           subtitle: newsData.subtitle ?? undefined,
           category: newsData.category ?? undefined,
+          category_color: newsData.categoryColor ?? undefined,
           topic_tag: newsData.topicTag ?? undefined,
+          publish_date: newsData.publishDate ?? undefined,
           author_name: newsData.authorName ?? undefined,
           author_role: newsData.authorRole ?? undefined,
           author_slug: newsData.authorSlug ?? undefined,
@@ -644,6 +685,7 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
           published_at: publishedAt ?? undefined,
           status: 'published',
           content: [{ id: 'html-body', type: 'html', content: htmlBody }],
+          content_html: htmlBody,
         },
         { onConflict: 'slug' }
       );
@@ -657,7 +699,129 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
     return 'ok';
   }
 
+  // ── PATH 2b: JackArticle component → jack_articles ───────────────────────
+  const jackMatch = source.match(/<JackArticle[\s]/);
+  if (jackMatch && jackMatch.index !== undefined) {
+    const jaStart = jackMatch.index;
+    const jaTagEnd = findOpenTagEnd(source, jaStart + '<JackArticle'.length);
+    if (jaTagEnd !== -1) {
+      const propsStr = source.substring(jaStart, jaTagEnd + 1);
+      const childrenStart = jaTagEnd + 1;
+      const childrenEnd = source.lastIndexOf('</JackArticle>');
+      const bodyJsx = childrenEnd > childrenStart
+        ? source.substring(childrenStart, childrenEnd).trim()
+        : '';
+
+      const prop = (name: string): string => extractStrProp(propsStr, name);
+
+      // convert JackArticle sub-components to HTML
+      let h = bodyJsx;
+
+      // ── STEP 1: substitute module-level const variable references so
+      //   extractExprProp can evaluate them (e.g. stats={divideStats} → stats={[...]})
+      const moduleConsts = extractModuleConsts(source);
+      for (const [varName, valStr] of moduleConsts.entries()) {
+        const rx = new RegExp(`(items|stats|data)=\\{${varName}\\}`, 'g');
+        h = h.replace(rx, `$1={${valStr}}`);
+      }
+
+      // ── STEP 2: convert wrapper components (non-self-closing)
+      h = h.replace(/<JackSection[^>]*title="([^"]*)"[^>]*>/g, (_m: string, title: string) =>
+        `<section><h2 style="font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-left:4px solid #111;padding-left:0.75rem;margin-bottom:1.5rem">${title}</h2>`
+      ).replace(/<\/JackSection>/g, '</section>');
+      h = h.replace(/<JackSubheading[^>]*>/g, '<h3 style="font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1.25rem">').replace(/<\/JackSubheading>/g, '</h3>');
+      h = h.replace(/<JackCallout[^>]*label="([^"]*)"[^>]*>/g, (_m: string, label: string) =>
+        `<div style="border-left:12px solid #111;padding:1rem 1.5rem;margin:2rem 0;background:#f9fafb"><strong style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">${label}</strong><br/>`
+      ).replace(/<\/JackCallout>/g, '</div>');
+      h = h.replace(/<JackSideBlock[^>]*title="([^"]*)"[^>]*>/g, (_m: string, title: string) =>
+        `<div style="border-left:4px solid #d1d5db;padding-left:1.5rem;margin-bottom:2rem"><h4 style="font-weight:900;text-transform:uppercase">${title}</h4>`
+      ).replace(/<\/JackSideBlock>/g, '</div>');
+
+      // ── STEP 3: convert self-closing components
+      h = h.replace(/<JackStats([\s\S]*?)\/>/g, (_m: string, p: string) => {
+        const stats: Array<{value: string; label: string}> = extractExprProp(p, 'stats') || [];
+        const rows = stats.map((s: {value: string; label: string}) =>
+          `<div style="text-align:center"><p style="font-size:2rem;font-weight:900;margin:0">${s.value}</p><p style="font-size:0.75rem;color:#6b7280;margin:0">${s.label}</p></div>`
+        ).join('');
+        return `<div style="display:grid;grid-template-columns:repeat(${Math.min(Math.max(stats.length,1),4)},1fr);gap:1.5rem;background:#f9fafb;border:1px solid #e5e7eb;padding:1.5rem;margin:2rem 0">${rows}</div>`;
+      });
+      h = h.replace(/<JackCaseOverview([\s\S]*?)\/>/g, (_m: string, p: string) => {
+        const items: Array<{label: string; value: string}> = extractExprProp(p, 'items') || [];
+        const overviewTitle = extractStrProp(p, 'title') || 'KEY FACTS';
+        const rows = items.map((it: {label: string; value: string}) =>
+          `<li style="padding:0.375rem 0;border-bottom:1px solid #e5e7eb"><strong>${it.label}</strong> — ${it.value}</li>`
+        ).join('');
+        return `<aside style="background:#f9fafb;border-left:4px solid #111;padding:1.5rem;margin:2rem 0"><h3 style="font-weight:900;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem">${overviewTitle}</h3><ul style="list-style:none;padding:0;margin:0;font-size:0.875rem;line-height:1.75">${rows}</ul></aside>`;
+      });
+
+      const bodyHtml = jsxToHtml(convertSubComponents(h));
+      const publishDateISO = prop('publishDateISO') || extractPublishedTime(source);
+      const authorObj: any = extractExprProp(propsStr, 'author');
+      const categories: any[] = extractExprProp(propsStr, 'categories') || [];
+      const relatedArticles: any[] = extractExprProp(propsStr, 'relatedArticles') || [];
+      const timeline: any[] = extractExprProp(propsStr, 'timeline') || [];
+      const documents: any[] = extractExprProp(propsStr, 'documents') || [];
+      const sources: any[] = extractExprProp(propsStr, 'sources') || [];
+      const footerLinks: any[] = extractExprProp(propsStr, 'footerLinks') || [];
+      const breadcrumbs: any[] = extractExprProp(propsStr, 'breadcrumbs') || [];
+      const heroImage: any = extractExprProp(propsStr, 'heroImage') || null;
+      const keywordsRaw: any[] = extractExprProp(propsStr, 'keywords') || [];
+
+      const section = prop('section') || extractCategory(source);
+      const accentRaw = prop('accentColor');
+      const validAccents = ['gray','blue','green','orange','red','purple','black'];
+      const accent_color = validAccents.includes(accentRaw) ? accentRaw : 'gray';
+
+      if (isDryRun) {
+        console.log(`  ✓  ${relPath} [jack article]`);
+        console.log(`     slug: ${slug} | title: "${prop('title')}" | layout: ${prop('layout') || 'report'}`);
+        console.log(`     HTML body length: ${bodyHtml.length} chars`);
+        return 'ok';
+      }
+
+      const { error } = await supabase
+        .from('jack_articles')
+        .upsert({
+          slug,
+          layout: (prop('layout') || 'report') as 'report' | 'news',
+          title: prop('title') || extractMetaTitle(source).replace(/\s*[|—–\-].*$/, '').trim() || slug,
+          subtitle: prop('subtitle') || null,
+          subject: prop('subject') || null,
+          description: prop('description') || null,
+          category_label: prop('categoryLabel') || null,
+          categories,
+          publish_date: prop('publishDate') || null,
+          publish_date_iso: publishDateISO || null,
+          modified_date_iso: prop('modifiedDateISO') || publishDateISO || null,
+          read_time: prop('readTime') || null,
+          hero_image: heroImage,
+          breadcrumbs,
+          author: authorObj || null,
+          content_html: bodyHtml,
+          related_articles: relatedArticles,
+          timeline,
+          documents,
+          sources,
+          show_newsletter: /\bshowNewsletter\b/.test(propsStr),
+          accent_color,
+          article_url: prop('articleUrl') || null,
+          section: section || null,
+          keywords: keywordsRaw.length ? keywordsRaw : [],
+          footer_tagline: prop('footerTagline') || null,
+          footer_links: footerLinks,
+        }, { onConflict: 'slug' });
+
+      if (error) {
+        console.error(`  ❌  ${relPath} [jack] — ${error.message}`);
+        return 'fail';
+      }
+      console.log(`  ✓  ${relPath} [jack] → jack_articles/${slug}`);
+      return 'ok';
+    }
+  }
+
   // ── PATH 3: DynamicNewsArticle component ──────────────────────────────────
+
   const dynData = extractDynamicNewsArticleContent(source);
   if (dynData) {
     const publishedAt = dynData.publishedAt ?? extractPublishedTime(source) ?? undefined;

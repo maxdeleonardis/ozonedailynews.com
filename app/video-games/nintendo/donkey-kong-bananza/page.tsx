@@ -45,5 +45,5 @@ export const metadata: Metadata = {
 };
 
 export default function DonkeyKongBananzaPage() {
-  return <WikiArticle slug="/video-games/nintendo/donkey-kong-bananza" />;
+  return <WikiArticle slug="video-games-nintendo-donkey-kong-bananza" />;
 }

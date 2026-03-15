@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function GeminiEmbedding2MultimodalEmbeddingModelPage() {
-  return <WikiArticle slug="/google/news/gemini-embedding-2-multimodal-embedding-model" />;
+  return <WikiArticle slug="google-news-gemini-embedding-2-multimodal-embedding-model" />;
 }

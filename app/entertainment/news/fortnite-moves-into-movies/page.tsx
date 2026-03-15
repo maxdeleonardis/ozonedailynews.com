@@ -61,5 +61,5 @@ export const metadata: Metadata = {
 };
 
 export default function FortniteMovesIntoMoviesPage() {
-  return <WikiArticle slug="/entertainment/news/fortnite-moves-into-movies" />;
+  return <WikiArticle slug="entertainment-news-fortnite-moves-into-movies" />;
 }

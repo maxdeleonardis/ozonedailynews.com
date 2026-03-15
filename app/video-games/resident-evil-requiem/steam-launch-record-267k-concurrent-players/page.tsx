@@ -44,5 +44,5 @@ export const metadata: Metadata = {
 };
 
 export default function SteamLaunchRecord267kConcurrentPlayersPage() {
-  return <WikiArticle slug="/video-games/resident-evil-requiem/steam-launch-record-267k-concurrent-players" />;
+  return <WikiArticle slug="video-games-resident-evil-requiem-steam-launch-record-267k-concurrent-players" />;
 }

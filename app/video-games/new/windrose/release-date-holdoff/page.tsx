@@ -39,5 +39,5 @@ export const metadata: Metadata = {
 };
 
 export default function ReleaseDateHoldoffPage() {
-  return <WikiArticle slug="/video-games/new/windrose/release-date-holdoff" />;
+  return <WikiArticle slug="video-games-new-windrose-release-date-holdoff" />;
 }

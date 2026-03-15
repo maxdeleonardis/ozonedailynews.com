@@ -1,7 +1,7 @@
 /**
  * WikiArticle — Server Component
  *
- * Fetches an article from Supabase by slug and renders it.
+ * Fetches an article from the `wiki_articles` table by slug and renders it.
  * Supports two display modes determined by the stored data:
  *
  *  - WIKI mode:  No author set → encyclopedia layout (breadcrumb + serif h1 + grid HTML)
@@ -22,7 +22,7 @@ export async function WikiArticle({ slug }: WikiArticleProps) {
   const supabase = await createClient();
 
   const { data: article } = await supabase
-    .from('articles')
+    .from('wiki_articles')
     .select('*')
     .eq('slug', slug)
     .single();

@@ -27,5 +27,5 @@ export const metadata: Metadata = {
 };
 
 export default function ValveSteamMachineSteamFrameCompatibilityGdc2026Page() {
-  return <WikiArticle slug="/events/gdc-2026/valve-steam-machine-steam-frame-compatibility-gdc-2026" />;
+  return <WikiArticle slug="events-gdc-2026-valve-steam-machine-steam-frame-compatibility-gdc-2026" />;
 }

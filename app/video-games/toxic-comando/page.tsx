@@ -41,5 +41,5 @@ export const metadata: Metadata = {
 };
 
 export default function ToxicComandoPage() {
-  return <WikiArticle slug="/video-games/toxic-comando" />;
+  return <WikiArticle slug="video-games-toxic-comando" />;
 }

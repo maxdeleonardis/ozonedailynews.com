@@ -41,5 +41,5 @@ export const metadata: Metadata = {
 };
 
 export default function EpicGamesSuesFortniteLeaksContractorPage() {
-  return <WikiArticle slug="/video-games/news/epic-games-sues-fortnite-leaks-contractor" />;
+  return <WikiArticle slug="video-games-news-epic-games-sues-fortnite-leaks-contractor" />;
 }

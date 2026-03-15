@@ -4869,6 +4869,88 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-13 — 6 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Claude (1) ---
+  {
+    slug: "/claude/news/federal-agencies-replace-claude-gpt-41-trump-executive-directive",
+    title: "Federal Agencies Evict Claude, Replace It With GPT-4.1 After Trump Executive Directive | ObjectWire",
+    description: "The U.S. State Department",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "Claude",
+    tags: ["Claude"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Technology (4) ---
+  {
+    slug: "/tech/news/87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026",
+    title: "87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds | ObjectWire",
+    description: "A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously — 26 of 30 AI-generated pull requests introduced at least one high",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "Technology",
+    tags: ["Technology", "News", "87 Percent Ai Agent Pull Requests Security Flaws Dryrun Report 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/tech/news/tenstorrent-tt-quietbox-2-risc-v-ai-workstation-9999",
+    title: "Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V",
+    description: "Jim Keller",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "Technology",
+    tags: ["Technology", "News", "Tenstorrent Tt Quietbox 2 Risc V Ai Workstation 9999"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/tech/perplexity/news/crowdstrike-perplexity-comet-enterprise-falcon-security-partnership",
+    title: "CrowdStrike & Perplexity Unite to Shield the",
+    description: "CrowdStrike and Perplexity announced a major strategic partnership at Ask 2026, embedding the Falcon security platform directly into Comet Enterprise — Perplexi",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "Technology",
+    tags: ["Technology", "Perplexity", "News", "Crowdstrike Perplexity Comet Enterprise Falcon Security Partnership"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/tech/perplexity/news/perplexity-personal-computer-ai-agent-developer-suite-ask-2026",
+    title: "Perplexity Unveils",
+    description: "At its inaugural Ask 2026 developer conference in San Francisco, Perplexity AI revealed",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "Technology",
+    tags: ["Technology", "Perplexity", "News", "Perplexity Personal Computer Ai Agent Developer Suite Ask 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- YouTube (1) ---
+  {
+    slug: "/youtube/news/omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation",
+    title: "YouTube Suspends",
+    description: "Ken Jennings and John Roderick",
+    publishDate: "2026-03-13",
+    modifiedDate: "2026-03-13",
+    category: "YouTube",
+    tags: ["YouTube", "Creator Economy", "News", "Omnibus Project Ken Jennings John Roderick Suspended Ai Moderation"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

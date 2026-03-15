@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function PunchinPage() {
-  return <WikiArticle slug="/youtube/thefellas/punchin" />;
+  return <WikiArticle slug="youtube-thefellas-punchin" />;
 }

@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function RealEstatePage() {
-  return <WikiArticle slug="/tech/real-estate" />;
+  return <WikiArticle slug="tech-real-estate" />;
 }

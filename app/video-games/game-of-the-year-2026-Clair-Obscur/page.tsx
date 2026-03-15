@@ -56,5 +56,5 @@ export const metadata: Metadata = {
 };
 
 export default function GameOfTheYear2026ClairObscurPage() {
-  return <WikiArticle slug="/video-games/game-of-the-year-2026-Clair-Obscur" />;
+  return <WikiArticle slug="video-games-game-of-the-year-2026-Clair-Obscur" />;
 }

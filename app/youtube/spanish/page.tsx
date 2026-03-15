@@ -35,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export default function SpanishPage() {
-  return <WikiArticle slug="/youtube/spanish" />;
+  return <WikiArticle slug="youtube-spanish" />;
 }

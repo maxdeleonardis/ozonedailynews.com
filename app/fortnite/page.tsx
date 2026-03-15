@@ -35,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export default function FortnitePage() {
-  return <WikiArticle slug="/fortnite" />;
+  return <WikiArticle slug="fortnite" />;
 }

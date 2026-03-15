@@ -52,5 +52,5 @@ export const metadata: Metadata = {
 };
 
 export default function WindrosePage() {
-  return <WikiArticle slug="/video-games/news/windrose" />;
+  return <WikiArticle slug="video-games-new-windrose" />;
 }

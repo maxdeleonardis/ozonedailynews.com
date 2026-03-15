@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function RBACBDCHashSpherePage() {
-  return <WikiArticle slug="/crypto/hbar/rba-cbdc-hashsphere-hedera-project-acacia" />;
+  return <WikiArticle slug="crypto-hbar-rba-cbdc-hashsphere-hedera-project-acacia" />;
 }

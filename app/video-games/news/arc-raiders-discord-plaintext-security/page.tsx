@@ -41,5 +41,5 @@ export const metadata: Metadata = {
 };
 
 export default function ArcRaidersDiscordPlaintextSecurityPage() {
-  return <WikiArticle slug="/video-games/news/arc-raiders-discord-plaintext-security" />;
+  return <WikiArticle slug="video-games-news-arc-raiders-discord-plaintext-security" />;
 }

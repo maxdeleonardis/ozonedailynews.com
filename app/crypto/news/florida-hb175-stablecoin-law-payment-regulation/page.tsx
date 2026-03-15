@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function FloridaHB175Page() {
-  return <WikiArticle slug="/crypto/news/florida-hb175-stablecoin-law-payment-regulation" />;
+  return <WikiArticle slug="crypto-news-florida-hb175-stablecoin-law-payment-regulation" />;
 }

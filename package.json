@@ -24,11 +24,7 @@
     "wiki:trim": "npx tsx scripts/trim-wiki-pages.ts",
     "wiki:trim-dry": "npx tsx scripts/trim-wiki-pages.ts --dry-run",
     "wiki:sync": "npx tsx scripts/sync-wiki-content.ts",
-    "wiki:sync-dry": "npx tsx scripts/sync-wiki-content.ts --dry-run",
-    "wiki:migrate-remaining": "npx tsx scripts/migrate-remaining-articles.ts",
-    "wiki:migrate-remaining-dry": "npx tsx scripts/migrate-remaining-articles.ts --dry-run",
-    "wiki:migrate-main": "npx tsx scripts/migrate-main-articles.ts",
-    "wiki:migrate-main-dry": "npx tsx scripts/migrate-main-articles.ts --dry-run"
+    "wiki:sync-dry": "npx tsx scripts/sync-wiki-content.ts --dry-run"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

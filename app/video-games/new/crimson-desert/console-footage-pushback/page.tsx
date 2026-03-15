@@ -39,5 +39,5 @@ export const metadata: Metadata = {
 };
 
 export default function ConsoleFootagePushbackPage() {
-  return <WikiArticle slug="/video-games/new/crimson-desert/console-footage-pushback" />;
+  return <WikiArticle slug="video-games-new-crimson-desert-console-footage-pushback" />;
 }

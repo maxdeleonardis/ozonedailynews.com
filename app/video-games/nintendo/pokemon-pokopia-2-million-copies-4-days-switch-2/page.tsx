@@ -46,5 +46,5 @@ export const metadata: Metadata = {
 };
 
 export default function PokemonPokopia2MillionCopies4DaysSwitch2Page() {
-  return <WikiArticle slug="/video-games/nintendo/pokemon-pokopia-2-million-copies-4-days-switch-2" />;
+  return <WikiArticle slug="video-games-nintendo-pokemon-pokopia-2-million-copies-4-days-switch-2" />;
 }

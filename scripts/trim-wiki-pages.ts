@@ -127,6 +127,19 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
   // Keep generateArticleMetadata import when the metadata uses it
   const needsGenerate = metadata.includes('generateArticleMetadata');
 
+  // NewsArticle pages live in `articles` table → use NewsArticleDB
+  // Everything else (raw JSX, wiki grids) lives in `wiki_articles` → use WikiArticle
+  const isNewsArticle = source.includes("from '@/components/NewsArticle'") ||
+    source.includes('from "@/components/NewsArticle"') ||
+    source.includes("import NewsArticle");
+  const dbComponent = isNewsArticle ? 'NewsArticleDB' : 'WikiArticle';
+  const dbImport = isNewsArticle
+    ? `import { NewsArticleDB } from '@/components/NewsArticleDB';`
+    : `import { WikiArticle } from '@/components/WikiArticle';`;
+  const returnJsx = isNewsArticle
+    ? `return <NewsArticleDB slug="${slug}" />;`
+    : `return <WikiArticle slug="${slug}" />;`;
+
   // Extract any const SLUG / FULL_URL / IMAGE_URL / ARTICLE_URL declarations
   // that the original file defined and the metadata still references by name.
   const constLines: string[] = [];
@@ -138,7 +151,7 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
 
   return [
     `import type { Metadata } from 'next';`,
-    `import { WikiArticle } from '@/components/WikiArticle';`,
+    dbImport,
     ...(needsGenerate ? [`import { generateArticleMetadata } from '@/lib/seo-utils';`] : []),
     ``,
     `// Page renders dynamically — content fetched from Supabase at request time.`,
@@ -149,7 +162,7 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
     metadata,
     ``,
     `export default function ${componentName}() {`,
-    `  return <WikiArticle slug="${slug}" />;`,
+    `  ${returnJsx}`,
     `}`,
     ``,
   ].join('\n');

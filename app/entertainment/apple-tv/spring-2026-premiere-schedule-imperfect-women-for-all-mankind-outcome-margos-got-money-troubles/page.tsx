@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
@@ -49,5 +49,5 @@ export const metadata: Metadata = {
 };
 
 export default function AppleTVSpring2026SlatePagePage() {
-  return <WikiArticle slug="entertainment-apple-tv-spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles" />;
+  return <NewsArticleDB slug="entertainment-apple-tv-spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles" />;
 }

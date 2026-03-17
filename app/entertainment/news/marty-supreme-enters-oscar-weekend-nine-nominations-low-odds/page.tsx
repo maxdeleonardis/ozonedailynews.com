@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
@@ -49,5 +49,5 @@ export const metadata: Metadata = {
 };
 
 export default function MartySupremeOscarsPage() {
-  return <WikiArticle slug="entertainment-news-marty-supreme-enters-oscar-weekend-nine-nominations-low-odds" />;
+  return <NewsArticleDB slug="entertainment-news-marty-supreme-enters-oscar-weekend-nine-nominations-low-odds" />;
 }

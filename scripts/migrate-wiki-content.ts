@@ -604,56 +604,98 @@ function parsePublishDate(dateStr: string): string | null {
   return null;
 }
 
-// ── Process one page ─────────────────────────────────────────────────────────
-async function processPage(filePath: string, forceSingleFile = false): Promise<'ok' | 'skip' | 'fail'> {
-  const slug = slugFromPath(filePath);
-  const relPath = path.relative(process.cwd(), filePath);
+// ── Unified wiki content extractor ──────────────────────────────────────────
+// Handles DynamicNewsArticle pages, wiki grid layouts, and raw-JSX pages.
+// All three route to the `wiki_articles` table.
+interface WikiExtractResult {
+  title: string;
+  subtitle?: string;
+  category?: string;
+  author_name?: string;
+  author_role?: string;
+  read_time?: string;
+  tags?: string[];
+  breaking?: boolean;
+  published_at?: string;
+  content_html: string;
+}
 
-  const source = fs.readFileSync(filePath, 'utf-8');
+function extractWikiContent(source: string): WikiExtractResult | null {
+  // DynamicNewsArticle component
+  const dynData = extractDynamicNewsArticleContent(source);
+  if (dynData) {
+    return {
+      title: dynData.title,
+      subtitle: dynData.subtitle || undefined,
+      category: dynData.category || undefined,
+      author_name: dynData.authorName || undefined,
+      author_role: dynData.authorRole || undefined,
+      read_time: dynData.readTime || undefined,
+      tags: dynData.tags.length ? dynData.tags : undefined,
+      breaking: dynData.breaking,
+      published_at: dynData.publishedAt ?? extractPublishedTime(source) ?? undefined,
+      content_html: dynData.bodyHtml,
+    };
+  }
 
-  // ── PATH 1: Wiki grid layout (lg:grid-cols-12) ────────────────────────────
+  // Wiki grid layout (lg:grid-cols-12)
   const gridJsx = extractTagContaining(source, 'lg:grid-cols-12', 'div');
   if (gridJsx) {
     const htmlContent = jsxToHtml(gridJsx);
     const h1Title = extractH1(source);
-    const category = extractCategory(source);
-    const publishedTime = extractPublishedTime(source);
-
-    if (isDryRun) {
-      console.log(`  ✓  ${relPath} [wiki grid]`);
-      console.log(`     slug: ${slug} | h1: "${h1Title}" | category: ${category}`);
-      console.log(`     HTML length: ${htmlContent.length} chars`);
-      return 'ok';
-    }
-
     const metaTitle = extractMetaTitle(source);
-
-    const { error } = await supabase
-      .from('articles')
-      .upsert(
-        {
-          slug,
-          title: metaTitle || h1Title || slug,
-          subtitle: h1Title || undefined,
-          category: category || undefined,
-          published_at: publishedTime || undefined,
-          status: 'published',
-          content: [{ id: 'html-body', type: 'html', content: htmlContent }],
-        },
-        { onConflict: 'slug' }
-      );
-
-    if (error) {
-      console.error(`  ❌  ${relPath} — ${error.message}`);
-      return 'fail';
-    }
-
-    console.log(`  ✓  ${relPath} [wiki] → ${slug}`);
-    return 'ok';
+    return {
+      title: metaTitle || h1Title || '',
+      subtitle: h1Title || undefined,
+      category: extractCategory(source) || undefined,
+      published_at: extractPublishedTime(source) ?? undefined,
+      content_html: htmlContent,
+    };
   }
 
-  // ── PATH 2: NewsArticle component ─────────────────────────────────────────
-  const newsData = extractNewsArticleContent(source);  if (newsData) {
+  // Raw JSX fallback
+  const returnIdx = source.search(/\breturn\s*\(/);
+  if (returnIdx === -1) return null;
+  const parenStart = source.indexOf('(', returnIdx);
+  let depth = 0;
+  let parenEnd = -1;
+  for (let i = parenStart; i < source.length; i++) {
+    if (source[i] === '(') depth++;
+    else if (source[i] === ')') { depth--; if (depth === 0) { parenEnd = i; break; } }
+  }
+  if (parenEnd === -1) return null;
+
+  let bodyJsx = source.substring(parenStart + 1, parenEnd).trim();
+  if (bodyJsx.startsWith('<>') && bodyJsx.endsWith('</>')) bodyJsx = bodyJsx.slice(2, -3).trim();
+  bodyJsx = bodyJsx.replace(/<NewsArticleSchema[\s\S]*?\/>/g, '').trim();
+  bodyJsx = bodyJsx.replace(/^\s*<>\s*|\s*<\/>\s*$/g, '').trim();
+  const htmlBody = jsxToHtml(bodyJsx);
+  if (htmlBody.length < 200) return null;
+
+  const metaTitle = extractMetaTitle(source).replace(/\s*[|—–\-].*$/, '').trim();
+  const authorMatch = source.match(/authors[:\s]*\[\s*\{[^}]*name[:\s]*['"\`]([^'"\`]+)['"\`]/);
+  return {
+    title: metaTitle,
+    category: extractCategory(source) || undefined,
+    author_name: authorMatch ? authorMatch[1] : undefined,
+    published_at: extractPublishedTime(source) ?? undefined,
+    content_html: htmlBody,
+  };
+}
+
+// ── Process one page ─────────────────────────────────────────────────────────
+// Routes to the correct Supabase table based on which SEO component the page uses:
+//   NewsArticle   → articles
+//   JackArticle   → jack_articles
+//   everything else (DynamicNewsArticle, wiki grid, raw JSX) → wiki_articles
+async function processPage(filePath: string): Promise<'ok' | 'skip' | 'fail'> {
+  const slug = slugFromPath(filePath);
+  const relPath = path.relative(process.cwd(), filePath);
+  const source = fs.readFileSync(filePath, 'utf-8');
+
+  // ── NewsArticle component → articles ─────────────────────────────────────
+  const newsData = extractNewsArticleContent(source);
+  if (newsData) {
     const htmlBody = jsxToHtml(newsData.bodyJsx);
     const publishedAt = parsePublishDate(newsData.publishDate) ?? extractPublishedTime(source);
 
@@ -667,39 +709,32 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
 
     const { error } = await supabase
       .from('articles')
-      .upsert(
-        {
-          slug,
-          title: newsData.title,
-          subtitle: newsData.subtitle ?? undefined,
-          category: newsData.category ?? undefined,
-          category_color: newsData.categoryColor ?? undefined,
-          topic_tag: newsData.topicTag ?? undefined,
-          publish_date: newsData.publishDate ?? undefined,
-          author_name: newsData.authorName ?? undefined,
-          author_role: newsData.authorRole ?? undefined,
-          author_slug: newsData.authorSlug ?? undefined,
-          read_time: newsData.readTime ?? undefined,
-          tags: newsData.tags.length ? newsData.tags : undefined,
-          breaking: newsData.breaking,
-          published_at: publishedAt ?? undefined,
-          status: 'published',
-          content: [{ id: 'html-body', type: 'html', content: htmlBody }],
-          content_html: htmlBody,
-        },
-        { onConflict: 'slug' }
-      );
+      .upsert({
+        slug,
+        title: newsData.title,
+        subtitle: newsData.subtitle ?? undefined,
+        category: newsData.category ?? undefined,
+        category_color: newsData.categoryColor ?? undefined,
+        topic_tag: newsData.topicTag ?? undefined,
+        publish_date: newsData.publishDate ?? undefined,
+        author_name: newsData.authorName ?? undefined,
+        author_role: newsData.authorRole ?? undefined,
+        author_slug: newsData.authorSlug ?? undefined,
+        read_time: newsData.readTime ?? undefined,
+        tags: newsData.tags.length ? newsData.tags : undefined,
+        breaking: newsData.breaking,
+        published_at: publishedAt ?? undefined,
+        status: 'published',
+        content: [{ id: 'html-body', type: 'html', content: htmlBody }],
+        content_html: htmlBody,
+      }, { onConflict: 'slug' });
 
-    if (error) {
-      console.error(`  ❌  ${relPath} — ${error.message}`);
-      return 'fail';
-    }
-
-    console.log(`  ✓  ${relPath} [news] → ${slug}`);
+    if (error) { console.error(`  ❌  ${relPath} — ${error.message}`); return 'fail'; }
+    console.log(`  ✓  ${relPath} [NewsArticle] → articles/${slug}`);
     return 'ok';
   }
 
-  // ── PATH 2b: JackArticle component → jack_articles ───────────────────────
+  // ── JackArticle component → jack_articles ────────────────────────────────
   const jackMatch = source.match(/<JackArticle[\s]/);
   if (jackMatch && jackMatch.index !== undefined) {
     const jaStart = jackMatch.index;
@@ -835,7 +870,7 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
     }
 
     const { error } = await supabase
-      .from('articles')
+      .from('wiki_articles')
       .upsert(
         {
           slug,
@@ -848,7 +883,6 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
           tags: dynData.tags.length ? dynData.tags : undefined,
           breaking: dynData.breaking,
           published_at: publishedAt || undefined,
-          status: 'published',
           content: [{ id: 'html-body', type: 'html', content: dynData.bodyHtml }],
         },
         { onConflict: 'slug' }
@@ -859,7 +893,7 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
       return 'fail';
     }
 
-    console.log(`  ✓  ${relPath} [dynamic news] → ${slug}`);
+    console.log(`  ✓  ${relPath} [dynamic news] → wiki_articles/${slug}`);
     return 'ok';
   }
 
@@ -922,7 +956,7 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
         }
 
         const { error } = await supabase
-          .from('articles')
+          .from('wiki_articles')
           .upsert(
             {
               slug,
@@ -930,7 +964,6 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
               category: category || undefined,
               author_name: authorName || undefined,
               published_at: publishedAt || undefined,
-              status: 'published',
               content: [{ id: 'html-body', type: 'html', content: htmlBody }],
             },
             { onConflict: 'slug' }
@@ -941,7 +974,7 @@ async function processPage(filePath: string, forceSingleFile = false): Promise<'
           return 'fail';
         }
 
-        console.log(`  ✓  ${relPath} [raw JSX] → ${slug}`);
+        console.log(`  ✓  ${relPath} [raw JSX] → wiki_articles/${slug}`);
         return 'ok';
       }
     }
@@ -978,7 +1011,7 @@ async function main() {
   let ok = 0, skipped = 0, failed = 0;
 
   for (const f of files) {
-    const result = await processPage(f, Boolean(singleFile));
+    const result = await processPage(f);
     if (result === 'ok') ok++;
     else if (result === 'skip') skipped++;
     else failed++;

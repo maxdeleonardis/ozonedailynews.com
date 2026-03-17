@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
@@ -48,5 +48,5 @@ export const metadata: Metadata = {
 };
 
 export default function TeslaTerafabLaunchPage() {
-  return <WikiArticle slug="elon-musk-news-tesla-terafab-chip-fabrication-launch-march-21-2026" />;
+  return <NewsArticleDB slug="elon-musk-news-tesla-terafab-chip-fabrication-launch-march-21-2026" />;
 }

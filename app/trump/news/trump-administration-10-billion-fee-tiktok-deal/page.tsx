@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
@@ -47,5 +47,5 @@ export const metadata: Metadata = {
 };
 
 export default function TrumpTikTok10BillionFeePage() {
-  return <WikiArticle slug="trump-news-trump-administration-10-billion-fee-tiktok-deal" />;
+  return <NewsArticleDB slug="trump-news-trump-administration-10-billion-fee-tiktok-deal" />;
 }

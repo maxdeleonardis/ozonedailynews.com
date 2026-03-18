@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 import AuthProvider from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
@@ -125,14 +124,10 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href={SITE_CONFIG.url} />
         <link rel="alternate" type="application/rss+xml" title={`${SITE_CONFIG.name} RSS Feed`} href={`${SITE_CONFIG.url}/rss.xml`} />
-        {/* Preconnect to external resources for faster loading */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans" style={{ background: '#faf9f6' }}>
-        <GoogleAnalytics />
         <AuthProvider>
             {/* Header */}
             <header className="border-b bg-white sticky top-0 z-40">

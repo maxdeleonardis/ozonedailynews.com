@@ -1,6 +1,6 @@
 import { getAllBlogPosts } from '@/lib/blog-service';
 import { SITE_CONFIG } from '@/lib/site-config';
-import { contentRegistry } from '@/lib/content-registry';
+import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,17 +23,22 @@ export async function GET() {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - NEWS_WINDOW_DAYS);
 
-    // Pull recent articles directly from the content registry.
-    // The registry is auto-synced before every build (prebuild script),
-    // so any new page.tsx added to the project automatically appears here.
-    const registryArticles = contentRegistry
-      .filter(entry => entry.publishDate && new Date(entry.publishDate) >= cutoff)
-      .map(entry => ({
-        loc: `${baseUrl}${entry.slug}`,
-        title: entry.title,
-        publicationDate: `${entry.publishDate}T00:00:00-06:00`,
-        keywords: entry.tags?.join(', ') || entry.category || '',
-      }));
+    // Pull recent articles from Supabase content_registry table.
+    // Auto-synced on every build via the prebuild script (sync-registry.ts).
+    const supabase = await createClient();
+    const cutoffStr = cutoff.toISOString().split('T')[0]; // "YYYY-MM-DD"
+    const { data: registryRows } = await supabase
+      .from('content_registry')
+      .select('slug, title, publish_date, tags, category')
+      .gte('publish_date', cutoffStr)
+      .order('publish_date', { ascending: false });
+
+    const registryArticles = (registryRows || []).map(row => ({
+      loc: `${baseUrl}${row.slug}`,
+      title: row.title,
+      publicationDate: `${row.publish_date}T00:00:00-06:00`,
+      keywords: Array.isArray(row.tags) ? row.tags.join(', ') : (row.category || ''),
+    }));
 
     // Get dynamic posts from database (CMS-authored content)
     const posts = await getAllBlogPosts();

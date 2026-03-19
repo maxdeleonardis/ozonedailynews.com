@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { JWT } from 'google-auth-library';
-import { getLatestArticles } from '@/lib/content-registry';
+import { getLatestArticles } from '@/lib/registry-service';
 
 export const revalidate = 3600;
 
@@ -97,7 +97,7 @@ export async function GET(request: Request) {
     if (!res.ok) return NextResponse.json({ rows: [], source: 'fallback' });
 
     const data = await res.json();
-    const allArticles = getLatestArticles(500);
+    const allArticles = await getLatestArticles(500);
     const registryMap = new Map(allArticles.map(a => [a.slug, a]));
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -90,6 +90,27 @@ export function middleware(request: NextRequest) {
     // MHA consolidated under /video-games
     '/mha': '/video-games/mha',
     '/mha/ultra-rumble-season-15-everything-we-know': '/video-games/mha/ultra-rumble/season-15',
+    // Old Supabase DB-slug format → canonical URL (legacy blog/* redirects)
+    '/blog/trump-news-trump-administration-10-billion-fee-tiktok-deal': '/trump/news/trump-administration-10-billion-fee-tiktok-deal',
+    '/blog/youtube-news-omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation': '/youtube/news/omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation',
+    '/blog/tech-perplexity-news-perplexity-personal-computer-ai-agent-developer-suite-ask-2026': '/tech/perplexity/news/perplexity-personal-computer-ai-agent-developer-suite-ask-2026',
+    '/blog/tech-perplexity-news-crowdstrike-perplexity-comet-enterprise-falcon-security-partnership': '/tech/perplexity/news/crowdstrike-perplexity-comet-enterprise-falcon-security-partnership',
+    '/blog/tech-news-tenstorrent-tt-quietbox-2-risc-v-ai-workstation-9999': '/tech/news/tenstorrent-tt-quietbox-2-risc-v-ai-workstation-9999',
+    '/blog/tech-news-87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026': '/tech/news/87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026',
+    '/blog/entertainment-news-conan-obrien-hosting-98th-oscars-abc-hulu': '/entertainment/news/conan-obrien-hosting-98th-oscars-abc-hulu',
+    '/blog/entertainment-news-marty-supreme-enters-oscar-weekend-nine-nominations-low-odds': '/entertainment/news/marty-supreme-enters-oscar-weekend-nine-nominations-low-odds',
+    '/blog/entertainment-apple-tv-spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles': '/entertainment/apple-tv/spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles',
+    '/blog/elon-musk-news-tesla-terafab-chip-fabrication-launch-march-21-2026': '/elon-musk/news/tesla-terafab-chip-fabrication-launch-march-21-2026',
+    '/blog/claude-news-federal-agencies-replace-claude-gpt-41-trump-executive-directive': '/claude/news/federal-agencies-replace-claude-gpt-41-trump-executive-directive',
+    '/blog/copyright-news-letitia-james-sues-counter-strike': '/copyright/news/letitia-james-sues-counter-strike',
+    '/blog/tech-news-anthropic-court-filings-disclose-5-billion-in-total-revenue': '/tech/news/anthropic-court-filings-disclose-5-billion-in-total-revenue',
+    '/blog/video-games-nintendo-donkey-kong-bananza': '/video-games/nintendo/donkey-kong-bananza',
+    '/blog/video-games-game-of-the-year-2026-Clair-Obscur': '/video-games/game-of-the-year-2026-Clair-Obscur',
+    '/blog/video-games-news-outersloth-rejects-ai': '/video-games/news/outersloth-rejects-ai',
+    '/blog/video-games-news-marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes': '/video-games/news/marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes',
+    '/blog/video-games-nintendo-pokemon-pokopia-2-million-copies-4-days-switch-2': '/video-games/nintendo/pokemon-pokopia-2-million-copies-4-days-switch-2',
+    '/blog/amazon-news-aws-uae-data-center-fire-iran-strikes-march-2026': '/amazon/news/aws-uae-data-center-fire-iran-strikes-march-2026',
+    '/blog/amazon-news-andy-jassy-ai-will-reduce-headcount-many-roles-cnbc-february-2026': '/amazon/news/andy-jassy-ai-will-reduce-headcount-many-roles-cnbc-february-2026',
   };
 
   if (REDIRECTS[pathname]) {

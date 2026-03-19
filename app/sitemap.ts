@@ -1,11 +1,12 @@
-import { MetadataRoute } from 'next';
-import { contentRegistry } from '@/lib/content-registry';
+﻿import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/site-config';
+import { getPublishedBlogPosts } from '@/lib/blog-service';
+import { createClient } from '@/lib/supabase/server';
 
 // Regenerate daily — but dates come from content-registry, not filesystem
 export const revalidate = 86400;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_CONFIG.url;
 
   // Homepage
@@ -18,15 +19,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // All registered content — real publish/modify dates, never filesystem timestamps
-  const registryEntries: MetadataRoute.Sitemap = contentRegistry.map((entry) => ({
-    url: `${baseUrl}${entry.slug}`,
-    lastModified: new Date(entry.modifiedDate),
-    changeFrequency: entry.changeFrequency,
-    priority: entry.priority,
-  }));
+  // All registered static content — from Supabase content_registry (auto-synced on build)
+  let registryEntries: MetadataRoute.Sitemap = [];
+  try {
+    const supabase = await createClient();
+    const { data: regRows } = await supabase
+      .from('content_registry')
+      .select('slug, modified_date, change_frequency, priority');
+    registryEntries = (regRows || []).map((entry) => ({
+      url: `${baseUrl}${entry.slug}`,
+      lastModified: new Date(entry.modified_date),
+      changeFrequency: entry.change_frequency as MetadataRoute.Sitemap[number]['changeFrequency'],
+      priority: Number(entry.priority),
+    }));
+  } catch {
+    // Supabase unavailable — sitemap will include homepage + blog posts only
+  }
 
-  const all = [...staticEntries, ...registryEntries];
+  // Supabase-published articles at /blog/[slug]
+  let supabaseEntries: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await getPublishedBlogPosts();
+    supabaseEntries = posts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
+  } catch {
+    // Supabase unavailable — continue with static entries only
+  }
+
+  const all = [...staticEntries, ...registryEntries, ...supabaseEntries];
 
   // Deduplicate (registry takes precedence over static)
   const unique = Array.from(
@@ -42,4 +66,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return unique;
 }
-

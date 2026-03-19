@@ -48,3 +48,7 @@ next-env.d.ts
 .vscode
 supabase/.temp
 supabase/functions/.vscode
+
+# Google service account credential files — NEVER commit these
+*-[a-f0-9]*.json
+objectwireorg-76d014b98819.json

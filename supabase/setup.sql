@@ -4,23 +4,65 @@
 -- Drop existing table if you want to start fresh (CAUTION: This deletes all data!)
 -- DROP TABLE IF EXISTS articles CASCADE;
 
--- Create the articles table
+-- Create the articles table (full schema matching publish-content.ts)
 CREATE TABLE IF NOT EXISTS articles (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   slug TEXT UNIQUE NOT NULL,
   title TEXT NOT NULL,
+  subtitle TEXT,
   excerpt TEXT,
   content JSONB,
+  -- Category / topic
   category TEXT NOT NULL DEFAULT 'News',
+  category_color TEXT,
+  topic_tag TEXT,
+  tags TEXT[],
+  -- Author (author_name is primary; author kept for backward compat)
   author TEXT DEFAULT 'ObjectWire Editorial',
+  author_name TEXT,
+  author_role TEXT,
+  author_avatar TEXT,
+  author_twitter TEXT,
+  author_slug TEXT,
+  author_bio TEXT,
+  -- Images
+  image_url TEXT,
+  image_alt TEXT,
+  image_caption TEXT,
+  image_credit TEXT,
+  thumbnail_url TEXT,
+  -- Publishing
+  read_time TEXT,
   featured BOOLEAN DEFAULT false,
+  trending BOOLEAN DEFAULT false,
+  breaking BOOLEAN DEFAULT false,
+  exclusive BOOLEAN DEFAULT false,
   status TEXT DEFAULT 'draft' CHECK (status IN ('draft', 'published', 'archived')),
   published_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
-  image_url TEXT,
   view_count INTEGER DEFAULT 0
 );
+
+-- Add any missing columns to an existing table (safe to re-run)
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS subtitle TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS category_color TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS topic_tag TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS tags TEXT[];
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_name TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_role TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_avatar TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_twitter TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_slug TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS author_bio TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_alt TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_caption TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_credit TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS thumbnail_url TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS read_time TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS trending BOOLEAN DEFAULT false;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS breaking BOOLEAN DEFAULT false;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS exclusive BOOLEAN DEFAULT false;
 
 -- Create indexes for faster lookups
 CREATE INDEX IF NOT EXISTS idx_articles_slug ON articles(slug);

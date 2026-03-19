@@ -31,7 +31,9 @@ export function NewsArticleSchema({
     "@type": "NewsArticle",
     "headline": title,
     "description": description,
-    "image": imageUrl ? [imageUrl] : undefined,
+    "image": imageUrl
+      ? [{ "@type": "ImageObject", "url": imageUrl, "width": 1200, "height": 630 }]
+      : undefined,
     "datePublished": publishedTime,
     "dateModified": modifiedTime || publishedTime,
     "author": {
@@ -62,7 +64,13 @@ export function NewsArticleSchema({
     "articleSection": section,
     "keywords": keywords.join(", "),
     "isAccessibleForFree": true,
-    "inLanguage": "en-US"
+    "inLanguage": "en-US",
+    "copyrightYear": new Date(publishedTime).getFullYear(),
+    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://objectwire.org" },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "article"]
+    }
   };
 
   return (

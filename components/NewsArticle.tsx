@@ -45,6 +45,8 @@ export interface NewsArticleProps {
   thumbnail?: {
     src: string;
     alt: string;
+    /** Aspect ratio for the thumbnail container, e.g. "16:9", "9:16", "4:3", "1:1". Defaults to natural image height. */
+    aspectRatio?: string;
   };
   tags?: string[];
   children: React.ReactNode;
@@ -338,7 +340,9 @@ export function NewsHeader({
               </div>
 
               {/* Right column — thumbnail with genie float + flare animation */}
-              {thumbnail && (
+              {thumbnail && (() => {
+                const aspectRatioCss = thumbnail.aspectRatio ? thumbnail.aspectRatio.replace(':', '/') : undefined;
+                return (
                 <div className="hidden md:flex shrink-0 self-stretch -my-16 md:-my-24 -mr-6" style={{ width: '30%' }}>
                   <style>{`
                     @keyframes genieFloat {
@@ -363,11 +367,21 @@ export function NewsHeader({
                     .genie-flare1{ animation: genieFlare  3.2s ease-in-out infinite; }
                     .genie-flare2{ animation: genieFlare2 4.1s ease-in-out infinite 0.9s; }
                   `}</style>
-                  <div className="relative w-full h-full rounded-l-xl overflow-hidden genie-wrap">
+                  {/* wrapper fills the full height of the gradient header via flex-stretch */}
+                  <div
+                    className="relative w-full h-full rounded-l-xl overflow-hidden genie-wrap"
+                  >
                     <img
                       src={thumbnail.src}
                       alt={thumbnail.alt}
-                      className="w-full h-full object-cover genie-img"
+                      className="genie-img"
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        ...(aspectRatioCss ? { aspectRatio: aspectRatioCss } : {}),
+                      }}
                     />
                     {/* Sweep flare 1 — diagonal golden streak */}
                     <span
@@ -387,7 +401,8 @@ export function NewsHeader({
                     />
                   </div>
                 </div>
-              )}
+                );
+              })()}
 
             </div>
           </div>
@@ -773,15 +788,23 @@ export function NewsArticle({
       </footer>
 
       {/* Full-size thumbnail — spans the full container width at the very end */}
-      {thumbnail && (
-        <div className="w-full mt-0 overflow-hidden">
-          <img
-            src={thumbnail.src}
-            alt={thumbnail.alt}
-            className="w-full h-auto block"
-          />
-        </div>
-      )}
+      {thumbnail && (() => {
+        const aspectRatioCss = (thumbnail.aspectRatio ?? '16:9').replace(':', '/');
+        return (
+          <div className="w-full mt-0 overflow-hidden">
+            <img
+              src={thumbnail.src}
+              alt={thumbnail.alt}
+              style={{
+                display: 'block',
+                width: '100%',
+                aspectRatio: aspectRatioCss,
+                objectFit: 'cover',
+              }}
+            />
+          </div>
+        );
+      })()}
     </main>
   );
 }

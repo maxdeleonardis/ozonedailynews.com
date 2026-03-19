@@ -43,8 +43,48 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     .eq('status', 'published')
     .single();
 
-  // If article doesn't exist or isn't published, return 404
+  // If article doesn't exist or isn't published, try to redirect via slug conversion
   if (error || !article) {
+    // Convert old DB slug format (e.g. "trump-news-article-title") to URL path
+    // by looking up known path prefixes
+    const KNOWN_PREFIXES: [string, string][] = [
+      ['elon-musk-news-', '/elon-musk/news/'],
+      ['elon-musk-', '/elon-musk/'],
+      ['tech-perplexity-news-', '/tech/perplexity/news/'],
+      ['tech-news-', '/tech/news/'],
+      ['tech-', '/tech/'],
+      ['youtube-news-', '/youtube/news/'],
+      ['youtube-sidemen-', '/youtube/sidemen/'],
+      ['youtube-', '/youtube/'],
+      ['video-games-nintendo-', '/video-games/nintendo/'],
+      ['video-games-news-', '/video-games/news/'],
+      ['video-games-', '/video-games/'],
+      ['entertainment-apple-tv-', '/entertainment/apple-tv/'],
+      ['entertainment-news-', '/entertainment/news/'],
+      ['entertainment-', '/entertainment/'],
+      ['amazon-news-', '/amazon/news/'],
+      ['amazon-', '/amazon/'],
+      ['apple-news-', '/apple/news/'],
+      ['apple-', '/apple/'],
+      ['trump-news-', '/trump/news/'],
+      ['trump-', '/trump/'],
+      ['claude-news-', '/claude/news/'],
+      ['claude-', '/claude/'],
+      ['copyright-news-', '/copyright/news/'],
+      ['copyright-', '/copyright/'],
+      ['bio-hacking-', '/bio-hacking/'],
+      ['define-crypto-', '/define/crypto/'],
+      ['define-', '/define/'],
+      ['finance-articles-', '/finance/articles/'],
+      ['finance-', '/finance/'],
+      ['news-', '/news/'],
+    ];
+    for (const [prefix, urlBase] of KNOWN_PREFIXES) {
+      if (slug.startsWith(prefix)) {
+        const { redirect } = await import('next/navigation');
+        redirect(urlBase + slug.slice(prefix.length));
+      }
+    }
     notFound();
   }
 

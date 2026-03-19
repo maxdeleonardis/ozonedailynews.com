@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 
 // ─── Static data ──────────────────────────────────────────────────────────────
 
@@ -154,6 +155,19 @@ export function AlysaArticle() {
             </div>
           </div>
         </header>
+
+        {/* ── Byline / Dateline ──────────────────────────────────── */}
+        <div className="border-b border-gray-100 bg-white">
+          <div className="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <span className="font-semibold text-gray-800">By ObjectWire Olympic Bureau</span>
+            <span className="text-gray-300" aria-hidden="true">|</span>
+            <time dateTime="2026-02-19T18:00:00Z" className="text-gray-500">Published February 19, 2026</time>
+            <span className="text-gray-300" aria-hidden="true">·</span>
+            <time dateTime="2026-02-20T10:00:00Z" className="text-gray-500">Updated February 20, 2026</time>
+            <span className="text-gray-300" aria-hidden="true">|</span>
+            <span className="text-gray-500">Winter Olympics · Figure Skating</span>
+          </div>
+        </div>
 
         {/* ── Main grid ───────────────────────────────────────────── */}
         <div className="max-w-5xl mx-auto px-4 py-12">
@@ -417,6 +431,9 @@ export function AlysaArticle() {
                   </p>
                 </div>
               </section>
+
+              {/* Newsletter */}
+              <NewsletterSignupInline />
 
             </article>
 

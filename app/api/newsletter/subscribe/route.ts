@@ -1,40 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import * as XLSX from 'xlsx';
-import path from 'path';
-import fs from 'fs';
 
 // =============================================================================
 // NEWSLETTER SUBSCRIBE — POST /api/newsletter/subscribe
-// Appends subscriber email + metadata to data/newsletter-subscribers.xlsx
+// Primary: Beehiiv API (BEEHIIV_API_KEY + BEEHIIV_PUBLICATION_ID env vars)
+// Fallback: logs to console if env vars are not set (for local dev)
 // =============================================================================
 
-const DATA_DIR  = path.join(process.cwd(), 'data');
-const XLSX_PATH = path.join(DATA_DIR, 'newsletter-subscribers.xlsx');
-
-interface SubscriberRow {
-  Email: string;
-  SubscribedAt: string;    // ISO datetime
-  Source: string;          // Referring article URL
-  IP: string;              // Anonymised — last octet zeroed
-}
-
-function loadOrCreateWorkbook(): XLSX.WorkBook {
-  if (fs.existsSync(XLSX_PATH)) {
-    const buf = fs.readFileSync(XLSX_PATH);
-    return XLSX.read(buf, { type: 'buffer' });
-  }
-  // New workbook with a header row
-  const wb    = XLSX.utils.book_new();
-  const ws    = XLSX.utils.aoa_to_sheet([['Email', 'SubscribedAt', 'Source', 'IP']]);
-  XLSX.utils.book_append_sheet(wb, ws, 'Subscribers');
-  return wb;
-}
-
-function anonIP(ip: string | null): string {
-  if (!ip) return '';
-  // Zero-out last octet for IPv4 (basic GDPR-friendly anonymisation)
-  return ip.replace(/\.\d+$/, '.0');
-}
+const BEEHIIV_API_KEY        = process.env.BEEHIIV_API_KEY;
+const BEEHIIV_PUBLICATION_ID = process.env.BEEHIIV_PUBLICATION_ID;
 
 export async function POST(req: NextRequest) {
   try {
@@ -47,46 +20,50 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
-    // Ensure data directory exists
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+    // ── Beehiiv ───────────────────────────────────────────────────────────────
+    if (BEEHIIV_API_KEY && BEEHIIV_PUBLICATION_ID) {
+      const beehiivRes = await fetch(
+        `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/subscriptions`,
+        {
+          method:  'POST',
+          headers: {
+            'Content-Type':  'application/json',
+            'Authorization': `Bearer ${BEEHIIV_API_KEY}`,
+          },
+          body: JSON.stringify({
+            email,
+            reactivate_existing: true,
+            send_welcome_email:  true,
+            utm_source:   'objectwire',
+            utm_medium:   'article_footer',
+            utm_campaign: 'newsletter_signup',
+            referring_site: req.headers.get('referer') || 'https://www.objectwire.org',
+          }),
+        }
+      );
+
+      if (!beehiivRes.ok) {
+        const errBody = await beehiivRes.text();
+        console.error('[newsletter/subscribe] Beehiiv error', beehiivRes.status, errBody);
+        return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+      }
+
+      const data = await beehiivRes.json();
+
+      // Beehiiv returns status "active" for new subs and "validating" while confirming
+      const isExisting = data?.data?.status === 'active' && data?.data?.created === false;
+
+      return NextResponse.json(
+        { message: isExisting ? "You're already subscribed!" : 'Subscribed! Thanks for joining.' },
+        { status: 200 }
+      );
     }
 
-    const wb      = loadOrCreateWorkbook();
-    const wsName  = wb.SheetNames[0];
-    const ws      = wb.Sheets[wsName];
-
-    // Check for duplicate in existing sheet
-    const rows: SubscriberRow[] = XLSX.utils.sheet_to_json<SubscriberRow>(ws);
-    const alreadySubscribed = rows.some(r => r.Email?.toLowerCase() === email);
-    if (alreadySubscribed) {
-      return NextResponse.json({ message: "You're already subscribed!" }, { status: 200 });
-    }
-
-    // Append new row
-    const newRow: SubscriberRow = {
-      Email:        email,
-      SubscribedAt: new Date().toISOString(),
-      Source:       req.headers.get('referer') || '',
-      IP:           anonIP(req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip')),
-    };
-    rows.push(newRow);
-
-    // Rebuild sheet (preserves header)
-    const updatedWs = XLSX.utils.json_to_sheet(rows, {
-      header: ['Email', 'SubscribedAt', 'Source', 'IP'],
-    });
-
-    // Re-insert header row explicitly so it always appears first
-    XLSX.utils.sheet_add_aoa(updatedWs, [['Email', 'SubscribedAt', 'Source', 'IP']], { origin: 'A1' });
-
-    wb.Sheets[wsName] = updatedWs;
-
-    // Write back to disk
-    const buf = XLSX.write(wb, { type: 'buffer', bookType: 'xlsx' });
-    fs.writeFileSync(XLSX_PATH, buf);
-
+    // ── Dev fallback (no Beehiiv env vars configured) ─────────────────────────
+    console.warn('[newsletter/subscribe] BEEHIIV_API_KEY / BEEHIIV_PUBLICATION_ID not set. Set these env vars to enable Beehiiv.');
+    console.info('[newsletter/subscribe] Would have subscribed:', email);
     return NextResponse.json({ message: 'Subscribed! Thanks for joining.' }, { status: 200 });
+
   } catch (err) {
     console.error('[newsletter/subscribe]', err);
     return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });

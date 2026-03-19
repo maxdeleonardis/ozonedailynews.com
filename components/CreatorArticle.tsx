@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 
 // =============================================================================
 // CREATOR ARTICLE — Reusable profile/biography article layout
@@ -337,6 +338,27 @@ export function CreatorArticle({
           </div>
         </header>
 
+        {/* ── Byline / Dateline ──────────────────────────────────── */}
+        <div className="border-b border-gray-100 bg-white">
+          <div className="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <span className="font-semibold text-gray-800">By {sidebar.meta.author}</span>
+            <span className="text-gray-300" aria-hidden="true">|</span>
+            <time dateTime={schema.publishedTime} className="text-gray-500">
+              Published {sidebar.meta.publishedDate}
+            </time>
+            {sidebar.meta.updatedDate && (
+              <>
+                <span className="text-gray-300" aria-hidden="true">·</span>
+                <time dateTime={schema.modifiedTime ?? schema.publishedTime} className="text-gray-500">
+                  Updated {sidebar.meta.updatedDate}
+                </time>
+              </>
+            )}
+            <span className="text-gray-300" aria-hidden="true">|</span>
+            <span className="text-gray-500">{sidebar.meta.category}</span>
+          </div>
+        </div>
+
         {/* ── Main Content Grid ────────────────────────────────────── */}
         <div className="max-w-5xl mx-auto px-4 py-12">
           <div className="grid lg:grid-cols-3 gap-10">
@@ -344,6 +366,8 @@ export function CreatorArticle({
             {/* ── Article Body ───────────────────────────────────── */}
             <article className="lg:col-span-2 space-y-12">
               {children}
+              {/* Newsletter */}
+              <NewsletterSignupInline />
             </article>
 
             {/* ── Sidebar ────────────────────────────────────────── */}

@@ -72,6 +72,9 @@ export default function UserProfile() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => window.location.href = "/account"}>
+              👤 My Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => window.location.href = "/account/settings"}>
               Account Settings
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => window.location.href = "/preferences"}>

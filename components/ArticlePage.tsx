@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import ReactionBar from '@/components/ReactionBar';
+import DiscordComments from '@/components/discord-comments';
 
 // =============================================================================
 // TYPES
@@ -378,6 +380,15 @@ export function ArticlePage({
             {relatedLinks && relatedLinks.length > 0 && (
               <RelatedLinks links={relatedLinks} />
             )}
+
+            {/* Reaction Bar — Like/Comment/Share/Save */}
+            <ReactionBar
+              title={title}
+              category={category}
+            />
+
+            {/* Discord Comments Section */}
+            <DiscordComments slug={title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} articleTitle={title} />
           </article>
 
           {/* Sidebar Column */}

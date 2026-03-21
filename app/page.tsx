@@ -5,6 +5,7 @@ import { getAllBlogPosts } from '@/lib/blog-service';
 import type { BlogPostFull } from '@/lib/blog-service';
 import { contentRegistry } from '@/lib/content-registry';
 import type { ContentEntry } from '@/lib/content-registry';
+import EngagementBar from '@/components/EngagementBar';
 
 export const metadata: Metadata = {
   title: 'ObjectWire | Independent Investigative Journalism & Tech News',
@@ -164,38 +165,49 @@ function SectionRule({ label, href }: { label: string; href?: string }) {
 // Lead story — largest, left column
 function LeadCard({ article }: { article: Article }) {
   return (
-    <Link href={article.href} className="group block h-full">
-      {article.imageUrl && (
-        <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-3">
-          <Image
-            src={article.imageUrl}
-            alt={article.imageAlt ?? article.title}
-            fill
-            priority
-            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, 42vw"
-          />
-        </div>
-      )}
-      <CatLabel category={article.category} breaking={article.breaking} />
-      <h2 className="font-serif text-2xl md:text-3xl font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
-        {article.title}
-      </h2>
-      {article.exclusive && (
-        <span className="inline-block text-[9px] font-black px-2 py-0.5 tracking-widest uppercase border border-black text-black mb-2">
-          EXCLUSIVE
-        </span>
-      )}
-      {article.excerpt && (
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
-          {article.excerpt}
+    <div className="h-full">
+      <Link href={article.href} className="group block">
+        {article.imageUrl && (
+          <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-3">
+            <Image
+              src={article.imageUrl}
+              alt={article.imageAlt ?? article.title}
+              fill
+              priority
+              className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, 42vw"
+            />
+          </div>
+        )}
+        <CatLabel category={article.category} breaking={article.breaking} />
+        <h2 className="font-serif text-2xl md:text-3xl font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
+          {article.title}
+        </h2>
+        {article.exclusive && (
+          <span className="inline-block text-[9px] font-black px-2 py-0.5 tracking-widest uppercase border border-black text-black mb-2">
+            EXCLUSIVE
+          </span>
+        )}
+        {article.excerpt && (
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
+            {article.excerpt}
+          </p>
+        )}
+        <p className="text-[11px] text-gray-500 font-mono border-t border-gray-200 pt-2">
+          <span className="font-semibold text-black">{article.author}</span>
+          {' · '}{timeAgo(article.publishDate)}
         </p>
-      )}
-      <p className="text-[11px] text-gray-500 font-mono border-t border-gray-200 pt-2">
-        <span className="font-semibold text-black">{article.author}</span>
-        {' · '}{timeAgo(article.publishDate)}
-      </p>
-    </Link>
+      </Link>
+      <div className="mt-2 pt-2 border-t border-gray-100">
+        <EngagementBar
+          slug={article.href}
+          title={article.title}
+          url={article.href}
+          image={article.imageUrl}
+          category={article.category}
+        />
+      </div>
+    </div>
   );
 }
 

@@ -146,6 +146,32 @@ CREATE POLICY "dc_anon_delete" ON discord_comments FOR DELETE TO anon USING (tru
 
 
 -- ===========================================================================
+-- 5. DISCORD THREADS
+-- Maps article slugs to Discord Forum Post thread IDs.
+-- Used to route subsequent comments into the same Forum Post.
+-- ===========================================================================
+CREATE TABLE IF NOT EXISTS discord_threads (
+  id             UUID        DEFAULT gen_random_uuid() PRIMARY KEY,
+  slug           TEXT        UNIQUE NOT NULL,           -- article slug
+  thread_id      TEXT        NOT NULL,                  -- Discord Forum Post thread ID
+  thread_name    TEXT        NOT NULL,                  -- article title used when creating
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_dt_slug ON discord_threads (slug);
+
+ALTER TABLE discord_threads ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "dt_anon_select" ON discord_threads;
+DROP POLICY IF EXISTS "dt_anon_insert" ON discord_threads;
+DROP POLICY IF EXISTS "dt_anon_update" ON discord_threads;
+
+CREATE POLICY "dt_anon_select" ON discord_threads FOR SELECT TO anon USING (true);
+CREATE POLICY "dt_anon_insert" ON discord_threads FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY "dt_anon_update" ON discord_threads FOR UPDATE TO anon USING (true) WITH CHECK (true);
+
+
+-- ===========================================================================
 -- Optional: pg_cron nightly cleanup for view history (7-day TTL)
 -- Uncomment if your Supabase plan has the pg_cron extension.
 -- ===========================================================================

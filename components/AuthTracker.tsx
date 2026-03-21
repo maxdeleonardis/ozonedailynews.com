@@ -41,6 +41,21 @@ export default function AuthTracker() {
 
     // Identify user in GA4 + server Measurement Protocol
     tracking.identifyUser(email, session.user.name ?? undefined);
+
+    // Upsert public profile to Supabase (with multi-provider linking)
+    const user = session.user as Record<string, unknown>;
+    fetch('/api/auth/profile', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        provider:        user.provider ?? 'google',
+        displayName:     session.user.name,
+        avatarUrl:       session.user.image,
+        googleId:        user.googleId ?? null,
+        discordId:       user.discordId ?? null,
+        discordUsername:  user.discordUsername ?? null,
+      }),
+    }).catch(() => {});
   }, [session, status]);
 
   return null;

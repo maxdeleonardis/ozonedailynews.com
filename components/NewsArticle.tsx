@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import ReactionBar from '@/components/ReactionBar';
+import DiscordComments from '@/components/discord-comments';
 import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
 
@@ -726,6 +727,9 @@ export function NewsArticle({
 
         {/* Tags */}
         {tags && tags.length > 0 && <TagsSection tags={tags} />}
+
+        {/* Discord Comments Section */}
+        {slug && <DiscordComments slug={slug} articleTitle={title} />}
       </article>
 
       {/* Footer */}

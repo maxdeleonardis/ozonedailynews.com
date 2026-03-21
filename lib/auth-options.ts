@@ -6,6 +6,9 @@
 import { AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import DiscordProvider from 'next-auth/providers/discord';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import bcrypt from 'bcryptjs';
+import { createClient } from '@/lib/supabase/server';
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -32,10 +35,50 @@ export const authOptions: AuthOptions = {
         },
       },
     }),
+
+    // ── Email + Password Sign-In ────────────────────────────────────────────
+    CredentialsProvider({
+      name: 'Email',
+      credentials: {
+        email:    { label: 'Email',    type: 'email'    },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) return null;
+
+        const email = credentials.email.toLowerCase().trim();
+        const supabase = await createClient();
+
+        const { data: cred } = await supabase
+          .from('user_credentials')
+          .select('user_hash, email, password_hash')
+          .eq('email', email)
+          .single();
+
+        if (!cred) return null;
+
+        const valid = await bcrypt.compare(credentials.password, cred.password_hash);
+        if (!valid) return null;
+
+        // Fetch display name from public_profiles if it exists
+        const { data: profile } = await supabase
+          .from('public_profiles')
+          .select('display_name, avatar_url')
+          .eq('user_hash', cred.user_hash)
+          .single();
+
+        return {
+          id:    cred.user_hash,
+          email: cred.email,
+          name:  profile?.display_name ?? email.split('@')[0],
+          image: profile?.avatar_url ?? null,
+        };
+      },
+    }),
   ],
 
   callbacks: {
-    async jwt({ token, account, profile }) {
+    async jwt({ token, account, profile, user }) {
       if (account?.provider === 'google' && profile) {
         const p = profile as {
           sub?: string;
@@ -65,6 +108,13 @@ export const authOptions: AuthOptions = {
         token.discordAvatar        = p.avatar
           ? `https://cdn.discordapp.com/avatars/${p.id}/${p.avatar}.png`
           : `https://cdn.discordapp.com/embed/avatars/0.png`;
+      }
+
+      if (account?.provider === 'credentials' && user) {
+        token.provider = 'email';
+        token.email    = user.email ?? undefined;
+        token.name     = user.name  ?? undefined;
+        token.picture  = user.image ?? undefined;
       }
 
       return token;

@@ -45,12 +45,19 @@ export const metadata: Metadata = {
       'Amazon', 'Breaking News', 'Delivery', 'Same-Day', 'Prime',
       'E-Commerce', 'Walmart', 'Retail', 'Technology',
     ],
+    images: [{
+      url: 'https://www.objectwire.org/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Amazon delivery box',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Amazon Launches 1-Hour Delivery Nationally — $9.99 for Prime, 90,000 Products | ObjectWire",
     description:
       "Amazon's 1-hour and 3-hour delivery is now live in hundreds of US metros. Prime: $9.99 / $4.99. Non-Prime: $19.99 / $14.99. Direct competition with Walmart's sub-1-hour store network.",
+    images: ['https://www.objectwire.org/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg'],
   },
   other: {
     news_keywords:
@@ -88,7 +95,7 @@ export default function Amazon1HourDeliveryPage() {
         authorUrl={AUTHOR_URL}
         publishedTime="2026-03-17T14:00:00Z"
         modifiedTime="2026-03-17T16:00:00Z"
-        imageUrl="https://www.objectwire.org/images/amazon-og.jpg"
+        imageUrl="https://www.objectwire.org/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg"
         articleUrl={`https://www.objectwire.org${SLUG}`}
         section="Technology"
         keywords={[
@@ -134,6 +141,11 @@ export default function Amazon1HourDeliveryPage() {
         ]}
         slug="amazon-1-hour-3-hour-delivery-us-launch-march-2026"
         url={SLUG}
+        thumbnail={{
+          src: '/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg',
+          alt: 'Amazon delivery box',
+          aspectRatio: '16:9',
+        }}
       >
 
         {/* Lede */}

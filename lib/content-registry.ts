@@ -5231,9 +5231,14 @@ export const contentRegistry: ContentEntry[] = [
     modifiedDate: "2026-03-19",
     category: "Amazon",
     tags: ["Amazon"],
-    author: "ObjectWire Editorial",
+    author: "Jack Wang",
+    authorSlug: "jack-wang",
     priority: 0.6,
     changeFrequency: "weekly",
+    imageUrl: "/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg",
+    imageAlt: "Amazon delivery box",
+    imageWidth: 1200,
+    imageHeight: 675,
   },
 
   // --- Austin (1) ---
@@ -5477,6 +5482,38 @@ export const contentRegistry: ContentEntry[] = [
     tags: ["Technology", "Stablecoins", "Paypal Pyusd 70 Markets Global Expansion March 2026"],
     author: "ObjectWire Editorial",
     priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-21 — 2 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Account (1) ---
+  {
+    slug: "/account",
+    title: "Sign in to view your profile",
+    description: "ObjectWire coverage of Sign in to view your profile.",
+    publishDate: "2026-03-21",
+    modifiedDate: "2026-03-21",
+    category: "Account",
+    tags: ["Account"],
+    author: "ObjectWire Editorial",
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
+
+  // --- Profile (1) ---
+  {
+    slug: "/profile/[username]",
+    title: "Profile Not Found — OBJECTWIRE",
+    description: "ObjectWire coverage of Profile Not Found — OBJECTWIRE.",
+    publishDate: "2026-03-21",
+    modifiedDate: "2026-03-21",
+    category: "Profile",
+    tags: ["Profile"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
     changeFrequency: "weekly",
   },
 ];

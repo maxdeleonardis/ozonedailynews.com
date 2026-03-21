@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import ReactionBar from '@/components/ReactionBar';
+import DiscordComments from '@/components/discord-comments';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -976,6 +978,18 @@ export default function JackArticle({
                   </ul>
                 </div>
               )}
+
+              {/* Reaction Bar — Like/Comment/Share/Save */}
+              <ReactionBar
+                slug={articleUrl}
+                title={title}
+                url={articleUrl}
+                image={heroImage?.src}
+                category={section ?? categoryLabel}
+              />
+
+              {/* Discord Comments Section */}
+              {articleUrl && <DiscordComments slug={articleUrl} articleTitle={title} />}
             </article>
           </div>
 

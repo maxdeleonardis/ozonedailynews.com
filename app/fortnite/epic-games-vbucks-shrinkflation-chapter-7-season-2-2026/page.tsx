@@ -10,7 +10,7 @@ const AUTHOR_NAME = 'Conan Boyle';
 const AUTHOR_URL = 'https://www.objectwire.org/authors/conan-boyle';
 
 export const metadata: Metadata = {
-  title: "Epic Games Implements Fortnite 'Shrinkflation' — V-Bucks Purchasing Power Drops 20–25% | ObjectWire",
+  title: "Epic Games Implements V-Bucks 'Shrinkflation' Explained",
   description:
     "Epic Games has reduced the V-Bucks included in every paid bundle effective March 19, 2026, while keeping dollar prices unchanged. The $8.99 pack drops from 1,000 to 800 V-Bucks — a 20% cut — coinciding with the launch of Fortnite Chapter 7 Season 2.",
   keywords: [

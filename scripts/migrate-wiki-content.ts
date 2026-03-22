@@ -78,6 +78,9 @@ function findNewsArticlePages(dir: string): string[] {
       const source = fs.readFileSync(full, 'utf-8');
       // Skip already-trimmed pages
       if (source.includes('WikiArticle')) continue;
+      if (source.includes('NewsArticleDB')) continue;
+      if (source.includes('JackArticleDB')) continue;
+      if (source.includes("from '@/components/ArticlePageDB'")) continue;
       // Skip interactive client components
       if (/^['"](use client)['"]/.test(source.trimStart())) continue;
       // Skip hub/listing pages that dynamically aggregate articles
@@ -855,7 +858,68 @@ async function processPage(filePath: string): Promise<'ok' | 'skip' | 'fail'> {
     }
   }
 
-  // ── PATH 3: DynamicNewsArticle component ──────────────────────────────────
+  // ── PATH 3: ArticlePage component → article_pages ─────────────────────────
+  const apMatch = source.match(/<ArticlePage[\s]/);
+  const isAlreadyArticlePageDB = source.includes("from '@/components/ArticlePageDB'") || source.includes('import ArticlePageDB');
+  if (apMatch && apMatch.index !== undefined && !isAlreadyArticlePageDB) {
+    const apStart = apMatch.index;
+    const apTagEnd = findOpenTagEnd(source, apStart + '<ArticlePage'.length);
+    if (apTagEnd !== -1) {
+      const propsStr = source.substring(apStart, apTagEnd + 1);
+      const childrenStart = apTagEnd + 1;
+      const childrenEnd = source.lastIndexOf('</ArticlePage>');
+      const bodyJsx = childrenEnd > childrenStart
+        ? source.substring(childrenStart, childrenEnd).trim()
+        : '';
+
+      const title = extractStrProp(propsStr, 'title')
+        || extractMetaTitle(source).replace(/\s*[|\u2014\u2013\-].*$/, '').trim();
+
+      if (!title) {
+        console.error(`  ❌  ${relPath} [article page] — could not extract title, skipping to avoid bad data`);
+        return 'fail';
+      }
+
+      const bodyHtml = jsxToHtml(convertSubComponents(bodyJsx));
+      const infoBox = extractExprProp(propsStr, 'infoBox') || null;
+      const tableOfContents = extractExprProp(propsStr, 'tableOfContents') || [];
+      const relatedLinks = extractExprProp(propsStr, 'relatedLinks') || [];
+      const backLink = extractExprProp(propsStr, 'backLink') || null;
+
+      if (isDryRun) {
+        console.log(`  ✓  ${relPath} [article page]`);
+        console.log(`     slug: ${slug} | title: "${title}"`);
+        console.log(`     category: ${extractStrProp(propsStr, 'category') || '—'} | infoBox items: ${infoBox?.items?.length ?? 0} | TOC: ${Array.isArray(tableOfContents) ? tableOfContents.length : 0} entries`);
+        console.log(`     HTML body length: ${bodyHtml.length} chars`);
+        return 'ok';
+      }
+
+      const { error } = await supabase
+        .from('article_pages')
+        .upsert({
+          slug,
+          title,
+          subtitle: extractStrProp(propsStr, 'subtitle') || null,
+          category: extractStrProp(propsStr, 'category') || extractCategory(source) || null,
+          last_updated: extractStrProp(propsStr, 'lastUpdated') || null,
+          url: extractStrProp(propsStr, 'url') || null,
+          info_box: infoBox,
+          table_of_contents: tableOfContents,
+          content_html: bodyHtml,
+          related_links: relatedLinks,
+          back_link: backLink,
+        }, { onConflict: 'slug' });
+
+      if (error) {
+        console.error(`  ❌  ${relPath} [article page] — ${error.message}`);
+        return 'fail';
+      }
+      console.log(`  ✓  ${relPath} [article page] → article_pages/${slug}`);
+      return 'ok';
+    }
+  }
+
+  // ── PATH 4: DynamicNewsArticle component ──────────────────────────────────
 
   const dynData = extractDynamicNewsArticleContent(source);
   if (dynData) {

@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ReactionBar from '@/components/ReactionBar';
 import DiscordComments from '@/components/discord-comments';
+import ArticleViewTracker from '@/components/ArticleViewTracker';
 
 // =============================================================================
 // TYPES
@@ -55,6 +56,10 @@ export interface ArticlePageProps {
     href: string;
     label: string;
   };
+  /** Article slug (unique DB key, e.g. "daddywellness") — drives likes, saves, view history, and comments. */
+  slug?: string;
+  /** Canonical URL path (e.g. "/influencer/daddywellness") — used for view-history records. */
+  url?: string;
 }
 
 // =============================================================================
@@ -349,9 +354,21 @@ export function ArticlePage({
   children,
   relatedLinks,
   backLink,
+  slug,
+  url,
 }: ArticlePageProps) {
   return (
     <main className="min-h-screen bg-white">
+      {/* Record view in reading history for logged-in users */}
+      {slug && url && (
+        <ArticleViewTracker
+          slug={slug}
+          title={title}
+          url={url}
+          category={category}
+        />
+      )}
+
       {/* Use PageHeader component */}
       <PageHeader 
         title={title}
@@ -383,12 +400,14 @@ export function ArticlePage({
 
             {/* Reaction Bar — Like/Comment/Share/Save */}
             <ReactionBar
+              slug={slug}
               title={title}
+              url={url}
               category={category}
             />
 
             {/* Discord Comments Section */}
-            <DiscordComments slug={title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} articleTitle={title} />
+            <DiscordComments slug={slug ?? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} articleTitle={title} />
           </article>
 
           {/* Sidebar Column */}

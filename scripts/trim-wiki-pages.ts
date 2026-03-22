@@ -63,6 +63,7 @@ function findNewsArticlePages(dir: string): string[] {
       if (source.includes('WikiArticle')) continue; // already trimmed
       if (source.includes('NewsArticleDB')) continue; // already using NewsArticleDB
       if (source.includes('JackArticleDB')) continue; // already using JackArticleDB
+      if (source.includes("from '@/components/ArticlePageDB'")) continue; // already using ArticlePageDB
       if (/^['"](use client)['"]/.test(source.trimStart())) continue;
       if (!source.includes('export const metadata')) continue;
       results.push(full);
@@ -127,16 +128,28 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
   // Keep generateArticleMetadata import when the metadata uses it
   const needsGenerate = metadata.includes('generateArticleMetadata');
 
-  // NewsArticle pages live in `articles` table → use NewsArticleDB
-  // Everything else (raw JSX, wiki grids) lives in `wiki_articles` → use WikiArticle
+  // Priority: JackArticle → ArticlePage → NewsArticle → WikiArticle (fallback)
+  const isJackArticle = source.includes("from '@/components/JackArticle'") ||
+    source.includes('from "@/components/JackArticle"');
+  const isArticlePageComp = source.includes("from '@/components/ArticlePage'") ||
+    source.includes('from "@/components/ArticlePage"');
   const isNewsArticle = source.includes("from '@/components/NewsArticle'") ||
     source.includes('from "@/components/NewsArticle"') ||
     source.includes("import NewsArticle");
-  const dbComponent = isNewsArticle ? 'NewsArticleDB' : 'WikiArticle';
-  const dbImport = isNewsArticle
+
+  const dbImport = isJackArticle
+    ? `import { JackArticleDB } from '@/components/JackArticleDB';`
+    : isArticlePageComp
+    ? `import { ArticlePageDB } from '@/components/ArticlePageDB';`
+    : isNewsArticle
     ? `import { NewsArticleDB } from '@/components/NewsArticleDB';`
     : `import { WikiArticle } from '@/components/WikiArticle';`;
-  const returnJsx = isNewsArticle
+
+  const returnJsx = isJackArticle
+    ? `return <JackArticleDB slug="${slug}" />;`
+    : isArticlePageComp
+    ? `return <ArticlePageDB slug="${slug}" />;`
+    : isNewsArticle
     ? `return <NewsArticleDB slug="${slug}" />;`
     : `return <WikiArticle slug="${slug}" />;`;
 

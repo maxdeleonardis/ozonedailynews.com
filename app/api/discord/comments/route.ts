@@ -77,11 +77,19 @@ export async function POST(req: NextRequest) {
   }
 
   const user = session.user as unknown as {
-    discordId: string;
-    discordUsername: string;
-    discordAvatar: string;
+    discordId?: string;
+    discordUsername?: string;
+    discordAvatar?: string;
     email?: string;
+    name?: string;
+    image?: string;
+    provider?: string;
   };
+
+  // Build commenter identity — Discord fields if available, else Google profile
+  const commenterId   = user.discordId ?? user.email ?? 'anonymous';
+  const commenterName = user.discordUsername ?? user.name ?? user.email?.split('@')[0] ?? 'Anonymous';
+  const commenterAvatar = user.discordAvatar ?? user.image ?? '';
 
   const supabase = await createClient();
 
@@ -90,9 +98,9 @@ export async function POST(req: NextRequest) {
     .from('discord_comments')
     .insert({
       slug,
-      discord_id: user.discordId,
-      discord_username: user.discordUsername,
-      discord_avatar: user.discordAvatar,
+      discord_id: commenterId,
+      discord_username: commenterName,
+      discord_avatar: commenterAvatar,
       body: text.trim(),
     })
     .select('id, slug, discord_id, discord_username, discord_avatar, body, created_at')
@@ -129,14 +137,14 @@ export async function POST(req: NextRequest) {
       const threadTitle = articleTitle || slug.split('/').pop()?.replace(/-/g, ' ') || slug;
 
       const webhookPayload: Record<string, unknown> = {
-        username: `${user.discordUsername} via ObjectWire`,
-        avatar_url: user.discordAvatar,
+        username: `${commenterName} via ObjectWire`,
+        avatar_url: commenterAvatar || undefined,
         embeds: [
           {
             color: 0x5865f2,
             author: {
-              name: user.discordUsername,
-              icon_url: user.discordAvatar,
+              name: commenterName,
+              icon_url: commenterAvatar || undefined,
             },
             description: text.trim(),
             fields: [

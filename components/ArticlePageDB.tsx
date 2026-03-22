@@ -43,6 +43,8 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
       tableOfContents={row.table_of_contents ?? undefined}
       relatedLinks={row.related_links ?? undefined}
       backLink={row.back_link ?? undefined}
+      slug={slug}
+      url={row.url ?? `/${slug}`}
     >
       <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
     </ArticlePage>

@@ -42,6 +42,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# migration backups (written by wiki:trim, never commit)
+*.bak
+
 # supabase
 .branches
 .temp

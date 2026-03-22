@@ -1,12 +1,12 @@
-name: SEO Registry Sync
+name: Content Pipeline & SEO Sync
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'app/**/page.tsx'        # triggers whenever a new or edited article is pushed
-      - 'lib/content-registry.ts' # or when the registry itself changes
+      - 'app/**/page.tsx'   # new or edited articles
+      - 'scripts/**'         # pipeline script changes
   schedule:
     # Every Monday at 6:00 AM UTC (safety net full-pass)
     - cron: '0 6 * * 1'
@@ -14,12 +14,20 @@ on:
 
 jobs:
   sync:
-    name: Sync Content Registry & Ping Search Engines
+    name: Content Pipeline & SEO Sync
     runs-on: ubuntu-latest
+    permissions:
+      contents: write      # needed for auto-commit step
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL:  ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,11 +38,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run registry sync (dry-run report)
-        run: npm run registry:sync
+      - name: Migrate articles to Supabase
+        run: npm run wiki:migrate
+
+      - name: Trim static pages to DB stubs
+        run: npm run wiki:trim
+
+      - name: Commit trimmed stubs back to repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: auto-trim article pages to DB stubs [skip ci]'
+          file_pattern: 'app/**/page.tsx'
 
       - name: Apply registry sync
-        run: npm run registry:write
+        run: npm run registry:sync && npm run registry:write
 
       - name: Ping Google & Bing sitemaps
         run: npx tsx scripts/ping-google.ts

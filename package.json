@@ -23,6 +23,7 @@
     "wiki:migrate-dry": "npx tsx scripts/migrate-wiki-content.ts --dry-run",
     "wiki:trim": "npx tsx scripts/trim-wiki-pages.ts",
     "wiki:trim-dry": "npx tsx scripts/trim-wiki-pages.ts --dry-run",
+    "pipeline:local": "npm run wiki:migrate && npm run wiki:trim && npm run registry:write && npx tsx scripts/ping-google.ts",
     "wiki:sync": "npx tsx scripts/sync-wiki-content.ts",
     "wiki:sync-dry": "npx tsx scripts/sync-wiki-content.ts --dry-run",
     "media:sync": "npx tsx scripts/sync-public-to-supabase.ts",

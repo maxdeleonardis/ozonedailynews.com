@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import ReactionBar from '@/components/ReactionBar';
 import DiscordComments from '@/components/discord-comments';
+import ArticleViewTracker from '@/components/ArticleViewTracker';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -145,6 +146,10 @@ export interface JackArticleProps {
 
   // --- Theme ---
   accentColor?: JackAccentColor;
+
+  // --- Engagement / Storage ---
+  /** Article slug (e.g. "my-article") — used to key likes, saves, view history, and comments. */
+  slug?: string;
 
   // --- SEO / Google News Schema ---
   /** Canonical URL for the article */
@@ -789,6 +794,7 @@ export default function JackArticle({
   footerTagline = 'Decoupling Global Markets from Legacy Constraints.',
   footerLinks = [{ href: '/finance', label: 'Research Archive' }],
   accentColor = 'gray',
+  slug,
   articleUrl,
   description,
   section,
@@ -803,8 +809,22 @@ export default function JackArticle({
   // Resolve the ISO date for <time> element
   const isoDate = publishDateISO || undefined;
 
+  // The engagement key: prefer explicit slug, fall back to the URL path
+  const engagementSlug = slug ?? articleUrl;
+
   return (
     <main className="min-h-screen bg-white">
+      {/* Record view in reading history for logged-in users */}
+      {engagementSlug && (
+        <ArticleViewTracker
+          slug={engagementSlug}
+          title={title}
+          url={articleUrl ?? engagementSlug}
+          image={heroImage?.src}
+          category={section ?? categoryLabel}
+        />
+      )}
+
       {/* Google News JSON-LD */}
       <JackSchema
         title={title}
@@ -981,7 +1001,7 @@ export default function JackArticle({
 
               {/* Reaction Bar — Like/Comment/Share/Save */}
               <ReactionBar
-                slug={articleUrl}
+                slug={engagementSlug}
                 title={title}
                 url={articleUrl}
                 image={heroImage?.src}
@@ -989,7 +1009,7 @@ export default function JackArticle({
               />
 
               {/* Discord Comments Section */}
-              {articleUrl && <DiscordComments slug={articleUrl} articleTitle={title} />}
+              {engagementSlug && <DiscordComments slug={engagementSlug} articleTitle={title} />}
             </article>
           </div>
 
@@ -1250,6 +1270,22 @@ export default function JackArticle({
                 </aside>
               )}
             </div>
+          </div>
+
+          {/* Reaction Bar — Like/Comment/Share/Save */}
+          <div className="max-w-6xl mx-auto px-6 pb-4">
+            <ReactionBar
+              slug={engagementSlug}
+              title={title}
+              url={articleUrl}
+              image={heroImage?.src}
+              category={section ?? categoryLabel}
+            />
+          </div>
+
+          {/* Discord Comments */}
+          <div className="max-w-6xl mx-auto px-6 pb-12">
+            {engagementSlug && <DiscordComments slug={engagementSlug} articleTitle={title} />}
           </div>
 
           {/* News Footer */}

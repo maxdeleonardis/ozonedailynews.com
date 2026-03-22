@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'app/**/page.tsx'   # new or edited articles
-      - 'scripts/**'         # pipeline script changes
   schedule:
     # Every Monday at 6:00 AM UTC (safety net full-pass)
     - cron: '0 6 * * 1'

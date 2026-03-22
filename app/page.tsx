@@ -314,9 +314,10 @@ export default async function HomePage() {
     // Supabase unavailable — static registry still shows
   }
 
-  // Content registry: exclude section/hub pages (< 3 path segments)
+  // Content registry: exclude section/hub pages (< 2 path segments)
+  // and dynamic route patterns like /profile/[username]
   const registryArticles = contentRegistry
-    .filter((e) => e.slug.split('/').filter(Boolean).length >= 2)
+    .filter((e) => e.slug.split('/').filter(Boolean).length >= 2 && !e.slug.includes('['))
     .map(fromRegistry);
 
   // Merge & deduplicate by href, sort newest-first

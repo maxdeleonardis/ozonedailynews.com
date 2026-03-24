@@ -14,6 +14,20 @@ export interface InfoBoxItem {
   value: string | React.ReactNode;
 }
 
+export interface InfoBoxSection {
+  heading: string;
+  /** Key/value pairs (rendered as <dl>) */
+  items?: InfoBoxItem[];
+  /** Bullet list items */
+  list?: string[];
+  /** Link list items */
+  links?: Array<{ href: string; label: string; external?: boolean }>;
+  /** Plain text (e.g. website URL) */
+  text?: string;
+  /** External href for plain-text links */
+  href?: string;
+}
+
 export interface InfoBoxProps {
   title?: string;
   image?: {
@@ -21,7 +35,10 @@ export interface InfoBoxProps {
     alt: string;
     caption?: string;
   };
-  items: InfoBoxItem[];
+  /** Flat key/value items (simple mode) */
+  items?: InfoBoxItem[];
+  /** Grouped sections (rich mode — replaces or supplements items) */
+  sections?: InfoBoxSection[];
 }
 
 export interface TableOfContentsItem {
@@ -66,36 +83,110 @@ export interface ArticlePageProps {
 // INFO BOX COMPONENT (News-style sidebar)
 // =============================================================================
 
-export function InfoBox({ title, image, items }: InfoBoxProps) {
+export function InfoBox({ title, image, items, sections }: InfoBoxProps) {
   return (
-    <aside className="bg-white border border-gray-200 rounded-none sticky top-4">
+    <aside className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden sticky top-4 text-sm">
       {title && (
-        <div className="bg-white px-4 py-3 border-b border-gray-200">
-          <h3 className="font-black text-sm uppercase tracking-wider text-center text-gray-900">{title}</h3>
+        <div className="bg-gray-100 p-3 border-b border-gray-200">
+          <h2 className="font-bold text-center text-gray-900">{title}</h2>
         </div>
       )}
-      
-      {image && (
-        <div className="p-4 border-b border-gray-200">
-          <img 
-            src={image.src} 
-            alt={image.alt} 
-            className="w-full h-auto"
+
+      {image && image.src && (
+        <div className="bg-white border-b border-gray-200 p-4 text-center">
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-auto mx-auto"
           />
           {image.caption && (
-            <p className="text-xs text-gray-600 text-center mt-2 italic">{image.caption}</p>
+            <p className="text-xs text-gray-500 mt-2 italic">{image.caption}</p>
           )}
         </div>
       )}
-      
-      <dl className="divide-y divide-gray-200">
-        {items.map((item, index) => (
-          <div key={index} className="px-4 py-3">
-            <dt className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">{item.label}</dt>
-            <dd className="text-sm text-gray-900 font-medium">{item.value}</dd>
+
+      <div className="p-4 space-y-4">
+        {/* Flat key/value items */}
+        {items && items.length > 0 && (
+          <dl className="space-y-2">
+            {items.map((item, index) => (
+              <div key={index}>
+                <dt className="text-gray-500 text-xs">{item.label}</dt>
+                <dd className="text-gray-900">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {/* Grouped sections */}
+        {sections && sections.map((section, i) => (
+          <div key={i}>
+            <h3 className="font-bold text-gray-900 border-b border-gray-200 pb-1 mb-2">
+              {section.heading}
+            </h3>
+
+            {/* Key/value pairs */}
+            {section.items && section.items.length > 0 && (
+              <dl className="space-y-2">
+                {section.items.map((item, j) => (
+                  <div key={j}>
+                    <dt className="text-gray-500 text-xs">{item.label}</dt>
+                    <dd className="text-gray-900">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
+            {/* Bullet list */}
+            {section.list && section.list.length > 0 && (
+              <ul className="space-y-1 text-xs">
+                {section.list.map((entry, j) => (
+                  <li key={j}>• {entry}</li>
+                ))}
+              </ul>
+            )}
+
+            {/* Link list */}
+            {section.links && section.links.length > 0 && (
+              <ul className="space-y-1">
+                {section.links.map((link, j) => (
+                  <li key={j}>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline text-xs"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-blue-600 hover:underline text-xs">
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Plain text / external link */}
+            {section.text && !section.href && (
+              <p className="text-xs text-gray-900">{section.text}</p>
+            )}
+            {section.text && section.href && (
+              <a
+                href={section.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline text-xs"
+              >
+                {section.text}
+              </a>
+            )}
           </div>
         ))}
-      </dl>
+      </div>
     </aside>
   );
 }
@@ -106,16 +197,16 @@ export function InfoBox({ title, image, items }: InfoBoxProps) {
 
 export function TableOfContents({ items }: { items: TableOfContentsItem[] }) {
   return (
-    <nav className="bg-gray-50 border-l-2 border-gray-300 p-6 mb-8">
-      <h2 className="font-black text-sm uppercase tracking-wider text-gray-900 mb-4">Contents</h2>
-      <ol className="space-y-2 text-sm">
+    <nav className="bg-gray-50 border border-gray-200 p-4 mb-8 rounded-lg">
+      <h2 className="font-bold text-gray-900 mb-3 border-b border-gray-300 pb-2">Contents</h2>
+      <ol className="space-y-1 text-sm">
         {items.map((item, index) => (
           <li key={item.id} className={item.level === 2 ? "ml-4" : ""}>
-            <a 
-              href={`#${item.id}`} 
-              className="text-gray-700 hover:text-black hover:underline font-medium"
+            <a
+              href={`#${item.id}`}
+              className="text-blue-600 hover:underline"
             >
-              {index + 1}. {item.label}
+              {index + 1} {item.label}
             </a>
           </li>
         ))}
@@ -128,24 +219,24 @@ export function TableOfContents({ items }: { items: TableOfContentsItem[] }) {
 // SECTION COMPONENT
 // =============================================================================
 
-export function Section({ 
-  id, 
-  title, 
+export function Section({
+  id,
+  title,
   children,
   level = 2
-}: { 
-  id: string; 
-  title: string; 
+}: {
+  id: string;
+  title: string;
   children: React.ReactNode;
   level?: 2 | 3;
 }) {
   const HeadingTag = level === 2 ? 'h2' : 'h3';
-  const headingClass = level === 2 
-    ? "text-3xl font-black text-gray-900 mb-6 pb-3 border-b border-gray-200"
-    : "text-2xl font-bold text-gray-900 mb-4";
+  const headingClass = level === 2
+    ? "text-2xl font-serif border-b border-gray-200 pb-2 mb-4"
+    : "text-lg font-semibold mb-3";
 
   return (
-    <section id={id} className="mb-12 scroll-mt-20">
+    <section id={id} className="mb-10 scroll-mt-20">
       <HeadingTag className={headingClass}>{title}</HeadingTag>
       <div className="prose prose-lg prose-gray max-w-none">
         {children}
@@ -160,24 +251,23 @@ export function Section({
 
 export function RelatedLinks({ links }: { links: RelatedLink[] }) {
   return (
-    <section className="mt-12 pt-8 border-t border-gray-200">
-      <h2 className="text-2xl font-black text-gray-900 mb-6">Related Coverage</h2>
-      <div className="grid md:grid-cols-2 gap-4">
+    <section className="mt-10 pt-6 border-t border-gray-200">
+      <h2 className="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">See Also</h2>
+      <ul className="space-y-1 text-sm">
         {links.map((link, index) => (
-          <Link 
-            key={index}
-            href={link.href}
-            className="block p-4 border border-gray-200 hover:border-black transition-colors group"
-          >
-            <h3 className="font-bold text-gray-900 group-hover:underline mb-1">
+          <li key={index}>
+            <Link
+              href={link.href}
+              className="text-blue-600 hover:underline"
+            >
               {link.label ?? link.text}
-            </h3>
+            </Link>
             {link.description && (
-              <p className="text-sm text-gray-600">{link.description}</p>
+              <span className="text-gray-500 ml-1">— {link.description}</span>
             )}
-          </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
@@ -279,15 +369,15 @@ export function PageHeader({
   breadcrumbs,
 }: PageHeaderProps) {
   return (
-    <header className="border-b border-gray-200 bg-white">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <header className="border-b border-gray-200 pb-6 mb-6">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav className="mb-4 text-sm text-gray-600">
+          <nav className="mb-3 text-sm text-gray-600">
             <ol className="flex items-center gap-2">
               {breadcrumbs.map((crumb, index) => (
                 <li key={index} className="flex items-center gap-2">
-                  <Link href={crumb.href} className="hover:text-black hover:underline font-medium">
+                  <Link href={crumb.href} className="hover:underline">
                     {crumb.label}
                   </Link>
                   {index < breadcrumbs.length - 1 && <span className="text-gray-400">›</span>}
@@ -296,44 +386,35 @@ export function PageHeader({
             </ol>
           </nav>
         )}
-        
+
         {/* Back Link (alternative to breadcrumbs) */}
         {backLink && !breadcrumbs && (
-          <Link 
-            href={backLink.href} 
-            className="text-sm text-gray-600 hover:text-black hover:underline mb-4 inline-block font-medium"
+          <Link
+            href={backLink.href}
+            className="text-sm text-blue-600 hover:underline mb-3 inline-block"
           >
             ← {backLink.label}
           </Link>
         )}
-        
+
         {/* Category Badge */}
         {category && (
-          <div className="mb-4">
-            <span className="inline-block bg-gray-100 text-gray-900 px-3 py-1 text-xs font-bold uppercase tracking-wider border border-gray-300">
-              {category}
-            </span>
-          </div>
+          <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{category}</p>
         )}
-        
+
         {/* Title */}
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4 tracking-tight">
+        <h1 className="text-4xl font-serif mb-2">
           {title}
         </h1>
-        
+
         {/* Subtitle */}
         {subtitle && (
-          <p className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed mb-4 max-w-4xl">
-            {subtitle}
-          </p>
+          <p className="text-gray-600 italic">{subtitle}</p>
         )}
-        
+
         {/* Last Updated */}
         {lastUpdated && (
-          <div className="flex items-center gap-2 text-sm text-gray-500 pt-4 border-t border-gray-200">
-            <span className="font-medium">Last updated:</span>
-            <span className="font-mono">{lastUpdated}</span>
-          </div>
+          <p className="text-xs text-gray-400 mt-2">Last updated: {lastUpdated}</p>
         )}
       </div>
     </header>
@@ -370,29 +451,24 @@ export function ArticlePage({
       )}
 
       {/* Use PageHeader component */}
-      <PageHeader 
+      <PageHeader
         title={title}
-        subtitle={subtitle}
+        subtitle={subtitle ?? 'From ObjectWire, the verification-first intelligence platform'}
         category={category}
         lastUpdated={lastUpdated}
         backLink={backLink}
       />
 
       {/* Article Content */}
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="container mx-auto px-4 max-w-6xl pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Content Column */}
-          <article className="md:col-span-8 order-2 md:order-1">
-            {/* Table of Contents */}
-            {tableOfContents && tableOfContents.length > 0 && (
-              <TableOfContents items={tableOfContents} />
-            )}
-            
+          <article className="lg:col-span-8">
             {/* Main Content */}
-            <div className="prose prose-lg prose-gray max-w-none">
+            <div>
               {children}
             </div>
-            
+
             {/* Related Links */}
             {relatedLinks && relatedLinks.length > 0 && (
               <RelatedLinks links={relatedLinks} />
@@ -411,7 +487,7 @@ export function ArticlePage({
           </article>
 
           {/* Sidebar Column */}
-          <aside className="md:col-span-4 order-1 md:order-2">
+          <aside className="lg:col-span-4">
             {/* Info Box */}
             {infoBox && <InfoBox {...infoBox} />}
           </aside>
@@ -419,13 +495,12 @@ export function ArticlePage({
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 bg-gray-50 mt-16">
-        <div className="container mx-auto px-4 py-8 max-w-6xl">
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-            <span>Part of</span>
-            <Link href="/" className="font-bold text-black hover:underline">ObjectWire</Link>
-            <span>coverage</span>
-          </div>
+      <footer className="border-t border-gray-200 bg-gray-50 py-8">
+        <div className="container mx-auto px-4 max-w-6xl text-center text-sm text-gray-600">
+          <p>
+            This article is part of{' '}
+            <Link href="/" className="text-blue-600 hover:underline">ObjectWire</Link>'s coverage.
+          </p>
         </div>
       </footer>
     </main>

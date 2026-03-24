@@ -156,7 +156,7 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
   // Extract any const SLUG / FULL_URL / IMAGE_URL / ARTICLE_URL declarations
   // that the original file defined and the metadata still references by name.
   const constLines: string[] = [];
-  const constPattern = /^(?:export\s+)?const\s+(SLUG|FULL_URL|IMAGE_URL|ARTICLE_URL|PAGE_URL|CANONICAL|ARTICLE_CANONICAL)\s*=\s*.+$/gm;
+  const constPattern = /^(?:export\s+)?const\s+(SLUG|URL_PATH|FULL_URL|IMAGE_URL|ARTICLE_URL|PAGE_URL|CANONICAL|ARTICLE_CANONICAL)\s*=\s*.+$/gm;
   let m: RegExpExecArray | null;
   while ((m = constPattern.exec(source)) !== null) {
     constLines.push(m[0]);

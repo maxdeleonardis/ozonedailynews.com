@@ -259,6 +259,31 @@ function extractExprProp(jsx: string, propName: string): any {
 function convertSubComponents(jsx: string): string {
   let h = jsx;
 
+  // ── ArticlePage sub-components ─────────────────────────────────────────────
+
+  // TableOfContents → strip (stored separately as db column; ArticlePageDB renders it)
+  h = h.replace(/<TableOfContents[\s\S]*?\/>/g, '');
+
+  // Section → <section id="..."><hN class="...">title</hN>...</section>
+  h = h.replace(/<Section\b([^>]*?)>/g, (_m, attrStr) => {
+    const id    = extractStrProp(attrStr, 'id');
+    const title = extractStrProp(attrStr, 'title');
+    const levelMatch = attrStr.match(/\blevel=\{(\d)\}/);
+    const level = levelMatch ? parseInt(levelMatch[1], 10) : 2;
+    const hClass = level === 2
+      ? 'text-2xl font-serif border-b border-gray-200 pb-2 mb-4'
+      : 'text-lg font-semibold mb-3';
+    return `<section id="${id}" class="mb-10 scroll-mt-20"><h${level} class="${hClass}">${title}</h${level}>`;
+  });
+  h = h.replace(/<\/Section>/g, '</section>');
+
+  // References → styled section wrapper
+  h = h.replace(/<References>/g,
+    '<section class="mt-8 pt-6 border-t border-gray-300">' +
+    '<h2 class="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">References</h2>' +
+    '<div class="text-sm text-gray-700">');
+  h = h.replace(/<\/References>/g, '</div></section>');
+
   // VideoEmbed → responsive iframe  (YouTube / Vimeo)
   h = h.replace(/<VideoEmbed([\s\S]*?)\/>/g, (_m, p) => {
     const videoId = extractStrProp(p, 'videoId');

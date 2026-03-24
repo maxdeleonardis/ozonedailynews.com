@@ -9,7 +9,7 @@ const SLUG = '/define/hetzner-cloud-vs-digitalocean';
 
 export const metadata: Metadata = {
   title:
-    'Hetzner Cloud vs DigitalOcean 2026: VPS Pricing, Performance & Which Is Better for Your Workload | ObjectWire',
+    'Hetzner vs DigitalOcean | VPS Pricing + Performance Comparison Guide',
   description:
     'Hetzner Cloud vs DigitalOcean compared in 2026: vCPU counts, RAM, bandwidth, storage pricing, performance benchmarks, and the best use cases — from Next.js deployments to blockchain nodes and high-throughput bots.',
   keywords: [

@@ -16,7 +16,7 @@
 
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { ArticlePage } from './ArticlePage';
+import { ArticlePage, TableOfContents } from './ArticlePage';
 
 interface ArticlePageDBProps {
   slug: string;
@@ -46,6 +46,9 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
       slug={slug}
       url={row.url ?? `/${slug}`}
     >
+      {row.table_of_contents && row.table_of_contents.length > 0 && (
+        <TableOfContents items={row.table_of_contents} />
+      )}
       <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
     </ArticlePage>
   );

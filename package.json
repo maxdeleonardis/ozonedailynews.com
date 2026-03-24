@@ -28,7 +28,13 @@
     "wiki:sync-dry": "npx tsx scripts/sync-wiki-content.ts --dry-run",
     "media:sync": "npx tsx scripts/sync-public-to-supabase.ts",
     "media:sync-dry": "npx tsx scripts/sync-public-to-supabase.ts --dry-run",
-    "media:overwrite": "npx tsx scripts/sync-public-to-supabase.ts --overwrite"
+    "media:overwrite": "npx tsx scripts/sync-public-to-supabase.ts --overwrite",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "app/**/**/page.tsx": [
+      "npx tsx --env-file=.env.local scripts/migrate-wiki-content.ts --file"
+    ]
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -71,6 +77,8 @@
     "@types/react-dom": "^19",
     "@types/xml2js": "^0.4.14",
     "dotenv": "^17.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "mime-types": "^3.0.2",
     "supabase": "^2.72.7",
     "tailwindcss": "^4",

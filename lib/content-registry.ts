@@ -5516,6 +5516,128 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-24 — 9 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Articlepage (1) ---
+  {
+    slug: "/articlepage/test",
+    title: "Red Bull GmbH - Global Energy Drink Company & Sports Empire | ObjectWire",
+    description: "Comprehensive profile of Red Bull GmbH, the Austrian energy drink giant. Explore the company history, products, sports empire including F1 teams and football cl",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Articlepage",
+    tags: ["Articlepage"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Finance (4) ---
+  {
+    slug: "/crypto/bernstein-circle-coinbase-stablecoin-kings-ai-era",
+    title: "Bernstein Crowns Circle and Coinbase as",
+    description: "Bernstein SocGen Group designates Circle (CRCL) and Coinbase (COIN) as the premier proxy plays for stablecoin growth in the AI era, citing a $190 price target f",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Bernstein Circle Coinbase Stablecoin Kings Ai Era"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/crypto/coinbase-new-york-ath-ray-nct-strk-2026",
+    title: "Coinbase Opens Four Crypto Tokens to New York Traders | ObjectWire",
+    description: "Coinbase has enabled trading of Aethir (ATH), Raydium (RAY), PolySwarm (NCT), and Starknet (STRK) for New York residents — a notable milestone under the state\\",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Coinbase New York Ath Ray Nct Strk 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/crypto/usdc",
+    title: "USD Coin (USDC) — Circle Internet Group | ObjectWire",
+    description: "Comprehensive profile of USD Coin (USDC), the regulated dollar stablecoin issued by Circle Internet Group. Covers history, reserve transparency, blockchain supp",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Usdc"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/crypto/warren-mrbeast-step-crypto-children",
+    title: "Warren Presses MrBeast on Crypto Plans for Children Through Step App | ObjectWire",
+    description: "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson — MrBeast — on Monday demanding details about Beast Industries",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Finance",
+    tags: ["Crypto", "Cryptocurrency", "Web3", "Warren Mrbeast Step Crypto Children"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Jackarticle (1) ---
+  {
+    slug: "/jackarticle/test",
+    title: "Pipeline Test — JackArticle Component | ObjectWire",
+    description: "End-to-end pipeline verification article using the JackArticle component. Confirms that wiki:migrate extracts content to the jack_articles table and wiki:trim r",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Jackarticle",
+    tags: ["Jackarticle"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- News (1) ---
+  {
+    slug: "/newsarticle/test",
+    title: "Pipeline Test — NewsArticle Component | ObjectWire",
+    description: "End-to-end pipeline verification article using the NewsArticle component. This page is used to confirm that wiki:migrate correctly extracts content to the artic",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "News",
+    tags: ["News", "Test"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Politics (2) ---
+  {
+    slug: "/trump/musk-pay-tsa-workers-shutdown",
+    title: "Trump Backs Musk",
+    description: "Elon Musk offered via X to personally cover TSA worker salaries during the partial DHS shutdown. Trump endorsed the offer, saying",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Musk Pay Tsa Workers Shutdown"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/trump/trump-totalenergies-928m-offshore-wind-exit",
+    title: "Trump Admin Pays TotalEnergies $928M to Exit Offshore Wind Projects",
+    description: "The Trump administration announced a deal to pay French energy giant TotalEnergies nearly $1 billion to abandon two offshore wind projects off the East Coast —",
+    publishDate: "2026-03-24",
+    modifiedDate: "2026-03-24",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Trump Totalenergies 928m Offshore Wind Exit"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

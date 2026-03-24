@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
+// Page renders dynamically — content fetched from Supabase at request time.
+// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
+
+const SLUG = '/crypto/coinbase-new-york-ath-ray-nct-strk-2026';
+const FULL_URL = `https://www.objectwire.org${SLUG}`;
+const IMAGE_URL = '/crypto/coinbase-new-york-ath-ray-nct-strk-2026.PNG';
 
 export const metadata: Metadata = {
   title: 'Coinbase Opens Four Crypto Tokens to New York Traders | ObjectWire',
@@ -46,5 +52,5 @@ export const metadata: Metadata = {
 };
 
 export default function CoinbaseNYPage() {
-  return <NewsArticleDB slug="coinbase-new-york-ath-ray-nct-strk-2026" />;
+  return <NewsArticleDB slug="crypto-coinbase-new-york-ath-ray-nct-strk-2026" />;
 }

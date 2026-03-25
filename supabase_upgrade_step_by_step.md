@@ -323,6 +323,62 @@ Any hit in a `page.tsx` file is a candidate for the SSR/ISR migration above. Pri
 
 ---
 
+### Step 2.5.2 — Add Semantic HTML Wrappers (`<article>` and `<section>`)
+
+**The problem:** Even with SSR delivering full HTML, Google News and search crawlers use semantic HTML tags to understand the structure of a page. If article content is floating inside generic `<div>` elements, Google has to guess what is the main content vs. navigation vs. sidebars. Missing semantic wrappers is a Google News quality signal failure.
+
+**The fix:**
+
+1. Wrap the entire article body in an `<article>` tag.
+2. Wrap each logical group of content (e.g., "Donation Stations", "The Free Furniture Market") in a `<section>` tag.
+
+This turns a flat stream of headings and paragraphs into a structured outline that Google can parse like a table of contents.
+
+**Example — Before (flat/unstructured):**
+```tsx
+<div className="article-body">
+  <h2>Donation Stations</h2>
+  <p>Austin has several drop-off points...</p>
+  <h2>The Free Furniture Market</h2>
+  <p>Every Saturday, locals gather...</p>
+</div>
+```
+
+**Example — After (semantic):**
+```tsx
+<article>
+  <section>
+    <h2>Donation Stations</h2>
+    <p>Austin has several drop-off points...</p>
+  </section>
+  <section>
+    <h2>The Free Furniture Market</h2>
+    <p>Every Saturday, locals gather...</p>
+  </section>
+</article>
+```
+
+**Where to apply this:**
+
+- `<BlogSeoAtx>` — Check whether this component already renders an `<article>` tag internally. Run:
+  ```bash
+  grep -n "<article" components/BlogSeoAtx.tsx
+  ```
+  - If the tag exists: the component is already compliant. Verify `<section>` tags wrap each named section inside it.
+  - If no `<article>` tag: wrap the component's root `<div>` in `<article>` and add `<section>` wrappers around each content block.
+- `JackArticle`, `NewsArticle`, `ArticlePage` — apply the same audit. These are the highest-traffic components and the most important for Google News.
+
+**Audit command — find components missing `<article>` tags:**
+```bash
+grep -rL "<article" components --include="*.tsx"
+```
+
+Any component in that list that renders article content is a semantic gap.
+
+**Note:** `<article>` and `<section>` are free, zero-JS changes. They do not affect visual output. This should be done immediately alongside or before the SSR migration in steps 2.5.1.
+
+---
+
 ## Phase 3: Architectural Upgrades (Eliminating Technical Debt)
 
 These changes fix the root causes rather than patching symptoms.

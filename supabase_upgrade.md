@@ -203,6 +203,38 @@ On-demand revalidation: Add a Supabase Database Webhook (Table Editor → Webhoo
 
 **Action:** Audit pages with `grep -rl "useEffect" app --include="page.tsx"` — each hit is a Google News indexing risk. Migrate to SSR or ISR starting with the highest-traffic sections.
 
+### Missing Semantic Wrappers (`<article>` / `<section>`)
+
+Even after fixing JS-heavy rendering, Google News uses semantic HTML tags to understand page structure. Content floating inside plain `<div>` elements forces Google to guess what the main article body is.
+
+**The fix:** Wrap the article body in `<article>`. Wrap each named section (e.g., "Donation Stations", "The Free Furniture Market") in `<section>`.
+
+```tsx
+// Before
+<div className="article-body">
+  <h2>Donation Stations</h2><p>...</p>
+  <h2>The Free Furniture Market</h2><p>...</p>
+</div>
+
+// After
+<article>
+  <section><h2>Donation Stations</h2><p>...</p></section>
+  <section><h2>The Free Furniture Market</h2><p>...</p></section>
+</article>
+```
+
+**Check `<BlogSeoAtx>` first** — if it already outputs an `<article>` tag internally, that component is compliant. Verify with:
+```bash
+grep -n "<article" components/BlogSeoAtx.tsx
+```
+
+**Audit all article components for missing `<article>` tags:**
+```bash
+grep -rL "<article" components --include="*.tsx"
+```
+
+Apply to `JackArticle`, `NewsArticle`, `ArticlePage`, and `BlogSeoAtx` — these are the highest-traffic components. This is a zero-JS, zero-visual-impact change and should be done immediately.
+
 ---
 
 ## Pending Optimizations

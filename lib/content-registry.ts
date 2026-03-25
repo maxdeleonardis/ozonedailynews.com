@@ -5638,6 +5638,182 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.6,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-25 — 13 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Amazon (1) ---
+  {
+    slug: "/amazon/news/amazon-acquires-fauna-robotics-sprout-humanoid",
+    title: "Amazon Acquires Fauna Robotics to Build",
+    description: "Amazon has confirmed its acquisition of New York-based startup Fauna Robotics, maker of",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Amazon",
+    tags: ["Amazon"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Automotive (1) ---
+  {
+    slug: "/cars/tesla-semi-truckers-mass-production-nevada-2026",
+    title: "Tesla Semi Wins Over Truckers Ahead of Mass Production Ramp | ObjectWire",
+    description: "Truckers who drove the Tesla Semi in pilot programs loved it \\u2014 and it costs $100,000 less than competing BEV trucks. Now mass production is finally ramping",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Automotive",
+    tags: ["Cars", "Automotive", "Tesla Semi Truckers Mass Production Nevada 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Blackrock (2) ---
+  {
+    slug: "/blackrock",
+    title: "BlackRock: World\\",
+    description: "Comprehensive profile of BlackRock Inc. — the world\\",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Blackrock",
+    tags: ["Blackrock"],
+    author: "ObjectWire Editorial",
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/blackrock/blackrock-fidelity-bought-400m-bitcoin-golds-worst-weekly-drop",
+    title: "BlackRock and Fidelity Bought $400M in Bitcoin Amid Gold\\",
+    description: "BlackRock and Fidelity purchased nearly $400 million in Bitcoin last week — even as they sold $250 million — generating a net bullish signal for crypto markets.",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Blackrock",
+    tags: ["Blackrock"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- California (1) ---
+  {
+    slug: "/california/california-highway-expansion-2026-state-transportation-improvement-program",
+    title: "California Approves Highway Expansion as Record Heat Wave Grips the West | ObjectWire",
+    description: "As California endured its hottest March days ever recorded, the California Transportation Commission voted on March 19\\u201320 to adopt the 2026 State Transport",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "California",
+    tags: ["California"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/new/crimson-desert-ai-art-steam-disclosure-controversy",
+    title: "Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions | ObjectWire",
+    description: "Days after its March 19 launch, players have flagged suspected AI-generated artwork inside Crimson Desert. The Steam page carries no disclosure \\u2014 reignitin",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "New", "Crimson Desert Ai Art Steam Disclosure Controversy"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Legal (1) ---
+  {
+    slug: "/copyright/news/aoc-mlb-polymarket-gambling-warning",
+    title: "AOC Calls MLB",
+    description: "Rep. Alexandria Ocasio-Cortez condemned Major League Baseball",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Legal",
+    tags: ["Copyright", "Legal", "News", "Aoc Mlb Polymarket Gambling Warning"],
+    author: "ObjectWire Editorial",
+    priority: 0.3,
+    changeFrequency: "monthly",
+  },
+
+  // --- Politics (3) ---
+  {
+    slug: "/trump/ice-arrest-sfo-airport-nationwide-deployment",
+    title: "ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins | ObjectWire",
+    description: "ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it unfolded —",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Ice Arrest Sfo Airport Nationwide Deployment"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/trump/trump-ice-agents-drop-masks-airports",
+    title: "Trump Tells ICE Agents to Drop Masks at Airports as Deployment Begins | ObjectWire",
+    description: "President Trump directed ICE agents to stop wearing face coverings during airport enforcement operations, saying agents should be identifiable to the public as",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "Trump Ice Agents Drop Masks Airports"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/trump/WLFI-stablecoin",
+    title: "Binance Launches 135M Token Airdrop for USD1 Holders — WLFI Campaign | ObjectWire",
+    description: "Binance on March 20, 2026 launched a four-week airdrop distributing 135 million World Liberty Financial (WLFI) tokens to users holding the USD1 stablecoin. 33.7",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "WLFI Stablecoin"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Technology (3) ---
+  {
+    slug: "/google/news/apple-gemini-siri-upgrade-march-2026",
+    title: "Apple\\u2019s Gemini-Powered Siri Upgrade May Still Ship in March | ObjectWire",
+    description: "Apple may yet deliver the first taste of its long-overdue Gemini-powered Siri overhaul before March ends, according to a 9to5Mac timeline analysis published Mar",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Technology",
+    tags: ["Google", "Big Tech", "News", "Apple Gemini Siri Upgrade March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/technology/tencent-openclaw-ai-agent-wechat",
+    title: "Tencent Embeds OpenClaw AI Agent into WeChat for Over a Billion Users | ObjectWire",
+    description: "Tencent has integrated its OpenClaw AI agent directly into WeChat, giving more than 1.3 billion users access to a conversational AI without any new download — m",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Technology",
+    tags: ["Technology", "Tencent Openclaw Ai Agent Wechat"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/technology/wordpress-ai-agents-write-publish-content-mcp-2026",
+    title: "WordPress.com Lets AI Agents Write and Publish Site Content | ObjectWire",
+    description: "Automattic added 19 new write operations to WordPress.com\\u2019s MCP server \\u2014 letting AI agents like Claude, ChatGPT, and Cursor draft posts, build pages,",
+    publishDate: "2026-03-25",
+    modifiedDate: "2026-03-25",
+    category: "Technology",
+    tags: ["Technology", "Wordpress Ai Agents Write Publish Content Mcp 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
-    authors: [AUTHOR_NAME],
+    authors: ['Connan Boyle'],
     publishedTime: '2026-03-02T10:00:00Z',
     modifiedTime: '2026-03-02T10:00:00Z',
     section: 'Technology',

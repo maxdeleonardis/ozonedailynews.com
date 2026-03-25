@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',
-    authors: [AUTHOR_NAME],
+    authors: ['Connan Boyle'],
     publishedTime: PUBLISH_ISO,
     modifiedTime: PUBLISH_ISO,
     section: 'Gaming',

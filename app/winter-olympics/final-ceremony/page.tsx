@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description:
       'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22 — performers, flag handoff to 2030, medal highlights, and how to watch live.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-22T10:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/final-ceremony',
     images: [

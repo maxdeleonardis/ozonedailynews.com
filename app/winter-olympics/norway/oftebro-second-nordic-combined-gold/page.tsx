@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Oftebro Wins Second Nordic Combined Gold at Milano Cortina 2026',
     description: 'Norway\'s Jens Luraas Oftebro cements his status as the Games\' dominant Nordic combined athlete with a second gold medal and a powerful 10km finish.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-18T11:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/norway/oftebro-second-nordic-combined-gold',
   },

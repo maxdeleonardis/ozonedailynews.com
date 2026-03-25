@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     description: "41-year-old Vonn skis on torn ACL nine days after crash, posts impressive training time",
     type: "article",
     url: "https://www.objectwire.org/winter-olympics/lindsey-vonn-training-downhill",
-    publishedTime: publishDate,
-    modifiedTime: modifiedDate,
-    authors: ["Conan Boyle"],
+    publishedTime: '2026-02-12T12:00:00Z',
+    modifiedTime: '2026-02-12T12:00:00Z',
+    authors: ['Connan Boyle'],
     images: [
       {
         url: "https://www.objectwire.org/lindsey-vonn-downhill-2026.jpg",

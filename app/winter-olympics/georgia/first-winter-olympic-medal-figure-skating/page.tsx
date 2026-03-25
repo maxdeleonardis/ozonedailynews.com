@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Georgia Wins Its First Ever Winter Olympic Medal in Pairs Figure Skating',
     description: 'Anastasia Metelkina and Luka Berulava win pairs figure skating silver — a historic first Winter Olympic medal for Georgia at Milano Cortina 2026.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-14T18:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/georgia/first-winter-olympic-medal-figure-skating',
   },

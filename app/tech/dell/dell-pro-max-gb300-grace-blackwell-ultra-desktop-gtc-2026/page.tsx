@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
-    authors: [AUTHOR_NAME],
+    authors: ['Connan Boyle'],
     publishedTime: '2026-03-17T16:00:00Z',
     modifiedTime: '2026-03-18T10:00:00Z',
     section: 'Technology',

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description:
       "Megan Keller scored in overtime, Hilary Knight tied it with 2 minutes left, and Team USA captured the women's ice hockey gold medal at Milano Cortina 2026.",
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-20T21:00:00Z',
     authors: ['ObjectWire Sports Desk'],
     url: 'https://www.objectwire.org/news/team-usa-womens-hockey-gold-2026',
     images: [

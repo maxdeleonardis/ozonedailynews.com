@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Italy Stuns World-Record USA Team in Speedskating Team Pursuit for Olympic Gold',
     description: 'Host nation Italy shocks the defending world-record-holding Americans in men\'s team pursuit speedskating — first Italian gold in the event since Turin 2006.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-10T19:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/italy/speedskating-team-pursuit-gold-2026',
   },

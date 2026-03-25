@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       'UBC and Charité researchers used lipid nanoparticles to deliver a CRISPR base editor through skin, correcting ichthyosis mutations with no off-target effects in human skin models.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-03-10T14:00:00Z',
     authors: ['ObjectWire Science Desk'],
     url: 'https://www.objectwire.org/news/ubc-crispr-topical-gene-therapy-skin',
     images: [

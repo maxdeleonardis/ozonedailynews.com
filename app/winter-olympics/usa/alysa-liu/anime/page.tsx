@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Figure skating gold medalist Alysa Liu listed her five favorite anime shows during the 2026 Winter Olympics and the internet went wild.",
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-13T16:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/usa/alysa-liu/anime',
   },

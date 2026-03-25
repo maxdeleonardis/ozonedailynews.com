@@ -131,6 +131,80 @@ npx tsx --env-file=.env.local scripts/sync-registry.ts --write  # write stubs
 
 ---
 
+## Google News — Fixing the JS-Heavy Problem
+
+**Priority:** High — Google News requires HTML delivered by the server. Client-side Supabase fetching (via `useEffect` or browser-side `fetch`) means Googlebot sees a blank page and cannot index articles.
+
+### The "View Source" Test
+
+Run this on any live article to check current rendering status:
+
+1. Go to an article on `objectwire.org`.
+2. Right-click → **View Page Source** (not Inspect — not DevTools).
+3. Press `Ctrl + F` → search for the article's headline.
+4. **Headline visible in source** → server-side rendering is working. ✅
+5. **No headline / only script tags** → page is JS-heavy. Google News will miss it. ❌
+
+### Root Cause
+
+When data is fetched client-side, the server sends an empty HTML shell. JavaScript runs in the browser and fills in the article content after load. Googlebot's fast crawl does not wait for this — it indexes the empty shell.
+
+### Fix A — SSR via `@supabase/ssr`
+
+Use Next.js **async Server Components** to fetch from Supabase on the server. The server sends fully-formed HTML containing the article headline and body.
+
+```bash
+npm install @supabase/ssr
+```
+
+Key pattern — make `page.tsx` async and fetch directly (no `useEffect`, no client component for the article body):
+
+```typescript
+// app/trump/some-article/page.tsx  ← async Server Component
+export default async function Page() {
+  const supabase = createClient(); // server-side client from lib/supabase/server.ts
+  const { data } = await supabase
+    .from('jack_articles')
+    .select('*')
+    .eq('slug', 'trump-some-article')
+    .single();
+  return <JackArticle article={data} />;
+}
+```
+
+**Google sees:** Full HTML headline + body on first request.
+
+### Fix B — ISR (Incremental Static Regeneration)
+
+For published articles, ISR is the fastest possible format for Google News. Pre-renders articles as static HTML. Supabase triggers a revalidation via webhook when an article is updated.
+
+```typescript
+// In page.tsx
+export const revalidate = 3600; // rebuild at most every hour
+```
+
+On-demand revalidation: Add a Supabase Database Webhook (Table Editor → Webhooks) pointing to `https://objectwire.org/api/revalidate` to update specific article pages immediately on save.
+
+### Rendering Strategy by Page Type
+
+| Page Type | Strategy | Why |
+|---|---|---|
+| Breaking news | SSR (async Server Component) | Always fresh, full HTML for Googlebot |
+| Published articles | ISR (`revalidate = 3600`) | Cached static HTML — fastest for Google News |
+| Index / category pages | ISR (`revalidate = 1800`) | Semi-fresh, low server cost |
+| ArticlePage / wiki | SSG (build-time) | Rarely changes, maximum speed |
+| Admin / account | Client-side only | Not indexed — SSR not needed |
+
+### Tech Stack Recommendation
+
+| Framework | Rendering | Why it's great for News |
+|---|---|---|
+| **Next.js (current)** | SSR + ISR | Industry standard; dedicated `@supabase/ssr` library. Already in use — just needs the async Server Component pattern applied. |
+
+**Action:** Audit pages with `grep -rl "useEffect" app --include="page.tsx"` — each hit is a Google News indexing risk. Migrate to SSR or ISR starting with the highest-traffic sections.
+
+---
+
 ## Pending Optimizations
 
 ### Problem: 3-System Gap

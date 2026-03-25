@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Elana Meyers Taylor Makes History at 41: Oldest Olympic Bobsled Gold Medalist Ever',
     description: 'American legend wins women\'s monobob gold at Milano Cortina 2026, becoming the most decorated female bobsledder in Olympic history.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-17T15:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/usa/elana-meyers-taylor-bobsled-gold',
   },

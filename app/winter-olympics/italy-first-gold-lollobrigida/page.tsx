@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     description: "Francesca Lollobrigida thrills home crowd with Olympic record in 3,000m speed skating on her 35th birthday",
     type: "article",
     url: "https://www.objectwire.org/winter-olympics/italy-first-gold-lollobrigida",
-    publishedTime: publishDate,
-    modifiedTime: modifiedDate,
-    authors: ["Conan Boyle"],
+    publishedTime: '2026-02-08T17:00:00Z',
+    modifiedTime: '2026-02-08T17:00:00Z',
+    authors: ['Connan Boyle'],
     images: [
       {
         url: "https://www.objectwire.org/lollobrigida-gold-2026.jpg",

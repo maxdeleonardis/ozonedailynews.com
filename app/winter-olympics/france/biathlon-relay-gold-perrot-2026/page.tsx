@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'France Storms Back from a Minute Down to Win Biathlon Relay Gold at Milano Cortina 2026',
     description: 'Emilien Perrot anchors a dramatic French comeback from nearly a minute behind Norway to claim men\'s relay gold — a historic moment for French Winter Olympics history.',
     type: 'article',
-    publishedTime: publishDate,
+    publishedTime: '2026-02-18T14:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
     url: 'https://www.objectwire.org/winter-olympics/france/biathlon-relay-gold-perrot-2026',
   },

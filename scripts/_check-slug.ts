@@ -6,14 +6,23 @@ const sb = createClient(
 );
 
 async function main() {
-  const articles = await sb.from('articles').select('slug').ilike('slug', '%coinbase%');
-  console.log('articles table (coinbase):', articles.data);
+  const { data, error } = await sb
+    .from('articles')
+    .select('slug, status, title')
+    .ilike('slug', '%tsa%');
 
-  const jack = await sb.from('jack_articles').select('slug').ilike('slug', '%bernstein%');
-  console.log('jack_articles table (bernstein):', jack.data);
+  console.log('TSA article:', JSON.stringify(data, null, 2));
+  if (error) console.error('Error:', error);
 
-  const jackAll = await sb.from('jack_articles').select('slug').order('slug');
-  console.log('ALL jack_articles slugs:', jackAll.data?.map(r => r.slug));
+  // Also check what slug the blog route would receive
+  // /blog/trump-musk-pay-tsa-workers-shutdown → slug param = "trump-musk-pay-tsa-workers-shutdown"
+  const { data: byExact } = await sb
+    .from('articles')
+    .select('slug, status')
+    .eq('slug', 'trump-musk-pay-tsa-workers-shutdown')
+    .eq('status', 'published')
+    .single();
+  console.log('Exact match (blog query):', byExact);
 }
 
 main();

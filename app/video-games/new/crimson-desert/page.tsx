@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
+// Page renders dynamically â€” content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +11,7 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Crimson Desert Hits 3 Million Wishlists Before March 19 Launch | ObjectWire',
   description:
-    'Pearl Abyss\'s open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026 release — rivaling Elden Ring and Starfield pre-launch numbers.',
+    'Pearl Abyss\'s open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026 release â€” rivaling Elden Ring and Starfield pre-launch numbers.',
   keywords: [
     'Crimson Desert wishlists',
     'Crimson Desert release date',
@@ -28,21 +28,21 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: CANONICAL },
   openGraph: {
-    title: 'Crimson Desert Hits 3M Wishlists — Pearl Abyss RPG Rivals Elden Ring Pre-Launch Hype',
+    title: 'Crimson Desert Hits 3M Wishlists â€” Pearl Abyss RPG Rivals Elden Ring Pre-Launch Hype',
     description:
       '3 million wishlists across PC, PS5, Xbox, and Mac. A map twice Skyrim\'s size. Pearl Abyss pivots from MMO to single-player action RPG ahead of March 19 launch.',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
-    publishedTime: PUBLISH_ISO,
-    modifiedTime: PUBLISH_ISO,
+    publishedTime: '2026-03-01T00:00:00Z',
+    modifiedTime: '2026-03-01T00:00:00Z',
     section: 'Gaming',
     tags: ['Crimson Desert', 'Pearl Abyss', 'RPG', 'Open World', 'PS5', 'Xbox', 'Steam'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crimson Desert — 3M Wishlists Before March 19 Launch',
+    title: 'Crimson Desert â€” 3M Wishlists Before March 19 Launch',
     description:
       'Pearl Abyss\'s single-player pivot rivals Elden Ring and Starfield in pre-launch wishlists. Open world twice Skyrim\'s size. Launches March 19.',
   },

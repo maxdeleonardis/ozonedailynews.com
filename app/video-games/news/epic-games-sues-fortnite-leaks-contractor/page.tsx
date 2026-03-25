@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
+// Page renders dynamically â€” content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     url: CANONICAL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
-    publishedTime: PUBLISH_ISO,
-    modifiedTime: PUBLISH_ISO,
+    publishedTime: '2026-03-01T00:00:00Z',
+    modifiedTime: '2026-03-01T00:00:00Z',
     section: 'Gaming',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Epic Games Sues Fortnite Leaks Contractor — "For Clout"',
+    title: 'Epic Games Sues Fortnite Leaks Contractor â€” "For Clout"',
     description:
       'Hayden Cohen allegedly ran the AdiraInfo leaks account while working as an Epic contractor, disclosing 12+ unreleased collaborations.',
   },

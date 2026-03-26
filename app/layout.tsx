@@ -10,6 +10,10 @@ import SearchBar from "@/components/SearchBar";
 import MobileNav from "@/components/MobileNav";
 import NewsletterDropdown from "@/components/NewsletterDropdown";
 import { SITE_CONFIG } from "@/lib/site-config";
+import Script from "next/script";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-9FM4W3K6GV';
 
 // =============================================================================
 // FONT OPTIMIZATION - Prevents layout shift (CLS)
@@ -248,6 +252,27 @@ export default function RootLayout({
         </footer>
         
         </AuthProvider>
+        {/* GA4 — Script tags in server component for guaranteed detection */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}', {
+                send_page_view: false,
+                cookie_flags: 'SameSite=Lax;Secure'
+              });
+            `,
+          }}
+        />
+        <GoogleAnalytics />
       </body>
     </html>
   );

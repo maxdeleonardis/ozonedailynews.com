@@ -5938,6 +5938,144 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.7,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-26 — 10 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Business (3) ---
+  {
+    slug: "/elon-musk/boring-company",
+    title: "The Boring Company — Underground Transit, Vegas Loop & Tunnel Technology | ObjectWire",
+    description: "The Boring Company is an American tunnel construction company founded by Elon Musk in 2016. Its flagship Vegas Loop network transports passengers beneath Las Ve",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Business",
+    tags: ["Elon Musk", "Tesla", "xAI", "Boring Company"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/elon-musk/boring-company/news/boring-company-free-tunnels-new-orleans-baltimore-dallas-2026",
+    title: "Boring Company to Build Free Tunnels in New Orleans, Baltimore, and Dallas | ObjectWire",
+    description: "The Boring Company has selected New Orleans, Baltimore, and Dallas to receive fully funded one-mile underground transit loops through its expanded Tunnel Vision",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Business",
+    tags: ["Elon Musk", "Tesla", "xAI", "Boring Company", "News", "Boring Company Free Tunnels New Orleans Baltimore Dallas 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/elon-musk/xai",
+    title: "xAI — Elon Musk\\",
+    description: "xAI is an American artificial intelligence company founded by Elon Musk in July 2023. The company develops the Grok family of large language models and operates",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Business",
+    tags: ["Elon Musk", "Tesla", "xAI"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Cloudflare (1) ---
+  {
+    slug: "/cloudflare/news/dynamic-workers-open-beta-ai-code-execution-2026",
+    title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution | ObjectWire",
+    description: "Cloudflare has opened Dynamic Workers to all paid Workers users, offering V8 isolate-based execution that starts 100× faster and uses up to 100× less memory tha",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Cloudflare",
+    tags: ["Cloudflare"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Gaming (1) ---
+  {
+    slug: "/video-games/mha/ultra-rumble/season-16",
+    title: "My Hero Ultra Rumble Season 16: Star and Stripe & 2.5 Anniversary | ObjectWire",
+    description: "My Hero Ultra Rumble Season 16 launched March 25, 2026, introducing Star and Stripe as the first American hero, celebrating the 2.5-year anniversary with free w",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Gaming",
+    tags: ["Video Games", "Gaming", "Mha", "Ultra Rumble", "Season 16"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Legal (2) ---
+  {
+    slug: "/copyright/meta/news/new-mexico-jury-meta-375m-consumer-protection-verdict-2026",
+    title: "New Mexico Jury Orders Meta to Pay $375M for Deceiving Teens | ObjectWire",
+    description: "A New Mexico jury found Meta violated state consumer protection law by making false and misleading statements about the safety of its platforms for teenagers —",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Legal",
+    tags: ["Copyright", "Legal", "Meta", "News", "New Mexico Jury Meta 375m Consumer Protection Verdict 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.3,
+    changeFrequency: "monthly",
+  },
+  {
+    slug: "/copyright/news/baltimore-xai-grok-sexual-deepfakes-lawsuit-2026",
+    title: "Baltimore Files First Municipal Lawsuit Against xAI Over Grok Deepfakes | ObjectWire",
+    description: "Baltimore has become the first major U.S. city to sue xAI Corp. and X Corp., alleging Grok",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Legal",
+    tags: ["Copyright", "Legal", "News", "Baltimore Xai Grok Sexual Deepfakes Lawsuit 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.3,
+    changeFrequency: "monthly",
+  },
+
+  // --- News (1) ---
+  {
+    slug: "/news/vast-freshwater-reservoir-found-beneath-great-salt-lake-2026",
+    title: "Vast Freshwater Reservoir Found Beneath Great Salt Lake | ObjectWire",
+    description: "University of Utah geophysicists have discovered a massive freshwater reservoir hidden 3–4 kilometers beneath the Great Salt Lake, potentially reshaping drought",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "News",
+    tags: ["News", "Vast Freshwater Reservoir Found Beneath Great Salt Lake 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Social Media (1) ---
+  {
+    slug: "/social/meta/news/meta-ray-ban-display-glasses-eu-blocked-battery-regulation-2026",
+    title: "Meta",
+    description: "The EU Battery Regulation, unresolved AI Act compliance, and supply shortages blocking expansion into UK, France, Italy and Canada are keeping Meta",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Social Media",
+    tags: ["Social Media", "Meta", "News", "Meta Ray Ban Display Glasses Eu Blocked Battery Regulation 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Technology (1) ---
+  {
+    slug: "/tech/cloudflare-dynamic-workers-open-beta-ai-code-execution-2026",
+    title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution | ObjectWire",
+    description: "Cloudflare has opened its Dynamic Workers feature to all paid Workers users, offering a lightweight alternative to containers for executing AI-generated code —",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Technology",
+    tags: ["Technology", "Cloudflare Dynamic Workers Open Beta Ai Code Execution 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

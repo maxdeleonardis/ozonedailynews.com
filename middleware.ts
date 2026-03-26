@@ -31,9 +31,7 @@ const PARAMS_TO_STRIP = [
   'msclkid',
   'dclid',
   'zanpid',
-  // Analytics
-  '_ga',
-  '_gl',
+  // Analytics (do NOT strip _ga/_gl — those are GA4 cross-domain linker params)
   'mc_cid',
   'mc_eid',
   // Social

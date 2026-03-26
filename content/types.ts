@@ -142,6 +142,17 @@ export interface Article {
   image_credit?: string;
   thumbnail_url?: string;
 
+  // New columns (articles table v2 schema)
+  content_html?: string;      // Full serialised HTML body rendered by NewsArticleDB
+  publish_date?: string;      // Display date string e.g. "March 19, 2026"
+  hero_image_src?: string;    // Replaces image_url for NewsArticle hero
+  hero_image_alt?: string;
+  hero_image_caption?: string;
+  hero_image_credit?: string;
+  thumbnail_src?: string;     // Replaces thumbnail_url for NewsArticle
+  thumbnail_alt?: string;
+  url?: string;               // Canonical path e.g. "/california/my-article"
+
   // Flags
   featured?: boolean;
   trending?: boolean;

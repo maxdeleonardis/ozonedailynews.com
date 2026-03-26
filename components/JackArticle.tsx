@@ -909,13 +909,25 @@ export default function JackArticle({
                 {/* Author byline */}
                 {author && (
                   <div className="flex items-center gap-3 mb-6">
-                    {author.avatar ? (
-                      <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full" />
-                    ) : author.initials ? (
-                      <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
-                        <span className="text-white font-bold text-sm">{author.initials}</span>
-                      </div>
-                    ) : null}
+                    {author.slug ? (
+                      <Link href={`/authors/${author.slug}`} className="shrink-0">
+                        {author.avatar ? (
+                          <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full" />
+                        ) : author.initials ? (
+                          <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
+                            <span className="text-white font-bold text-sm">{author.initials}</span>
+                          </div>
+                        ) : null}
+                      </Link>
+                    ) : (
+                      author.avatar ? (
+                        <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full shrink-0" />
+                      ) : author.initials ? (
+                        <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center shrink-0`}>
+                          <span className="text-white font-bold text-sm">{author.initials}</span>
+                        </div>
+                      ) : null
+                    )}
                     <div>
                       <p className="font-semibold text-gray-900 text-sm" itemProp="author">
                         {author.slug ? (
@@ -1105,14 +1117,28 @@ export default function JackArticle({
               <div className="flex flex-wrap items-center gap-4 text-sm border-t border-gray-200 pt-6">
                 {author && (
                   <div className="flex items-center gap-3">
-                    {author.avatar ? (
-                      <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full" />
+                    {author.slug ? (
+                      <Link href={`/authors/${author.slug}`} className="shrink-0">
+                        {author.avatar ? (
+                          <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full" />
+                        ) : (
+                          <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
+                            <span className="text-white font-bold">
+                              {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
+                            </span>
+                          </div>
+                        )}
+                      </Link>
                     ) : (
-                      <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
-                        <span className="text-white font-bold">
-                          {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
-                        </span>
-                      </div>
+                      author.avatar ? (
+                        <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full shrink-0" />
+                      ) : (
+                        <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center shrink-0`}>
+                          <span className="text-white font-bold">
+                            {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
+                          </span>
+                        </div>
+                      )
                     )}
                     <div>
                       <p className="font-semibold" itemProp="author">

@@ -224,6 +224,97 @@ grep -rL "<article" components --include="*.tsx"
 
 ---
 
+---
+
+## March 26, 2026 — California Layoffs Article: Full SSR Pipeline Implemented
+
+**Article:** `/california/california-tech-layoffs-2026-ai-restructuring-26000-job-cuts`  
+**Status:** ✅ Live in Supabase — `articles` table — `status: published`
+
+### What Was Done
+
+This article proved out the complete SSR content pipeline end-to-end for a `NewsArticleDB` article:
+
+#### 1. `content/types.ts` — Extended Article interface
+Added the new `articles` table columns that were already in Supabase but missing from the TypeScript type:
+```typescript
+content_html?: string;      // Full HTML body — rendered by NewsArticleDB
+publish_date?: string;      // Display string e.g. "March 19, 2026"
+hero_image_src?: string;    // Replaces image_url for NewsArticle hero
+hero_image_alt?: string;
+thumbnail_src?: string;
+url?: string;               // Canonical path e.g. "/california/my-article"
+```
+
+#### 2. `scripts/publish-content.ts` — Extended `toRow()` mapping
+The `toRow()` function now maps all new columns into the Supabase upsert, including `content_html`, `publish_date`, `hero_image_src`, `url`, etc. Previously these were silently dropped.
+
+#### 3. `content/articles/california-tech-layoffs-2026.ts` — Content file
+Written with full `content_html`: stat table, 3-reason breakdown with colored border sections, blockquote (Workday CEO), 4-stat grid, outlook section, sources. This is the raw journalism that Supabase stores and Next.js delivers to Googlebot.
+
+Key fields:
+```
+slug:         california-california-tech-layoffs-2026-ai-restructuring-26000-job-cuts
+status:       published
+author_name:  Conan Boyle
+author_slug:  conan-boyle
+publish_date: March 19, 2026
+topic_tag:    technology
+trending:     true
+```
+
+#### 4. `npx tsx scripts/publish-content.ts --file california-tech-layoffs-2026`
+Upserted the row into the `articles` table. Dry-run confirmed first, then live push. Exit 0.
+
+#### 5. `lib/content-registry.ts` — Updated entry
+```typescript
+author: "Conan Boyle",
+authorSlug: "conan-boyle",
+trending: true,
+imageUrl: "/default/california-tech.jpg",
+priority: 0.7,
+```
+`SEOWrapper` now emits JSON-LD for this article and the sitemaps include it.
+
+### The SSR Flow — How It Actually Works
+
+```
+Reader/Googlebot → objectwire.org/california/california-tech-layoffs-2026-...
+  │
+  ▼
+app/california/.../page.tsx   (Next.js Server Component)
+  export const dynamic = 'force-dynamic'
+  return <NewsArticleDB slug="california-california-tech-layoffs-2026-..." />
+  │
+  ▼
+components/NewsArticleDB.tsx   (async Server Component — runs on Railway server)
+  const supabase = await createClient()
+  const { data: row } = await supabase
+    .from('articles')
+    .select('*')
+    .eq('slug', 'california-california-tech-layoffs-...')
+    .single()
+  → row now contains: title, subtitle, content_html, author_name, publish_date, tags, etc.
+  │
+  ▼
+components/NewsArticle.tsx   (renders row as full HTML)
+  <article itemScope itemType="https://schema.org/NewsArticle">
+    <h1>{row.title}</h1>
+    <div dangerouslySetInnerHTML={{ __html: row.content_html }} />
+  </article>
+  │
+  ▼
+Next.js serialises the React tree → pure HTML string
+  │
+  ▼
+Response: 200 OK — full HTML document with headline + body in first byte
+Googlebot reads: "California Tech Sector Announces 26,283 Job Cuts..."  ✅
+```
+
+**No JavaScript required. No client-side fetch. API keys never exposed. Article indexed immediately.**
+
+---
+
 ## Pending Optimizations
 
 ### Problem: 3-System Gap

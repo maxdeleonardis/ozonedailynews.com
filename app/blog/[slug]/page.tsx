@@ -1,7 +1,9 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ArticleRenderer } from '@/components/article-renderer';
+import { NewsArticle } from '@/components/NewsArticle';
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, { bg: string; text: string }> = {
@@ -24,8 +26,18 @@ function CategoryBadge({ category }: { category: string }) {
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const supabase = await createClient();
-  
-  // Query ONLY published articles - this is the gatekeeper
+  const fullSlug = `/blog/${slug}`;
+
+  // STEP A: Fetch routing + metadata from content_registry
+  const { data: registryEntry } = await supabase
+    .from('content_registry')
+    .select('component_type, title, description, image_url')
+    .eq('slug', fullSlug)
+    .maybeSingle();
+
+  const componentType = registryEntry?.component_type ?? 'standard_article';
+
+  // STEP B: Fetch article content — gated to published only
   const { data: article, error } = await supabase
     .from('articles')
     .select('*')
@@ -33,7 +45,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     .eq('status', 'published')
     .single();
 
-  // If article doesn't exist or isn't published, return 404
   if (error || !article) {
     notFound();
   }
@@ -93,9 +104,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
         </header>
 
-        {/* Article Content */}
+        {/* Article Content — component_type dispatch */}
         <div className="prose prose-lg max-w-none">
-          <ArticleRenderer blocks={article.content || []} />
+          {componentType === 'news_article' ? (
+            <div dangerouslySetInnerHTML={{ __html: article.content_html ?? '' }} />
+          ) : (
+            <ArticleRenderer blocks={article.content || []} />
+          )}
         </div>
 
         {/* Share & Navigation */}
@@ -117,33 +132,56 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   );
 }
 
-// Generate metadata for SEO
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+// Generate SEO metadata — two-step: content_registry (rich) → articles (fallback)
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
   const { slug } = await params;
   const supabase = await createClient();
-  
-  const { data: article } = await supabase
-    .from('articles')
-    .select('title, excerpt')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
+  const fullSlug = `/blog/${slug}`;
 
-  if (!article) {
+  // Try content_registry first — has publishedTime, modifiedTime, canonical
+  const { data: entry } = await supabase
+    .from('content_registry')
+    .select('title, description, publish_date, modified_date, image_url, image_alt')
+    .eq('slug', fullSlug)
+    .maybeSingle();
+
+  // Fall back to articles table if not in registry
+  const { data: article } = !entry
+    ? await supabase
+        .from('articles')
+        .select('title, excerpt, published_at, updated_at')
+        .eq('slug', slug)
+        .eq('status', 'published')
+        .maybeSingle()
+    : { data: null };
+
+  const title       = entry?.title       ?? article?.title;
+  const description = entry?.description ?? article?.excerpt;
+  const publishedAt = entry?.publish_date ?? article?.published_at;
+  const modifiedAt  = entry?.modified_date ?? article?.updated_at;
+  const imageUrl    = entry?.image_url ?? null;
+
+  if (!title) {
     return {
       title: 'Article Not Found | ObjectWire',
-    alternates: {
-      canonical: 'https://www.objectwire.org/blog/[slug]',
-    },
+      alternates: { canonical: 'https://www.objectwire.org/blog' },
     };
   }
 
   return {
-    title: `${article.title} | ObjectWire`,
-    description: article.excerpt || article.title,
+    title: `${title} | ObjectWire`,
+    description: description ?? undefined,
+    alternates: { canonical: `https://www.objectwire.org${fullSlug}` },
     openGraph: {
-      title: article.title,
-      description: article.excerpt || article.title,
+      type: 'article',
+      title,
+      description: description ?? undefined,
+      url: `https://www.objectwire.org${fullSlug}`,
+      publishedTime: publishedAt ?? undefined,
+      modifiedTime:  modifiedAt  ?? undefined,
+      ...(imageUrl ? { images: [{ url: imageUrl, alt: entry?.image_alt ?? title }] } : {}),
     },
   };
 }

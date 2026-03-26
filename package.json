@@ -17,6 +17,8 @@
     "db:new": "npx supabase migration new",
     "articles:push": "npx tsx scripts/push-articles-to-supabase.ts",
     "articles:dry-run": "npx tsx scripts/push-articles-to-supabase.ts --dry-run",
+    "registry:migrate": "npx tsx scripts/migrate-registry.ts",
+    "registry:migrate-dry": "npx tsx scripts/migrate-registry.ts --dry-run",
     "content:publish": "npx tsx scripts/publish-content.ts",
     "content:dry-run": "npx tsx scripts/publish-content.ts --dry-run",
     "wiki:migrate": "npx tsx scripts/migrate-wiki-content.ts",

@@ -31,6 +31,7 @@ export interface ContentEntry {
   priority: number;         // Sitemap priority 0.0–1.0
   changeFrequency: ChangeFrequency;
   featured?: boolean;       // Show in homepage hero/featured slot
+  trending?: boolean;       // Mark as trending article
   imageUrl?: string;        // OG / article hero image (host on objectwire.org or Supabase — never hotlink)
   imageWidth?: number;      // Pixel width  — required for Google Top Stories carousel (min 1200)
   imageHeight?: number;     // Pixel height — required for Google Top Stories carousel (min 675, 16:9)
@@ -5289,7 +5290,6 @@ export const contentRegistry: ContentEntry[] = [
     imageHeight: 630,
     priority: 0.7,
     changeFrequency: "weekly",
-    featured: false,
     trending: true,
   },
 

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/JackArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+// Page renders via ISR — HTML cached at CDN edge, refreshed at most every hour.
+// Run 'npm run wiki:migrate' to update content in Supabase, then redeploy to bust cache.
+export const revalidate = 3600;
 
 const SLUG = '/trump/ice-arrest-sfo-airport-nationwide-deployment';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

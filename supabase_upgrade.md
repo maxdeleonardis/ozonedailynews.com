@@ -145,63 +145,50 @@ Run this on any live article to check current rendering status:
 4. **Headline visible in source** → server-side rendering is working. ✅
 5. **No headline / only script tags** → page is JS-heavy. Google News will miss it. ❌
 
-### Root Cause
+### Current SSR Architecture — ✅ Already Implemented
 
-When data is fetched client-side, the server sends an empty HTML shell. JavaScript runs in the browser and fills in the article content after load. Googlebot's fast crawl does not wait for this — it indexes the empty shell.
+SSR is already in place. The data pipeline is:
 
-### Fix A — SSR via `@supabase/ssr`
-
-Use Next.js **async Server Components** to fetch from Supabase on the server. The server sends fully-formed HTML containing the article headline and body.
-
-```bash
-npm install @supabase/ssr
+```
+page.tsx (Server Component, no 'use client')
+  export const dynamic = 'force-dynamic'
+  → <JackArticleDB slug="..."> or <NewsArticleDB slug="...">
+      → async server component: queries Supabase, passes data as props
+          → <JackArticle> / <NewsArticle> (client component, presentational only)
+              → <article itemScope itemType="https://schema.org/NewsArticle">
 ```
 
-Key pattern — make `page.tsx` async and fetch directly (no `useEffect`, no client component for the article body):
+Googlebot sees full HTML on the first request. The "View Source" test passes — the article headline and body are in the raw HTML source of every article page.
+
+### Current Gap — `force-dynamic` Has No Caching
+
+`export const dynamic = 'force-dynamic'` re-queries Supabase on every single request. For published articles that don't change, this is inefficient and adds latency for Googlebot.
+
+**The fix: switch published articles to ISR (`revalidate = 3600`).**
+
+ISR caches the rendered HTML at the CDN edge after the first request. Googlebot gets sub-millisecond cached HTML — the ideal format for Google News indexing.
 
 ```typescript
-// app/trump/some-article/page.tsx  ← async Server Component
-export default async function Page() {
-  const supabase = createClient(); // server-side client from lib/supabase/server.ts
-  const { data } = await supabase
-    .from('jack_articles')
-    .select('*')
-    .eq('slug', 'trump-some-article')
-    .single();
-  return <JackArticle article={data} />;
-}
+// Change in each published article's page.tsx:
+// Before:
+export const dynamic = 'force-dynamic';
+// After:
+export const revalidate = 3600;  // refresh cached HTML at most every hour
 ```
 
-**Google sees:** Full HTML headline + body on first request.
-
-### Fix B — ISR (Incremental Static Regeneration)
-
-For published articles, ISR is the fastest possible format for Google News. Pre-renders articles as static HTML. Supabase triggers a revalidation via webhook when an article is updated.
-
-```typescript
-// In page.tsx
-export const revalidate = 3600; // rebuild at most every hour
-```
-
-On-demand revalidation: Add a Supabase Database Webhook (Table Editor → Webhooks) pointing to `https://objectwire.org/api/revalidate` to update specific article pages immediately on save.
+**Status of March 24 batch articles:** All 6 are finalized and should be switched to `revalidate = 3600`. See Step 2.5.A in supabase_upgrade_step_by_step.md for the full implementation plan.
 
 ### Rendering Strategy by Page Type
 
 | Page Type | Strategy | Why |
 |---|---|---|
-| Breaking news | SSR (async Server Component) | Always fresh, full HTML for Googlebot |
-| Published articles | ISR (`revalidate = 3600`) | Cached static HTML — fastest for Google News |
-| Index / category pages | ISR (`revalidate = 1800`) | Semi-fresh, low server cost |
-| ArticlePage / wiki | SSG (build-time) | Rarely changes, maximum speed |
+| Breaking news (live) | `force-dynamic` | Always queries fresh Supabase data |
+| Published articles (finalized) | `revalidate = 3600` | CDN-cached HTML — fastest for Google News |
+| Index / category pages | `revalidate = 1800` | Semi-fresh, low server cost |
+| ArticlePage / wiki | `revalidate = 86400` | Rarely changes, maximum cache efficiency |
 | Admin / account | Client-side only | Not indexed — SSR not needed |
 
-### Tech Stack Recommendation
-
-| Framework | Rendering | Why it's great for News |
-|---|---|---|
-| **Next.js (current)** | SSR + ISR | Industry standard; dedicated `@supabase/ssr` library. Already in use — just needs the async Server Component pattern applied. |
-
-**Action:** Audit pages with `grep -rl "useEffect" app --include="page.tsx"` — each hit is a Google News indexing risk. Migrate to SSR or ISR starting with the highest-traffic sections.
+**Action:** Change `force-dynamic` to `revalidate = 3600` in all 6 March 24 article pages. Commit and push. Railway redeploys and CDN begins caching the HTML for Googlebot.
 
 ### Missing Semantic Wrappers (`<article>` / `<section>`)
 
@@ -223,17 +210,17 @@ Even after fixing JS-heavy rendering, Google News uses semantic HTML tags to und
 </article>
 ```
 
-**Check `<BlogSeoAtx>` first** — if it already outputs an `<article>` tag internally, that component is compliant. Verify with:
-```bash
-grep -n "<article" components/BlogSeoAtx.tsx
-```
+**Status: ✅ Done.** All three production components are already semantically compliant:
+- `JackArticle` — renders `<article itemScope itemType="https://schema.org/NewsArticle">`
+- `NewsArticle` — renders inner `<article>` block
+- `ArticlePage` — renders `<section id={id}>` per section, `<nav>` for table of contents
 
-**Audit all article components for missing `<article>` tags:**
+`BlogSeoAtx` is **not a real component** — it does not exist in the codebase. The three components above are the only article renderers.
+
+**Audit command for future regressions:**
 ```bash
 grep -rL "<article" components --include="*.tsx"
 ```
-
-Apply to `JackArticle`, `NewsArticle`, `ArticlePage`, and `BlogSeoAtx` — these are the highest-traffic components. This is a zero-JS, zero-visual-impact change and should be done immediately.
 
 ---
 

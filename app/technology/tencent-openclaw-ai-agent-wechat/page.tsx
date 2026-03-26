@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/technology/tencent-openclaw-ai-agent-wechat';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

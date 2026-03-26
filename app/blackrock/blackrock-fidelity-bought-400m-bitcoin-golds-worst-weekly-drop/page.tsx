@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/blackrock/blackrock-fidelity-bought-400m-bitcoin-golds-worst-weekly-drop';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;

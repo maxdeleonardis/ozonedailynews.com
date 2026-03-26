@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/amazon/news/amazon-acquires-fauna-robotics-sprout-humanoid';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;

@@ -5814,6 +5814,130 @@ export const contentRegistry: ContentEntry[] = [
     priority: 0.7,
     changeFrequency: "weekly",
   },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-26 — 9 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Cloudflare (1) ---
+  {
+    slug: "/cloudflare",
+    title: "Cloudflare, Inc. — Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire",
+    description: "Cloudflare is one of the world",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Cloudflare",
+    tags: ["Cloudflare"],
+    author: "ObjectWire Editorial",
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
+
+  // --- Legal (1) ---
+  {
+    slug: "/copyright/meta/meta-child-safety-verdicts-new-mexico-los-angeles-march-2026",
+    title: "Meta Hit with Double Blow in Historic Child Safety Verdicts | ObjectWire",
+    description: "Two separate juries in New Mexico and Los Angeles found Meta Platforms liable for harming children on the same day — a $375 million civil penalty in New Mexico",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Legal",
+    tags: ["Copyright", "Legal", "Meta", "Meta Child Safety Verdicts New Mexico Los Angeles March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.3,
+    changeFrequency: "monthly",
+  },
+
+  // --- News (1) ---
+  {
+    slug: "/news/china-bars-manus-cofounders-meta-acquisition-review-2026",
+    title: "China Bars Manus Co-Founders From Leaving Country Amid Meta Deal Review | ObjectWire",
+    description: "Chinese authorities have imposed travel restrictions on Manus AI co-founders Xiao Hong and Ji Yichao as regulators examine whether Meta",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "News",
+    tags: ["News", "China Bars Manus Cofounders Meta Acquisition Review 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+
+  // --- Politics (1) ---
+  {
+    slug: "/trump/news/trump-silicon-valley-dream-team-ai-advisory-council-pcast-march-2026",
+    title: "Trump Appoints Silicon Valley",
+    description: "President Trump has officially appointed 13 technology leaders — including Mark Zuckerberg, Jensen Huang, Larry Ellison, and Sergey Brin — to the President\\",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Politics",
+    tags: ["Donald Trump", "US Politics", "News", "Trump Silicon Valley Dream Team Ai Advisory Council Pcast March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Social Media (1) ---
+  {
+    slug: "/social/meta/news/meta-targeted-layoffs-reality-labs-social-teams-march-2026",
+    title: "Meta Begins",
+    description: "Meta Platforms launched a new wave of job cuts on March 25, 2026, targeting hundreds of employees across Reality Labs, social media teams, and recruiting — a st",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Social Media",
+    tags: ["Social Media", "Meta", "News", "Meta Targeted Layoffs Reality Labs Social Teams March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
+    changeFrequency: "weekly",
+  },
+
+  // --- Technology (4) ---
+  {
+    slug: "/google/news/turboquant-llm-kv-cache-compression",
+    title: "Google Research Drops",
+    description: "Google Research has released TurboQuant, a training-free compression suite that cuts LLM KV cache memory by 6x and delivers up to 8x faster attention computatio",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Technology",
+    tags: ["Google", "Big Tech", "News", "Turboquant Llm Kv Cache Compression"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/google/waymo/waymo-500000-rides-per-week-10-cities-2026",
+    title: "Waymo Nears 500,000 Rides Per Week Across 10 U.S. Cities | ObjectWire",
+    description: "Co-CEO Dmitri Dolgov says Waymo\\",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Technology",
+    tags: ["Google", "Big Tech", "Waymo", "Waymo 500000 Rides Per Week 10 Cities 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/technology/news/intel-amd-cpu-prices-surge-15-percent-shortage-2026",
+    title: "Intel and AMD CPU Prices Surge Up to 15% as Shortages Hit PC and Server Manufacturers | ObjectWire",
+    description: "Intel and AMD CPU prices have risen 10–15% in Q1 2026 as a deepening supply shortage extends delivery lead times from two weeks to as long as six months, affect",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Technology",
+    tags: ["Technology", "News", "Intel Amd Cpu Prices Surge 15 Percent Shortage 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    slug: "/technology/sanders-aoc-ai-data-center-moratorium-act-march-2026",
+    title: "Sanders and AOC Unveil",
+    description: "Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez introduced the AI Data Center Moratorium Act on March 25, 2026 — seeking an immediate federal",
+    publishDate: "2026-03-26",
+    modifiedDate: "2026-03-26",
+    category: "Technology",
+    tags: ["Technology", "Sanders Aoc Ai Data Center Moratorium Act March 2026"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
 ];
 
 // =============================================================================

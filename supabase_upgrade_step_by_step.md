@@ -210,73 +210,95 @@ The current architecture fetches article content from Supabase at **runtime on t
 
 ---
 
-### Fix Option A — Server-Side Rendering (SSR) with `@supabase/ssr`
+### Current SSR Architecture — ✅ Already Implemented
 
-This is the correct fix for dynamic pages (latest news, breaking articles).
+**SSR is already in place.** The codebase does NOT fetch Supabase data client-side. The rendering pipeline is:
 
-**How it works:** Instead of fetching Supabase data inside a `useEffect` or a client component, you fetch it in a Next.js **Server Component** or in `generateMetadata()`. The server queries Supabase, builds the full HTML, and sends it to the browser (and Googlebot) already populated.
+```
+page.tsx  (Next.js Server Component, no 'use client')
+  └─ export const dynamic = 'force-dynamic'
+  └─ export const metadata = { ... }  ← full OG/Twitter/canonical tags
+  └─ return <JackArticleDB slug="..." />
+               │
+               ▼
+       JackArticleDB.tsx  (async Server Component)
+         await supabase.from('jack_articles').select('*').eq('slug', slug)
+         → passes all DB data as props to ↓
+               │
+               ▼
+       JackArticle.tsx  ('use client' — presentational only)
+         <article itemScope itemType="https://schema.org/NewsArticle">
+           <section>...</section>
+         </article>
+```
 
-**Steps:**
+Same pattern for `NewsArticle` → `NewsArticleDB`, `ArticlePage` → (full file, no DB component needed).
 
-1. Install the SSR-compatible Supabase client:
-   ```bash
-   npm install @supabase/ssr
-   ```
+**The "View Source" test should already pass.** When Googlebot hits any article URL, the server:
+1. Queries Supabase (`jack_articles` or `articles` table)
+2. Renders full HTML including the article title, body, and JSON-LD schema
+3. Returns the complete HTML document
 
-2. Create a server-side Supabase client (reads cookies for auth if needed):
-   ```typescript
-   // lib/supabase/server.ts
-   import { createServerClient } from '@supabase/ssr';
-   import { cookies } from 'next/headers';
-
-   export function createClient() {
-     const cookieStore = cookies();
-     return createServerClient(
-       process.env.NEXT_PUBLIC_SUPABASE_URL!,
-       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-       { cookies: { getAll: () => cookieStore.getAll() } }
-     );
-   }
-   ```
-
-3. In your article `page.tsx`, make the component `async` and fetch directly:
-   ```typescript
-   // app/trump/ice-arrest-sfo-airport-nationwide-deployment/page.tsx
-   import { createClient } from '@/lib/supabase/server';
-
-   export default async function Page() {
-     const supabase = createClient();
-     const { data } = await supabase
-       .from('jack_articles')
-       .select('*')
-       .eq('slug', 'trump-ice-arrest-sfo-airport-nationwide-deployment')
-       .single();
-
-     return <JackArticle article={data} />;
-   }
-   ```
-
-**Result:** Googlebot receives full headline, body text, and structured data in the first HTML response.
+Googlebot receives the headline and body text in the first byte of the response.
 
 ---
 
-### Fix Option B — Incremental Static Regeneration (ISR)
+### Current Problem — `force-dynamic` is SSR but Not Cached
 
-This is the **fastest possible format for Google News** and the recommended approach for published articles.
+`export const dynamic = 'force-dynamic'` means every single request — including repeated Googlebot crawls — hits the Railway server and queries Supabase, even for articles that haven't changed in days. This is correct but inefficient.
 
-**How it works:** Next.js pre-renders the article as a static HTML file at build time (or on first request). Subsequent requests get the cached HTML — no Supabase round-trip, no JavaScript needed to see the content.
+**The upgrade: switch published articles from `force-dynamic` to ISR (`revalidate`).**
 
-When you save/update an article in Supabase, a webhook triggers a revalidation of that specific page.
+ISR (Incremental Static Regeneration) renders the page once, caches the resulting HTML at the CDN edge, and only re-fetches after the `revalidate` interval. For Google News this is ideal:
+- Googlebot gets pre-cached HTML from the CDN — sub-millisecond response
+- No Supabase round-trip on crawl
+- The cached HTML is the static file Google News prefers
 
-**Steps:**
+**One-line change per article page:**
+```typescript
+// Before
+export const dynamic = 'force-dynamic';
 
-1. Add `revalidate` to your page:
-   ```typescript
-   export const revalidate = 3600; // Re-generate at most once per hour
-   // OR use on-demand revalidation via a webhook
-   ```
+// After (published articles — rebuildable every hour)
+export const revalidate = 3600;
+```
 
-2. For on-demand revalidation (recommended), create a revalidation API route:
+For breaking news where content may update within minutes, keep `force-dynamic` until the story is final, then switch to `revalidate = 3600`.
+
+---
+
+### Step 2.5.A — Implement ISR on All Published Article Pages
+
+The 6 articles from the March 24 batch are all finalized and should be switched to ISR. Change the single export constant in each `page.tsx`:
+
+| File | Table | Change |
+|---|---|---|
+| `app/trump/ice-arrest-sfo-airport-nationwide-deployment/page.tsx` | jack_articles | `force-dynamic` → `revalidate = 3600` |
+| `app/trump/trump-ice-agents-drop-masks-airports/page.tsx` | articles | `force-dynamic` → `revalidate = 3600` |
+| `app/technology/tencent-openclaw-ai-agent-wechat/page.tsx` | jack_articles | `force-dynamic` → `revalidate = 3600` |
+| `app/blackrock/blackrock-fidelity-bought-400m-bitcoin-golds-worst-weekly-drop/page.tsx` | articles | `force-dynamic` → `revalidate = 3600` |
+| `app/copyright/news/aoc-mlb-polymarket-gambling-warning/page.tsx` | jack_articles | `force-dynamic` → `revalidate = 3600` |
+| `app/amazon/news/amazon-acquires-fauna-robotics-sprout-humanoid/page.tsx` | articles | `force-dynamic` → `revalidate = 3600` |
+
+```bash
+# After making the changes, commit:
+git add app/trump/ice-arrest-sfo-airport-nationwide-deployment/page.tsx \
+        app/trump/trump-ice-agents-drop-masks-airports/page.tsx \
+        app/technology/tencent-openclaw-ai-agent-wechat/page.tsx \
+        app/blackrock/blackrock-fidelity-bought-400m-bitcoin-golds-worst-weekly-drop/page.tsx \
+        app/copyright/news/aoc-mlb-polymarket-gambling-warning/page.tsx \
+        app/amazon/news/amazon-acquires-fauna-robotics-sprout-humanoid/page.tsx
+git commit -m "perf: switch March 24 articles from force-dynamic to ISR (revalidate=3600)"
+git push origin main
+```
+
+---
+
+### Step 2.5.B — (Future) On-Demand Revalidation via Supabase Webhook
+
+For the ability to instantly refresh a cached article when you update it in Supabase:
+
+1. Create the revalidation API route:
    ```typescript
    // app/api/revalidate/route.ts
    import { revalidatePath } from 'next/cache';
@@ -292,10 +314,10 @@ When you save/update an article in Supabase, a webhook triggers a revalidation o
      return NextResponse.json({ revalidated: true });
    }
    ```
+2. Add `REVALIDATION_SECRET` to Railway environment variables.
+3. In Supabase, add a Database Webhook on `articles` and `jack_articles` update events, pointing to `https://objectwire.org/api/revalidate?secret=YOUR_SECRET`.
 
-3. In Supabase, add a **Database Webhook** (Table Editor → Webhooks) that POSTs to `https://objectwire.org/api/revalidate?secret=YOUR_SECRET` whenever a row is updated in `articles` or `jack_articles`.
-
-**Result:** Articles are static HTML. Google News indexes them instantly. Zero Supabase latency at crawl time.
+This is a Phase 3 task — not needed for the current Google News goal since `revalidate = 3600` is sufficient.
 
 ---
 
@@ -360,22 +382,22 @@ This turns a flat stream of headings and paragraphs into a structured outline th
 
 **Where to apply this:**
 
-- `<BlogSeoAtx>` — Check whether this component already renders an `<article>` tag internally. Run:
-  ```bash
-  grep -n "<article" components/BlogSeoAtx.tsx
-  ```
-  - If the tag exists: the component is already compliant. Verify `<section>` tags wrap each named section inside it.
-  - If no `<article>` tag: wrap the component's root `<div>` in `<article>` and add `<section>` wrappers around each content block.
-- `JackArticle`, `NewsArticle`, `ArticlePage` — apply the same audit. These are the highest-traffic components and the most important for Google News.
+The three article components are `JackArticle`, `NewsArticle`, and `ArticlePage`. These are the only presentational article components in the codebase. (`BlogSeoAtx` is not a real component — it does not exist in the codebase and should be ignored in any reference.)
 
-**Audit command — find components missing `<article>` tags:**
+- `JackArticle` — already renders `<article itemScope itemType="https://schema.org/NewsArticle">` internally. ✅ Compliant.
+- `NewsArticle` — already renders an inner `<article>` block. ✅ Compliant.
+- `ArticlePage` — renders `<section id={id}>` for each section and uses a `<nav>` for the table of contents. ✅ Compliant.
+
+All three components are semantically correct. No changes required for the `<article>` / `<section>` fix. The audit commands below are for future components only.
+
+**Audit command — find any new components missing `<article>` tags:**
 ```bash
 grep -rL "<article" components --include="*.tsx"
 ```
 
-Any component in that list that renders article content is a semantic gap.
+Run this before adding any new article-type component to catch regressions.
 
-**Note:** `<article>` and `<section>` are free, zero-JS changes. They do not affect visual output. This should be done immediately alongside or before the SSR migration in steps 2.5.1.
+**Note:** `<article>` and `<section>` are already in place for all production components. This step is ✅ done.
 
 ---
 

@@ -6,6 +6,7 @@ import type { BlogPostFull } from '@/lib/blog-service';
 import { contentRegistry } from '@/lib/content-registry';
 import type { ContentEntry } from '@/lib/content-registry';
 import EngagementBar from '@/components/EngagementBar';
+import { getPopularLeadSlug } from '@/lib/popular-lead';
 
 export const metadata: Metadata = {
   title: 'ObjectWire | Independent Investigative Journalism & Tech News',
@@ -163,12 +164,21 @@ function SectionRule({ label, href }: { label: string; href?: string }) {
 }
 
 // Lead story — largest, left column
-function LeadCard({ article }: { article: Article }) {
+function LeadCard({ article, mostRead }: { article: Article; mostRead?: boolean }) {
   return (
     <div className="h-full">
+      {/* Most-read banner — shown when GA4 promotes this article */}
+      {mostRead && (
+        <div className="flex items-center gap-2 mb-3">
+          <span className="inline-flex items-center gap-1.5 text-[9px] font-black px-2.5 py-1 tracking-[.2em] uppercase bg-black text-white">
+            <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-1.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"/></svg>
+            Most Read This Week
+          </span>
+        </div>
+      )}
       <Link href={article.href} className="group block">
-        {article.imageUrl && (
-          <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-3">
+        {article.imageUrl ? (
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-3">
             <Image
               src={article.imageUrl}
               alt={article.imageAlt ?? article.title}
@@ -177,8 +187,15 @@ function LeadCard({ article }: { article: Article }) {
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 42vw"
             />
+            {mostRead && (
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+            )}
           </div>
-        )}
+        ) : mostRead ? (
+          <div className="w-full aspect-[16/9] bg-gray-100 mb-3 flex items-center justify-center">
+            <span className="text-gray-300 text-4xl font-black tracking-tighter">OW</span>
+          </div>
+        ) : null}
         <CatLabel category={article.category} breaking={article.breaking} />
         <h2 className="font-serif text-2xl md:text-3xl font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
           {article.title}
@@ -331,6 +348,23 @@ export default async function HomePage() {
   }
   merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
+  // GA4: promote most-read article to lead slot
+  let popularLeadSlug: string | null = null;
+  try { popularLeadSlug = await getPopularLeadSlug(); } catch { /* graceful fallback */ }
+
+  let isMostRead = false;
+  if (popularLeadSlug) {
+    const popularIdx = merged.findIndex((a) => a.href === popularLeadSlug);
+    if (popularIdx > 0) {
+      // Move it to front without mutating original sort
+      const [popular] = merged.splice(popularIdx, 1);
+      merged.unshift(popular);
+      isMostRead = true;
+    } else if (popularIdx === 0) {
+      isMostRead = true;
+    }
+  }
+
   const [lead, second, third, fourth, ...rest] = merged;
   const sidebarArticles  = rest.slice(0, 7);
   const gridArticles     = rest.slice(7, 23);   // 4-col × 4 rows
@@ -431,7 +465,7 @@ export default async function HomePage() {
 
             {/* Lead — 5 cols */}
             <div className="lg:col-span-5 lg:pr-6 pb-6 lg:pb-0 border-b-2 lg:border-b-0 lg:border-r-2 border-black">
-              <LeadCard article={lead} />
+              <LeadCard article={lead} mostRead={isMostRead} />
             </div>
 
             {/* Middle — 4 cols: two stacked stories */}

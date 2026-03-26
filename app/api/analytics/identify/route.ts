@@ -13,7 +13,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'G-289SD96B57';
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'G-9FM4W3K6GV';
 const API_SECRET = process.env.GA_MEASUREMENT_PROTOCOL_SECRET ?? '';
 
 const MP_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${API_SECRET}`;

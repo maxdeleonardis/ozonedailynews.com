@@ -157,18 +157,6 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 ---
 
-### `mha_article.tsx` — 203 lines
-
-**Use for:** Dark-gradient, high-design newsletter/analysis articles. Named after a specific content format. Includes built-in schema injection and breadcrumb rendering. Uses `NewsArticleSchema` internally.
-
----
-
-### `AlysaArticle.tsx` — 524 lines
-
-**Use for:** Articles authored by Alysa. Custom layout tied to her branding/byline style. Author-specific component; not reusable for other authors.
-
----
-
 ### `CreatorArticle.tsx`
 
 **Use for:** Creator / influencer-focused editorial content. Designed around profile + content format for creator profiles and associated coverage.

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { CreatorArticleDB } from '@/components/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
@@ -60,5 +60,5 @@ export const metadata: Metadata = {
 };
 
 export default function AlysaLiuPage() {
-  return <WikiArticle slug="winter-olympics-usa-alysa-liu" />;
+  return <CreatorArticleDB slug="winter-olympics/usa/alysa-liu" />;
 }

@@ -36,7 +36,8 @@ export async function GET() {
     const registryArticles = (registryRows || []).map(row => ({
       loc: `${baseUrl}${row.slug}`,
       title: row.title,
-      publicationDate: `${row.publish_date}T00:00:00-06:00`,
+      // publish_date is timestamptz — already a full ISO string from Supabase
+      publicationDate: new Date(row.publish_date).toISOString(),
       keywords: Array.isArray(row.tags) ? row.tags.join(', ') : (row.category || ''),
     }));
 

@@ -384,61 +384,6 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ══ MASTHEAD ══════════════════════════════════════════════════════════ */}
-      <header className="border-b-4 border-black">
-
-        {/* top info strip */}
-        <div className="border-b border-gray-300 bg-gray-50">
-          <div className="container mx-auto px-4 py-1 flex items-center justify-between">
-            <span className="text-[10px] font-mono text-gray-500">{editionDate}</span>
-            <div className="hidden md:flex items-center gap-5">
-              {BEATS.slice(0, 5).map((b) => (
-                <Link key={b.href} href={b.href} className="text-[10px] font-black tracking-[.15em] uppercase text-gray-500 hover:text-black transition-colors">
-                  {b.label}
-                </Link>
-              ))}
-            </div>
-            <span className="text-[10px] font-mono text-gray-500 hidden sm:block">Est. 2024 · Independent</span>
-          </div>
-        </div>
-
-        {/* nameplate */}
-        <div className="container mx-auto px-4 py-4 md:py-6 text-center">
-          <Link href="/" className="inline-block group">
-            <div className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-none font-serif">
-              OBJECTWIRE
-            </div>
-            <div className="flex items-center justify-center gap-6 mt-2">
-              <div className="h-px w-16 md:w-28 bg-black" />
-              <p className="text-[9px] tracking-[.35em] uppercase text-gray-500 font-mono whitespace-nowrap">
-                Independent · Verified · In-Depth
-              </p>
-              <div className="h-px w-16 md:w-28 bg-black" />
-            </div>
-          </Link>
-        </div>
-
-        {/* section nav bar */}
-        <div className="border-t-2 border-black">
-          <div className="container mx-auto px-4">
-            <nav className="flex items-center overflow-x-auto divide-x divide-black">
-              {BEATS.map((b) => (
-                <Link
-                  key={b.href}
-                  href={b.href}
-                  className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0"
-                >
-                  {b.label}
-                </Link>
-              ))}
-              <Link href="/site-index" className="ml-auto px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
-                Index
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
       {/* ══ BREAKING TICKER ═══════════════════════════════════════════════════ */}
       {breakingArticles.length > 0 && (
         <div className="bg-red-600 text-white">

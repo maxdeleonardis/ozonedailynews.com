@@ -1,14 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 import AuthProvider from "@/components/AuthProvider";
-import AuthButton from "@/components/AuthButton";
-import SearchBar from "@/components/SearchBar";
 import MobileNav from "@/components/MobileNav";
-import NewsletterDropdown from "@/components/NewsletterDropdown";
 import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -133,50 +129,78 @@ export default function RootLayout({
       </head>
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans" style={{ background: '#faf9f6' }}>
         <AuthProvider>
-            {/* Header */}
-            <header className="border-b bg-white sticky top-0 z-40">
-              <div className="container mx-auto px-4">
-                <nav className="flex items-center justify-between h-20">
-                  <Link href="/" className="flex items-center">
-                    <img 
-                      src="/objectwire-logo.png" 
-                      alt="OBJECTWIRE" 
-                      style={{ height: '60px', width: 'auto' }}
-                      className="hidden md:block"
-                    />
-                    <img 
-                      src="/objectwire-logo.png" 
-                      alt="OBJECTWIRE" 
-                      style={{ height: '44px', width: 'auto' }}
-                      className="md:hidden"
-                    />
-                  </Link>
-                  
-                  {/* Desktop Navigation */}
-                  <div className="hidden md:flex items-center gap-6">
-                    <Link href="/finance" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      Finance
-                    </Link>
-                    <Link href="/tech" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      Tech
-                    </Link>
-                    <Link href="/news" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      News
-                    </Link>
-                    <Link href="/editorial-standards" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      Standards
-                    </Link>
-                    <Link href="/about" className="text-sm text-gray-600 hover:text-black hover:underline transition-colors">
-                      About
-                    </Link>
-                    <NewsletterDropdown />
-                    <SearchBar />
-                    <AuthButton />
-                  </div>
+            {/* ── Newspaper Masthead ─────────────────────────────────────── */}
+            <header className="border-b-4 border-black bg-white sticky top-0 z-40">
 
-                  {/* Mobile Navigation */}
-                  <MobileNav />
-                </nav>
+              {/* Top info strip */}
+              <div className="border-b border-gray-300 bg-gray-50">
+                <div className="container mx-auto px-4 py-1 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-gray-500">
+                    {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                  <div className="hidden md:flex items-center gap-5">
+                    {[
+                      { label: 'News',         href: '/news' },
+                      { label: 'Video Games',  href: '/video-games' },
+                      { label: 'Entertainment',href: '/entertainment' },
+                      { label: 'Formula 1',    href: '/formula-1' },
+                      { label: 'Crypto',       href: '/crypto' },
+                    ].map((b) => (
+                      <Link key={b.href} href={b.href} className="text-[10px] font-black tracking-[.15em] uppercase text-gray-500 hover:text-black transition-colors">
+                        {b.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <span className="text-[10px] font-mono text-gray-500 hidden sm:block">Est. 2024 · Independent</span>
+                </div>
+              </div>
+
+              {/* Nameplate */}
+              <div className="container mx-auto px-4 py-4 md:py-6 text-center">
+                <Link href="/" className="inline-block group">
+                  <div className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-none font-serif">
+                    OBJECTWIRE
+                  </div>
+                  <div className="flex items-center justify-center gap-6 mt-2">
+                    <div className="h-px w-16 md:w-28 bg-black" />
+                    <p className="text-[9px] tracking-[.35em] uppercase text-gray-500 font-mono whitespace-nowrap">
+                      Independent · Verified · In-Depth
+                    </p>
+                    <div className="h-px w-16 md:w-28 bg-black" />
+                  </div>
+                </Link>
+              </div>
+
+              {/* Section nav bar */}
+              <div className="border-t-2 border-black">
+                <div className="container mx-auto px-4">
+                  <nav className="flex items-center overflow-x-auto divide-x divide-black">
+                    {[
+                      { label: 'News',           href: '/news' },
+                      { label: 'Video Games',    href: '/video-games' },
+                      { label: 'Entertainment',  href: '/entertainment' },
+                      { label: 'World Cup',      href: '/world-cup' },
+                      { label: 'Formula 1',      href: '/formula-1' },
+                      { label: 'Investigations', href: '/investigations' },
+                      { label: 'Crypto',         href: '/crypto' },
+                    ].map((b) => (
+                      <Link
+                        key={b.href}
+                        href={b.href}
+                        className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0"
+                      >
+                        {b.label}
+                      </Link>
+                    ))}
+                    <Link href="/site-index" className="ml-auto px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
+                      Index
+                    </Link>
+                    {/* Mobile hamburger */}
+                    <div className="md:hidden ml-auto shrink-0">
+                      <MobileNav />
+                    </div>
+                  </nav>
+                </div>
               </div>
             </header>
 

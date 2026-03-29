@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
-import { createBlogPost, generateSlug, calculateReadTime } from '@/lib/blog-service';
+import { createBlogPost, generateSlug, calculateReadTime } from '@/lib/blog-service-client';
 import { ArticleBlock } from '@/lib/article-types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

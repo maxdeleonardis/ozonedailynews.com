@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated, destroySession } from '@/lib/auth';
-import { getAllBlogPosts, deleteBlogPost, BlogPostFull } from '@/lib/blog-service';
+import type { BlogPostFull } from '@/lib/blog-service';
+import { createBrowserClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
@@ -28,8 +29,31 @@ export default function AdminDashboard() {
     setError(null);
     
     try {
-      const data = await getAllBlogPosts();
-      setPosts(data || []);
+      const supabase = createBrowserClient();
+      const { data, error: sbError } = await supabase
+        .from('articles')
+        .select('id, title, slug, content, published_at, created_at, category, status, author_name, excerpt, image_url, tags, featured, trending, breaking, exclusive')
+        .order('created_at', { ascending: false });
+      if (sbError) throw new Error(sbError.message);
+      const mapped: BlogPostFull[] = (data || []).map((row: any) => ({
+        id: row.id,
+        title: row.title,
+        slug: row.slug,
+        content: row.content,
+        publishedAt: row.published_at || row.created_at,
+        category: row.category,
+        status: row.status,
+        author: row.author_name,
+        author_name: row.author_name,
+        excerpt: row.excerpt,
+        image_url: row.image_url,
+        tags: row.tags,
+        featured: row.featured,
+        trending: row.trending,
+        breaking: row.breaking,
+        exclusive: row.exclusive,
+      }));
+      setPosts(mapped);
     } catch (err) {
       console.error('Error loading posts:', err);
       setError('Failed to load posts. Check Supabase configuration in .env file.');
@@ -47,7 +71,9 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      await deleteBlogPost(id);
+      const supabase = createBrowserClient();
+      const { error: sbError } = await supabase.from('articles').delete().eq('id', id);
+      if (sbError) throw new Error(sbError.message);
       setPosts(posts.filter(post => post.id !== id));
     } catch (err) {
       console.error('Error deleting post:', err);

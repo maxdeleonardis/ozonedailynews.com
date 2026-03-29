@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getAllBlogPosts } from '@/lib/blog-service';
+import { getAllBlogPosts, getCreatorArticles } from '@/lib/blog-service';
 import type { BlogPostFull } from '@/lib/blog-service';
 import { contentRegistry } from '@/lib/content-registry';
 import type { ContentEntry } from '@/lib/content-registry';
@@ -337,19 +337,63 @@ export default async function HomePage() {
     // Supabase unavailable — static registry still shows
   }
 
+  // Load creator articles (influencer bios, athlete profiles)
+  try {
+    const creators = await getCreatorArticles();
+    const creatorArticles = creators.map((p) => {
+      // Creator slugs are path-based (e.g. "influencer/eden-gross")
+      const href = p.slug.startsWith('/') ? p.slug : `/${p.slug}`;
+      return {
+        id: p.slug,
+        title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
+        excerpt: p.excerpt ?? undefined,
+        href,
+        publishDate: p.published_at ?? p.publishedAt ?? '',
+        category: p.category ?? 'Entertainment',
+        author: p.author_name ?? 'ObjectWire',
+        imageUrl: p.image_url ?? undefined,
+        imageAlt: p.image_alt ?? undefined,
+        breaking: false,
+        featured: false,
+        exclusive: false,
+      } as Article;
+    });
+    blogArticles.push(...creatorArticles);
+  } catch {
+    // Creator articles unavailable — no-op
+  }
+
   // Content registry: exclude section/hub pages (< 2 path segments)
   // and dynamic route patterns like /profile/[username]
   const registryArticles = contentRegistry
     .filter((e) => e.slug.split('/').filter(Boolean).length >= 2 && !e.slug.includes('['))
     .map(fromRegistry);
 
-  // Merge & deduplicate by href, sort newest-first
-  const seen = new Set<string>();
+  // Merge & deduplicate by href — when both sources have the same article,
+  // combine fields so we get the best of both (Supabase has status flags,
+  // registry has images and SEO descriptions).
+  const seen = new Map<string, number>(); // href → index in merged[]
   const merged: Article[] = [];
   for (const a of [...blogArticles, ...registryArticles]) {
-    if (!seen.has(a.href)) {
-      seen.add(a.href);
+    const idx = seen.get(a.href);
+    if (idx === undefined) {
+      seen.set(a.href, merged.length);
       merged.push(a);
+    } else {
+      // Merge: keep existing entry but backfill missing fields
+      const existing = merged[idx];
+      if (!existing.imageUrl && a.imageUrl) {
+        existing.imageUrl = a.imageUrl;
+        existing.imageAlt = a.imageAlt;
+      }
+      if (!existing.excerpt && a.excerpt) existing.excerpt = a.excerpt;
+      if (a.breaking) existing.breaking = true;
+      if (a.featured) existing.featured = true;
+      if (a.exclusive) existing.exclusive = true;
+      // Prefer newer publish date
+      if (a.publishDate && (!existing.publishDate || new Date(a.publishDate) > new Date(existing.publishDate))) {
+        existing.publishDate = a.publishDate;
+      }
     }
   }
   merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());

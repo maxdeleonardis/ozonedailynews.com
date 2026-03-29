@@ -133,7 +133,7 @@ export async function getAllBlogPosts(): Promise<BlogPostFull[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
       .from('articles')
-      .select('id, title, slug, content, published_at, created_at, category, status, author_name, excerpt, image_url, tags, featured, trending, breaking, exclusive')
+      .select('id, title, slug, content, published_at, created_at, category, status, author_name, excerpt, image_url, hero_image_src, hero_image_alt, tags, featured, trending, breaking, exclusive')
       .order('created_at', { ascending: false });
 
     if (error) { console.error('[blog-service] getAllBlogPosts:', error.message); return []; }
@@ -148,12 +148,46 @@ export async function getAllBlogPosts(): Promise<BlogPostFull[]> {
       author: row.author_name,
       author_name: row.author_name,
       excerpt: row.excerpt,
-      image_url: row.image_url,
+      image_url: row.image_url || row.hero_image_src || null,
+      image_alt: row.hero_image_alt ?? undefined,
       tags: row.tags,
       featured: row.featured,
       trending: row.trending,
       breaking: row.breaking,
       exclusive: row.exclusive,
+    } as any));
+  } catch { return []; }
+}
+
+/** Fetch published creator_articles (influencer bios, athlete profiles) for the homepage feed */
+export async function getCreatorArticles(): Promise<BlogPostFull[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('creator_articles')
+      .select('slug, hero_name, hero_subtitle, hero_description, hero_image_src, hero_image_alt, schema_published_time, schema_section, schema_author, schema_keywords, status')
+      .eq('status', 'published')
+      .order('schema_published_time', { ascending: false });
+
+    if (error) { console.error('[blog-service] getCreatorArticles:', error.message); return []; }
+    return (data || []).map(row => ({
+      id: row.slug,
+      title: row.hero_name,
+      slug: row.slug,
+      content: [],
+      publishedAt: row.schema_published_time,
+      published_at: row.schema_published_time,
+      category: row.schema_section ?? 'Entertainment',
+      status: 'published' as const,
+      author_name: row.schema_author,
+      excerpt: row.hero_description,
+      image_url: row.hero_image_src,
+      image_alt: row.hero_image_alt,
+      tags: row.schema_keywords ?? [],
+      featured: false,
+      trending: false,
+      breaking: false,
+      exclusive: false,
     } as any));
   } catch { return []; }
 }

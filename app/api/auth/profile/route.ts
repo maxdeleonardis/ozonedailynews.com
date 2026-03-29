@@ -12,14 +12,13 @@
 // =============================================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession }          from 'next-auth';
-import { authOptions }               from '@/lib/auth-options';
-import { createClient }              from '@/lib/supabase/server';
+import { createAuthClient }          from '@/lib/supabase/server';
 import { sha256hex }                 from '@/lib/hash';
 
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
@@ -35,8 +34,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
 
   // ── Check if profile already exists ────────────────────────────────────
   const { data: existing } = await supabase
@@ -50,8 +48,8 @@ export async function POST(req: NextRequest) {
   if (existing) {
     // ── Merge: accumulate provider IDs without overwriting existing ones ──
     const updates: Record<string, unknown> = {
-      display_name: body.displayName ?? session.user.name ?? 'User',
-      avatar_url:   body.avatarUrl   ?? session.user.image ?? null,
+      display_name: body.displayName ?? user.user_metadata?.full_name ?? 'User',
+      avatar_url:   body.avatarUrl   ?? user.user_metadata?.avatar_url ?? null,
       updated_at:   new Date().toISOString(),
     };
 
@@ -85,9 +83,9 @@ export async function POST(req: NextRequest) {
       .insert({
         user_hash:        userHash,
         primary_provider: provider,
-        display_name:     body.displayName ?? session.user.name ?? 'User',
-        email:            session.user.email,
-        avatar_url:       body.avatarUrl   ?? session.user.image ?? null,
+        display_name:     body.displayName ?? user.user_metadata?.full_name ?? 'User',
+        email:            user.email,
+        avatar_url:       body.avatarUrl   ?? user.user_metadata?.avatar_url ?? null,
         google_id:        body.googleId    ?? null,
         discord_id:       body.discordId   ?? null,
         discord_username: body.discordUsername ?? null,
@@ -106,13 +104,13 @@ export async function POST(req: NextRequest) {
 // GET — Fetch the current user's profile (for profile page / settings)
 // =============================================================================
 export async function GET() {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
 
   const { data, error } = await supabase
     .from('public_profiles')
@@ -131,8 +129,9 @@ export async function GET() {
 // PATCH — Update profile fields (username, bio, location, website)
 // =============================================================================
 export async function PATCH(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
@@ -147,8 +146,7 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
 
   // Build update object with only provided fields
   const updates: Record<string, unknown> = {

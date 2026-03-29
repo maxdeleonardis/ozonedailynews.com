@@ -1,93 +1,98 @@
 import type { Metadata } from 'next';
+import { NewsArticle } from '@/components/NewsArticle';
 import { NewsArticleSchema } from '@/components/NewsArticleSchema';
-import {
-  DynamicNewsArticle,
-  CaseOverview,
-  StatisticsBox,
-  ArticleQuote,
-} from '@/components/DynamicNewsArticle';
-import Link from 'next/link';
 
-/**
- * METADATA
- * Replace these values with the article information
- */
+// =============================================================================
+// NEWS ARTICLE TEMPLATE
+//
+// 1. Copy this file to the correct app/ route:
+//      cp templates/news-article-template.tsx app/[topic]/[your-slug]/page.tsx
+//
+// 2. Fill in all fields below.
+//
+// 3. Run the publish pipeline to sync to Supabase and trim to a stub:
+//      npm run wiki:publish -- --file app/[topic]/[your-slug]/page.tsx
+//
+// The file will be replaced with a 3-line stub pointing to <NewsArticleDB>.
+// All content lives in the `articles` Supabase table after that.
+// =============================================================================
+
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
-  title: 'Article Title | ObjectWire',
-  description: 'A 150-160 character description of the article for SEO.',
-  keywords: ['keyword1', 'keyword2', 'keyword3'],
+  title: 'Primary Keyword | ObjectWire',
+  description: '130-155 chars. Primary keyword in first 60 chars. No generic phrases.',
   alternates: {
-    canonical: 'https://www.objectwire.org/REPLACE-WITH-ACTUAL-SLUG',
+    canonical: 'https://www.objectwire.org/REPLACE-WITH-SLUG',
   },
   openGraph: {
-    title: 'Article Title',
-    description: 'Social media description.',
+    title: 'Primary Keyword | ObjectWire',
+    description: '130-155 char OG description.',
     type: 'article',
-    publishedTime: '2026-01-31T00:00:00Z',
+    publishedTime: '2026-03-28T14:00:00Z',
+    section: 'News',
+    images: [
+      {
+        url: 'https://REPLACE-WITH-IMAGE-URL',
+        width: 1200,
+        height: 675,
+        alt: 'Descriptive alt text',
+      },
+    ],
   },
 };
 
-/**
- * NEWS ARTICLE PAGE
- * Uses the standard DynamicNewsArticle component for consistent flashiness
- */
-export default function NewNewsArticlePage() {
+export default function YourArticlePage() {
   return (
     <>
       <NewsArticleSchema
-        title="Article Title"
-        description="A 150-160 character description of the article for SEO."
-        author="ObjectWire Team"
-        authorUrl="https://objectwire.org/team"
-        publishedTime="2026-01-31T00:00:00Z"
-        modifiedTime="2026-01-31T00:00:00Z"
-        articleUrl="https://objectwire.org/REPLACE-WITH-ACTUAL-SLUG"
-        section="Technology"
+        title="Primary Keyword | ObjectWire"
+        description="130-155 char description matching metadata above."
+        author="Jack Sterling"
+        authorUrl="https://www.objectwire.org/authors/jack-sterling"
+        publishedTime="2026-03-28T14:00:00Z"
+        modifiedTime="2026-03-28T14:00:00Z"
+        articleUrl="https://www.objectwire.org/REPLACE-WITH-SLUG"
+        imageUrl="https://REPLACE-WITH-IMAGE-URL"
+        section="News"
         keywords={['keyword1', 'keyword2', 'keyword3']}
       />
 
-      <DynamicNewsArticle
-        breadcrumbs={[
-          { href: '/', label: 'Home' },
-          { href: '/news', label: 'News' },
-        ]}
-        categories={[{ label: 'TECHNOLOGY', color: 'blue' }]}
-        readTime="5 min read"
-        title="Article Title"
-        subtitle="Optional punchy subtitle or deck for the story"
-        heroImage={{
-          src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b',
-          alt: 'Descriptive alt text',
-          caption: 'Caption for the hero image',
-          credit: 'Unsplash/Photographer',
-        }}
+      <NewsArticle
+        title="Full Headline Here, No Em Dashes"
+        subtitle="Optional deck sentence"
+        category="News"
+        publishDate="March 28, 2026"
+        readTime="4 min read"
         author={{
-          name: 'ObjectWire Team',
-          initials: 'OW',
+          name: 'Jack Sterling',
+          role: 'Staff Writer',
+          authorSlug: 'jack-sterling',
         }}
-        publishDate="January 31, 2026"
+        heroImage={{
+          src: '/images/your-hero-image.jpg',
+          alt: 'Descriptive alt text, min 1200px wide',
+        }}
+        tags={['ProperNoun1', 'ProperNoun2', 'ProperNoun3', 'ProperNoun4']}
+        slug="topic-your-slug"
+        url="https://www.objectwire.org/topic/your-slug"
       >
-        {/* Introduction */}
-        <p className="text-xl font-semibold leading-relaxed mb-6">
-          The opening paragraph should be bold and summarize the main "hook" of the story.
-        </p>
-
-        <h2 className="text-3xl font-bold mt-12 mb-6">Section One Heading</h2>
+        {/* ── Intro ── */}
         <p>
-          Standard narrative text goes here. You can use **bold** or *italics* as needed. Use
-          regular HTML/JSX tags like &lt;p&gt;, &lt;ul&gt;, etc.
+          Opening paragraph. One sentence answer to what happened, who it affects, and why it matters.
         </p>
 
-        <ArticleQuote
-          quote="This is a pull quote that highlights a key statement from a source or the text itself."
-          author="Source Name"
-        />
+        <h2>First Section Heading | Keyword Rich</h2>
+        <p>Body copy. Every H2 should be niche and specific, never generic.</p>
 
-        <p>More content follows the quote.</p>
+        {/* Add 4-6 internal links scattered through the body */}
 
-        <h2 className="text-3xl font-bold mt-12 mb-6">Section Two Heading</h2>
-        <p>Continue the story here.</p>
-      </DynamicNewsArticle>
+        <h2>Second Section Heading</h2>
+        <p>Continue the story.</p>
+
+        <h2>Third Section Heading</h2>
+        <p>Continue the story.</p>
+      </NewsArticle>
     </>
   );
 }

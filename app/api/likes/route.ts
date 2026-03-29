@@ -11,9 +11,7 @@
 // =============================================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession }          from 'next-auth';
-import { authOptions }               from '@/lib/auth-options';
-import { createClient }              from '@/lib/supabase/server';
+import { createAuthClient }          from '@/lib/supabase/server';
 import { sha256hex }                 from '@/lib/hash';
 
 // ── GET /api/likes?slug=xxx ───────────────────────────────────────────────────
@@ -21,7 +19,7 @@ export async function GET(req: NextRequest) {
   const slug = req.nextUrl.searchParams.get('slug');
   if (!slug) return NextResponse.json({ error: 'slug required' }, { status: 400 });
 
-  const supabase = await createClient();
+  const supabase = await createAuthClient();
 
   // Public like count
   const { count, error: countErr } = await supabase
@@ -32,10 +30,10 @@ export async function GET(req: NextRequest) {
   if (countErr) return NextResponse.json({ error: 'DB error' }, { status: 500 });
 
   // User-specific like status (optional — only if logged in)
-  const session = await getServerSession(authOptions);
+  const { data: { user } } = await supabase.auth.getUser();
   let liked = false;
-  if (session?.user?.email) {
-    const userHash = await sha256hex(session.user.email);
+  if (user?.email) {
+    const userHash = await sha256hex(user.email);
     const { data } = await supabase
       .from('article_likes')
       .select('id')
@@ -50,8 +48,9 @@ export async function GET(req: NextRequest) {
 
 // ── POST /api/likes ───────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
@@ -64,8 +63,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'slug, title, url are required' }, { status: 400 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
 
   // Check current state
   const { data: existing } = await supabase

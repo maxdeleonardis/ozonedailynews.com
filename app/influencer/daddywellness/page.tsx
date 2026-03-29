@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { ArticlePageDB } from '@/components/ArticlePageDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+// Page renders dynamically, content fetched from Supabase at request time.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/daddywellness';
+const OG_IMAGE = '/influncer/daddy_wellness.jpg';
 
 export const metadata: Metadata = {
-  title: 'Richie Lovelace (Daddy Wellness) | Wellness Influencer, Dialed University | ObjectWire',
+  title: 'Daddy Wellness (Richie Lovelace) | Wellness Influencer Profile | ObjectWire',
   description:
     'Richie Lovelace, known online as Daddy Wellness, is a Miami-based wellness entrepreneur and content creator with over 2 million Instagram followers. He founded Dialed University and hosts the TSL Time podcast.',
   keywords: [
@@ -29,12 +29,27 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Richie Lovelace (Daddy Wellness) | 2M-Follower Wellness Influencer & Founder of Dialed University',
+    title: 'Daddy Wellness (Richie Lovelace) | 2M+ Follower Wellness Influencer | ObjectWire',
     description:
-      'Profile of Richie Lovelace (Daddy Wellness), former growth equity professional turned Miami-based wellness creator, founder of Dialed University, and host of TSL Time podcast. 2M+ Instagram followers.',
+      'Profile of Richie Lovelace (Daddy Wellness), former growth equity professional turned Miami-based wellness creator, founder of Dialed University, and host of TSL Time podcast.',
     type: 'profile',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
+    images: [
+      {
+        url: `https://www.objectwire.org${OG_IMAGE}`,
+        width: 1200,
+        height: 675,
+        alt: 'Richie Lovelace, Daddy Wellness, wellness influencer and founder of Dialed University',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daddy Wellness (Richie Lovelace) | ObjectWire',
+    description:
+      'Miami-based wellness entrepreneur with 2M+ Instagram followers. Founder of Dialed University, host of TSL Time podcast.',
+    images: [`https://www.objectwire.org${OG_IMAGE}`],
   },
 };
 

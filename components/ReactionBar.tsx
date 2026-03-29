@@ -25,7 +25,7 @@
 //   category — optional category label
 // =============================================================================
 
-import { useSession, signIn } from 'next-auth/react';
+import { useAuth } from '@/lib/hooks/use-auth';
 import { useState, useEffect, useCallback } from 'react';
 import { tracking } from '@/lib/tracking';
 
@@ -38,7 +38,7 @@ interface ReactionBarProps {
 }
 
 export default function ReactionBar({ slug, title, url, image, category }: ReactionBarProps) {
-  const { data: session } = useSession();
+  const { isAuth, signIn } = useAuth();
 
   // ── State ─────────────────────────────────────────────────────────────────
   const [liked,       setLiked]       = useState(false);
@@ -60,27 +60,27 @@ export default function ReactionBar({ slug, title, url, image, category }: React
       .then((r) => r.json())
       .then((data) => {
         setLikeCount(data.count ?? 0);
-        if (session) setLiked(!!data.liked);
+        if (isAuth) setLiked(!!data.liked);
       })
       .catch(() => {});
-  }, [articleKey, session]);
+  }, [articleKey, isAuth]);
 
   useEffect(() => {
-    if (!session?.user?.email || articleKey === 'unknown') return;
+    if (!isAuth || articleKey === 'unknown') return;
     fetch(`/api/saves?slug=${encodeURIComponent(articleKey)}`)
       .then((r) => r.json())
       .then((data) => { setSaved(!!data.saved); })
       .catch(() => {});
-  }, [articleKey, session]);
+  }, [articleKey, isAuth]);
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   function requireSignIn() {
-    signIn('google', { callbackUrl: window.location.href });
+    signIn();
   }
 
   // ── Like handler ──────────────────────────────────────────────────────────
   const handleLike = useCallback(async () => {
-    if (!session) { requireSignIn(); return; }
+    if (!isAuth) { requireSignIn(); return; }
     if (likeLoading) return;
     const next      = !liked;
     const prevCount = likeCount ?? 0;
@@ -103,11 +103,11 @@ export default function ReactionBar({ slug, title, url, image, category }: React
     } finally {
       setLikeLoading(false);
     }
-  }, [session, liked, likeCount, likeLoading, articleKey, articleTitle, articleUrl]);
+  }, [isAuth, liked, likeCount, likeLoading, articleKey, articleTitle, articleUrl]);
 
   // ── Save handler ──────────────────────────────────────────────────────────
   const handleSave = useCallback(async () => {
-    if (!session) { requireSignIn(); return; }
+    if (!isAuth) { requireSignIn(); return; }
     if (saveLoading) return;
     const next = !saved;
     setSaved(next);
@@ -126,7 +126,7 @@ export default function ReactionBar({ slug, title, url, image, category }: React
     } finally {
       setSaveLoading(false);
     }
-  }, [session, saved, saveLoading, articleKey, articleTitle, articleUrl, image, category]);
+  }, [isAuth, saved, saveLoading, articleKey, articleTitle, articleUrl, image, category]);
 
   // ── Share handler ─────────────────────────────────────────────────────────
   function handleShare() {
@@ -158,7 +158,7 @@ export default function ReactionBar({ slug, title, url, image, category }: React
       <button
         onClick={handleLike}
         disabled={likeLoading}
-        title={session ? (liked ? 'Unlike this article' : 'Like this article') : 'Sign in to like'}
+        title={isAuth ? (liked ? 'Unlike this article' : 'Like this article') : 'Sign in to like'}
         aria-pressed={liked}
         className={`flex items-center gap-2 px-4 py-2 rounded-full border font-medium text-sm transition-all duration-150 disabled:opacity-60 ${
           liked
@@ -175,7 +175,7 @@ export default function ReactionBar({ slug, title, url, image, category }: React
             {likeCount >= 1000 ? `${(likeCount / 1000).toFixed(1)}k` : likeCount}
           </span>
         )}
-        {!session && (
+        {!isAuth && (
           <span className="text-[10px] text-gray-400 font-normal">· sign in</span>
         )}
       </button>
@@ -206,7 +206,7 @@ export default function ReactionBar({ slug, title, url, image, category }: React
       <button
         onClick={handleSave}
         disabled={saveLoading}
-        title={session ? (saved ? 'Remove from saved' : 'Save for later') : 'Sign in to save'}
+        title={isAuth ? (saved ? 'Remove from saved' : 'Save for later') : 'Sign in to save'}
         aria-pressed={saved}
         className={`flex items-center gap-2 px-4 py-2 rounded-full border font-medium text-sm transition-all duration-150 disabled:opacity-60 ${
           saved
@@ -216,7 +216,7 @@ export default function ReactionBar({ slug, title, url, image, category }: React
       >
         <span>{saved ? '🔖' : '📌'}</span>
         <span>{saved ? 'Saved' : 'Save'}</span>
-        {!session && (
+        {!isAuth && (
           <span className="text-[10px] text-gray-400 font-normal">· sign in</span>
         )}
       </button>

@@ -1,54 +1,50 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { CreatorArticleDB } from '@/components/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
-const SLUG = '/influencer/yellz0';
-
 export const metadata: Metadata = {
-  title: 'Yellz0 (Aniela Verbin) - Social Media Influencer & Model | ObjectWire',
+  title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator | ObjectWire',
   description:
-    'Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star, model, and content creator known for lifestyle content, her signature blonde look, and millions of followers across social media.',
+    'Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, model, and content creator known for lifestyle content and her signature blonde look.',
   keywords: [
     'Yellz0',
     'Aniela Verbin',
     'Yellz0 TikTok',
     'Yellz0 Instagram',
-    'Yellz0 YouTube',
-    'Yellz0 OnlyFans',
     'Yellz0 real name',
     'Yellz0 age',
-    'Yellz0 bra size',
-    'Yellz0 measurements',
     'Yellz0 model',
-    'social media influencer',
-    'TikTok model',
+    'TikTok creator biography',
     'Pennsylvania influencer',
+    'social media influencer',
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/influencer/yellz0',
   },
   openGraph: {
-    title: 'Yellz0 (Aniela Verbin) - TikTok Star, Model & Content Creator',
+    title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator',
     description:
-      'Profile of Yellz0: real name Aniela Verbin. Pennsylvania-born TikTok star, lifestyle model, and one of social media\'s most recognizable faces. Full biography, facts, and coverage.',
+      'Profile of Yellz0: real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, lifestyle model, and one of social media\'s most recognizable faces.',
     type: 'article',
     url: 'https://www.objectwire.org/influencer/yellz0',
+    images: [{ url: '/influncer/yellz0_what_cup_size.PNG', width: 1200, height: 675 }],
     siteName: 'ObjectWire',
-    authors: ['ObjectWire Editorial'],
+    authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',
-    tags: ['Yellz0', 'TikTok', 'Model', 'Influencer', 'Social Media', 'Aniela Verbin'],
+    tags: ['Yellz0', 'TikTok', 'Model', 'Influencer', 'Aniela Verbin', 'Content Creator'],
+    publishedTime: '2026-02-21T12:00:00Z',
+    modifiedTime: '2026-03-29T12:00:00Z',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yellz0 (Aniela Verbin) - TikTok Star & Model',
+    title: 'Yellz0 (Aniela Verbin) | TikTok Star & Model',
     description:
-      'Full profile of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok influencer, model, and content creator.',
+      'Full profile of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok influencer with 4M+ followers, model, and content creator.',
   },
 };
 
 export default function Yellz0Page() {
-  return <WikiArticle slug="influencer-yellz0" />;
+  return <CreatorArticleDB slug="influencer/yellz0" />;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { useAuth } from '@/lib/hooks/use-auth';
 
 // ─── Props ───────────────────────────────────────────────────────────────────
 
@@ -25,8 +25,7 @@ export default function EngagementBar({
   category,
   variant = 'row',
 }: EngagementBarProps) {
-  const { data: session, status } = useSession();
-  const isAuth = status === 'authenticated';
+  const { isAuth, loading: authLoading, signIn } = useAuth();
 
   // Like state
   const [liked, setLiked] = useState(false);
@@ -43,6 +42,8 @@ export default function EngagementBar({
   // ── Fetch initial state ──────────────────────────────────────────────────
 
   useEffect(() => {
+    if (authLoading) return;
+
     // Like count (public, always fetch)
     fetch(`/api/likes?slug=${encodeURIComponent(slug)}`)
       .then((r) => r.json())
@@ -59,7 +60,7 @@ export default function EngagementBar({
         .then((d) => setSaved(d.saved ?? false))
         .catch(() => {});
     }
-  }, [slug, isAuth]);
+  }, [slug, isAuth, authLoading]);
 
   // ── Handlers ─────────────────────────────────────────────────────────────
 
@@ -69,7 +70,7 @@ export default function EngagementBar({
       return true;
     }
     return false;
-  }, [isAuth]);
+  }, [isAuth, signIn]);
 
   const toggleLike = useCallback(async () => {
     if (requireAuth()) return;

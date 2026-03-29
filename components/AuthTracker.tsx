@@ -19,44 +19,42 @@
 //           PII is never sent to GA4 in plain text.
 // =============================================================================
 
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/lib/hooks/use-auth';
 import { useEffect, useRef } from 'react';
 import { tracking } from '@/lib/tracking';
 
 export default function AuthTracker() {
-  const { data: session, status } = useSession();
+  const { user, isAuth, email } = useAuth();
   // Track whether we've already identified this session so we don't
   // fire duplicate events on every render.
   const identifiedRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (status !== 'authenticated') return;
-    if (!session?.user?.email) return;
-
-    const email = session.user.email;
+    if (!isAuth || !email) return;
 
     // Avoid re-firing if we already identified this exact email this session
     if (identifiedRef.current === email) return;
     identifiedRef.current = email;
 
     // Identify user in GA4 + server Measurement Protocol
-    tracking.identifyUser(email, session.user.name ?? undefined);
+    const displayName = user?.user_metadata?.full_name ?? undefined;
+    tracking.identifyUser(email, displayName);
 
-    // Upsert public profile to Supabase (with multi-provider linking)
-    const user = session.user as Record<string, unknown>;
+    // Upsert public profile to Supabase
+    const provider = user?.app_metadata?.provider ?? 'google';
     fetch('/api/auth/profile', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        provider:        user.provider ?? 'google',
-        displayName:     session.user.name,
-        avatarUrl:       session.user.image,
-        googleId:        user.googleId ?? null,
-        discordId:       user.discordId ?? null,
-        discordUsername:  user.discordUsername ?? null,
+        provider,
+        displayName: displayName ?? null,
+        avatarUrl:   user?.user_metadata?.avatar_url ?? null,
+        googleId:    user?.user_metadata?.sub ?? null,
+        discordId:   null,
+        discordUsername: null,
       }),
     }).catch(() => {});
-  }, [session, status]);
+  }, [user, isAuth, email]);
 
   return null;
 }

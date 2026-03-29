@@ -12,9 +12,8 @@
 // =============================================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth-options';
-import { createClient } from '@/lib/supabase/server';
+import { createAuthClient }          from '@/lib/supabase/server';
+import { createClient }              from '@/lib/supabase/server';
 
 // ── GET /api/discord/comments?slug=<slug> ─────────────────────────────────────
 export async function GET(req: NextRequest) {
@@ -51,9 +50,10 @@ export async function GET(req: NextRequest) {
 
 // ── POST /api/discord/comments ────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
-  // Auth check
-  const session = await getServerSession(authOptions);
-  if (!session?.user) {
+  // Auth check via Supabase
+  const authSupabase = await createAuthClient();
+  const { data: { user } } = await authSupabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
 
@@ -76,20 +76,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Comment exceeds 1000 characters' }, { status: 400 });
   }
 
-  const user = session.user as unknown as {
-    discordId?: string;
-    discordUsername?: string;
-    discordAvatar?: string;
-    email?: string;
-    name?: string;
-    image?: string;
-    provider?: string;
-  };
-
-  // Build commenter identity — Discord fields if available, else Google profile
-  const commenterId   = user.discordId ?? user.email ?? 'anonymous';
-  const commenterName = user.discordUsername ?? user.name ?? user.email?.split('@')[0] ?? 'Anonymous';
-  const commenterAvatar = user.discordAvatar ?? user.image ?? '';
+  // Build commenter identity from Supabase user metadata
+  const commenterId   = user.id;
+  const commenterName = user.user_metadata?.full_name ?? user.email?.split('@')[0] ?? 'Anonymous';
+  const commenterAvatar = user.user_metadata?.avatar_url ?? '';
 
   const supabase = await createClient();
 

@@ -10,8 +10,7 @@
 import Link       from 'next/link';
 import Image      from 'next/image';
 import { useState, useEffect } from 'react';
-import { useSession }          from 'next-auth/react';
-import { signIn }              from 'next-auth/react';
+import { useAuth }             from '@/lib/hooks/use-auth';
 
 interface SaveEntry {
   article_slug:     string;
@@ -35,20 +34,20 @@ function timeAgo(iso: string): string {
 }
 
 export default function SavedArticles() {
-  const { data: session, status } = useSession();
+  const { isAuth, loading: authLoading, signIn } = useAuth();
   const [saves,   setSaves]   = useState<SaveEntry[]>([]);
   const [loading, setLoading] = useState(false);
   const [removing, setRemoving] = useState<string | null>(null);
 
   useEffect(() => {
-    if (status !== 'authenticated') return;
+    if (!isAuth) return;
     setLoading(true);
     fetch('/api/saves')
       .then((r) => r.json())
       .then((data) => setSaves(data.saves ?? []))
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [status]);
+  }, [isAuth]);
 
   async function handleUnsave(slug: string, title: string, url: string) {
     setRemoving(slug);
@@ -65,7 +64,7 @@ export default function SavedArticles() {
   }
 
   // ── Not signed in ─────────────────────────────────────────────────────────
-  if (status === 'unauthenticated') {
+  if (!isAuth && !authLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center gap-4">
         <span className="text-5xl">🔖</span>
@@ -74,17 +73,17 @@ export default function SavedArticles() {
           Save articles to read later. They&apos;ll always be here on your profile.
         </p>
         <button
-          onClick={() => signIn('google')}
+          onClick={() => signIn()}
           className="mt-2 px-5 py-2.5 bg-black text-white text-sm rounded-full hover:bg-gray-800 transition-colors font-medium"
         >
-          Sign in with Google
+          Sign in
         </button>
       </div>
     );
   }
 
   // ── Loading ───────────────────────────────────────────────────────────────
-  if (status === 'loading' || loading) {
+  if (authLoading || loading) {
     return (
       <div className="space-y-4">
         {Array.from({ length: 4 }).map((_, i) => (

@@ -15,7 +15,7 @@
 // =============================================================================
 
 import { useState, useEffect, useRef } from 'react';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/lib/hooks/use-auth';
 import { tracking } from '@/lib/tracking';
 
 const TOPICS = [
@@ -55,16 +55,16 @@ function savePrefs(prefs: NewsletterPrefs): void {
 // ── Shared inner panel (used in both desktop dropdown and mobile inline) ──────
 
 export function NewsletterPanel({ onClose }: { onClose?: () => void }) {
-  const { data: session } = useSession();
+  const { email } = useAuth();
   const [prefs, setPrefs]     = useState<NewsletterPrefs>(loadPrefs);
   const [saved, setSaved]     = useState(false);
 
-  // Pre-fill email from Google session if present and not already set
+  // Pre-fill email from auth session if present and not already set
   useEffect(() => {
-    if (session?.user?.email && !prefs.email) {
-      setPrefs(p => ({ ...p, email: session.user!.email! }));
+    if (email && !prefs.email) {
+      setPrefs(p => ({ ...p, email }));
     }
-  }, [session]);
+  }, [email]);
 
   function toggleTopic(id: TopicId) {
     setPrefs(p => ({

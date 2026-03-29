@@ -1,27 +1,43 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { CreatorArticleDB } from '@/components/CreatorArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/artists/yeat';
+
 export const metadata: Metadata = {
-  title: "Yeat - Rage Rap Pioneer & Chart-Topping Artist | ObjectWire",
+  title: 'Yeat | Rage Rap Pioneer & Chart-Topping Artist | ObjectWire',
   description:
-    "Complete profile of Yeat, the rage rap phenomenon dominating modern hip-hop. Discography, tour dates, streaming stats, and latest news.",
+    'Complete profile of Yeat (Noah Olivier Smith), the rage rap phenomenon dominating modern hip-hop. Discography, streaming stats, musical style, and tour dates.',
   keywords: [
-    "Yeat",
-    "rage rap",
-    "hip-hop",
-    "Sorry Bout That",
-    "Lyfestyle",
-    "streaming artist",
+    'Yeat',
+    'Noah Olivier Smith',
+    'rage rap',
+    'hip-hop',
+    'Sorry Bout That',
+    'Lyfestyle',
+    'streaming artist',
+    'modern rap',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/artists/yeat',
+    canonical: `https://www.objectwire.org${SLUG}`,
+  },
+  openGraph: {
+    type: 'profile',
+    title: 'Yeat | Rage Rap Pioneer | ObjectWire',
+    description:
+      'Profile of Yeat, the rage rap phenomenon with 42M+ monthly Spotify listeners. Discography from 4L to Lyfestyle (#1), tour dates, and latest news.',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Yeat | ObjectWire',
+    description:
+      'Rage rap pioneer Yeat, 42M+ monthly listeners, first #1 album with Lyfestyle. Full profile and discography.',
   },
 };
 
 export default function YeatPage() {
-  return <WikiArticle slug="artists-yeat" />;
+  return <CreatorArticleDB slug="artists/yeat" />;
 }

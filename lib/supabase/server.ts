@@ -1,5 +1,5 @@
-import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { createServerClient } from '@supabase/ssr';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 
 // ANSI colours for dev-console visibility
@@ -87,30 +87,31 @@ export async function createClient() {
 }
 
 /**
- * Session-aware Supabase client for Server Components / Route Handlers.
- * Uses @supabase/ssr with cookie store — required for Supabase Auth to work.
- * Use this wherever you need supabase.auth.getUser() on the server.
+ * Auth-aware Supabase client for Server Components and API Routes.
+ * Reads the session from the request cookies, so supabase.auth.getUser()
+ * returns the currently signed-in user without needing NextAuth.
+ *
+ * Use this everywhere you need to check who is logged in.
  */
 export async function createAuthClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
   const cookieStore = await cookies();
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll();
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {
-            // setAll called from Server Component — safe to ignore
-          }
-        },
+
+  return createServerClient(url, key, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
       },
-    }
-  );
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        } catch {
+          // Server Component — cookie writes are ignored (middleware handles refresh)
+        }
+      },
+    },
+  });
 }

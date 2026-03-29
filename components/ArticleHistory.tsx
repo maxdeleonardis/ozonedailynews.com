@@ -11,7 +11,7 @@
 import Link                        from 'next/link';
 import Image                       from 'next/image';
 import { useArticleHistory }       from '@/lib/use-article-history';
-import { useSession }              from 'next-auth/react';
+import { useAuth }                 from '@/lib/hooks/use-auth';
 
 function timeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();
@@ -25,11 +25,11 @@ function timeAgo(iso: string): string {
 }
 
 export default function ArticleHistory() {
-  const { status } = useSession();
+  const { isAuth, loading: authLoading } = useAuth();
   const { history, loading } = useArticleHistory();
 
   // ── Not logged in ─────────────────────────────────────────────────────────
-  if (status === 'unauthenticated') {
+  if (!isAuth && !authLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center gap-4">
         <span className="text-5xl">📖</span>
@@ -42,7 +42,7 @@ export default function ArticleHistory() {
   }
 
   // ── Loading ───────────────────────────────────────────────────────────────
-  if (status === 'loading' || loading) {
+  if (authLoading || loading) {
     return (
       <div className="space-y-4">
         {Array.from({ length: 5 }).map((_, i) => (

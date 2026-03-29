@@ -1,27 +1,37 @@
 'use client';
 
 import { useState } from 'react';
+import { useAuth }  from '@/lib/hooks/use-auth';
 
 // =============================================================================
 // NEWSLETTER SIGNUP INLINE — Client Component
-// Renders inside NewsArticle footer; posts to /api/newsletter/subscribe
+//
+// Renders inside NewsArticle / CreatorArticle footer.
+// Posts to /api/newsletter/subscribe → Beehiiv API.
+//
+// Logged-in users: one-click subscribe (email pre-filled from Supabase auth).
+// Guests: standard email input + subscribe button.
 // =============================================================================
 
 export default function NewsletterSignupInline() {
-  const [email, setEmail]   = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
+  const { email: authEmail, isAuth, loading: authLoading } = useAuth();
+
+  const [email, setEmail]     = useState('');
+  const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
   const [message, setMessage] = useState('');
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email.trim()) return;
+  // Use auth email if logged in, otherwise use the manual input
+  const subscribeEmail = isAuth && authEmail ? authEmail : email;
+
+  async function subscribe(targetEmail: string) {
+    if (!targetEmail.trim()) return;
     setStatus('loading');
 
     try {
       const res  = await fetch('/api/newsletter/subscribe', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ email }),
+        body:    JSON.stringify({ email: targetEmail }),
       });
       const data = await res.json();
 
@@ -37,6 +47,15 @@ export default function NewsletterSignupInline() {
       setMessage('Network error. Please try again.');
       setStatus('error');
     }
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    subscribe(subscribeEmail);
+  }
+
+  function handleOneClick() {
+    if (authEmail) subscribe(authEmail);
   }
 
   return (
@@ -58,6 +77,7 @@ export default function NewsletterSignupInline() {
           Breaking news, deep-dives, and editor picks, delivered straight to your inbox. No spam, ever.
         </p>
 
+        {/* ── Success state ──────────────────────────────────────────── */}
         {status === 'success' ? (
           <div className="flex items-center gap-2 rounded-xl bg-green-500/20 border border-green-500/40 px-5 py-3 text-green-300 font-semibold text-sm mt-2">
             ✅ {message}
@@ -66,6 +86,43 @@ export default function NewsletterSignupInline() {
           <div className="flex items-center gap-2 rounded-xl bg-blue-500/20 border border-blue-500/40 px-5 py-3 text-blue-300 font-semibold text-sm mt-2">
             ℹ️ {message}
           </div>
+
+        /* ── Logged-in: one-click subscribe ──────────────────────────── */
+        ) : isAuth && authEmail && !authLoading ? (
+          <div className="flex flex-col items-center gap-3 mt-2 w-full max-w-md">
+            <div className="flex items-center gap-2 rounded-lg bg-gray-800/60 border border-gray-600 px-4 py-2 w-full">
+              <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span className="text-sm text-gray-300 truncate">
+                Signed in as <span className="font-medium text-white">{authEmail}</span>
+              </span>
+            </div>
+            <button
+              onClick={handleOneClick}
+              disabled={status === 'loading'}
+              className="
+                w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600
+                px-5 py-3.5 text-sm font-bold text-white shadow-lg
+                hover:from-purple-500 hover:to-pink-500 hover:shadow-purple-500/25
+                active:scale-[0.98] disabled:opacity-60 transition-all
+              "
+            >
+              {status === 'loading' ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+                  </svg>
+                  Subscribing...
+                </span>
+              ) : (
+                'Subscribe with one click'
+              )}
+            </button>
+          </div>
+
+        /* ── Guest: email input form ─────────────────────────────────── */
         ) : (
           <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2 mt-2">
             <input

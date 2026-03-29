@@ -10,20 +10,18 @@
 // =============================================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession }          from 'next-auth';
-import { authOptions }               from '@/lib/auth-options';
-import { createClient }              from '@/lib/supabase/server';
+import { createAuthClient }          from '@/lib/supabase/server';
 import { sha256hex }                 from '@/lib/hash';
 
 // ── GET /api/saves ─────────────────────────────────────────────────────────────
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
   const slug     = req.nextUrl.searchParams.get('slug');
 
   if (slug) {
@@ -50,8 +48,9 @@ export async function GET(req: NextRequest) {
 
 // ── POST /api/saves ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const supabase = await createAuthClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user?.email) {
     return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
 
@@ -64,8 +63,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'slug, title, url are required' }, { status: 400 });
   }
 
-  const userHash = await sha256hex(session.user.email);
-  const supabase = await createClient();
+  const userHash = await sha256hex(user.email);
 
   // Check current state
   const { data: existing } = await supabase

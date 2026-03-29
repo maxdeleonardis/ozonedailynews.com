@@ -490,7 +490,7 @@ export function JackSubheading({ children }: { children: React.ReactNode }) {
 }
 
 // =============================================================================
-// JACK CASE OVERVIEW — Key facts / overview box (from DynamicNewsArticle)
+// JACK CASE OVERVIEW — Key facts / overview box
 // =============================================================================
 
 export function JackCaseOverview({
@@ -522,7 +522,7 @@ export function JackCaseOverview({
 }
 
 // =============================================================================
-// JACK STATS — Statistics display box (from DynamicNewsArticle)
+// JACK STATS — Statistics display box
 // =============================================================================
 
 export function JackStats({
@@ -562,7 +562,7 @@ export function JackStats({
 }
 
 // =============================================================================
-// JACK PROCESS — Step-by-step process diagram (from DynamicNewsArticle)
+// JACK PROCESS — Step-by-step process diagram
 // =============================================================================
 
 export function JackProcess({

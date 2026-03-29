@@ -12,7 +12,7 @@
 
 'use client';
 
-import { useSession }          from 'next-auth/react';
+import { useAuth }                         from '@/lib/hooks/use-auth';
 import { useCallback, useEffect, useState } from 'react';
 
 export interface HistoryEntry {
@@ -33,11 +33,11 @@ export interface TrackPayload {
 }
 
 export function useArticleHistory() {
-  const { data: session, status } = useSession();
+  const { isAuth }                    = useAuth();
   const [history, setHistory]     = useState<HistoryEntry[]>([]);
   const [loading, setLoading]     = useState(false);
 
-  const isLoggedIn = status === 'authenticated' && !!session?.user?.email;
+  const isLoggedIn = isAuth;
 
   // ── Fetch history on mount (or when the user authenticates) ──────────────
   useEffect(() => {

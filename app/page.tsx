@@ -61,18 +61,20 @@ function fromRegistry(e: ContentEntry): Article {
   };
 }
 
-function fromBlog(p: BlogPostFull): Article {
+function fromBlog(p: BlogPostFull): Article | null {
   // Articles migrated from page routes have slugs derived from their path
   // (e.g. /social/meta/news/article → slug "social-meta-news-article").
-  // Look up the canonical URL in the content registry before falling back to /blog/[slug].
+  // Look up the canonical URL in the content registry. If no match, skip the
+  // article entirely — we never link to the legacy /blog/[slug] route.
   const registryEntry = contentRegistry.find(
     (e) => e.slug.replace(/^\//, '').replace(/\//g, '-') === p.slug
   );
+  if (!registryEntry) return null;
   return {
     id: String(p.id),
     title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
     excerpt: p.excerpt ?? undefined,
-    href: registryEntry?.slug ?? `/blog/${p.slug}`,
+    href: registryEntry.slug,
     publishDate: (p.published_at ?? p.publishedAt ?? ''),
     category: p.category ?? 'News',
     author: p.author_name ?? 'ObjectWire',
@@ -332,7 +334,10 @@ export default async function HomePage() {
   let blogArticles: Article[] = [];
   try {
     const all = await getAllBlogPosts();
-    blogArticles = all.filter((p) => p.status === 'published').map(fromBlog);
+    blogArticles = all
+      .filter((p) => p.status === 'published')
+      .map(fromBlog)
+      .filter((a): a is Article => a !== null);
   } catch {
     // Supabase unavailable — static registry still shows
   }

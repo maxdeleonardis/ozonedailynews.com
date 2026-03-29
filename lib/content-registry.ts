@@ -921,6 +921,21 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
   },
   {
+    slug: "/artists/central-cee",
+    title: "Central Cee | UK Rap, Drill & Global Crossover | ObjectWire",
+    description: "Complete profile of Central Cee, the UK drill and rap artist behind Wild West, 23, and Can't Rush Greatness. Discography, streaming records, collaborations, and latest news.",
+    publishDate: "2026-03-29",
+    modifiedDate: "2026-03-29",
+    category: "Entertainment",
+    tags: ["Music", "Artists", "Central Cee", "UK Drill"],
+    author: "ObjectWire Music Desk",
+    priority: 0.6,
+    changeFrequency: "weekly",
+    imageUrl: "/artist/centralcee.png",
+    imageWidth: 1200,
+    imageHeight: 675,
+  },
+  {
     slug: "/disney/josh-damaro",
     title: "Josh D\\",
     description: "Complete profile of Josh D\\",
@@ -3527,20 +3542,6 @@ export const contentRegistry: ContentEntry[] = [
     category: "Automotive",
     tags: ["Cars", "Automotive", "Ferrari"],
     author: "ObjectWire Editorial Team",
-    priority: 0.6,
-    changeFrequency: "weekly",
-  },
-
-  // --- Blog (1) ---
-  {
-    slug: "/blog/[slug]",
-    title: "Article Not Found | ObjectWire",
-    description: "ObjectWire coverage of Article Not Found | ObjectWire.",
-    publishDate: "2026-03-03",
-    modifiedDate: "2026-03-03",
-    category: "News",
-    tags: ["Blog", "[Slug]"],
-    author: "ObjectWire Editorial",
     priority: 0.6,
     changeFrequency: "weekly",
   },
@@ -6317,6 +6318,24 @@ export const contentRegistry: ContentEntry[] = [
     tags: ["Technology", "Sanders Aoc Ai Data Center Moratorium Act March 2026"],
     author: "ObjectWire Editorial",
     priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-29 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Blog (1) ---
+  {
+    slug: "/blog/[slug]",
+    title: "› blog › [slug]",
+    description: "ObjectWire coverage of › blog › [slug].",
+    publishDate: "2026-03-29",
+    modifiedDate: "2026-03-29",
+    category: "Blog",
+    tags: ["Blog", "[Slug]"],
+    author: "ObjectWire Editorial",
+    priority: 0.6,
     changeFrequency: "weekly",
   },
 ];

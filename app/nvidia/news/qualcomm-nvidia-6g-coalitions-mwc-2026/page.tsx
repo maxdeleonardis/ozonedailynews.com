@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title:
       'Qualcomm vs. Nvidia: Two Rival 6G Coalitions Launch at MWC 2026 on the Same Day',
     description:
-      'Qualcomm formed a 47-member 6G Forward Consortium and Nvidia countered with its 6G AI Infrastructure Alliance at Mobile World Congress 2026 in Barcelona on March 1, 2026 — both groups targeting 3GPP Release 21 and 2029 commercial deployments.',
+      'Qualcomm formed a 47-member 6G Forward Consortium and Nvidia countered with its 6G AI Infrastructure Alliance at Mobile World Congress 2026 in Barcelona on March 1, 2026, both groups targeting 3GPP Release 21 and 2029 commercial deployments.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Qualcomm and Nvidia Both Launched 6G Coalitions at MWC 2026 — Hours Apart',
+    title: 'Qualcomm and Nvidia Both Launched 6G Coalitions at MWC 2026 | Hours Apart',
     description:
       "Qualcomm's 6G Forward Consortium (47 members) and Nvidia's 6G AI Infrastructure Alliance both debuted at MWC 2026 in Barcelona on March 1, targeting the same 3GPP Release 21 standards cycle.",
   },

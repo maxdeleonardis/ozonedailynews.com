@@ -12,7 +12,7 @@ const IMAGE_URL = 'https://www.objectwire.org/crypto/warren-mrbeast-step-crypto-
 export const metadata: Metadata = {
   title: 'Warren Presses MrBeast on Crypto Plans for Children Through Step App | ObjectWire',
   description:
-    "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson — MrBeast — on Monday demanding details about Beast Industries' plans to introduce cryptocurrency products to minors through the Step teen banking app, according to The New York Times.",
+    "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson, MrBeast, on Monday demanding details about Beast Industries' plans to introduce cryptocurrency products to minors through the Step teen banking app, according to The New York Times.",
   keywords: [
     'Warren MrBeast crypto children Step app',
     'Elizabeth Warren Beast Industries Step fintech',

@@ -8,9 +8,9 @@ import { SEOWrapper } from '@/components/SEOWrapper';
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Influencer Hub — Profiles, News & Culture | ObjectWire',
+  title: 'Influencer Hub | Profiles, News & Culture | ObjectWire',
   description:
-    "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation — fitness, YouTube, golf, and beyond.",
+    "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and beyond.",
   keywords: [
     'influencer profiles',
     'influencer news 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/influencer',
   },
   openGraph: {
-    title: 'Influencer Hub — Profiles, News & Culture | ObjectWire',
+    title: 'Influencer Hub | Profiles, News & Culture | ObjectWire',
     description:
       'In-depth profiles and breaking news covering the biggest influencers across fitness, YouTube, golf, and online culture. Updated 2026.',
     type: 'website',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Influencer Hub | ObjectWire',
     description:
-      'Profiles, news, and cultural coverage of the biggest names in content creation — ObjectWire Influencer Hub.',
+      'Profiles, news, and cultural coverage of the biggest names in content creation, ObjectWire Influencer Hub.',
   },
 };
 
@@ -81,7 +81,7 @@ const PROFILES = [
     href: '/influencer/tren-twins',
     title: 'Tren Twins',
     description:
-      'Michael and Christian Gaiera — identical twin bodybuilders who became fitness sensations on YouTube and TikTok. Known for their extreme training and unfiltered content.',
+      'Michael and Christian Gaiera, identical twin bodybuilders who became fitness sensations on YouTube and TikTok. Known for their extreme training and unfiltered content.',
     badge: 'PROFILE',
     thumbnail: '/influncer/tren_twins_wiki.PNG',
     meta: 'YouTube · TikTok · Fitness',
@@ -151,7 +151,7 @@ const LATEST_NEWS = [
     href: '/influencer/mrbeast-launches-beast-games-season-2-casting',
     title: 'MrBeast Launches Beast Games Season 2 Casting',
     description:
-      'MrBeast opens casting for the next season of Beast Games — the record-breaking Amazon Prime competition series. Applications are live now.',
+      'MrBeast opens casting for the next season of Beast Games, the record-breaking Amazon Prime competition series. Applications are live now.',
     badge: 'NEWS',
     badgeStyle: 'breaking' as const,
     emoji: '🎬',
@@ -159,7 +159,7 @@ const LATEST_NEWS = [
   },
   {
     href: '/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube',
-    title: "Steve Will Do It Kicked Off Logan Paul's Podcast — Making an Official Return to YouTube",
+    title: "Steve Will Do It Kicked Off Logan Paul's Podcast | Making an Official Return to YouTube",
     description:
       "Steve Will Do It was removed from Logan Paul's IMPAULSIVE podcast amid controversy. Now he's staging a full comeback on his own YouTube channel.",
     badge: 'NEWS',
@@ -192,7 +192,7 @@ export default function InfluencerHubPage() {
         badge="INFLUENCER HUB"
         badgeColor="from-purple-600 to-pink-600"
         title="Influencer Hub"
-        subtitle="Profiles, news, and culture covering the biggest names in content creation — fitness, YouTube, golf, and beyond."
+        subtitle="Profiles, news, and culture covering the biggest names in content creation, fitness, YouTube, golf, and beyond."
         meta={
           <>
             <span>🎥 Creator Profiles</span>

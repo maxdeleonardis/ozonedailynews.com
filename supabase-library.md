@@ -1,8 +1,8 @@
-# Supabase Library — ObjectWire
+# Supabase Library | ObjectWire
 
 > **How articles written in `/admin/editor` go from input to live page, and how it scales to 1000+ articles without a single extra file.**
 
-Related: [googlenews-seo.md](googlenews-seo.md) — How the two content systems drive Google News placement and topical authority.
+Related: [googlenews-seo.md](googlenews-seo.md), How the two content systems drive Google News placement and topical authority.
 
 ---
 
@@ -29,7 +29,7 @@ ObjectWire runs **two parallel content systems**. Knowing which to use is the mo
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  TIER 1 — STATIC REGISTRY PAGES         TIER 2 — SUPABASE ARTICLES
+  TIER 1, STATIC REGISTRY PAGES         TIER 2, SUPABASE ARTICLES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   app/**/page.tsx                         /blog/[slug]  (one route)
   + lib/content-registry.ts              + Supabase `articles` table
@@ -57,9 +57,9 @@ READ PATH
   /blog/[slug]  →  createClient()  →  `articles` table  →  ArticleRenderer  →  HTML
 ```
 
-There is **one** dynamic route ([`app/blog/[slug]/page.tsx`](app/blog/[slug]/page.tsx)) that handles every Supabase article. Zero extra files per article. At 1,000 articles the build still produces the same number of route files — only the Supabase rows grow.
+There is **one** dynamic route ([`app/blog/[slug]/page.tsx`](app/blog/[slug]/page.tsx)) that handles every Supabase article. Zero extra files per article. At 1,000 articles the build still produces the same number of route files, only the Supabase rows grow.
 
-> For the full Google News SEO strategy — how both tiers feed the news sitemap, `NewsArticleSchema` structured data, and crawl priority — see [googlenews-seo.md](googlenews-seo.md).
+> For the full Google News SEO strategy, how both tiers feed the news sitemap, `NewsArticleSchema` structured data, and crawl priority, see [googlenews-seo.md](googlenews-seo.md).
 
 ---
 
@@ -77,7 +77,7 @@ There is **one** dynamic route ([`app/blog/[slug]/page.tsx`](app/blog/[slug]/pag
 | `category` | `TEXT` | E.g. `Technology`, `News`, `Entertainment` |
 | `author` | `TEXT` | Byline display name |
 | `featured` | `BOOLEAN` | Appears in homepage hero when `true` |
-| `status` | `TEXT` | `'draft'` or `'published'` — controls visibility |
+| `status` | `TEXT` | `'draft'` or `'published'`, controls visibility |
 | `published_at` | `TIMESTAMPTZ` | `NULL` = draft; set to `NOW()` when published |
 | `created_at` | `TIMESTAMPTZ` | Auto-set on insert |
 | `updated_at` | `TIMESTAMPTZ` | Auto-updated by trigger on every `UPDATE` |
@@ -98,7 +98,7 @@ idx_articles_status        -- draft/published split
 
 ## 3. Block Content System
 
-`content` is a **JSONB array of blocks**. This is the entire article body — structured, not raw HTML. The admin editor builds this array; `ArticleRenderer` turns it into HTML.
+`content` is a **JSONB array of blocks**. This is the entire article body, structured, not raw HTML. The admin editor builds this array; `ArticleRenderer` turns it into HTML.
 
 ### Block Types
 
@@ -106,7 +106,7 @@ Every block has at minimum `{ "id": "...", "type": "..." }`.
 
 | `type` | What it renders | Key fields |
 |---|---|---|
-| `paragraph` | `<p>` — supports bold/italic/link inline | `content: string` |
+| `paragraph` | `<p>`, supports bold/italic/link inline | `content: string` |
 | `heading` | `<h2>` | `content: string` |
 | `quote` | Styled blockquote with left border | `content: string`, `author?: string` |
 | `list` | `<ul>` bullet list | `items: string[]` |
@@ -149,7 +149,7 @@ export async function createClient() {
 ```
 
 - Async so callers can `await createClient()` uniformly across server components and API routes.
-- Uses the **anon key** — RLS policies on the table gate what can actually be read or written (see §8).
+- Uses the **anon key**, RLS policies on the table gate what can actually be read or written (see §8).
 - Import path: `@/lib/supabase/server`
 
 ---
@@ -234,7 +234,7 @@ Translates the block-editor payload into the flat Supabase column shape:
 The editor is a `'use client'` Next.js page. It:
 
 1. Lets you set title, slug, excerpt, author, category, featured image
-2. Builds the `blocks[]` array visually — add/remove/reorder blocks by type
+2. Builds the `blocks[]` array visually, add/remove/reorder blocks by type
 3. Supports a **sidebar** (`sidebar_blocks[]`) for a 2-column layout
 4. On **Save Draft** → calls `createBlogPost({ ..., status: 'draft' })`
 5. On **Publish** → calls `createBlogPost({ ..., status: 'published' })` which sets `published_at = NOW()`
@@ -261,7 +261,7 @@ if (!article) notFound();      // → 404 if draft or missing
 return <ArticleRenderer blocks={article.content} />;
 ```
 
-`ArticleRenderer` ([`components/article-renderer.tsx`](components/article-renderer.tsx)) maps each block in `content` to a React component. You never write any rendering code per article — the renderer handles all block types automatically.
+`ArticleRenderer` ([`components/article-renderer.tsx`](components/article-renderer.tsx)) maps each block in `content` to a React component. You never write any rendering code per article, the renderer handles all block types automatically.
 
 ### SEO / Metadata
 
@@ -271,7 +271,7 @@ return <ArticleRenderer blocks={article.content} />;
 
 ## 8. Row Level Security (RLS)
 
-Defined in [`supabase/setup.sql`](supabase/setup.sql). RLS runs on Supabase's Postgres — it filters rows before they leave the database, so even if someone calls the API directly they can't access drafts.
+Defined in [`supabase/setup.sql`](supabase/setup.sql). RLS runs on Supabase's Postgres, it filters rows before they leave the database, so even if someone calls the API directly they can't access drafts.
 
 | Operation | Who | Policy |
 |---|---|---|
@@ -280,28 +280,28 @@ Defined in [`supabase/setup.sql`](supabase/setup.sql). RLS runs on Supabase's Po
 | `UPDATE` | Anon key | Allowed |
 | `DELETE` | Anon key | Allowed |
 
-> **Note:** The anon write policies are intentionally open right now — the admin is protected by the session check in `middleware.ts` before requests even reach Supabase. Harden this by switching to `authenticated` role + Supabase Auth when you add real user accounts.
+> **Note:** The anon write policies are intentionally open right now, the admin is protected by the session check in `middleware.ts` before requests even reach Supabase. Harden this by switching to `authenticated` role + Supabase Auth when you add real user accounts.
 
 ---
 
 ## 9. Static Pages vs Dynamic Articles
 
-ObjectWire uses **two content systems** — know when to use each:
+ObjectWire uses **two content systems**, know when to use each:
 
 | | Static `page.tsx` files | Supabase `articles` table |
 |---|---|---|
 | **Location** | `app/**/page.tsx` | `/blog/[slug]` (one route handles all) |
-| **Registered in** | `lib/content-registry.ts` | Not in registry — separate sitemap feed |
-| **Edit workflow** | Code change + deploy | `/admin/editor` — no deploy needed |
+| **Registered in** | `lib/content-registry.ts` | Not in registry, separate sitemap feed |
+| **Edit workflow** | Code change + deploy | `/admin/editor`, no deploy needed |
 | **Best for** | Hub pages, author profiles, evergreen reference, interlinked topic pages | Breaking news, daily editorial, event coverage, opinion |
-| **At 1,000 pages** | Build time grows; registry file bloats | No build impact — rows are just data |
+| **At 1,000 pages** | Build time grows; registry file bloats | No build impact, rows are just data |
 | **Google News sitemap** | `publishDate` in registry entry | `published_at` column in DB |
 | **Scale ceiling** | ~1,500 pages before build pain | Unlimited |
 | **Custom layouts** | Full React component control | Block renderer (14 block types) |
 
 **Rule of thumb:** Anything you write more than once a week belongs in Supabase. Static registry pages are for structured hub pages that anchor topical authority and get cited permanently.
 
-### Migration trigger — move to Supabase when:
+### Migration trigger | move to Supabase when:
 - Publishing 5+ articles per day
 - Registry file exceeds ~10,000 lines (~1,500 entries)
 - Build time exceeds 3 minutes
@@ -314,7 +314,7 @@ ObjectWire uses **two content systems** — know when to use each:
 - Evergreen reference pages (`/define/*`)
 - Site structure pages (about, privacy, team, sitemap)
 
-> See [googlenews-seo.md § 4 — The Two-Tier Content Strategy](googlenews-seo.md#4-the-two-tier-content-strategy) for the full decision framework and the competitive case for splitting content this way.
+> See [googlenews-seo.md § 4, The Two-Tier Content Strategy](googlenews-seo.md#4-the-two-tier-content-strategy) for the full decision framework and the competitive case for splitting content this way.
 
 ---
 
@@ -390,8 +390,8 @@ lib/
 
 app/
   blog/[slug]/page.tsx            ← Public article page (ONE file, infinite articles)
-  news-sitemap.xml/route.ts       ← Google News sitemap — reads registry + DB
-  sitemap.ts                      ← Full site sitemap — reads registry
+  news-sitemap.xml/route.ts       ← Google News sitemap, reads registry + DB
+  sitemap.ts                      ← Full site sitemap, reads registry
   robots.ts                       ← Googlebot rules, sitemap links
   (admin)/
     admin/editor/page.tsx         ← Create new Supabase article
@@ -411,6 +411,6 @@ supabase/
     20260113000000_create_blog_posts.sql
 
 Docs/
-  supabase-library.md             ← This file — Supabase pipeline reference
+  supabase-library.md             ← This file, Supabase pipeline reference
   googlenews-seo.md               ← Google News SEO strategy + registry reference
 ```

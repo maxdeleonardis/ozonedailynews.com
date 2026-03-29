@@ -71,7 +71,7 @@ export default function AuthorArticles({
 
       {displayArticles.length === 0 ? (
         <p className="text-gray-500 italic py-4">
-          Articles are on the way — check back soon.
+          Articles are on the way, check back soon.
         </p>
       ) : (
         <ul className="space-y-4">

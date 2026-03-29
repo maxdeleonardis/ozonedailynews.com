@@ -1,4 +1,6 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
 
 // ANSI colours for dev-console visibility
 const C = {
@@ -82,4 +84,33 @@ export async function createClient() {
   };
 
   return client;
+}
+
+/**
+ * Session-aware Supabase client for Server Components / Route Handlers.
+ * Uses @supabase/ssr with cookie store — required for Supabase Auth to work.
+ * Use this wherever you need supabase.auth.getUser() on the server.
+ */
+export async function createAuthClient() {
+  const cookieStore = await cookies();
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            );
+          } catch {
+            // setAll called from Server Component — safe to ignore
+          }
+        },
+      },
+    }
+  );
 }

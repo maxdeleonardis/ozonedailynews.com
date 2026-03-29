@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'All Topics & Tags | ObjectWire',
   description:
-    'Browse all topics covered by ObjectWire — technology, gaming, finance, entertainment, sports, and more.',
+    'Browse all topics covered by ObjectWire, technology, gaming, finance, entertainment, sports, and more.',
   alternates: { canonical: 'https://www.objectwire.org/tags' },
   openGraph: {
     title: 'All Topics & Tags | ObjectWire',

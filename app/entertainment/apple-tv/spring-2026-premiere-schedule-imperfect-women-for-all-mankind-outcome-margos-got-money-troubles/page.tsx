@@ -13,7 +13,7 @@ const IMAGE_URL = 'https://www.objectwire.org/apple/apple-tv-spring-2026-slate.j
 export const metadata: Metadata = {
   title: 'Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More | ObjectWire',
   description:
-    "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks — from March 18 to April 15. Headlined by the SXSW breakout Margo's Got Money Troubles, Keanu Reeves in Outcome, Elisabeth Moss in Imperfect Women, and the long-awaited For All Mankind Season 5.",
+    "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks, from March 18 to April 15. Headlined by the SXSW breakout Margo's Got Money Troubles, Keanu Reeves in Outcome, Elisabeth Moss in Imperfect Women, and the long-awaited For All Mankind Season 5.",
   keywords: [
     'Apple TV+ spring 2026',
     "Margo's Got Money Troubles Apple TV+",

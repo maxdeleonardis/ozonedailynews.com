@@ -55,7 +55,7 @@ export default function NewsletterSignupInline() {
           Stay ahead of every story
         </h3>
         <p className="text-gray-400 text-sm max-w-sm">
-          Breaking news, deep-dives, and editor picks — delivered straight to your inbox. No spam, ever.
+          Breaking news, deep-dives, and editor picks, delivered straight to your inbox. No spam, ever.
         </p>
 
         {status === 'success' ? (

@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Cloudflare, Inc. — Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire',
+  title: 'Cloudflare, Inc. | Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire',
   description:
-    "Cloudflare is one of the world's largest internet infrastructure companies, providing CDN, DDoS mitigation, cybersecurity, Zero Trust networking, and edge computing to over 332,000 paying customers — protecting 21.3% of all websites as of early 2026.",
+    "Cloudflare is one of the world's largest internet infrastructure companies, providing CDN, DDoS mitigation, cybersecurity, Zero Trust networking, and edge computing to over 332,000 paying customers, protecting 21.3% of all websites as of early 2026.",
   keywords: [
     'Cloudflare',
     'Cloudflare CDN',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/cloudflare',
   },
   openGraph: {
-    title: 'Cloudflare, Inc. — Internet Infrastructure, CDN & Cybersecurity',
+    title: 'Cloudflare, Inc. | Internet Infrastructure, CDN & Cybersecurity',
     description:
       "Cloudflare protects 21.3% of all websites on the internet, operates in 330+ cities across 125+ countries, and blocks 215 billion cyber threats per day. Revenue reached $2.168B in FY 2025.",
     type: 'article',

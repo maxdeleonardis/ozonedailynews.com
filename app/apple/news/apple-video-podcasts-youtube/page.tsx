@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apple Launches Full Video Podcasts to Challenge YouTube Industry Dominance',
     description:
-      'Apple Podcasts is going full video this spring — a native watch-and-listen experience designed to pull creators and audiences away from YouTube and Spotify.',
+      'Apple Podcasts is going full video this spring, a native watch-and-listen experience designed to pull creators and audiences away from YouTube and Spotify.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apple Launches Full Video Podcasts — A Direct Shot at YouTube',
+    title: 'Apple Launches Full Video Podcasts | A Direct Shot at YouTube',
     description:
       'Apple Podcasts is getting a native video experience this spring. Here\'s what it means for YouTube, Spotify, and the future of podcasting.',
   },

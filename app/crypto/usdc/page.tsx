@@ -9,7 +9,7 @@ const URL_PATH = '/crypto/usdc';
 const FULL_URL = `https://www.objectwire.org${URL_PATH}`;
 
 export const metadata: Metadata = {
-  title: 'USD Coin (USDC) — Circle Internet Group | ObjectWire',
+  title: 'USD Coin (USDC) | Circle Internet Group | ObjectWire',
   description:
     'Comprehensive profile of USD Coin (USDC), the regulated dollar stablecoin issued by Circle Internet Group. Covers history, reserve transparency, blockchain support, use cases, USDC vs USDT comparison, and the Agentic AI payment frontier.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: FULL_URL },
   openGraph: {
-    title: 'USD Coin (USDC) — Circle Internet Group | ObjectWire',
+    title: 'USD Coin (USDC) | Circle Internet Group | ObjectWire',
     description:
       'Full profile of USDC: history, reserves, blockchain coverage, use cases, USDC vs USDT comparison, and the AI-era stablecoin opportunity.',
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'USD Coin (USDC) — Everything You Need to Know | ObjectWire',
+    title: 'USD Coin (USDC) | Everything You Need to Know | ObjectWire',
     description:
       'Circle\'s USDC is the compliance-first stablecoin reaching $75–78B market cap. Full profile including reserves, chains, DeFi, AI payments, and USDC vs USDT.',
   },

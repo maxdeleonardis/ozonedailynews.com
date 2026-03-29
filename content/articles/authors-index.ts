@@ -7,7 +7,7 @@ const article: Article = {
   status: 'published',
   published_at: '2026-01-01',
 
-  excerpt: 'Meet the journalists, reporters, and editors behind ObjectWire — covering finance, markets, science, technology, anime, gaming, investigations, and breaking news.',
+  excerpt: 'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and breaking news.',
   tags: ['ObjectWire', 'Authors', 'Journalists', 'Team'],
 
   author_name: 'ObjectWire Editorial',

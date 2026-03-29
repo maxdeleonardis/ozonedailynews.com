@@ -5,13 +5,13 @@ import { compareDescending, getRelativeTime } from '@/lib/date-utils';
 import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/NewsLibrary';
 
 export const metadata: Metadata = {
-  title: "ObjectWire — News That Matters",
+  title: "ObjectWire | News That Matters",
   description: "Independent journalism covering technology, finance, investigations, and world events. Source-verified reporting you can trust.",
   alternates: {
     canonical: 'https://www.objectwire.org/news',
   },
   openGraph: {
-    title: "ObjectWire — News That Matters",
+    title: "ObjectWire | News That Matters",
     description: "Independent journalism covering technology, finance, investigations, and world events.",
     type: 'website',
   },
@@ -82,8 +82,10 @@ export default async function NewsPage() {
       title: a.title,
       excerpt: a.excerpt ?? '',
       category: a.category,
-      author: a.author,
-      date: a.date ?? '',
+      author: a.author ?? 'ObjectWire Editorial',
+      date: a.publishedAt
+        ? a.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        : (a.date ?? ''),
       relativeDate: toRelativeDate(a),
       readTime: a.readTime,
       urgent: a.urgent,

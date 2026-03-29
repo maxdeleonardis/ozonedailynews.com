@@ -1,4 +1,4 @@
-# Components — ObjectWire
+# Components | ObjectWire
 
 > **What every file in `/components` does, how the content registry connects to each one, and the full gap analysis between the current system and IGN/CNN-scale organic traffic.**
 
@@ -19,13 +19,13 @@ Related: [googlenews-seo.md](googlenews-seo.md) · [supabase-library.md](supabas
 9. [Vertical-Specific Components](#9-vertical-specific-components)
 10. [Infrastructure Components](#10-infrastructure-components)
 11. [UI Primitive Components](#11-ui-primitive-components)
-12. [What Is Missing — IGN & CNN Traffic Gap Analysis](#12-what-is-missing--ign--cnn-traffic-gap-analysis)
+12. [What Is Missing, IGN & CNN Traffic Gap Analysis](#12-what-is-missing--ign--cnn-traffic-gap-analysis)
 
 ---
 
 ## 1. How the Content Registry Connects to Components
 
-`lib/content-registry.ts` is not a data store — it is **the connection layer between page metadata and every component that does SEO or navigation work**. Understanding this prevents the most common mistake: writing metadata twice.
+`lib/content-registry.ts` is not a data store, it is **the connection layer between page metadata and every component that does SEO or navigation work**. Understanding this prevents the most common mistake: writing metadata twice.
 
 ```
 content-registry.ts entry
@@ -54,7 +54,7 @@ content-registry.ts entry
 
 ### The rule: never hardcode metadata on a page that is already in the registry
 
-If a page is registered in `content-registry.ts`, its title, description, author, dates, and image are already declared. `SEOWrapper` reads them automatically — do not duplicate them inside a `NewsArticleSchema` block on the same page. One source of truth.
+If a page is registered in `content-registry.ts`, its title, description, author, dates, and image are already declared. `SEOWrapper` reads them automatically, do not duplicate them inside a `NewsArticleSchema` block on the same page. One source of truth.
 
 Conversely: if a page is **not** registered, `SEOWrapper` emits nothing and the article earns zero structured data credit with Google. Every published article needs a registry entry.
 
@@ -62,21 +62,21 @@ Conversely: if a page is **not** registered, `SEOWrapper` emits nothing and the 
 
 ## 2. Article Layout Components
 
-These are the "templates" — the React wrappers that define what a page looks like. Choosing the right one for the article type is the most important decision per publish.
+These are the "templates", the React wrappers that define what a page looks like. Choosing the right one for the article type is the most important decision per publish.
 
-### `JackArticle.tsx` — 1,286 lines
+### `JackArticle.tsx` | 1,286 lines
 
 **Use for:** Tech / gaming / finance news and reports.
 
 Two modes controlled by `layout` prop:
-- `layout="news"` — hero image, right sidebar, category badge, byline, section navigation
-- `layout="report"` — full-width monochrome, serif-heavy, research document aesthetic
+- `layout="news"`, hero image, right sidebar, category badge, byline, section navigation
+- `layout="report"`, full-width monochrome, serif-heavy, research document aesthetic
 
 **Sub-components exported:**
 
 | Export | Purpose |
 |---|---|
-| `JackArticle` | Main wrapper — schema, header, sidebar, body, footer |
+| `JackArticle` | Main wrapper, schema, header, sidebar, body, footer |
 | `JackSection` | Numbered section heading + content wrapper |
 | `JackSubheading` | Subsection heading (H3 level) |
 | `JackCallout` | Left-border callout box (insight/warning/data) |
@@ -95,7 +95,7 @@ Two modes controlled by `layout` prop:
 
 ---
 
-### `NewsArticle.tsx` — 770 lines
+### `NewsArticle.tsx` | 770 lines
 
 **Use for:** Entertainment / breaking news / event coverage.
 
@@ -105,7 +105,7 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 | Export | Purpose |
 |---|---|
-| `NewsArticle` | Main wrapper — hero image, header bar, body |
+| `NewsArticle` | Main wrapper, hero image, header bar, body |
 | `HighlightBox` | Colored callout for key quotes or data points |
 | `EmbedBox` | Social media / iframe embed container |
 | `ImageGallery` | Multi-image hover-zoom gallery |
@@ -117,7 +117,7 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 ---
 
-### `ObjectDesign.tsx` — 1,032 lines
+### `ObjectDesign.tsx` | 1,032 lines
 
 **Use for:** Long-form profiles, deep-dives, flagship evergreen articles that need both reference structure and visual impact. Think: Wikipedia article aesthetics with ObjectWire design polish.
 
@@ -143,7 +143,7 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 ---
 
-### `ArticlePage.tsx` — 502 lines
+### `ArticlePage.tsx` | 502 lines
 
 **Use for:** Evergreen Wikipedia-style reference articles. Older pattern, predates `ObjectDesign`. Still used on citation-heavy pages like definitions and company histories.
 
@@ -171,14 +171,14 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 ## 3. SEO & Structured Data Components
 
-These components emit JSON-LD structured data that Google reads directly. They are **not visible to users** — they live in the `<head>` or as `<script type="application/ld+json">` blocks.
+These components emit JSON-LD structured data that Google reads directly. They are **not visible to users**, they live in the `<head>` or as `<script type="application/ld+json">` blocks.
 
-### `SEOWrapper.tsx` — 129 lines
+### `SEOWrapper.tsx` | 129 lines
 
 **The primary SEO component.** Wrap any registered page with this and it automatically injects:
 
-1. `NewsArticle` JSON-LD — from the registry entry (title, description, author, dates, image, keywords)
-2. `BreadcrumbList` JSON-LD — auto-generated from the page slug
+1. `NewsArticle` JSON-LD, from the registry entry (title, description, author, dates, image, keywords)
+2. `BreadcrumbList` JSON-LD, auto-generated from the page slug
 
 ```tsx
 <SEOWrapper slug="/technology/cursor">
@@ -192,13 +192,13 @@ These components emit JSON-LD structured data that Google reads directly. They a
 
 ### `NewsArticleSchema.tsx`
 
-Three named exports — use when you need finer control than `SEOWrapper` provides, or for pages not in the registry.
+Three named exports, use when you need finer control than `SEOWrapper` provides, or for pages not in the registry.
 
 | Export | JSON-LD type emitted |
 |---|---|
-| `NewsArticleSchema` | `NewsArticle` — article-level structured data |
-| `OrganizationSchema` | `Organization` — publisher/brand signal |
-| `WebSiteSchema` | `WebSite` — sitelinks searchbox eligibility |
+| `NewsArticleSchema` | `NewsArticle`, article-level structured data |
+| `OrganizationSchema` | `Organization`, publisher/brand signal |
+| `WebSiteSchema` | `WebSite`, sitelinks searchbox eligibility |
 
 `OrganizationSchema` and `WebSiteSchema` should be mounted once at the root layout, not on individual pages.
 
@@ -218,22 +218,22 @@ Three named exports — use when you need finer control than `SEOWrapper` provid
 
 ### `Breadcrumb.tsx`
 
-Renders visible breadcrumb navigation. Note: `SEOWrapper` emits `BreadcrumbList` JSON-LD automatically — `Breadcrumb.tsx` is the **visible** companion, not a duplicate.
+Renders visible breadcrumb navigation. Note: `SEOWrapper` emits `BreadcrumbList` JSON-LD automatically, `Breadcrumb.tsx` is the **visible** companion, not a duplicate.
 
 ---
 
 ## 4. Hub & Navigation Components
 
-### `Hub.tsx` — 360 lines
+### `Hub.tsx` | 360 lines
 
 **Use for:** Topic landing pages — the aggregator pages for each vertical (Winter Olympics, Formula 1, etc.).
 
 **Sub-components:**
-- `Hub` — root dark-gradient wrapper
-- `Hub.Section` — titled content section with icon
-- `Hub.InfoGrid` — stat/info grid
-- `Hub.Card` — linked story card with badge and emoji
-- `Hub.Table` — data table
+- `Hub`, root dark-gradient wrapper
+- `Hub.Section`, titled content section with icon
+- `Hub.InfoGrid`, stat/info grid
+- `Hub.Card`, linked story card with badge and emoji
+- `Hub.Table`, data table
 
 ---
 
@@ -269,11 +269,11 @@ Embeds a Discord comment thread keyed to an article slug. Used as the comment sy
 
 ### `ServiceInterlinks.tsx`
 
-Reads `content-registry.ts` and emits an internal link block ("Related Coverage") for the current page. Matches on `tags` and `category`. Critical for SEO — internal linking passes PageRank between related articles and signals topical depth to Google.
+Reads `content-registry.ts` and emits an internal link block ("Related Coverage") for the current page. Matches on `tags` and `category`. Critical for SEO, internal linking passes PageRank between related articles and signals topical depth to Google.
 
 **Props:**
-- `currentPath` — slug of the current page (excluded from results)
-- `limit` — number of related links to show (default: 4–6)
+- `currentPath`, slug of the current page (excluded from results)
+- `limit`, number of related links to show (default: 4–6)
 
 ### `NewsLibrary.tsx`
 
@@ -285,7 +285,7 @@ Full article archive / grid component. Reads registry data to render filterable 
 
 | Component | Purpose |
 |---|---|
-| `AuthProvider.tsx` | Supabase auth context wrapper — mounts at root layout |
+| `AuthProvider.tsx` | Supabase auth context wrapper, mounts at root layout |
 | `AuthButton.tsx` | Sign in / sign out toggle button |
 | `AuthTracker.tsx` | Tracks auth state changes, syncs to analytics |
 | `SignInButton.tsx` | Standalone sign-in CTA button |
@@ -359,13 +359,13 @@ Located in `components/ui/` — these are [shadcn/ui](https://ui.shadcn.com/) pr
 
 ---
 
-## 12. What Is Missing — IGN & CNN Traffic Gap Analysis
+## 12. What Is Missing | IGN & CNN Traffic Gap Analysis
 
 This section maps the exact structural gaps between ObjectWire's current component library and what IGN (120M+ monthly visitors) and CNN (150M+ monthly visitors) run to capture search traffic at scale. Each gap has a traffic mechanism explaining *why* it drives clicks.
 
 ---
 
-### Gap 1 — `VideoObject` Schema Component
+### Gap 1 | `VideoObject` Schema Component
 
 **Traffic mechanism:** YouTube-embedded and natively-hosted video content with `VideoObject` JSON-LD qualifies for the **Video carousel** in Google Search — a second top-of-page slot separate from the main text results and Google News. IGN gets enormous traffic from game trailers and gameplay videos being indexed with proper video schema.
 
@@ -375,7 +375,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 2 — `Review` + `Rating` Schema Component
+### Gap 2 | `Review` + `Rating` Schema Component
 
 **Traffic mechanism:** Every "[Game] Review" and "[Product] Review" query in Google shows star ratings in the SERP for sites that emit `Review` + `aggregateRating` JSON-LD. IGN owns the first page of nearly every game review query in part because their review pages emit this schema. The stars increase CTR by ~30% over plain blue links.
 
@@ -385,7 +385,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 3 — Tag Archive Pages
+### Gap 3 | Tag Archive Pages
 
 **Traffic mechanism:** For every tag (`#cursor`, `#gran-turismo`, `#pokemon`), IGN and CNN have a live archive page (`/ign/tag/gran-turismo`) that aggregates all articles about that topic. These pages rank for broad topic queries ("gran turismo news", "pokemon news 2026") where single articles don't — they're topical index pages that compound with every new article added. For CNN, tag pages drive millions of monthly sessions on evergreen topic queries.
 
@@ -395,7 +395,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 4 — Pagination Component
+### Gap 4 | Pagination Component
 
 **Traffic mechanism:** Archive pages, tag pages, and category hubs need paginated navigation with proper `rel="next"` / `rel="prev"` link tags. Without pagination, Google only sees the first N articles on any list page. IGN's category archives run to 1,000+ pages per genre — each page is an indexed entry point for a cluster of articles.
 
@@ -405,7 +405,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 5 — `HowTo` Schema Component
+### Gap 5 | `HowTo` Schema Component
 
 **Traffic mechanism:** "How to" queries trigger a rich result in Google with step-by-step UI directly in the SERP. These are some of the highest-impression placements in search. CNN's tech section and IGN's wiki/guide sections own large volumes of these.
 
@@ -415,7 +415,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 6 — `Event` Schema Component
+### Gap 6 | `Event` Schema Component
 
 **Traffic mechanism:** Event listings (`Formula 1 race schedule`, `Nintendo Direct date`) with `Event` JSON-LD appear in the **Events rich result** above organic results. CNN's entertainment and sports coverage drives significant traffic from event queries. IGN deploys event schema for game launches, Nintendo Directs, and esports tournaments.
 
@@ -425,7 +425,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 7 — `Podcast` / `AudioObject` Schema Component
+### Gap 7 | `Podcast` / `AudioObject` Schema Component
 
 **Traffic mechanism:** Google surfaces podcasts in a dedicated Podcast app and in search results with `PodcastEpisode` / `PodcastSeries` JSON-LD. ObjectWire has a podcasts section (`/podcasts`) but no structured data for episodes.
 
@@ -435,7 +435,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 8 — Author Expertise Pages (E-E-A-T)
+### Gap 8 | Author Expertise Pages (E-E-A-T)
 
 **Traffic mechanism:** Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) guidelines place heavy weight on verified author credentials for YMYL (finance, health) and news content. CNN contributors have Wikipedia pages, external citations, and full `Person` JSON-LD profiles. IGN's reviewers have years of byline history. Thin or missing author pages suppress ranking for topically sensitive queries.
 
@@ -445,7 +445,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 9 — Trending / Popular Articles Sidebar Widget
+### Gap 9 | Trending / Popular Articles Sidebar Widget
 
 **Traffic mechanism:** "Most popular" and "Trending now" sidebar widgets drive internal traffic from high-traffic articles to mid-tier articles, distributing PageRank across the site and reducing bounce rate. CNN and IGN both run these. Sites without them see high bounce on viral/news articles — traffic hits the article and exits.
 
@@ -455,7 +455,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Gap 10 — Live Score / Live Data Widgets
+### Gap 10 | Live Score / Live Data Widgets
 
 **Traffic mechanism:** IGN's biggest recurring traffic days align with game launches, review embargoes, and Nintendo Directs — but sustained daily traffic comes from wiki pages, leaderboards, and live game stats. CNN's largest sustained traffic driver is live election results and sports scores. Live data pages earn return visitors and bookmark behavior that static articles cannot.
 
@@ -465,7 +465,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ---
 
-### Summary — Gap Priority Matrix
+### Summary | Gap Priority Matrix
 
 | Gap | Traffic mechanism | Build complexity | Priority |
 |---|---|---|---|
@@ -480,7 +480,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 | `Podcast` schema | Podcast app indexing | Low | 🟢 Low |
 | Live data widgets | Return visitor behavior | High | 🟢 Low |
 
-The four "High" items — tag archives, review schema, video schema, and E-E-A-T author pages — are the ones IGN and CNN invested in earliest and that drive the largest share of their sustained organic traffic. Building these in order closes the structural gap between ObjectWire's current footprint and the component surface area that search engines reward at scale.
+The four "High" items, tag archives, review schema, video schema, and E-E-A-T author pages, are the ones IGN and CNN invested in earliest and that drive the largest share of their sustained organic traffic. Building these in order closes the structural gap between ObjectWire's current footprint and the component surface area that search engines reward at scale.
 
 ---
 

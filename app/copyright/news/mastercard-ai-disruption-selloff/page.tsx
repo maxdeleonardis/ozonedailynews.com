@@ -10,7 +10,7 @@ const SLUG = '/copyright/news/mastercard-ai-disruption-selloff';
 export const metadata: Metadata = {
   title: 'Mastercard Shares Fall Below $500 as AI Disruption Note and Tariff Fears Hit Payments | ObjectWire',
   description:
-    'Mastercard (NYSE: MA) fell 5.73% on February 23, 2026, closing at $496.40 — its first sub-$500 close since April 2025 — after a viral research note warned AI could displace 15–25% of card transaction volume, while tariff uncertainty rattled cross-border fee projections.',
+    'Mastercard (NYSE: MA) fell 5.73% on February 23, 2026, closing at $496.40, its first sub-$500 close since April 2025, after a viral research note warned AI could displace 15–25% of card transaction volume, while tariff uncertainty rattled cross-border fee projections.',
   keywords: [
     'Mastercard stock drop',
     'MA stock February 2026',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mastercard Drops Below $500 as AI Disruption Note and Tariff Fears Rattle Payments Sector",
     description:
-      'Mastercard fell 5.73% to $496.40 on February 23, 2026 — the first sub-$500 close since April 2025 — after a viral fintech research note projected AI could displace up to 25% of card volume, compounding tariff-driven sector anxiety.',
+      'Mastercard fell 5.73% to $496.40 on February 23, 2026, the first sub-$500 close since April 2025, after a viral fintech research note projected AI could displace up to 25% of card volume, compounding tariff-driven sector anxiety.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mastercard Falls Below $500 — AI Note + Tariff Fears Wipe $18B From Payments Sector | ObjectWire',
+    title: 'Mastercard Falls Below $500 | AI Note + Tariff Fears Wipe $18B From Payments Sector | ObjectWire',
     description:
       'Mastercard, Visa, and American Express saw $18.4 billion in combined market value erased on February 23, 2026. The trigger: a viral research note projecting generative AI could disrupt 15–25% of card transaction volume.',
   },

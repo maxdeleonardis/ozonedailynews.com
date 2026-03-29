@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/technology/stablecoins-druckenmiller-armstrong-global-payments-backbone-2026';
 
 export const metadata: Metadata = {
-  title: "Druckenmiller Says Stablecoins Will Be the Backbone of Global Payments — Armstrong Agrees | ObjectWire",
+  title: "Druckenmiller Says Stablecoins Will Be the Backbone of Global Payments | Armstrong Agrees | ObjectWire",
   description:
-    "Billionaire investor Stanley Druckenmiller told Morgan Stanley on January 30, 2026, that stablecoins will dominate global payment systems within 10–15 years. Coinbase CEO Brian Armstrong endorsed the view on X: 'Druck is right.' Stablecoin volume hit $27.6 trillion in 2025 — surpassing Visa and Mastercard combined.",
+    "Billionaire investor Stanley Druckenmiller told Morgan Stanley on January 30, 2026, that stablecoins will dominate global payment systems within 10–15 years. Coinbase CEO Brian Armstrong endorsed the view on X: 'Druck is right.' Stablecoin volume hit $27.6 trillion in 2025, surpassing Visa and Mastercard combined.",
   keywords: [
     'Stanley Druckenmiller stablecoins 2026',
     'Brian Armstrong Druck is right stablecoins',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Druckenmiller: Stablecoins Backbone of Global Payments in 15 Years. Armstrong: 'Druck is right.' | ObjectWire",
     description:
-      "Stablecoin volume hit $27.6 trillion in 2025 — more than Visa and Mastercard combined. Druckenmiller sees them dominating cross-border value transfer by 2036–2041.",
+      "Stablecoin volume hit $27.6 trillion in 2025, more than Visa and Mastercard combined. Druckenmiller sees them dominating cross-border value transfer by 2036–2041.",
   },
   other: {
     news_keywords:

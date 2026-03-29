@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "'Marty Supreme' Has Nine Oscar Noms — but the Odds Say Zero Wins",
+    title: "'Marty Supreme' Has Nine Oscar Noms | but the Odds Say Zero Wins",
     description:
       "Josh Safdie's A24 sports drama heads into the 98th Oscars with Best Picture, Director, and Actor nods. Kalshi and Polymarket bettors are betting on Sinners stealing the night.",
     images: [IMAGE_URL],

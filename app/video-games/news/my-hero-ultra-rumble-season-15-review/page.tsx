@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My Hero Ultra Rumble Season 15: Tokoyami, Neo Academia & Everything New',
     description:
-      "Full breakdown of Season 15 — Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam player data.",
+      "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam player data.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MHUR Season 15: Tokoyami Drops, Neo Academia Launches, Steam Peaks at 4,558',
     description:
-      'Everything in My Hero Ultra Rumble Season 15 — Dark Shadow kit, Neo Academia stage, all event rewards, gacha calendar, and Steam concurrent data through February 2026.',
+      'Everything in My Hero Ultra Rumble Season 15, Dark Shadow kit, Neo Academia stage, all event rewards, gacha calendar, and Steam concurrent data through February 2026.',
   },
 };
 

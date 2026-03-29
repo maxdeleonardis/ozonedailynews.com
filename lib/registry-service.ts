@@ -58,7 +58,7 @@ async function db() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {
-    console.warn('[registry-service] Supabase env vars not set — returning empty registry.');
+    console.warn('[registry-service] Supabase env vars not set, returning empty registry.');
     return null;
   }
   return createClient();
@@ -109,7 +109,7 @@ export async function getAllEntries(): Promise<ContentEntry[]> {
     .order('publish_date', { ascending: false });
 
   if (error) { console.error('[registry-service] getAllEntries:', error.message); return _syncRegistry; }
-  if (!data || data.length === 0) return _syncRegistry; // table empty — seed not run yet
+  if (!data || data.length === 0) return _syncRegistry; // table empty, seed not run yet
   return data.map(rowToEntry);
 }
 

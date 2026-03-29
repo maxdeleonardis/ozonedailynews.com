@@ -1,18 +1,18 @@
-# ObjectWire — Step-by-Step Action Plan
+# ObjectWire | Step-by-Step Action Plan
 
 > Distilled from `seo_contentregistry_auto.md` + `SEO_NEXTSTEPS_CONTEXT.md`.
 > These are the highest-impact actions executable directly in this codebase, in priority order.
 
 ---
 
-## Stage 1 — Fix the Foundation (Do These First)
+## Stage 1 | Fix the Foundation (Do These First)
 
 ### 1. Audit & Fix Registry Entries Missing Images
 
 The single biggest blocker for Google Top Stories eligibility.
 
 ```bash
-npm run registry:sync   # dry-run — shows all missing/broken entries
+npm run registry:sync   # dry-run, shows all missing/broken entries
 ```
 
 For every entry missing `imageUrl`, `imageWidth`, `imageHeight`:
@@ -46,7 +46,7 @@ Add to `package.json`:
 "audit": "npx tsx scripts/audit-registry.ts"
 ```
 
-Run: `npm run audit` — zero issues should be the target before every deploy.
+Run: `npm run audit`, zero issues should be the target before every deploy.
 
 ---
 
@@ -82,7 +82,7 @@ Run `npm run audit` (after step 2) to find them all at once.
 
 ---
 
-## Stage 2 — Per-Article Components (Every New Article)
+## Stage 2 | Per-Article Components (Every New Article)
 
 Every article page must include all of these. Use this as a copy-paste checklist.
 
@@ -92,7 +92,7 @@ Every article page must include all of these. Use this as a copy-paste checklist
 // app/[section]/[slug]/page.tsx
 
 export const metadata = {
-  title: '[Primary Keyword] — Exact Headline | ObjectWire',   // ≤ 60 chars, keyword first
+  title: '[Primary Keyword] | Exact Headline | ObjectWire',   // ≤ 60 chars, keyword first
   description: '[Unique, 130–155 chars, keyword in first 60]',
   keywords: ['keyword 1', 'keyword 2', ...],                  // 10–15 phrases
   openGraph: {
@@ -122,7 +122,7 @@ export default function ArticlePage() {
         keywords={['keyword 1', 'keyword 2']}
       />
       <article>
-        <h1>[Title — must match metadata.title headline exactly]</h1>
+        <h1>[Title, must match metadata.title headline exactly]</h1>
         {/* content */}
         {/* 4–6 <Link> internal links to related pages at the bottom */}
       </article>
@@ -133,18 +133,18 @@ export default function ArticlePage() {
 
 ### Component Checklist per Article
 
-- [ ] `metadata` export — title (≤60 chars, keyword first), description (130–155), canonical, OG image 1200×675
-- [ ] `<SEOWrapper slug="...">` — slug matches registry exactly
-- [ ] `<NewsArticleSchema>` — all props filled with real data
-- [ ] `<Breadcrumb>` — 3+ levels
-- [ ] `<h1>` — matches metadata title headline exactly
-- [ ] Hero image — `next/image`, width + height set (prevents CLS)
+- [ ] `metadata` export, title (≤60 chars, keyword first), description (130–155), canonical, OG image 1200×675
+- [ ] `<SEOWrapper slug="...">`, slug matches registry exactly
+- [ ] `<NewsArticleSchema>`, all props filled with real data
+- [ ] `<Breadcrumb>`, 3+ levels
+- [ ] `<h1>`, matches metadata title headline exactly
+- [ ] Hero image, `next/image`, width + height set (prevents CLS)
 - [ ] 4–6 internal `<Link>` cards to related ObjectWire pages
 - [ ] Real author name in both `NewsArticleSchema` and registry entry
 
 ---
 
-## Stage 3 — Content Registry Entry (After Every New Article)
+## Stage 3 | Content Registry Entry (After Every New Article)
 
 After `npm run build` auto-syncs the entry, go back and patch:
 
@@ -160,7 +160,7 @@ After `npm run build` auto-syncs the entry, go back and patch:
   author: 'First Last',                               // ← real name
   priority: 0.9,                                      // 0.9 breaking, 0.7 news, 0.5 evergreen
   changeFrequency: 'daily',                           // daily|weekly|monthly
-  imageUrl: 'https://www.objectwire.org/images/...', // ← CRITICAL — patch this
+  imageUrl: 'https://www.objectwire.org/images/...', // ← CRITICAL, patch this
   imageWidth: 1200,                                   // ← CRITICAL
   imageHeight: 675,                                   // ← CRITICAL
   imageAlt: 'Descriptive alt text',
@@ -171,7 +171,7 @@ After `npm run build` auto-syncs the entry, go back and patch:
 
 ---
 
-## Stage 4 — Build Automation Improvements
+## Stage 4 | Build Automation Improvements
 
 ### 4a. Build `RelatedArticles` Component
 
@@ -206,37 +206,37 @@ Add `loading="lazy"` to every one that doesn't already have it. This directly im
 
 ---
 
-## Stage 5 — Cluster Buildout (Priority Content)
+## Stage 5 | Cluster Buildout (Priority Content)
 
 Build hub → sub-article clusters. Every sub-article links back to hub; hub links to all sub-articles.
 
-### Cluster 1 — `/video-games/gta-6` (7 articles)
+### Cluster 1 | `/video-games/gta-6` (7 articles)
 - [ ] Hub: `/video-games/gta-6`
 - [ ] Pre-orders, Price, PC release, Map, Characters, Online, System Requirements
 
-### Cluster 2 — `/video-games/forza-horizon-6` (5 articles)
+### Cluster 2 | `/video-games/forza-horizon-6` (5 articles)
 - [ ] Hub + Cars, Map, Editions, Routes, PC Specs
 
-### Cluster 3 — `/video-games/switch2` (5 articles)
+### Cluster 3 | `/video-games/switch2` (5 articles)
 - [ ] Hub + Specs, Games, Price, Compatibility, Joy-Con
 
-### Cluster 4 — `/apple` (5 articles)
+### Cluster 4 | `/apple` (5 articles)
 - [ ] Hub + iPhone 18, WWDC 2026, Core AI, Mac Mini M5, Apple TV F1
 
-### Cluster 5 — `/google` (4 articles)
+### Cluster 5 | `/google` (4 articles)
 - [ ] Hub + Gemini 3, AI Plus, Agentic Vision, Pixel 11
 
 **Rule:** every article in a cluster must have a link TO the hub AND the hub must have a link card TO the article. No orphan sub-articles.
 
 ---
 
-## Stage 6 — Programmatic Scaling (Month 2–3)
+## Stage 6 | Programmatic Scaling (Month 2–3)
 
 ### 6a. Scale `/define/` Pages
 
 Current: ~13 pages. Target: 200+.
 
-Pattern: `/define/[term]` — "What is [term]", short reference article, no date dependency, `changeFrequency: 'monthly'`, `priority: 0.5`. Auto-generate from a terms array + template.
+Pattern: `/define/[term]`, "What is [term]", short reference article, no date dependency, `changeFrequency: 'monthly'`, `priority: 0.5`. Auto-generate from a terms array + template.
 
 Priority terms: CUDA, LLM, Transformer, RAG, LoRA, Diffusion Model, API, Tokenizer, VRAM, Fine-Tuning, Inference, RLHF, Embedding, Vector Database, ...
 
@@ -244,7 +244,7 @@ Priority terms: CUDA, LLM, Transformer, RAG, LoRA, Diffusion Model, API, Tokeniz
 
 Current: ~12 profiles. Target: 100+.
 
-Pattern: `/saas/[company]` — overview, products, funding, team.
+Pattern: `/saas/[company]`, overview, products, funding, team.
 
 ### 6c. Pre-Build Event Pages
 
@@ -264,7 +264,7 @@ Build before the event so Google indexes them in advance:
 □ 3. Include hero image (1200×675+, next/image)
 □ 4. Add 4–6 internal <Link> cards to related pages
 □ 5. npm run build  (prebuild auto-registers entry in registry)
-□ 6. Open /news-sitemap.xml — verify slug appears
+□ 6. Open /news-sitemap.xml, verify slug appears
 □ 7. Patch registry entry: imageUrl + imageWidth + imageHeight + description
 □ 8. Push to GitHub → deploy
 ```
@@ -279,15 +279,15 @@ For breaking news via Supabase CMS (no build):
 
 ---
 
-## Non-Negotiables — Zero Exceptions
+## Non-Negotiables | Zero Exceptions
 
 | # | Requirement | Consequence if Missing |
 |---|---|---|
-| 1 | `metadata.title` — keyword first, ≤ 60 chars | Won't rank for target keyword |
-| 2 | `metadata.description` — unique, 130–155 chars | Low CTR, possible demotion |
+| 1 | `metadata.title`, keyword first, ≤ 60 chars | Won't rank for target keyword |
+| 2 | `metadata.description`, unique, 130–155 chars | Low CTR, possible demotion |
 | 3 | OG image 1200×675+ in metadata | Blocked from Top Stories, Discover |
 | 4 | `canonical` URL set | Duplicate content penalty |
-| 5 | Registry entry — all fields complete | No JSON-LD, no sitemap, invisible to Google |
+| 5 | Registry entry, all fields complete | No JSON-LD, no sitemap, invisible to Google |
 | 6 | `imageUrl` + `imageWidth` + `imageHeight` in registry | Ineligible for Top Stories carousel |
 | 7 | `publishDate` accurate | Wrong news sitemap window |
 | 8 | `tags[]` with 5–10 items | Weak topical signal |

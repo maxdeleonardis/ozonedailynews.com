@@ -1,7 +1,7 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'XRP — Digital Asset, XRP Ledger & Ripple Network | ObjectWire',
+  title: 'XRP | Digital Asset, XRP Ledger & Ripple Network | ObjectWire',
   slug: 'crypto-xrp',
   category: 'Reference',
   status: 'published',
@@ -44,17 +44,17 @@ const article: Article = {
 
     <h2 id="history" class="text-2xl font-bold mt-10 mb-4">History &amp; Origins</h2>
     <p>
-      The XRP Ledger was conceived in 2011 by <strong>David Schwartz</strong> (now CTO of Ripple), <strong>Jed McCaleb</strong>, and <strong>Arthur Britto</strong>. The trio created a new blockchain consensus protocol that eliminated the energy-intensive mining required by Bitcoin. In 2012, they founded <strong>OpenCoin</strong> (later renamed Ripple Labs), and 80 billion XRP were gifted to the company to fund operations and ecosystem development. McCaleb departed in 2014 to found <strong>Stellar</strong>, a competing payment-focused blockchain. XRP reached its all-time high of <strong>$3.84</strong> during the 2017–2018 crypto bull market, briefly becoming the second-largest cryptocurrency by market cap. In December 2020, the U.S. Securities and Exchange Commission filed a lawsuit against Ripple Labs, alleging XRP was an unregistered security — a case that would define the asset's trajectory for years.
+      The XRP Ledger was conceived in 2011 by <strong>David Schwartz</strong> (now CTO of Ripple), <strong>Jed McCaleb</strong>, and <strong>Arthur Britto</strong>. The trio created a new blockchain consensus protocol that eliminated the energy-intensive mining required by Bitcoin. In 2012, they founded <strong>OpenCoin</strong> (later renamed Ripple Labs), and 80 billion XRP were gifted to the company to fund operations and ecosystem development. McCaleb departed in 2014 to found <strong>Stellar</strong>, a competing payment-focused blockchain. XRP reached its all-time high of <strong>$3.84</strong> during the 2017–2018 crypto bull market, briefly becoming the second-largest cryptocurrency by market cap. In December 2020, the U.S. Securities and Exchange Commission filed a lawsuit against Ripple Labs, alleging XRP was an unregistered security, a case that would define the asset's trajectory for years.
     </p>
 
     <h2 id="how-it-works" class="text-2xl font-bold mt-10 mb-4">How XRP Works</h2>
     <h3 class="text-xl font-semibold mb-3">Federated Consensus</h3>
     <p>
-      The XRPL uses a <strong>Federated Byzantine Agreement (FBA)</strong> consensus mechanism. Rather than miners competing to solve cryptographic puzzles, a network of independent validators agrees on the order and validity of transactions. This achieves <strong>3–5 second finality</strong>, approximately <strong>1,500 transactions per second</strong>, and transaction fees of roughly <strong>0.00001 XRP</strong> (fractions of a cent). There is no mining and no block reward — all 100 billion XRP were created at genesis.
+      The XRPL uses a <strong>Federated Byzantine Agreement (FBA)</strong> consensus mechanism. Rather than miners competing to solve cryptographic puzzles, a network of independent validators agrees on the order and validity of transactions. This achieves <strong>3–5 second finality</strong>, approximately <strong>1,500 transactions per second</strong>, and transaction fees of roughly <strong>0.00001 XRP</strong> (fractions of a cent). There is no mining and no block reward, all 100 billion XRP were created at genesis.
     </p>
     <h3 class="text-xl font-semibold mb-3 mt-6">Tokenomics &amp; Supply</h3>
     <p>
-      XRP has a fixed maximum supply of <strong>100 billion tokens</strong>. A small amount of XRP is burned with every transaction, making the supply <strong>deflationary</strong> over time. As of early 2026, approximately <strong>57 billion XRP</strong> are in circulation. Ripple Labs holds a significant reserve in cryptographic escrow, releasing up to <strong>1 billion XRP per month</strong> — unused portions are returned to escrow.
+      XRP has a fixed maximum supply of <strong>100 billion tokens</strong>. A small amount of XRP is burned with every transaction, making the supply <strong>deflationary</strong> over time. As of early 2026, approximately <strong>57 billion XRP</strong> are in circulation. Ripple Labs holds a significant reserve in cryptographic escrow, releasing up to <strong>1 billion XRP per month</strong>, unused portions are returned to escrow.
     </p>
 
     <h2 id="ripple" class="text-2xl font-bold mt-10 mb-4">Ripple Labs &amp; RippleNet</h2>

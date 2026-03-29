@@ -41,7 +41,7 @@ As of February 2026, ObjectWire maintains active publishing operations, with rec
 
 ### Core Mission
 
-ObjectWire's foundational mission centers on **revealing truth through transparent verification methodology**. Unlike traditional news aggregators or AI-generated content farms, ObjectWire positions itself as a "credibility engine" — a platform where every claim undergoes rigorous verification through primary sources before publication.
+ObjectWire's foundational mission centers on **revealing truth through transparent verification methodology**. Unlike traditional news aggregators or AI-generated content farms, ObjectWire positions itself as a "credibility engine", a platform where every claim undergoes rigorous verification through primary sources before publication.
 
 ### Verification Methodology
 

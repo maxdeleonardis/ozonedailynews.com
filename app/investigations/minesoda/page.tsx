@@ -288,7 +288,7 @@ export default function MinesodaPage() {
                         The 'Summer of Love' term, while controversial, reflected both the unity of 
                         purpose among protesters and the complex nature of the movement."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Local community organizer</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Local community organizer</footer>
                     </blockquote>
 
                     <h3>Long-term Consequences</h3>
@@ -474,7 +474,7 @@ export default function MinesodaPage() {
                         valuable lessons about community engagement and the importance of swift, 
                         coordinated action during crisis situations."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Governor Tim Walz, 2021</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Governor Tim Walz, 2021</footer>
                     </blockquote>
 
                     <h3>2024 Vice Presidential Campaign</h3>

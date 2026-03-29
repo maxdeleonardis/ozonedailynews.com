@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: ['Gemini Embedding 2', 'Google', 'multimodal embedding', 'AI', 'RAG', 'vector search', 'text embeddings', 'image embeddings', 'machine learning', 'Google DeepMind'],
   openGraph: {
     title: 'Gemini Embedding 2: Google\'s First Natively Multimodal Embedding Model',
-    description: 'Google\'s Gemini Embedding 2 maps text, images, audio, video, and PDFs into a single unified vector space — simplifying AI stacks and powering the next generation of search and RAG.',
+    description: 'Google\'s Gemini Embedding 2 maps text, images, audio, video, and PDFs into a single unified vector space, simplifying AI stacks and powering the next generation of search and RAG.',
     type: 'article',
     publishedTime: '2026-03-11T09:00:00Z',
     authors: ['ObjectWire Staff'],

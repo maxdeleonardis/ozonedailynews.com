@@ -1,0 +1,162 @@
+# ObjectWire Copilot Instructions
+
+These rules apply to **every** GitHub Copilot request in this workspace.
+
+---
+
+## What ObjectWire Is
+
+ObjectWire is a verified news platform built on Next.js 15, React 19, Supabase (PostgreSQL), and Tailwind CSS. The editorial mission is accuracy over speed, primary sources only, and transparent corrections. It is not a blog, aggregator, or opinion site. Every article must be verifiable, sourced, and written for real search intent.
+
+Production: Railway → `objectwire.org` | Repo: `Autolab350/Objectwire-Frontend`
+
+---
+
+## OStandard — Always Enforced
+
+Whenever writing or editing any article, component, Supabase record, or editorial copy, follow the full OStandard spec defined in `.github/skills/ostandard/SKILL.md`.
+
+### Core rules (quick reference):
+
+- **No em dashes (`—`) ever.** Use `|` in headings/titles. Use `,` in prose.
+- **No en dashes (`–`) ever.** Use `-` or rewrite the sentence.
+- **Headings use `|`** as a separator, never `:` followed by a dependent clause.
+- Subheadings must be niche and specific, not generic (`"Background"`, `"Overview"` are banned).
+- Meta description: 130–155 chars, contains primary keyword, no generic phrases.
+- `meta_title` format: `Primary Keyword | ObjectWire`
+- Every article slug must be lowercase, hyphen-only, no stop words.
+- `tags` must be an array of 4–8 real proper nouns (no generic terms).
+- `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`.
+- `published_at` must be a full ISO-8601 timestamp (e.g. `2026-03-28T14:00:00Z`).
+
+---
+
+## Article Component Routing
+
+Every article belongs to exactly one Supabase table. Use the correct component or you will query the wrong table:
+
+| Component | Supabase Table | Use For |
+|---|---|---|
+| `NewsArticleDB` | `articles` | News, breaking, gaming, tech, features, analysis |
+| `JackArticleDB` | `jack_articles` | Research reports, investigations, premium long-form |
+| `ArticlePageDB` | `article_pages` | Profiles, wiki-style, evergreen reference guides |
+
+**`jack_articles` has no `status` column.** Never query `status` from it.
+
+All fetching is server-side. Zero client-side Supabase calls in page components. Every `page.tsx` must export `dynamic = 'force-dynamic'`.
+
+---
+
+## Slug Format Rules
+
+- `app/california/my-article/page.tsx` → slug: `california-my-article`
+- `app/trump/foo/page.tsx` → slug: `trump-foo`
+- Slugs match the full path joined with dashes, no leading slash, all lowercase.
+- The slug in `page.tsx` and the slug in the Supabase row must be identical.
+
+---
+
+## Publishing Workflows
+
+**Workflow A — content file → Supabase (preferred for new news articles):**
+```bash
+cp content/articles/_template.ts content/articles/[category]/your-slug.ts
+# fill fields and content_html
+npm run content:dry-run
+npm run content:publish
+```
+
+**Workflow B — existing static page.tsx → Supabase:**
+```bash
+npm run wiki:migrate   # ALWAYS first — extracts JSX → HTML → Supabase row
+npm run wiki:trim      # ALWAYS second — replaces file with 3-line stub
+npm run registry:write # add entry to content_registry
+```
+Trim before migrate = no Supabase row = 404 in production.
+
+**Workflow C — `/admin/editor` UI** — use only for quick edits or non-developer contributors.
+
+---
+
+## Required Article Fields (`articles` table)
+
+Every new article must have these populated before publishing:
+
+| Field | Rule |
+|---|---|
+| `slug` | Full path joined with dashes, no leading slash |
+| `title` | Full headline, no em dashes |
+| `category` | One of the valid category values (see OStandard) |
+| `status` | `'published'` or `'draft'` |
+| `content_html` | Full HTML body wrapped in `<div class="prose prose-lg max-w-none">` |
+| `publish_date` | Display string: `"March 28, 2026"` |
+| `published_at` | ISO-8601: `2026-03-28T14:00:00Z` |
+| `author_name` | Display name |
+| `author_slug` | Kebab-case, links to `/authors/[slug]` |
+| `hero_image_src` | Real hosted image, min 1200px wide |
+| `tags` | Array of 4-8 proper nouns |
+
+After publishing, every article also needs a `content_registry` entry. Missing entry = invisible to Google (no sitemap, no JSON-LD, no Top Stories).
+
+---
+
+## SEO Article Requirements (Every Publish)
+
+Every article that ships must have all of the following:
+
+- `metadata.title` — keyword + brand (`"GTA 6 Release Date | ObjectWire"`)
+- `metadata.description` — 130-155 chars, primary keyword in first 60 chars
+- `canonical` URL set in `alternates`
+- `openGraph` block with title, description, image (1200x675), `publishedTime`, `section`
+- `NewsArticleSchema` component matching the `content_registry` entry exactly
+- `SEOWrapper` wrapping the page, slug pointed at registry
+- Breadcrumb at 3-4 levels
+- H2 headings (one per major section, keyword-rich)
+- 4-6 internal links to related ObjectWire pages
+- `imageUrl`, `imageWidth`, `imageHeight` in the registry entry (required for Google Top Stories)
+
+---
+
+## SEO Growth Context
+
+ObjectWire's current SEO state (March 2026): ~330 indexed pages, 25+ topic verticals, full structured-data pipeline (sitemap, news-sitemap, JSON-LD on every page). Growth target: 100K monthly organic sessions within 12 months.
+
+**Priority content pillars and clusters to build or expand:**
+
+| Pillar | Hub URL | Target Keyword |
+|---|---|---|
+| Gaming | `/video-games/gta-6` | "GTA 6" (5M+/mo) |
+| Gaming | `/video-games/switch2` | "Nintendo Switch 2" (2M+/mo) |
+| Tech / AI | `/open-ai` | "OpenAI" (3M+/mo) |
+| Tech / AI | `/google` | "Google news" (2M+/mo) |
+| Tech / AI | `/apple` | "Apple news" (1M+/mo) |
+| Tech / AI | `/nvidia` | "Nvidia news" (800K+/mo) |
+| Finance | `/finance` | "finance news" (500K+/mo) |
+| Entertainment | `/entertainment` | streaming, studio deals |
+| Seasonal | `/winter-olympics` | "2026 Winter Olympics" |
+| Seasonal | `/world-cup` | "2026 World Cup" |
+
+Sub-articles within a cluster must link to the hub, and the hub must link to all sub-articles. Internal linking is the highest-leverage SEO tactic.
+
+---
+
+## Editorial Principles
+
+1. **Accuracy over speed** — verify before publishing, never chase breaking news without sourcing.
+2. **Primary sources only** — cite origins, not aggregators. Every claim must be traceable.
+3. **Transparent corrections** — errors corrected publicly, timestamped, original text preserved.
+4. **Clear separation** — news vs. opinion labeled, sponsored content disclosed.
+5. **Named authors** — all articles must have a byline with a valid `author_slug`.
+
+---
+
+## General Code Standards
+
+- TypeScript strict mode is on — no `any` types without justification.
+- All Supabase queries go through `lib/blog-service.ts` or `lib/supabase/`.
+- Server components fetch data; client components handle interaction only.
+- Never hardcode Supabase URLs or keys — use env vars (`NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`).
+- Tailwind only — no inline `style={{}}` unless absolutely necessary.
+- File names: kebab-case for pages/routes, PascalCase for components.
+- `content_html` bodies must be wrapped in `<div class="prose prose-lg max-w-none">`.
+- Blockquote footers use `, Name, Title` format — never start with `—`.

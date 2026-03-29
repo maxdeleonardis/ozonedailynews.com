@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'FIFA Backs Mexico as CJNG Violence Sweeps Jalisco, Home of World Cup Host Guadalajara',
     description:
-      '252+ violent incidents in 72 hours after El Mencho killed. Estadio Akron hosts four group games. Puerto Vallarta flights cancelled. FIFA says it has "full confidence" — and is reviewing contingencies.',
+      '252+ violent incidents in 72 hours after El Mencho killed. Estadio Akron hosts four group games. Puerto Vallarta flights cancelled. FIFA says it has "full confidence", and is reviewing contingencies.',
   },
 };
 

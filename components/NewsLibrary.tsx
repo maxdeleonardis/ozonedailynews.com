@@ -1,10 +1,10 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export interface LibraryArticle {
   slug: string;
@@ -36,498 +36,181 @@ export interface NewsLibraryProps {
   urgentTicker?: string[];
 }
 
-// ─── Category colour map ──────────────────────────────────────────────────────
+// â”€â”€â”€ Category accent colours â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-type SpineColor = {
-  bg: string;
-  text: string;
-  light: string;
-  badge: string;
-  border: string;
-  tag: string;
-  icon: string;
+const CATEGORY_ACCENTS: Record<string, string> = {
+  TECHNOLOGY: '#1d4ed8', TECH: '#1d4ed8',
+  FINANCE: '#059669', BUSINESS: '#059669',
+  SPORTS: '#7c3aed', 'WINTER OLYMPICS': '#7c3aed',
+  INVESTIGATION: '#c2410c', FRAUD: '#c2410c', INVESTIGATIONS: '#c2410c',
+  ENTERTAINMENT: '#be185d',
+  GAMING: '#6d28d9',
+  WORLD: '#0369a1',
+  NEWS: '#dc2626',
+  SCIENCE: '#0d9488', HEALTH: '#0d9488',
+  POLITICS: '#7f1d1d',
+  AI: '#0891b2',
+  CRYPTO: '#b45309',
 };
 
-const CATEGORY_COLORS: Record<string, SpineColor> = {
-  TECHNOLOGY:    { bg: '#1d4ed8', text: '#fff', light: '#eff6ff', badge: '#bfdbfe', border: '#3b82f6', tag: 'bg-blue-600 text-white', icon: '💻' },
-  TECH:          { bg: '#1d4ed8', text: '#fff', light: '#eff6ff', badge: '#bfdbfe', border: '#3b82f6', tag: 'bg-blue-600 text-white', icon: '💻' },
-  FINANCE:       { bg: '#059669', text: '#fff', light: '#f0fdf4', badge: '#bbf7d0', border: '#10b981', tag: 'bg-emerald-600 text-white', icon: '💰' },
-  BUSINESS:      { bg: '#059669', text: '#fff', light: '#f0fdf4', badge: '#bbf7d0', border: '#10b981', tag: 'bg-emerald-600 text-white', icon: '📈' },
-  SPORTS:        { bg: '#7c3aed', text: '#fff', light: '#faf5ff', badge: '#ddd6fe', border: '#8b5cf6', tag: 'bg-violet-600 text-white', icon: '🏅' },
-  'WINTER OLYMPICS': { bg: '#7c3aed', text: '#fff', light: '#faf5ff', badge: '#ddd6fe', border: '#8b5cf6', tag: 'bg-violet-600 text-white', icon: '🏔️' },
-  INVESTIGATION: { bg: '#c2410c', text: '#fff', light: '#fff7ed', badge: '#fed7aa', border: '#ea580c', tag: 'bg-orange-700 text-white', icon: '🔍' },
-  FRAUD:         { bg: '#c2410c', text: '#fff', light: '#fff7ed', badge: '#fed7aa', border: '#ea580c', tag: 'bg-orange-700 text-white', icon: '🔎' },
-  ENTERTAINMENT: { bg: '#be185d', text: '#fff', light: '#fdf2f8', badge: '#fbcfe8', border: '#ec4899', tag: 'bg-pink-700 text-white', icon: '🎬' },
-  GAMING:        { bg: '#6d28d9', text: '#fff', light: '#f5f3ff', badge: '#ede9fe', border: '#7c3aed', tag: 'bg-purple-700 text-white', icon: '🎮' },
-  WORLD:         { bg: '#0369a1', text: '#fff', light: '#f0f9ff', badge: '#bae6fd', border: '#0ea5e9', tag: 'bg-sky-700 text-white', icon: '🌍' },
-  NEWS:          { bg: '#dc2626', text: '#fff', light: '#fef2f2', badge: '#fecaca', border: '#ef4444', tag: 'bg-red-600 text-white', icon: '📰' },
-  SCIENCE:       { bg: '#0d9488', text: '#fff', light: '#f0fdfa', badge: '#99f6e4', border: '#14b8a6', tag: 'bg-teal-600 text-white', icon: '🔬' },
-  HEALTH:        { bg: '#0d9488', text: '#fff', light: '#f0fdfa', badge: '#99f6e4', border: '#14b8a6', tag: 'bg-teal-600 text-white', icon: '💊' },
-  POLITICS:      { bg: '#7f1d1d', text: '#fff', light: '#fef2f2', badge: '#fca5a5', border: '#dc2626', tag: 'bg-red-900 text-white', icon: '🏛️' },
-  AI:            { bg: '#06b6d4', text: '#fff', light: '#ecfeff', badge: '#a5f3fc', border: '#22d3ee', tag: 'bg-cyan-600 text-white', icon: '🤖' },
-  CRYPTO:        { bg: '#b45309', text: '#fff', light: '#fffbeb', badge: '#fde68a', border: '#f59e0b', tag: 'bg-amber-700 text-white', icon: '₿' },
-  META:          { bg: '#374151', text: '#fff', light: '#f9fafb', badge: '#e5e7eb', border: '#6b7280', tag: 'bg-gray-700 text-white', icon: '📋' },
-};
-
-function getCategoryColor(category: string): SpineColor {
-  const key = category.toUpperCase().trim();
-  return CATEGORY_COLORS[key] ?? { bg: '#1f2937', text: '#fff', light: '#f9fafb', badge: '#e5e7eb', border: '#6b7280', tag: 'bg-gray-800 text-white', icon: '📄' };
+function accent(category: string): string {
+  return CATEGORY_ACCENTS[category.toUpperCase().trim()] ?? '#111827';
 }
 
-// ─── View mode type ───────────────────────────────────────────────────────────
+type ViewMode = 'grid' | 'list';
 
-type ViewMode = 'shelves' | 'grid' | 'list';
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function normalizeCategory(raw: string): string {
-  return raw.toUpperCase().trim();
-}
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Breaking ticker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function TickerBanner({ headlines }: { headlines: string[] }) {
-  if (headlines.length === 0) return null;
-  const repeated = [...headlines, ...headlines, ...headlines].join('  ◆  ');
+  if (!headlines.length) return null;
+  const repeated = [...headlines, ...headlines, ...headlines].join('   â, †   ');
   return (
-    <div className="bg-red-600 text-white py-2 overflow-hidden">
+    <div className="bg-black text-white py-1.5 overflow-hidden border-b border-black">
       <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
-        <span className="bg-white text-red-700 text-[10px] font-black px-2.5 py-1 rounded shrink-0 uppercase tracking-wider">
+        <span className="bg-white text-black text-[9px] font-black px-2 py-0.5 shrink-0 uppercase tracking-widest">
           Breaking
         </span>
         <div className="overflow-hidden flex-1">
-          <p className="text-sm font-medium whitespace-nowrap animate-marquee">
-            {repeated}
-          </p>
+          <p className="text-xs font-medium whitespace-nowrap animate-marquee font-mono">{repeated}</p>
         </div>
       </div>
     </div>
   );
 }
 
-function CardCatalogSearch({ value, onChange, totalArticles }: {
-  value: string;
-  onChange: (v: string) => void;
-  totalArticles: number;
-}) {
-  return (
-    <div className="relative flex-1 max-w-xl">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </div>
-      <input
-        type="text"
-        placeholder={`Search ${totalArticles} articles…`}
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        className="w-full pl-10 pr-10 py-2.5 bg-blue-50 border-2 border-blue-200 rounded-lg text-sm text-gray-800 placeholder:text-blue-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-medium"
-      />
-      {value && (
-        <button
-          onClick={() => onChange('')}
-          className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue-400 hover:text-blue-700"
-          aria-label="Clear search"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      )}
-    </div>
-  );
-}
+// â”€â”€â”€ Article card (grid) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-function ViewToggle({ mode, onChange }: { mode: ViewMode; onChange: (m: ViewMode) => void }) {
-  const modes: { key: ViewMode; icon: string; label: string }[] = [
-    { key: 'shelves', icon: '📚', label: 'Shelves' },
-    { key: 'grid',    icon: '⊞',  label: 'Grid' },
-    { key: 'list',    icon: '☰',  label: 'List' },
-  ];
-  return (
-    <div className="flex items-center bg-blue-100 rounded-lg p-1 gap-1">
-      {modes.map(m => (
-        <button
-          key={m.key}
-          onClick={() => onChange(m.key)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
-            mode === m.key
-              ? 'bg-white shadow text-blue-900'
-              : 'text-blue-600 hover:text-blue-900'
-          }`}
-          title={m.label}
-        >
-          <span>{m.icon}</span>
-          <span className="hidden sm:inline">{m.label}</span>
-        </button>
-      ))}
-    </div>
-  );
-}
-
-// Book spine – compact card for shelves view
-function BookSpine({ article, index }: { article: LibraryArticle; index: number }) {
-  const colors = getCategoryColor(article.category);
-  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
-
+function ArticleCard({ article }: { article: LibraryArticle }) {
+  const color = accent(article.category);
   return (
     <Link
-      href={article.slug}
-      className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-    >
-      {/* Thumbnail or colored placeholder */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden shrink-0">
-        {article.imageUrl ? (
-          <Image
-            src={article.imageUrl}
-            alt={article.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-4xl" style={{ background: colors.light }}>
-            {colors.icon}
-          </div>
-        )}
-        {/* Overlay badges */}
-        <div className="absolute top-2 left-2 flex items-center gap-1.5">
-          <span
-            className="text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm"
-            style={{ background: colors.bg, color: '#fff' }}
-          >
-            {article.category}
-          </span>
-          {article.urgent && (
-            <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-600 text-white animate-pulse">LIVE</span>
-          )}
-        </div>
-      </div>
-
-      <div className="p-3 flex-1 flex flex-col">
-        <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug line-clamp-2 mb-1.5">
-          {article.title}
-        </h3>
-        <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-2">
-          {article.excerpt}
-        </p>
-        <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
-          <div
-            className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black text-white shrink-0"
-            style={{ background: colors.bg }}
-          >
-            {initials}
-          </div>
-          <span className="text-[11px] text-gray-600 font-medium truncate flex-1">{article.author}</span>
-          <div className="flex items-center gap-1 shrink-0">
-            {article.isUpdated && (
-              <span className="text-[10px] font-bold px-1 py-0.5 rounded bg-purple-100 text-purple-700">UPD</span>
-            )}
-            <time className="text-[10px] text-gray-400">{article.relativeDate}</time>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-// Full card for grid view
-function BookCard({ article }: { article: LibraryArticle }) {
-  const colors = getCategoryColor(article.category);
-  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
-
-  return (
-    <Link
-      href={article.slug}
-      className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+      href={article.slug.startsWith('/') ? article.slug : `/${article.slug}`}
+      className="group flex flex-col bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all duration-150 rounded-sm"
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
         {article.imageUrl ? (
           <Image
             src={article.imageUrl}
             alt={article.title}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-5xl" style={{ background: colors.light }}>
-            {colors.icon}
-          </div>
+          <div className="w-full h-full" style={{ background: `${color}12` }} />
         )}
-        <div className="absolute top-3 left-3 flex items-center gap-2">
-          <span className="text-xs font-bold px-2.5 py-0.5 rounded-full shadow" style={{ background: colors.bg, color: '#fff' }}>
-            {colors.icon} {article.category}
+        {article.urgent && (
+          <span className="absolute top-2 left-2 bg-black text-white text-[9px] font-black px-2 py-0.5 uppercase tracking-widest">
+            Breaking
           </span>
-          {article.urgent && (
-            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-600 text-white animate-pulse shadow">BREAKING</span>
-          )}
-        </div>
+        )}
       </div>
 
-      <div className="p-5">
-        <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-2 line-clamp-2">
+      <div className="p-4 flex-1 flex flex-col">
+        {/* Category */}
+        <span
+          className="text-[10px] font-black uppercase tracking-[.12em] mb-2 block"
+          style={{ color }}
+        >
+          {article.category}
+          {article.isUpdated && <span className="ml-2 text-gray-400 font-bold normal-case tracking-normal">Updated</span>}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-[11px] font-black text-gray-900 group-hover:underline underline-offset-2 leading-snug mb-2 font-serif">
           {article.title}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-4">
+
+        {/* Excerpt */}
+        <p className="text-[10px] text-gray-500 leading-relaxed mb-3">
           {article.excerpt}
         </p>
-        <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
-          <div
-            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white shrink-0"
-            style={{ background: colors.bg }}
-          >
-            {initials}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs font-semibold text-gray-700 truncate">{article.author}</p>
-            <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
-              {article.isUpdated && <span className="font-bold text-purple-600">Updated ·</span>}
-              <time>{article.relativeDate}</time>
-              {article.readTime && <><span>·</span><span>{article.readTime}</span></>}
-            </div>
-          </div>
+
+        {/* Meta */}
+        <div className="flex flex-col gap-0.5 text-[10px] font-mono border-t border-gray-100 pt-2 mt-auto">
+          <span className="font-semibold text-gray-700">{article.author}</span>
+          <span className="text-gray-400">{article.date || article.relativeDate}</span>
         </div>
       </div>
     </Link>
   );
 }
 
-// List row for list view
-function ListRow({ article, index }: { article: LibraryArticle; index: number }) {
-  const colors = getCategoryColor(article.category);
-  const initials = article.author?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'OW';
+// â”€â”€â”€ Article list row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+function ArticleRow({ article, index }: { article: LibraryArticle; index: number }) {
+  const color = accent(article.category);
   return (
     <Link
-      href={article.slug}
-      className="group flex items-start gap-4 py-4 px-4 -mx-4 hover:bg-white rounded-xl transition-colors"
+      href={article.slug.startsWith('/') ? article.slug : `/${article.slug}`}
+      className="group flex items-start gap-4 py-4 border-b border-gray-200 last:border-0 hover:bg-gray-50 px-1 transition-colors"
     >
-      <span
-        className="text-2xl font-black tabular-nums leading-none pt-1 shrink-0 w-8 text-right hidden sm:block"
-        style={{ color: colors.badge }}
-      >
+      {/* Number */}
+      <span className="text-[11px] font-black font-mono text-gray-300 pt-0.5 w-6 shrink-0 hidden sm:block">
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      <div className="w-1 self-stretch rounded-full shrink-0" style={{ background: colors.bg }} />
+      {/* Accent bar */}
+      <div className="w-0.5 self-stretch shrink-0" style={{ background: color }} />
 
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: colors.bg }}>
-            {article.category}
-          </span>
-          {article.urgent && <span className="text-[10px] font-black text-red-600 animate-pulse">● LIVE</span>}
-          {article.isUpdated && <span className="text-[10px] font-bold text-purple-600">UPDATED</span>}
-        </div>
-        <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-1 line-clamp-2">
+        <span className="text-[10px] font-black uppercase tracking-[.12em] block mb-0.5" style={{ color }}>
+          {article.category}
+          {article.urgent && <span className="ml-2 text-black">Â· Breaking</span>}
+        </span>
+        <h3 className="text-sm font-black text-gray-900 group-hover:underline underline-offset-2 leading-snug mb-1 line-clamp-2 font-serif">
           {article.title}
         </h3>
-        <p className="text-xs text-gray-500 line-clamp-2 mb-1.5">{article.excerpt}</p>
-        <div className="flex items-center gap-2 text-[11px] text-gray-400">
-          <div
-            className="w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-black text-white shrink-0"
-            style={{ background: colors.bg }}
-          >
-            {initials}
-          </div>
-          <span className="font-medium text-gray-500">{article.author}</span>
-          <span>·</span>
+        <p className="text-xs text-gray-500 line-clamp-1 mb-1.5">{article.excerpt}</p>
+        <div className="flex items-center gap-2 text-[10px] text-gray-400 font-mono">
+          <span>{article.author}</span>
+          <span>Â·</span>
           <time>{article.relativeDate}</time>
-          {article.readTime && <><span>·</span><span>{article.readTime}</span></>}
+          {article.readTime && <><span>Â·</span><span>{article.readTime}</span></>}
         </div>
       </div>
 
-      {/* Thumbnail */}
-      <div className="relative w-20 h-14 rounded-lg overflow-hidden shrink-0 hidden sm:block">
+      {/* Thumbnail — always shown, color swatch as fallback */}
+      <div className="relative w-20 h-14 shrink-0 overflow-hidden hidden sm:block bg-gray-100">
         {article.imageUrl ? (
-          <Image
-            src={article.imageUrl}
-            alt={article.title}
-            fill
-            sizes="80px"
-            className="object-cover"
-          />
+          <Image src={article.imageUrl} alt={article.title} fill sizes="80px" className="object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-xl" style={{ background: colors.light }}>
-            {colors.icon}
-          </div>
+          <div className="w-full h-full" style={{ background: `${color}18` }} />
         )}
       </div>
     </Link>
   );
 }
 
-// Shelf row: one category's articles in the shelves view
-function AisleShelf({ category, articles, isActive, onSelect }: {
-  category: LibraryCategory;
-  articles: LibraryArticle[];
-  isActive: boolean;
-  onSelect: () => void;
-}) {
-  const colors = getCategoryColor(category.rawName);
-  const [expanded, setExpanded] = useState(false);
-  const topArticles = expanded ? articles : articles.slice(0, 4);
+// â”€â”€â”€ Hero (top story) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+function HeroStory({ article }: { article: LibraryArticle }) {
+  const color = accent(article.category);
   return (
-    <section
-      className={`mb-4 rounded-xl overflow-hidden border transition-all duration-300 ${
-        isActive ? 'border-2 shadow-md' : 'border-gray-200'
-      }`}
-      style={isActive ? { borderColor: colors.bg } : {}}
+    <Link
+      href={article.slug.startsWith('/') ? article.slug : `/${article.slug}`}
+      className="group block border-b-2 border-black pb-6 mb-6"
     >
-      {/* Shelf label (like the aisle header in a library) */}
-      <button
-        onClick={() => { onSelect(); setExpanded(ea => !ea); }}
-        className="w-full flex items-center justify-between px-5 py-3.5 text-left"
-        style={{ background: isActive ? colors.bg : '#f8f7f4' }}
-      >
-        <div className="flex items-center gap-3">
-          <span className="text-xl">{colors.icon}</span>
-          <div>
-            <h2 className={`font-black text-sm uppercase tracking-wider ${isActive ? 'text-white' : 'text-gray-800'}`}>
-              {category.name}
-            </h2>
-            <p className={`text-xs font-medium ${isActive ? 'text-white/70' : 'text-gray-400'}`}>
-              {category.count} {category.count === 1 ? 'article' : 'articles'}
-            </p>
-          </div>
-          {category.isNew && (
-            <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700'}`}>
-              NEW
-            </span>
-          )}
-        </div>
-        <svg
-          className={`w-5 h-5 transition-transform duration-200 ${expanded ? 'rotate-180' : ''} ${isActive ? 'text-white' : 'text-gray-400'}`}
-          fill="none" stroke="currentColor" viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      {/* Article spines on the shelf */}
-      {isActive && (
-        <div className="p-4 bg-white">
-          <div className="grid grid-cols-2 gap-3">
-            {topArticles.map((a, i) => (
-              <BookSpine key={a.slug} article={a} index={i} />
-            ))}
-          </div>
-          {articles.length > 4 && (
-            <button
-              onClick={() => setExpanded(e => !e)}
-              className="mt-4 w-full py-2 text-xs font-bold rounded-lg border-2 border-dashed transition-colors"
-              style={{ borderColor: colors.border, color: colors.bg }}
-            >
-              {expanded
-                ? '↑ Show fewer articles'
-                : `↓ Show ${articles.length - 4} more in this aisle`}
-            </button>
-          )}
+      {article.imageUrl && (
+        <div className="relative w-full aspect-[21/9] overflow-hidden bg-gray-100 mb-4">
+          <Image src={article.imageUrl} alt={article.title} fill sizes="100vw" className="object-cover group-hover:scale-[1.01] transition-transform duration-300" />
         </div>
       )}
-    </section>
+      <span className="text-[10px] font-black uppercase tracking-[.15em] block mb-2" style={{ color }}>
+        {article.category}
+        {article.urgent && <span className="ml-3 text-black">Â· Breaking</span>}
+      </span>
+      <h2 className="text-3xl md:text-4xl font-black text-gray-900 group-hover:underline underline-offset-4 leading-tight mb-3 font-serif">
+        {article.title}
+      </h2>
+      <p className="text-base text-gray-600 leading-relaxed mb-3 max-w-3xl">{article.excerpt}</p>
+      <div className="text-xs text-gray-400 font-mono">{article.author} Â· {article.relativeDate}{article.readTime && ` Â· ${article.readTime}`}</div>
+    </Link>
   );
 }
 
-// Reading table: top featured stories hero
-function ReadingTable({ articles }: { articles: LibraryArticle[] }) {
-  const [active, setActive] = useState(0);
-  const featured = articles.slice(0, 5);
-  const hero = featured[active];
-  if (!hero) return null;
-
-  const heroColors = getCategoryColor(hero.category);
-
-  return (
-    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm mb-8">
-      {/* Header bar */}
-      <div className="flex items-center justify-between px-5 py-3 bg-[#0f0c1f] border-b border-[#1e1a3f]">
-        <div className="flex items-center gap-2">
-          <span className="text-blue-400 text-sm">📖</span>
-          <span className="text-blue-100 text-xs font-bold uppercase tracking-widest">Reading Table</span>
-          <span className="text-purple-400 text-xs">— Top Stories</span>
-        </div>
-        <div className="flex items-center gap-1">
-          {featured.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-all ${i === active ? 'bg-blue-400 w-4' : 'bg-white/20 hover:bg-white/40'}`}
-              aria-label={`Story ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="flex flex-col lg:flex-row">
-        {/* Hero story */}
-        <Link href={hero.slug} className="group flex-1 p-7 hover:bg-gray-50 transition-colors">
-          <div className="flex items-center gap-3 mb-4">
-            <span
-              className="text-xs font-bold px-3 py-1 rounded-full"
-              style={{ background: heroColors.bg, color: '#fff' }}
-            >
-              {heroColors.icon} {hero.category}
-            </span>
-            {hero.urgent && (
-              <span className="text-xs font-black px-3 py-1 rounded-full bg-red-100 text-red-700 animate-pulse">
-                🔴 BREAKING
-              </span>
-            )}
-            <span className="text-xs text-gray-400">{hero.relativeDate}</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-blue-700 transition-colors leading-tight mb-4">
-            {hero.title}
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-5 line-clamp-3">
-            {hero.excerpt}
-          </p>
-          <div className="flex items-center gap-3 text-sm text-gray-500">
-            <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
-              <span className="text-xs font-black text-gray-600">{hero.author?.charAt(0)}</span>
-            </div>
-            <span className="font-medium text-gray-700">{hero.author}</span>
-            {hero.readTime && <><span>·</span><span>📖 {hero.readTime}</span></>}
-          </div>
-        </Link>
-
-        {/* Side queue */}
-        {featured.length > 1 && (
-          <div className="lg:w-72 lg:border-l border-t lg:border-t-0 border-gray-100 divide-y divide-gray-100">
-            {featured.filter((_, i) => i !== active).slice(0, 4).map((a, i) => {
-              const c = getCategoryColor(a.category);
-              return (
-                <Link
-                  key={a.slug}
-                  href={a.slug}
-                  className="group flex items-start gap-3 p-4 hover:bg-gray-50 transition-colors"
-                  onMouseEnter={() => setActive(featured.indexOf(a))}
-                >
-                  <div className="w-1 self-stretch rounded-full shrink-0 mt-0.5" style={{ background: c.bg }} />
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: c.bg }}>
-                      {a.category}
-                    </span>
-                    <h4 className="text-xs font-bold text-gray-800 group-hover:text-blue-700 transition-colors leading-snug line-clamp-2 mt-0.5">
-                      {a.title}
-                    </h4>
-                    <time className="text-[10px] text-gray-400 mt-1 block">{a.relativeDate}</time>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ─── Main library component ───────────────────────────────────────────────────
+// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function NewsLibrary({
   articles,
@@ -539,10 +222,10 @@ export default function NewsLibrary({
 }: NewsLibraryProps) {
   const [query, setQuery] = useState('');
   const [activeCat, setActiveCat] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>('shelves');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const searchRef = useRef<HTMLInputElement>(null);
 
-  // ── Keyboard shortcut: / to focus search ──
+  // Press / to focus search
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') {
@@ -554,284 +237,175 @@ export default function NewsLibrary({
     return () => document.removeEventListener('keydown', handler);
   }, []);
 
-  // ── Filtered articles ──
   const filtered = useMemo(() => {
-    let results = articles;
+    let list = [...articles];
+
+    // Text search
     if (query.trim()) {
       const q = query.toLowerCase();
-      results = results.filter(
-        a =>
-          a.title.toLowerCase().includes(q) ||
-          a.excerpt.toLowerCase().includes(q) ||
-          a.author.toLowerCase().includes(q) ||
-          a.category.toLowerCase().includes(q)
+      list = list.filter(a =>
+        a.title.toLowerCase().includes(q) ||
+        a.excerpt.toLowerCase().includes(q) ||
+        a.author.toLowerCase().includes(q) ||
+        a.category.toLowerCase().includes(q)
       );
     }
+
+    // Category filter
     if (activeCat) {
-      results = results.filter(a => normalizeCategory(a.category) === activeCat);
+      list = list.filter(a => a.category.toUpperCase().trim() === activeCat);
     }
-    return results;
+
+    return list;
   }, [articles, query, activeCat]);
 
-  // ── Articles grouped by category (for shelf view) ──
-  const grouped = useMemo(() => {
-    const map = new Map<string, LibraryArticle[]>();
-    filtered.forEach(a => {
-      const key = normalizeCategory(a.category);
-      if (!map.has(key)) map.set(key, []);
-      map.get(key)!.push(a);
-    });
-    return map;
-  }, [filtered]);
-
-  const isSearching = query.trim().length > 0 || activeCat !== null;
+  const isFiltering = !!query.trim() || !!activeCat;
+  const rest = filtered;
 
   return (
-    <div className="min-h-screen" style={{ background: '#faf9f6' }}>
+    <div className="min-h-screen bg-[#faf9f6]">
 
-      {/* Breaking ticker */}
-      {urgentTicker.length > 0 && <TickerBanner headlines={urgentTicker} />}
-
-      {/* ── Library Masthead ──────────────────────────────────────── */}
-      <header style={{ background: 'linear-gradient(180deg, #0f0c1f 0%, #1a1340 60%, #2d1b69 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 py-10">
-          {/* Date & edition */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">📚 The ObjectWire Library</span>
-              <span className="text-purple-600/50 text-[10px]">|</span>
-              <span className="text-purple-300 text-[11px]">{today}</span>
+      {/* ── Section header ── */}
+      <div className="border-b-2 border-black bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <h1 className="text-5xl font-black tracking-tighter leading-none font-serif">News</h1>
+              <p className="text-xs font-mono text-gray-500 mt-1">
+                {today} &nbsp;Â·&nbsp; {totalArticles} articles &nbsp;Â·&nbsp; {articlesThisWeek} this week
+              </p>
             </div>
-            <div className="hidden sm:flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-blue-300 text-[11px]">{articlesThisWeek} new this week</span>
-            </div>
-          </div>
 
-          {/* Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-2 drop-shadow-lg">
-              ObjectWire News
-            </h1>
-            <p className="text-blue-300 text-sm">
-              {totalArticles} volumes in the collection — browse by aisle, search, or explore
-            </p>
-          </div>
-
-          {/* Card catalog search bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 bg-white/10 border-2 border-blue-500 rounded-xl px-4 py-3 shadow-inner">
-              <svg className="w-5 h-5 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            {/* Search */}
+            <div className="flex items-center gap-2 border border-gray-300 bg-white focus-within:border-black transition-colors px-3 py-2 max-w-xs w-full sm:w-auto">
+              <svg className="w-3.5 h-3.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
               </svg>
               <input
                 ref={searchRef}
                 type="text"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder={`Search ${totalArticles} articles… (press / to focus)`}
-                className="flex-1 bg-transparent text-white placeholder:text-blue-300/60 text-base font-medium focus:outline-none"
+                placeholder={`Search ${totalArticles} articlesâ€¦`}
+                className="flex-1 bg-transparent text-xs font-mono text-gray-900 placeholder-gray-400 focus:outline-none"
               />
               {query && (
-                <button onClick={() => setQuery('')} className="text-blue-300 hover:text-white shrink-0">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+                <button onClick={() => setQuery('')} className="text-gray-400 hover:text-black text-xs font-mono shrink-0">âœ•</button>
               )}
             </div>
-            {query && (
-              <p className="text-blue-300 text-xs text-center mt-2">
-                {filtered.length} result{filtered.length !== 1 ? 's' : ''} for &ldquo;{query}&rdquo;
-              </p>
-            )}
           </div>
+
+
         </div>
+      </div>
 
-        {/* ── Aisle Navigation (category strip) ── */}
-        <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center gap-1 overflow-x-auto py-2 scrollbar-hide">
-              {/* All button */}
-              <button
-                onClick={() => { setActiveCat(null); }}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
-                  activeCat === null && !query
-                    ? 'bg-blue-500 text-white'
-                    : 'text-blue-300 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                🗂️ All Aisles
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeCat === null && !query ? 'bg-white/20' : 'bg-white/10'}`}>
-                  {totalArticles}
-                </span>
-              </button>
-
-              {categories.map(cat => {
-                const colors = getCategoryColor(cat.rawName);
-                const isActive = activeCat === cat.rawName;
-                return (
-                  <button
-                    key={cat.rawName}
-                    onClick={() => setActiveCat(isActive ? null : cat.rawName)}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
-                      isActive
-                        ? 'text-white shadow'
-                        : 'text-blue-300 hover:bg-white/10 hover:text-white'
-                    }`}
-                    style={isActive ? { background: colors.bg } : {}}
-                  >
-                    <span>{colors.icon}</span>
-                    {cat.name}
-                    {cat.isNew && <span className="w-1.5 h-1.5 rounded-full bg-green-400 shrink-0" />}
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20' : 'bg-white/10'}`}>
-                      {cat.count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* ── Main floor ────────────────────────────────────────────── */}
+      {/* â”€â”€ Content â”€â”€ */}
       <main className="max-w-7xl mx-auto px-4 py-8">
 
-        {/* View toggle + result count bar */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            {isSearching ? (
-              <div>
-                <p className="font-bold text-gray-800">
-                  {filtered.length} article{filtered.length !== 1 ? 's' : ''}{' '}
-                  {activeCat && <span>in <span style={{ color: getCategoryColor(activeCat).bg }}>{activeCat}</span></span>}
-                  {query && <span> matching &ldquo;{query}&rdquo;</span>}
-                </p>
+        {/* Toolbar: category filters + result count + view toggle */}
+        <div className="mb-6 space-y-3">
+          {/* Category chips */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <button
+              onClick={() => setActiveCat(null)}
+              className={`text-[10px] font-black uppercase tracking-[.12em] px-3 py-1.5 border rounded-sm shrink-0 transition-colors ${
+                !activeCat ? 'bg-black text-white border-black' : 'border-gray-300 text-gray-500 hover:border-black hover:text-black'
+              }`}
+            >
+              All
+            </button>
+            {categories.map(cat => {
+              const isActive = activeCat === cat.rawName;
+              const color = accent(cat.rawName);
+              return (
+                <button
+                  key={cat.rawName}
+                  onClick={() => setActiveCat(isActive ? null : cat.rawName)}
+                  className="text-[10px] font-black uppercase tracking-[.12em] px-3 py-1.5 border rounded-sm shrink-0 transition-colors"
+                  style={
+                    isActive
+                      ? { background: color, color: '#fff', borderColor: color }
+                      : { borderColor: '#d1d5db', color: '#6b7280' }
+                  }
+                >
+                  {cat.name}
+                  {cat.isNew && <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-green-400 align-middle" />}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Result count + clear + view toggle */}
+          <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+            <p className="text-xs font-mono text-gray-500">
+              <span className="font-black text-gray-900">{rest.length}</span> article{rest.length !== 1 ? 's' : ''}
+              {activeCat && <span> · <span style={{ color: accent(activeCat) }} className="font-black">{activeCat}</span></span>}
+              {query.trim() && <span> · &ldquo;{query}&rdquo;</span>}
+              {isFiltering && (
                 <button
                   onClick={() => { setQuery(''); setActiveCat(null); }}
-                  className="text-xs text-blue-600 hover:underline mt-0.5"
+                  className="ml-2 text-gray-400 hover:text-black underline"
                 >
-                  ← Clear filters &amp; browse all
+                  Clear
                 </button>
-              </div>
-            ) : (
-              <p className="font-bold text-gray-800">
-                {totalArticles} articles across {categories.length} aisles
-              </p>
-            )}
+              )}
+            </p>
+            <div className="flex items-center gap-1">
+              {(['grid', 'list'] as ViewMode[]).map(m => (
+                <button
+                  key={m}
+                  onClick={() => setViewMode(m)}
+                  title={m === 'grid' ? 'Grid view' : 'List view'}
+                  className={`text-[10px] font-black px-2.5 py-1 border transition-colors ${
+                    viewMode === m ? 'bg-black text-white border-black' : 'border-gray-300 text-gray-400 hover:border-black hover:text-black'
+                  }`}
+                >
+                  {m === 'grid' ? '⊞' : '☰'}
+                </button>
+              ))}
+            </div>
           </div>
-          <ViewToggle mode={viewMode} onChange={setViewMode} />
         </div>
 
-        {/* ── Reading Table (hero — only when not searching) ── */}
-        {!isSearching && viewMode === 'shelves' && (
-          <ReadingTable articles={articles.filter(a => !a.isUpdated || a.urgent).slice(0, 5)} />
-        )}
-
-        {/* ── SHELVES VIEW ── */}
-        {viewMode === 'shelves' && (
-          <div>
-            {isSearching ? (
-              // When searching, show flat grid of results
-              filtered.length > 0 ? (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {filtered.map((a, i) => <BookSpine key={a.slug} article={a} index={i} />)}
-                </div>
-              ) : (
-                <div className="text-center py-20 text-gray-400">
-                  <div className="text-5xl mb-4">🔍</div>
-                  <p className="font-bold text-lg text-gray-600">No articles found</p>
-                  <p className="text-sm mt-1">Try a different search term or browse an aisle</p>
-                </div>
-              )
-            ) : (
-              // Default: two shelves per row
-              <div className="grid md:grid-cols-2 gap-4">
-                {categories
-                  .filter(cat => (grouped.get(cat.rawName) ?? []).length > 0)
-                  .map(cat => (
-                    <AisleShelf
-                      key={cat.rawName}
-                      category={cat}
-                      articles={grouped.get(cat.rawName) ?? []}
-                      isActive={activeCat === cat.rawName || activeCat === null}
-                      onSelect={() => setActiveCat(activeCat === cat.rawName ? null : cat.rawName)}
-                    />
-                  ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── GRID VIEW ── */}
-        {viewMode === 'grid' && (
-          <div>
-            {filtered.length > 0 ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {filtered.map(a => <BookCard key={a.slug} article={a} />)}
-              </div>
-            ) : (
-              <div className="text-center py-20 text-gray-400">
-                <div className="text-5xl mb-4">📚</div>
-                <p className="font-bold text-lg text-gray-600">No articles found</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── LIST VIEW ── */}
-        {viewMode === 'list' && (
-          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-              <span className="font-bold text-gray-800 text-sm">
-                {filtered.length} article{filtered.length !== 1 ? 's' : ''}
-              </span>
-            </div>
-            {filtered.length > 0 ? (
-              <div className="px-4 py-2 divide-y divide-gray-100">
-                {filtered.map((a, i) => (
-                  <ListRow key={a.slug} article={a} index={i} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-16 text-gray-400">
-                <p className="font-bold">No articles match your filters</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── Library stats footer ── */}
-        <div className="mt-16 rounded-2xl overflow-hidden" style={{ background: '#0f0c1f' }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1e1a3f]">
-            {[
-              { value: `${totalArticles}`, label: 'Volumes' },
-              { value: `${articlesThisWeek}+`, label: 'Added This Week' },
-              { value: `${categories.length}`, label: 'Aisles' },
-              { value: '100%', label: 'Source Verified' },
-            ].map(stat => (
-              <div key={stat.label} className="py-8 text-center">
-                <div className="text-3xl font-black text-blue-300">{stat.value}</div>
-                <div className="text-xs text-purple-400 font-bold uppercase tracking-wider mt-1">{stat.label}</div>
-              </div>
+        {/* Articles */}
+        {viewMode === 'grid' ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-8">
+            {rest.map(a => (
+              <ArticleCard key={a.slug} article={a} />
             ))}
           </div>
-          <div className="border-t border-[#1e1a3f] px-6 py-5">
-            <div className="flex flex-wrap justify-center gap-6 text-xs text-purple-400">
-              <Link href="/editorial-standards" className="hover:text-blue-300 transition-colors">Editorial Standards</Link>
-              <Link href="/about" className="hover:text-blue-300 transition-colors">About ObjectWire</Link>
-              <Link href="/rss.xml" className="hover:text-blue-300 transition-colors">RSS Feed</Link>
-              <Link href="/corrections" className="hover:text-blue-300 transition-colors">Corrections</Link>
-              <Link href="/authors" className="hover:text-blue-300 transition-colors">Authors</Link>
-              <Link href="/privacy-policy" className="hover:text-blue-300 transition-colors">Privacy</Link>
-            </div>
-            <p className="text-center text-purple-800 text-[11px] mt-4">
-              © {new Date().getFullYear()} ObjectWire. Independent journalism, always.
-            </p>
+        ) : (
+          <div className="bg-white border border-gray-200 px-4">
+            {rest.map((a, i) => <ArticleRow key={a.slug} article={a} index={i} />)}
           </div>
+        )}
+
+        {rest.length === 0 && (
+          <p className="text-center text-gray-400 py-20 font-mono text-sm">No results found.</p>
+        )}
+
+        {/* Stats bar */}
+        <div className="mt-16 border-t-2 border-black pt-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {[
+            { value: totalArticles, label: 'Articles' },
+            { value: `${articlesThisWeek}+`, label: 'This Week' },
+            { value: categories.length, label: 'Topics' },
+            { value: '100%', label: 'Source Verified' },
+          ].map(s => (
+            <div key={s.label}>
+              <div className="text-2xl font-black text-gray-900 font-serif">{s.value}</div>
+              <div className="text-[10px] font-black uppercase tracking-[.12em] text-gray-400 font-mono mt-0.5">{s.label}</div>
+            </div>
+          ))}
         </div>
 
+        <div className="flex flex-wrap justify-center gap-6 mt-8 text-xs font-mono text-gray-400 border-t border-gray-200 pt-6">
+          <Link href="/editorial-standards" className="hover:text-black transition-colors">Editorial Standards</Link>
+          <Link href="/about" className="hover:text-black transition-colors">About</Link>
+          <Link href="/rss.xml" className="hover:text-black transition-colors">RSS Feed</Link>
+          <Link href="/corrections" className="hover:text-black transition-colors">Corrections</Link>
+          <Link href="/authors" className="hover:text-black transition-colors">Authors</Link>
+        </div>
       </main>
     </div>
   );

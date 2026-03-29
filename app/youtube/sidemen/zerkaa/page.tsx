@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Zerkaa (Josh Bradley) — Sidemen Leader & GTA RP Pioneer | ObjectWire",
+  title: "Zerkaa (Josh Bradley) | Sidemen Leader & GTA RP Pioneer | ObjectWire",
   description: "Complete profile of Zerkaa (Josh Bradley): Sidemen leadership, GTA RP content, relationship with Freya Nightingale, business acumen, and group organizational role. 4.7M+ subscribers. 2026 coverage.",
   keywords: [
     "Zerkaa",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen/zerkaa',
   },
   openGraph: {
-    title: 'Zerkaa (Josh Bradley) — Sidemen Leader & GTA RP Creator',
+    title: 'Zerkaa (Josh Bradley) | Sidemen Leader & GTA RP Creator',
     description: 'Full profile of Zerkaa: Sidemen leadership, GTA RP mastery, engagement to Freya Nightingale, business operations, and group stability role.',
     type: 'article',
     url: 'https://www.objectwire.org/youtube/sidemen/zerkaa',

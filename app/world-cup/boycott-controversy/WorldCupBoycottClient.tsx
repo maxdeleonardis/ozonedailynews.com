@@ -64,7 +64,7 @@ export default function WorldCupBoycottClient() {
                  className="text-teal-400 hover:text-teal-300 underline">Amnesty International</a> and the{" "}
               <a href="https://www.aclu.org/" target="_blank" rel="noopener noreferrer" 
                  className="text-teal-400 hover:text-teal-300 underline">ACLU</a>, recent ICE enforcement actions 
-              have resulted in thousands of arrests at workplaces, schools, and homes across U.S. host cities—including 
+              have resulted in thousands of arrests at workplaces, schools, and homes across U.S. host cities, including 
               several World Cup venues. The <a href="https://www.hrw.org/" target="_blank" rel="noopener noreferrer" 
                  className="text-teal-400 hover:text-teal-300 underline">Human Rights Watch</a> reports that families 
               traveling to attend matches fear detention or separation.
@@ -160,7 +160,7 @@ export default function WorldCupBoycottClient() {
               <div className="border-l-4 border-orange-500 pl-4">
                 <p className="font-semibold text-orange-400">Host Cities</p>
                 <p className="text-gray-300 text-sm">
-                  Several host cities—including Los Angeles, New York, and Seattle—have declared themselves 
+                  Several host cities, including Los Angeles, New York, and Seattle, have declared themselves 
                   "sanctuary cities" and pledged not to cooperate with ICE during World Cup events. See{" "}
                   <a href="https://www.reuters.com/" target="_blank" rel="noopener noreferrer" 
                      className="text-teal-400 hover:text-teal-300 underline">Reuters coverage</a>.

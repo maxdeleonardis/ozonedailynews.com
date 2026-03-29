@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/saas/news/shopify-agentic-storefronts-chatgpt-default-march-2026';
 
 export const metadata: Metadata = {
-  title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT — March 2026 | ObjectWire",
+  title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT | March 2026 | ObjectWire",
   description:
-    "Shopify notified its millions of merchants on March 11, 2026 that 'Agentic Storefronts' will be activated by default for all eligible U.S. stores in late March — automatically syndicating products into ChatGPT conversations. Meanwhile, OpenAI has quietly walked back in-chat Instant Checkout.",
+    "Shopify notified its millions of merchants on March 11, 2026 that 'Agentic Storefronts' will be activated by default for all eligible U.S. stores in late March, automatically syndicating products into ChatGPT conversations. Meanwhile, OpenAI has quietly walked back in-chat Instant Checkout.",
   keywords: [
     'Shopify agentic storefronts ChatGPT 2026',
     'Shopify ChatGPT product discovery default',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT",
     description:
-      "Shopify's millions of merchants will have their products auto-syndicated into ChatGPT starting late March 2026 — no app install required. But in-chat checkout is already dead. Tax complexity, inventory sync failures, and a 14% consumer trust problem killed it.",
+      "Shopify's millions of merchants will have their products auto-syndicated into ChatGPT starting late March 2026, no app install required. But in-chat checkout is already dead. Tax complexity, inventory sync failures, and a 14% consumer trust problem killed it.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT",
     description:
-      "Discovery is now default — but checkout is dead. Shopify auto-syndicates products into ChatGPT starting late March 2026. OpenAI quietly killed in-chat payments over tax complexity, inventory chaos, and a 14% consumer trust floor.",
+      "Discovery is now default, but checkout is dead. Shopify auto-syndicates products into ChatGPT starting late March 2026. OpenAI quietly killed in-chat payments over tax complexity, inventory chaos, and a 14% consumer trust floor.",
   },
   other: {
     news_keywords:

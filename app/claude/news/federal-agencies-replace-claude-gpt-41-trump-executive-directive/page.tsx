@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'Federal Agencies Evict Claude, Replace It With GPT-4.1 After Trump Executive Directive | ObjectWire',
   description:
-    "The U.S. State Department's StateChat has swapped Claude Sonnet 4.5 for OpenAI GPT-4.1, the Senate has approved Microsoft Copilot, Google Gemini, and ChatGPT Enterprise for official use — while excluding Anthropic entirely. Anthropic has filed two lawsuits in response.",
+    "The U.S. State Department's StateChat has swapped Claude Sonnet 4.5 for OpenAI GPT-4.1, the Senate has approved Microsoft Copilot, Google Gemini, and ChatGPT Enterprise for official use, while excluding Anthropic entirely. Anthropic has filed two lawsuits in response.",
   keywords: [
     'federal government replaces Claude GPT-4.1 2026',
     'Trump executive directive Anthropic supply chain risk',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Federal Agencies Evict Claude, Replace With GPT-4.1 After Trump Directive',
     description:
-      "The State Department's StateChat has silently swapped Claude Sonnet 4.5 for GPT-4.1. The Senate has approved Microsoft, Google, and OpenAI — but not Anthropic. Anthropic CEO Dario Amodei says the move threatens 'billions in contracts.'",
+      "The State Department's StateChat has silently swapped Claude Sonnet 4.5 for GPT-4.1. The Senate has approved Microsoft, Google, and OpenAI, but not Anthropic. Anthropic CEO Dario Amodei says the move threatens 'billions in contracts.'",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Claude is Out of the U.S. Federal Government. GPT-4.1 Is In.',
     description:
-      "State Department's StateChat: Claude → GPT-4.1. Senate approves Copilot, Gemini, ChatGPT — zero mention of Anthropic. Anthropic suing the government. Full breakdown.",
+      "State Department's StateChat: Claude → GPT-4.1. Senate approves Copilot, Gemini, ChatGPT, zero mention of Anthropic. Anthropic suing the government. Full breakdown.",
   },
 };
 

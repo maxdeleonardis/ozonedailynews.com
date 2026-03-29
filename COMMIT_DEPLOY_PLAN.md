@@ -1,5 +1,5 @@
 # Commit-Deploy Automation Pipeline
-## Execution Plan — ObjectWire
+## Execution Plan | ObjectWire
 
 **Goal:** Every `git push` to `main` automatically extracts article content
 from full JSX pages, upserts to the correct Supabase table, trims the page
@@ -10,13 +10,13 @@ to a lean DB stub, updates the SEO registry, and pings sitemaps.
 
 ## How to use this doc
 
-- Work top-to-bottom. Each step has a **Done When** checklist — tick every box before moving to the next step.
+- Work top-to-bottom. Each step has a **Done When** checklist, tick every box before moving to the next step.
 - Steps marked *(parallel)* can be run at the same time as the adjacent step.
 - Steps marked *(manual)* require action outside the codebase (GitHub UI, etc.).
 
 ---
 
-## Step 1A — Add `ArticlePage` → `article_pages` extraction
+## Step 1A | Add `ArticlePage` → `article_pages` extraction
 
 **File:** `scripts/migrate-wiki-content.ts`
 
@@ -46,7 +46,7 @@ to a lean DB stub, updates the SEO registry, and pings sitemaps.
 
 ---
 
-## Step 1B — Add `JackArticleDB` + `ArticlePageDB` stubs to trim script *(parallel with 1A)*
+## Step 1B | Add `JackArticleDB` + `ArticlePageDB` stubs to trim script *(parallel with 1A)*
 
 **File:** `scripts/trim-wiki-pages.ts`
 
@@ -81,7 +81,7 @@ const isArticlePage =
 
 ---
 
-## Step 2 — Add `deploy:commit` shorthand command
+## Step 2 | Add `deploy:commit` shorthand command
 
 **File:** `package.json`
 
@@ -99,21 +99,21 @@ Add one entry to the `"scripts"` block (after `wiki:trim-dry`):
 
 ---
 
-## Step 3A — Add GitHub Secrets *(manual — requires GitHub UI)*
+## Step 3A | Add GitHub Secrets *(manual | requires GitHub UI)*
 
 **Where:** `https://github.com/aMarketology/Object-wire26-/settings/secrets/actions`
 
 **What to do:**
 Add two repository secrets:
-1. `NEXT_PUBLIC_SUPABASE_URL` — your Supabase project URL (e.g. `https://xxxx.supabase.co`)
-2. `SUPABASE_SERVICE_ROLE_KEY` — the service role key from Supabase dashboard → Settings → API
+1. `NEXT_PUBLIC_SUPABASE_URL`, your Supabase project URL (e.g. `https://xxxx.supabase.co`)
+2. `SUPABASE_SERVICE_ROLE_KEY`, the service role key from Supabase dashboard → Settings → API
 
 **Done When:**
 - [ ] Both secrets appear in the GitHub repo Secrets list (values hidden, names visible)
 
 ---
 
-## Step 3B — Update GitHub Actions workflow *(depends on 3A)*
+## Step 3B | Update GitHub Actions workflow *(depends on 3A)*
 
 **File:** `.github/workflows/seo-registry-sync.yml`
 
@@ -181,7 +181,7 @@ jobs:
 
 ---
 
-## Step 4 — End-to-end verification
+## Step 4 | End-to-end verification
 
 **Goal:** Confirm the full pipeline works before shipping any new article.
 
@@ -192,15 +192,15 @@ jobs:
    npm run wiki:migrate -- --dry-run
    npm run wiki:trim -- --dry-run
    ```
-3. Inspect dry-run output — confirm `[article page]` is detected, slug + fields printed
+3. Inspect dry-run output, confirm `[article page]` is detected, slug + fields printed
 4. Run for real:
    ```sh
    npm run wiki:migrate
    npm run wiki:trim
    ```
-5. Check Supabase → `article_pages` table — confirm the test row exists
-6. Check `app/blog/test-pipeline/page.tsx` — confirm it's now a 3-line `<ArticlePageDB>` stub
-7. Push to `main` — confirm GitHub Action runs, auto-commits stub files, no second trigger
+5. Check Supabase → `article_pages` table, confirm the test row exists
+6. Check `app/blog/test-pipeline/page.tsx`, confirm it's now a 3-line `<ArticlePageDB>` stub
+7. Push to `main`, confirm GitHub Action runs, auto-commits stub files, no second trigger
 
 **Done When:**
 - [ ] Test article appears in `article_pages` table in Supabase with correct fields

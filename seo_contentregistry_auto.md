@@ -1,4 +1,4 @@
-# SEO Content Registry — Automatic Ranking Chain
+# SEO Content Registry | Automatic Ranking Chain
 
 > Every time a new article is published on ObjectWire, a chain of SEO systems must fire in the correct order, at lightning speed, for the article to have the **highest possible chance of ranking #1 in Google**. This document defines that chain, what each link does, and the hard requirements at every step.
 
@@ -19,9 +19,9 @@ Article page.tsx created
         ↓
   5. NewsArticleSchema fires   → Separate structured data component for Google News / Top Stories
         ↓
-  6. Sitemap includes URL      → `/sitemap.xml` pulls from registry — Googlebot discovers the URL
+  6. Sitemap includes URL      → `/sitemap.xml` pulls from registry, Googlebot discovers the URL
         ↓
-  7. News Sitemap includes URL → `/news-sitemap.xml` pulls from registry — Googlebot-News discovers it
+  7. News Sitemap includes URL → `/news-sitemap.xml` pulls from registry, Googlebot-News discovers it
         ↓
   8. robots.txt allows it      → Googlebot + Googlebot-News have explicit allow rules
         ↓
@@ -34,7 +34,7 @@ If **any link in this chain is broken or missing**, the article's ranking ceilin
 
 ---
 
-## Link 1 — `metadata` Export (In the Page File)
+## Link 1 | `metadata` Export (In the Page File)
 
 Every `page.tsx` must export a `metadata` object. This is what Google reads first.
 
@@ -80,7 +80,7 @@ export const metadata = {
 
 ---
 
-## Link 2 — Content Registry Entry
+## Link 2 | Content Registry Entry
 
 The content registry ([lib/content-registry.ts](lib/content-registry.ts)) is the **single source of truth** that drives every downstream SEO system.
 
@@ -90,7 +90,7 @@ The content registry ([lib/content-registry.ts](lib/content-registry.ts)) is the
 |---|---|---|
 | `slug` | YES | Must exactly match the page's URL path (e.g. `/video-games/news/gta6-pre-orders`) |
 | `title` | YES | Must match the `metadata.title` minus the `\| ObjectWire` suffix |
-| `description` | YES | 130–155 chars, unique, contains primary keyword — NOT "ObjectWire coverage of..." |
+| `description` | YES | 130–155 chars, unique, contains primary keyword, NOT "ObjectWire coverage of..." |
 | `publishDate` | YES | ISO format `YYYY-MM-DD`. Determines news sitemap inclusion (2-day window) |
 | `modifiedDate` | YES | Update this every time the article content changes |
 | `category` | YES | One of the canonical categories: Technology, Gaming, Sports, Entertainment, Finance, Science, News, YouTube, Reference, Meta |
@@ -116,7 +116,7 @@ The content registry ([lib/content-registry.ts](lib/content-registry.ts)) is the
 
 ---
 
-## Link 3 — Prebuild Auto-Sync
+## Link 3 | Prebuild Auto-Sync
 
 The `prebuild` npm script runs automatically before every `npm run build`:
 
@@ -137,25 +137,25 @@ The `prebuild` npm script runs automatically before every `npm run build`:
 
 ### Lightning-Speed Rules
 
-- **You don't need to manually register articles** — the sync script catches them
-- **BUT auto-synced entries have generic descriptions and missing images** — you must go back and fill `imageUrl`, `imageWidth`, `imageHeight`, and write a proper `description`
+- **You don't need to manually register articles**, the sync script catches them
+- **BUT auto-synced entries have generic descriptions and missing images**, you must go back and fill `imageUrl`, `imageWidth`, `imageHeight`, and write a proper `description`
 - Run `npm run registry:sync` (dry-run) anytime to see what's missing
 - Run `npm run registry:write` to sync immediately without building
 
 ---
 
-## Link 4 — SEOWrapper
+## Link 4 | SEOWrapper
 
 `<SEOWrapper slug="/your/article/slug">` wraps the page content and injects two `<script type="application/ld+json">` blocks:
 
-1. **NewsArticle JSON-LD** — headline, datePublished, dateModified, author, publisher, image, articleSection
-2. **BreadcrumbList JSON-LD** — auto-generated from the slug path segments
+1. **NewsArticle JSON-LD**, headline, datePublished, dateModified, author, publisher, image, articleSection
+2. **BreadcrumbList JSON-LD**, auto-generated from the slug path segments
 
 ### Rules
 
 - The `slug` prop must **exactly match** the `slug` field in the content registry
 - If there's no matching registry entry, **no JSON-LD is injected** and the page is invisible to structured data parsers
-- SEOWrapper wraps children — it is **not** self-closing:
+- SEOWrapper wraps children, it is **not** self-closing:
   ```tsx
   <SEOWrapper slug="/video-games/news/gta6-pre-orders">
     <NewsArticle ...>
@@ -166,7 +166,7 @@ The `prebuild` npm script runs automatically before every `npm run build`:
 
 ---
 
-## Link 5 — NewsArticleSchema Component
+## Link 5 | NewsArticleSchema Component
 
 Separate from SEOWrapper. Provides a more detailed `NewsArticle` JSON-LD with:
 - `publisher.logo` (required for Google News)
@@ -182,7 +182,7 @@ Separate from SEOWrapper. Provides a more detailed `NewsArticle` JSON-LD with:
 | `description` | Same as meta description |
 | `author` | Author's display name |
 | `publishedTime` | ISO 8601 datetime |
-| `imageUrl` | Same image as OG and registry — consistency is critical |
+| `imageUrl` | Same image as OG and registry, consistency is critical |
 | `articleUrl` | Full canonical URL |
 | `section` | Category string |
 | `keywords` | Array of keyword strings |
@@ -191,19 +191,19 @@ Google cross-checks the JSON-LD against the visible page content. If the headlin
 
 ---
 
-## Link 6 — Sitemap (`/sitemap.xml`)
+## Link 6 | Sitemap (`/sitemap.xml`)
 
 Generated from the content registry. Every registered page appears here with:
-- `<loc>` — full URL
-- `<lastmod>` — from `modifiedDate`
-- `<changefreq>` — from `changeFrequency`
-- `<priority>` — from `priority`
+- `<loc>`, full URL
+- `<lastmod>`, from `modifiedDate`
+- `<changefreq>`, from `changeFrequency`
+- `<priority>`, from `priority`
 
 **If an article isn't in the registry, it's not in the sitemap, and Google is slower to discover it.**
 
 ---
 
-## Link 7 — News Sitemap (`/news-sitemap.xml`)
+## Link 7 | News Sitemap (`/news-sitemap.xml`)
 
 Dynamic route that pulls from the content registry in real-time.
 
@@ -217,7 +217,7 @@ Dynamic route that pulls from the content registry in real-time.
 
 - Google News crawls news sitemaps every **5–15 minutes**
 - A new article must be in the registry **before the build deploys** (the prebuild script handles this)
-- For breaking news via Supabase CMS: publish immediately — no build needed, the dynamic route picks it up live
+- For breaking news via Supabase CMS: publish immediately, no build needed, the dynamic route picks it up live
 
 ### What Kills News Sitemap Eligibility
 
@@ -229,7 +229,7 @@ Dynamic route that pulls from the content registry in real-time.
 
 ---
 
-## Link 8 — robots.txt
+## Link 8 | robots.txt
 
 The `robots.ts` file allows all content paths for Googlebot and Googlebot-News. Key rules already in place:
 
@@ -242,7 +242,7 @@ The `robots.ts` file allows all content paths for Googlebot and Googlebot-News. 
 
 ---
 
-## Link 9 — Internal Links
+## Link 9 | Internal Links
 
 Google ranks pages higher when other pages on the same domain link to them. The more internal links pointing at an article, the more authority it inherits.
 
@@ -266,7 +266,7 @@ This creates a **link web** that tells Google "this site owns this topic."
 
 ---
 
-## Speed Checklist — New Article in Under 5 Minutes
+## Speed Checklist | New Article in Under 5 Minutes
 
 For a static `page.tsx` article:
 
@@ -276,7 +276,7 @@ For a static `page.tsx` article:
 □ 3. Include hero image (1200×675+, hosted on objectwire.org)
 □ 4. Add 4–6 interlinks to related ObjectWire pages
 □ 5. npm run build (prebuild auto-registers in content registry)
-□ 6. Verify: open /news-sitemap.xml — article should be listed
+□ 6. Verify: open /news-sitemap.xml, article should be listed
 □ 7. Push to GitHub → deploy
 □ 8. Go back and fill imageUrl + imageWidth + imageHeight in registry if auto-synced with defaults
 ```
@@ -286,8 +286,8 @@ For a Supabase CMS article (breaking news):
 ```
 □ 1. Open /admin/editor
 □ 2. Write article with blocks (heading, paragraph, image, quote)
-□ 3. Set status to "published" — immediately enters news sitemap via dynamic route
-□ 4. No build needed — /blog/[slug] is a dynamic route
+□ 3. Set status to "published", immediately enters news sitemap via dynamic route
+□ 4. No build needed, /blog/[slug] is a dynamic route
 □ 5. Article is live in < 1 minute
 ```
 
@@ -300,7 +300,7 @@ These are the things that **must be right on every single article, no exceptions
 | # | Requirement | If Missing |
 |---|---|---|
 | 1 | `metadata.title` with primary keyword first | Won't rank for target keyword |
-| 2 | `metadata.description` — unique, 130–155 chars | Low CTR in search results, possible demotion |
+| 2 | `metadata.description`, unique, 130–155 chars | Low CTR in search results, possible demotion |
 | 3 | `openGraph.images` with 1200×675+ image | Blocked from Top Stories, Discover, and rich results |
 | 4 | `canonical` URL set | Duplicate content risk across www / non-www |
 | 5 | Content registry entry with all fields filled | No JSON-LD, no sitemap, no news sitemap = invisible |
@@ -311,7 +311,7 @@ These are the things that **must be right on every single article, no exceptions
 | 10 | `SEOWrapper` with correct slug | No JSON-LD injected on page |
 | 11 | `Breadcrumb` with 3+ levels | Missing BreadcrumbList rich result |
 | 12 | 4–6 internal links to related ObjectWire pages | Low internal PageRank flow |
-| 13 | `H1` matches `metadata.title` headline | Google cross-checks — mismatch = trust drop |
+| 13 | `H1` matches `metadata.title` headline | Google cross-checks, mismatch = trust drop |
 | 14 | Real author name (not generic) | E-E-A-T signal weakened |
 | 15 | Hero image uses `next/image` with width/height | CLS penalty in Core Web Vitals |
 

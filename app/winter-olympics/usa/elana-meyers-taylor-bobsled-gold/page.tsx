@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Elana Meyers Taylor Wins Monobob Gold at 41: Oldest Olympic Bobsled Champion in History | ObjectWire',
-  description: 'Elana Meyers Taylor, 41, made Olympic history at Milano Cortina 2026 by winning women\'s monobob gold — becoming the oldest Olympic bobsled champion ever and the most decorated female bobsledder in history.',
+  description: 'Elana Meyers Taylor, 41, made Olympic history at Milano Cortina 2026 by winning women\'s monobob gold, becoming the oldest Olympic bobsled champion ever and the most decorated female bobsledder in history.',
   keywords: [
     'Elana Meyers Taylor', 'bobsled gold medal', 'monobob', 'Milano Cortina 2026',
     'Team USA', 'Winter Olympics 2026', 'oldest Olympic champion', 'women\'s bobsled',

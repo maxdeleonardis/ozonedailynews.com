@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Scientists Find Massive Freshwater Reservoir Hidden Beneath the Great Salt Lake',
     description:
-      'A helicopter-borne electromagnetic survey has revealed water-saturated sediments 3–4 km deep — a find that could reframe water security across the drought-stricken American West.',
+      'A helicopter-borne electromagnetic survey has revealed water-saturated sediments 3–4 km deep, a find that could reframe water security across the drought-stricken American West.',
     images: [IMAGE_URL],
   },
 };

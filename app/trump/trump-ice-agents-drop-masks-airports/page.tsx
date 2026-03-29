@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trump Tells ICE Agents to Drop Masks at Airports as Deployment Begins",
     description:
-      "Trump directed ICE agents to remove face coverings during airport operations — a visibility-first posture as the administration's nationwide airport ICE deployment begins in earnest.",
+      "Trump directed ICE agents to remove face coverings during airport operations, a visibility-first posture as the administration's nationwide airport ICE deployment begins in earnest.",
     url: FULL_URL,
     images: [{ url: IMAGE_URL }],
   },

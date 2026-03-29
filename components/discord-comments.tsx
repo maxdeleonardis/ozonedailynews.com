@@ -289,7 +289,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
             Sign in to join the conversation
           </p>
           <p className="text-sm text-gray-500 mb-4">
-            Your comments appear live in our Discord server — every post grows the community.
+            Your comments appear live in our Discord server, every post grows the community.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button

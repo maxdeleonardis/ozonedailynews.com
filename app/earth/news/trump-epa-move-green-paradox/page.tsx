@@ -10,7 +10,7 @@ const SLUG = '/earth/news/trump-epa-move-green-paradox';
 export const metadata: Metadata = {
   title: "Trump's EPA Rollback and the Green Paradox: Deep-Sea Mining, Rare Earth Minerals, and the EV Battery Dilemma | ObjectWire",
   description:
-    "Rare earth minerals are essential for EV batteries and wind turbines — but mining them from the ocean floor could destroy undiscovered ecosystems. Trump's repeal of Obama-era EPA protections may accelerate that gamble.",
+    "Rare earth minerals are essential for EV batteries and wind turbines, but mining them from the ocean floor could destroy undiscovered ecosystems. Trump's repeal of Obama-era EPA protections may accelerate that gamble.",
   keywords: [
     'Trump EPA rollback ocean mining 2026',
     'deep sea mining rare earth minerals EV batteries',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "The Green Paradox: Mining the Ocean Floor to Power Clean Energy — and What Trump's EPA Rollback Changes",
+    title: "The Green Paradox: Mining the Ocean Floor to Power Clean Energy | and What Trump's EPA Rollback Changes",
     description:
       'Rare earth minerals are essential for the energy transition. The problem: the richest deposits sit on ocean floors that science has barely touched. Trump just made protecting them harder.',
   },

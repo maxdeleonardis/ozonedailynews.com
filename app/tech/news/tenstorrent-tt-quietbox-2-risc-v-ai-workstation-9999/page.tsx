@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V "QuietBox 2" | ObjectWire',
   description:
-    "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026 — a $9,999 liquid-cooled RISC-V AI workstation capable of running 120B-parameter models locally. The first developer-ready workstation to deliver teraflop-class inference without Nvidia's CUDA.",
+    "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026, a $9,999 liquid-cooled RISC-V AI workstation capable of running 120B-parameter models locally. The first developer-ready workstation to deliver teraflop-class inference without Nvidia's CUDA.",
   keywords: [
     'Tenstorrent QuietBox 2 RISC-V workstation 2026',
     'TT-QuietBox 2 $9999 AI workstation',

@@ -12,7 +12,7 @@ const IMAGE_URL = '/crypto/coinbase-new-york-ath-ray-nct-strk-2026.PNG';
 export const metadata: Metadata = {
   title: 'Coinbase Opens Four Crypto Tokens to New York Traders | ObjectWire',
   description:
-    'Coinbase has enabled trading of Aethir (ATH), Raydium (RAY), PolySwarm (NCT), and Starknet (STRK) for New York residents — a notable milestone under the state\'s strict BitLicense framework.',
+    'Coinbase has enabled trading of Aethir (ATH), Raydium (RAY), PolySwarm (NCT), and Starknet (STRK) for New York residents, a notable milestone under the state\'s strict BitLicense framework.',
   keywords: [
     'Coinbase New York crypto 2026',
     'Aethir ATH Coinbase New York',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Coinbase Opens ATH, RAY, NCT & STRK to New York Traders',
     description:
-      'Coinbase enabled four tokens — Aethir, Raydium, PolySwarm, and Starknet — for New York residents on March 21, 2026. The expansion is significant because New York maintains one of the strictest BitLicense frameworks in the U.S.',
+      'Coinbase enabled four tokens, Aethir, Raydium, PolySwarm, and Starknet, for New York residents on March 21, 2026. The expansion is significant because New York maintains one of the strictest BitLicense frameworks in the U.S.',
     type: 'article',
     url: 'https://www.objectwire.org/crypto/coinbase-new-york-ath-ray-nct-strk-2026',
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Coinbase Unlocks ATH, RAY, NCT & STRK for New York — A BitLicense Milestone',
+    title: 'Coinbase Unlocks ATH, RAY, NCT & STRK for New York | A BitLicense Milestone',
     description:
       'Four tokens just cleared New York\'s strict NYDFS BitLicense review. Aethir, Raydium, PolySwarm, and Starknet are now live on Coinbase for all NY residents.',
   },

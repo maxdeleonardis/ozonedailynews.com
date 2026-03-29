@@ -10,9 +10,9 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Clair Obscur: Expedition 33 Built by Just 4 Programmers — Most Awarded Game in History | ObjectWire',
+    'Clair Obscur: Expedition 33 Built by Just 4 Programmers, Most Awarded Game in History | ObjectWire',
   description:
-    'At GDC 2026, Sandfall Interactive revealed that 95% of Clair Obscur: Expedition 33 was built using Unreal Engine 5 Blueprints by a team of four programmers. The game has now surpassed Elden Ring with 436 GOTY awards — the most in history.',
+    'At GDC 2026, Sandfall Interactive revealed that 95% of Clair Obscur: Expedition 33 was built using Unreal Engine 5 Blueprints by a team of four programmers. The game has now surpassed Elden Ring with 436 GOTY awards, the most in history.',
   keywords: [
     'Clair Obscur Expedition 33 GDC 2026',
     'Sandfall Interactive Blueprint scripting',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Clair Obscur Was Built by 4 Programmers — And Just Became the Most Awarded Game Ever',
+    title: 'Clair Obscur Was Built by 4 Programmers | And Just Became the Most Awarded Game Ever',
     description:
       '95% Blueprint, 4 programmers, under $10M budget. Sandfall Interactive\'s GDC 2026 talk revealed how Clair Obscur: Expedition 33 beat Elden Ring\'s all-time GOTY record with 436 wins.',
     type: 'article',

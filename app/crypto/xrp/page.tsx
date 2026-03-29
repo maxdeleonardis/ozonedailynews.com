@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'XRP — Digital Asset, XRP Ledger & Ripple Network | ObjectWire',
+  title: 'XRP | Digital Asset, XRP Ledger & Ripple Network | ObjectWire',
   description:
     'Comprehensive profile of XRP: the native digital asset of the XRP Ledger (XRPL). Covers history, how XRP works, the Ripple company, SEC lawsuit, use cases in cross-border payments, tokenomics, and the 2026 $80B exploit discovery.',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/crypto/xrp',
   },
   openGraph: {
-    title: 'XRP — Digital Asset, XRP Ledger & Ripple | ObjectWire',
+    title: 'XRP | Digital Asset, XRP Ledger & Ripple | ObjectWire',
     description:
       'The complete XRP profile: how it works, Ripple Labs, the SEC lawsuit, cross-border payment use cases, and the 2026 $80B ledger exploit that was stopped before activation.',
     type: 'article',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'XRP — Full Profile: History, Ripple, SEC Lawsuit & 2026 Exploit | ObjectWire',
+    title: 'XRP | Full Profile: History, Ripple, SEC Lawsuit & 2026 Exploit | ObjectWire',
     description:
       'Everything on XRP: the asset, the ledger, Ripple Labs, the SEC case, and the $80B exploit that never activated.',
   },

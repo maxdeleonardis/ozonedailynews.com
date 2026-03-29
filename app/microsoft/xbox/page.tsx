@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Xbox — Microsoft Gaming Hub: Consoles, Game Pass & News | ObjectWire',
+  title: 'Xbox | Microsoft Gaming Hub: Consoles, Game Pass & News | ObjectWire',
   description:
     'ObjectWire\'s Xbox hub: Xbox Series X|S, Game Pass, Activision Blizzard, Xbox Cloud Gaming, and all news and analysis covering Microsoft\'s gaming division.',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/microsoft/xbox',
   },
   openGraph: {
-    title: 'Xbox — Microsoft Gaming Hub | ObjectWire',
+    title: 'Xbox | Microsoft Gaming Hub | ObjectWire',
     description:
       'Full Xbox coverage: Series X|S hardware, Game Pass, Activision Blizzard titles, cloud gaming, and all breaking Microsoft gaming news.',
     type: 'website',

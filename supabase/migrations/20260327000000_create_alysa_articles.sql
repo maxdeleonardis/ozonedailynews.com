@@ -2,7 +2,7 @@
 -- ALYSA ARTICLES TABLE
 -- Powers: AlysaArticle component (athlete / sports figure biography layout)
 --
--- Same column shape as creator_articles — both use the CreatorArticle renderer.
+-- Same column shape as creator_articles - both use the CreatorArticle renderer.
 -- Kept as a separate table so athlete profiles can be managed independently
 -- from general creator/influencer profiles in creator_articles.
 --

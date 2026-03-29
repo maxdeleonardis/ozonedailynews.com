@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts to Copy Claude',
     description:
-      'DeepSeek, Moonshot AI, and MiniMax allegedly prompted Claude over 16 million times through 24,000 fraudulent accounts to siphon outputs for AI training — what Anthropic calls industrial-scale distillation.',
+      'DeepSeek, Moonshot AI, and MiniMax allegedly prompted Claude over 16 million times through 24,000 fraudulent accounts to siphon outputs for AI training, what Anthropic calls industrial-scale distillation.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

@@ -470,7 +470,7 @@ export default function MozillaFirefoxPage() {
           <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 my-8">
             <p className="font-semibold text-gray-900 mb-2">Summary:</p>
             <p className="text-gray-700">
-              Mozilla and Firefox represent a unique position in the modern internet landscape—a nonprofit-driven, 
+              Mozilla and Firefox represent a unique position in the modern internet landscape, a nonprofit-driven, 
               privacy-focused alternative to commercial browsers in an ecosystem increasingly dominated by Big Tech. 
               While facing market share challenges, Mozilla's commitment to open-source development, user privacy, 
               and web standards independence makes it an essential counterweight to browser monoculture. The 

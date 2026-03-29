@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'Meta Hit with Double Blow in Historic Child Safety Verdicts | ObjectWire',
   description:
-    'Two separate juries in New Mexico and Los Angeles found Meta Platforms liable for harming children on the same day — a $375 million civil penalty in New Mexico and a $3 million addictive design verdict in Los Angeles — marking the first time U.S. juries have pierced social media\'s legal shields.',
+    'Two separate juries in New Mexico and Los Angeles found Meta Platforms liable for harming children on the same day, a $375 million civil penalty in New Mexico and a $3 million addictive design verdict in Los Angeles, marking the first time U.S. juries have pierced social media\'s legal shields.',
   keywords: [
     'Meta child safety verdict 2026',
     'Meta $375 million fine New Mexico',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta Hit with Double Blow in Historic Child Safety Verdicts',
     description:
-      'On a single day, juries in New Mexico and Los Angeles delivered twin liability verdicts against Meta — $375M for child exploitation algorithms and $3M for addictive design that harmed a 20-year-old — the first successful jury verdicts to pierce social media\'s legal shields.',
+      'On a single day, juries in New Mexico and Los Angeles delivered twin liability verdicts against Meta, $375M for child exploitation algorithms and $3M for addictive design that harmed a 20-year-old, the first successful jury verdicts to pierce social media\'s legal shields.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Meta Hit with Double Blow in Historic Child Safety Verdicts',
     description:
-      '$375M in New Mexico. $3M in Los Angeles. Two juries on the same day find Meta liable for harming children — the first jury verdicts to ever pierce social media\'s legal shields.',
+      '$375M in New Mexico. $3M in Los Angeles. Two juries on the same day find Meta liable for harming children, the first jury verdicts to ever pierce social media\'s legal shields.',
     images: [IMAGE_URL],
   },
 };

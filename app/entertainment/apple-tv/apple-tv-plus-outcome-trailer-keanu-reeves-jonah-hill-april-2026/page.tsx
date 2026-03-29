@@ -13,7 +13,7 @@ const IMAGE_URL = 'https://www.objectwire.org/apple/apple-tv-outcome-trailer-202
 export const metadata: Metadata = {
   title: 'Apple TV+ "Outcome" Trailer: Keanu Reeves & Jonah Hill in Hollywood Satire | ObjectWire',
   description:
-    'Apple TV+ released the first full trailer for "Outcome" on March 16, 2026. Directed by Jonah Hill, the dark comedy-drama stars Keanu Reeves as fictional Hollywood icon Reef Hawk — a global premiere is set for April 10, 2026.',
+    'Apple TV+ released the first full trailer for "Outcome" on March 16, 2026. Directed by Jonah Hill, the dark comedy-drama stars Keanu Reeves as fictional Hollywood icon Reef Hawk, a global premiere is set for April 10, 2026.',
   keywords: [
     'Outcome Apple TV+',
     'Outcome trailer 2026',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Keanu Reeves Is Reef Hawk in Apple TV+\'s "Outcome" — Trailer & April 10 Premiere Date',
+    title: 'Keanu Reeves Is Reef Hawk in Apple TV+\'s "Outcome" | Trailer & April 10 Premiere Date',
     description:
       'Jonah Hill\'s dark comedy-drama "Outcome" drops its first full trailer. Keanu Reeves, Cameron Diaz, Martin Scorsese, and a stacked ensemble. Premieres April 10, 2026.',
     images: [IMAGE_URL],

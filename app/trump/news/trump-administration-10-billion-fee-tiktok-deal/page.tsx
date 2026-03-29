@@ -12,7 +12,7 @@ const IMAGE_URL = '/entertainment/trump_tiktok.PNG';
 export const metadata: Metadata = {
   title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal | ObjectWire',
   description:
-    "The Trump administration is set to collect approximately $10 billion from investors involved in the deal transferring TikTok's U.S. operations from ByteDance to an American-aligned consortium — a payment historians describe as \"nearly unprecedented for a government helping arrange a transaction.\"",
+    "The Trump administration is set to collect approximately $10 billion from investors involved in the deal transferring TikTok's U.S. operations from ByteDance to an American-aligned consortium, a payment historians describe as \"nearly unprecedented for a government helping arrange a transaction.\"",
   keywords: [
     'Trump TikTok deal $10 billion',
     'TikTok ByteDance US deal',
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal',
     description:
-      "The Trump administration will receive ~$10 billion from investors in the TikTok deal — a fee historians call \"nearly unprecedented for a government helping arrange a transaction,\" per the Wall Street Journal.",
+      "The Trump administration will receive ~$10 billion from investors in the TikTok deal, a fee historians call \"nearly unprecedented for a government helping arrange a transaction,\" per the Wall Street Journal.",
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Trump TikTok deal $10 billion broker fee' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trump to Collect ~$10B for Brokering TikTok Deal — Historians Call It "Nearly Unprecedented"',
+    title: 'Trump to Collect ~$10B for Brokering TikTok Deal | Historians Call It "Nearly Unprecedented"',
     description:
       "The Trump administration is set to receive ~$10B from investors in the TikTok ownership transfer from ByteDance to American-aligned consortium, per WSJ.",
     images: [IMAGE_URL],

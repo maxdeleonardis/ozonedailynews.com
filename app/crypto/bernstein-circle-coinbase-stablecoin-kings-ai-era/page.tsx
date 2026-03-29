@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bernstein: Circle (CRCL) and Coinbase (COIN) Are the "Stablecoin Kings" of the AI Era',
     description:
-      '$190 price target for Circle, Coinbase x402 hitting $25M in 30 days, and USDC Nanopayments entering AI dev stacks — Bernstein makes the case stablecoins have permanently left the crypto cycle.',
+      '$190 price target for Circle, Coinbase x402 hitting $25M in 30 days, and USDC Nanopayments entering AI dev stacks, Bernstein makes the case stablecoins have permanently left the crypto cycle.',
   },
 };
 

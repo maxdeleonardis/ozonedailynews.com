@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "How Does Copy and Paste Work? A Technical Breakdown of Ctrl+C and Ctrl+V | ObjectWire",
-  description: "A deep technical dive into how copy-paste works on modern operating systems — from keyboard interrupts and system calls to clipboard managers, memory buffers, and cross-application data transfer.",
+  description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory buffers, and cross-application data transfer.",
   keywords: [
     'how does copy paste work technically',
     'ctrl c ctrl v system call explained',

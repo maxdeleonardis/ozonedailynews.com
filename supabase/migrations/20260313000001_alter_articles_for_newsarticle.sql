@@ -7,16 +7,16 @@
 --   category         → articles.category        (already exists)
 --   categoryColor    → articles.category_color  (new)
 --   topicTag         → articles.topic_tag        (new)
---   publishDate      → articles.publish_date     (new — display string)
+--   publishDate      → articles.publish_date     (new - display string)
 --   publishDateISO   → articles.published_at     (already exists as TIMESTAMPTZ)
 --   readTime         → articles.read_time        (new)
---   author.name      → articles.author_name      (new — replaces plain `author` col)
+--   author.name      → articles.author_name      (new - replaces plain `author` col)
 --   author.role      → articles.author_role      (new)
 --   author.avatar    → articles.author_avatar    (new)
 --   author.twitter   → articles.author_twitter   (new)
 --   author.authorSlug→ articles.author_slug      (new)
 --   author.bio       → articles.author_bio       (new)
---   heroImage.src    → articles.hero_image_src   (new — replaces image_url)
+--   heroImage.src    → articles.hero_image_src   (new - replaces image_url)
 --   heroImage.alt    → articles.hero_image_alt   (new)
 --   heroImage.caption→ articles.hero_image_caption (new)
 --   heroImage.credit → articles.hero_image_credit  (new)
@@ -26,15 +26,15 @@
 --   trending         → articles.trending         (new)
 --   breaking         → articles.breaking         (new)
 --   exclusive        → articles.exclusive        (new)
---   url              → articles.url              (new — canonical path)
---   children (body)  → articles.content_html     (new — serialised HTML body)
+--   url              → articles.url              (new - canonical path)
+--   children (body)  → articles.content_html     (new - serialised HTML body)
 --
 -- Legacy columns kept for backward compatibility:
---   author      (plain text) — kept; prefer author_name going forward
---   image_url                — kept; prefer hero_image_src going forward
---   excerpt                  — kept; maps loosely to subtitle
---   content     (JSONB)      — kept; used by WikiArticle fetches during migration
---   featured                 — kept
+--   author      (plain text) - kept; prefer author_name going forward
+--   image_url                - kept; prefer hero_image_src going forward
+--   excerpt                  - kept; maps loosely to subtitle
+--   content     (JSONB)      - kept; used by WikiArticle fetches during migration
+--   featured                 - kept
 -- =============================================================================
 
 -- ── Subtitle / deck ──────────────────────────────────────────────────────────

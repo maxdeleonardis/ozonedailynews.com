@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My Hero Ultra Rumble Season 16: Star and Stripe Arrives for the 2.5 Anniversary',
     description:
-      "Season 16 goes Plus Ultra — America's No.1 hero Star and Stripe joins the roster with her New Order Quirk, free weekly 10-draws run through May 27, and Bakugo's Cluster skillset lands April 22.",
+      "Season 16 goes Plus Ultra, America's No.1 hero Star and Stripe joins the roster with her New Order Quirk, free weekly 10-draws run through May 27, and Bakugo's Cluster skillset lands April 22.",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'My Hero Ultra Rumble Season 16 — Star and Stripe is Here',
+    title: 'My Hero Ultra Rumble Season 16 | Star and Stripe is Here',
     description:
       'The first American hero joins MHUR with her New Order Quirk, free weekly draws, Anniversary Select Rolls, and a two-month roadmap packed with events through May 27.',
   },

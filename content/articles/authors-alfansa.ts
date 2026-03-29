@@ -1,7 +1,7 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'Alfansa — Finance & Markets Reporter | ObjectWire',
+  title: 'Alfansa | Finance & Markets Reporter | ObjectWire',
   slug: 'authors-alfansa',
   category: 'Reference',
   status: 'published',
@@ -17,7 +17,7 @@ const article: Article = {
   author_slug: 'objectwire-editorial',
 
   image_url: '',
-  image_alt: 'Alfansa — ObjectWire Finance & Markets Reporter',
+  image_alt: 'Alfansa, ObjectWire Finance & Markets Reporter',
 
   content: [
     {
@@ -34,10 +34,10 @@ const article: Article = {
 
     <h2 class="text-2xl font-bold mb-4 text-gray-900">About Alfansa</h2>
     <p class="mb-4 text-gray-700 leading-relaxed">
-      Alfansa is a <strong>Finance &amp; Markets Reporter</strong> and <strong>Anime &amp; Gaming Editor</strong> at ObjectWire. Her financial coverage focuses on payments infrastructure, fintech disruption, market events, and the intersection of emerging technology with capital markets — bringing the same analytical depth to Wall Street that she brings to the gaming world.
+      Alfansa is a <strong>Finance &amp; Markets Reporter</strong> and <strong>Anime &amp; Gaming Editor</strong> at ObjectWire. Her financial coverage focuses on payments infrastructure, fintech disruption, market events, and the intersection of emerging technology with capital markets, bringing the same analytical depth to Wall Street that she brings to the gaming world.
     </p>
     <p class="mb-4 text-gray-700 leading-relaxed">
-      On the finance beat, Alfansa covers breaking market events, sector selloffs, and structural shifts in industries being reshaped by AI and digital finance. Her reporting on the February 2026 payments sector selloff — driven by an AI disruption note and tariff uncertainty — drew significant readership across ObjectWire's finance audience.
+      On the finance beat, Alfansa covers breaking market events, sector selloffs, and structural shifts in industries being reshaped by AI and digital finance. Her reporting on the February 2026 payments sector selloff, driven by an AI disruption note and tariff uncertainty, drew significant readership across ObjectWire's finance audience.
     </p>
     <p class="mb-6 text-gray-700 leading-relaxed">
       Alfansa also leads ObjectWire's <strong>Anime &amp; Gaming coverage</strong>, heading the My Hero Academia franchise desk across its manga/anime universe and video game catalogue. She covers My Hero Ultra Rumble season by season and contributes broader seasonal anime commentary, approaching every beat with the conviction that it deserves rigorous editorial standards.

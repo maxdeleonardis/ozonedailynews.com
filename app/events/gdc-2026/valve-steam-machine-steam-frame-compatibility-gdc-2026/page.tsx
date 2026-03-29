@@ -10,7 +10,7 @@ const CANONICAL = `https://www.objectwire.org/events/gdc-2026/${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026 | ObjectWire',
-  description: 'Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026 — both remain on track for a 2026 launch despite RAM supply-chain delays.',
+  description: 'Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026, both remain on track for a 2026 launch despite RAM supply-chain delays.',
   keywords: [
     'Valve', 'Steam Machine', 'Steam Frame', 'GDC 2026', 'SteamOS', 'Steam Deck Verified',
     'Steam Machine Verified', 'Steam Frame Verified', 'Proton', 'Lepton', 'GDC San Francisco',

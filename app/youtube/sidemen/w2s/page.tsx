@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "W2S (Harry Lewis) — FIFA Pack Opening Legend & Sidemen Wildcard | ObjectWire",
+  title: "W2S (Harry Lewis) | FIFA Pack Opening Legend & Sidemen Wildcard | ObjectWire",
   description: "Complete profile of W2S (Harry Lewis/Wroetoshaw): 16M+ subscribers, legendary FIFA pack luck, chaotic energy, relationship with Katie Leach, and Sidemen wildcard moments. 2026 coverage.",
   keywords: [
     "W2S",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen/w2s',
   },
   openGraph: {
-    title: 'W2S (Harry Lewis) — Pack Opening King & Sidemen Wildcard',
+    title: 'W2S (Harry Lewis) | Pack Opening King & Sidemen Wildcard',
     description: 'Full profile of W2S: legendary FIFA pack luck, 16M+ subscribers, chaotic personality, relationship with Katie Leach, and wildcard Sidemen role.',
     type: 'article',
     url: 'https://www.objectwire.org/youtube/sidemen/w2s',

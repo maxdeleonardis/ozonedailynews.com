@@ -924,7 +924,7 @@ export function ObjectDesign({
       )}
 
       {/* ===================================================================
-          BODY — TWO-COLUMN LAYOUT
+          BODY, TWO-COLUMN LAYOUT
       =================================================================== */}
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-14 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">

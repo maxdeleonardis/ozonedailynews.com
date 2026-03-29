@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash",
     description:
-      "Vonn disclosed on Monday that she came within hours of having her left leg amputated. An emergency fasciotomy — performed on the mountain by team surgeon Dr. Hackett — restored blood flow and saved her leg.",
+      "Vonn disclosed on Monday that she came within hours of having her left leg amputated. An emergency fasciotomy, performed on the mountain by team surgeon Dr. Hackett, restored blood flow and saved her leg.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

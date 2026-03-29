@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'How Technology Is Reshaping Real Estate in 2026',
-    description: 'AI valuations, blockchain deeds, virtual tours — the full proptech story.',
+    description: 'AI valuations, blockchain deeds, virtual tours, the full proptech story.',
   },
 };
 

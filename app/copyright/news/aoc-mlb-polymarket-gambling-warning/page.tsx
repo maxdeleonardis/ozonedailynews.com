@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AOC Calls MLB's $300M Polymarket Deal 'Sad,' Warns Against Pervasive Gambling",
     description:
-      "MLB named Polymarket its official prediction market exchange partner — the first such deal in major U.S. sports. AOC responded immediately, warning that gambling expansion into sports is 'not good for society.'",
+      "MLB named Polymarket its official prediction market exchange partner, the first such deal in major U.S. sports. AOC responded immediately, warning that gambling expansion into sports is 'not good for society.'",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

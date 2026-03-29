@@ -52,8 +52,8 @@ export async function generateMetadata({
   const articles = getEntriesByTag(tag);
 
   return {
-    title: `${tag} — ${articles.length} Articles | ObjectWire`,
-    description: `All ObjectWire articles tagged "${tag}" — the latest news, analysis and coverage.`,
+    title: `${tag} | ${articles.length} Articles | ObjectWire`,
+    description: `All ObjectWire articles tagged "${tag}", the latest news, analysis and coverage.`,
     alternates: {
       canonical: `https://www.objectwire.org/tags/${rawTag}`,
     },
@@ -181,7 +181,7 @@ export default async function TagArchivePage({
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: `${tag} — ObjectWire`,
+            name: `${tag}, ObjectWire`,
             description: `All articles tagged "${tag}" on ObjectWire.`,
             url: `https://www.objectwire.org/tags/${rawTag}`,
             numberOfItems: articles.length,

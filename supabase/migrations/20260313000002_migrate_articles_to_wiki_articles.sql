@@ -58,6 +58,6 @@ ON CONFLICT (slug) DO NOTHING;
 --   DELETE FROM articles
 --   WHERE slug IN (SELECT slug FROM wiki_articles);
 --
--- Do NOT run this automatically — leave it as a manual step until the
+-- Do NOT run this automatically - leave it as a manual step until the
 -- WikiArticle component has been confirmed working against wiki_articles.
 -- =============================================================================

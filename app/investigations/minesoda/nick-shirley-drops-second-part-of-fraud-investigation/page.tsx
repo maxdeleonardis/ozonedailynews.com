@@ -286,7 +286,7 @@ export default function NickShirleyInvestigationPage() {
                   provisions designed to help children during the pandemic. The scope goes far 
                   beyond what was initially reported, and the methods were far more sophisticated."
                 </p>
-                <footer className="text-sm text-gray-500 mt-2">— Nick Shirley, Investigative Journalist</footer>
+                <footer className="text-sm text-gray-500 mt-2">,  Nick Shirley, Investigative Journalist</footer>
               </blockquote>
 
               <h3>State Oversight Failures</h3>

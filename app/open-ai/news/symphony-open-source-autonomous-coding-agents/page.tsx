@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
     title: 'OpenAI Open-Sources Symphony: Autonomous Coding Agents That Monitor Issues, Write Code, and Merge PRs',
-    description: 'Symphony uses Elixir and the BEAM runtime to spawn hundreds of parallel coding agents triggered by GitHub Issues and Linear tasks — no prompt required.',
+    description: 'Symphony uses Elixir and the BEAM runtime to spawn hundreds of parallel coding agents triggered by GitHub Issues and Linear tasks, no prompt required.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

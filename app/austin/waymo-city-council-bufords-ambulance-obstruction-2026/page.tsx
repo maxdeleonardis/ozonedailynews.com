@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Austin City Council Summons Waymo After Robotaxi Blocked Ambulance at Buford's Shooting",
     description:
-      "A Waymo robotaxi became stuck perpendicular across West 6th Street just as an ambulance raced to the March 1 mass shooting at Buford's Backyard Beer Garden. Now City Council wants answers — including why it took 30 minutes to geo-fence the area.",
+      "A Waymo robotaxi became stuck perpendicular across West 6th Street just as an ambulance raced to the March 1 mass shooting at Buford's Backyard Beer Garden. Now City Council wants answers, including why it took 30 minutes to geo-fence the area.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Austin City Council Summons Waymo After Robotaxi Blocked Ambulance at Buford's Shooting",
     description:
-      "Waymo will face a joint Austin City Council committee on April 29 after a driverless taxi blocked an ambulance during the Buford's Backyard Beer Garden mass shooting. 3 dead, up to 19 injured — and an AI that couldn't yield.",
+      "Waymo will face a joint Austin City Council committee on April 29 after a driverless taxi blocked an ambulance during the Buford's Backyard Beer Garden mass shooting. 3 dead, up to 19 injured, and an AI that couldn't yield.",
   },
   other: {
     news_keywords:

@@ -9,7 +9,7 @@ const article: Article = {
   status: 'published',
 
   subtitle:
-    'Amazon, Meta, Block, Workday, and C3.ai collectively account for the majority of 26,283 California tech job cuts recorded through February 28, 2026 — the clearest signal yet that AI-driven restructuring has moved from boardroom talking point to balance-sheet reality.',
+    'Amazon, Meta, Block, Workday, and C3.ai collectively account for the majority of 26,283 California tech job cuts recorded through February 28, 2026, the clearest signal yet that AI-driven restructuring has moved from boardroom talking point to balance-sheet reality.',
 
   excerpt:
     'California-based tech companies announced 26,283 job cuts year-to-date through February 2026, with Amazon, Meta, Block, Workday, and C3.ai among the largest contributors. Analysts cite AI automation, post-boom efficiency drives, and a capital shift toward AI-native products as the three converging forces.',
@@ -56,10 +56,10 @@ const article: Article = {
 <div class="prose prose-lg max-w-none">
 
   <p class="text-lg leading-relaxed">
-    <strong>SAN FRANCISCO, CA</strong> — The California technology sector has eliminated
+    <strong>SAN FRANCISCO, CA</strong>, The California technology sector has eliminated
     <strong>26,283 jobs</strong> in the first two months of 2026, according to data compiled by
-    <em>Layoffs.fyi</em> and confirmed by multiple industry reports. The cuts — concentrated in
-    Silicon Valley and the San Francisco Bay Area — reflect ongoing restructuring as major companies
+    <em>Layoffs.fyi</em> and confirmed by multiple industry reports. The cuts, concentrated in
+    Silicon Valley and the San Francisco Bay Area, reflect ongoing restructuring as major companies
     accelerate AI adoption and automation initiatives. Amazon, Meta, Block, Workday, and C3.ai have
     been among the largest contributors to the year-to-date total, collectively accounting for
     nearly 70% of all recorded eliminations through February 28.
@@ -128,14 +128,14 @@ const article: Article = {
   </div>
 
   <p>
-    Amazon's reduction — the largest single contributor at 8,400 positions — spanned its AWS cloud
+    Amazon's reduction, the largest single contributor at 8,400 positions, spanned its AWS cloud
     division, advertising business, and corporate overhead teams. Company statements attributed
     the cuts directly to efficiency gains unlocked by internal AI tooling, which Amazon has been
     deploying aggressively across back-office functions since 2024.
   </p>
 
   <p>
-    Meta's 5,200-person reduction focused heavily on middle-management layers — a structural
+    Meta's 5,200-person reduction focused heavily on middle-management layers, a structural
     move consistent with CEO Mark Zuckerberg's stated goal of flattening organizational
     hierarchies to increase engineering velocity. The company has simultaneously increased
     headcount in AI research and infrastructure engineering.
@@ -160,8 +160,8 @@ const article: Article = {
       <p class="text-gray-700">
         Large language models and AI agents are now reliably performing tasks that previously
         required teams of analysts, content moderators, customer support agents, and junior
-        engineers. Unlike the first wave of automation — which displaced physical and routine
-        clerical work — this wave is hitting knowledge-worker roles that tech companies built
+        engineers. Unlike the first wave of automation, which displaced physical and routine
+        clerical work, this wave is hitting knowledge-worker roles that tech companies built
         significant headcount around during the 2019–2022 growth period.
       </p>
     </div>
@@ -171,7 +171,7 @@ const article: Article = {
         Many firms hired aggressively during the zero- and near-zero interest rate era of
         2020–2022, often doubling headcount in 18 months. With the Federal Reserve holding
         rates elevated and investor focus shifting from growth-at-all-costs to margin expansion,
-        companies are rationalizing the excess — with AI providing the productivity justification
+        companies are rationalizing the excess, with AI providing the productivity justification
         to do so at scale.
       </p>
     </div>
@@ -189,7 +189,7 @@ const article: Article = {
   <blockquote class="border-l-4 border-gray-400 pl-6 my-8 italic text-gray-700">
     <p class="text-lg">&ldquo;AI is fundamentally changing how work gets done.&rdquo;</p>
     <footer class="text-sm text-gray-500 mt-2 not-italic">
-      — Aneel Bhusri, CEO of Workday, Q4 2025 Earnings Call
+     , Aneel Bhusri, CEO of Workday, Q4 2025 Earnings Call
     </footer>
   </blockquote>
 
@@ -197,8 +197,8 @@ const article: Article = {
 
   <p>
     California remains the epicenter of the cuts, with <strong>78% of the 26,283 positions</strong>
-    located in the San Francisco Bay Area and Sacramento regions. Santa Clara County — the
-    geographic heart of Silicon Valley — alone accounted for <strong>11,450 job losses</strong>,
+    located in the San Francisco Bay Area and Sacramento regions. Santa Clara County, the
+    geographic heart of Silicon Valley, alone accounted for <strong>11,450 job losses</strong>,
     roughly 43.6% of the statewide total.
   </p>
 
@@ -206,7 +206,7 @@ const article: Article = {
     The downstream economic impact extends well beyond the directly displaced workers. According
     to the California Employment Development Department, the state's unemployment rate for
     technology professionals rose from <strong>2.8% in December 2025</strong> to
-    <strong>4.1% by the end of February 2026</strong> — a 1.3 percentage point jump in under
+    <strong>4.1% by the end of February 2026</strong>, a 1.3 percentage point jump in under
     60 days. Some economists estimate each Bay Area tech job loss affects
     <strong>2.3 additional jobs</strong> in supporting industries, suggesting the full economic
     impact of the current wave may approach 60,000 total positions statewide when indirect
@@ -214,8 +214,8 @@ const article: Article = {
   </p>
 
   <p>
-    Real estate and service businesses in tech-heavy cities — San Francisco, San Jose, and
-    Palo Alto — have reported declining demand for commercial office space and corporate
+    Real estate and service businesses in tech-heavy cities, San Francisco, San Jose, and
+    Palo Alto, have reported declining demand for commercial office space and corporate
     event services in Q1 2026. Several office landlords have disclosed elevated vacancy
     rates in earnings filings, noting lease non-renewals from companies consolidating
     following headcount reductions.
@@ -245,16 +245,16 @@ const article: Article = {
   <p>
     Analysts are divided on whether the pace of cuts will accelerate, plateau, or reverse in
     the second half of 2026. The optimistic case holds that AI-driven efficiency gains will
-    eventually fuel a new hiring wave — concentrated in AI engineering, data science, and
-    agentic product management — that partially offsets today's losses. The pessimistic case
+    eventually fuel a new hiring wave, concentrated in AI engineering, data science, and
+    agentic product management, that partially offsets today's losses. The pessimistic case
     notes that the skills mismatch between displaced operational workers and AI-era openings
     is large enough that displaced employees may not reenter the sector in equivalent roles.
   </p>
 
   <p>
     The labor market data will be a key input for the Federal Reserve as it considers rate
-    policy in mid-2026. A continued deterioration in Bay Area tech employment — historically
-    a leading indicator for broader U.S. white-collar job markets — could accelerate
+    policy in mid-2026. A continued deterioration in Bay Area tech employment, historically
+    a leading indicator for broader U.S. white-collar job markets, could accelerate
     expectations for a rate cut cycle, which would in turn affect venture capital deployment
     and the pace of further AI investment.
   </p>
@@ -272,11 +272,11 @@ const article: Article = {
   <div class="text-sm text-gray-500">
     <p class="font-semibold text-gray-700 mb-2">SOURCES &amp; CITATIONS</p>
     <ul class="list-disc list-inside space-y-1">
-      <li>Layoffs.fyi — California layoff tracker, February 2026 data export</li>
-      <li>California Employment Development Department — Tech unemployment rate, February 2026</li>
-      <li>Workday Q4 2025 Earnings Call — CEO Aneel Bhusri remarks, February 2026</li>
-      <li>Challenger, Gray &amp; Christmas — U.S. tech job cut report, Q1 2026</li>
-      <li>Amazon, Meta, Block, C3.ai — official press releases and SEC filings, January–February 2026</li>
+      <li>Layoffs.fyi, California layoff tracker, February 2026 data export</li>
+      <li>California Employment Development Department, Tech unemployment rate, February 2026</li>
+      <li>Workday Q4 2025 Earnings Call, CEO Aneel Bhusri remarks, February 2026</li>
+      <li>Challenger, Gray &amp; Christmas, U.S. tech job cut report, Q1 2026</li>
+      <li>Amazon, Meta, Block, C3.ai, official press releases and SEC filings, January–February 2026</li>
     </ul>
   </div>
 

@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'New Mexico Jury Orders Meta to Pay $375M for Deceiving Teens | ObjectWire',
   description:
-    'A New Mexico jury found Meta violated state consumer protection law by making false and misleading statements about the safety of its platforms for teenagers — ordering a $375 million verdict after just one day of deliberation.',
+    'A New Mexico jury found Meta violated state consumer protection law by making false and misleading statements about the safety of its platforms for teenagers, ordering a $375 million verdict after just one day of deliberation.',
   keywords: [
     'Meta $375 million verdict New Mexico',
     'Meta teen safety lawsuit 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'New Mexico Jury Orders Meta to Pay $375M for Deceiving Teens',
     description:
-      'After one day of deliberation, a Santa Fe jury found Meta liable on two counts under New Mexico\'s Unfair Practices Act — concluding the company made false statements and engaged in "unconscionable" trade practices targeting children.',
+      'After one day of deliberation, a Santa Fe jury found Meta liable on two counts under New Mexico\'s Unfair Practices Act, concluding the company made false statements and engaged in "unconscionable" trade practices targeting children.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '$375M. One Day of Deliberation. New Mexico Jury Finds Meta Deceived Teens.',
     description:
-      'The jury sided with New Mexico AG Raúl Torrez on both counts — false statements and "unconscionable" trade practices — in one of the first state verdict against a major social media company over child safety.',
+      'The jury sided with New Mexico AG Raúl Torrez on both counts, false statements and "unconscionable" trade practices, in one of the first state verdict against a major social media company over child safety.',
   },
 };
 

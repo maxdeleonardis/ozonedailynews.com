@@ -10,7 +10,7 @@ const SLUG = '/copyright/elemental-atlus-royalties';
 export const metadata: Metadata = {
   title: 'Elemental Royalty (ELE) Completes Merger, Lists Nasdaq & Offers Tokenized Gold Dividends | ObjectWire',
   description:
-    'Elemental Altus Royalties and EMX Royalty completed their merger on November 13, 2025. The merged company now trades as ELE on TSX Venture Exchange and introduced a groundbreaking dividend payable in Tether Gold (XAUT) — the first of its kind for a publicly listed gold company.',
+    'Elemental Altus Royalties and EMX Royalty completed their merger on November 13, 2025. The merged company now trades as ELE on TSX Venture Exchange and introduced a groundbreaking dividend payable in Tether Gold (XAUT), the first of its kind for a publicly listed gold company.',
   keywords: [
     'Elemental Royalty Corporation',
     'Elemental Altus Royalties',

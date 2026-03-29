@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title:
     "Federal Agencies Flagged Grok's Safety Risks. The Pentagon Approved It for Classified Use Anyway. | ObjectWire",
   description:
-    "The GSA found Grok-4 failed federal safety standards. The NSA identified unique security vulnerabilities. The Biden-era CDAO rejected it. Then the Pentagon authorized xAI's Grok for classified military environments in February 2026 under a $200M contract — over documented objections.",
+    "The GSA found Grok-4 failed federal safety standards. The NSA identified unique security vulnerabilities. The Biden-era CDAO rejected it. Then the Pentagon authorized xAI's Grok for classified military environments in February 2026 under a $200M contract, over documented objections.",
   keywords: [
     'Grok xAI Pentagon classified approval 2026',
     'federal agencies Grok safety warnings GSA NSA',

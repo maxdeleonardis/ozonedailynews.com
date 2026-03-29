@@ -1,12 +1,12 @@
 -- =============================================================================
--- ObjectWire — Public Profiles + User Credentials
+-- ObjectWire - Public Profiles + User Credentials
 --
 -- Two tables:
---   1. public_profiles  — public-facing user data (username, bio, avatar,
+--   1. public_profiles  - public-facing user data (username, bio, avatar,
 --      linked provider IDs). Keyed by user_hash = sha256(email) for
 --      backward compat with article_likes, article_saves, etc.
 --
---   2. user_credentials — stores bcrypt password hashes for email-only
+--   2. user_credentials - stores bcrypt password hashes for email-only
 --      sign-ups. Kept separate so RLS never exposes secrets.
 --
 -- Multi-provider linking works automatically: Google, Discord, and email
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS public_profiles (
   id               UUID        DEFAULT gen_random_uuid() PRIMARY KEY,
 
   -- Identity
-  user_hash        TEXT        UNIQUE NOT NULL,           -- sha256(email) — main FK for engagement tables
+  user_hash        TEXT        UNIQUE NOT NULL,           -- sha256(email), main FK for engagement tables
   username         TEXT        UNIQUE,                    -- public @handle (set by user, optional initially)
   display_name     TEXT        NOT NULL,                  -- shown everywhere: cards, comments, bylines
   email            TEXT,                                  -- stored for admin lookup; never exposed via API
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS public_profiles (
   location         TEXT,
   website          TEXT,
 
-  -- Linked providers (nullable — filled as user signs in with each)
+  -- Linked providers (nullable - filled as user signs in with each)
   primary_provider TEXT        NOT NULL DEFAULT 'google', -- 'google' | 'discord' | 'email'
   google_id        TEXT,                                  -- Google `sub` claim
   discord_id       TEXT,                                  -- Discord user id
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS user_credentials (
 
 CREATE INDEX IF NOT EXISTS idx_uc_email ON user_credentials (email);
 
--- RLS: NO public read — only the API service role should touch this table
+-- RLS: NO public read - only the API service role should touch this table
 ALTER TABLE user_credentials ENABLE ROW LEVEL SECURITY;
 
 DROP POLICY IF EXISTS "uc_anon_insert" ON user_credentials;

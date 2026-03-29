@@ -384,20 +384,6 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ══ BREAKING TICKER ═══════════════════════════════════════════════════ */}
-      {breakingArticles.length > 0 && (
-        <div className="bg-red-600 text-white">
-          <div className="container mx-auto px-4 py-2 flex items-center gap-3 overflow-hidden">
-            <span className="text-[9px] font-black tracking-[.2em] uppercase shrink-0 bg-white text-red-600 px-2 py-0.5">
-              Breaking
-            </span>
-            <p className="text-xs font-medium truncate">
-              {breakingArticles.map((a) => a.title).join('  ·  ')}
-            </p>
-          </div>
-        </div>
-      )}
-
       {/* ══ MAIN CONTENT ══════════════════════════════════════════════════════ */}
       <main className="container mx-auto px-4 py-6">
 

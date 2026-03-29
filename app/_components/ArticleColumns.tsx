@@ -112,7 +112,7 @@ const COVERAGE_BEATS: { icon: string; label: string; href: string; desc: string 
   { icon: '🏦', label: 'Big Tech',         href: '/google',          desc: 'Google, Apple, Microsoft & Amazon' },
   { icon: '🚀', label: 'Space & NASA',     href: '/nasa',            desc: 'Artemis, Europa & commercial space' },
   { icon: '🎭', label: 'Influencers',      href: '/influencer',      desc: 'Creator economy, YouTube & TikTok' },
-  { icon: '🔍', label: 'Explainers',       href: '/define',          desc: 'How things work — tech, finance & more' },
+  { icon: '🔍', label: 'Explainers',       href: '/define',          desc: 'How things work, tech, finance & more' },
   { icon: '🕵️', label: 'Private Detective', href: '/service',        desc: 'Austin TX investigative services' },
   { icon: '🌐', label: 'NGOs & Nonprofits', href: '/ngos',           desc: 'Accountability reporting on 501(c) orgs' },
 ];

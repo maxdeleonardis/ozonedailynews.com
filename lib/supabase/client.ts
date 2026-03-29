@@ -1,19 +1,13 @@
-import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { createBrowserClient as createSupabaseBrowserClient } from '@supabase/ssr';
 
 /**
  * Browser-side Supabase client (anon key).
- * Safe to use in 'use client' components — only exposes public/anon credentials.
- * Use for storage uploads, client-side reads, and editor writes.
+ * Uses @supabase/ssr for proper cookie-based session handling.
+ * Safe to use in 'use client' components.
  */
 export function createBrowserClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!url || !key) {
-    throw new Error(
-      'Missing Supabase env vars. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local'
-    );
-  }
-
-  return createSupabaseClient(url, key);
+  return createSupabaseBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 }

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'KSI (JJ Olatunji) — YouTuber, Boxer, Musician & PRIME Co-Founder | ObjectWire',
+  title: 'KSI (JJ Olatunji) | YouTuber, Boxer, Musician & PRIME Co-Founder | ObjectWire',
   description:
     'Complete profile of KSI (JJ Olatunji): Sidemen founding member, professional boxer with a 6-0-1 record, multi-platinum recording artist, and co-founder of PRIME Hydration. ObjectWire coverage hub.',
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen/ksi',
   },
   openGraph: {
-    title: 'KSI (JJ Olatunji) — YouTuber, Boxer, Musician & PRIME Co-Founder',
+    title: 'KSI (JJ Olatunji) | YouTuber, Boxer, Musician & PRIME Co-Founder',
     description:
       'Full profile of KSI: from FIFA videos to professional boxing, chart-topping music, and co-founding PRIME Hydration with Logan Paul.',
     type: 'article',

@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'Waymo Nears 500,000 Rides Per Week Across 10 U.S. Cities | ObjectWire',
   description:
-    'Alphabet\'s Waymo is completing roughly 500,000 fully autonomous rides per week across 10 U.S. cities, co-CEO Dmitri Dolgov confirmed on March 24, 2026 — with a target of one million paid rides per week by end of 2026.',
+    'Alphabet\'s Waymo is completing roughly 500,000 fully autonomous rides per week across 10 U.S. cities, co-CEO Dmitri Dolgov confirmed on March 24, 2026, with a target of one million paid rides per week by end of 2026.',
   keywords: [
     'Waymo 500000 rides 2026',
     'Waymo autonomous miles 2026',

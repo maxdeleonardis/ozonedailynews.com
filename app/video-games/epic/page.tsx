@@ -12,7 +12,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Unreal Engine Expands Beyond Gaming Into Film, Automotive, and Architecture — 2026 Adoption Trends | ObjectWire',
+    'Unreal Engine Expands Beyond Gaming Into Film, Automotive, and Architecture, 2026 Adoption Trends | ObjectWire',
   description:
     "Unreal Engine powers more than 28% of PC games released in 2024 and has expanded to 4,826 verified companies across film, automotive, architecture, and simulation as of 2026. Over 35 car models ship Unreal Engine-powered HMIs. Cumulative film and TV projects exceed 500. Epic VP Sebastien Miglio: 'We planned to diversify this way.'",
   keywords: [
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Unreal Engine Is Now in Car Dashboards, Film Sets, and Architecture — Not Just Games",
+      "Unreal Engine Is Now in Car Dashboards, Film Sets, and Architecture, Not Just Games",
     description:
-      "28% of PC games. 35+ car HMIs. 500+ film/TV projects. 4,826 companies across industries. Epic's Unreal Engine expansion by the numbers — 2026.",
+      "28% of PC games. 35+ car HMIs. 500+ film/TV projects. 4,826 companies across industries. Epic's Unreal Engine expansion by the numbers, 2026.",
     images: [IMAGE_URL],
   },
 };

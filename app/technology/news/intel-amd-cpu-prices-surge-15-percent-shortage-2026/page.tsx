@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Intel and AMD CPU Prices Surge Up to 15% as Shortages Hit PC and Server Manufacturers',
     description:
-      'CPU prices are up 10–15% across Intel and AMD product lines as global supply meets only 65–75% of demand. Lead times have stretched from two weeks to eight-to-twelve weeks — with enterprise Xeon and EPYC orders now facing six-month waits.',
+      'CPU prices are up 10–15% across Intel and AMD product lines as global supply meets only 65–75% of demand. Lead times have stretched from two weeks to eight-to-twelve weeks, with enterprise Xeon and EPYC orders now facing six-month waits.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Intel and AMD CPU Prices Up 15% — Lead Times Stretch to 6 Months',
+    title: 'Intel and AMD CPU Prices Up 15% | Lead Times Stretch to 6 Months',
     description:
       'The semiconductor supply chain has a new bottleneck: CPUs. Intel and AMD processors are now harder to source than the memory chips that held up production lines in 2025.',
     images: [IMAGE_URL],

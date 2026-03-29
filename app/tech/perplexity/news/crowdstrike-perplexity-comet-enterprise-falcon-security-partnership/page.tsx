@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'CrowdStrike & Perplexity Unite to Shield the "Agentic" Workforce | ObjectWire',
   description:
-    'CrowdStrike and Perplexity announced a major strategic partnership at Ask 2026, embedding the Falcon security platform directly into Comet Enterprise — Perplexity\'s AI-native browser. The first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition.',
+    'CrowdStrike and Perplexity announced a major strategic partnership at Ask 2026, embedding the Falcon security platform directly into Comet Enterprise, Perplexity\'s AI-native browser. The first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition.',
   keywords: [
     'CrowdStrike Perplexity partnership 2026',
     'Comet Enterprise browser security',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CrowdStrike & Perplexity Unite to Shield the "Agentic" Workforce',
     description:
-      'Falcon security is now embedded inside Comet Enterprise. The partnership marks the first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition — and a new front line in enterprise AI defense.',
+      'Falcon security is now embedded inside Comet Enterprise. The partnership marks the first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition, and a new front line in enterprise AI defense.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CrowdStrike Brings Falcon Inside Perplexity\'s AI Browser',
     description:
-      'The partnership embeds real-time threat detection directly into Comet Enterprise — the first deployment of CrowdStrike\'s $420M Seraphic acquisition.',
+      'The partnership embeds real-time threat detection directly into Comet Enterprise, the first deployment of CrowdStrike\'s $420M Seraphic acquisition.',
   },
 };
 

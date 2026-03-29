@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mastercard to Acquire Stablecoin Infrastructure Firm BVNK for Up to $1.8 Billion",
     description:
-      "Mastercard will pay up to $1.8 billion for BVNK, a London-based stablecoin rails provider — more than doubling its last valuation of $750 million. The move comes months after a rival Coinbase bid fell apart at $2 billion.",
+      "Mastercard will pay up to $1.8 billion for BVNK, a London-based stablecoin rails provider, more than doubling its last valuation of $750 million. The move comes months after a rival Coinbase bid fell apart at $2 billion.",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Mastercard to Buy BVNK for $1.8 Billion in Stablecoin Infrastructure Push | ObjectWire",
     description:
-      "Mastercard outmaneuvered Coinbase for BVNK — a stablecoin 'plumbing' provider that processed trillions in on-chain volume. Deal includes $300M in earnouts tied to stablecoin transaction growth.",
+      "Mastercard outmaneuvered Coinbase for BVNK, a stablecoin 'plumbing' provider that processed trillions in on-chain volume. Deal includes $300M in earnouts tied to stablecoin transaction growth.",
   },
   other: {
     news_keywords:

@@ -7,7 +7,7 @@ import AuthorSchema from '@/components/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Conan Boyle — Science & Technology Writer | ObjectWire',
+  title: 'Conan Boyle | Science & Technology Writer | ObjectWire',
   description:
     'Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI hardware, gaming, and emerging technologies.',
   alternates: { canonical: 'https://www.objectwire.org/authors/conan-boyle' },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Conan Boyle — Science & Technology Writer',
+    title: 'Conan Boyle | Science & Technology Writer',
     description: 'Founding writer at ObjectWire. NCSU journalism. Biotech, CRISPR, AI hardware & gaming.',
   },
 };
@@ -101,7 +101,7 @@ export default function ConanBoyleAuthorPage() {
       <div className="bg-gray-900 text-white border-b border-gray-800">
         <div className="max-w-5xl mx-auto px-6 py-5 flex flex-wrap items-center gap-6 text-xs font-mono text-gray-400">
           <span>ðŸ“ Austin, Texas</span>
-          <span>ðŸŽ“ NC State University — Journalism</span>
+          <span>ðŸŽ“ NC State University, Journalism</span>
           <span>ðŸ”¬ Science &amp; Technology Desk</span>
           <span>ðŸ“… Founding Writer Â· 2023</span>
         </div>
@@ -130,7 +130,7 @@ export default function ConanBoyleAuthorPage() {
               {[
                 ['Organization', 'ObjectWire'],
                 ['Role', 'Founding Writer'],
-                ['Education', 'NC State — Journalism'],
+                ['Education', 'NC State, Journalism'],
                 ['Location', 'Austin, Texas'],
                 ['Joined', '2023'],
               ].map(([label, value]) => (
@@ -168,7 +168,7 @@ export default function ConanBoyleAuthorPage() {
                 <p>
                   Conan Boyle is a founding writer at ObjectWire and the publication&rsquo;s primary
                   voice on science, biotechnology, and emerging technology. Based in Austin, Texas, Boyle
-                  brings a research-grounded perspective to complex scientific topics — translating
+                  brings a research-grounded perspective to complex scientific topics, translating
                   peer-reviewed findings, clinical data, and laboratory breakthroughs into authoritative
                   reporting for a professional audience.
                 </p>
@@ -176,14 +176,14 @@ export default function ConanBoyleAuthorPage() {
                   A graduate of North Carolina State University&rsquo;s journalism program, Boyle&rsquo;s
                   science reporting covers the full life-sciences spectrum: CRISPR gene editing,
                   AI-driven drug discovery, photonic computing architectures, and the semiconductor
-                  startups challenging NVIDIA&rsquo;s data center dominance — including a deep-dive
+                  startups challenging NVIDIA&rsquo;s data center dominance, including a deep-dive
                   profile of Neurophos and their photonic AI chip roadmap.
                 </p>
                 <p>
                   His gaming coverage brings the same analytical precision to video games. He has
-                  written extensively on Nintendo&rsquo;s Switch 2 ecosystem — including the technical
+                  written extensively on Nintendo&rsquo;s Switch 2 ecosystem, including the technical
                   breakdown of Donkey Kong Bananza&rsquo;s 347-million-voxel destruction engine
-                  revealed at GDC 2026 — as well as Pokémon Pokopia&rsquo;s record-breaking 2.2 million
+                  revealed at GDC 2026, as well as Pokémon Pokopia&rsquo;s record-breaking 2.2 million
                   launch copies, and Bungie&rsquo;s Marathon balance patches.
                 </p>
                 <p>
@@ -203,19 +203,19 @@ export default function ConanBoyleAuthorPage() {
               <div className="space-y-4">
                 {[
                   {
-                    label: 'Donkey Kong Bananza — 347M Voxels',
+                    label: 'Donkey Kong Bananza, 347M Voxels',
                     detail: 'GDC 2026 technical breakdown: Nintendo\'s Switch 2 destruction engine and the Odyssey snow prototype connection.',
                     href: '/video-games/nintendo/donkey-kong-bananza',
                     date: 'March 12, 2026',
                   },
                   {
-                    label: 'Pokémon Pokopia — 2.2M Copies in 4 Days',
-                    detail: 'Switch 2 launch record — Nintendo stock +15%, Japan accounting for nearly 1M of the first-week units.',
+                    label: 'Pokémon Pokopia, 2.2M Copies in 4 Days',
+                    detail: 'Switch 2 launch record, Nintendo stock +15%, Japan accounting for nearly 1M of the first-week units.',
                     href: '/video-games/nintendo/pokemon-pokopia-2-million-copies-4-days-switch-2',
                     date: 'March 12, 2026',
                   },
                   {
-                    label: 'Neurophos — Photonic AI Chip Startup',
+                    label: 'Neurophos, Photonic AI Chip Startup',
                     detail: 'Deep-dive profile on the startup betting photonic computing can challenge NVIDIA in data center inference.',
                     href: '/neurophos-ai-hardware-startup',
                     date: 'February 1, 2026',

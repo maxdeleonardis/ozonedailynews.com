@@ -15,11 +15,11 @@ This creates a flywheel: **website traffic feeds the Discord community, and Disc
 
 ### Why a Forum Channel?
 
-Discord Forum Channels were designed for exactly this use case — organized, searchable, topic-based discussions. Unlike regular channels:
+Discord Forum Channels were designed for exactly this use case, organized, searchable, topic-based discussions. Unlike regular channels:
 
-- Each article automatically gets its own **Forum Post** (thread) — no manual channel creation
-- Posts are **browsable and searchable** — Discord users can scroll through articles like a feed
-- Posts support **tags** — we can tag by beat (Tech, News, Entertainment, etc.)
+- Each article automatically gets its own **Forum Post** (thread), no manual channel creation
+- Posts are **browsable and searchable**, Discord users can scroll through articles like a feed
+- Posts support **tags**, we can tag by beat (Tech, News, Entertainment, etc.)
 - Posts **auto-archive** when inactive but reopen instantly when someone replies
 - One channel handles **unlimited articles** cleanly
 
@@ -167,7 +167,7 @@ The `<DiscordComments>` component appears at the bottom of every article. It has
 
 **For signed-out users:**
 - Large Discord-branded sign-in gate with the message: *"Sign in with Discord to join the conversation"*
-- Subtext: *"Your comments appear live in our Discord server — every post grows the community."*
+- Subtext: *"Your comments appear live in our Discord server, every post grows the community."*
 - Link: *"Don't have Discord? Join our server first →"* pointing to `discord.gg/objectwire`
 
 **After posting a comment:**
@@ -290,8 +290,8 @@ OBJECTWIRE DISCORD SERVER
 
 | Channel | Type | Purpose | Webhook? |
 |---------|------|---------|----------|
-| #article-discussion | Forum | All article comments land here as threaded posts | Yes — `DISCORD_COMMENTS_WEBHOOK_URL` |
-| #new-articles | Text | Auto-posts every new article with thumbnail + link | Yes — Phase 2 |
+| #article-discussion | Forum | All article comments land here as threaded posts | Yes, `DISCORD_COMMENTS_WEBHOOK_URL` |
+| #new-articles | Text | Auto-posts every new article with thumbnail + link | Yes, Phase 2 |
 | #general | Text | Organic community chat | No |
 
 ---
@@ -303,7 +303,7 @@ OBJECTWIRE DISCORD SERVER
 DISCORD_CLIENT_ID=your_app_client_id
 DISCORD_CLIENT_SECRET=your_app_client_secret
 
-# Forum Channel webhook — the ONLY webhook needed for comments
+# Forum Channel webhook | the ONLY webhook needed for comments
 # Create in: Server Settings → Integrations → Webhooks → target #article-discussion
 DISCORD_COMMENTS_WEBHOOK_URL=https://discord.com/api/webhooks/{id}/{token}
 
@@ -335,11 +335,11 @@ DISCORD_NEW_ARTICLES_WEBHOOK_URL=https://discord.com/api/webhooks/{id}/{token}
 
 ### Code Side (What we'll build)
 
-1. **Wire API to Supabase** — Replace in-memory `commentStore` with `discord_comments` table
-2. **Add `discord_threads` table** — Track which articles already have Forum Posts
-3. **Forum Post auto-creation** — First comment creates the post, subsequent comments reply to it
-4. **Embed `<DiscordComments>` in all article types** — NewsArticle, JackArticle, ArticlePage
-5. **Add `#comments` scroll anchor** — ReactionBar comment button scrolls to it
+1. **Wire API to Supabase**, Replace in-memory `commentStore` with `discord_comments` table
+2. **Add `discord_threads` table**, Track which articles already have Forum Posts
+3. **Forum Post auto-creation**, First comment creates the post, subsequent comments reply to it
+4. **Embed `<DiscordComments>` in all article types**, NewsArticle, JackArticle, ArticlePage
+5. **Add `#comments` scroll anchor**, ReactionBar comment button scrolls to it
 
 ---
 
@@ -381,4 +381,4 @@ Currently the flow is **one-way: site → Discord.** Phase 2 adds the reverse:
 - The comment appears on the website under that article's comment section
 - This means the conversation is identical on both platforms
 
-This requires a hosted bot (can run on the same VPS or a free Railway/Fly.io deploy). Not needed for launch — the one-way flow already creates massive value.
+This requires a hosted bot (can run on the same VPS or a free Railway/Fly.io deploy). Not needed for launch, the one-way flow already creates massive value.

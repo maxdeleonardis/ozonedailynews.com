@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/xbox/project-moorcroft-cancelled-game-pass-demos-gdc-2026';
 
 export const metadata: Metadata = {
-  title: "Xbox Confirms Project Moorcroft Is Dead — Demo Program Cancelled After Four Years | ObjectWire",
+  title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program Cancelled After Four Years | ObjectWire",
   description:
     "Microsoft has officially abandoned Project Moorcroft, the long-promised program that would have paid developers to create pre-release game demos for Xbox Game Pass subscribers. The confirmation came at GDC 2026, marking another Phil Spencer-era initiative that never launched.",
   keywords: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Xbox Confirms Project Moorcroft Is Dead — Demo Program Cancelled After Four Years",
+    title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program Cancelled After Four Years",
     description:
-      "Microsoft has abandoned Project Moorcroft, the program that would have paid developers to ship pre-release demos to Game Pass subscribers. Confirmed dead at GDC 2026 — another Phil Spencer-era promise that never launched.",
+      "Microsoft has abandoned Project Moorcroft, the program that would have paid developers to ship pre-release demos to Game Pass subscribers. Confirmed dead at GDC 2026, another Phil Spencer-era promise that never launched.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Xbox Confirms Project Moorcroft Is Dead",
     description:
-      "After four years of promises, Microsoft has abandoned Project Moorcroft — the program that would have paid devs to ship Game Pass demos. Confirmed at GDC 2026.",
+      "After four years of promises, Microsoft has abandoned Project Moorcroft, the program that would have paid devs to ship Game Pass demos. Confirmed at GDC 2026.",
   },
   other: {
     news_keywords:

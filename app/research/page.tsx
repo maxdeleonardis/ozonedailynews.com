@@ -54,10 +54,10 @@ const QUICK_PROMPTS = [
 ];
 
 const MODEL_OPTIONS: { value: PerplexityModel; label: string; description: string }[] = [
-  { value: 'sonar', label: 'Sonar', description: 'Fast, efficient — good for quick facts' },
+  { value: 'sonar', label: 'Sonar', description: 'Fast, efficient, good for quick facts' },
   { value: 'sonar-pro', label: 'Sonar Pro', description: 'Deep research with citations (recommended)' },
   { value: 'sonar-reasoning', label: 'Sonar Reasoning', description: 'Step-by-step reasoning & analysis' },
-  { value: 'sonar-reasoning-pro', label: 'Sonar Reasoning Pro', description: 'Most thorough — complex topics' },
+  { value: 'sonar-reasoning-pro', label: 'Sonar Reasoning Pro', description: 'Most thorough, complex topics' },
 ];
 
 // =============================================================================
@@ -242,7 +242,7 @@ export default function ResearchPage() {
                 >
                   {MODEL_OPTIONS.map((opt) => (
                     <option key={opt.value} value={opt.value}>
-                      {opt.label} — {opt.description}
+                      {opt.label}, {opt.description}
                     </option>
                   ))}
                 </select>

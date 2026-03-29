@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Behzinga (Ethan Payne) — Fitness Transformation & Mental Health Advocate | ObjectWire",
+  title: "Behzinga (Ethan Payne) | Fitness Transformation & Mental Health Advocate | ObjectWire",
   description: "Complete profile of Behzinga (Ethan Payne): Sidemen member's inspiring fitness transformation, mental health advocacy, relationship with Faith Kelly, and charity football performance. 2026 coverage.",
   keywords: [
     "Behzinga",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen/behzinga',
   },
   openGraph: {
-    title: 'Behzinga (Ethan Payne) — Fitness Journey & Mental Health Champion',
+    title: 'Behzinga (Ethan Payne) | Fitness Journey & Mental Health Champion',
     description: 'Full profile of Behzinga: transformative weight loss journey, mental health advocacy, engagement to Faith Kelly, and inspiring fitness content.',
     type: 'article',
     url: 'https://www.objectwire.org/youtube/sidemen/behzinga',

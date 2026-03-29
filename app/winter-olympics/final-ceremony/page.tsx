@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     'how to watch closing ceremony',
   ],
   openGraph: {
-    title: 'Winter Olympics 2026 Closing Ceremony — Date, Time, Performers & How to Watch',
+    title: 'Winter Olympics 2026 Closing Ceremony | Date, Time, Performers & How to Watch',
     description:
-      'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22 — performers, flag handoff to 2030, medal highlights, and how to watch live.',
+      'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22, performers, flag handoff to 2030, medal highlights, and how to watch live.',
     type: 'article',
     publishedTime: '2026-02-22T10:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Winter Olympics 2026 Closing Ceremony — Everything You Need to Know',
+    title: 'Winter Olympics 2026 Closing Ceremony | Everything You Need to Know',
     description:
       'Feb 22 · Verona Arena · 2:30 PM ET · Roberto Bolle, Achille Lauro, Olympic flag to France. The full guide.',
   },

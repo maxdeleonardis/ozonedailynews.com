@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     '87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds | ObjectWire',
   description:
-    'A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously — 26 of 30 AI-generated pull requests introduced at least one high-severity vulnerability. Claude produced the most unresolved flaws; OpenAI Codex performed best.',
+    'A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously, 26 of 30 AI-generated pull requests introduced at least one high-severity vulnerability. Claude produced the most unresolved flaws; OpenAI Codex performed best.',
   keywords: [
     'AI agent security flaws 2026',
     'DryRun Security agentic coding report',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: '87% of AI Agent Pull Requests Introduce Security Flaws — DryRun Security 2026',
+    title: '87% of AI Agent Pull Requests Introduce Security Flaws | DryRun Security 2026',
     description:
       'DryRun Security tested Claude, Codex, and Gemini building full apps autonomously. 26 of 30 PRs had at least one high-severity security flaw. Claude produced the most unresolved vulnerabilities. Codex performed best.',
     type: 'article',

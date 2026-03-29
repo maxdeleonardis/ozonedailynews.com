@@ -114,6 +114,20 @@ function toSupabaseRow(post: Partial<BlogPostFull>, status: 'published' | 'draft
 // READ
 // =============================================================================
 
+export async function getBreakingHeadlines(): Promise<string[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('articles')
+      .select('title')
+      .eq('breaking', true)
+      .order('created_at', { ascending: false })
+      .limit(8);
+    if (error) { return []; }
+    return (data || []).map(r => r.title as string);
+  } catch { return []; }
+}
+
 export async function getAllBlogPosts(): Promise<BlogPostFull[]> {
   try {
     const supabase = await createClient();

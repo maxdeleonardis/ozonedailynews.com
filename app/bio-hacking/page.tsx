@@ -10,7 +10,7 @@ const SLUG = '/bio-hacking';
 export const metadata: Metadata = {
   title: "Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization | ObjectWire",
   description:
-    "Complete coverage of the bio-hacking movement — from Bryan Johnson's Blueprint protocol to looksmaxxing, peptides, nootropics, and the extreme measures people take to optimize performance, appearance, and lifespan.",
+    "Complete coverage of the bio-hacking movement, from Bryan Johnson's Blueprint protocol to looksmaxxing, peptides, nootropics, and the extreme measures people take to optimize performance, appearance, and lifespan.",
   keywords: [
     'bio-hacking biohacking 2026',
     'Bryan Johnson Blueprint longevity protocol',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization",
     description:
-      "From Bryan Johnson's $2M/year longevity protocol to the looksmaxxing movement pushing cosmetic surgery to extremes — comprehensive coverage of the bio-hacking revolution.",
+      "From Bryan Johnson's $2M/year longevity protocol to the looksmaxxing movement pushing cosmetic surgery to extremes, comprehensive coverage of the bio-hacking revolution.",
     type: 'website',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Bio-Hacking Hub: From Bryan Johnson to Looksmaxxing",
     description:
-      "The complete guide to human optimization — longevity protocols, performance enhancement, and the extreme cosmetic procedures reshaping modern self-improvement.",
+      "The complete guide to human optimization, longevity protocols, performance enhancement, and the extreme cosmetic procedures reshaping modern self-improvement.",
   },
 };
 

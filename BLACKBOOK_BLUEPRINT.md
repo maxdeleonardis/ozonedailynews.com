@@ -296,7 +296,7 @@ Competitive Advantages:
 - Superior Market Supply: Auto-generation creates 10-100x more potential trading opportunities than manual creation
 - Credible Source Tracking: Markets linked to originating article and researcher enable reader-to-trader conversion
 
-Enterprise Intelligence Extension: Enterprise customers access this discovery capability through API, receiving real-time identification of market-relevant events, trust scores, existing market references, and automated probability feeds—capabilities unavailable through any competitor platform.
+Enterprise Intelligence Extension: Enterprise customers access this discovery capability through API, receiving real-time identification of market-relevant events, trust scores, existing market references, and automated probability feeds, capabilities unavailable through any competitor platform.
 
 4.5 Research Credibility Infrastructure
 

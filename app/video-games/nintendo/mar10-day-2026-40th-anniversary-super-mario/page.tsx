@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nintendo MAR10 Day 2026: 40th Anniversary Deals, Virtual Boy Returns & Galaxy Movie Countdown',
     description:
-      `Nintendo's biggest MAR10 Day ever — Switch 2 discounts, Virtual Boy classics hitting Switch Online, and The Super Mario Galaxy Movie arriving April 1.`,
+      `Nintendo's biggest MAR10 Day ever, Switch 2 discounts, Virtual Boy classics hitting Switch Online, and The Super Mario Galaxy Movie arriving April 1.`,
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Nintendo MAR10 Day 2026 Super Mario 40th Anniversary' }],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nintendo MAR10 Day 2026: Switch 2 Deals, Virtual Boy & the Galaxy Movie Countdown',
     description:
-      `Everything dropping for MAR10 Day 2026 — the first-ever Switch 2 sale, Virtual Boy on Switch Online, and Brie Larson as Rosalina.`,
+      `Everything dropping for MAR10 Day 2026, the first-ever Switch 2 sale, Virtual Boy on Switch Online, and Brie Larson as Rosalina.`,
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },

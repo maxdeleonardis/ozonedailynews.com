@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Nvidia to Unveil Groq-Powered Inference Platform at GTC 2026 — $20B Deal, OpenAI's 3GW Commitment",
+      "Nvidia to Unveil Groq-Powered Inference Platform at GTC 2026, $20B Deal, OpenAI's 3GW Commitment",
     description:
       "Nvidia licensed Groq's full LPU patent portfolio and hired founder Jonathan Ross on December 24, 2025 for $20 billion. The result debuts at GTC 2026 in March: a dedicated AI inference rack platform. OpenAI committed 3GW of capacity.",
     type: 'article',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Nvidia's $20B Groq Deal Debuts at GTC 2026: A Dedicated AI Inference Platform — OpenAI Commits 3GW",
+      "Nvidia's $20B Groq Deal Debuts at GTC 2026: A Dedicated AI Inference Platform, OpenAI Commits 3GW",
     description:
       "Nvidia licensed Groq's LPU architecture on December 24, 2025 for $20B and hired founder Jonathan Ross. The new LPX inference platform unveils at GTC 2026. WSJ reported February 27, 2026.",
     images: [IMAGE_URL],

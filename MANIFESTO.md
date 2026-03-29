@@ -166,27 +166,27 @@ The building blocks of ObjectWire stories:
 
 ### Built for the Modern Web
 
-- **Next.js 15** — Blazing fast, edge-optimized
-- **React 19** — Interactive, component-driven
-- **Supabase** — Real-time, PostgreSQL-powered
-- **Turbopack** — Development at light speed
-- **TypeScript** — Type-safe, error-resistant
-- **Tailwind CSS** — Beautiful by default
+- **Next.js 15**, Blazing fast, edge-optimized
+- **React 19**, Interactive, component-driven
+- **Supabase**, Real-time, PostgreSQL-powered
+- **Turbopack**, Development at light speed
+- **TypeScript**, Type-safe, error-resistant
+- **Tailwind CSS**, Beautiful by default
 
 ### Built for Writers
 
-- **Block-based content** — Structured, flexible, portable
-- **JSON storage** — Future-proof, API-ready
-- **Cloud storage** — Images uploaded, not linked
-- **Real-time saving** — Never lose work
-- **Preview mode** — See before you publish
+- **Block-based content**, Structured, flexible, portable
+- **JSON storage**, Future-proof, API-ready
+- **Cloud storage**, Images uploaded, not linked
+- **Real-time saving**, Never lose work
+- **Preview mode**, See before you publish
 
 ### Built for Scale
 
-- **Static generation** — CDN-cached pages
-- **Edge functions** — Global performance
-- **PostgreSQL** — Reliable, scalable
-- **Row-level security** — Secure by design
+- **Static generation**, CDN-cached pages
+- **Edge functions**, Global performance
+- **PostgreSQL**, Reliable, scalable
+- **Row-level security**, Secure by design
 
 ---
 
@@ -267,7 +267,7 @@ The building blocks of ObjectWire stories:
 > We will never add complexity where simplicity serves. Writing news should be as easy as writing an email. The technology should disappear so the journalism can shine.
 
 ### To Truth:
-> We are not neutral on facts. We verify. We cite. We correct. In an age of misinformation, verification is not optional—it's the mission.
+> We are not neutral on facts. We verify. We cite. We correct. In an age of misinformation, verification is not optional, it's the mission.
 
 ---
 

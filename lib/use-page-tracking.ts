@@ -39,7 +39,7 @@ export function usePageTracking() {
           tracking.trackArticleEngagement(
             pathname,
             document.title,
-            '', // category not needed here — GA4 filters by page_path
+            '', // category not needed here, GA4 filters by page_path
             m,
           );
         }

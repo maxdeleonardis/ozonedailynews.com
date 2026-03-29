@@ -10,7 +10,7 @@ const SLUG = '/fortnite/epic-games-vbucks-shrinkflation-chapter-7-season-2-2026'
 export const metadata: Metadata = {
   title: "Epic Games Implements V-Bucks 'Shrinkflation' Explained",
   description:
-    "Epic Games has reduced the V-Bucks included in every paid bundle effective March 19, 2026, while keeping dollar prices unchanged. The $8.99 pack drops from 1,000 to 800 V-Bucks — a 20% cut — coinciding with the launch of Fortnite Chapter 7 Season 2.",
+    "Epic Games has reduced the V-Bucks included in every paid bundle effective March 19, 2026, while keeping dollar prices unchanged. The $8.99 pack drops from 1,000 to 800 V-Bucks, a 20% cut, coinciding with the launch of Fortnite Chapter 7 Season 2.",
   keywords: [
     'Fortnite V-Bucks shrinkflation 2026',
     'Epic Games V-Bucks reduction March 2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Epic Games Implements Fortnite 'Shrinkflation' — V-Bucks Purchasing Power Drops 20–25%",
+    title: "Epic Games Implements Fortnite 'Shrinkflation' | V-Bucks Purchasing Power Drops 20–25%",
     description:
       "Epic keeps prices the same but slashes V-Bucks quantities by up to 20% across every bundle, effective March 19, 2026. The $8.99 starter pack goes from 1,000 to 800 V-Bucks. Battle Pass V-Bucks rewards also cut in half.",
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Fortnite V-Bucks Shrinkflation: Same Price, 20% Fewer Bucks — Effective March 19 | ObjectWire",
+    title: "Fortnite V-Bucks Shrinkflation: Same Price, 20% Fewer Bucks | Effective March 19 | ObjectWire",
     description:
       "Epic Games cuts V-Bucks quantities by 20–25% across all bundles while keeping prices unchanged. The $8.99 pack drops from 1,000 to 800 V-Bucks. #BoycottVBucks tops 1.2M mentions in 24 hours.",
   },

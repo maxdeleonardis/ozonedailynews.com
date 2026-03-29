@@ -10,7 +10,7 @@ const SLUG = '/investigations/news/vance-minesoda-medicaid';
 export const metadata: Metadata = {
   title: 'Vance Freezes $259M in Minnesota Medicaid Funding in Trump\'s "War on Fraud" | ObjectWire',
   description:
-    'Vice President JD Vance announced a temporary deferral of $259.5 million in federal Medicaid matching funds owed to Minnesota for Q4 2025, citing unsupported claims and immigration status questions — the first concrete action in Trump\'s declared war on welfare fraud.',
+    'Vice President JD Vance announced a temporary deferral of $259.5 million in federal Medicaid matching funds owed to Minnesota for Q4 2025, citing unsupported claims and immigration status questions, the first concrete action in Trump\'s declared war on welfare fraud.',
   keywords: [
     'JD Vance Minnesota Medicaid',
     'Medicaid fraud Minnesota',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Vance Freezes $259M in Minnesota Medicaid: Trump\'s First "War on Fraud" Shot',
     description:
-      'CMS placed $259.5 million in quarterly Medicaid funds on hold for Minnesota — flagging $243.8M in unsupported claims and $15.4M tied to unverified immigration status. The first deferral of this scale since 2017.',
+      'CMS placed $259.5 million in quarterly Medicaid funds on hold for Minnesota, flagging $243.8M in unsupported claims and $15.4M tied to unverified immigration status. The first deferral of this scale since 2017.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vance Freezes $259M in Minnesota Medicaid — First Shot in Trump\'s Fraud War',
+    title: 'Vance Freezes $259M in Minnesota Medicaid | First Shot in Trump\'s Fraud War',
     description:
       '$243.8M in unsupported claims, $15.4M tied to unverified immigration status. CMS hits Minnesota with its largest quarterly deferral since 2017.',
   },

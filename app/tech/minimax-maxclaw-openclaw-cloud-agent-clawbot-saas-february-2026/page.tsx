@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title:
     'MiniMax Launches MaxClaw Cloud Agent on February 25, Clawbot AI SaaS Follows February 28 | ObjectWire',
   description:
-    'MiniMax released MaxClaw on February 25, 2026 — a fully managed cloud deployment of the open-source OpenClaw agent framework running on the MiniMax-M2.5 229B MoE model. Clawbot AI launched its own SaaS version of OpenClaw on February 28. Both address deployment barriers for a framework that hit 200,000 GitHub stars in 84 days.',
+    'MiniMax released MaxClaw on February 25, 2026, a fully managed cloud deployment of the open-source OpenClaw agent framework running on the MiniMax-M2.5 229B MoE model. Clawbot AI launched its own SaaS version of OpenClaw on February 28. Both address deployment barriers for a framework that hit 200,000 GitHub stars in 84 days.',
   keywords: [
     'MiniMax MaxClaw OpenClaw cloud agent February 2026',
     'MaxClaw MiniMax-M2.5 managed cloud deployment',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title:
       'MiniMax MaxClaw and Clawbot AI Both Launch Cloud OpenClaw Agents in Three Days',
     description:
-      'MiniMax dropped MaxClaw on February 25, 2026 — one-click cloud deployment for OpenClaw agents powered by a 229B MoE model. Clawbot AI followed with its own SaaS version on February 28. The open-source OpenClaw framework already has 200,000 GitHub stars after 84 days.',
+      'MiniMax dropped MaxClaw on February 25, 2026, one-click cloud deployment for OpenClaw agents powered by a 229B MoE model. Clawbot AI followed with its own SaaS version on February 28. The open-source OpenClaw framework already has 200,000 GitHub stars after 84 days.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'MiniMax MaxClaw Launches Feb 25, Clawbot AI SaaS Follows Feb 28 — Both Cloud OpenClaw Agents',
+      'MiniMax MaxClaw Launches Feb 25, Clawbot AI SaaS Follows Feb 28, Both Cloud OpenClaw Agents',
     description:
       'Two cloud wrappers for OpenClaw in three days. MiniMax MaxClaw (Feb 25) uses a 229B MoE model. Clawbot AI SaaS (Feb 28) adds automatic model selection. OpenClaw: 200K GitHub stars in 84 days.',
     images: [IMAGE_URL],

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/chicos-toxicos';
 
 export const metadata: Metadata = {
-  title: 'Chicos Toxicos — Latin YouTuber Entertainment Group | ObjectWire',
+  title: 'Chicos Toxicos | Latin YouTuber Entertainment Group | ObjectWire',
   description:
     'Full coverage of Chicos Toxicos, the Latin American YouTuber entertainment group featuring Felipe, Diego, and Brandom. Weekly Toxico Thursdays, Zoo Culture and Bradley Martyn collaborations.',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/chicos-toxicos',
   },
   openGraph: {
-    title: 'Chicos Toxicos — Latin YouTuber Entertainment Group',
+    title: 'Chicos Toxicos | Latin YouTuber Entertainment Group',
     description:
       'Felipe, Diego, and Brandom deliver new content every Toxico Thursday. Full profile, member breakdowns, and collaboration history on ObjectWire.',
     type: 'article',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chicos Toxicos — Latin YouTuber Entertainment Group',
+    title: 'Chicos Toxicos | Latin YouTuber Entertainment Group',
     description:
       'Full profile of Chicos Toxicos: members, schedule, collaborations, and stats.',
   },

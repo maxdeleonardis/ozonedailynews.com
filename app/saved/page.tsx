@@ -29,7 +29,7 @@ export default function SavedPage() {
 
         <h1 className="text-3xl font-black text-gray-900 mb-1">Saved Articles</h1>
         <p className="text-gray-500 text-sm mb-8">
-          Articles you&apos;ve bookmarked. Saved indefinitely — remove them any time.
+          Articles you&apos;ve bookmarked. Saved indefinitely, remove them any time.
         </p>
 
         <SavedArticles />

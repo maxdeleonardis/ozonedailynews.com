@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Top Spanish YouTubers 2026 — Ibai, AuronPlay, ElRubius & More | ObjectWire",
+  title: "Top Spanish YouTubers 2026 | Ibai, AuronPlay, ElRubius & More | ObjectWire",
   description: "Complete guide to the biggest Spanish-language YouTubers and streamers of 2026. Rankings, profiles, subscriber counts, and content breakdowns for Spain's top creators.",
   alternates: {
     canonical: 'https://www.objectwire.org/youtube/spanish',
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Top Spanish YouTubers 2026 | ObjectWire",
-    description: "Rankings and profiles of the biggest Spanish-language YouTube creators — from Ibai Llanos to Alana Flores.",
+    description: "Rankings and profiles of the biggest Spanish-language YouTube creators, from Ibai Llanos to Alana Flores.",
     type: "article",
     url: "https://www.objectwire.org/youtube/spanish",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Spanish YouTubers 2026 — Ibai, AuronPlay, ElRubius & More",
+    title: "Top Spanish YouTubers 2026 | Ibai, AuronPlay, ElRubius & More",
     description: "Full rankings and profiles of Spain's biggest YouTube creators.",
   },
 };

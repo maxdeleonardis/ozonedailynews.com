@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Rocket League — News, Esports, Ranks & Updates | ObjectWire',
+  title: 'Rocket League | News, Esports, Ranks & Updates | ObjectWire',
   description:
-    "Complete Rocket League coverage — Season 17 updates, RLCS esports, ranked meta, car hitboxes, Psyonix news, and the future of rocket-powered soccer on PC, PS5, Xbox, and Switch.",
+    "Complete Rocket League coverage, Season 17 updates, RLCS esports, ranked meta, car hitboxes, Psyonix news, and the future of rocket-powered soccer on PC, PS5, Xbox, and Switch.",
   keywords: [
     'Rocket League',
     'Rocket League Season 17',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     'Grand Champion',
   ],
   openGraph: {
-    title: 'Rocket League — News, Esports & Updates | ObjectWire',
+    title: 'Rocket League | News, Esports & Updates | ObjectWire',
     description:
-      'Rocket-powered soccer — Season updates, RLCS esports, ranked guides, and the full Psyonix roadmap.',
+      'Rocket-powered soccer, Season updates, RLCS esports, ranked guides, and the full Psyonix roadmap.',
     type: 'website',
   },
   alternates: {

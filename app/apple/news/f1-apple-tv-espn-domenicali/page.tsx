@@ -10,7 +10,7 @@ const SLUG = '/apple/news/f1-apple-tv-espn-domenicali';
 export const metadata: Metadata = {
   title: "F1 CEO Stefano Domenicali: Apple TV Will Surpass ESPN's U.S. Reach | ObjectWire",
   description:
-    "Formula 1 CEO Stefano Domenicali says Apple TV's exclusive U.S. rights — a reported $85M/year deal replacing ESPN's 8-year tenure — will deliver greater reach than ESPN's cable-heavy model, citing Apple's 100M+ global subscribers and 2.2 billion active devices.",
+    "Formula 1 CEO Stefano Domenicali says Apple TV's exclusive U.S. rights, a reported $85M/year deal replacing ESPN's 8-year tenure, will deliver greater reach than ESPN's cable-heavy model, citing Apple's 100M+ global subscribers and 2.2 billion active devices.",
   keywords: [
     'Apple TV Formula 1',
     'F1 Apple TV deal',

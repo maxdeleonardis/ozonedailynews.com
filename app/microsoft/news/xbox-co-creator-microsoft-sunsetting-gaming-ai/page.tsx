@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Xbox Co-Creator Says Microsoft Is 'Sunsetting' Gaming for AI | ObjectWire",
   description:
-    'Seamus Blackley, one of the original creators of Xbox, says Microsoft is quietly winding down its gaming brand as the company goes all-in on generative AI — and that the newly installed head of gaming is there to manage the decline.',
+    'Seamus Blackley, one of the original creators of Xbox, says Microsoft is quietly winding down its gaming brand as the company goes all-in on generative AI, and that the newly installed head of gaming is there to manage the decline.',
   keywords: [
     'Seamus Blackley Xbox Microsoft sunsetting gaming',
     'Microsoft gaming decline AI',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Xbox Co-Creator Says Microsoft Is 'Sunsetting' Gaming for AI",
     description:
-      "Seamus Blackley, who co-created the original Xbox, believes Microsoft is quietly winding down its gaming identity as it pivots entirely to generative AI — and that its new gaming chief was put in place to manage the decline.",
+      "Seamus Blackley, who co-created the original Xbox, believes Microsoft is quietly winding down its gaming identity as it pivots entirely to generative AI, and that its new gaming chief was put in place to manage the decline.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Xbox Co-Creator: Microsoft Is 'Sunsetting' Gaming to Go All-In on AI",
     description:
-      "Seamus Blackley — one of the original Xbox creators — says Microsoft's new gaming chief was installed to manage the brand's decline as the company pivots to generative AI.",
+      "Seamus Blackley, one of the original Xbox creators, says Microsoft's new gaming chief was installed to manage the brand's decline as the company pivots to generative AI.",
   },
 };
 

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Meta Can't Sell Its Display Glasses in the EU — and the Battery Rule Is Only Part of It",
+    title: "Meta Can't Sell Its Display Glasses in the EU | and the Battery Rule Is Only Part of It",
     description:
       "A sealed battery design, geofenced AI features, and historic demand are creating a perfect storm keeping Ray-Ban display glasses out of Europe.",
     images: [IMAGE_URL],

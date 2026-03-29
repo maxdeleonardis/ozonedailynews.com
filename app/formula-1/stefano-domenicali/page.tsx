@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Stefano Domenicali — CEO of Formula 1: Career, Tenure & Legacy | ObjectWire',
+  title: 'Stefano Domenicali | CEO of Formula 1: Career, Tenure & Legacy | ObjectWire',
   description:
-    'Stefano Domenicali is the President and CEO of Formula One Group since January 2021. Formerly Ferrari Team Principal (2008–2014) and Lamborghini CEO, he has overseen F1\'s transformation into a global entertainment brand — expanding to Miami, Las Vegas, and driving record revenues.',
+    'Stefano Domenicali is the President and CEO of Formula One Group since January 2021. Formerly Ferrari Team Principal (2008–2014) and Lamborghini CEO, he has overseen F1\'s transformation into a global entertainment brand, expanding to Miami, Las Vegas, and driving record revenues.',
   alternates: {
     canonical: 'https://www.objectwire.org/formula-1/stefano-domenicali',
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     'F1 Netflix Drive to Survive CEO',
   ],
   openGraph: {
-    title: 'Stefano Domenicali — CEO of Formula 1 | ObjectWire',
+    title: 'Stefano Domenicali | CEO of Formula 1 | ObjectWire',
     description:
       'From Ferrari Team Principal to Lamborghini CEO to the helm of the world\'s most watched motorsport. The complete biography of Stefano Domenicali.',
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stefano Domenicali — CEO of Formula 1 | ObjectWire',
+    title: 'Stefano Domenicali | CEO of Formula 1 | ObjectWire',
     description:
       'From Ferrari Team Principal to Lamborghini CEO to President of the world\'s premier motorsport series. Full biography and career profile.',
   },

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'Aerin Frankel',
   ],
   openGraph: {
-    title: "Team USA Wins Women's Hockey Gold — Keller's OT Goal Stuns Canada",
+    title: "Team USA Wins Women's Hockey Gold | Keller's OT Goal Stuns Canada",
     description:
       "Megan Keller scored in overtime, Hilary Knight tied it with 2 minutes left, and Team USA captured the women's ice hockey gold medal at Milano Cortina 2026.",
     type: 'article',

@@ -41,7 +41,7 @@ export async function WikiArticle({ slug }: WikiArticleProps) {
     article.subtitle ||
     article.title
       ?.replace(/\s*\|.*$/, '')
-      .split('—')[0]
+      .split(', ')[0]
       .split('\u2014')[0]
       .trim() ||
     'Article';

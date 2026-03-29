@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     'Pokémon Pokopia Achieves Highest Review Scores in Pokémon Franchise History on Nintendo Switch 2 | ObjectWire',
   description:
-    'Pokémon Pokopia scored 93 on OpenCritic and 90 on Metacritic from early reviews — the highest marks ever recorded for a Pokémon title. The life simulation game launches exclusively on Nintendo Switch 2 on March 5, 2026.',
+    'Pokémon Pokopia scored 93 on OpenCritic and 90 on Metacritic from early reviews, the highest marks ever recorded for a Pokémon title. The life simulation game launches exclusively on Nintendo Switch 2 on March 5, 2026.',
   keywords: [
     'Pokémon Pokopia review scores 2026',
     'Pokémon Pokopia Nintendo Switch 2',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'Pokémon Pokopia — Franchise-High 93 on OpenCritic, 90 on Metacritic. Launches March 5, 2026 on Switch 2.',
+      'Pokémon Pokopia, Franchise-High 93 on OpenCritic, 90 on Metacritic. Launches March 5, 2026 on Switch 2.',
     description:
-      'Game Freak and Omega Force\'s sandbox Pokémon game scores higher than any title in franchise history. No battles — just rebuilding a post-apocalyptic Kanto as a shape-shifting Ditto.',
+      'Game Freak and Omega Force\'s sandbox Pokémon game scores higher than any title in franchise history. No battles, just rebuilding a post-apocalyptic Kanto as a shape-shifting Ditto.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

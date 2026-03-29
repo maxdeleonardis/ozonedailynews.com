@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Jack Wang | Contributor & Journalist — ObjectWire",
+  title: "Jack Wang | Contributor & Journalist | ObjectWire",
   description: `Jack Wang is a co-founder and contributor at ObjectWire. published articles covering technology, gaming, finance, and digital culture.`,
   alternates: {
     canonical: 'https://www.objectwire.org/authors/jack-wang',

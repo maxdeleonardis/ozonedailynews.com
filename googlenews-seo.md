@@ -1,4 +1,4 @@
-# Google News SEO — ObjectWire
+# Google News SEO | ObjectWire
 
 > **How `content-registry.ts`, the Supabase articles table, and structured data work together to compete with IGN, CNN, and established media for Google News placement.**
 
@@ -24,7 +24,7 @@ Related: [supabase-library.md](supabase-library.md)
 
 **File:** [`lib/content-registry.ts`](lib/content-registry.ts)
 
-The content registry is ObjectWire's **sitemap brain** — a single TypeScript array where every static page on the site is declared with title, description, publish date, author, image, and topic tags.
+The content registry is ObjectWire's **sitemap brain**, a single TypeScript array where every static page on the site is declared with title, description, publish date, author, image, and topic tags.
 
 It is **not** a CMS. It is metadata. The actual page content lives in `app/**/page.tsx` files. The registry tells Google everything about those pages that HTML alone cannot.
 
@@ -33,9 +33,9 @@ It is **not** a CMS. It is metadata. The actual page content lives in `app/**/pa
 ```ts
 {
   slug: "/technology/cursor",
-  title: "Cursor Hits $2 Billion ARR — Anysphere Doubles Revenue in Three Months | ObjectWire",
+  title: "Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in Three Months | ObjectWire",
   description: "Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026...",
-  publishDate: "2026-03-02",       // ISO date — drives news sitemap freshness
+  publishDate: "2026-03-02",       // ISO date, drives news sitemap freshness
   modifiedDate: "2026-03-02",      // Updated when article content changes
   category: "Technology",
   tags: ["Technology", "Cursor", "Anysphere", "SaaS", "ARR"],
@@ -45,7 +45,7 @@ It is **not** a CMS. It is metadata. The actual page content lives in `app/**/pa
   changeFrequency: "weekly",
   featured: true,                  // Appears in homepage hero slot
   imageUrl: "https://www.objectwire.org/news/cursor.PNG",   // Required for Top Stories
-  imageAlt: "Cursor AI code editor — Anysphere $2 billion ARR milestone",
+  imageAlt: "Cursor AI code editor, Anysphere $2 billion ARR milestone",
 }
 ```
 
@@ -55,7 +55,7 @@ Every field has a job. None are cosmetic.
 
 ## 2. How the Registry Drives Google News SEO
 
-### Connection 1 — News Sitemap XML
+### Connection 1 | News Sitemap XML
 
 `app/news-sitemap.xml` reads the registry and generates the XML that Google News crawler consumes. Only articles that meet **all** of these conditions are eligible for the **Top Stories carousel** (the box above organic results on news.google.com and in web search):
 
@@ -70,19 +70,19 @@ Every field has a job. None are cosmetic.
 
 If any of these are missing, the article is invisible to Google News regardless of how good the content is.
 
-### Connection 2 — JSON-LD NewsArticle Schema
+### Connection 2 | JSON-LD NewsArticle Schema
 
 Every article page includes a `NewsArticleSchema` component that emits structured data Google uses to verify:
 
-- **Authorship** — who wrote it and when
-- **Freshness** — `publishedTime` and `modifiedTime` in ISO 8601
-- **Topic relevance** — `keywords[]` array
-- **Image** — `imageUrl` with dimensions
-- **Publisher** — site name, logo, URL
+- **Authorship**, who wrote it and when
+- **Freshness**, `publishedTime` and `modifiedTime` in ISO 8601
+- **Topic relevance**, `keywords[]` array
+- **Image**, `imageUrl` with dimensions
+- **Publisher**, site name, logo, URL
 
 This is separate from the registry but fed by the same data. The registry entry ensures the sitemap is correct; the schema component ensures the on-page signal is correct. Both are required.
 
-### Connection 3 — Crawl Priority and Budget
+### Connection 3 | Crawl Priority and Budget
 
 `priority: 0.9` + `featured: true` in a registry entry signals to Google's crawler: *spend crawl budget here first, re-check this often*. A new article at `priority: 0.9` with a fresh `publishDate` will be re-crawled within hours of deploy on an established domain.
 
@@ -107,13 +107,13 @@ This is separate from the registry but fed by the same data. The registry entry 
 
 The registry requires a **code deploy** to add an article. That means:
 - Writing the article → editing a TypeScript file → committing → pushing → waiting for build
-- One syntax error in the file fails the **entire build** — every page goes down
+- One syntax error in the file fails the **entire build**, every page goes down
 
 This is acceptable at current scale. It becomes a liability at velocity publishing (5+ articles/day).
 
 ### The solution is already built
 
-The Supabase `articles` table (see [supabase-library.md](supabase-library.md)) handles unlimited articles with zero registry entries and zero deploys. The registry should stay focused on **structural hub pages** — the ones that anchor topic authority. Breaking news and high-frequency editorial content belongs in Supabase.
+The Supabase `articles` table (see [supabase-library.md](supabase-library.md)) handles unlimited articles with zero registry entries and zero deploys. The registry should stay focused on **structural hub pages**, the ones that anchor topic authority. Breaking news and high-frequency editorial content belongs in Supabase.
 
 ---
 
@@ -142,12 +142,12 @@ Google News: Via news-sitemap.xml        Google News: Via DB-driven sitemap feed
 
 | Signal | Use static registry | Use Supabase |
 |---|---|---|
-| Will this page be linked to permanently? | ✅ | — |
-| Is this time-sensitive (< 48 hours)? | — | ✅ |
-| Will you update it within a week? | — | ✅ |
-| Is it a hub / profile / evergreen reference? | ✅ | — |
-| Publishing more than once a day? | — | ✅ |
-| Needs custom layout components? | ✅ | — |
+| Will this page be linked to permanently? | ✅ |, |
+| Is this time-sensitive (< 48 hours)? |, | ✅ |
+| Will you update it within a week? |, | ✅ |
+| Is it a hub / profile / evergreen reference? | ✅ |, |
+| Publishing more than once a day? |, | ✅ |
+| Needs custom layout components? | ✅ |, |
 
 ---
 
@@ -158,10 +158,10 @@ Google News: Via news-sitemap.xml        Google News: Via DB-driven sitemap feed
 | Legacy media constraint | ObjectWire structural advantage |
 |---|---|
 | Editorial approval chains (hours to days per story) | `/admin/editor` publishes in minutes with no deploy |
-| Legacy CMS emitting messy HTML | Native `NewsArticleSchema` JSON-LD — Google reads it cleaner |
+| Legacy CMS emitting messy HTML | Native `NewsArticleSchema` JSON-LD, Google reads it cleaner |
 | Generalist coverage across every vertical | Deep vertical drilling on niche topics faster than any generalist desk |
 | Rigid URL structures from 1990s CMS design | Clean semantic URLs (`/technology/cursor`, `/video-games/racing/gran-turismo`) |
-| Static ad revenue dependencies | Full-stack ownership — no platform intermediation tax |
+| Static ad revenue dependencies | Full-stack ownership, no platform intermediation tax |
 | Slow schema adoption (many still not on NewsArticle JSON-LD) | Structured data baked into every component by default |
 
 ### The compounding authority model
@@ -179,7 +179,7 @@ Publish deep article on topic X
   → Repeat
 ```
 
-IGN took 30 years to build topic authority on gaming. The gap closes from the bottom up by **owning niches they under-cover** — racing games, AI developer tools, SaaS revenue milestones, Nintendo Switch 2 exclusives — and publishing faster and more accurately than their generalist desks can staff.
+IGN took 30 years to build topic authority on gaming. The gap closes from the bottom up by **owning niches they under-cover**, racing games, AI developer tools, SaaS revenue milestones, Nintendo Switch 2 exclusives, and publishing faster and more accurately than their generalist desks can staff.
 
 ### The velocity advantage in practice
 
@@ -189,7 +189,7 @@ In a single afternoon (March 2, 2026), ObjectWire published:
 - Pokémon Pokopia franchise-record review (`/video-games/switch2/pokemon-pokopia`)
 - Polyphony Digital hiring + Gran Turismo review (`/video-games/racing/polyphony-gran-turismo`)
 
-A CNN gaming desk or IGN news team requires separate writers and editors for each of those verticals. ObjectWire's architecture — registry + Supabase + reusable article components — compresses that to a single publishing session.
+A CNN gaming desk or IGN news team requires separate writers and editors for each of those verticals. ObjectWire's architecture, registry + Supabase + reusable article components, compresses that to a single publishing session.
 
 **Sustained over months, this velocity builds topical authority that Google treats as primary source status, not secondary citation.**
 
@@ -205,8 +205,8 @@ Run through this for every article before publishing:
 - [ ] `imageUrl` present and resolving (test in browser)
 - [ ] `imageWidth` ≥ 1200 and `imageHeight` ≥ 675 in registry entry (16:9 ratio for Top Stories)
 - [ ] `NewsArticleSchema` component included on the page with `publishedTime` in ISO 8601
-- [ ] `author` field filled (not "ObjectWire Editorial" for Google News — use a real byline when possible)
-- [ ] `<title>` tag is unique — no two pages with identical titles
+- [ ] `author` field filled (not "ObjectWire Editorial" for Google News, use a real byline when possible)
+- [ ] `<title>` tag is unique, no two pages with identical titles
 - [ ] `canonical` URL in metadata matches the actual page URL
 
 ### Strongly recommended (affects ranking, not eligibility)
@@ -232,7 +232,7 @@ Every ObjectWire article page should include both of these:
   description="Article excerpt under 160 chars."
   author="Jack Wang"
   authorUrl="https://www.objectwire.org/authors/jack-wang"
-  publishedTime="2026-03-02T12:00:00Z"   // ISO 8601 — required
+  publishedTime="2026-03-02T12:00:00Z"   // ISO 8601, required
   modifiedTime="2026-03-02T12:00:00Z"
   imageUrl="https://www.objectwire.org/news/cursor.PNG"
   articleUrl="https://www.objectwire.org/technology/cursor"
@@ -271,7 +271,7 @@ Tags power the related-article matching system. Use:
 - 2–3 brand/entity tags (`"Cursor"`, `"Anysphere"`)
 - 1–2 topic tags (`"ARR"`, `"SaaS"`, `"AI Developer Tools"`)
 
-Avoid duplicating the category as a tag — it wastes a slot.
+Avoid duplicating the category as a tag, it wastes a slot.
 
 ### Image requirements for Top Stories carousel
 
@@ -315,7 +315,7 @@ Start routing to Supabase when any of these are true:
 - Opinion / editorial pieces
 - Any article where you need to edit it after publish without a deploy
 
-See [supabase-library.md § 9 — Static Pages vs Dynamic Articles](supabase-library.md#9-static-pages-vs-dynamic-articles) for the full breakdown.
+See [supabase-library.md § 9, Static Pages vs Dynamic Articles](supabase-library.md#9-static-pages-vs-dynamic-articles) for the full breakdown.
 
 ---
 

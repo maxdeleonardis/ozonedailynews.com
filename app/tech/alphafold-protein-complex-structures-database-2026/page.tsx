@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title:
       "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion",
     description:
-      "A four-way collaboration between EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University has added 1.7 million homodimer predictions to the AlphaFold database — the first time protein complexes have been included.",
+      "A four-way collaboration between EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University has added 1.7 million homodimer predictions to the AlphaFold database, the first time protein complexes have been included.",
     type: "article",
     url: FULL_URL,
     siteName: "ObjectWire",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title:
       "AlphaFold Database Adds 1.7 Million Protein Complex Structures | ObjectWire",
     description:
-      "EMBL-EBI, Google DeepMind, NVIDIA & Seoul National University expand AlphaFold with 1.7M homodimer complex predictions — a first for the landmark structural biology resource.",
+      "EMBL-EBI, Google DeepMind, NVIDIA & Seoul National University expand AlphaFold with 1.7M homodimer complex predictions, a first for the landmark structural biology resource.",
   },
   other: {
     news_keywords:

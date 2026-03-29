@@ -9,9 +9,9 @@ import { scanAllContent, filterByCategory } from '@/lib/content-scanner';
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Video Games — News, Reviews & Guides | ObjectWire',
+  title: 'Video Games | News, Reviews & Guides | ObjectWire',
   description:
-    "ObjectWire's complete video games coverage hub — GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, anime battle royales, and the latest gaming news.",
+    "ObjectWire's complete video games coverage hub, GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, anime battle royales, and the latest gaming news.",
   keywords: [
     'video games',
     'GTA 6',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'Xbox Series X',
   ],
   openGraph: {
-    title: 'Video Games — News, Reviews & Guides | ObjectWire',
+    title: 'Video Games | News, Reviews & Guides | ObjectWire',
     description:
       "ObjectWire's complete video games hub covering GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, and the latest gaming news.",
     type: 'website',
@@ -46,7 +46,7 @@ const FEATURED_GAMES = [
     href: '/video-games/gta-6',
     title: 'Grand Theft Auto VI',
     description:
-      'November 19, 2026 — PS5 & Xbox Series X/S. Vice City returns with Lucia as the first female GTA protagonist. Speculated $90–$124 price tag makes it the most expensive game launch ever.',
+      'November 19, 2026, PS5 & Xbox Series X/S. Vice City returns with Lucia as the first female GTA protagonist. Speculated $90–$124 price tag makes it the most expensive game launch ever.',
     badge: 'Nov 19, 2026',
     badgeStyle: 'historic' as const,
     emoji: '🌴',
@@ -56,7 +56,7 @@ const FEATURED_GAMES = [
     href: '/video-games/marvels-wolverine',
     title: "Marvel's Wolverine",
     description:
-      "Insomniac Games brings Logan to PS5 in an M-rated action adventure — the same studio behind Spider-Man 2. Expected 2026.",
+      "Insomniac Games brings Logan to PS5 in an M-rated action adventure, the same studio behind Spider-Man 2. Expected 2026.",
     badge: 'UPCOMING',
     emoji: '🐺',
     meta: '2026 · Insomniac Games · PS5',
@@ -65,7 +65,7 @@ const FEATURED_GAMES = [
     href: '/video-games/resident-evil-requiem',
     title: 'Resident Evil: Requiem',
     description:
-      "Capcom's next mainline Resident Evil entry. A fresh survival horror chapter built for PS5 — continuing one of gaming's most beloved franchises.",
+      "Capcom's next mainline Resident Evil entry. A fresh survival horror chapter built for PS5, continuing one of gaming's most beloved franchises.",
     badge: 'UPCOMING',
     emoji: '🧟',
     meta: '2026 · Capcom · PS5',
@@ -74,7 +74,7 @@ const FEATURED_GAMES = [
     href: '/video-games/007-first-light',
     title: '007: First Light',
     description:
-      "IO Interactive's James Bond origin story — next-gen spy thriller from the creators of the Hitman World of Assassination trilogy.",
+      "IO Interactive's James Bond origin story, next-gen spy thriller from the creators of the Hitman World of Assassination trilogy.",
     badge: 'UPCOMING',
     emoji: '🔫',
     meta: 'TBA · IO Interactive · Multi-Platform',
@@ -116,7 +116,7 @@ export default async function VideoGamesHubPage() {
         badge="VIDEO GAMES"
         badgeColor="from-violet-600 to-purple-500"
         title="🎮 Video Games"
-        subtitle="The biggest games, the sharpest reviews, and the latest news — from GTA 6 and Marvel's Wolverine to Nintendo and anime battle royales."
+        subtitle="The biggest games, the sharpest reviews, and the latest news, from GTA 6 and Marvel's Wolverine to Nintendo and anime battle royales."
         meta={
           <>
             <span>🕹️ Multi-Platform Coverage</span>
@@ -168,7 +168,7 @@ export default async function VideoGamesHubPage() {
             <Hub.Card
               href="/video-games/top-10-anime-games-2026"
               title="Top 10 Anime Games of 2026"
-              description="Rankings of the best seasonal anime games — My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more. Complete player counts and tier analysis."
+              description="Rankings of the best seasonal anime games, My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more. Complete player counts and tier analysis."
               badge="RANKED"
               emoji="🏆"
               meta="2026 · ObjectWire Gaming Desk"
@@ -176,13 +176,13 @@ export default async function VideoGamesHubPage() {
             <Hub.Card
               href="/video-games/mha"
               title="My Hero Academia Games Hub"
-              description="Complete coverage of the My Hero Academia gaming universe — Ultra Rumble seasons, All's Justice, character guides, and competitive scene."
+              description="Complete coverage of the My Hero Academia gaming universe, Ultra Rumble seasons, All's Justice, character guides, and competitive scene."
               emoji="🦸"
               meta="Updated Seasonally · Free-to-Play"
             />
             <Hub.Card
               href="/video-games/mha/alls-justice"
-              title="MHA: All's Justice — Final War Arc 3v3 Fighter"
+              title="MHA: All's Justice, Final War Arc 3v3 Fighter"
               description="Released February 6, 2026. PlayStation 5, Xbox Series X/S, and PC. The Final War Arc comes to life in spectacular 3v3 battles."
               badge="RELEASED"
               emoji="💥"
@@ -190,7 +190,7 @@ export default async function VideoGamesHubPage() {
             />
             <Hub.Card
               href="/video-games/mha/ultra-rumble"
-              title="My Hero Ultra Rumble — Complete Wiki & Guide"
+              title="My Hero Ultra Rumble, Complete Wiki & Guide"
               description="Comprehensive guide to the free-to-play 24-player battle royale. Characters, seasons, meta rankings, and the competitive scene."
               emoji="🌀"
               meta="Free-to-Play · PS4/PS5 · Xbox · PC · Switch"
@@ -229,7 +229,7 @@ export default async function VideoGamesHubPage() {
           <div className="space-y-4">
             <Hub.Card
               href="/video-games/nintendo"
-              title="Nintendo Co., Ltd. — Company Profile"
+              title="Nintendo Co., Ltd., Company Profile"
               description="Founded 1889, Nintendo is the creator of Mario, Zelda, Pokémon, and the Switch. Full company history, franchises, financials, and the road to Switch 2."
               emoji="🍄"
               meta="Complete Profile · Updated 2026"
@@ -237,7 +237,7 @@ export default async function VideoGamesHubPage() {
             <Hub.Card
               href="/video-games/nintendo/google-project-genie-ai-knockoffs"
               title="Google's Project Genie AI Generates Nintendo Knockoffs"
-              description="Google's AI tool creates playable Nintendo-style games — raising copyright and legal concerns for the Japanese gaming giant."
+              description="Google's AI tool creates playable Nintendo-style games, raising copyright and legal concerns for the Japanese gaming giant."
               badge="AI"
               emoji="🤖"
               meta="2026 · Technology & Gaming"

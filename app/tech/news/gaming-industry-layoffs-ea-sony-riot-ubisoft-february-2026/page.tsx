@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'EA, Sony, Riot, and Ubisoft All Cut Staff in February 2026 — 2,374 Roles Affected Industry-Wide',
+      'EA, Sony, Riot, and Ubisoft All Cut Staff in February 2026, 2,374 Roles Affected Industry-Wide',
     description:
       'Bluepoint Games closed. Full Circle restructured after Skate launch. Riot shed ~160 roles across publishing and 2XKO. Ubisoft Toronto lost 40 with 200 more targeted in a voluntary departure plan. Industry trackers recorded 41 layoff events and 2,374 affected roles through mid-February 2026.',
     type: 'article',

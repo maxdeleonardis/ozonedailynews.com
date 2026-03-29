@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Pokémon Pokopia: 2.2M Sold in 4 Days — Nintendo Stock Up 15%',
+    title: 'Pokémon Pokopia: 2.2M Sold in 4 Days | Nintendo Stock Up 15%',
     description:
       'The Pokémon Company confirms 2.2 million units sold in four days. Japan accounted for nearly 1 million copies. Physical stock sold out at Amazon, Currys, and Smyths. Analysts say it\'s on track to dethrone Pokémon Stadium as the best-selling spin-off in franchise history.',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pokémon Pokopia Sells 2.2M in 4 Days — On Track to Beat Pokémon Stadium All-Time',
+    title: 'Pokémon Pokopia Sells 2.2M in 4 Days | On Track to Beat Pokémon Stadium All-Time',
     description:
       '45% of sales from Japan alone. Physical copies sold out worldwide. Nintendo stock +15%. Jefferies: on track for best-selling Pokémon spin-off ever.',
   },

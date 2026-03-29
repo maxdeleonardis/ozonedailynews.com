@@ -552,7 +552,7 @@ export function CreatorTable({ columns, rows, highlightKey, highlightValue }: Cr
                     key={col.key}
                     className={`px-4 py-2.5 ${isHighlighted ? 'font-bold text-gray-900' : 'text-gray-700'}`}
                   >
-                    {col.render ? col.render(row[col.key] ?? '') : (row[col.key] ?? '—')}
+                    {col.render ? col.render(row[col.key] ?? '') : (row[col.key] ?? ', ')}
                   </td>
                 ))}
               </tr>
@@ -631,7 +631,7 @@ export function CreatorQuote({ quote, attribution, role }: CreatorQuoteProps) {
       </p>
       {attribution && (
         <footer className="mt-3 text-sm text-gray-500">
-          — <span className="font-semibold text-gray-700">{attribution}</span>
+         , <span className="font-semibold text-gray-700">{attribution}</span>
           {role && <span className="text-gray-400">, {role}</span>}
         </footer>
       )}

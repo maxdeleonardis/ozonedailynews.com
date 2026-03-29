@@ -5,6 +5,11 @@ import "./globals.css";
 import { OrganizationSchema, WebSiteSchema } from "@/components/NewsArticleSchema";
 import AuthProvider from "@/components/AuthProvider";
 import MobileNav from "@/components/MobileNav";
+import TopStripSearch from "@/components/TopStripSearch";
+import NavUserButton from "@/components/NavUserButton";
+import NavBreakingTicker from "@/components/NavBreakingTicker";
+import TopStrip from "@/components/TopStrip";
+import { getBreakingHeadlines } from "@/lib/blog-service";
 import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -114,11 +119,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const breakingHeadlines = await getBreakingHeadlines();
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
@@ -134,24 +140,11 @@ export default function RootLayout({
 
               {/* Top info strip */}
               <div className="border-b border-gray-300 bg-gray-50">
-                <div className="container mx-auto px-4 py-1 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-gray-500">
+                <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
+                  <span className="text-xs font-mono text-gray-500">
                     {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                   </span>
-                  <div className="hidden md:flex items-center gap-5">
-                    {[
-                      { label: 'News',         href: '/news' },
-                      { label: 'Video Games',  href: '/video-games' },
-                      { label: 'Entertainment',href: '/entertainment' },
-                      { label: 'Formula 1',    href: '/formula-1' },
-                      { label: 'Crypto',       href: '/crypto' },
-                    ].map((b) => (
-                      <Link key={b.href} href={b.href} className="text-[10px] font-black tracking-[.15em] uppercase text-gray-500 hover:text-black transition-colors">
-                        {b.label}
-                      </Link>
-                    ))}
-                  </div>
-                  <span className="text-[10px] font-mono text-gray-500 hidden sm:block">Est. 2024 · Independent</span>
+                  <TopStripSearch />
                 </div>
               </div>
 
@@ -174,30 +167,28 @@ export default function RootLayout({
               {/* Section nav bar */}
               <div className="border-t-2 border-black">
                 <div className="container mx-auto px-4">
-                  <nav className="flex items-center overflow-x-auto divide-x divide-black">
-                    {[
-                      { label: 'News',           href: '/news' },
-                      { label: 'Video Games',    href: '/video-games' },
-                      { label: 'Entertainment',  href: '/entertainment' },
-                      { label: 'World Cup',      href: '/world-cup' },
-                      { label: 'Formula 1',      href: '/formula-1' },
-                      { label: 'Investigations', href: '/investigations' },
-                      { label: 'Crypto',         href: '/crypto' },
-                    ].map((b) => (
-                      <Link
-                        key={b.href}
-                        href={b.href}
-                        className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0"
-                      >
-                        {b.label}
-                      </Link>
-                    ))}
-                    <Link href="/site-index" className="ml-auto px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
-                      Index
+                  <nav className="flex items-center divide-x divide-black">
+                    {/* Left: News */}
+                    <Link
+                      href="/news"
+                      className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0"
+                    >
+                      News
                     </Link>
-                    {/* Mobile hamburger */}
-                    <div className="md:hidden ml-auto shrink-0">
-                      <MobileNav />
+
+                    {/* Centre: Breaking ticker */}
+                    <NavBreakingTicker headlines={breakingHeadlines} />
+
+                    {/* Right: Index + user */}
+                    <div className="flex items-center divide-x divide-black ml-auto">
+                      <Link href="/site-index" className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
+                        Index
+                      </Link>
+                      <NavUserButton />
+                      {/* Mobile hamburger */}
+                      <div className="md:hidden shrink-0">
+                        <MobileNav />
+                      </div>
                     </div>
                   </nav>
                 </div>

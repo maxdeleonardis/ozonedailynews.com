@@ -54,10 +54,10 @@ async function getUserActivity(userHash: string) {
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
   const { username } = await params;
   const profile = await getProfile(username);
-  if (!profile) return { title: 'Profile Not Found — OBJECTWIRE' };
+  if (!profile) return { title: 'Profile Not Found | OBJECTWIRE' };
 
   return {
-    title: `${profile.display_name} (@${profile.username}) — OBJECTWIRE`,
+    title: `${profile.display_name} (@${profile.username}) | OBJECTWIRE`,
     description: profile.bio || `${profile.display_name}'s profile on OBJECTWIRE`,
   };
 }

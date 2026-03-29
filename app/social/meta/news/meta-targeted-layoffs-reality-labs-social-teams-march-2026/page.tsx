@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'Meta Begins "Targeted" Cuts Across Reality Labs and Social Teams | ObjectWire',
   description:
-    'Meta Platforms launched a new wave of job cuts on March 25, 2026, targeting hundreds of employees across Reality Labs, social media teams, and recruiting — a strategic pivot toward its $135 billion AI infrastructure build-out.',
+    'Meta Platforms launched a new wave of job cuts on March 25, 2026, targeting hundreds of employees across Reality Labs, social media teams, and recruiting, a strategic pivot toward its $135 billion AI infrastructure build-out.',
   keywords: [
     'Meta layoffs 2026',
     'Meta Reality Labs cuts',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta Begins "Targeted" Cuts Across Reality Labs and Social Teams',
     description:
-      'Meta has begun a targeted round of layoffs hitting Reality Labs, social media teams, and recruiting — a strategic shift away from the metaverse and toward a $135 billion AI infrastructure investment.',
+      'Meta has begun a targeted round of layoffs hitting Reality Labs, social media teams, and recruiting, a strategic shift away from the metaverse and toward a $135 billion AI infrastructure investment.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Meta Cuts Hundreds Across Reality Labs and Social Teams',
     description:
-      'Meta\'s new layoff wave hits Reality Labs, social media, and recruiting — as the company pivots its capital from the metaverse to a $135B AI build-out.',
+      'Meta\'s new layoff wave hits Reality Labs, social media, and recruiting, as the company pivots its capital from the metaverse to a $135B AI build-out.',
     images: [IMAGE_URL],
   },
 };

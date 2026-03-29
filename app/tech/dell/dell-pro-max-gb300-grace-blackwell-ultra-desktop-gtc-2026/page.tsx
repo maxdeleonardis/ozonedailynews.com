@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Dell Ships First Desktop with Nvidia's GB300 Grace Blackwell Ultra — 20 PetaFLOPS for AI Agents",
+    title: "Dell Ships First Desktop with Nvidia's GB300 Grace Blackwell Ultra | 20 PetaFLOPS for AI Agents",
     description:
-      "Announced at GTC 2026, the Dell Pro Max with GB300 is the first OEM desktop powered by Nvidia's Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4, 784GB unified memory — data center AI in a desktop box built for autonomous agent development.",
+      "Announced at GTC 2026, the Dell Pro Max with GB300 is the first OEM desktop powered by Nvidia's Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4, 784GB unified memory, data center AI in a desktop box built for autonomous agent development.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dell Becomes First OEM to Ship a Desktop with Nvidia's GB300 — 20 PetaFLOPS, 784GB RAM | ObjectWire",
+    title: "Dell Becomes First OEM to Ship a Desktop with Nvidia's GB300 | 20 PetaFLOPS, 784GB RAM | ObjectWire",
     description:
-      "At GTC 2026, Dell unveiled the Pro Max with GB300 Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4 AI performance and 784GB unified memory in a desktop — the same processor class used by OpenAI, Google, and Microsoft.",
+      "At GTC 2026, Dell unveiled the Pro Max with GB300 Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4 AI performance and 784GB unified memory in a desktop, the same processor class used by OpenAI, Google, and Microsoft.",
   },
   other: {
     news_keywords:

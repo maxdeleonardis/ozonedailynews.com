@@ -11,7 +11,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: "PayPal Expands PYUSD Stablecoin to 70 Markets Worldwide | ObjectWire",
   description:
-    "PayPal announced on March 18, 2026, that its dollar-backed stablecoin PayPal USD (PYUSD) is now available in 70 markets across Asia-Pacific, Europe, Latin America, and North America — a major expansion from its previous U.S. and U.K. availability.",
+    "PayPal announced on March 18, 2026, that its dollar-backed stablecoin PayPal USD (PYUSD) is now available in 70 markets across Asia-Pacific, Europe, Latin America, and North America, a major expansion from its previous U.S. and U.K. availability.",
   keywords: [
     'PayPal PYUSD 70 markets global expansion 2026',
     'PayPal USD stablecoin international rollout March 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PayPal Expands PYUSD Stablecoin to 70 Markets Worldwide",
     description:
-      "PayPal USD now available in 70 markets across four continents after launching exclusively in the U.S. and U.K. New regions include Colombia, Singapore, Panama, Costa Rica, and dozens more — with remaining markets expected in weeks.",
+      "PayPal USD now available in 70 markets across four continents after launching exclusively in the U.S. and U.K. New regions include Colombia, Singapore, Panama, Costa Rica, and dozens more, with remaining markets expected in weeks.",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "PayPal's PYUSD Stablecoin Goes Global — 70 Markets Across 4 Continents | ObjectWire",
+    title: "PayPal's PYUSD Stablecoin Goes Global | 70 Markets Across 4 Continents | ObjectWire",
     description:
       "PayPal USD just expanded from 2 countries to 70 markets. Colombia, Singapore, Panama, Guatemala, Peru and dozens more now have access to the dollar-backed stablecoin.",
   },

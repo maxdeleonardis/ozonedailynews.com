@@ -12,7 +12,7 @@ const IMAGE_URL = 'https://www.objectwire.org/trump/ice-arrest-sfo-airport.jpg';
 export const metadata: Metadata = {
   title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins | ObjectWire',
   description:
-    'ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it unfolded — even as officials clarified the arrest was unrelated to Trump\'s directive to deploy ICE to airports nationwide.',
+    'ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it unfolded, even as officials clarified the arrest was unrelated to Trump\'s directive to deploy ICE to airports nationwide.',
   keywords: [
     'ICE arrest SFO airport 2026',
     'ICE San Francisco International Airport',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins',
     description:
-      'ICE arrested a woman in SFO\'s secure boarding area Sunday night. Bystanders filmed the detention. Officials say the arrest was unrelated to Trump\'s directive sending ICE agents to airports nationwide — but the timing has amplified public alarm.',
+      'ICE arrested a woman in SFO\'s secure boarding area Sunday night. Bystanders filmed the detention. Officials say the arrest was unrelated to Trump\'s directive sending ICE agents to airports nationwide, but the timing has amplified public alarm.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ICE Arrests Woman at SFO — Nationwide Airport Deployment Underway',
+    title: 'ICE Arrests Woman at SFO | Nationwide Airport Deployment Underway',
     description:
-      'ICE agents detained a woman inside SFO\'s secure boarding area. Videos spread across social media. Officials: unrelated to Trump\'s airport ICE directive — but the national deployment is real.',
+      'ICE agents detained a woman inside SFO\'s secure boarding area. Videos spread across social media. Officials: unrelated to Trump\'s airport ICE directive, but the national deployment is real.',
     images: [IMAGE_URL],
   },
 };

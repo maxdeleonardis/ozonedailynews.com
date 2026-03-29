@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'Google Research Drops "TurboQuant" to Smash LLM Memory Bottleneck | ObjectWire',
   description:
-    'Google Research has released TurboQuant, a training-free compression suite that cuts LLM KV cache memory by 6x and delivers up to 8x faster attention computation — eliminating the single greatest obstacle to long-context AI.',
+    'Google Research has released TurboQuant, a training-free compression suite that cuts LLM KV cache memory by 6x and delivers up to 8x faster attention computation, eliminating the single greatest obstacle to long-context AI.',
   keywords: [
     'TurboQuant Google Research',
     'LLM KV cache compression',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Google Research Drops "TurboQuant" to Smash LLM Memory Bottleneck',
     description:
-      'Google Research\'s TurboQuant compresses LLM KV caches by 6x and speeds up attention by 8x — using a data-oblivious, training-free approach that runs at 3 bits per value with virtually zero accuracy loss.',
+      'Google Research\'s TurboQuant compresses LLM KV caches by 6x and speeds up attention by 8x, using a data-oblivious, training-free approach that runs at 3 bits per value with virtually zero accuracy loss.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Google Research Drops "TurboQuant" — 6x Less VRAM, 8x Faster Attention',
+    title: 'Google Research Drops "TurboQuant" | 6x Less VRAM, 8x Faster Attention',
     description:
-      'A training-free LLM compression breakthrough from Google Research. 3 bits per value, zero accuracy loss, and 8x faster attention — TurboQuant is the memory upgrade long-context AI has been waiting for.',
+      'A training-free LLM compression breakthrough from Google Research. 3 bits per value, zero accuracy loss, and 8x faster attention, TurboQuant is the memory upgrade long-context AI has been waiting for.',
     images: [IMAGE_URL],
   },
 };

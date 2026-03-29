@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Fortnite — News, Seasons, Esports & Updates | ObjectWire',
+  title: 'Fortnite | News, Seasons, Esports & Updates | ObjectWire',
   description:
-    "Complete Fortnite coverage — Chapter 6 season updates, battle pass breakdowns, competitive FNCS, Fortnite Festival, Creative 2.0, Lego Fortnite, Epic Games news, and the cultural phenomenon reshaping gaming.",
+    "Complete Fortnite coverage, Chapter 6 season updates, battle pass breakdowns, competitive FNCS, Fortnite Festival, Creative 2.0, Lego Fortnite, Epic Games news, and the cultural phenomenon reshaping gaming.",
   keywords: [
     'Fortnite',
     'Fortnite Chapter 6',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'Unreal Engine',
   ],
   openGraph: {
-    title: 'Fortnite — News, Seasons & Esports | ObjectWire',
+    title: 'Fortnite | News, Seasons & Esports | ObjectWire',
     description:
       'Chapter 6 updates, FNCS esports, Creative 2.0, Lego Fortnite, and the complete Epic Games ecosystem.',
     type: 'website',

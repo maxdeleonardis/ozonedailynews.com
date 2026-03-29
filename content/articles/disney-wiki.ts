@@ -1,7 +1,7 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'The Walt Disney Company — Entertainment Conglomerate | ObjectWire',
+  title: 'The Walt Disney Company | Entertainment Conglomerate | ObjectWire',
   slug: 'disney',
   category: 'Entertainment',
   status: 'published',
@@ -137,11 +137,11 @@ const article: Article = {
     <div class="text-sm text-gray-500">
       <p class="font-semibold text-gray-700 mb-2">REFERENCES</p>
       <ul class="list-decimal list-inside space-y-1">
-        <li>The Walt Disney Company — Corporate website (thewaltdisneycompany.com)</li>
-        <li>Wikipedia — The Walt Disney Company</li>
-        <li>Variety — "Josh D'Amaro Named Disney CEO Successor" (2026)</li>
-        <li>Epic Games — Disney $1.5B Investment Announcement (February 2024)</li>
-        <li>CNBC — Disney Financial Reporting</li>
+        <li>The Walt Disney Company, Corporate website (thewaltdisneycompany.com)</li>
+        <li>Wikipedia, The Walt Disney Company</li>
+        <li>Variety, "Josh D'Amaro Named Disney CEO Successor" (2026)</li>
+        <li>Epic Games, Disney $1.5B Investment Announcement (February 2024)</li>
+        <li>CNBC, Disney Financial Reporting</li>
       </ul>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
 
 // =============================================================================
 // SEO GOVERNANCE MIDDLEWARE
@@ -49,7 +50,7 @@ const PARAMS_TO_STRIP = [
 
 // Redirect rules removed to prevent redirect loops
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
   
@@ -168,7 +169,27 @@ export function middleware(request: NextRequest) {
   // ==========================================================================
   // 6. SET SEO HEADERS
   // ==========================================================================
-  const response = NextResponse.next();
+  let response = NextResponse.next();
+
+  // Refresh Supabase session cookies on every request so they don't expire
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() { return request.cookies.getAll(); },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+          response = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+  // Must call getUser to refresh the session — do not remove
+  await supabase.auth.getUser();
   
   // X-Robots-Tag for non-indexable routes
   if (

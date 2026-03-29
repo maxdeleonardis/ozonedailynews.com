@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Miniminter (Simon Minter) — FIFA Content Creator & Sidemen Daily Uploader | ObjectWire",
+  title: "Miniminter (Simon Minter) | FIFA Content Creator & Sidemen Daily Uploader | ObjectWire",
   description: "Complete profile of Miniminter (Simon Minter): Sidemen founding member known for daily FIFA uploads, 10M+ subscribers, relationship with Talia Mar, and charity football matches. 2026 coverage.",
   keywords: [
     "Miniminter",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen/miniminter',
   },
   openGraph: {
-    title: 'Miniminter (Simon Minter) — FIFA Creator & Sidemen Member',
+    title: 'Miniminter (Simon Minter) | FIFA Creator & Sidemen Member',
     description: 'Full profile of Miniminter: daily FIFA uploads, Sidemen founding member, relationship with Talia Mar, and 15+ years of consistent content creation.',
     type: 'article',
     url: 'https://www.objectwire.org/youtube/sidemen/miniminter',

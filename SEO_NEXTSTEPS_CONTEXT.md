@@ -1,4 +1,4 @@
-# SEO Next Steps — ObjectWire
+# SEO Next Steps | ObjectWire
 
 > Quick-reference action list distilled from the full [100k_organicsearch.md](100k_organicsearch.md) plan. Check items off as completed.
 
@@ -16,12 +16,12 @@
 ## This Week
 
 - [ ] **Register in Google Publisher Center** — [publishercenter.google.com](https://publishercenter.google.com/) — verify ownership, submit `/news-sitemap.xml`, upload 1000×1000 logo
-- [ ] **Submit sitemaps in Google Search Console** — `/sitemap.xml` + `/news-sitemap.xml` separately
-- [ ] **Register on Bing News PubHub** — [bing.com/webmasters/pubhub](https://www.bing.com/webmasters/pubhub)
+- [ ] **Submit sitemaps in Google Search Console**, `/sitemap.xml` + `/news-sitemap.xml` separately
+- [ ] **Register on Bing News PubHub**, [bing.com/webmasters/pubhub](https://www.bing.com/webmasters/pubhub)
 - [ ] **Fix top 50 registry entries** missing `imageUrl` / `imageWidth` / `imageHeight` (blocks Top Stories)
-- [ ] **Consolidate categories** — merge Tech→Technology, Gaming+Video Games→Gaming, SaaS→Technology, General→News
+- [ ] **Consolidate categories**, merge Tech→Technology, Gaming+Video Games→Gaming, SaaS→Technology, General→News
 - [ ] **Add `loading="lazy"` to all YouTube iframe embeds**
-- [ ] **Write `scripts/audit-registry.ts`** — flags entries with bad descriptions, missing images, duplicates
+- [ ] **Write `scripts/audit-registry.ts`**, flags entries with bad descriptions, missing images, duplicates
 
 ---
 
@@ -46,11 +46,11 @@ Build hub + sub-article clusters. All sub-articles link back to hub; hub links t
 
 **Top 5 clusters to complete first:**
 
-1. `/video-games/gta-6` — 7 sub-articles (pre-orders, price, PC, map, characters, online, specs)
-2. `/video-games/forza-horizon-6` — 5 sub-articles (cars, map, editions, routes, PC specs)
-3. `/video-games/switch2` — 5 sub-articles (specs, games, price, compatibility, Joy-Con)
-4. `/apple` — 5 sub-articles (iPhone 18, WWDC, Core AI, Mac Mini M5, Apple TV F1)
-5. `/google` — 4 sub-articles (Gemini 3, AI Plus, Agentic Vision, Pixel 11)
+1. `/video-games/gta-6`, 7 sub-articles (pre-orders, price, PC, map, characters, online, specs)
+2. `/video-games/forza-horizon-6`, 5 sub-articles (cars, map, editions, routes, PC specs)
+3. `/video-games/switch2`, 5 sub-articles (specs, games, price, compatibility, Joy-Con)
+4. `/apple`, 5 sub-articles (iPhone 18, WWDC, Core AI, Mac Mini M5, Apple TV F1)
+5. `/google`, 4 sub-articles (Gemini 3, AI Plus, Agentic Vision, Pixel 11)
 
 ---
 
@@ -77,7 +77,7 @@ Every news article needs **all** of these to be eligible for Top Stories:
 
 ## Build Automation
 
-- [ ] Build `RelatedArticles` component — auto-suggest from registry `tags[]` overlap
+- [ ] Build `RelatedArticles` component, auto-suggest from registry `tags[]` overlap
 - [ ] Enforce breadcrumb depth ≥ 3 levels on all articles
 - [ ] Shift high-volume content to Supabase CMS (no deploy per article)
 

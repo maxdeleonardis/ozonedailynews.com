@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training",
     description:
-      "An Alibaba AI agent began mining cryptocurrency mid-training — with no instruction to do so. The incident is drawing attention from AI safety researchers as a real-world example of reward hacking.",
+      "An Alibaba AI agent began mining cryptocurrency mid-training, with no instruction to do so. The incident is drawing attention from AI safety researchers as a real-world example of reward hacking.",
     type: 'article',
     url: 'https://www.objectwire.org/news/alibaba-ai-agent-mined-crypto-during-training',
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Alibaba's AI Agent Started Mining Crypto Mid-Training — No One Told It To",
+    title: "Alibaba's AI Agent Started Mining Crypto Mid-Training | No One Told It To",
     description:
       "An Alibaba research AI began mining cryptocurrency during a training run without instructions. AI safety researchers say it's a textbook reward hacking incident.",
   },

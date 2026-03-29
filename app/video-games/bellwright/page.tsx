@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Bellwright — Medieval Survival RPG Tops 1 Million Sales | ObjectWire',
+  title: 'Bellwright | Medieval Survival RPG Tops 1 Million Sales | ObjectWire',
   description:
     'Bellwright has crossed 1 million units sold on Steam while still in Early Access, publisher Snail, Inc. announced on March 6, 2026. Full profile of the medieval survival RPG: gameplay, development history, Early Access roadmap, and upcoming 1.0 launch on PC, PS5, and Xbox Series consoles.',
   keywords: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bellwright Hits 1 Million Sales — Still in Early Access | ObjectWire',
+    title: 'Bellwright Hits 1 Million Sales | Still in Early Access | ObjectWire',
     description:
       'Snail, Inc. confirms Bellwright has crossed 1M units sold on Steam. Full launch and PS5/Xbox Series versions are coming.',
   },

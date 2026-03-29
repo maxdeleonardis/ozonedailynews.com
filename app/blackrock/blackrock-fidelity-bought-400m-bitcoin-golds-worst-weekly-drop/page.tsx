@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'BlackRock and Fidelity Bought $400M in Bitcoin Amid Gold\'s Worst Weekly Drop in Decades | ObjectWire',
   description:
-    'BlackRock and Fidelity purchased nearly $400 million in Bitcoin last week — even as they sold $250 million — generating a net bullish signal for crypto markets. The moves came during gold\'s steepest weekly decline in nearly 40 years, with Arkham Intelligence data suggesting a capital rotation is underway.',
+    'BlackRock and Fidelity purchased nearly $400 million in Bitcoin last week, even as they sold $250 million, generating a net bullish signal for crypto markets. The moves came during gold\'s steepest weekly decline in nearly 40 years, with Arkham Intelligence data suggesting a capital rotation is underway.',
   keywords: [
     'BlackRock Bitcoin 2026',
     'Fidelity Bitcoin purchase',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BlackRock and Fidelity Bought $400M in Bitcoin Amid Gold's Worst Weekly Drop in Decades",
     description:
-      "BlackRock and Fidelity bought nearly $400M in Bitcoin while selling $250M — a net bullish signal. The trades coincided with gold's steepest weekly decline in ~40 years and a total of $93.1M in spot Bitcoin ETF inflows.",
+      "BlackRock and Fidelity bought nearly $400M in Bitcoin while selling $250M, a net bullish signal. The trades coincided with gold's steepest weekly decline in ~40 years and a total of $93.1M in spot Bitcoin ETF inflows.",
     url: FULL_URL,
     images: [{ url: IMAGE_URL }],
     type: 'article',

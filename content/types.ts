@@ -111,7 +111,7 @@ export type ContentBlock =
 export interface Article {
   // Required
   title: string;
-  slug: string;           // unique URL — e.g. "bitcoin-etf-approved-2026"
+  slug: string;           // unique URL, e.g. "bitcoin-etf-approved-2026"
   category: string;       // e.g. "crypto", "tech", "finance"
   status: 'published' | 'draft';
   content: ContentBlock[];

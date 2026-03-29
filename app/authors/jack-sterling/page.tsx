@@ -7,7 +7,7 @@ import AuthorSchema from '@/components/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jack Sterling — Journalist & Reporter | ObjectWire',
+  title: 'Jack Sterling | Journalist & Reporter | ObjectWire',
   description:
     'Jack Sterling is a journalist and reporter at ObjectWire covering breaking news, federal investigations, Congress, politics, and AI policy. Published bylines on landmark legislation and federal accountability reporting.',
   alternates: { canonical: 'https://www.objectwire.org/authors/jack-sterling' },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Jack Sterling — Journalist',
+    title: 'Jack Sterling | Journalist',
     description: 'ObjectWire journalist. Breaking news, investigations, Congress, AI policy.',
   },
 };
@@ -164,14 +164,14 @@ export default function JackSterlingAuthorPage() {
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
                   Jack Sterling is a journalist and general assignment reporter at ObjectWire, where he
-                  covers the full stretch of federal politics — from day-to-day congressional activity to
+                  covers the full stretch of federal politics, from day-to-day congressional activity to
                   long-form investigations into how policy decisions reshape markets, infrastructure, and
                   civil institutions.
                 </p>
                 <p>
                   Sterling has established himself as a reliable first-byline voice on legislative
-                  technology policy. His March 2026 report on the <em>AI Data Center Moratorium Act</em> —
-                  introduced by Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez — broke
+                  technology policy. His March 2026 report on the <em>AI Data Center Moratorium Act</em> , 
+                  introduced by Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez, broke
                   down a landmark progressive challenge to the trillion-dollar AI infrastructure build-out,
                   covering the bill&rsquo;s six pillars, its political prospects, and the industry
                   counteroffensive in real time.
@@ -180,7 +180,7 @@ export default function JackSterlingAuthorPage() {
                   He has also reported on federal court filings disclosing Anthropic&rsquo;s $5 billion
                   revenue milestone, the intersection of gambling regulation and professional sports, and
                   how entertainment technology like Unreal Engine has become embedded in Hollywood
-                  production pipelines. His work is document-first — he writes from filings, legislation,
+                  production pipelines. His work is document-first, he writes from filings, legislation,
                   and public records before sources and commentary.
                 </p>
                 <p>
@@ -199,7 +199,7 @@ export default function JackSterlingAuthorPage() {
                 {[
                   {
                     label: 'Sanders &amp; AOC Moratorium Act',
-                    detail: 'Broke down the AI Data Center Moratorium Act — its six legislative pillars, political prospects, and the tech industry response.',
+                    detail: 'Broke down the AI Data Center Moratorium Act, its six legislative pillars, political prospects, and the tech industry response.',
                     href: '/technology/sanders-aoc-ai-data-center-moratorium-act-march-2026',
                     date: 'March 25, 2026',
                   },

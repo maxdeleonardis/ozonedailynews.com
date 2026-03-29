@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     'Gran Turismo 7 Review & Polyphony Digital Now Hiring for Next Gran Turismo | ObjectWire',
   description:
-    'Gran Turismo 7 remains the benchmark racing simulator on PlayStation — 2 million active players in December 2025. Polyphony Digital posted 18 job openings March 2, 2026, signaling next-gen Gran Turismo development for PlayStation 6.',
+    'Gran Turismo 7 remains the benchmark racing simulator on PlayStation, 2 million active players in December 2025. Polyphony Digital posted 18 job openings March 2, 2026, signaling next-gen Gran Turismo development for PlayStation 6.',
   keywords: [
     'Gran Turismo 7 review',
     'Polyphony Digital hiring 2026',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Gran Turismo 7 Review — And Why Polyphony Digital Is Hiring for the Next One',
+    title: 'Gran Turismo 7 Review | And Why Polyphony Digital Is Hiring for the Next One',
     description:
-      'GT7 still sets the standard for sim racing. Polyphony Digital just posted 18 jobs for next-gen Gran Turismo development — and Kazunori Yamauchi wants builders who create the future through art and technology.',
+      'GT7 still sets the standard for sim racing. Polyphony Digital just posted 18 jobs for next-gen Gran Turismo development, and Kazunori Yamauchi wants builders who create the future through art and technology.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

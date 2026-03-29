@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Mythmatch — Gameplay, Story, Developer & Pricing | ObjectWire',
+  title: 'Mythmatch | Gameplay, Story, Developer & Pricing | ObjectWire',
   description:
-    "Complete guide to Mythmatch — the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by Olympus Inc., helping the women of Ithaca through a cozy, anti-capitalist town-building adventure on the world map.",
+    "Complete guide to Mythmatch, the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by Olympus Inc., helping the women of Ithaca through a cozy, anti-capitalist town-building adventure on the world map.",
   keywords: [
     'Mythmatch',
     'Mythmatch game',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/mythmatch',
   },
   openGraph: {
-    title: 'Mythmatch — Complete Guide: Gameplay, Story, Developer & Pricing',
+    title: 'Mythmatch | Complete Guide: Gameplay, Story, Developer & Pricing',
     description:
       'Team Artichoke\'s Mythmatch launched March 13, 2026 on Steam. Play as Artemis rejected by "Olympus Inc." and help the women of Ithaca rebuild through a bow-powered merge-puzzle mechanic. $15.99 until March 27.',
     type: 'article',
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mythmatch — Indie Merge RPG Guide | ObjectWire',
+    title: 'Mythmatch | Indie Merge RPG Guide | ObjectWire',
     description:
-      'Artemis vs. Olympus Inc. — Team Artichoke\'s cozy, anti-capitalist merge-puzzle RPG is out now on Steam. $15.99 (20% off) until March 27.',
+      'Artemis vs. Olympus Inc., Team Artichoke\'s cozy, anti-capitalist merge-puzzle RPG is out now on Steam. $15.99 (20% off) until March 27.',
   },
 };
 

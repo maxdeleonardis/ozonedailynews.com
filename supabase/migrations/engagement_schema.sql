@@ -1,14 +1,14 @@
 -- =============================================================================
--- ObjectWire — User Engagement Schema
+-- ObjectWire - User Engagement Schema
 -- Run this entire file in your Supabase SQL Editor.
 -- Safe to re-run: all statements use IF NOT EXISTS / OR REPLACE.
 --
 -- Tables created:
---   1. article_view_history  — last 7 days of reads per user
---   2. article_likes         — per-user likes (drives public like counts)
---   3. article_saves         — per-user saved articles list
+--   1. article_view_history  - last 7 days of reads per user
+--   2. article_likes         - per-user likes (drives public like counts)
+--   3. article_saves         - per-user saved articles list
 --
--- Privacy: users are identified only by SHA-256(email) — no PII stored.
+-- Privacy: users are identified only by SHA-256(email) - no PII stored.
 -- =============================================================================
 
 

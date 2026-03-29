@@ -108,7 +108,7 @@ export default function WorldCupBoycottPage() {
 
             <p className="text-lg leading-relaxed text-gray-300">
               The controversy centers on concerns that international fans, players, and journalists from targeted countries could 
-              face detention, deportation, or travel restrictions when entering the U.S. for the tournament—echoing the chaos of 
+              face detention, deportation, or travel restrictions when entering the U.S. for the tournament, echoing the chaos of 
               the 2017 "travel ban" that barred visitors from several Muslim-majority nations.
             </p>
 
@@ -164,7 +164,7 @@ export default function WorldCupBoycottPage() {
                     "Awarding the World Cup to a country engaged in systemic human rights abuses sends the wrong message. 
                     FIFA must demand concrete protections for all visitors, or move the tournament to safer nations."
                   </p>
-                  <p className="text-xs text-gray-500 mt-2">— Amnesty International Statement, December 2025</p>
+                  <p className="text-xs text-gray-500 mt-2">,  Amnesty International Statement, December 2025</p>
                 </div>
               </div>
 
@@ -411,7 +411,7 @@ export default function WorldCupBoycottPage() {
                   <div>
                     <h3 className="font-bold text-lg mb-2">Sponsor Decision Point (April-May 2026)</h3>
                     <p className="text-gray-400">
-                      Major sponsors will decide whether to continue support or distance themselves from controversy—financial pressure could force FIFA action
+                      Major sponsors will decide whether to continue support or distance themselves from controversy, financial pressure could force FIFA action
                     </p>
                   </div>
                 </div>
@@ -421,7 +421,7 @@ export default function WorldCupBoycottPage() {
                   <div>
                     <h3 className="font-bold text-lg mb-2">Final Withdrawal Deadline (June 2026)</h3>
                     <p className="text-gray-400">
-                      Teams must finalize rosters by June—if major nations boycott, tournament legitimacy would be severely compromised
+                      Teams must finalize rosters by June, if major nations boycott, tournament legitimacy would be severely compromised
                     </p>
                   </div>
                 </div>

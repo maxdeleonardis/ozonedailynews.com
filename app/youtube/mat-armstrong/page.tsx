@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Mat Armstrong — Automotive YouTube Creator, 6.2M Subscribers | ObjectWire',
+  title: 'Mat Armstrong | Automotive YouTube Creator, 6.2M Subscribers | ObjectWire',
   description:
     'Mat Armstrong (@MatArmstrongbmx) is a UK-based YouTube automotive creator with over 6.2 million subscribers and 870 million views. A former professional BMX rider from Leicester, he specialises in rebuilding wrecked supercars including Ferrari, Porsche, Rolls-Royce, and more.',
   keywords: [
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/mat-armstrong',
   },
   openGraph: {
-    title: 'Mat Armstrong — From Professional BMX Rider to 6.2M-Subscriber Automotive YouTube Creator',
+    title: 'Mat Armstrong | From Professional BMX Rider to 6.2M-Subscriber Automotive YouTube Creator',
     description:
-      'Profile of Mat Armstrong (@MatArmstrongbmx) — Leicester-born former pro BMX rider turned automotive content creator, with 870M+ total views specialising in wrecked supercar rebuilds.',
+      'Profile of Mat Armstrong (@MatArmstrongbmx), Leicester-born former pro BMX rider turned automotive content creator, with 870M+ total views specialising in wrecked supercar rebuilds.',
     type: 'profile',
     url: 'https://www.objectwire.org/youtube/mat-armstrong',
     siteName: 'ObjectWire',

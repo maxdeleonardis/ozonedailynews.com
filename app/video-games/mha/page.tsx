@@ -8,7 +8,7 @@ import { Hub } from "@/components/Hub";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "My Hero Academia Hub — Final Season, Vigilantes & Ultra Rumble",
+  headline: "My Hero Academia Hub, Final Season, Vigilantes & Ultra Rumble",
   description:
     "Complete guide to the My Hero Academia universe: final season analysis, Vigilantes spin-off, and My Hero Ultra Rumble battle royale game coverage.",
   url: "https://www.objectwire.org/video-games/mha",
@@ -120,7 +120,7 @@ export default function MHAPage() {
         badge="ANIME & GAMING HUB"
         badgeColor="from-green-600 to-emerald-500"
         title="My Hero Academia"
-        subtitle="Complete guide to the MHA universe — Final Season, Vigilantes spin-off, and Ultra Rumble battle royale."
+        subtitle="Complete guide to the MHA universe, Final Season, Vigilantes spin-off, and Ultra Rumble battle royale."
         meta={
           <>
             <span className="flex items-center gap-2">
@@ -162,7 +162,7 @@ export default function MHAPage() {
               href="/video-games/mha/ultra-rumble"
               emoji="🎮"
               title="Ultra Rumble"
-              description="Full game hub — season updates, character tier lists, and esports coverage."
+              description="Full game hub, season updates, character tier lists, and esports coverage."
               badge="Game Coverage"
             />
             <Hub.Card
@@ -177,7 +177,7 @@ export default function MHAPage() {
               href="/video-games/mha/alls-justice"
               emoji="💪"
               title="All's Justice"
-              description="Full guide to the All's Justice mode — abilities, strategy, and unlockables."
+              description="Full guide to the All's Justice mode, abilities, strategy, and unlockables."
             />
           </div>
         </Hub.Section>
@@ -245,13 +245,13 @@ export default function MHAPage() {
             &ldquo;My Hero Academia&apos;s final season proves that when a series knows its
             destination, every step of the journey becomes more meaningful.&rdquo;
             <footer className="text-sm text-gray-400 mt-2 not-italic">
-              — Anime News Network
+             , Anime News Network
             </footer>
           </blockquote>
         </Hub.Section>
 
         {/* ── Character Development ──────────────────────────────────────── */}
-        <Hub.Section title="Character Development — Final Arcs" icon="🦸">
+        <Hub.Section title="Character Development, Final Arcs" icon="🦸">
           <Hub.Table
             columns={[
               { key: "character", label: "Character", bold: true },
@@ -289,7 +289,7 @@ export default function MHAPage() {
         </Hub.Section>
 
         {/* ── Vigilantes ──────────────────────────────────────────────────── */}
-        <Hub.Section title="My Hero Vigilantes — The Hidden Side" icon="🌃">
+        <Hub.Section title="My Hero Vigilantes, The Hidden Side" icon="🌃">
           <Hub.Prose>
             <p>
               <a
@@ -307,7 +307,7 @@ export default function MHAPage() {
             </p>
             <p>
               The series provides backstories for All Might, Eraserhead, and Present Mic, and
-              introduces Trigger — the Quirk-enhancing drug that appears in the main series. Critics
+              introduces Trigger, the Quirk-enhancing drug that appears in the main series. Critics
               have praised Vigilantes for its mature storytelling and worldbuilding depth, calling it
               essential reading for serious MHA fans.
             </p>
@@ -362,7 +362,7 @@ export default function MHAPage() {
 
         {/* ── Ultra Rumble ────────────────────────────────────────────────── */}
         <Hub.Section
-          title="My Hero Ultra Rumble — Game Hub"
+          title="My Hero Ultra Rumble, Game Hub"
           icon="🎮"
           variant="highlight"
         >
@@ -411,12 +411,12 @@ export default function MHAPage() {
                 { key: "role", label: "Role" },
               ]}
               rows={[
-                { char: "💀 Shigaraki", wr: "74%", role: "Villain — Area denial" },
-                { char: "💪 All Might", wr: "73%", role: "Hero — Power striker" },
-                { char: "💥 Bakugo", wr: "71%", role: "Hero — Aggressive DPS" },
-                { char: "🧊 Todoroki", wr: "69%", role: "Hero — Zone control" },
-                { char: "💚 Deku", wr: "68%", role: "Hero — Mobility & burst" },
-                { char: "🌸 Uraraka", wr: "65%", role: "Hero — Support / disrupt" },
+                { char: "💀 Shigaraki", wr: "74%", role: "Villain, Area denial" },
+                { char: "💪 All Might", wr: "73%", role: "Hero, Power striker" },
+                { char: "💥 Bakugo", wr: "71%", role: "Hero, Aggressive DPS" },
+                { char: "🧊 Todoroki", wr: "69%", role: "Hero, Zone control" },
+                { char: "💚 Deku", wr: "68%", role: "Hero, Mobility & burst" },
+                { char: "🌸 Uraraka", wr: "65%", role: "Hero, Support / disrupt" },
               ]}
             />
           </div>
@@ -443,28 +443,28 @@ export default function MHAPage() {
                 <li className="flex gap-2">
                   <span className="text-green-400">✓</span>
                   <span>
-                    <strong className="text-gray-900">Season 15</strong> — Overhaul +
+                    <strong className="text-gray-900">Season 15</strong>, Overhaul +
                     Blighted Precipice map
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-gray-900">Movie Characters</strong> — MHA film
+                    <strong className="text-gray-900">Movie Characters</strong>, MHA film
                     trilogy roster additions
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-gray-900">Ranked Mode</strong> — Competitive
+                    <strong className="text-gray-900">Ranked Mode</strong>, Competitive
                     ladder system
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-yellow-400">→</span>
                   <span>
-                    <strong className="text-gray-900">Custom Matches</strong> — Private
+                    <strong className="text-gray-900">Custom Matches</strong>, Private
                     tournament lobbies
                   </span>
                 </li>
@@ -473,11 +473,11 @@ export default function MHAPage() {
           </div>
 
           <blockquote className="mt-6 border-l-4 border-cyan-400 pl-6 italic text-gray-600">
-            &ldquo;Ultra Rumble succeeds where many licensed games fail — it&apos;s a faithful
+            &ldquo;Ultra Rumble succeeds where many licensed games fail, it&apos;s a faithful
             translation of MHA&apos;s core themes into interactive entertainment, not just a battle
             royale dressed in anime skins.&rdquo;
             <footer className="text-sm text-gray-400 mt-2 not-italic">
-              — IGN Review (9/10)
+             , IGN Review (9/10)
             </footer>
           </blockquote>
         </Hub.Section>
@@ -488,7 +488,7 @@ export default function MHAPage() {
             <Hub.Card
               href="/video-games/mha/ultra-rumble/season-15"
               emoji="🔥"
-              title="Ultra Rumble Season 15 — Full Breakdown"
+              title="Ultra Rumble Season 15, Full Breakdown"
               description="Overhaul joins the roster. Blighted Precipice map. Full meta analysis."
               badge="Latest"
               badgeStyle="breaking"
@@ -518,7 +518,7 @@ export default function MHAPage() {
 
         {/* ── Fan Poll + External Links ──────────────────────────────────── */}
         <div className="grid md:grid-cols-2 gap-8">
-          <Hub.Section title="Fan Poll — Favourite Character" icon="🗳">
+          <Hub.Section title="Fan Poll, Favourite Character" icon="🗳">
             <CharacterPoll />
           </Hub.Section>
 

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/influencer/news/logan-paul-sells-pokemon-card-16-million';
 
 export const metadata: Metadata = {
-  title: 'Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million — Record Auction | ObjectWire',
+  title: 'Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million | Record Auction | ObjectWire',
   description:
     'Logan Paul has sold his ultra-rare 1/1 Pikachu Illustrator PSA 9 Pokémon card at auction for $16 million, setting a new world record. Full story, card history, and what it means for the collectibles market.',
   keywords: [
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/influencer/news/logan-paul-sells-pokemon-card-16-million',
   },
   openGraph: {
-    title: 'Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million — Record Auction',
+    title: 'Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million | Record Auction',
     description:
-      'Logan Paul sells the world\'s rarest Pokémon card for $16 million at auction — nearly tripling the $5.275M he paid in 2022. Full breakdown of the iconic Pikachu Illustrator sale.',
+      'Logan Paul sells the world\'s rarest Pokémon card for $16 million at auction, nearly tripling the $5.275M he paid in 2022. Full breakdown of the iconic Pikachu Illustrator sale.',
     type: 'article',
     url: 'https://www.objectwire.org/influencer/news/logan-paul-sells-pokemon-card-16-million',
     siteName: 'ObjectWire',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Logan Paul Sells Pikachu Illustrator (1/1) for $16M — World Record',
+    title: 'Logan Paul Sells Pikachu Illustrator (1/1) for $16M | World Record',
     description:
       'The most expensive Pokémon card ever sold. Logan Paul flips his $5.275M Pikachu Illustrator for $16 million at auction.',
   },

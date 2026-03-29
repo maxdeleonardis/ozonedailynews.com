@@ -1,8 +1,15 @@
 import Link from 'next/link';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import { scanAllContent } from '@/lib/content-scanner';
 import { getPublishedBlogPosts } from '@/lib/blog-service';
 import Breadcrumb from '@/components/Breadcrumb';
 import type { Metadata } from 'next';
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jakarta',
+});
 
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>;
@@ -88,7 +95,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`${jakarta.variable} min-h-screen bg-white font-[family-name:var(--font-jakarta)]`}>
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Breadcrumb */}
         <Breadcrumb 

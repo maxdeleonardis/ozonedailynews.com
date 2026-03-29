@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Boring Company to Build Free Tunnels in New Orleans, Baltimore, and Dallas",
     description:
-      "The Boring Company tripled its Tunnel Vision Challenge commitment, selecting three cities — New Orleans, Baltimore, and Dallas — to receive fully funded one-mile underground transit loops.",
+      "The Boring Company tripled its Tunnel Vision Challenge commitment, selecting three cities, New Orleans, Baltimore, and Dallas, to receive fully funded one-mile underground transit loops.",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Boring Company Picks New Orleans, Baltimore, and Dallas for Free Tunnel Loops",
     description:
-      "The Tunnel Vision Challenge had one winner — then The Boring Company tripled down. Three cities will now get a free one-mile underground transit loop.",
+      "The Tunnel Vision Challenge had one winner, then The Boring Company tripled down. Three cities will now get a free one-mile underground transit loop.",
     images: [IMAGE_URL],
   },
 };

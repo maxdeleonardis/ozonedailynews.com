@@ -11,7 +11,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: "NVIDIA to Grant Engineers 'Inference Budgets' Worth 50% of Base Salary | ObjectWire",
   description:
-    "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary — worth $100,000–$150,000 in compute credits — redefining Silicon Valley compensation.",
+    "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary, worth $100,000–$150,000 in compute credits, redefining Silicon Valley compensation.",
   keywords: [
     'NVIDIA inference budget engineer compensation GTC 2026',
     'Jensen Huang token salary GTC keynote March 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NVIDIA to Give Engineers AI 'Inference Budgets' Worth 50% of Base Salary",
     description:
-      "Jensen Huang announced at GTC 2026 that NVIDIA engineers will receive an annual token budget worth ~50% of base pay — up to $150K in AI compute credits. The move redefines tech compensation and could force rivals to match.",
+      "Jensen Huang announced at GTC 2026 that NVIDIA engineers will receive an annual token budget worth ~50% of base pay, up to $150K in AI compute credits. The move redefines tech compensation and could force rivals to match.",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',

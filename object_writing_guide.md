@@ -9,11 +9,11 @@
 ## Table of Contents
 
 1. [How Articles Work (The SSR Pipeline)](#1-how-articles-work-the-ssr-pipeline)
-2. [Article Components — Which One to Use](#2-article-components--which-one-to-use)
+2. [Article Components, Which One to Use](#2-article-components--which-one-to-use)
 3. [Writing & Publishing a NewsArticle (Supabase)](#3-writing--publishing-a-newsarticle-supabase)
 4. [Writing a JackArticle (Supabase)](#4-writing-a-jackarticle-supabase)
 5. [Slug Format Rules](#5-slug-format-rules)
-6. [Content Registry — SEO & Sitemap](#6-content-registry--seo--sitemap)
+6. [Content Registry, SEO & Sitemap](#6-content-registry--seo--sitemap)
 7. [Authors](#7-authors)
 8. [Available Topic Tags & Category Colors](#8-available-topic-tags--category-colors)
 9. [Content Block Types](#9-content-block-types)
@@ -26,7 +26,7 @@
 
 ## 1. How Articles Work (The SSR Pipeline)
 
-ObjectWire uses **Next.js Server Components + Supabase** to deliver fully-rendered HTML to every reader and to Googlebot — no JavaScript required to read an article.
+ObjectWire uses **Next.js Server Components + Supabase** to deliver fully-rendered HTML to every reader and to Googlebot, no JavaScript required to read an article.
 
 ### What happens when someone visits an article URL
 
@@ -34,7 +34,7 @@ ObjectWire uses **Next.js Server Components + Supabase** to deliver fully-render
 Reader / Googlebot → objectwire.org/california/california-tech-layoffs-2026-...
         │
         ▼
-app/.../page.tsx   (Next.js Server Component — runs on Railway)
+app/.../page.tsx   (Next.js Server Component, runs on Railway)
   export const dynamic = 'force-dynamic'   ← re-queries Supabase on every request
   return <NewsArticleDB slug="california-california-tech-layoffs-..." />
         │
@@ -71,7 +71,7 @@ Next.js serialises the React tree → pure HTML string → sent to browser
 
 ---
 
-## 2. Article Components — Which One to Use
+## 2. Article Components | Which One to Use
 
 | Component | Supabase Table | Use For |
 |---|---|---|
@@ -87,7 +87,7 @@ Next.js serialises the React tree → pure HTML string → sent to browser
 
 This is the standard pipeline for all news articles.
 
-### Step 1 — Create the page.tsx stub
+### Step 1 | Create the page.tsx stub
 
 Create `app/{section}/{slug}/page.tsx`:
 
@@ -130,7 +130,7 @@ export default function YourArticlePage() {
 
 ---
 
-### Step 2 — Write the content file
+### Step 2 | Write the content file
 
 Create `content/articles/your-slug.ts`:
 
@@ -152,7 +152,7 @@ const article: Article = {
   category_color: 'blue',             // red | blue | green | purple | orange | pink | yellow
   read_time: '5 min read',
   publish_date: 'March 26, 2026',      // display string shown on the article
-  published_at: '2026-03-26T15:00:00Z', // ISO — used for sorting and schema
+  published_at: '2026-03-26T15:00:00Z', // ISO, used for sorting and schema
 
   // ── Author ────────────────────────────────────────────────────────────────
   author_name: 'Conan Boyle',
@@ -167,7 +167,7 @@ const article: Article = {
   thumbnail_alt: 'Alt text for thumbnail',
 
   // ── URL ───────────────────────────────────────────────────────────────────
-  url: '/section/your-article-slug',    // canonical path — used by ArticleViewTracker
+  url: '/section/your-article-slug',    // canonical path, used by ArticleViewTracker
 
   // ── Flags ─────────────────────────────────────────────────────────────────
   featured: false,
@@ -183,7 +183,7 @@ const article: Article = {
 <div class="prose prose-lg max-w-none">
 
   <p class="text-lg leading-relaxed">
-    <strong>LOCATION, STATE</strong> — Lead paragraph here. Keep it 2-3 sentences.
+    <strong>LOCATION, STATE</strong>, Lead paragraph here. Keep it 2-3 sentences.
     Establish the news, the actors, and the significance.
   </p>
 
@@ -195,7 +195,7 @@ const article: Article = {
   <blockquote class="border-l-4 border-gray-400 pl-6 my-8 italic text-gray-700">
     <p>"Direct quote from a source."</p>
     <footer class="text-sm text-gray-500 mt-2 not-italic">
-      — Name, Title, Organization
+     , Name, Title, Organization
     </footer>
   </blockquote>
 
@@ -204,8 +204,8 @@ const article: Article = {
   <div class="text-sm text-gray-500">
     <p class="font-semibold text-gray-700 mb-2">SOURCES &amp; CITATIONS</p>
     <ul class="list-disc list-inside space-y-1">
-      <li>Source 1 — description</li>
-      <li>Source 2 — description</li>
+      <li>Source 1, description</li>
+      <li>Source 2, description</li>
     </ul>
   </div>
 
@@ -218,7 +218,7 @@ export default article;
 
 ---
 
-### Step 3 — Dry-run to validate
+### Step 3 | Dry-run to validate
 
 ```bash
 npx tsx scripts/publish-content.ts --file your-slug --dry-run
@@ -229,12 +229,12 @@ Expected output:
 [DRY RUN] Found 1 article file(s)
   ✓  your-slug.ts
      slug: section-your-article-slug | status: published | category: Technology
-[DRY RUN] Done — 1 upserted, 0 skipped, 0 failed
+[DRY RUN] Done, 1 upserted, 0 skipped, 0 failed
 ```
 
 ---
 
-### Step 4 — Push to Supabase
+### Step 4 | Push to Supabase
 
 ```bash
 npx tsx scripts/publish-content.ts --file your-slug
@@ -247,7 +247,7 @@ npm run content:publish -- --file your-slug
 
 ---
 
-### Step 5 — Register in content-registry
+### Step 5 | Register in content-registry
 
 Open `lib/content-registry.ts` and add or update the entry for this article:
 
@@ -278,7 +278,7 @@ Open `lib/content-registry.ts` and add or update the entry for this article:
 
 ## 4. Writing a JackArticle (Supabase)
 
-JackArticles live in `jack_articles` table. The workflow is different — content is written directly into the `page.tsx` and then **migrated** and **trimmed**.
+JackArticles live in `jack_articles` table. The workflow is different, content is written directly into the `page.tsx` and then **migrated** and **trimmed**.
 
 ### Pipeline
 
@@ -329,14 +329,14 @@ The **content-registry slug** uses the full URL path with a leading slash:
 
 ---
 
-## 6. Content Registry — SEO & Sitemap
+## 6. Content Registry | SEO & Sitemap
 
 **File:** `lib/content-registry.ts`
 
 Every page needs an entry here. `SEOWrapper` reads this file to:
 - Emit `<script type="application/ld+json">` — NewsArticle / BreadcrumbList structured data
-- Populate `app/sitemap.ts` — general sitemap
-- Populate `app/news-sitemap.xml/` — Google News sitemap
+- Populate `app/sitemap.ts`, general sitemap
+- Populate `app/news-sitemap.xml/`, Google News sitemap
 
 ### Key fields
 
@@ -353,9 +353,9 @@ Every page needs an entry here. `SEOWrapper` reads this file to:
 | `imageWidth` | ✅ | Default: `1200` |
 | `imageHeight` | ✅ | Default: `630` |
 | `tags` | ✅ | Array of topic strings |
-| `trending` | — | Adds to trending feeds |
-| `featured` | — | Adds to featured sections |
-| `priority` | — | Sitemap priority 0.0–1.0. Default: `0.6` |
+| `trending` |, | Adds to trending feeds |
+| `featured` |, | Adds to featured sections |
+| `priority` |, | Sitemap priority 0.0–1.0. Default: `0.6` |
 
 ### Sync tool
 
@@ -363,7 +363,7 @@ Every page needs an entry here. `SEOWrapper` reads this file to:
 # See which pages are missing registry entries
 npx tsx scripts/sync-registry.ts
 
-# Auto-add stubs (blank imageUrl — fill manually after)
+# Auto-add stubs (blank imageUrl | fill manually after)
 npx tsx scripts/sync-registry.ts --write
 ```
 
@@ -436,7 +436,7 @@ red | blue | green | purple | orange | pink | yellow
 
 ## 9. Content Block Types
 
-When using the block-based `content: []` array (legacy — prefer `content_html` for new articles):
+When using the block-based `content: []` array (legacy, prefer `content_html` for new articles):
 
 | Block type | Key fields |
 |---|---|
@@ -464,7 +464,7 @@ Write the article body directly as an HTML string in `content_html`. Use semanti
   <p>Body text with <strong>bold</strong> and <a href="/link">links</a>.</p>
   <blockquote class="border-l-4 border-gray-400 pl-6 my-8 italic text-gray-700">
     <p>"Quote text."</p>
-    <footer class="text-sm text-gray-500 mt-2 not-italic">— Source, Title</footer>
+    <footer class="text-sm text-gray-500 mt-2 not-italic">,  Source, Title</footer>
   </blockquote>
 </div>
 ```
@@ -507,7 +507,7 @@ Write the article body directly as an HTML string in `content_html`. Use semanti
 <div class="text-sm text-gray-500">
   <p class="font-semibold text-gray-700 mb-2">SOURCES &amp; CITATIONS</p>
   <ul class="list-disc list-inside space-y-1">
-    <li>Source — description, date</li>
+    <li>Source, description, date</li>
   </ul>
 </div>
 ```
@@ -520,7 +520,7 @@ Write the article body directly as an HTML string in `content_html`. Use semanti
 |---|---|
 | `npm run content:publish` | Pushes all `content/articles/*.ts` marked `published` to Supabase `articles` table |
 | `npm run content:publish -- --file my-slug` | Pushes a single article file |
-| `npm run content:publish -- --dry-run` | Preview only — no writes |
+| `npm run content:publish -- --dry-run` | Preview only, no writes |
 | `npm run content:publish -- --status published` | Only push `status: 'published'` files |
 | `npm run wiki:migrate` | Migrates JackArticle `page.tsx` content → `jack_articles` Supabase row |
 | `npm run wiki:trim` | Replaces full `page.tsx` with stub after migration |
@@ -556,10 +556,10 @@ npm run wiki:trim
 | Page Type | Export | Why |
 |---|---|---|
 | Breaking news (live + updating) | `export const dynamic = 'force-dynamic'` | Always queries fresh Supabase data |
-| Published articles (finalized) | `export const revalidate = 3600` | CDN-cached HTML — fastest for Google News |
+| Published articles (finalized) | `export const revalidate = 3600` | CDN-cached HTML, fastest for Google News |
 | Index / category pages | `export const revalidate = 1800` | Semi-fresh, low server cost |
 | ArticlePage / wiki | `export const revalidate = 86400` | Rarely changes, maximises cache |
-| Admin / account pages | Client-side only | Not indexed — SSR not needed |
+| Admin / account pages | Client-side only | Not indexed, SSR not needed |
 
 Switch `force-dynamic` → `revalidate = 3600` on any article once it is final and no longer live-updating.
 
@@ -570,12 +570,12 @@ Switch `force-dynamic` → `revalidate = 3600` on any article once it is final a
 Run this on any live article to confirm SSR is working:
 
 1. Open `objectwire.org/{your-article-path}` in a browser
-2. Right-click → **View Page Source** (not DevTools — actual source)
+2. Right-click → **View Page Source** (not DevTools, actual source)
 3. `Ctrl + F` → search for the article headline
-4. **Headline visible in source** → SSR working ✅ — Googlebot can index it
-5. **No headline / only `<script>` tags** → JS-heavy ❌ — content is not indexed
+4. **Headline visible in source** → SSR working ✅, Googlebot can index it
+5. **No headline / only `<script>` tags** → JS-heavy ❌, content is not indexed
 
-All ObjectWire articles using `NewsArticleDB`, `JackArticleDB`, or `ArticlePageDB` pass this test — the Supabase fetch runs on the server before the HTML is sent.
+All ObjectWire articles using `NewsArticleDB`, `JackArticleDB`, or `ArticlePageDB` pass this test, the Supabase fetch runs on the server before the HTML is sent.
 
 ---
 

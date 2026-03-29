@@ -10,7 +10,7 @@ const SLUG = '/earth/why-cobalt-is-the-new-oil';
 export const metadata: Metadata = {
   title: "Why Cobalt Is the New Oil: The Battery Metal Crunch Reshaping Global Power | ObjectWire",
   description:
-    "Cobalt is the essential ingredient in every EV battery — and nearly 70% of it comes from a single conflict-torn country. As demand explodes and ethics scrutiny deepens, the deep sea is emerging as an alternative no one is fully ready for.",
+    "Cobalt is the essential ingredient in every EV battery, and nearly 70% of it comes from a single conflict-torn country. As demand explodes and ethics scrutiny deepens, the deep sea is emerging as an alternative no one is fully ready for.",
   keywords: [
     'cobalt new oil battery metal 2026',
     'DRC cobalt mining human rights issues',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Why Cobalt Is the New Oil: The Battery Metal Crunch Reshaping Global Power",
     description:
-      "Nearly 70% of the world's cobalt comes from mines in the DRC — many linked to child labor and environmental destruction. The deep sea offers an alternative. The tradeoffs are just as complicated.",
+      "Nearly 70% of the world's cobalt comes from mines in the DRC, many linked to child labor and environmental destruction. The deep sea offers an alternative. The tradeoffs are just as complicated.",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Cobalt Is the New Oil — and the DRC Is the New Middle East",
+    title: "Cobalt Is the New Oil | and the DRC Is the New Middle East",
     description:
       "One country supplies 70% of the cobalt powering every EV on the road. The human cost is staggering. The deep-sea alternative comes with its own reckoning.",
   },

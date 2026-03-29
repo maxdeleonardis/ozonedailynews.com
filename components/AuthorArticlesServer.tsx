@@ -121,7 +121,7 @@ export async function AuthorArticlesServer({ authorSlug, authorName }: Props) {
 
       {total === 0 ? (
         <p className="text-sm text-gray-400 italic py-6 border border-dashed border-gray-200 text-center">
-          Articles are on the way — check back soon.
+          Articles are on the way, check back soon.
         </p>
       ) : (
         <ul className="divide-y divide-gray-100">

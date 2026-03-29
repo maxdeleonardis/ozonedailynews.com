@@ -263,7 +263,7 @@ export function DynamicNewsArticle({
                         >
                           {source.title}
                         </a>
-                        {source.description && <> — {source.description}</>}
+                        {source.description && <>, {source.description}</>}
                       </li>
                     ))}
                   </ul>
@@ -568,7 +568,7 @@ export function ArticleQuote({
       {quote}
       {(author || title) && (
         <footer className="text-sm text-gray-500 mt-2 not-italic">
-          {author && <span>— {author}</span>}
+          {author && <span>,  {author}</span>}
           {title && <span>, {title}</span>}
         </footer>
       )}

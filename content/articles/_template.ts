@@ -20,7 +20,7 @@ const article: Article = {
   topic_tag: 'Topic Tag',
   category_color: '#6366f1',        // hex color shown on the badge
   read_time: '4 min read',
-  published_at: '2026-03-07',       // ISO date — "2026-03-07" or "2026-03-07T14:00:00Z"
+  published_at: '2026-03-07',       // ISO date, "2026-03-07" or "2026-03-07T14:00:00Z"
 
   // ── Author ────────────────────────────────────────────────────────────────
   author_name: 'Jack',

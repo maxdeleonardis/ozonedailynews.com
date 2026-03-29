@@ -12,7 +12,7 @@ const IMAGE_URL = 'https://www.objectwire.org/elon-musk/terafab-tesla-chip-fab.j
 export const metadata: Metadata = {
   title: 'BREAKING: Elon Musk Announces Tesla "Terafab" Chip Fab Will Launch in 7 Days | ObjectWire',
   description:
-    'Elon Musk announced on March 14, 2026 that Tesla\'s "Terafab" — a next-generation chip fabrication facility targeting 2nm and 100,000 wafer starts per month — will officially launch on March 21. The project aims for full vertical integration of Tesla\'s AI5 processors, Optimus robot chips, and FSD fleet.',
+    'Elon Musk announced on March 14, 2026 that Tesla\'s "Terafab", a next-generation chip fabrication facility targeting 2nm and 100,000 wafer starts per month, will officially launch on March 21. The project aims for full vertical integration of Tesla\'s AI5 processors, Optimus robot chips, and FSD fleet.',
   keywords: [
     'Tesla Terafab',
     'Elon Musk chip factory',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BREAKING: Elon Musk Announces Tesla "Terafab" Chip Fab Launches in 7 Days',
     description:
-      'Elon Musk sets a March 21 deadline for the launch of Tesla\'s Terafab — a domestic 2nm chip fabrication facility designed to handle logic chips, HBM memory, and advanced packaging under one roof for Tesla\'s AI5, Optimus, and FSD ecosystem.',
+      'Elon Musk sets a March 21 deadline for the launch of Tesla\'s Terafab, a domestic 2nm chip fabrication facility designed to handle logic chips, HBM memory, and advanced packaging under one roof for Tesla\'s AI5, Optimus, and FSD ecosystem.',
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Tesla Terafab chip fabrication facility announcement' }],
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BREAKING: Elon Musk Says Tesla Terafab Launches in 7 Days',
     description:
-      'Tesla\'s "Terafab" — targeting 2nm chips, 100k WSPM, and full vertical integration — officially launches March 21, per Elon Musk\'s post on X.',
+      'Tesla\'s "Terafab", targeting 2nm chips, 100k WSPM, and full vertical integration, officially launches March 21, per Elon Musk\'s post on X.',
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },

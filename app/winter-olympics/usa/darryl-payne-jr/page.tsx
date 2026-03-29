@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Darryl Payne Jr. — Team USA Skeleton | Olympic Profile | ObjectWire',
+  title: 'Darryl Payne Jr. | Team USA Skeleton | Olympic Profile | ObjectWire',
   description:
     'Full profile of Darryl Payne Jr., the Temple, Texas native and Baylor University track athlete who became the first African American man to compete for the United States in Olympic skeleton at the 2026 Milano Cortina Winter Games.',
   keywords: [
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     'skeleton athlete profile',
   ],
   openGraph: {
-    title: 'Darryl Payne Jr. — First African American Man in U.S. Olympic Skeleton',
+    title: 'Darryl Payne Jr. | First African American Man in U.S. Olympic Skeleton',
     description:
-      'How a track athlete from Temple, Texas became a history-maker at the 2026 Winter Olympics — the first African American man ever to represent the United States in Olympic skeleton.',
+      'How a track athlete from Temple, Texas became a history-maker at the 2026 Winter Olympics, the first African American man ever to represent the United States in Olympic skeleton.',
     type: 'article',
     publishedTime: '2026-02-19T20:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Darryl Payne Jr. — History Made at Milano Cortina 2026',
+    title: 'Darryl Payne Jr. | History Made at Milano Cortina 2026',
     description:
       'The Temple, Texas native breaks barriers as the first African American man to compete for Team USA in Olympic skeleton.',
   },

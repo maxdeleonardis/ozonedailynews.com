@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'AWS Temporarily Shuts Down UAE Availability Zone mec1-az2 After Objects Strike Facility, Sparking Fire — March 1, 2026 | ObjectWire',
+    'AWS Temporarily Shuts Down UAE Availability Zone mec1-az2 After Objects Strike Facility, Sparking Fire, March 1, 2026 | ObjectWire',
   description:
     'Amazon Web Services shut down UAE Availability Zone mec1-az2 on March 1, 2026, after objects struck the data center, creating sparks and a fire. The incident occurred during Iranian missile and drone strikes across the Gulf region.',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'AWS Shuts Down UAE Data Center Zone After Objects Spark Fire During Iranian Strikes — March 1, 2026',
+      'AWS Shuts Down UAE Data Center Zone After Objects Spark Fire During Iranian Strikes, March 1, 2026',
     description:
       'Objects struck the AWS mec1-az2 facility in the UAE on March 1, 2026, triggering sparks and a fire. Emergency power shutdown followed as Iranian missiles and drones struck across the Gulf. Other UAE availability zones remained operational.',
     type: 'article',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'AWS UAE Data Center Struck During Iranian Missile Barrage — Zone mec1-az2 Offline',
+      'AWS UAE Data Center Struck During Iranian Missile Barrage, Zone mec1-az2 Offline',
     description:
       'Objects struck the AWS mec1-az2 facility in the UAE on March 1, 2026, starting a fire and forcing an emergency power shutdown. Other UAE zones remained operational. AWS did not confirm a direct link to Iranian strikes.',
     images: [IMAGE_URL],

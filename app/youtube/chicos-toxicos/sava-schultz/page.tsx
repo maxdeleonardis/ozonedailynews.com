@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/chicos-toxicos/sava-schultz';
 
 export const metadata: Metadata = {
-  title: 'Sava Schultz — TikTok Star, OnlyFans Model & Social Media Influencer | ObjectWire',
+  title: 'Sava Schultz | TikTok Star, OnlyFans Model & Social Media Influencer | ObjectWire',
   description:
     'Who is Sava Schultz? American TikTok star Sava Schultz (@savaschulz) is a viral dance, lip sync, and fitness content creator and OnlyFans model. Full profile, age, net worth, height, boyfriend, and social media links.',
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/chicos-toxicos/sava-schultz',
   },
   openGraph: {
-    title: 'Sava Schultz — TikTok Star & Social Media Influencer',
+    title: 'Sava Schultz | TikTok Star & Social Media Influencer',
     description:
       'Full profile of Sava Schultz: the American TikTok star known for viral dance, lip sync, and fitness content. Age, height, net worth, boyfriend, and social links on ObjectWire.',
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sava Schultz — TikTok Star & Social Media Influencer',
+    title: 'Sava Schultz | TikTok Star & Social Media Influencer',
     description:
       'Who is Sava Schultz? Full profile of the viral American TikTok star, OnlyFans model, and fitness content creator.',
   },

@@ -1,5 +1,5 @@
 # Commit-Deploy Automation Pipeline (Enhanced)
-## Execution Plan — ObjectWire
+## Execution Plan | ObjectWire
 ### "Content-as-Code" Approach
 
 **Goal:** Every `git push` to `main` containing new articles automatically
@@ -11,14 +11,14 @@ trims the page to a lean DB stub, updates the SEO registry, and pings sitemaps.
 
 ## How to use this doc
 
-- Work top-to-bottom. Each step has a **Done When** checklist — tick every box before moving to the next step.
+- Work top-to-bottom. Each step has a **Done When** checklist, tick every box before moving to the next step.
 - Steps marked *(parallel)* can be run at the same time as the adjacent step.
 - Steps marked *(manual)* require action outside the codebase (GitHub UI, etc.).
 - Check off boxes with `[x]` as you complete each item.
 
 ---
 
-## Step 1A — Add `ArticlePage` → `article_pages` extraction
+## Step 1A | Add `ArticlePage` → `article_pages` extraction
 
 **File:** `scripts/migrate-wiki-content.ts`
 **Status:** ✅ COMPLETE
@@ -30,7 +30,7 @@ trims the page to a lean DB stub, updates the SEO registry, and pings sitemaps.
 > **Robustness note:** The extraction uses the same `extractStrProp` / `extractExprProp` helpers
 > as the JackArticle path. A future upgrade to use an AST parser like `ts-morph` would make
 > this indestructible against unusual JSX formatting. Known caveat: props that span unusual
-> whitespace patterns may not parse — the script fails loudly (non-zero exit) rather than
+> whitespace patterns may not parse, the script fails loudly (non-zero exit) rather than
 > silently pushing bad data.
 
 **Extraction map:**
@@ -55,7 +55,7 @@ Upsert target: `article_pages` table, `onConflict: 'slug'` (idempotent).
 
 ---
 
-## Step 1B — Add `JackArticleDB` + `ArticlePageDB` stubs & Cleanup *(parallel with 1A)*
+## Step 1B | Add `JackArticleDB` + `ArticlePageDB` stubs & Cleanup *(parallel with 1A)*
 
 **File:** `scripts/trim-wiki-pages.ts` + `.gitignore`
 **Status:** ✅ COMPLETE
@@ -95,14 +95,14 @@ Priority order (first match wins):
 
 ---
 
-## Step 2 — Refine Local Testing Command
+## Step 2 | Refine Local Testing Command
 
 **File:** `package.json`
 **Status:** ✅ COMPLETE
 
 **What was done:**
 Added `pipeline:local` (not `deploy:commit`) to clarify this is a local
-testing/manual override tool — GitHub Actions handles real deployment.
+testing/manual override tool, GitHub Actions handles real deployment.
 
 ```json
 "pipeline:local": "npm run wiki:migrate && npm run wiki:trim && npm run registry:write && npx tsx scripts/ping-google.ts"
@@ -116,7 +116,7 @@ testing/manual override tool — GitHub Actions handles real deployment.
 
 ---
 
-## Step 3A — Add GitHub Secrets *(manual — requires GitHub UI)*
+## Step 3A | Add GitHub Secrets *(manual | requires GitHub UI)*
 
 **Where:** `https://github.com/aMarketology/Object-wire26-/settings/secrets/actions`
 **Status:** ⬜ PENDING (manual action)
@@ -138,7 +138,7 @@ Add two repository secrets (values from Supabase dashboard → Settings → API)
 
 ---
 
-## Step 3B — Update GitHub Actions Workflow *(depends on 3A)*
+## Step 3B | Update GitHub Actions Workflow *(depends on 3A)*
 
 **File:** `.github/workflows/seo-registry-sync.yml`
 **Status:** ✅ COMPLETE
@@ -146,10 +146,10 @@ Add two repository secrets (values from Supabase dashboard → Settings → API)
 **What was done:**
 Replaced the existing workflow with the enhanced version below.
 Key improvements over the original:
-- **`paths` filter** — pipeline only runs when `app/**/page.tsx` or `scripts/**` change; CSS/UI updates no longer waste CI minutes or Supabase API quota
-- **`permissions: contents: write`** — required for the auto-commit step
-- **`env:` block** — Supabase credentials injected from secrets
-- **`[skip ci]` in commit message** — prevents the auto-committed stub files from re-triggering this workflow (infinite loop guard)
+- **`paths` filter**, pipeline only runs when `app/**/page.tsx` or `scripts/**` change; CSS/UI updates no longer waste CI minutes or Supabase API quota
+- **`permissions: contents: write`**, required for the auto-commit step
+- **`env:` block**, Supabase credentials injected from secrets
+- **`[skip ci]` in commit message**, prevents the auto-committed stub files from re-triggering this workflow (infinite loop guard)
 - Combined `registry:sync && registry:write` into one step
 
 ```yaml
@@ -222,7 +222,7 @@ jobs:
 
 ---
 
-## Step 4 — End-to-End Verification
+## Step 4 | End-to-End Verification
 
 **Goal:** Confirm the full pipeline works smoothly and idempotently.
 **Status:** ⬜ PENDING
@@ -234,15 +234,15 @@ jobs:
    npm run wiki:migrate -- --dry-run
    npm run wiki:trim -- --dry-run
    ```
-3. Inspect output — confirm `[article page]` detected, slug + field counts printed
+3. Inspect output, confirm `[article page]` detected, slug + field counts printed
 4. Run for real:
    ```sh
    npm run pipeline:local
    ```
-5. Check Supabase → `article_pages` table — confirm row exists with correct fields
-6. Check `app/blog/test-pipeline/page.tsx` — confirm it is now a 3-line `<ArticlePageDB>` stub
+5. Check Supabase → `article_pages` table, confirm row exists with correct fields
+6. Check `app/blog/test-pipeline/page.tsx`, confirm it is now a 3-line `<ArticlePageDB>` stub
 7. Push to `main` and watch the GitHub Action run
-8. Make a CSS-only change and push — confirm the Action does **not** trigger
+8. Make a CSS-only change and push, confirm the Action does **not** trigger
 
 **Done When:**
 - [ ] `npm run wiki:migrate -- --dry-run` prints `[article page]` for the test file
@@ -284,7 +284,7 @@ npm run wiki:trim -- --file app/crypto/my-article/page.tsx
 **Normal workflow (automated):**
 ```sh
 git add .
-git commit -m "feat: new article — my topic"
+git commit -m "feat: new article, my topic"
 git push origin main
 # GitHub Actions handles everything automatically
 ```
@@ -293,10 +293,10 @@ git push origin main
 
 ## Future Improvements (post-MVP)
 
-- **AST parsing with `ts-morph`** — replace regex prop extraction with a proper TypeScript AST parser for indestructible reliability on any JSX formatting style
-- **Changed-files only mode** — pass `git diff HEAD~1 --name-only` to `wiki:migrate` so large repos only process new/edited pages per push instead of scanning all pages
-- **Supabase content hash check** — before upserting, compare a hash of the extracted HTML against a stored `content_hash` column; skip if identical (reduces write load on high-frequency pushes)
-- **Slack/Discord notification** — post a summary of migrated articles to a webhook after each successful pipeline run
+- **AST parsing with `ts-morph`**, replace regex prop extraction with a proper TypeScript AST parser for indestructible reliability on any JSX formatting style
+- **Changed-files only mode**, pass `git diff HEAD~1 --name-only` to `wiki:migrate` so large repos only process new/edited pages per push instead of scanning all pages
+- **Supabase content hash check**, before upserting, compare a hash of the extracted HTML against a stored `content_hash` column; skip if identical (reduces write load on high-frequency pushes)
+- **Slack/Discord notification**, post a summary of migrated articles to a webhook after each successful pipeline run
 
 ---
 

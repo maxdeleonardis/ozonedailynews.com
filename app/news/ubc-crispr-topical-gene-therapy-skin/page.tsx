@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Berlin Institute of Health Charité',
   ],
   openGraph: {
-    title: 'UBC Develops First Topical CRISPR Gene Therapy for Skin — Applied Like a Cream',
+    title: 'UBC Develops First Topical CRISPR Gene Therapy for Skin | Applied Like a Cream',
     description:
       'UBC and Charité researchers used lipid nanoparticles to deliver a CRISPR base editor through skin, correcting ichthyosis mutations with no off-target effects in human skin models.',
     type: 'article',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'First Topical CRISPR Therapy for Skin — UBC & Charité Research | ObjectWire',
+    title: 'First Topical CRISPR Therapy for Skin | UBC & Charité Research | ObjectWire',
     description:
       'A CRISPR base editor in a lipid nanoparticle cream corrects ichthyosis mutations in human skin models. Here&apos;s what it means.',
   },

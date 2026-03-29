@@ -1,5 +1,5 @@
 -- =============================================================================
--- Seed: Coinbase opens ATH, RAY, NCT, STRK to New York traders — March 21, 2026
+-- Seed: Coinbase opens ATH, RAY, NCT, STRK to New York traders - March 21, 2026
 -- Component: NewsArticle → articles table
 -- Route: /crypto/coinbase-new-york-ath-ray-nct-strk-2026
 -- =============================================================================
@@ -29,7 +29,7 @@ INSERT INTO articles (
 
   'Coinbase Opens Four Crypto Tokens to New York Traders',
 
-  'Aethir, Raydium, PolySwarm, and Starknet are now live for buy, sell, swap, send, receive, and storage on Coinbase — a notable regulatory milestone for the country''s strictest crypto state.',
+  'Aethir, Raydium, PolySwarm, and Starknet are now live for buy, sell, swap, send, receive, and storage on Coinbase, a notable regulatory milestone for the country''s strictest crypto state.',
 
   'Crypto',
   'blue',
@@ -58,7 +58,7 @@ INSERT INTO articles (
 
 <h2>Why New York Listings Matter</h2>
 
-<p>No state in the U.S. imposes a stricter regulatory framework on cryptocurrency activity than New York. The BitLicense system — introduced in 2015 — requires exchanges to conduct detailed due diligence on each coin before it can be offered to the approximately <strong>19 million</strong> residents of the state. Assets must clear anti-money laundering screenings, consumer-protection reviews, and cybersecurity audits before NYDFS signs off.</p>
+<p>No state in the U.S. imposes a stricter regulatory framework on cryptocurrency activity than New York. The BitLicense system, introduced in 2015, requires exchanges to conduct detailed due diligence on each coin before it can be offered to the approximately <strong>19 million</strong> residents of the state. Assets must clear anti-money laundering screenings, consumer-protection reviews, and cybersecurity audits before NYDFS signs off.</p>
 
 <p>The result is a tiered market: coins available nationally on Coinbase are frequently unavailable in New York for months or years after their initial listing. When a batch of tokens clears NYDFS, it signals the regulator has reviewed the project''s team, token structure, legal documentation, and risk controls to a standard well above what most offshore exchanges require. For institutional and retail traders in New York, today''s announcement opens direct access they previously had to route around through offshore platforms or self-custody methods.</p>
 
@@ -74,9 +74,9 @@ INSERT INTO articles (
 
 <h2>Coinbase''s New York Strategy</h2>
 
-<p>Coinbase holds one of the earliest BitLicenses ever issued — granted in 2017 — and has spent the years since steadily expanding its New York asset list as it clears the NYDFS approval process for individual tokens. The strategy reflects Coinbase''s long-standing posture of treating regulatory compliance as a competitive moat rather than a constraint: by doing the work to list assets properly in the hardest market, the exchange builds a defensible position against competitors who skip the process.</p>
+<p>Coinbase holds one of the earliest BitLicenses ever issued, granted in 2017, and has spent the years since steadily expanding its New York asset list as it clears the NYDFS approval process for individual tokens. The strategy reflects Coinbase''s long-standing posture of treating regulatory compliance as a competitive moat rather than a constraint: by doing the work to list assets properly in the hardest market, the exchange builds a defensible position against competitors who skip the process.</p>
 
-<p>The four tokens added today span different sectors of the digital asset ecosystem — decentralized cloud compute, Solana DeFi, cybersecurity intelligence, and Ethereum Layer 2 scaling — which suggests Coinbase''s compliance team is working through backlogs across multiple chains and verticals simultaneously rather than prioritizing a single narrative theme.</p>
+<p>The four tokens added today span different sectors of the digital asset ecosystem, decentralized cloud compute, Solana DeFi, cybersecurity intelligence, and Ethereum Layer 2 scaling, which suggests Coinbase''s compliance team is working through backlogs across multiple chains and verticals simultaneously rather than prioritizing a single narrative theme.</p>
 
 <h2>What This Means for Traders</h2>
 

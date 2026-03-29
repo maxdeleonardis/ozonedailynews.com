@@ -13,24 +13,24 @@
 ## 📚 Documentation
 
 **Core Setup & Architecture:**
-- [INSTALLATION.md](INSTALLATION.md) — Setup and environment configuration
-- [SUPABASE_SETUP.md](SUPABASE_SETUP.md) — Database, CLI workflow, and integration guide
-- [ARCHITECTURE_SPRINT.md](ARCHITECTURE_SPRINT.md) — Two-room architecture pattern
+- [INSTALLATION.md](INSTALLATION.md), Setup and environment configuration
+- [SUPABASE_SETUP.md](SUPABASE_SETUP.md), Database, CLI workflow, and integration guide
+- [ARCHITECTURE_SPRINT.md](ARCHITECTURE_SPRINT.md), Two-room architecture pattern
 
 **Component System:** 🆕
-- [COMPONENT-SYSTEM-SUMMARY.md](Docs/COMPONENT-SYSTEM-SUMMARY.md) — Overview of DynamicNewsArticle component
-- [DYNAMIC-NEWS-ARTICLE-COMPONENT.md](Docs/DYNAMIC-NEWS-ARTICLE-COMPONENT.md) — Complete technical documentation
-- [QUICK-START-ARTICLE-TEMPLATE.md](Docs/QUICK-START-ARTICLE-TEMPLATE.md) — 5-minute getting started guide
-- [COMPONENT-VISUAL-GUIDE.md](Docs/COMPONENT-VISUAL-GUIDE.md) — Visual reference and layouts
+- [COMPONENT-SYSTEM-SUMMARY.md](Docs/COMPONENT-SYSTEM-SUMMARY.md), Overview of DynamicNewsArticle component
+- [DYNAMIC-NEWS-ARTICLE-COMPONENT.md](Docs/DYNAMIC-NEWS-ARTICLE-COMPONENT.md), Complete technical documentation
+- [QUICK-START-ARTICLE-TEMPLATE.md](Docs/QUICK-START-ARTICLE-TEMPLATE.md), 5-minute getting started guide
+- [COMPONENT-VISUAL-GUIDE.md](Docs/COMPONENT-VISUAL-GUIDE.md), Visual reference and layouts
 - [MIGRATION-GUIDE.md](Docs/MIGRATION-GUIDE.md) — Before/after migration examples
 
 **Strategic Documents:**
-- [WHITEPAPER.md](WHITEPAPER.md) — Platform vision and business strategy
-- [BLACKBOOK_BLUEPRINT.md](BLACKBOOK_BLUEPRINT.md) — Prediction market design
-- [LOG.md](LOG.md) — Development history and changelog
+- [WHITEPAPER.md](WHITEPAPER.md), Platform vision and business strategy
+- [BLACKBOOK_BLUEPRINT.md](BLACKBOOK_BLUEPRINT.md), Prediction market design
+- [LOG.md](LOG.md), Development history and changelog
 
 **Backend:**
-- [backend/README.md](backend/README.md) — FastAPI backend documentation
+- [backend/README.md](backend/README.md), FastAPI backend documentation
 
 ---
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     'Hetzner vs DigitalOcean | VPS Pricing + Performance Comparison Guide',
   description:
-    'Hetzner Cloud vs DigitalOcean compared in 2026: vCPU counts, RAM, bandwidth, storage pricing, performance benchmarks, and the best use cases — from Next.js deployments to blockchain nodes and high-throughput bots.',
+    'Hetzner Cloud vs DigitalOcean compared in 2026: vCPU counts, RAM, bandwidth, storage pricing, performance benchmarks, and the best use cases, from Next.js deployments to blockchain nodes and high-throughput bots.',
   keywords: [
     'Hetzner Cloud vs DigitalOcean',
     'Hetzner vs DigitalOcean 2026',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hetzner Cloud vs DigitalOcean 2026: Full Pricing & Performance Breakdown',
     description:
-      'A spec-for-spec comparison of Hetzner Cloud and DigitalOcean Droplets — covering bandwidth, vCPU, RAM, storage costs, and which platform wins for compute-heavy vs developer-friendly workloads.',
+      'A spec-for-spec comparison of Hetzner Cloud and DigitalOcean Droplets, covering bandwidth, vCPU, RAM, storage costs, and which platform wins for compute-heavy vs developer-friendly workloads.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

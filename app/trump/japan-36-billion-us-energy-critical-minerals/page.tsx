@@ -10,7 +10,7 @@ const SLUG = '/trump/japan-36-billion-us-energy-critical-minerals';
 export const metadata: Metadata = {
   title: 'Japan Commits $36 Billion to US Energy & Critical Minerals Under Trump Trade Pact | ObjectWire',
   description:
-    'Japan announced the first investments under its landmark US trade deal on February 17, 2026 — committing $36 billion across three projects: a $33B natural gas plant in Ohio, a $2.1B crude export terminal in Texas, and a $600M synthetic diamond plant in Georgia.',
+    'Japan announced the first investments under its landmark US trade deal on February 17, 2026, committing $36 billion across three projects: a $33B natural gas plant in Ohio, a $2.1B crude export terminal in Texas, and a $600M synthetic diamond plant in Georgia.',
   keywords: [
     'Japan US trade deal',
     'Japan $36 billion investment',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Japan\'s $36B US Investment Is Live — Ohio Gas Plant, Texas Crude Terminal, Georgia Diamonds',
+    title: 'Japan\'s $36B US Investment Is Live | Ohio Gas Plant, Texas Crude Terminal, Georgia Diamonds',
     description:
       'First tranche of Japan\'s $550B US pledge: the largest natural gas plant in US history plus critical minerals and energy infrastructure. Under Trump\'s trade framework.',
   },

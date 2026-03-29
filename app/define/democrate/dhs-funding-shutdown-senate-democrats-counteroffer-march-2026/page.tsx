@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown',
     description:
-      'Senate Democrats sent their latest counteroffer to fund the Department of Homeland Security as the partial shutdown entered its 32nd day — but Senate Majority Leader John Thune said it "didn\'t change much from where we were."',
+      'Senate Democrats sent their latest counteroffer to fund the Department of Homeland Security as the partial shutdown entered its 32nd day, but Senate Majority Leader John Thune said it "didn\'t change much from where we were."',
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown | ObjectWire',
     description:
-      'Senate Democrats sent the White House a new DHS funding counteroffer on Monday — but Thune says it "didn\'t change much." The partial shutdown is now in its 32nd day.',
+      'Senate Democrats sent the White House a new DHS funding counteroffer on Monday, but Thune says it "didn\'t change much." The partial shutdown is now in its 32nd day.',
   },
   other: {
     news_keywords:

@@ -263,7 +263,7 @@ export function RelatedLinks({ links }: { links: RelatedLink[] }) {
               {link.label ?? link.text}
             </Link>
             {link.description && (
-              <span className="text-gray-500 ml-1">— {link.description}</span>
+              <span className="text-gray-500 ml-1">,  {link.description}</span>
             )}
           </li>
         ))}
@@ -333,12 +333,12 @@ export function Quote({
   context?: string;
 }) {
   const body = children ?? text;
-  const footer = source ?? (author && context ? `${author} — ${context}` : author ?? context);
+  const footer = source ?? (author && context ? `${author}, ${context}` : author ?? context);
   return (
     <blockquote className="border-l-2 border-gray-300 pl-4 my-4 italic text-gray-700">
       {body}
       {footer && (
-        <footer className="text-sm text-gray-500 mt-2 not-italic">— {footer}</footer>
+        <footer className="text-sm text-gray-500 mt-2 not-italic">,  {footer}</footer>
       )}
     </blockquote>
   );

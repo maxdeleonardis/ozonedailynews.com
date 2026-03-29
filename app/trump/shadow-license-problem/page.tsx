@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming | ObjectWire',
   description:
-    'The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips — without permission. Ben Stiller is demanding removal. Legal experts call it a "shadow license" crisis with no clear accountability.',
+    'The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips, without permission. Ben Stiller is demanding removal. Legal experts call it a "shadow license" crisis with no clear accountability.',
   keywords: [
     'White House war edits copyright',
     'White House social media copyright violation',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Shadow License Problem: White House 'War Edits' Put Hollywood and the Pentagon on Edge",
     description:
-      'White House montages splicing Iran strike drone footage with GTA "Wasted" screens and Tom Cruise clips have triggered copyright demands from Ben Stiller and Kesha — and exposed a legal grey zone with no clear accountability.',
+      'White House montages splicing Iran strike drone footage with GTA "Wasted" screens and Tom Cruise clips have triggered copyright demands from Ben Stiller and Kesha, and exposed a legal grey zone with no clear accountability.',
     type: 'article',
     url: 'https://www.objectwire.org/trump/shadow-license-problem',
     siteName: 'ObjectWire',

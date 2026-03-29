@@ -10,7 +10,7 @@ const URL_PATH = '/trump/WLFI-stablecoin';
 const FULL_URL = `https://www.objectwire.org${URL_PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Binance Launches 135M Token Airdrop for USD1 Holders — WLFI Campaign | ObjectWire',
+  title: 'Binance Launches 135M Token Airdrop for USD1 Holders | WLFI Campaign | ObjectWire',
   description:
     'Binance on March 20, 2026 launched a four-week airdrop distributing 135 million World Liberty Financial (WLFI) tokens to users holding the USD1 stablecoin. 33.75 million tokens are released each Friday through April 17.',
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Binance WLFI Airdrop: 135M Tokens for USD1 Holders | ObjectWire',
     description:
-      'Binance launched Round 2 of the WLFI airdrop on March 20 — 135M tokens over four Fridays for holders of the Trump-family USD1 stablecoin.',
+      'Binance launched Round 2 of the WLFI airdrop on March 20, 135M tokens over four Fridays for holders of the Trump-family USD1 stablecoin.',
   },
 };
 

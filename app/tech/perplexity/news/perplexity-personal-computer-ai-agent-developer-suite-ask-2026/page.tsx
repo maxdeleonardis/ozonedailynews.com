@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'Perplexity Unveils "Personal Computer" AI Agent & Developer Suite at Ask 2026 | ObjectWire',
   description:
-    'At its inaugural Ask 2026 developer conference in San Francisco, Perplexity AI revealed "Personal Computer" — a 24/7 autonomous AI agent anchored to a Mac mini — alongside four new developer APIs: Agent, Sandbox, Search, and Embeddings.',
+    'At its inaugural Ask 2026 developer conference in San Francisco, Perplexity AI revealed "Personal Computer", a 24/7 autonomous AI agent anchored to a Mac mini, alongside four new developer APIs: Agent, Sandbox, Search, and Embeddings.',
   keywords: [
     'Perplexity Personal Computer AI agent 2026',
     'Perplexity Ask 2026 developer conference',

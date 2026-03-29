@@ -10,7 +10,7 @@ const SLUG = '/bio-hacking/bianca-dias-bbl-death-brazil-insurance-shift';
 export const metadata: Metadata = {
   title: "Bianca Dias and the BBL Crisis: How 'Complication Insurance' Is Adding a 30% Safety Tax to Cosmetic Surgery | ObjectWire",
   description:
-    "On February 19, 2026, in São Paulo, Brazil's mandatory complication insurance policy for elective procedures went into effect — raising BBL costs by 30% and reshaping the global cosmetic surgery industry overnight.",
+    "On February 19, 2026, in São Paulo, Brazil's mandatory complication insurance policy for elective procedures went into effect, raising BBL costs by 30% and reshaping the global cosmetic surgery industry overnight.",
   keywords: [
     'Bianca Dias BBL death São Paulo 2026',
     'BBL complication insurance Brazil mandatory',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Brazil Just Added a 30% 'Safety Tax' to BBLs — And It Started with Bianca Dias",
+    title: "Brazil Just Added a 30% 'Safety Tax' to BBLs | And It Started with Bianca Dias",
     description:
       "Mandatory complication insurance for elective surgery is now law in Brazil. BBL prices are up 30%. The question: does pricing risk out of reach make it safer, or just more exclusive?",
   },

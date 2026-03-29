@@ -10,7 +10,7 @@ const SLUG = '/earth/news/japan-chikyu-deep-sea-rare-earth-extraction';
 export const metadata: Metadata = {
   title: "Beyond the Hype: How Japan's Chikyu Just Started the Real Deep-Sea Gold Rush | ObjectWire",
   description:
-    "On February 2, 2026, Japan's drilling vessel Chikyu successfully lifted rare earth-rich sediment from 6,000 meters beneath the Pacific — the world's first deep-sea rare earth extraction at that depth. This is no longer theoretical.",
+    "On February 2, 2026, Japan's drilling vessel Chikyu successfully lifted rare earth-rich sediment from 6,000 meters beneath the Pacific, the world's first deep-sea rare earth extraction at that depth. This is no longer theoretical.",
   keywords: [
     'Japan Chikyu deep sea rare earth extraction 2026',
     'world first deep sea mining rare earth minerals',

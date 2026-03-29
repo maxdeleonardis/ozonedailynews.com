@@ -6,7 +6,7 @@
 -- PRODUCTION TODO: Lock these down to authenticated role once Supabase Auth
 -- is wired into the admin area.
 
--- Ensure bucket exists (idempotent — won't overwrite existing data)
+-- Ensure bucket exists (idempotent - won't overwrite existing data)
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (
   'blog-images',

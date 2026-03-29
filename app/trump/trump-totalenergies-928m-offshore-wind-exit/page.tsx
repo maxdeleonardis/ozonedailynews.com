@@ -12,7 +12,7 @@ const IMAGE_URL = '/trump/trump-totalenergies-offshore-wind.PNG';
 export const metadata: Metadata = {
   title: "Trump Admin Pays TotalEnergies $928M to Exit Offshore Wind Projects",
   description:
-    "The Trump administration announced a deal to pay French energy giant TotalEnergies nearly $1 billion to abandon two offshore wind projects off the East Coast — a dramatic financial reversal of Biden-era clean energy policy.",
+    "The Trump administration announced a deal to pay French energy giant TotalEnergies nearly $1 billion to abandon two offshore wind projects off the East Coast, a dramatic financial reversal of Biden-era clean energy policy.",
   openGraph: {
     title: "Trump Admin Pays TotalEnergies $928M to Exit Offshore Wind",
     description:

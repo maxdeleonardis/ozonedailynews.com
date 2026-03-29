@@ -21,7 +21,7 @@ export type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthl
 export interface ContentEntry {
   slug: string;             // URL path, e.g. "/winter-olympics/usa/breezy-johnson"
   title: string;            // Page title (used in <title> and structured data)
-  description: string;      // Meta description — max 160 chars
+  description: string;      // Meta description, max 160 chars
   publishDate: string;      // ISO date: "2026-02-11"
   modifiedDate: string;     // ISO date: last edit
   category: string;         // Primary section label
@@ -32,9 +32,9 @@ export interface ContentEntry {
   changeFrequency: ChangeFrequency;
   featured?: boolean;       // Show in homepage hero/featured slot
   trending?: boolean;       // Mark as trending article
-  imageUrl?: string;        // OG / article hero image (host on objectwire.org or Supabase — never hotlink)
-  imageWidth?: number;      // Pixel width  — required for Google Top Stories carousel (min 1200)
-  imageHeight?: number;     // Pixel height — required for Google Top Stories carousel (min 675, 16:9)
+  imageUrl?: string;        // OG / article hero image (host on objectwire.org or Supabase, never hotlink)
+  imageWidth?: number;      // Pixel width , required for Google Top Stories carousel (min 1200)
+  imageHeight?: number;     // Pixel height, required for Google Top Stories carousel (min 675, 16:9)
   imageAlt?: string;        // Alt text for the hero image
   imageCredit?: string;     // Attribution string, e.g. "NASA / JPL-Caltech (Public Domain)"
 }
@@ -47,7 +47,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/winter-olympics',
     title: 'Milan Cortina 2026 Winter Olympics Coverage | ObjectWire',
-    description: 'Full coverage of the Milan Cortina 2026 Winter Olympics — medal standings, athlete profiles, event results, and breaking news.',
+    description: 'Full coverage of the Milan Cortina 2026 Winter Olympics, medal standings, athlete profiles, event results, and breaking news.',
     publishDate: '2026-02-06',
     modifiedDate: '2026-02-17',
     category: 'Sports',
@@ -59,7 +59,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/winter-olympics/usa/breezy-johnson',
-    title: 'Breezy Johnson — Team USA First Gold at Milan Cortina 2026',
+    title: 'Breezy Johnson | Team USA First Gold at Milan Cortina 2026',
     description: 'Breezy Johnson won Team USA\'s first gold medal at the 2026 Milan Cortina Winter Olympics in Women\'s Downhill alpine skiing.',
     publishDate: '2026-02-11',
     modifiedDate: '2026-02-11',
@@ -76,8 +76,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/youtube/sidemen',
-    title: 'The Sidemen — YouTube\'s Biggest Creator Group | ObjectWire',
-    description: 'Complete profile of the Sidemen — KSI, Miniminter, Zerkaa, TBJZL, Behzinga, Vikkstar123, and W2S. History, net worth, charity events and more.',
+    title: 'The Sidemen | YouTube\'s Biggest Creator Group | ObjectWire',
+    description: 'Complete profile of the Sidemen, KSI, Miniminter, Zerkaa, TBJZL, Behzinga, Vikkstar123, and W2S. History, net worth, charity events and more.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-17',
     category: 'YouTube',
@@ -88,8 +88,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/charity-match',
-    title: 'Sidemen Charity Match 2026 — History, Players & Event Guide',
-    description: 'Complete guide to the Sidemen Charity Match 2026 — the world\'s biggest YouTube football event. Players, history, charity raised, and live updates.',
+    title: 'Sidemen Charity Match 2026 | History, Players & Event Guide',
+    description: 'Complete guide to the Sidemen Charity Match 2026, the world\'s biggest YouTube football event. Players, history, charity raised, and live updates.',
     publishDate: '2026-02-07',
     modifiedDate: '2026-02-17',
     category: 'YouTube',
@@ -101,8 +101,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/ksi',
-    title: 'KSI (JJ Olatunji) — Profile, Net Worth & Career | ObjectWire',
-    description: 'Full profile of KSI — YouTube star, boxer, and Sidemen member. Career timeline, net worth, music, and boxing record.',
+    title: 'KSI (JJ Olatunji) | Profile, Net Worth & Career | ObjectWire',
+    description: 'Full profile of KSI, YouTube star, boxer, and Sidemen member. Career timeline, net worth, music, and boxing record.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -113,8 +113,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/miniminter',
-    title: 'Miniminter (Simon Minter) — Profile & Career | ObjectWire',
-    description: 'Profile of Miniminter, founding Sidemen member Simon Minter — YouTube career, content style, and personal life.',
+    title: 'Miniminter (Simon Minter) | Profile & Career | ObjectWire',
+    description: 'Profile of Miniminter, founding Sidemen member Simon Minter, YouTube career, content style, and personal life.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -125,8 +125,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/zerkaa',
-    title: 'Zerkaa (Josh Bradley) — Profile & Career | ObjectWire',
-    description: 'Profile of Zerkaa, Sidemen member Josh Bradley — YouTube history, content, and personal milestones.',
+    title: 'Zerkaa (Josh Bradley) | Profile & Career | ObjectWire',
+    description: 'Profile of Zerkaa, Sidemen member Josh Bradley, YouTube history, content, and personal milestones.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -137,8 +137,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/tbjzl',
-    title: 'TBJZL (Tobi Brown) — Profile & Career | ObjectWire',
-    description: 'Profile of TBJZL, Sidemen member Tobi Brown — YouTube presence, football content, and career overview.',
+    title: 'TBJZL (Tobi Brown) | Profile & Career | ObjectWire',
+    description: 'Profile of TBJZL, Sidemen member Tobi Brown, YouTube presence, football content, and career overview.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -149,8 +149,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/behzinga',
-    title: 'Behzinga (Ethan Payne) — Profile & Career | ObjectWire',
-    description: 'Profile of Behzinga, Sidemen member Ethan Payne — fitness transformation, YouTube career, and personal story.',
+    title: 'Behzinga (Ethan Payne) | Profile & Career | ObjectWire',
+    description: 'Profile of Behzinga, Sidemen member Ethan Payne, fitness transformation, YouTube career, and personal story.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -161,8 +161,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/vikkstar',
-    title: 'Vikkstar123 (Vikram Barn) — Profile & Career | ObjectWire',
-    description: 'Profile of Vikkstar123, Sidemen member Vikram Barn — gaming content, net worth, and YouTube history.',
+    title: 'Vikkstar123 (Vikram Barn) | Profile & Career | ObjectWire',
+    description: 'Profile of Vikkstar123, Sidemen member Vikram Barn, gaming content, net worth, and YouTube history.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -173,8 +173,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/youtube/sidemen/w2s',
-    title: 'W2S (Harry Lewis) — Profile & Career | ObjectWire',
-    description: 'Profile of W2S, Sidemen member Harry Lewis — FIFA content, YouTube milestones, and personal life.',
+    title: 'W2S (Harry Lewis) | Profile & Career | ObjectWire',
+    description: 'Profile of W2S, Sidemen member Harry Lewis, FIFA content, YouTube milestones, and personal life.',
     publishDate: '2026-01-15',
     modifiedDate: '2026-02-10',
     category: 'YouTube',
@@ -190,7 +190,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/video-games/top-10-anime-games-2026',
     title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales',
-    description: 'Rankings of the best anime games in 2026 — Genshin Impact, My Hero Ultra Rumble, Dragon Ball Legends, and more. Player counts and seasonal update frequency.',
+    description: 'Rankings of the best anime games in 2026, Genshin Impact, My Hero Ultra Rumble, Dragon Ball Legends, and more. Player counts and seasonal update frequency.',
     publishDate: '2026-01-27',
     modifiedDate: '2026-01-27',
     category: 'Gaming',
@@ -202,8 +202,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/nintendo',
-    title: 'Nintendo 2026 — Switch 2, Games & News | ObjectWire',
-    description: 'Latest Nintendo news — Switch 2 launch, upcoming game releases, and analysis of Nintendo\'s 2026 strategy.',
+    title: 'Nintendo 2026 | Switch 2, Games & News | ObjectWire',
+    description: 'Latest Nintendo news, Switch 2 launch, upcoming game releases, and analysis of Nintendo\'s 2026 strategy.',
     publishDate: '2026-01-10',
     modifiedDate: '2026-03-12',
     category: 'Gaming',
@@ -229,7 +229,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/tech/news/tenstorrent-tt-quietbox-2-risc-v-ai-workstation-9999',
     title: 'Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V "QuietBox 2" | ObjectWire',
-    description: "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026 — a $9,999 liquid-cooled RISC-V AI workstation running 120B-parameter models locally with a fully open-source TT-Buda/TT-Metalium stack. The first developer-ready teraflop-class inference machine without Nvidia CUDA.",
+    description: "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026, a $9,999 liquid-cooled RISC-V AI workstation running 120B-parameter models locally with a fully open-source TT-Buda/TT-Metalium stack. The first developer-ready teraflop-class inference machine without Nvidia CUDA.",
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -243,7 +243,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/tech/news/87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026',
     title: '87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds | ObjectWire',
-    description: 'DryRun Security tested Claude, Codex, and Gemini building real apps autonomously — 26 of 30 AI-generated pull requests introduced at least one high-severity vulnerability. Claude had the most unresolved flaws; OpenAI Codex performed best with better self-remediation.',
+    description: 'DryRun Security tested Claude, Codex, and Gemini building real apps autonomously, 26 of 30 AI-generated pull requests introduced at least one high-severity vulnerability. Claude had the most unresolved flaws; OpenAI Codex performed best with better self-remediation.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -257,7 +257,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/youtube/news/omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation',
     title: 'YouTube Suspends "The Omnibus Project" 90 Days After AI Flags 2019 Antisemitism Debunking | ObjectWire',
-    description: "YouTube's AI hate speech filter issued a three-month suspension to Ken Jennings and John Roderick's Omnibus Project podcast — targeting a 2019 episode that debunked The Protocols of the Elders of Zion. Automated appeal rejected in minutes with no human review.",
+    description: "YouTube's AI hate speech filter issued a three-month suspension to Ken Jennings and John Roderick's Omnibus Project podcast, targeting a 2019 episode that debunked The Protocols of the Elders of Zion. Automated appeal rejected in minutes with no human review.",
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -271,7 +271,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/tech/perplexity/news/crowdstrike-perplexity-comet-enterprise-falcon-security-partnership',
     title: 'CrowdStrike & Perplexity Unite to Shield the "Agentic" Workforce | ObjectWire',
-    description: 'CrowdStrike and Perplexity announced a strategic partnership at Ask 2026, embedding Falcon security into Comet Enterprise. The first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition — targeting session hijacking, shadow AI, and data exfiltration in agentic workflows.',
+    description: 'CrowdStrike and Perplexity announced a strategic partnership at Ask 2026, embedding Falcon security into Comet Enterprise. The first major deployment of CrowdStrike\'s $420M Seraphic Security acquisition, targeting session hijacking, shadow AI, and data exfiltration in agentic workflows.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -285,7 +285,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/tech/perplexity/news/perplexity-personal-computer-ai-agent-developer-suite-ask-2026',
     title: 'Perplexity Unveils "Personal Computer" AI Agent & Developer Suite at Ask 2026 | ObjectWire',
-    description: 'At its inaugural Ask 2026 developer conference, Perplexity AI unveiled Personal Computer — a 24/7 autonomous AI agent anchored to a Mac mini — alongside four new developer APIs and Perplexity Finance, a direct competitor to Bloomberg Terminal.',
+    description: 'At its inaugural Ask 2026 developer conference, Perplexity AI unveiled Personal Computer, a 24/7 autonomous AI agent anchored to a Mac mini, alongside four new developer APIs and Perplexity Finance, a direct competitor to Bloomberg Terminal.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -299,7 +299,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/claude/news/federal-agencies-replace-claude-gpt-41-trump-executive-directive',
     title: 'Federal Agencies Evict Claude, Replace It With GPT-4.1 After Trump Executive Directive | ObjectWire',
-    description: 'The U.S. State Department StateChat has swapped Claude Sonnet 4.5 for GPT-4.1. The Senate approved Microsoft Copilot, Google Gemini, and ChatGPT Enterprise — excluding Anthropic. Anthropic filed two lawsuits calling the designation retaliatory.',
+    description: 'The U.S. State Department StateChat has swapped Claude Sonnet 4.5 for GPT-4.1. The Senate approved Microsoft Copilot, Google Gemini, and ChatGPT Enterprise, excluding Anthropic. Anthropic filed two lawsuits calling the designation retaliatory.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Technology',
@@ -312,7 +312,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/nintendo/donkey-kong-bananza',
-    title: 'Donkey Kong Bananza — GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine | ObjectWire',
+    title: 'Donkey Kong Bananza | GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine | ObjectWire',
     description: 'Nintendo GDC 2026 session revealed Donkey Kong Bananza contains 347,070,464 individually destructible voxels per level. Tech traces back to Super Mario Odyssey snow prototypes. Full breakdown.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
@@ -326,7 +326,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/game-of-the-year-2026-Clair-Obscur',
-    title: 'Clair Obscur: Expedition 33 — GDC Game of the Year 2026 | ObjectWire',
+    title: 'Clair Obscur: Expedition 33 | GDC Game of the Year 2026 | ObjectWire',
     description: 'Sandfall Interactive\'s Clair Obscur swept GDC Festival of Gaming 2026 awards. Built by 4 programmers on a $10M budget. Full breakdown of the Blueprint production and award wins.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
@@ -339,7 +339,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/news/outersloth-rejects-ai',
-    title: 'Outersloth Rejects 100% of Generative AI Pitches — GDC 2026 | ObjectWire',
+    title: 'Outersloth Rejects 100% of Generative AI Pitches | GDC 2026 | ObjectWire',
     description: 'Outersloth, the indie fund founded by Among Us creator Innersloth, confirmed at GDC 2026 it has rejected every single generative AI pitch received. ~3,400 total submissions, 0% AI funded.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
@@ -351,7 +351,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/news/marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes',
-    title: 'Marathon Update 1.0.0.4 — Bungie Nerfs UESC AI, Thermal Scopes & More | ObjectWire',
+    title: 'Marathon Update 1.0.0.4 | Bungie Nerfs UESC AI, Thermal Scopes & More | ObjectWire',
     description: 'Bungie deploys Marathon\'s first major balance patch on March 11, 2026. UESC enemy health reduced 10–15%, boss shields cut 25%, thermal scope range capped at 100m. Full patch notes.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
@@ -364,7 +364,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/toxic-comando',
-    title: "John Carpenter's Toxic Commando — Review Roundup & Launch Day Guide | ObjectWire",
+    title: "John Carpenter's Toxic Commando | Review Roundup & Launch Day Guide | ObjectWire",
     description: "Toxic Commando launches March 12, 2026 on PS5, Xbox Series X|S, and PC. Saber Interactive's swarm co-op shooter earns 74 Metascore. Four classes, Swarm Engine, off-road driving, and a Carpenter synth soundtrack.",
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
@@ -377,8 +377,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/video-games/mha/ultra-rumble',
-    title: 'My Hero Ultra Rumble — Season Guide & Tips 2026',
-    description: 'Complete guide to My Hero Ultra Rumble in 2026 — current season, character tier list, tips, and patch notes.',
+    title: 'My Hero Ultra Rumble | Season Guide & Tips 2026',
+    description: 'Complete guide to My Hero Ultra Rumble in 2026, current season, character tier list, tips, and patch notes.',
     publishDate: '2026-01-20',
     modifiedDate: '2026-02-01',
     category: 'Gaming',
@@ -407,8 +407,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/nvidia',
-    title: 'NVIDIA 2026 — AI Chips, GB200, and Market Dominance | ObjectWire',
-    description: 'ObjectWire\'s coverage of NVIDIA in 2026 — Blackwell architecture, data center revenue, AI dominance, and stock analysis.',
+    title: 'NVIDIA 2026 | AI Chips, GB200, and Market Dominance | ObjectWire',
+    description: 'ObjectWire\'s coverage of NVIDIA in 2026, Blackwell architecture, data center revenue, AI dominance, and stock analysis.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-10',
     category: 'Technology',
@@ -419,8 +419,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/microsoft',
-    title: 'Microsoft 2026 — Copilot, Azure, and AI Strategy | ObjectWire',
-    description: 'ObjectWire\'s Microsoft coverage — Copilot expansion, Azure AI growth, and enterprise strategy in 2026.',
+    title: 'Microsoft 2026 | Copilot, Azure, and AI Strategy | ObjectWire',
+    description: 'ObjectWire\'s Microsoft coverage, Copilot expansion, Azure AI growth, and enterprise strategy in 2026.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-08',
     category: 'Technology',
@@ -431,8 +431,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/open-ai',
-    title: 'OpenAI 2026 — GPT-5, Sora, and the Road to AGI | ObjectWire',
-    description: 'ObjectWire\'s OpenAI coverage — GPT-5 capabilities, Sora video AI, o3 reasoning models, and the AGI timeline debate.',
+    title: 'OpenAI 2026 | GPT-5, Sora, and the Road to AGI | ObjectWire',
+    description: 'ObjectWire\'s OpenAI coverage, GPT-5 capabilities, Sora video AI, o3 reasoning models, and the AGI timeline debate.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-12',
     category: 'Technology',
@@ -443,8 +443,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/google',
-    title: 'Google 2026 — Gemini, Search AI, and Alphabet Strategy | ObjectWire',
-    description: 'ObjectWire coverage of Google in 2026 — Gemini 2.0 updates, AI-powered Search changes, and Alphabet earnings.',
+    title: 'Google 2026 | Gemini, Search AI, and Alphabet Strategy | ObjectWire',
+    description: 'ObjectWire coverage of Google in 2026, Gemini 2.0 updates, AI-powered Search changes, and Alphabet earnings.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-10',
     category: 'Technology',
@@ -455,7 +455,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/intel',
-    title: 'Intel 2026 — 18A Process, Foundry Business & Turnaround | ObjectWire',
+    title: 'Intel 2026 | 18A Process, Foundry Business & Turnaround | ObjectWire',
     description: 'Intel\'s make-or-break year: 18A high-volume manufacturing, foundry customer wins, and Pat Gelsinger\'s departure impact.',
     publishDate: '2026-01-08',
     modifiedDate: '2026-02-05',
@@ -467,7 +467,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/neurophos-ai-hardware-startup',
-    title: 'Neurophos — The AI Hardware Startup Challenging NVIDIA | ObjectWire',
+    title: 'Neurophos | The AI Hardware Startup Challenging NVIDIA | ObjectWire',
     description: 'Deep-dive profile of Neurophos, the photonic AI chip startup aiming to disrupt NVIDIA\'s data center dominance.',
     publishDate: '2026-02-01',
     modifiedDate: '2026-02-01',
@@ -484,8 +484,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/elon-musk',
-    title: 'Elon Musk — Tesla, SpaceX, X, and DOGE Coverage | ObjectWire',
-    description: 'ObjectWire\'s full Elon Musk coverage hub — Tesla earnings, SpaceX missions, X platform changes, and DOGE updates.',
+    title: 'Elon Musk | Tesla, SpaceX, X, and DOGE Coverage | ObjectWire',
+    description: 'ObjectWire\'s full Elon Musk coverage hub, Tesla earnings, SpaceX missions, X platform changes, and DOGE updates.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-14',
     category: 'Technology',
@@ -501,7 +501,7 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/finance',
-    title: 'Finance Intelligence — Markets, Crypto & Economy | ObjectWire',
+    title: 'Finance Intelligence | Markets, Crypto & Economy | ObjectWire',
     description: 'ObjectWire Finance covers markets, cryptocurrency, macroeconomics, and investment intelligence for the informed reader.',
     publishDate: '2026-01-01',
     modifiedDate: '2026-02-17',
@@ -513,7 +513,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/crypto',
-    title: 'Crypto Intelligence — Bitcoin, Ethereum & Web3 | ObjectWire',
+    title: 'Crypto Intelligence | Bitcoin, Ethereum & Web3 | ObjectWire',
     description: 'ObjectWire Crypto covers Bitcoin, Ethereum, stablecoins, DeFi, and regulatory developments shaping digital assets in 2026.',
     publishDate: '2026-01-01',
     modifiedDate: '2026-02-17',
@@ -529,8 +529,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/news',
-    title: 'ObjectWire News — Breaking Stories & Verified Intelligence',
-    description: 'ObjectWire\'s news hub — breaking stories, verified reporting, and editorial intelligence across tech, finance, sports, and culture.',
+    title: 'ObjectWire News | Breaking Stories & Verified Intelligence',
+    description: 'ObjectWire\'s news hub, breaking stories, verified reporting, and editorial intelligence across tech, finance, sports, and culture.',
     publishDate: '2026-01-01',
     modifiedDate: '2026-02-17',
     category: 'News',
@@ -545,7 +545,7 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/saas',
-    title: 'SaaS Intelligence — Startups, Software & B2B Tech | ObjectWire',
+    title: 'SaaS Intelligence | Startups, Software & B2B Tech | ObjectWire',
     description: 'ObjectWire SaaS covers startup funding, software products, and B2B technology news.',
     publishDate: '2026-01-01',
     modifiedDate: '2026-02-10',
@@ -557,7 +557,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/blitzy-ai-powered-autonomous-software-development',
-    title: 'Blitzy — AI-Powered Autonomous Software Development | ObjectWire',
+    title: 'Blitzy | AI-Powered Autonomous Software Development | ObjectWire',
     description: 'Profile of Blitzy, the AI-powered platform automating enterprise software development at scale.',
     publishDate: '2026-02-05',
     modifiedDate: '2026-02-05',
@@ -570,8 +570,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/ironspring-ventures-startups-are-changing-construction-goodship-track3d-fleetpulse',
-    title: 'IronSpring Ventures — Startups Changing Construction | ObjectWire',
-    description: 'How IronSpring Ventures\' portfolio companies — Goodship, Track3D, and FleetPulse — are modernizing the construction industry.',
+    title: 'IronSpring Ventures | Startups Changing Construction | ObjectWire',
+    description: 'How IronSpring Ventures\' portfolio companies, Goodship, Track3D, and FleetPulse, are modernizing the construction industry.',
     publishDate: '2026-02-03',
     modifiedDate: '2026-02-03',
     category: 'Technology',
@@ -588,7 +588,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/entertainment/news/fortnite-moves-into-movies',
     title: 'Unreal Engine Is Becoming the Backbone of 2026 Entertainment Production | ObjectWire',
-    description: 'How Unreal Engine — the technology inside Fortnite — became Hollywood\'s primary virtual production tool for 2026 film and TV. In-camera VFX, LED volumes, and the Fortnite connection explained.',
+    description: 'How Unreal Engine, the technology inside Fortnite, became Hollywood\'s primary virtual production tool for 2026 film and TV. In-camera VFX, LED volumes, and the Fortnite connection explained.',
     publishDate: '2026-03-12',
     modifiedDate: '2026-03-12',
     category: 'Entertainment',
@@ -600,7 +600,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/entertainment',
-    title: 'Entertainment Coverage — Film, TV & Culture | ObjectWire',
+    title: 'Entertainment Coverage | Film, TV & Culture | ObjectWire',
     description: 'ObjectWire Entertainment covers movies, TV, streaming, music, and cultural moments worth tracking.',
     publishDate: '2026-01-01',
     modifiedDate: '2026-02-15',
@@ -612,8 +612,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/disney',
-    title: 'Disney 2026 — Streaming, Parks, and Studio Coverage | ObjectWire',
-    description: 'ObjectWire Disney coverage — Disney+ subscriber growth, park expansion, Marvel/Star Wars slate, and Bob Iger strategy.',
+    title: 'Disney 2026 | Streaming, Parks, and Studio Coverage | ObjectWire',
+    description: 'ObjectWire Disney coverage, Disney+ subscriber growth, park expansion, Marvel/Star Wars slate, and Bob Iger strategy.',
     publishDate: '2026-01-10',
     modifiedDate: '2026-02-10',
     category: 'Entertainment',
@@ -628,8 +628,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/apple',
-    title: 'Apple 2026 — iPhone 17, Vision Pro, and AI Features | ObjectWire',
-    description: 'ObjectWire Apple coverage — iPhone 17 leaks, Vision Pro adoption, Apple Intelligence, and Tim Cook\'s long-term bets.',
+    title: 'Apple 2026 | iPhone 17, Vision Pro, and AI Features | ObjectWire',
+    description: 'ObjectWire Apple coverage, iPhone 17 leaks, Vision Pro adoption, Apple Intelligence, and Tim Cook\'s long-term bets.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-12',
     category: 'Technology',
@@ -659,7 +659,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/trump/japan-36-billion-us-energy-critical-minerals',
     title: 'Japan Commits $36 Billion to U.S. Energy & Critical Minerals | ObjectWire',
-    description: 'Japan pledges a $36 billion investment tranche in U.S. LNG, clean energy infrastructure, and critical mineral supply chains — a cornerstone of the Trump-Ishiba trade framework.',
+    description: 'Japan pledges a $36 billion investment tranche in U.S. LNG, clean energy infrastructure, and critical mineral supply chains, a cornerstone of the Trump-Ishiba trade framework.',
     publishDate: '2026-02-18',
     modifiedDate: '2026-02-18',
     category: 'Politics',
@@ -671,7 +671,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/apple/news/apple-video-podcasts-youtube',
-    title: 'Apple Launches Full Video Podcasts — Taking On YouTube | ObjectWire',
+    title: 'Apple Launches Full Video Podcasts | Taking On YouTube | ObjectWire',
     description: 'Apple Podcasts adds native full-video support, enabling creators to publish video shows directly in the app and challenging YouTube\'s dominance in the creator economy.',
     publishDate: '2026-02-18',
     modifiedDate: '2026-02-18',
@@ -685,7 +685,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/apple/news/f1-apple-tv-espn-domenicali',
     title: 'F1 CEO Says Apple TV Will Surpass ESPN\'s U.S. Reach | ObjectWire',
-    description: 'Stefano Domenicali says Apple TV\'s exclusive U.S. Formula 1 deal — reported at $85M/year — will deliver greater audience reach than ESPN\'s 8-year tenure, citing Apple\'s 100M+ subscribers and 2.2 billion active devices.',
+    description: 'Stefano Domenicali says Apple TV\'s exclusive U.S. Formula 1 deal, reported at $85M/year, will deliver greater audience reach than ESPN\'s 8-year tenure, citing Apple\'s 100M+ subscribers and 2.2 billion active devices.',
     publishDate: '2026-02-24',
     modifiedDate: '2026-02-24',
     category: 'Sports',
@@ -711,7 +711,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: '/copyright/news/mastercard-ai-disruption-selloff',
     title: 'Mastercard Shares Drop Below $500 as AI Disruption Note and Tariff Concerns Hit Payments | ObjectWire',
-    description: 'Mastercard (NYSE: MA) fell 5.73% on February 23, 2026, closing at $496.40 — its first sub-$500 close since April 2025 — as a viral AI research note and tariff fears erased $18.4B from the payments sector.',
+    description: 'Mastercard (NYSE: MA) fell 5.73% on February 23, 2026, closing at $496.40, its first sub-$500 close since April 2025, as a viral AI research note and tariff fears erased $18.4B from the payments sector.',
     publishDate: '2026-02-24',
     modifiedDate: '2026-02-24',
     category: 'Finance',
@@ -724,8 +724,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: '/crypto/tether',
-    title: 'Tether (USDT) — The World\'s Largest Stablecoin | ObjectWire',
-    description: 'Comprehensive profile of Tether (USDT) — history, reserve structure, regulatory controversies, XAUT gold token, and its role anchoring global crypto liquidity.',
+    title: 'Tether (USDT) | The World\'s Largest Stablecoin | ObjectWire',
+    description: 'Comprehensive profile of Tether (USDT), history, reserve structure, regulatory controversies, XAUT gold token, and its role anchoring global crypto liquidity.',
     publishDate: '2026-02-18',
     modifiedDate: '2026-02-18',
     category: 'Finance',
@@ -740,8 +740,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/github',
-    title: 'GitHub 2026 — Copilot, Actions & Developer Platform | ObjectWire',
-    description: 'ObjectWire GitHub coverage — GitHub Copilot evolution, AI code review, Actions improvements, and developer platform strategy.',
+    title: 'GitHub 2026 | Copilot, Actions & Developer Platform | ObjectWire',
+    description: 'ObjectWire GitHub coverage, GitHub Copilot evolution, AI code review, Actions improvements, and developer platform strategy.',
     publishDate: '2026-01-10',
     modifiedDate: '2026-02-08',
     category: 'Technology',
@@ -756,7 +756,7 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/video-games/mha/ultra-rumble/season-15/strike-overhaul',
-    title: 'Strike Overhaul (Blighted Precipice) — MHA Ultra Rumble Season 15 Guide',
+    title: 'Strike Overhaul (Blighted Precipice) | MHA Ultra Rumble Season 15 Guide',
     description: 'Complete guide to Overhaul\'s Strike variation "Blighted Precipice" in My Hero Ultra Rumble Season 15. Quirk skills, full stats, tuning builds, and roll strategy for the Kai Chisaki assault character.',
     publishDate: '2026-02-18',
     modifiedDate: '2026-02-18',
@@ -772,8 +772,8 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: '/nasa',
-    title: 'NASA 2026 — Artemis, Mars, and Commercial Partnerships | ObjectWire',
-    description: 'ObjectWire NASA coverage — Artemis lunar program progress, Mars mission planning, and commercial space partnerships.',
+    title: 'NASA 2026 | Artemis, Mars, and Commercial Partnerships | ObjectWire',
+    description: 'ObjectWire NASA coverage, Artemis lunar program progress, Mars mission planning, and commercial space partnerships.',
     publishDate: '2026-01-05',
     modifiedDate: '2026-02-05',
     category: 'Technology',
@@ -971,7 +971,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/entertainment/hulu",
-    title: "Hulu Releases Red Band Trailer for Mike & Nick & Nick & Alice — Vince Vaughn & James Marsden | ObjectWire",
+    title: "Hulu Releases Red Band Trailer for Mike & Nick & Nick & Alice | Vince Vaughn & James Marsden | ObjectWire",
     description: "Hulu published the official red band trailer on March 1, 2026 for the R-rated time-travel action-comedy starring Vince Vaughn and James Marsden. In theaters April 18, 2026.",
     publishDate: "2026-03-02",
     modifiedDate: "2026-03-02",
@@ -982,7 +982,7 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
     featured: true,
     imageUrl: "https://www.objectwire.org/entertainment/vaughn-marsden.PNG",
-    imageAlt: "Vince Vaughn and James Marsden in Mike & Nick & Nick & Alice — Hulu 2026",
+    imageAlt: "Vince Vaughn and James Marsden in Mike & Nick & Nick & Alice, Hulu 2026",
   },
   {
     slug: "/entertainment/netflix",
@@ -1955,7 +1955,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/define/how-do-prediction-markets-work",
     title: "How Do Prediction Markets Work? Are They Cryptocurrency? | Complete Guide | ObjectWire",
-    description: "Complete technical breakdown of how prediction markets work — from order books to probability pricing. Plus: the relationship between prediction markets and cry",
+    description: "Complete technical breakdown of how prediction markets work, from order books to probability pricing. Plus: the relationship between prediction markets and cry",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Reference",
@@ -1967,7 +1967,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/define/how-does-copy-paste-work",
     title: "How Does Copy and Paste Work? A Technical Breakdown of Ctrl+C and Ctrl+V | ObjectWire",
-    description: "A deep technical dive into how copy-paste works on modern operating systems — from keyboard interrupts and system calls to clipboard managers, memory buffers, a",
+    description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory buffers, a",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Reference",
@@ -1979,7 +1979,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/define/largest-prediction-markets-united-states-2026",
     title: "The Largest Prediction Markets in the United States 2026 | Complete Guide | ObjectWire",
-    description: "Comprehensive ranking of the largest prediction markets in the US for 2026 — from Polymarket and Kalshi to PredictIt and Augur. Market size, trading volume, reg",
+    description: "Comprehensive ranking of the largest prediction markets in the US for 2026, from Polymarket and Kalshi to PredictIt and Augur. Market size, trading volume, reg",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Reference",
@@ -1991,7 +1991,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/define/most-important-stablecoins-world-2026",
     title: "The Most Important Stablecoins in the World 2026 | Complete Guide | ObjectWire",
-    description: "Complete guide to the most important stablecoins in 2026 — USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status, and why",
+    description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status, and why",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Reference",
@@ -2041,7 +2041,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/research",
     title: "ObjectWire Research",
-    description: "Fast, efficient — good for quick facts",
+    description: "Fast, efficient, good for quick facts",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Science",
@@ -2055,7 +2055,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/bio-hacking",
     title: "Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization | ObjectWire",
-    description: "Complete coverage of the bio-hacking movement — from Bryan Johnson",
+    description: "Complete coverage of the bio-hacking movement, from Bryan Johnson",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Science",
@@ -2091,7 +2091,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/earth/news/trump-epa-move-green-paradox",
     title: "Trump",
-    description: "Rare earth minerals are essential for EV batteries and wind turbines — but mining them from the ocean floor could destroy undiscovered ecosystems. Trump",
+    description: "Rare earth minerals are essential for EV batteries and wind turbines, but mining them from the ocean floor could destroy undiscovered ecosystems. Trump",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Science",
@@ -2103,7 +2103,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/earth/news/who-owns-the-ocean-floor",
     title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights | ObjectWire",
-    description: "No single country owns the deep ocean floor — but that hasn",
+    description: "No single country owns the deep ocean floor, but that hasn",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Science",
@@ -2115,7 +2115,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/earth/why-cobalt-is-the-new-oil",
     title: "Why Cobalt Is the New Oil: The Battery Metal Crunch Reshaping Global Power | ObjectWire",
-    description: "Cobalt is the essential ingredient in every EV battery — and nearly 70% of it comes from a single conflict-torn country. As demand explodes and ethics scrutiny",
+    description: "Cobalt is the essential ingredient in every EV battery, and nearly 70% of it comes from a single conflict-torn country. As demand explodes and ethics scrutiny",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Science",
@@ -2153,7 +2153,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/service",
     title: "Professional Investigative & Media Services | ObjectWire",
-    description: "ObjectWire offers licensed private detective services in Austin, TX — surveillance, infidelity investigations, fact-finding, evidence collection, photography, v",
+    description: "ObjectWire offers licensed private detective services in Austin, TX, surveillance, infidelity investigations, fact-finding, evidence collection, photography, v",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Meta",
@@ -2564,7 +2564,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/winter-olympics/usa/darryl-payne-jr",
-    title: "Darryl Payne Jr. — Team USA Skeleton | Olympic Profile | ObjectWire",
+    title: "Darryl Payne Jr. | Team USA Skeleton | Olympic Profile | ObjectWire",
     description: "Full profile of Darryl Payne Jr., the Temple, Texas native and Baylor University track athlete who became the first African American man to compete for the Unit",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -2576,8 +2576,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/winter-olympics/usa/elana-meyers",
-    title: "Elana Meyers Taylor — Team USA Bobsled | Olympic Profile | ObjectWire",
-    description: "Full profile of Elana Meyers Taylor, the 41-year-old American bobsled legend who won Olympic gold at Milano Cortina 2026 — becoming the oldest Olympic bobsled c",
+    title: "Elana Meyers Taylor | Team USA Bobsled | Olympic Profile | ObjectWire",
+    description: "Full profile of Elana Meyers Taylor, the 41-year-old American bobsled legend who won Olympic gold at Milano Cortina 2026, becoming the oldest Olympic bobsled c",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Sports",
@@ -2833,7 +2833,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/google/news/alphabet-raises-32b-in-24-hours-with-rare-100-year-bond",
     title: "Alphabet Raises $32B in 24 Hours with Rare 100-Year Bond | Breaking News | Object Wire",
-    description: "Alphabet Inc. raised nearly $32 billion in less than 24 hours through a historic multi-currency bond sale, including an ultra-rare 100-year sterling bond—the fi",
+    description: "Alphabet Inc. raised nearly $32 billion in less than 24 hours through a historic multi-currency bond sale, including an ultra-rare 100-year sterling bond, the fi",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Technology",
@@ -3148,8 +3148,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer",
-    title: "Influencer Hub — Profiles, News & Culture | ObjectWire",
-    description: "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation — fitness, YouTube, golf, and beyond.",
+    title: "Influencer Hub | Profiles, News & Culture | ObjectWire",
+    description: "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and beyond.",
     publishDate: "2026-02-21",
     modifiedDate: "2026-03-27",
     category: "Entertainment",
@@ -3160,8 +3160,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/bryson-dechambeau",
-    title: "Bryson DeChambeau — Profile, Career & LIV Golf | ObjectWire",
-    description: "Full profile of Bryson DeChambeau: 2× US Open champion (2020, 2024), LIV Golf star, and one of the most analytically gifted — and physically transformed — golfers of his generation.",
+    title: "Bryson DeChambeau | Profile, Career & LIV Golf | ObjectWire",
+    description: "Full profile of Bryson DeChambeau: 2× US Open champion (2020, 2024), LIV Golf star, and one of the most analytically gifted, and physically transformed, golfers of his generation.",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "Sports",
@@ -3184,7 +3184,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/diamond-gym",
-    title: "Diamond Gym — Maplewood, NJ | Where Elite Fitness Influencers Train | ObjectWire",
+    title: "Diamond Gym | Maplewood, NJ | Where Elite Fitness Influencers Train | ObjectWire",
     description: "Diamond Gym in Maplewood, NJ has become one of the most talked-about training facilities in the US fitness influencer scene. Logan Paul, the Tren Twins, and doz",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -3208,7 +3208,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/eden-gross",
-    title: "Eden Gross — TikTok Creator & Dancer Biography | ObjectWire",
+    title: "Eden Gross | TikTok Creator & Dancer Biography | ObjectWire",
     description: "Full biography of Eden Gross (@eden.gross), TikTok dance and lifestyle creator with nearly 1 million followers and 43.6 million total likes. Career breakdown, content style, and social media presence.",
     publishDate: "2026-03-27",
     modifiedDate: "2026-03-27",
@@ -3248,7 +3248,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/mika-lafuente",
-    title: "Mika Lafuente — Spanish Model & Content Creator Biography | ObjectWire",
+    title: "Mika Lafuente | Spanish Model & Content Creator Biography | ObjectWire",
     description: "Full biography of Mika Lafuente, Spanish model and TikTok creator with millions of followers. Career details, social media presence, fashion content, and OnlyFans overview.",
     publishDate: "2026-03-27",
     modifiedDate: "2026-03-27",
@@ -3276,7 +3276,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/news/logan-paul-sells-pokemon-card-16-million",
-    title: "Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million — Record Auction | ObjectWire",
+    title: "Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million | Record Auction | ObjectWire",
     description: "Logan Paul has sold his ultra-rare 1/1 Pikachu Illustrator PSA 9 Pokémon card at auction for $16 million, setting a new world record. Full story, card history,",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -3300,7 +3300,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/queenkalin",
-    title: "queenkalin (Kalin) — Brazilian TikTok Creator Biography | ObjectWire",
+    title: "queenkalin (Kalin) | Brazilian TikTok Creator Biography | ObjectWire",
     description: "Full biography of queenkalin (Kalin), Brazilian TikTok creator @xqueenkalin with 2.1 million followers and 138.5 million likes. Career details, content style, and social media presence.",
     publishDate: "2026-03-27",
     modifiedDate: "2026-03-27",
@@ -3348,8 +3348,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/influencer/tren-twins",
-    title: "Tren Twins (Christian & Michael Gaiera) — Fitness Influencers & YoungLA Athletes | ObjectWire",
-    description: "Full profile of the Tren Twins — Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and YoungLA bra",
+    title: "Tren Twins (Christian & Michael Gaiera) | Fitness Influencers & YoungLA Athletes | ObjectWire",
+    description: "Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and YoungLA bra",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
     category: "YouTube",
@@ -3396,7 +3396,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/chicos-toxicos/cristiana-love",
-    title: "Cristiana Love — Chicos Toxicos Personality | ObjectWire",
+    title: "Cristiana Love | Chicos Toxicos Personality | ObjectWire",
     description: "Cristiana Love is a prominent figure within the Chicos Toxicos community, known for her humorous TikTok videos, fan engagement, and charismatic presence in the",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -3408,7 +3408,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/chicos-toxicos/sava-schultz",
-    title: "Sava Schultz — TikTok Star, OnlyFans Model & Social Media Influencer | ObjectWire",
+    title: "Sava Schultz | TikTok Star, OnlyFans Model & Social Media Influencer | ObjectWire",
     description: "Who is Sava Schultz? American TikTok star Sava Schultz (@savaschulz) is a viral dance, lip sync, and fitness content creator and OnlyFans model. Full profile, a",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -3420,7 +3420,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/logan-paul",
-    title: "Logan Paul — YouTuber, WWE Star & Entrepreneur | ObjectWire",
+    title: "Logan Paul | YouTuber, WWE Star & Entrepreneur | ObjectWire",
     description: "Full profile of Logan Paul: YouTube career, Impaulsive podcast, PRIME Hydration, WWE appearances, and his record-breaking Pokémon card collection. ObjectWire co",
     publishDate: "2026-02-21",
     modifiedDate: "2026-02-21",
@@ -3495,7 +3495,7 @@ export const contentRegistry: ContentEntry[] = [
   // ===========================================================================
   {
     slug: "/google/news/iran-cyber-attacks-google-threat-intelligence-march-2026",
-    title: "Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure — March 2, 2026 | ObjectWire",
+    title: "Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026 | ObjectWire",
     description: "Google Threat Intelligence Group issued an alert March 2, 2026, warning that Iranian state-affiliated actors launched a coordinated cyber campaign targeting Israel, Gulf states, Europe, and North America, with 150+ hacktivist-claimed incidents in 72 hours.",
     publishDate: "2026-03-02",
     modifiedDate: "2026-03-02",
@@ -3514,7 +3514,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Amazon (2) ---
   {
     slug: "/amazon/news/andy-jassy-ai-will-reduce-headcount-many-roles-cnbc-february-2026",
-    title: "Amazon CEO Andy Jassy: AI Will Reduce Headcount in Many Long-Standing Roles While Creating New Ones — February 2026 | ObjectWire",
+    title: "Amazon CEO Andy Jassy: AI Will Reduce Headcount in Many Long-Standing Roles While Creating New Ones | February 2026 | ObjectWire",
     description: "Amazon CEO Andy Jassy told CNBC on February 27, 2026 that AI will mean fewer humans are needed for many jobs that have relied on human labor for 20–30 years, wh",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3526,7 +3526,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/amazon/news/aws-uae-data-center-fire-iran-strikes-march-2026",
-    title: "AWS Temporarily Shuts Down UAE Availability Zone mec1-az2 After Objects Strike Facility, Sparking Fire — March 1, 2026 | ObjectWire",
+    title: "AWS Temporarily Shuts Down UAE Availability Zone mec1-az2 After Objects Strike Facility, Sparking Fire | March 1, 2026 | ObjectWire",
     description: "Amazon Web Services shut down UAE Availability Zone mec1-az2 on March 1, 2026, after objects struck the data center, creating sparks and a fire. The incident oc",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3541,7 +3541,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/cars/ferrari",
     title: "Ferrari: History, Models, Formula 1 & Latest News | ObjectWire",
-    description: "Complete guide to Ferrari — the iconic Italian supercar manufacturer. Explore Ferrari\\",
+    description: "Complete guide to Ferrari, the iconic Italian supercar manufacturer. Explore Ferrari\\",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Automotive",
@@ -3674,7 +3674,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (11) ---
   {
     slug: "/video-games",
-    title: "Video Games — News, Reviews & Guides | ObjectWire",
+    title: "Video Games | News, Reviews & Guides | ObjectWire",
     description: "ObjectWire",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3735,7 +3735,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/video-games/switch2/pokemon-pokopia",
     title: "Pokémon Pokopia Achieves Highest Review Scores in Pokémon Franchise History on Nintendo Switch 2 | ObjectWire",
-    description: "Pokémon Pokopia scored 93 on OpenCritic and 90 on Metacritic — the highest marks ever recorded for a Pokémon title. The life simulation game launches exclusively on Nintendo Switch 2 on March 5, 2026.",
+    description: "Pokémon Pokopia scored 93 on OpenCritic and 90 on Metacritic, the highest marks ever recorded for a Pokémon title. The life simulation game launches exclusively on Nintendo Switch 2 on March 5, 2026.",
     publishDate: "2026-03-02",
     modifiedDate: "2026-03-02",
     category: "Gaming",
@@ -3745,7 +3745,7 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
     featured: true,
     imageUrl: "https://www.objectwire.org/entertainment/new_pokemon_game.PNG",
-    imageAlt: "Pokémon Pokopia — Nintendo Switch 2 exclusive, March 5, 2026",
+    imageAlt: "Pokémon Pokopia, Nintendo Switch 2 exclusive, March 5, 2026",
   },
   {
     slug: "/video-games/racing/polyphony-gran-turismo",
@@ -3760,11 +3760,11 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
     featured: true,
     imageUrl: "https://www.objectwire.org/entertainment/gran_turismo.PNG",
-    imageAlt: "Gran Turismo 7 — Polyphony Digital, PlayStation 4 and PlayStation 5",
+    imageAlt: "Gran Turismo 7, Polyphony Digital, PlayStation 4 and PlayStation 5",
   },
   {
     slug: "/video-games/Digital-Foundry",
-    title: "Crimson Desert Delivers Native 4K 60fps With Ray Tracing on Ultra Settings — Digital Foundry Tech Preview February 2026 | ObjectWire",
+    title: "Crimson Desert Delivers Native 4K 60fps With Ray Tracing on Ultra Settings | Digital Foundry Tech Preview February 2026 | ObjectWire",
     description: "Digital Foundry",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3776,7 +3776,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/epic",
-    title: "Unreal Engine Expands Beyond Gaming Into Film, Automotive, and Architecture — 2026 Adoption Trends | ObjectWire",
+    title: "Unreal Engine Expands Beyond Gaming Into Film, Automotive, and Architecture | 2026 Adoption Trends | ObjectWire",
     description: "Unreal Engine powers more than 28% of PC games released in 2024 and has expanded to 4,826 verified companies across film, automotive, architecture, and simulati",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3788,7 +3788,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/gta-6",
-    title: "Grand Theft Auto VI — Release Date, Price, & Everything We Know | ObjectWire",
+    title: "Grand Theft Auto VI | Release Date, Price, & Everything We Know | ObjectWire",
     description: "Complete guide to Grand Theft Auto VI: confirmed November 19, 2026 release date, global pricing speculation including India ₹5,999–₹6,999 and US $89.99–$124.19",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3867,7 +3867,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/authors",
     title: "Authors & Contributors | ObjectWire",
-    description: "Meet the journalists, reporters, and editors behind ObjectWire — covering finance, markets, science, technology, anime, gaming, investigations, and breaking new",
+    description: "Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and breaking new",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Meta",
@@ -3878,7 +3878,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/authors/alfansa",
-    title: "Alfansa — Finance & Markets Reporter | ObjectWire",
+    title: "Alfansa | Finance & Markets Reporter | ObjectWire",
     description: "Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering markets, payments, fintech, My Hero Academia, and gaming culture.",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3890,7 +3890,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/authors/jack-sterling",
-    title: "Jack Sterling — Journalist & Reporter | ObjectWire",
+    title: "Jack Sterling | Journalist & Reporter | ObjectWire",
     description: "Jack Sterling is a journalist and reporter at ObjectWire, covering breaking news, investigations, politics, and general assignment reporting.",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3942,7 +3942,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Politics (1) ---
   {
     slug: "/trump/kristi-noem",
-    title: "Kristi Noem — U.S. Secretary of Homeland Security | ObjectWire",
+    title: "Kristi Noem | U.S. Secretary of Homeland Security | ObjectWire",
     description: "Kristi Noem is the U.S. Secretary of Homeland Security under President Donald Trump, confirmed January 25, 2025. Formerly the 33rd Governor of South Dakota (201",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -3981,7 +3981,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/define/hetzner-cloud-vs-digitalocean",
     title: "Hetzner Cloud vs DigitalOcean 2026: VPS Pricing, Performance & Which Is Better for Your Workload | ObjectWire",
-    description: "Hetzner Cloud vs DigitalOcean compared in 2026: vCPU counts, RAM, bandwidth, storage pricing, performance benchmarks, and the best use cases — from Next.js depl",
+    description: "Hetzner Cloud vs DigitalOcean compared in 2026: vCPU counts, RAM, bandwidth, storage pricing, performance benchmarks, and the best use cases, from Next.js depl",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Reference",
@@ -3994,7 +3994,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Science (2) ---
   {
     slug: "/bio-hacking/eledon-pharmaceuticals-eldn-cd40l-tegoprubart-transplant-2026",
-    title: "Eledon Pharmaceuticals (ELDN): CD40L Pathway, Tegoprubart, Transplant & ALS Pipeline — February 2026 | ObjectWire",
+    title: "Eledon Pharmaceuticals (ELDN): CD40L Pathway, Tegoprubart, Transplant & ALS Pipeline | February 2026 | ObjectWire",
     description: "Eledon Pharmaceuticals (Nasdaq: ELDN) is a clinical-stage biotech targeting the CD40L pathway with tegoprubart, an IgG1 anti-CD40L antibody. Phase 2 BESTOW kidn",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4006,7 +4006,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/bio-hacking/life-biosciences-fda-clearance-er-100-epigenetic-reprogramming-optic-neuropathy-2026",
-    title: "Life Biosciences FDA Clearance: ER-100 Epigenetic Reprogramming Trial for Glaucoma & NAION — January 2026 | ObjectWire",
+    title: "Life Biosciences FDA Clearance: ER-100 Epigenetic Reprogramming Trial for Glaucoma & NAION | January 2026 | ObjectWire",
     description: "The FDA cleared Life Biosciences",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4020,7 +4020,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Sports (4) ---
   {
     slug: "/formula-1/stefano-domenicali",
-    title: "Stefano Domenicali — CEO of Formula 1: Career, Tenure & Legacy | ObjectWire",
+    title: "Stefano Domenicali | CEO of Formula 1: Career, Tenure & Legacy | ObjectWire",
     description: "Stefano Domenicali is the President and CEO of Formula One Group since January 2021. Formerly Ferrari Team Principal (2008–2014) and Lamborghini CEO, he has ove",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4071,7 +4071,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/apple/core-ai-framework-replaces-core-ml-wwdc-2026-bloomberg",
     title: "Apple Plans Core AI Framework to Replace Core ML at WWDC 2026, Bloomberg Reports | ObjectWire",
-    description: "Apple intends to introduce a new developer framework called Core AI at WWDC 2026 in June, replacing Core ML — the on-device machine learning toolkit Apple has s",
+    description: "Apple intends to introduce a new developer framework called Core AI at WWDC 2026 in June, replacing Core ML, the on-device machine learning toolkit Apple has s",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Technology",
@@ -4095,7 +4095,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/apple/news/mac-mini-houston-tx",
     title: "Apple to Manufacture Mac Mini in Houston, TX at Foxconn Facility | ObjectWire",
-    description: "Apple will begin assembling the Mac Mini at a Foxconn facility in Houston, Texas in the second half of 2026 — the first time the compact desktop has been produc",
+    description: "Apple will begin assembling the Mac Mini at a Foxconn facility in Houston, Texas in the second half of 2026, the first time the compact desktop has been produc",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Technology",
@@ -4107,7 +4107,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/microsoft/news/xbox-co-creator-microsoft-sunsetting-gaming-ai",
     title: "Xbox Co-Creator Says Microsoft Is",
-    description: "Seamus Blackley, one of the original creators of Xbox, says Microsoft is quietly winding down its gaming brand as the company goes all-in on generative AI — and",
+    description: "Seamus Blackley, one of the original creators of Xbox, says Microsoft is quietly winding down its gaming brand as the company goes all-in on generative AI, and",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Technology",
@@ -4118,7 +4118,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/microsoft/xbox",
-    title: "Xbox — Microsoft Gaming Hub: Consoles, Game Pass & News | ObjectWire",
+    title: "Xbox | Microsoft Gaming Hub: Consoles, Game Pass & News | ObjectWire",
     description: "ObjectWire\\",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4130,7 +4130,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/microsoft/xbox/asha-sharma",
-    title: "Asha Sharma — CVP Xbox Experiences & Platforms | Microsoft | ObjectWire",
+    title: "Asha Sharma | CVP Xbox Experiences & Platforms | Microsoft | ObjectWire",
     description: "Asha Sharma is Corporate Vice President of Xbox Experiences & Platforms at Microsoft, overseeing the Xbox app on Windows, cross-device gaming infrastructure, an",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4166,7 +4166,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/tech/federal-agencies-grok-safety-concerns-pentagon-classified-approval-2026",
-    title: "Federal Agencies Raised Grok Safety and Reliability Concerns Before Pentagon Classified Approval — February 2026 | ObjectWire",
+    title: "Federal Agencies Raised Grok Safety and Reliability Concerns Before Pentagon Classified Approval | February 2026 | ObjectWire",
     description: "Multiple U.S. federal agencies flagged xAI",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4179,7 +4179,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/tech/minimax-maxclaw-openclaw-cloud-agent-clawbot-saas-february-2026",
     title: "MiniMax Launches MaxClaw Cloud Agent on February 25, Clawbot AI SaaS Follows February 28 | ObjectWire",
-    description: "MiniMax dropped MaxClaw on February 25, 2026 — one-click cloud deployment for OpenClaw agents powered by a 229B MoE model. Clawbot AI followed with its own SaaS",
+    description: "MiniMax dropped MaxClaw on February 25, 2026, one-click cloud deployment for OpenClaw agents powered by a 229B MoE model. Clawbot AI followed with its own SaaS",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Technology",
@@ -4202,8 +4202,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/technology/cursor",
-    title: "Cursor Hits $2 Billion ARR — Anysphere Doubles Revenue in Three Months | ObjectWire",
-    description: "Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026, doubling the $1 billion ARR milestone announced in November 2025 — one of the fastest ARR growth rates in SaaS history.",
+    title: "Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in Three Months | ObjectWire",
+    description: "Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026, doubling the $1 billion ARR milestone announced in November 2025, one of the fastest ARR growth rates in SaaS history.",
     publishDate: "2026-03-02",
     modifiedDate: "2026-03-02",
     category: "Technology",
@@ -4214,7 +4214,7 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
     featured: true,
     imageUrl: "https://www.objectwire.org/news/cursor.PNG",
-    imageAlt: "Cursor AI code editor — Anysphere $2 billion ARR milestone",
+    imageAlt: "Cursor AI code editor, Anysphere $2 billion ARR milestone",
   },
 
   // --- Tiktok (1) ---
@@ -4234,7 +4234,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- YouTube (9) ---
   {
     slug: "/influencer/daddywellness",
-    title: "Richie Lovelace (Daddy Wellness) — Wellness Influencer, Dialed University | ObjectWire",
+    title: "Richie Lovelace (Daddy Wellness) | Wellness Influencer, Dialed University | ObjectWire",
     description: "Richie Lovelace, known online as Daddy Wellness, is a Miami-based wellness entrepreneur and content creator with over 2 million Instagram followers. He founded",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4246,7 +4246,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/mat-armstrong",
-    title: "Mat Armstrong — Automotive YouTube Creator, 6.2M Subscribers | ObjectWire",
+    title: "Mat Armstrong | Automotive YouTube Creator, 6.2M Subscribers | ObjectWire",
     description: "Mat Armstrong (@MatArmstrongbmx) is a UK-based YouTube automotive creator with over 6.2 million subscribers and 870 million views. A former professional BMX rid",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4306,7 +4306,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/sidemen/inside-uk",
-    title: "Inside — Sidemen Netflix Documentary Series | ObjectWire",
+    title: "Inside | Sidemen Netflix Documentary Series | ObjectWire",
     description: "Complete guide to Inside: The Sidemen",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4318,7 +4318,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/sidemen/inside-uk/season3",
-    title: "Sidemen Inside Season 3: Netflix Spring 2026 Release Confirmed — Full Cast & Details | ObjectWire",
+    title: "Sidemen Inside Season 3: Netflix Spring 2026 Release Confirmed | Full Cast & Details | ObjectWire",
     description: "Inside UK Season 3 is confirmed for a spring 2026 Netflix premiere. Full 12-person cast revealed including Eddie Hall, AB, Saffron Barker, Chloe Ferry and more.",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4366,7 +4366,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/forza-horizon-6",
-    title: "Forza Horizon 6: Release Date, Map, Cars & Everything Known — March 2026 | ObjectWire",
+    title: "Forza Horizon 6: Release Date, Map, Cars & Everything Known | March 2026 | ObjectWire",
     description: "Forza Horizon 6 releases May 19, 2026 on Xbox Series X|S, PC, and later PlayStation 5. Japan open world, 550+ cars, Toyota GR GT cover vehicle, early access May",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4384,8 +4384,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/news/gta-6-pre-orders-playstation-store-database-update-march-2026",
-    title: "GTA 6 Pre-Orders May Be Near After PlayStation Store Database Update — March 2026 | ObjectWire",
-    description: "Two Grand Theft Auto VI title IDs — PPSA01547_00 and PPSA29660_00 — were added to the PlayStation Store backend database on March 1, 2026, fueling speculation t",
+    title: "GTA 6 Pre-Orders May Be Near After PlayStation Store Database Update | March 2026 | ObjectWire",
+    description: "Two Grand Theft Auto VI title IDs, PPSA01547_00 and PPSA29660_00, were added to the PlayStation Store backend database on March 1, 2026, fueling speculation t",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Gaming",
@@ -4402,7 +4402,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay",
-    title: "GTA 6 Pre-Orders Near as PlayStation Database Lists Title IDs — Take-Two Assures Sony & Microsoft No Delay | ObjectWire",
+    title: "GTA 6 Pre-Orders Near as PlayStation Database Lists Title IDs | Take-Two Assures Sony & Microsoft No Delay | ObjectWire",
     description: "Two Grand Theft Auto VI title IDs appeared in the PlayStation Store backend on March 1, 2026, signaling imminent pre-orders. Separately, Take-Two Interactive re",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4439,7 +4439,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/tags",
     title: "All Topics & Tags | ObjectWire",
-    description: "Browse all topics covered by ObjectWire — technology, gaming, finance, entertainment, sports, and more.",
+    description: "Browse all topics covered by ObjectWire, technology, gaming, finance, entertainment, sports, and more.",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
     category: "Meta",
@@ -4450,7 +4450,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/tags/[tag]",
-    title: "${tag} — ${articles.length} Articles | ObjectWire",
+    title: "${tag} | ${articles.length} Articles | ObjectWire",
     description: "All ObjectWire articles tagged",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4462,7 +4462,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/sidemen/ksi/dagenham-redbridge",
-    title: "KSI Becomes Co-Owner of Dagenham & Redbridge FC — Vows to Take Club to Premier League | ObjectWire",
+    title: "KSI Becomes Co-Owner of Dagenham & Redbridge FC | Vows to Take Club to Premier League | ObjectWire",
     description: "KSI (JJ Olatunji) acquired a 20% stake in Dagenham & Redbridge FC on March 3, 2026, becoming co-owner of the National League South club. The Sidemen founder vowed to take the Daggers to the Premier League, calling it a full-circle moment.",
     publishDate: "2026-03-03",
     modifiedDate: "2026-03-03",
@@ -4473,7 +4473,7 @@ export const contentRegistry: ContentEntry[] = [
     changeFrequency: "weekly",
     featured: true,
     imageUrl: "https://www.objectwire.org/entertainment/ksi%20buys%20club.PNG",
-    imageAlt: "KSI announced as co-owner of Dagenham & Redbridge FC — March 3, 2026",
+    imageAlt: "KSI announced as co-owner of Dagenham & Redbridge FC, March 3, 2026",
   },
   {
     slug: "/microsoft/news/project-helix-xbox-pc-hybrid-console",
@@ -4545,7 +4545,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/netflix/news/netflix-acquires-ben-affleck-interpositive-ai-startup",
     title: "Netflix Drops $600M for Ben Affleck's InterPositive AI Startup After Warner Bros. Bid Collapse | ObjectWire",
-    description: "Netflix confirmed a deal worth up to $600 million — initial cash plus performance-based earnouts — to acquire InterPositive, Ben Affleck's AI filmmaking startup. A smart pivot after Netflix's failed $82.7B WBD bid was outgunned by Paramount Skydance's $111B all-cash offer.",
+    description: "Netflix confirmed a deal worth up to $600 million, initial cash plus performance-based earnouts, to acquire InterPositive, Ben Affleck's AI filmmaking startup. A smart pivot after Netflix's failed $82.7B WBD bid was outgunned by Paramount Skydance's $111B all-cash offer.",
     category: "Entertainment",
     tags: ["Netflix", "Ben Affleck", "InterPositive", "AI Filmmaking", "Warner Bros. Discovery", "Paramount Skydance", "Streaming", "Hollywood", "Post-Production AI", "Entertainment", "Acquisition", "$600M"],
     author: "Alfanasa",
@@ -4580,8 +4580,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Fortnite (1) ---
   {
     slug: "/fortnite",
-    title: "Fortnite — News, Seasons, Esports & Updates | ObjectWire",
-    description: "Complete Fortnite coverage — Chapter 6 season updates, battle pass breakdowns, competitive FNCS, Fortnite Festival, Creative 2.0, Lego Fortnite, Epic Games news",
+    title: "Fortnite | News, Seasons, Esports & Updates | ObjectWire",
+    description: "Complete Fortnite coverage, Chapter 6 season updates, battle pass breakdowns, competitive FNCS, Fortnite Festival, Creative 2.0, Lego Fortnite, Epic Games news",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
     category: "Gaming",
@@ -4594,8 +4594,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/rainbow-6-siege",
-    title: "Rainbow Six Siege — News, Operators, Maps & Esports | ObjectWire",
-    description: "Complete Rainbow Six Siege coverage — Year 11 season updates, new operators, map reworks, ranked meta, esports tournaments, and Ubisoft",
+    title: "Rainbow Six Siege | News, Operators, Maps & Esports | ObjectWire",
+    description: "Complete Rainbow Six Siege coverage, Year 11 season updates, new operators, map reworks, ranked meta, esports tournaments, and Ubisoft",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
     category: "Gaming",
@@ -4622,8 +4622,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Rocket League (1) ---
   {
     slug: "/rocket-league",
-    title: "Rocket League — News, Esports, Ranks & Updates | ObjectWire",
-    description: "Complete Rocket League coverage — Season 17 updates, RLCS esports, ranked meta, car hitboxes, Psyonix news, and the future of rocket-powered soccer on PC, PS5,",
+    title: "Rocket League | News, Esports, Ranks & Updates | ObjectWire",
+    description: "Complete Rocket League coverage, Season 17 updates, RLCS esports, ranked meta, car hitboxes, Psyonix news, and the future of rocket-powered soccer on PC, PS5,",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
     category: "Gaming",
@@ -4636,7 +4636,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Pending Home Sales Historic Low ---
   {
     slug: "/tech/real-estate",
-    title: "Pending Home Sales Hit Historic Floor as 2026 Opens — PHSI Drops to 70.9",
+    title: "Pending Home Sales Hit Historic Floor as 2026 Opens | PHSI Drops to 70.9",
     description: "The Pending Home Sales Index plunged to 70.9 in January 2026, the lowest reading in the index's 25-year history, falling below the 2008 financial crisis trough.",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
@@ -4651,7 +4651,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Florida HB 175 Stablecoin Law ---
   {
     slug: "/crypto/news/florida-hb175-stablecoin-law-payment-regulation",
-    title: "Florida Passes First State-Level Stablecoin Law in the US — HB 175",
+    title: "Florida Passes First State-Level Stablecoin Law in the US | HB 175",
     description: "Florida HB 175 passed the House 102–2 and Senate 37–0, creating the first full state-level rulebook for payment stablecoins in the US with a live pilot for government fee payments.",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
@@ -4666,7 +4666,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- RBA CBDC HashSphere Hedera ---
   {
     slug: "/crypto/hbar/rba-cbdc-hashsphere-hedera-project-acacia",
-    title: "RBA Completes Real-Money CBDC Trials via Hedera-Linked HashSphere — Project Acacia",
+    title: "RBA Completes Real-Money CBDC Trials via Hedera-Linked HashSphere | Project Acacia",
     description: "The Reserve Bank of Australia confirmed March 5, 2026, that Project Acacia successfully settled real-world assets using HashSphere, a private permissioned network built on Hedera technology, across 24 use cases.",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
@@ -4681,7 +4681,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Nvidia Photonics $4B ---
   {
     slug: "/nvidia/news/nvidia-4-billion-photonics-lumentum-coherent-ai-bottleneck",
-    title: "Nvidia Invests $4 Billion in Photonics — Lumentum & Coherent Deal to Solve AI Bottlenecks",
+    title: "Nvidia Invests $4 Billion in Photonics | Lumentum & Coherent Deal to Solve AI Bottlenecks",
     description: "Nvidia announced a $4B investment into Lumentum and Coherent on March 2, 2026, replacing copper interconnects with light-based data links to eliminate AI data center bottlenecks.",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
@@ -4810,7 +4810,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/microsoft/news/yamanaka-factors-reverse-cellular-aging-markers",
-    title: "Yamanaka Factors Can Reverse Cellular Aging Markers in Studies — But Not Yet Safely in Whole Humans | ObjectWire",
+    title: "Yamanaka Factors Can Reverse Cellular Aging Markers in Studies | But Not Yet Safely in Whole Humans | ObjectWire",
     description: "Yamanaka factors OCT4 SOX2 KLF4 and c-MYC can reverse epigenetic aging in cells and mice, but no approved human rejuvenation therapy exists. Review of partial r",
     publishDate: "2026-03-06",
     modifiedDate: "2026-03-06",
@@ -4852,7 +4852,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/new/windrose",
-    title: "Windrose Hits 1M Steam Wishlists — Uzbek Pirate Survival Game Breaks Out | ObjectWire",
+    title: "Windrose Hits 1M Steam Wishlists | Uzbek Pirate Survival Game Breaks Out | ObjectWire",
     description: "Windrose Crew\\",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
@@ -4870,8 +4870,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Claude (1) ---
   {
     slug: "/claude/news/datatalks-course-wiped-by-claudecode",
-    title: "Claude Code AI Wiped a Production Database — Erasing 2.5 Years of Student Data | ObjectWire",
-    description: "ObjectWire coverage of Claude Code AI Wiped a Production Database — Erasing 2.5 Years of Student Data | ObjectWire.",
+    title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data | ObjectWire",
+    description: "ObjectWire coverage of Claude Code AI Wiped a Production Database, Erasing 2.5 Years of Student Data | ObjectWire.",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
     category: "AI",
@@ -4884,7 +4884,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Finance (2) ---
   {
     slug: "/crypto/xrp",
-    title: "XRP — Digital Asset, XRP Ledger & Ripple Network | ObjectWire",
+    title: "XRP | Digital Asset, XRP Ledger & Ripple Network | ObjectWire",
     description: "Comprehensive profile of XRP: the native digital asset of the XRP Ledger (XRPL). Covers history, how XRP works, the Ripple company, SEC lawsuit, use cases in cr",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
@@ -4910,7 +4910,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (2) ---
   {
     slug: "/video-games/bellwright",
-    title: "Bellwright — Medieval Survival RPG Tops 1 Million Sales | ObjectWire",
+    title: "Bellwright | Medieval Survival RPG Tops 1 Million Sales | ObjectWire",
     description: "Bellwright has crossed 1 million units sold on Steam while still in Early Access, publisher Snail, Inc. announced on March 6, 2026. Full profile of the medieval",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
@@ -4922,8 +4922,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/news/kotor-remake-saber-confirmed-still-in-development",
-    title: "KOTOR Remake Still in Development, Saber Confirms — 5 Years After Reveal | ObjectWire",
-    description: "Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development — five years after its ci",
+    title: "KOTOR Remake Still in Development, Saber Confirms | 5 Years After Reveal | ObjectWire",
+    description: "Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development, five years after its ci",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
     category: "Gaming",
@@ -4951,7 +4951,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/trump/china/OpenClaw-hacks-china-gov-in-shocking-report",
     title: "CYBER ALERT: China Warns Agencies to Limit OpenClaw AI Over Critical Security Flaws | ObjectWire",
-    description: "Beijing has issued an urgent directive warning government agencies and SOEs to restrict OpenClaw — the viral open-source AI agent with 180K GitHub stars. The MI",
+    description: "Beijing has issued an urgent directive warning government agencies and SOEs to restrict OpenClaw, the viral open-source AI agent with 180K GitHub stars. The MI",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
     category: "Politics",
@@ -4975,7 +4975,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/trump/shadow-license-problem",
     title: "The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming | ObjectWire",
-    description: "The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips — without permiss",
+    description: "The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips, without permiss",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
     category: "Politics",
@@ -4988,7 +4988,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Technology (1) ---
   {
     slug: "/technology/alibaba",
-    title: "Alibaba Group — Global E-Commerce & Technology Conglomerate | ObjectWire",
+    title: "Alibaba Group | Global E-Commerce & Technology Conglomerate | ObjectWire",
     description: "Comprehensive profile of Alibaba Group Holding Limited. Covers company history from 1999 founding through regulatory crackdowns, leadership under Jack Ma and Ed",
     publishDate: "2026-03-07",
     modifiedDate: "2026-03-07",
@@ -5006,7 +5006,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Events (2) ---
   {
     slug: "/events/gdc-2026",
-    title: "GDC 2026 — Game Developers Conference Coverage | ObjectWire",
+    title: "GDC 2026 | Game Developers Conference Coverage | ObjectWire",
     description: "Full coverage of the Game Developers Conference 2026. Sessions, awards, announcements, industry trends, and everything happening at the world",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
@@ -5019,7 +5019,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/events/gdc-2026/valve-steam-machine-steam-frame-compatibility-gdc-2026",
     title: "Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026 | ObjectWire",
-    description: "Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026 — both remain on track",
+    description: "Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026, both remain on track",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
     category: "Entertainment",
@@ -5056,7 +5056,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/news/arc-raiders-discord-plaintext-security",
-    title: "Arc Raiders Logged Discord DMs and Tokens in Plaintext — Embark Says Hotfix Coming | ObjectWire",
+    title: "Arc Raiders Logged Discord DMs and Tokens in Plaintext | Embark Says Hotfix Coming | ObjectWire",
     description: "Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and authentication tokens to plaintext files when Discord integration",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
@@ -5092,7 +5092,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/video-games/resident-evil-requiem/steam-launch-record-267k-concurrent-players",
-    title: "Resident Evil Requiem Shatters Steam Records — 267K Concurrent Players at Launch | ObjectWire",
+    title: "Resident Evil Requiem Shatters Steam Records | 267K Concurrent Players at Launch | ObjectWire",
     description: "Resident Evil Requiem hit 267,509 concurrent Steam players on launch day February 27, 2026, nearly doubling Village and beating the RE4 remake record by 100,000",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
@@ -5120,7 +5120,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- YouTube (3) ---
   {
     slug: "/youtube/spanish",
-    title: "Top Spanish YouTubers 2026 — Ibai, AuronPlay, ElRubius & More | ObjectWire",
+    title: "Top Spanish YouTubers 2026 | Ibai, AuronPlay, ElRubius & More | ObjectWire",
     description: "Complete guide to the biggest Spanish-language YouTubers and streamers of 2026. Rankings, profiles, subscriber counts, and content breakdowns for Spain",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
@@ -5132,8 +5132,8 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/youtube/thefellas",
-    title: "The Fellas Studios — Podcast Network, Founders & Shows 2026 | ObjectWire",
-    description: "Complete profile of The Fellas Studios — the UK podcast network founded by Calfreezy and TheBurntChip. Covers all shows including The Fellas, Saving Grace, Pitc",
+    title: "The Fellas Studios | Podcast Network, Founders & Shows 2026 | ObjectWire",
+    description: "Complete profile of The Fellas Studios, the UK podcast network founded by Calfreezy and TheBurntChip. Covers all shows including The Fellas, Saving Grace, Pitc",
     publishDate: "2026-03-12",
     modifiedDate: "2026-03-12",
     category: "YouTube",
@@ -5178,7 +5178,7 @@ export const contentRegistry: ContentEntry[] = [
     slug: "/entertainment/apple-tv/apple-tv-plus-outcome-trailer-keanu-reeves-jonah-hill-april-2026",
     title: 'Apple TV+ "Outcome" Trailer: Keanu Reeves & Jonah Hill in Hollywood Satire | ObjectWire',
     description:
-      'Apple TV+ released the first full trailer for "Outcome" on March 16, 2026. Directed by Jonah Hill, the dark comedy-drama stars Keanu Reeves as fictional Hollywood icon Reef Hawk — a global premiere is set for April 10, 2026.',
+      'Apple TV+ released the first full trailer for "Outcome" on March 16, 2026. Directed by Jonah Hill, the dark comedy-drama stars Keanu Reeves as fictional Hollywood icon Reef Hawk, a global premiere is set for April 10, 2026.',
     publishDate: "2026-03-18",
     modifiedDate: "2026-03-18",
     category: "Entertainment",
@@ -5190,7 +5190,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/entertainment/apple-tv/spring-2026-premiere-schedule-imperfect-women-for-all-mankind-outcome-margos-got-money-troubles",
     title: "Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More | ObjectWire",
-    description: "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks — from March 18 to April 15. Headlined by the SXSW breakout M",
+    description: "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks, from March 18 to April 15. Headlined by the SXSW breakout M",
     publishDate: "2026-03-15",
     modifiedDate: "2026-03-15",
     category: "Entertainment",
@@ -5227,8 +5227,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Events (1) ---
   {
     slug: "/events/gtc-2026",
-    title: "GTC 2026 — Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership | ObjectWire",
-    description: "Full coverage of Nvidia GTC 2026 in San Jose, CA — the world",
+    title: "GTC 2026 | Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership | ObjectWire",
+    description: "Full coverage of Nvidia GTC 2026 in San Jose, CA, the world",
     publishDate: "2026-03-15",
     modifiedDate: "2026-03-15",
     category: "Entertainment",
@@ -5241,8 +5241,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/mythmatch",
-    title: "Mythmatch — Gameplay, Story, Developer & Pricing | ObjectWire",
-    description: "Complete guide to Mythmatch — the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by Olymp",
+    title: "Mythmatch | Gameplay, Story, Developer & Pricing | ObjectWire",
+    description: "Complete guide to Mythmatch, the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by Olymp",
     publishDate: "2026-03-15",
     modifiedDate: "2026-03-15",
     category: "Gaming",
@@ -5273,7 +5273,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Amazon (1) ---
   {
     slug: "/amazon/news/amazon-1-hour-3-hour-delivery-us-launch-march-2026",
-    title: "Amazon Launches 1-Hour and 3-Hour Delivery Across US Cities — March 17, 2026 | ObjectWire",
+    title: "Amazon Launches 1-Hour and 3-Hour Delivery Across US Cities | March 17, 2026 | ObjectWire",
     description: "Amazon rolled out 1-hour and 3-hour delivery options for more than 90,000 products on March 17, 2026. Prime members pay $9.99 for 1-hour delivery and $4.99 for",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5306,7 +5306,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Business (1) ---
   {
     slug: "/elon-musk/spacex-xai-merger-1-75-trillion-ipo-orbital-ai-2026",
-    title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse — IPO Targets Summer 2026 | ObjectWire",
+    title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse | IPO Targets Summer 2026 | ObjectWire",
     description: "SpaceX completed an all-stock acquisition of xAI on February 2, 2026, valued at $1.25 trillion. Elon Musk has declared SpaceX will surpass all AI rivals combine",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5321,7 +5321,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/california/california-tech-layoffs-2026-ai-restructuring-26000-job-cuts",
     title: "California Tech Sector Announces 26,283 Job Cuts in Early 2026 Amid AI-Driven Restructuring",
-    description: "California-based tech companies announced 26,283 job cuts year-to-date through February 2026 — Amazon, Meta, Block, Workday, and C3.ai among the largest contributors as AI automation and post-boom efficiency drives reshape Silicon Valley's workforce.",
+    description: "California-based tech companies announced 26,283 job cuts year-to-date through February 2026, Amazon, Meta, Block, Workday, and C3.ai among the largest contributors as AI automation and post-boom efficiency drives reshape Silicon Valley's workforce.",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
     category: "Technology",
@@ -5340,7 +5340,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Events (1) ---
   {
     slug: "/events/gtc-2026/closing-day-3-intel-microsoft-agentic-march-18-2026",
-    title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion — Day 3 Wrap-Up | ObjectWire",
+    title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up | ObjectWire",
     description: "As GTC 2026 enters its final stretch, Intel and NVIDIA debut their joint Sovereign AI rack, the OpenClaw Agentic program dominates Day 3, and Thursday",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5368,7 +5368,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Gaming (1) ---
   {
     slug: "/video-games/gamestop/news/gamestop-ps3-xbox-360-wii-u-retro-consoles-march-2026",
-    title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro Consoles — March 16, 2026 | ObjectWire",
+    title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro Consoles | March 16, 2026 | ObjectWire",
     description: "GameStop officially designated the PlayStation 3, Xbox 360, and Nintendo Wii U as",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5408,7 +5408,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Technology (11) ---
   {
     slug: "/microsoft/xbox/project-moorcroft-cancelled-game-pass-demos-gdc-2026",
-    title: "Xbox Confirms Project Moorcroft Is Dead — Demo Program Cancelled After Four Years | ObjectWire",
+    title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program Cancelled After Four Years | ObjectWire",
     description: "Microsoft has officially abandoned Project Moorcroft, the long-promised program that would have paid developers to create pre-release game demos for Xbox Game P",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5421,7 +5421,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/nvidia/news/nvidia-engineer-inference-budget-token-salary-gtc-2026",
     title: "NVIDIA to Grant Engineers",
-    description: "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary — worth $100,00",
+    description: "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary, worth $100,00",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
     category: "Technology",
@@ -5433,7 +5433,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/open-ai/openai-aws-pentagon-classified-ai-deal-march-2026",
     title: "OpenAI Signs Landmark AWS Deal for Classified Pentagon AI | ObjectWire",
-    description: "OpenAI finalized an agreement with Amazon Web Services on March 17, 2026, to deploy its models across classified U.S. defense and intelligence infrastructure —",
+    description: "OpenAI finalized an agreement with Amazon Web Services on March 17, 2026, to deploy its models across classified U.S. defense and intelligence infrastructure , ",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
     category: "Technology",
@@ -5493,7 +5493,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/technology/alibaba/wukong-ai-agent-enterprise-platform-march-2026",
     title: "Alibaba Launches Wukong AI Agent Platform for Enterprises | ObjectWire",
-    description: "Alibaba has launched Wukong, an enterprise AI platform that coordinates multiple autonomous agents to handle complex business tasks through a single interface —",
+    description: "Alibaba has launched Wukong, an enterprise AI platform that coordinates multiple autonomous agents to handle complex business tasks through a single interface , ",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
     category: "Technology",
@@ -5504,7 +5504,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/technology/stablecoins",
-    title: "Druckenmiller Says Stablecoins Will Be the Backbone of Global Payments — Armstrong Agrees | ObjectWire",
+    title: "Druckenmiller Says Stablecoins Will Be the Backbone of Global Payments | Armstrong Agrees | ObjectWire",
     description: "Billionaire investor Stanley Druckenmiller told Morgan Stanley on January 30, 2026, that stablecoins will dominate global payment systems within 10–15 years. Co",
     publishDate: "2026-03-19",
     modifiedDate: "2026-03-19",
@@ -5560,8 +5560,8 @@ export const contentRegistry: ContentEntry[] = [
   // --- Profile (1) ---
   {
     slug: "/profile/[username]",
-    title: "Profile Not Found — OBJECTWIRE",
-    description: "ObjectWire coverage of Profile Not Found — OBJECTWIRE.",
+    title: "Profile Not Found | OBJECTWIRE",
+    description: "ObjectWire coverage of Profile Not Found, OBJECTWIRE.",
     publishDate: "2026-03-21",
     modifiedDate: "2026-03-21",
     category: "Meta",
@@ -5605,7 +5605,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/crypto/coinbase-new-york-ath-ray-nct-strk-2026",
     title: "Coinbase Opens Four Crypto Tokens to New York Traders | ObjectWire",
-    description: "Coinbase has enabled trading of Aethir (ATH), Raydium (RAY), PolySwarm (NCT), and Starknet (STRK) for New York residents — a notable milestone under the state\\",
+    description: "Coinbase has enabled trading of Aethir (ATH), Raydium (RAY), PolySwarm (NCT), and Starknet (STRK) for New York residents, a notable milestone under the state\\",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
     category: "Finance",
@@ -5616,7 +5616,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/crypto/usdc",
-    title: "USD Coin (USDC) — Circle Internet Group | ObjectWire",
+    title: "USD Coin (USDC) | Circle Internet Group | ObjectWire",
     description: "Comprehensive profile of USD Coin (USDC), the regulated dollar stablecoin issued by Circle Internet Group. Covers history, reserve transparency, blockchain supp",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
@@ -5629,7 +5629,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/crypto/warren-mrbeast-step-crypto-children",
     title: "Warren Presses MrBeast on Crypto Plans for Children Through Step App | ObjectWire",
-    description: "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson — MrBeast — on Monday demanding details about Beast Industries",
+    description: "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson, MrBeast, on Monday demanding details about Beast Industries",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
     category: "Finance",
@@ -5642,7 +5642,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Jackarticle (1) ---
   {
     slug: "/jackarticle/test",
-    title: "Pipeline Test — JackArticle Component | ObjectWire",
+    title: "Pipeline Test | JackArticle Component | ObjectWire",
     description: "End-to-end pipeline verification article using the JackArticle component. Confirms that wiki:migrate extracts content to the jack_articles table and wiki:trim r",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
@@ -5656,7 +5656,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- News (1) ---
   {
     slug: "/newsarticle/test",
-    title: "Pipeline Test — NewsArticle Component | ObjectWire",
+    title: "Pipeline Test | NewsArticle Component | ObjectWire",
     description: "End-to-end pipeline verification article using the NewsArticle component. This page is used to confirm that wiki:migrate correctly extracts content to the artic",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
@@ -5683,7 +5683,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/trump/trump-totalenergies-928m-offshore-wind-exit",
     title: "Trump Admin Pays TotalEnergies $928M to Exit Offshore Wind Projects",
-    description: "The Trump administration announced a deal to pay French energy giant TotalEnergies nearly $1 billion to abandon two offshore wind projects off the East Coast —",
+    description: "The Trump administration announced a deal to pay French energy giant TotalEnergies nearly $1 billion to abandon two offshore wind projects off the East Coast , ",
     publishDate: "2026-03-24",
     modifiedDate: "2026-03-24",
     category: "Politics",
@@ -5729,7 +5729,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/blackrock",
     title: "BlackRock: World\\",
-    description: "Comprehensive profile of BlackRock Inc. — the world\\",
+    description: "Comprehensive profile of BlackRock Inc., the world\\",
     publishDate: "2026-03-25",
     modifiedDate: "2026-03-25",
     category: "Finance",
@@ -5741,7 +5741,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/blackrock/blackrock-fidelity-bought-400m-bitcoin-golds-worst-weekly-drop",
     title: "BlackRock and Fidelity Bought $400M in Bitcoin Amid Gold\\",
-    description: "BlackRock and Fidelity purchased nearly $400 million in Bitcoin last week — even as they sold $250 million — generating a net bullish signal for crypto markets.",
+    description: "BlackRock and Fidelity purchased nearly $400 million in Bitcoin last week, even as they sold $250 million, generating a net bullish signal for crypto markets.",
     publishDate: "2026-03-25",
     modifiedDate: "2026-03-25",
     category: "Finance",
@@ -5797,7 +5797,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/trump/ice-arrest-sfo-airport-nationwide-deployment",
     title: "ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins | ObjectWire",
-    description: "ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it unfolded —",
+    description: "ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it unfolded , ",
     publishDate: "2026-03-25",
     modifiedDate: "2026-03-25",
     category: "Politics",
@@ -5820,7 +5820,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/trump/WLFI-stablecoin",
-    title: "Binance Launches 135M Token Airdrop for USD1 Holders — WLFI Campaign | ObjectWire",
+    title: "Binance Launches 135M Token Airdrop for USD1 Holders | WLFI Campaign | ObjectWire",
     description: "Binance on March 20, 2026 launched a four-week airdrop distributing 135 million World Liberty Financial (WLFI) tokens to users holding the USD1 stablecoin. 33.7",
     publishDate: "2026-03-25",
     modifiedDate: "2026-03-25",
@@ -5847,7 +5847,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/technology/tencent-openclaw-ai-agent-wechat",
     title: "Tencent Embeds OpenClaw AI Agent into WeChat for Over a Billion Users | ObjectWire",
-    description: "Tencent has integrated its OpenClaw AI agent directly into WeChat, giving more than 1.3 billion users access to a conversational AI without any new download — m",
+    description: "Tencent has integrated its OpenClaw AI agent directly into WeChat, giving more than 1.3 billion users access to a conversational AI without any new download, m",
     publishDate: "2026-03-25",
     modifiedDate: "2026-03-25",
     category: "Technology",
@@ -5876,7 +5876,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Cloudflare (1) ---
   {
     slug: "/cloudflare",
-    title: "Cloudflare, Inc. — Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire",
+    title: "Cloudflare, Inc. | Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire",
     description: "Cloudflare is one of the world",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
@@ -5891,7 +5891,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/copyright/meta/meta-child-safety-verdicts-new-mexico-los-angeles-march-2026",
     title: "Meta Hit with Double Blow in Historic Child Safety Verdicts | ObjectWire",
-    description: "Two separate juries in New Mexico and Los Angeles found Meta Platforms liable for harming children on the same day — a $375 million civil penalty in New Mexico",
+    description: "Two separate juries in New Mexico and Los Angeles found Meta Platforms liable for harming children on the same day, a $375 million civil penalty in New Mexico",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Investigations",
@@ -5919,7 +5919,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/trump/news/trump-silicon-valley-dream-team-ai-advisory-council-pcast-march-2026",
     title: "Trump Appoints Silicon Valley",
-    description: "President Trump has officially appointed 13 technology leaders — including Mark Zuckerberg, Jensen Huang, Larry Ellison, and Sergey Brin — to the President\\",
+    description: "President Trump has officially appointed 13 technology leaders, including Mark Zuckerberg, Jensen Huang, Larry Ellison, and Sergey Brin, to the President\\",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Politics",
@@ -5933,7 +5933,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/social/meta/news/meta-targeted-layoffs-reality-labs-social-teams-march-2026",
     title: "Meta Begins",
-    description: "Meta Platforms launched a new wave of job cuts on March 25, 2026, targeting hundreds of employees across Reality Labs, social media teams, and recruiting — a st",
+    description: "Meta Platforms launched a new wave of job cuts on March 25, 2026, targeting hundreds of employees across Reality Labs, social media teams, and recruiting, a st",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Technology",
@@ -5983,7 +5983,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/technology/sanders-aoc-ai-data-center-moratorium-act-march-2026",
     title: "Sanders and AOC Unveil",
-    description: "Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez introduced the AI Data Center Moratorium Act on March 25, 2026 — seeking an immediate federal",
+    description: "Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez introduced the AI Data Center Moratorium Act on March 25, 2026, seeking an immediate federal",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Technology",
@@ -6000,7 +6000,7 @@ export const contentRegistry: ContentEntry[] = [
   // --- Business (3) ---
   {
     slug: "/elon-musk/boring-company",
-    title: "The Boring Company — Underground Transit, Vegas Loop & Tunnel Technology | ObjectWire",
+    title: "The Boring Company | Underground Transit, Vegas Loop & Tunnel Technology | ObjectWire",
     description: "The Boring Company is an American tunnel construction company founded by Elon Musk in 2016. Its flagship Vegas Loop network transports passengers beneath Las Ve",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
@@ -6024,7 +6024,7 @@ export const contentRegistry: ContentEntry[] = [
   },
   {
     slug: "/elon-musk/xai",
-    title: "xAI — Elon Musk\\",
+    title: "xAI | Elon Musk\\",
     description: "xAI is an American artificial intelligence company founded by Elon Musk in July 2023. The company develops the Grok family of large language models and operates",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
@@ -6067,7 +6067,7 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/copyright/meta/news/new-mexico-jury-meta-375m-consumer-protection-verdict-2026",
     title: "New Mexico Jury Orders Meta to Pay $375M for Deceiving Teens | ObjectWire",
-    description: "A New Mexico jury found Meta violated state consumer protection law by making false and misleading statements about the safety of its platforms for teenagers —",
+    description: "A New Mexico jury found Meta violated state consumer protection law by making false and misleading statements about the safety of its platforms for teenagers , ",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Investigations",
@@ -6121,13 +6121,31 @@ export const contentRegistry: ContentEntry[] = [
   {
     slug: "/tech/cloudflare-dynamic-workers-open-beta-ai-code-execution-2026",
     title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution | ObjectWire",
-    description: "Cloudflare has opened its Dynamic Workers feature to all paid Workers users, offering a lightweight alternative to containers for executing AI-generated code —",
+    description: "Cloudflare has opened its Dynamic Workers feature to all paid Workers users, offering a lightweight alternative to containers for executing AI-generated code , ",
     publishDate: "2026-03-26",
     modifiedDate: "2026-03-26",
     category: "Technology",
     tags: ["Technology", "Cloudflare Dynamic Workers Open Beta Ai Code Execution 2026"],
     author: "ObjectWire Editorial",
     priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  // ===========================================================================
+  // AUTO-SYNCED 2026-03-29 — 1 entries added by scripts/sync-registry.ts
+  // Review publishDate / modifiedDate / featured / imageUrl on each entry.
+  // ===========================================================================
+
+  // --- Login (1) ---
+  {
+    slug: "/login",
+    title: "Sign in",
+    description: "ObjectWire coverage of Sign in.",
+    publishDate: "2026-03-29",
+    modifiedDate: "2026-03-29",
+    category: "Login",
+    tags: ["Login"],
+    author: "ObjectWire Editorial",
+    priority: 0.8,
     changeFrequency: "weekly",
   },
 ];

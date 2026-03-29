@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title:
     'Apple Plans Core AI Framework to Replace Core ML at WWDC 2026, Bloomberg Reports | ObjectWire',
   description:
-    "Apple intends to introduce a new developer framework called Core AI at WWDC 2026 in June, replacing Core ML — the on-device machine learning toolkit Apple has shipped since iOS 11 in 2017. Bloomberg's Mark Gurman reported the change on March 1, 2026, calling the ML-to-AI terminology shift significant.",
+    "Apple intends to introduce a new developer framework called Core AI at WWDC 2026 in June, replacing Core ML, the on-device machine learning toolkit Apple has shipped since iOS 11 in 2017. Bloomberg's Mark Gurman reported the change on March 1, 2026, calling the ML-to-AI terminology shift significant.",
   keywords: [
     'Apple Core AI framework WWDC 2026',
     'Core ML replaced Core AI Apple 2026',
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Apple Is Replacing Core ML With 'Core AI' at WWDC 2026 — Bloomberg",
+      "Apple Is Replacing Core ML With 'Core AI' at WWDC 2026, Bloomberg",
     description:
-      "Bloomberg's Mark Gurman reports Apple will introduce Core AI at WWDC 2026, replacing the Core ML developer framework shipped since 2017. The function stays the same — on-device AI model integration — but the branding catches up with the industry.",
+      "Bloomberg's Mark Gurman reports Apple will introduce Core AI at WWDC 2026, replacing the Core ML developer framework shipped since 2017. The function stays the same, on-device AI model integration, but the branding catches up with the industry.",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Apple Rebrands Core ML as Core AI for WWDC 2026 — Gurman Reports",
+      "Apple Rebrands Core ML as Core AI for WWDC 2026, Gurman Reports",
     description:
       "Apple is replacing Core ML with Core AI at WWDC 2026. Same on-device model integration purpose, new branding. Bloomberg Power On March 1, 2026.",
     images: [IMAGE_URL],

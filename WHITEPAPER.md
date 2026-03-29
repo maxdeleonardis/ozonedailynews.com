@@ -7,8 +7,8 @@ proprietary data analytics into a cohesive ecosystem. The platform operates as a
 (ObjectWire.org) delivering financial, technology, and sectoral news, supported by a proprietary backend engine
 of AI agents, automation pipelines, and real-time market intelligence.
 
-The platform is designed to function as a standardized feed system—comparable to Bloomberg Terminal or Reuters
-services—but extensible into AI-driven media distribution, trading intelligence, and autonomous agent frameworks.
+The platform is designed to function as a standardized feed system, comparable to Bloomberg Terminal or Reuters
+services, but extensible into AI-driven media distribution, trading intelligence, and autonomous agent frameworks.
 ObjectWire generates value through three primary channels: editorial credibility, automated content pipeline,
 and proprietary data-driven decision support for institutional and individual traders.
 
@@ -220,7 +220,7 @@ and open-source under permissive licenses (MIT, Apache 2.0).
 
 Separate from the non-profit foundation, an independent for-profit entity (or multiple for-profit entities) may
 be established to commercialize services, tools, and applications built on top of the ObjectWire foundation.
-This structure mirrors Google's relationship with Chrome and Android—the foundation provides free, open-source
+This structure mirrors Google's relationship with Chrome and Android, the foundation provides free, open-source
 infrastructure; commercial entities build profitable services around it.
 
 The non-profit foundation remains neutral, community-driven, and focused on advancing open-source financial
@@ -434,7 +434,7 @@ Legal counsel retained for IP disputes. Regular IP audits to identify gaps.
 8. VISION FOR SCALE
 
 Long-Term Positioning: ObjectWire evolves into a foundational intelligence infrastructure layer for AI-driven
-trading, media, and decision-making—comparable to Bloomberg, Reuters, or Federal Reserve databases in importance,
+trading, media, and decision-making, comparable to Bloomberg, Reuters, or Federal Reserve databases in importance,
 but decentralized, transparent, and community-driven.
 
 Integration Expansion: Beyond initial platforms (Discord, VSCode, Obsidian), integrate with brokerages' internal
@@ -466,8 +466,8 @@ and consumed. By combining automated content generation, real-time data collecti
 integration, ObjectWire creates a scalable intelligence infrastructure accessible to traders, businesses, and
 communities worldwide.
 
-The platform's dual-layer IP architecture—public open-source for community adoption and proprietary services for
-revenue—enables sustainable growth while building network effects and brand value. With a clear technical roadmap,
+The platform's dual-layer IP architecture, public open-source for community adoption and proprietary services for
+revenue, enables sustainable growth while building network effects and brand value. With a clear technical roadmap,
 diversified revenue model, and strategic positioning at the intersection of media, AI, and finance, ObjectWire is
 positioned to become a category-defining intelligence platform for the AI-driven economy.
 

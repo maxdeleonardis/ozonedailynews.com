@@ -1,4 +1,4 @@
-# ObjectWire — Supabase Reference
+# ObjectWire | Supabase Reference
 **Last updated:** March 26, 2026  
 **Production:** Railway → `Autolab350/Objectwire-Frontend` main → `objectwire.org`  
 **Supabase:** `https://kzcwclprrtonpsnownbl.supabase.co`
@@ -9,22 +9,22 @@
 
 | System | Status |
 |---|---|
-| `lib/supabase/server.ts` — server client | ✅ Done |
-| `lib/supabase/client.ts` — browser client | ✅ Done |
-| `lib/blog-service.ts` — CRUD layer | ✅ Done |
-| `lib/registry-service.ts` — async registry reads from DB | ✅ Done |
+| `lib/supabase/server.ts`, server client | ✅ Done |
+| `lib/supabase/client.ts`, browser client | ✅ Done |
+| `lib/blog-service.ts`, CRUD layer | ✅ Done |
+| `lib/registry-service.ts`, async registry reads from DB | ✅ Done |
 | `articles` table + schema | ✅ Live in Supabase |
 | `jack_articles` table + schema | ✅ Live in Supabase |
 | `article_pages` table + schema | ✅ Live in Supabase |
-| `content_registry` table + schema | ✅ Live — migrated March 26 (465 entries) |
-| `components/NewsArticleDB.tsx` | ✅ SSR — queries `articles` by slug |
-| `components/JackArticleDB.tsx` | ✅ SSR — queries `jack_articles` by slug |
-| `components/ArticlePageDB.tsx` | ✅ SSR — queries `article_pages` by slug |
-| `app/blog/[slug]/page.tsx` — two-step fetch | ✅ Upgraded March 26 — registry → articles |
+| `content_registry` table + schema | ✅ Live, migrated March 26 (465 entries) |
+| `components/NewsArticleDB.tsx` | ✅ SSR, queries `articles` by slug |
+| `components/JackArticleDB.tsx` | ✅ SSR, queries `jack_articles` by slug |
+| `components/ArticlePageDB.tsx` | ✅ SSR, queries `article_pages` by slug |
+| `app/blog/[slug]/page.tsx`, two-step fetch | ✅ Upgraded March 26, registry → articles |
 | `scripts/migrate-registry.ts` + `npm run registry:migrate` | ✅ Done March 26 |
 | SSR "View Source" test | ✅ All articles deliver full HTML to Googlebot |
-| `npm run build` — 793/793 pages, 0 errors | ✅ Passing |
-| ISR (`revalidate`) on finalized articles | ⏳ Pending — still on `force-dynamic` |
+| `npm run build`, 793/793 pages, 0 errors | ✅ Passing |
+| ISR (`revalidate`) on finalized articles | ⏳ Pending, still on `force-dynamic` |
 | `wiki:status` diagnostic script | ⏳ Not built yet |
 | `wiki:publish` unified pipeline command | ⏳ Not built yet |
 | On-demand revalidation via Supabase webhook | ⏳ Phase 3 future task |
@@ -57,12 +57,12 @@ Request → page.tsx (Next.js Server Component)
     const supabase = await createClient()
     const { data } = await supabase.from('articles').select('*').eq('slug', slug)
         ↓
-  NewsArticle.tsx (presentational — 'use client' for interactions only)
+  NewsArticle.tsx (presentational, 'use client' for interactions only)
     <article itemScope itemType="https://schema.org/NewsArticle">
       <div dangerouslySetInnerHTML={{ __html: row.content_html }} />
     </article>
         ↓
-  Response: complete HTML — Googlebot sees full article on first byte ✅
+  Response: complete HTML, Googlebot sees full article on first byte ✅
 ```
 
 ### Slug Format
@@ -129,38 +129,38 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 
 ---
 
-### Article Fields — `articles` table
+### Article Fields | `articles` table
 
 | Column | Type | Required | Notes |
 |---|---|---|---|
-| `slug` | TEXT | ✅ | URL path slug — no leading slash |
+| `slug` | TEXT | ✅ | URL path slug, no leading slash |
 | `title` | TEXT | ✅ | Full headline |
-| `subtitle` | TEXT | — | Deck / subheadline |
+| `subtitle` | TEXT |, | Deck / subheadline |
 | `category` | TEXT | ✅ | e.g. `Gaming`, `Tech`, `Finance` |
-| `category_color` | TEXT | — | `red` `blue` `green` `purple` `orange` |
-| `topic_tag` | TEXT | — | `technology` `news` `finance` `gaming` `crypto` `ai` `politics` etc. |
+| `category_color` | TEXT |, | `red` `blue` `green` `purple` `orange` |
+| `topic_tag` | TEXT |, | `technology` `news` `finance` `gaming` `crypto` `ai` `politics` etc. |
 | `publish_date` | TEXT | ✅ | Display string: `"March 18, 2026"` |
-| `published_at` | TIMESTAMPTZ | — | ISO for sorting: `2026-03-18T18:00:00Z` |
+| `published_at` | TIMESTAMPTZ |, | ISO for sorting: `2026-03-18T18:00:00Z` |
 | `status` | TEXT | ✅ | `'draft'` or `'published'` |
-| `content_html` | TEXT | ✅ | Full HTML body — rendered by NewsArticleDB |
-| `read_time` | TEXT | — | `"6 min read"` |
-| `author_name` | TEXT | — | `"Conan Boyle"` |
-| `author_role` | TEXT | — | `"Gaming Reporter"` |
-| `author_slug` | TEXT | — | `"conan-boyle"` → links to `/authors/conan-boyle` |
-| `author_bio` | TEXT | — | Short bio sentence |
-| `author_avatar` | TEXT | — | `/authors/conan-boyle.jpg` |
-| `author_twitter` | TEXT | — | `"@conanboyle"` |
-| `hero_image_src` | TEXT | — | `/fortnite/fortnite-vbucks.jpg` |
-| `hero_image_alt` | TEXT | — | Alt text |
-| `hero_image_caption` | TEXT | — | Caption below hero |
-| `hero_image_credit` | TEXT | — | Photo credit |
-| `thumbnail_src` | TEXT | — | Card thumbnail if different from hero |
-| `tags` | TEXT[] | — | `['AI', 'layoffs', 'california']` |
-| `trending` | BOOLEAN | — | Show in trending section |
-| `featured` | BOOLEAN | — | Pin at top of homepage feed |
-| `breaking` | BOOLEAN | — | Red "BREAKING" badge |
-| `exclusive` | BOOLEAN | — | "EXCLUSIVE" badge |
-| `url` | TEXT | — | Canonical path override e.g. `/california/my-article` |
+| `content_html` | TEXT | ✅ | Full HTML body, rendered by NewsArticleDB |
+| `read_time` | TEXT |, | `"6 min read"` |
+| `author_name` | TEXT |, | `"Conan Boyle"` |
+| `author_role` | TEXT |, | `"Gaming Reporter"` |
+| `author_slug` | TEXT |, | `"conan-boyle"` → links to `/authors/conan-boyle` |
+| `author_bio` | TEXT |, | Short bio sentence |
+| `author_avatar` | TEXT |, | `/authors/conan-boyle.jpg` |
+| `author_twitter` | TEXT |, | `"@conanboyle"` |
+| `hero_image_src` | TEXT |, | `/fortnite/fortnite-vbucks.jpg` |
+| `hero_image_alt` | TEXT |, | Alt text |
+| `hero_image_caption` | TEXT |, | Caption below hero |
+| `hero_image_credit` | TEXT |, | Photo credit |
+| `thumbnail_src` | TEXT |, | Card thumbnail if different from hero |
+| `tags` | TEXT[] |, | `['AI', 'layoffs', 'california']` |
+| `trending` | BOOLEAN |, | Show in trending section |
+| `featured` | BOOLEAN |, | Pin at top of homepage feed |
+| `breaking` | BOOLEAN |, | Red "BREAKING" badge |
+| `exclusive` | BOOLEAN |, | "EXCLUSIVE" badge |
+| `url` | TEXT |, | Canonical path override e.g. `/california/my-article` |
 
 **Note:** `jack_articles` has **no `status` column**. Never query `status` from `jack_articles` — Supabase will error.
 
@@ -172,7 +172,7 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 |---|---|---|
 | `slug` | TEXT PK | Full path e.g. `/california/...` |
 | `title` | TEXT | Page title used in JSON-LD and `<title>` |
-| `description` | TEXT | Meta description — max 160 chars |
+| `description` | TEXT | Meta description, max 160 chars |
 | `publish_date` | TIMESTAMPTZ | Used for sitemap `lastmod` and OG `publishedTime` |
 | `modified_date` | TIMESTAMPTZ | Used for OG `modifiedTime` |
 | `category` | TEXT | Primary section label |
@@ -195,7 +195,7 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 | Command | What it does |
 |---|---|
 | `npm run content:publish` | Push `content/articles/*.ts` → Supabase `articles` |
-| `npm run content:dry-run` | Preview — no writes |
+| `npm run content:dry-run` | Preview, no writes |
 | `npm run registry:migrate` | Upsert all `contentRegistry` entries → Supabase `content_registry` |
 | `npm run registry:migrate-dry` | Preview registry migration |
 | `npm run registry:sync` | Scan `app/**/page.tsx` → detect missing registry entries (dry run) |
@@ -203,21 +203,21 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 | `npm run wiki:migrate` | Extract inline page JSX → HTML → Supabase (run BEFORE trim) |
 | `npm run wiki:trim` | Replace full `page.tsx` with 3-line DB stub (run AFTER migrate) |
 | `npm run wiki:sync` | Full bidirectional sync: migrate + trim + delete orphans |
-| `npm run build` | Next.js build — currently 793/793 pages, 0 errors ✅ |
+| `npm run build` | Next.js build, currently 793/793 pages, 0 errors ✅ |
 
 ---
 
-## 5. `blog/[slug]/page.tsx` — Two-Step Fetch (March 26 upgrade)
+## 5. `blog/[slug]/page.tsx` | Two-Step Fetch (March 26 upgrade)
 
 `app/blog/[slug]/page.tsx` now performs a two-step fetch on every request:
 
-1. **STEP A** — query `content_registry` for `component_type`, `title`, `image_url` using the full slug `/blog/${slug}`
-2. **STEP B** — query `articles` for the full row, gated to `status = 'published'`
+1. **STEP A**, query `content_registry` for `component_type`, `title`, `image_url` using the full slug `/blog/${slug}`
+2. **STEP B**, query `articles` for the full row, gated to `status = 'published'`
 
 **`component_type` dispatch:**
 | Value | Renderer |
 |---|---|
-| `standard_article` (default) | `ArticleRenderer` — renders `blocks[]` (admin-editor format) |
+| `standard_article` (default) | `ArticleRenderer`, renders `blocks[]` (admin-editor format) |
 | `news_article` | `dangerouslySetInnerHTML` on `content_html` |
 
 **`generateMetadata` now emits:**
@@ -233,13 +233,13 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 
 | Issue | Fix |
 |---|---|
-| `jack_articles` has no `status` column | Only `SELECT slug` — never `SELECT slug, status` |
+| `jack_articles` has no `status` column | Only `SELECT slug`, never `SELECT slug, status` |
 | Curly apostrophes break TypeScript strings | Use `\u2019` or straight quotes |
 | Top-level `await` in `.tsx` files | Wrap in `async function main() {} ; main()` |
 | No `public/amazon/` image folder | Use `entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg` for Amazon articles |
-| Tencent thumbnail has trailing space | `/default/Tencent embeds OpenClaw .png` — copy exactly |
-| AOC thumbnail has uppercase extension | `/default/aoc.PNG` — Linux is case-sensitive on Railway |
-| `content_registry` `trending` column | Does NOT exist in table — `trending` is only in `content-registry.ts` TS type |
+| Tencent thumbnail has trailing space | `/default/Tencent embeds OpenClaw .png`, copy exactly |
+| AOC thumbnail has uppercase extension | `/default/aoc.PNG`, Linux is case-sensitive on Railway |
+| `content_registry` `trending` column | Does NOT exist in table, `trending` is only in `content-registry.ts` TS type |
 
 ---
 
@@ -282,13 +282,13 @@ git push origin main
 ```
 PATH                                    FILE   REGISTRY  SUPABASE
 app/trump/ice-arrest-sfo/page.tsx       STUB   ✅        ✅
-app/blackrock/page.tsx                  FULL   ❌        —
+app/blackrock/page.tsx                  FULL   ❌        , 
 ```
 
 Add to `package.json`: `"wiki:status": "npx tsx scripts/wiki-status.ts"`
 
 **D — `wiki:publish` unified command**  
-`scripts/wiki-publish.ts` — replaces the three-step `migrate → register → trim` sequence with one atomic command. Validates thumbnail exists before writing, restores from `.bak` on failure.
+`scripts/wiki-publish.ts`, replaces the three-step `migrate → register → trim` sequence with one atomic command. Validates thumbnail exists before writing, restores from `.bak` on failure.
 
 Add to `package.json`: `"wiki:publish": "npx tsx scripts/wiki-publish.ts -- --file app/..."`
 
@@ -298,7 +298,7 @@ Add to `package.json`: `"wiki:publish": "npx tsx scripts/wiki-publish.ts -- --fi
 
 **E — On-demand revalidation via Supabase webhook**  
 When an article is updated in Supabase, instantly flush the CDN cache for that path. Requires:
-1. `app/api/revalidate/route.ts` — calls `revalidatePath(path)`, protected by `REVALIDATION_SECRET`
+1. `app/api/revalidate/route.ts`, calls `revalidatePath(path)`, protected by `REVALIDATION_SECRET`
 2. Supabase Database Webhook on `articles` UPDATE → `POST https://objectwire.org/api/revalidate`
 3. Add `REVALIDATION_SECRET` to Railway environment variables
 
@@ -312,10 +312,10 @@ Run `npm run sitemap:ping` after each `content:publish` or `registry:migrate` to
 | Page Type | Strategy | Why |
 |---|---|---|
 | Breaking news (live story) | `force-dynamic` | Always fresh from Supabase |
-| Published articles (finalized) | `revalidate = 3600` | CDN-cached HTML — fastest for Google News |
+| Published articles (finalized) | `revalidate = 3600` | CDN-cached HTML, fastest for Google News |
 | Index / category pages | `revalidate = 1800` | Semi-fresh, low crawl cost |
 | ArticlePage / wiki pages | `revalidate = 86400` | Rarely changes, maximum speed |
-| Admin / account pages | Client-side only | Not indexed — SSR not needed |
+| Admin / account pages | Client-side only | Not indexed, SSR not needed |
 
 ---
 
@@ -326,7 +326,7 @@ Run `npm run sitemap:ping` after each `content:publish` or `registry:migrate` to
 | `lib/supabase/server.ts` | Async server client (anon key + dev write logging) |
 | `lib/supabase/client.ts` | Browser client (anon key) |
 | `lib/blog-service.ts` | All `articles` table CRUD functions |
-| `lib/registry-service.ts` | Async `content_registry` reads — replaces static TS array at runtime |
+| `lib/registry-service.ts` | Async `content_registry` reads, replaces static TS array at runtime |
 | `lib/content-registry.ts` | TypeScript metadata array (465 entries) + `ContentEntry` type |
 | `scripts/publish-content.ts` | Push `content/articles/*.ts` → `articles` table |
 | `scripts/migrate-registry.ts` | Upsert `contentRegistry` → `content_registry` table |
@@ -334,9 +334,9 @@ Run `npm run sitemap:ping` after each `content:publish` or `registry:migrate` to
 | `scripts/trim-wiki-pages.ts` | Replace full `page.tsx` with 3-line stub |
 | `scripts/sync-registry.ts` | Auto-detect and write missing `contentRegistry` stubs |
 | `scripts/push-articles-to-supabase.ts` | One-time migration (184 legacy articles) |
-| `components/NewsArticleDB.tsx` | Server component — queries `articles` by slug |
-| `components/JackArticleDB.tsx` | Server component — queries `jack_articles` by slug |
-| `components/ArticlePageDB.tsx` | Server component — queries `article_pages` by slug |
-| `app/blog/[slug]/page.tsx` | Public article route — two-step registry + articles fetch |
+| `components/NewsArticleDB.tsx` | Server component, queries `articles` by slug |
+| `components/JackArticleDB.tsx` | Server component, queries `jack_articles` by slug |
+| `components/ArticlePageDB.tsx` | Server component, queries `article_pages` by slug |
+| `app/blog/[slug]/page.tsx` | Public article route, two-step registry + articles fetch |
 | `sql/content_registry.sql` | Live Supabase schema definition for `content_registry` |
 | `supabase/migrations/` | Migration history |

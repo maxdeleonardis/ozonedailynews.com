@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Unreal Engine Becomes the Backbone of 2026 Entertainment Production',
     description:
-      '153 films and TV shows in 2025 alone. 500+ cumulative productions. The engine that runs Fortnite now renders Gotham, Arrakis, and the Upside Down — in real time, on set.',
+      '153 films and TV shows in 2025 alone. 500+ cumulative productions. The engine that runs Fortnite now renders Gotham, Arrakis, and the Upside Down, in real time, on set.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

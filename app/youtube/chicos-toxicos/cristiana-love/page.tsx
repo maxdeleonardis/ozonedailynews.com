@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/chicos-toxicos/cristiana-love';
 
 export const metadata: Metadata = {
-  title: 'Cristiana Love — Chicos Toxicos Personality | ObjectWire',
+  title: 'Cristiana Love | Chicos Toxicos Personality | ObjectWire',
   description:
     'Cristiana Love is a prominent figure within the Chicos Toxicos community, known for her humorous TikTok videos, fan engagement, and charismatic presence in the Latin entertainment space.',
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/chicos-toxicos/cristiana-love',
   },
   openGraph: {
-    title: 'Cristiana Love — Chicos Toxicos Personality',
+    title: 'Cristiana Love | Chicos Toxicos Personality',
     description:
       'Full profile of Cristiana Love, prominent figure in the Chicos Toxicos community. TikTok videos, fan interactions, and her role in the Latin content creator space.',
     type: 'article',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cristiana Love — Chicos Toxicos Personality | ObjectWire',
+    title: 'Cristiana Love | Chicos Toxicos Personality | ObjectWire',
     description:
       'Profile of Cristiana Love: her role in Chicos Toxicos, TikTok presence, fan interactions, and content style.',
   },

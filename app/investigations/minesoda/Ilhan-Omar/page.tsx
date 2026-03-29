@@ -321,7 +321,7 @@ export default function IlhanOmarPage() {
                         see the world. You learn early that your voice matters when everyone 
                         around you has been silenced."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Ilhan Omar, reflecting on her refugee experience</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Ilhan Omar, reflecting on her refugee experience</footer>
                     </blockquote>
 
                     <h3>Arrival in Minnesota (1995)</h3>
@@ -471,7 +471,7 @@ export default function IlhanOmarPage() {
                         and making sure that everyone in this country has the dignified life 
                         that they deserve to have."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Ilhan Omar, 2018 victory speech</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Ilhan Omar, 2018 victory speech</footer>
                     </blockquote>
 
                     <h3>Committee Assignments</h3>
@@ -599,7 +599,7 @@ export default function IlhanOmarPage() {
                         the wellbeing of our children and worked to provide them with a loving 
                         home regardless of our relationship status."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Joint statement from Omar and Hirsi, 2018</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Joint statement from Omar and Hirsi, 2018</footer>
                     </blockquote>
 
                     <h3>Ahmed Hirsi: Background and Career</h3>
@@ -750,7 +750,7 @@ export default function IlhanOmarPage() {
                         reflects both the opportunities America provides and the responsibility 
                         that comes with public service."
                       </p>
-                      <footer className="text-sm text-gray-500 mt-2">— Ilhan Omar on financial success</footer>
+                      <footer className="text-sm text-gray-500 mt-2">,  Ilhan Omar on financial success</footer>
                     </blockquote>
 
                     <h3>Real Estate Holdings</h3>

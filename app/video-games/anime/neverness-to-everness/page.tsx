@@ -5,6 +5,9 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/video-games/anime/neverness-to-everness';
+const OG_IMAGE = '/video-games/neverness-to-everness.png';
+
 export const metadata: Metadata = {
   title: 'Neverness to Everness | 30M Pre-Registrations, April 29 Launch | ObjectWire',
   description:

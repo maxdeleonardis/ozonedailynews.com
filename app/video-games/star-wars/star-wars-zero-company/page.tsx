@@ -5,6 +5,9 @@ import { ArticlePageDB } from '@/components/ArticlePageDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/video-games/star-wars/star-wars-zero-company';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1772303142584-c6897b8fa57c?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
+
 export const metadata: Metadata = {
   title: 'Star Wars Zero Company | Bit Reactor and Respawn Reveal Clone Wars Tactical RPG | ObjectWire',
   description:

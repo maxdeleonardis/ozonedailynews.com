@@ -217,8 +217,82 @@ function extractPageContent(source: string): Record<string, unknown> {
   row.category    = extractProp(source, 'category') ?? null;
   row.last_updated= extractProp(source, 'lastUpdated') ?? new Date().toISOString().split('T')[0];
 
+  // subtitle — from subtitle="..." prop on <ArticlePage>
+  const subtitleMatch = source.match(/subtitle=["']([^"']+)["']/);
+  if (subtitleMatch) row.subtitle = subtitleMatch[1];
+
+  // url — from the canonical alternates in metadata
+  const canonicalMatch = source.match(/canonical:\s*['"`]https:\/\/www\.objectwire\.org([^'"`]+)['"`]/);
+  if (canonicalMatch) row.url = canonicalMatch[1];
+
+  // back_link — backLink={{ href: '...', label: '...' }}
+  const backLinkMatch = source.match(/backLink=\{\{\s*href:\s*['"]([^'"]+)['"]\s*,\s*label:\s*['"]([^'"]+)['"]/);
+  if (backLinkMatch) row.back_link = { href: backLinkMatch[1], label: backLinkMatch[2] };
+
+  // table_of_contents — extract items array from tableOfContents={[ { id: '...', label: '...' }, ... ]}
+  const tocMatch = source.match(/tableOfContents=\{(\[[\s\S]*?\])\}/);
+  if (tocMatch) {
+    try {
+      const normalized = tocMatch[1]
+        .replace(/'/g, '"')
+        .replace(/(\w+):/g, '"$1":')
+        .replace(/,\s*\]/g, ']')
+        .replace(/,\s*\}/g, '}');
+      row.table_of_contents = JSON.parse(normalized);
+    } catch { row.table_of_contents = []; }
+  } else {
+    row.table_of_contents = [];
+  }
+
+  // related_links — extract from relatedLinks={[ { href: '...', label: '...', description: '...' } ]}
+  const relatedMatch = source.match(/relatedLinks=\{(\[[\s\S]*?\])\}/);
+  if (relatedMatch) {
+    try {
+      const normalized = relatedMatch[1]
+        .replace(/'/g, '"')
+        .replace(/(\w+):/g, '"$1":')
+        .replace(/,\s*\]/g, ']')
+        .replace(/,\s*\}/g, '}');
+      row.related_links = JSON.parse(normalized);
+    } catch { row.related_links = []; }
+  } else {
+    row.related_links = [];
+  }
+
+  // info_box — extract the full infoBox={{ ... }} object as JSON
+  // This handles the nested sections structure used by ArticlePage
+  const infoBoxMatch = source.match(/infoBox=\{(\{[\s\S]*?\})\}\s*(?:tableOfContents|relatedLinks|backLink|lastUpdated|category|>)/);
+  if (infoBoxMatch) {
+    try {
+      // Best-effort: convert JSX object literal to valid JSON
+      const raw = infoBoxMatch[1]
+        .replace(/'/g, '"')
+        .replace(/(\b(?:title|image|src|alt|caption|sections|heading|items|list|links|label|value|href|description)\b)\s*:/g, '"$1":')
+        .replace(/,\s*\}/g, '}')
+        .replace(/,\s*\]/g, ']');
+      row.info_box = JSON.parse(raw);
+    } catch { row.info_box = null; }
+  }
+
+  // content_html — extract <section> tags from inside <ArticlePage>
+  // We capture everything inside the JSX body and convert to proper HTML
   const bodyMatch = source.match(/<ArticlePage[\s\S]*?>\s*([\s\S]*?)\s*<\/ArticlePage>/);
-  row.content_html = bodyMatch ? jsxToHtml(bodyMatch[1]) : '';
+  if (bodyMatch) {
+    // Strip JSX component wrappers (TableOfContents, Quote, Section) — keep inner HTML
+    let html = bodyMatch[1];
+    // Remove <TableOfContents ... /> self-closing (it's rendered by the component from the DB field)
+    html = html.replace(/<TableOfContents[\s\S]*?\/>/g, '');
+    // Unwrap <Section id="..." title="..."> → <section id="..." class="mb-10 scroll-mt-20"><h2 ...>title</h2>
+    html = html.replace(/<Section\s+id=["']([^"']+)["']\s+title=["']([^"']+)["']\s*>/g,
+      '<section id="$1" class="mb-10 scroll-mt-20"><h2 class="text-2xl font-serif border-b border-gray-200 pb-2 mb-4">$2</h2>');
+    html = html.replace(/<\/Section>/g, '</section>');
+    // Unwrap <Quote> → blockquote
+    html = html.replace(/<Quote\s+text=["']([^"']+)["']\s+attribution=["']([^"']+)["']\s*\/>/g,
+      '<blockquote class="border-l-4 border-gray-300 pl-4 italic my-6"><p>$1</p><footer class="text-sm text-gray-500 mt-2">$2</footer></blockquote>');
+    row.content_html = jsxToHtml(html).trim();
+  } else {
+    row.content_html = '';
+  }
 
   return row;
 }

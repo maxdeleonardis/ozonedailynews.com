@@ -29,12 +29,21 @@ export const metadata: Metadata = {
       'Profile of Yeat, the rage rap phenomenon with 42M+ monthly Spotify listeners. Discography from 4L to Lyfestyle (#1), tour dates, and latest news.',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
+    images: [
+      {
+        url: 'https://www.objectwire.org/artist/Yeat-adl.png',
+        width: 1200,
+        height: 675,
+        alt: 'Yeat ADL album cover 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Yeat | ObjectWire',
     description:
       'Rage rap pioneer Yeat, 42M+ monthly listeners, first #1 album with Lyfestyle. Full profile and discography.',
+    images: ['https://www.objectwire.org/artist/Yeat-adl.png'],
   },
 };
 

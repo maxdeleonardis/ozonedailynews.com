@@ -37,7 +37,7 @@ The script auto-detects which component you used by scanning the JSX source. No 
 
 ```tsx
 import type { Metadata } from 'next';
-import { ArticlePage } from '@/components/ArticlePage';   // ← full component, NOT ArticlePageDB
+import { ArticlePage, Section, Quote } from '@/components/ArticlePage';   // ← full component, NOT ArticlePageDB
 
 export const dynamic = 'force-dynamic';
 
@@ -45,23 +45,45 @@ export const metadata: Metadata = {
   title: 'Your Title | ObjectWire',
   description: '140–160 char description with primary keyword in first 60 chars.',
   alternates: { canonical: 'https://www.objectwire.org/your/path' },
-  openGraph: { ... },
+  openGraph: {
+    type: 'article',
+    url: 'https://www.objectwire.org/your/path',
+    images: [{ url: 'https://www.objectwire.org/artist/your-image.png', width: 1200, height: 675, alt: '...' }],
+  },
 };
 
 export default function YourPage() {
   return (
     <ArticlePage
-      title="Your Title"
-      category="News"
+      title="Your Title"              // ← REQUIRED — must be present
+      subtitle="One-line description"
+      category="Music"
       lastUpdated="March 30, 2026"
-      slug="your-path-slug"
-      url="/your/path"
+      tableOfContents={[
+        { id: 'overview', label: 'Overview' },
+        { id: 'section-two', label: 'Section Two' },
+      ]}
+      infoBox={{
+        title: 'Sidebar Title',
+        image: { src: '/artist/your-image.png', alt: '...', caption: '...' },
+        sections: [
+          { heading: 'Quick Facts', items: [{ label: 'Key', value: 'Value' }] },
+          { heading: 'Known For', list: ['Item one', 'Item two'] },
+          { heading: 'Related', links: [{ href: '/hub', label: 'Hub Page' }] },
+        ],
+      }}
+      relatedLinks={[
+        { href: '/hub', label: 'Hub Page', description: 'Brief description' },
+      ]}
+      backLink={{ href: '/hub', label: 'Hub Page' }}
     >
-      <div className="prose prose-lg max-w-none">
-        <p>Full article body here...</p>
-        <h2 id="section-one">Specific Section Heading</h2>
-        ...
-      </div>
+      <Section id="overview" title="Overview">
+        <p>Article body here...</p>
+        <Quote text="A quote." source="Name, Title, Date" />
+      </Section>
+      <Section id="section-two" title="Specific Section Heading">
+        <p>More content...</p>
+      </Section>
     </ArticlePage>
   );
 }
@@ -205,42 +227,96 @@ Every article **must** have multiple niche, specific, and relevant subheadings. 
 
 ## 9. `article_pages` Column Reference
 
-The `article_pages` Supabase table has **no `description` column**. `extractPageContent` in `wiki-publish.ts` must never attempt to write one. Columns used:
+The `article_pages` Supabase table has **no `description` column**. `extractPageContent` in `wiki-publish.ts` must never attempt to write one. All structured fields are now extracted automatically by `wiki:publish` from the JSX props — **do not upsert them manually**.
 
 | Column | Source in JSX |
 |---|---|
 | `slug` | Auto-derived from file path |
-| `title` | `metadata.title` (suffix stripped) |
-| `category` | `category` prop on `<ArticlePage>` |
-| `last_updated` | `lastUpdated` prop on `<ArticlePage>` |
-| `content_html` | JSX body inside `<ArticlePage>...</ArticlePage>` |
-| `info_box` | JSONB — set directly in Supabase after publish |
-| `table_of_contents` | JSONB — set directly in Supabase after publish |
-| `related_links` | JSONB — set directly in Supabase after publish |
-| `back_link` | JSONB — set directly in Supabase after publish |
-| `url` | Auto-set from route |
+| `title` | `title` prop on `<ArticlePage>` (required) |
+| `subtitle` | `subtitle="..."` prop on `<ArticlePage>` |
+| `category` | `category="..."` prop on `<ArticlePage>` |
+| `last_updated` | `lastUpdated="..."` prop on `<ArticlePage>` |
+| `url` | Extracted from `canonical` URL in metadata |
+| `content_html` | JSX body inside `<ArticlePage>...</ArticlePage>`, with `<Section>` and `<Quote>` components converted to HTML |
+| `table_of_contents` | `tableOfContents={[{ id: '...', label: '...' }]}` prop |
+| `related_links` | `relatedLinks={[{ href: '...', label: '...', description: '...' }]}` prop |
+| `back_link` | `backLink={{ href: '...', label: '...' }}` prop |
+| `info_box` | `infoBox={{ title: '...', sections: [...] }}` prop |
+
+### `infoBox` structure
+
+Use the `sections` array (not flat `items`). Each section has `heading` + one of `items`, `list`, or `links`:
+
+```tsx
+infoBox={{
+  title: 'ADL',
+  image: { src: '/artist/Yeat-adl.png', alt: '...', caption: '...' },
+  sections: [
+    {
+      heading: 'Quick Facts',
+      items: [
+        { label: 'Artist', value: 'Yeat' },
+        { label: 'Released', value: 'March 27, 2026' },
+      ],
+    },
+    {
+      heading: 'Known For',
+      list: ['Rage rap', 'Twizzy aesthetics'],
+    },
+    {
+      heading: 'Related',
+      links: [
+        { href: '/artists/yeat', label: 'Yeat Profile' },
+      ],
+    },
+  ],
+}}
+```
+
+### Thumbnail / image rules
+
+- **Always include a real local image** in the `infoBox.image` prop and in OG/Twitter metadata
+- Store images in `public/artist/`, `public/influncer/`, or the relevant subfolder under `public/`
+- Path format: `/artist/Yeat-adl.png` (no `/public` prefix — Next.js serves `public/` at root)
+- OG image must be at least **1200×675px**
+- The `wiki:publish` script warns `⚠️ none detected` if no thumbnail is found — add the image before publishing or add it to the infoBox via a targeted Supabase update after
 
 ---
 
 ## 10. Slug Conventions
 
 - Derived automatically from the file path by the publish script — segments joined with `-`
-- All lowercase, hyphen-separated (the script handles this)
-- Keep route folder names: lowercase, hyphen-only, no stop words
-- ✅ `app/trump/doge-federal-layoffs-2026/page.tsx` → slug `trump-doge-federal-layoffs-2026`
-- ❌ `app/trump/The-Story-Of-How-DOGE-Cut-Federal-Jobs/page.tsx`
+- **All folder names must be lowercase** — Railway runs Linux (case-sensitive). A folder named `ADL-26` will 404 when users visit `/adl-26`. Always use `adl-26`.
+- Hyphen-only, no stop words
+- ✅ `app/artists/yeat/adl-26/page.tsx` → slug `artists-yeat-adl-26`
+- ❌ `app/artists/yeat/ADL-26/page.tsx` → deploys but 404s on Linux
+
+**If you accidentally create an uppercase folder:**
+```bash
+# Two-step git rename (required on macOS — git is case-insensitive by default)
+git mv app/artists/yeat/ADL-26 app/artists/yeat/adl-26-tmp
+git mv app/artists/yeat/adl-26-tmp app/artists/yeat/adl-26
+```
+Then delete the stale uppercase Supabase row if one was already created.
 
 ---
 
 ## 11. Publish Checklist
 
+- [ ] Route folder name is **all lowercase** — no `ADL-26`, only `adl-26`
 - [ ] Full `<ArticlePage>` (or correct component) with JSX body — **not** a DB stub
+- [ ] `title` prop is present on `<ArticlePage>` — it is **required**, the build will fail without it
+- [ ] `subtitle`, `tableOfContents`, `infoBox`, `relatedLinks`, `backLink` props all set
+- [ ] `infoBox.image.src` points to a real file in `public/` (e.g. `/artist/Yeat-adl.png`)
 - [ ] `metadata.title` uses `|`, under 65 chars, no em dashes
 - [ ] `metadata.description` is 130–155 chars, primary keyword in first 60 chars
-- [ ] `canonical` URL set in `alternates`
-- [ ] `openGraph` block complete: title, description, image (1200x675), `publishedTime`, `section`
+- [ ] `canonical` URL set in `alternates` — lowercase path matching the folder name
+- [ ] `openGraph` block complete: title, description, **local image** (1200×675), `publishedTime`, `section`
+- [ ] `twitter` block includes `images` array with the same local image path
 - [ ] All H2 subheadings are niche and specific — no "Background", "Overview", "Details"
 - [ ] No `—` or `–` anywhere in the file
-- [ ] `category` is a valid value: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`
+- [ ] `category` is a valid value: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Music`
+- [ ] `<Section>` components used for body (not raw `<div className="prose">`)
+- [ ] `<Quote>` uses `source="..."` prop (not `attribution="..."`)
 - [ ] Ran `npm run wiki:publish -- --file <path>` and got `✅ Published successfully!`
-- [ ] Committed: `git add -A && git commit -m "feat: publish /your/path"`
+- [ ] Committed: `git add -A && git commit -m "feat: publish /your/path"` and pushed

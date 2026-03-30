@@ -32,14 +32,7 @@ export const metadata: Metadata = {
       'More than 4,000 Kaiser Permanente pharmacy and lab workers in Southern and Central California ratified a four-year UFCW contract that includes AI job protections and up to 30% in total compensation increases.',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 675,
-        alt: 'Healthcare workers in a hospital setting',
-      },
-    ],
+    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Healthcare workers in a hospital setting' }],
     publishedTime: '2026-03-30T14:00:00Z',
     modifiedTime: '2026-03-30T14:00:00Z',
     section: 'Technology',

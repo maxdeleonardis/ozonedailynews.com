@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
-import { contentRegistry } from '@/lib/content-registry';
+import { getAllEntries } from '@/lib/registry-service';
 import { compareDescending, getRelativeTime } from '@/lib/date-utils';
 import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/NewsLibrary';
 
@@ -47,6 +47,7 @@ export default async function NewsPage() {
   const filesystemArticles = await scanAllContent();
 
   // Merge: registry entries override filesystem dates
+  const contentRegistry = await getAllEntries();
   const registryMap = new Map(contentRegistry.map(e => [e.slug, e]));
   const allArticles = filesystemArticles.map(a => {
     const reg = registryMap.get(a.slug);

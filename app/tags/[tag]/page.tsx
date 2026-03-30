@@ -4,7 +4,7 @@ import {
   getAllTags,
   getEntriesByTag,
   type ContentEntry,
-} from '@/lib/content-registry';
+} from '@/lib/registry-service';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -19,8 +19,8 @@ function slugToTag(slug: string): string {
 }
 
 /** Find the exact tag string in the registry (case-insensitive match against slug) */
-function resolveTag(slug: string): string | null {
-  const allTags = getAllTags();
+async function resolveTag(slug: string): Promise<string | null> {
+  const allTags = await getAllTags();
   const decoded = slugToTag(slug);
   const match = allTags.find(
     (t) => t.tag.toLowerCase() === decoded.toLowerCase()
@@ -32,8 +32,9 @@ function resolveTag(slug: string): string | null {
 // Static params — pre-render every tag page at build time
 // ---------------------------------------------------------------------------
 
-export function generateStaticParams() {
-  return getAllTags().map(({ tag }) => ({
+export async function generateStaticParams() {
+  const tags = await getAllTags();
+  return tags.map(({ tag }) => ({
     tag: tag.toLowerCase().replace(/\s+/g, '-'),
   }));
 }
@@ -48,8 +49,8 @@ export async function generateMetadata({
   params: Promise<{ tag: string }>;
 }): Promise<Metadata> {
   const { tag: rawTag } = await params;
-  const tag = resolveTag(rawTag) ?? slugToTag(rawTag);
-  const articles = getEntriesByTag(tag);
+  const tag = (await resolveTag(rawTag)) ?? slugToTag(rawTag);
+  const articles = await getEntriesByTag(tag);
 
   return {
     title: `${tag} | ${articles.length} Articles | ObjectWire`,
@@ -77,8 +78,8 @@ export default async function TagArchivePage({
   params: Promise<{ tag: string }>;
 }) {
   const { tag: rawTag } = await params;
-  const tag = resolveTag(rawTag) ?? slugToTag(rawTag);
-  const articles = getEntriesByTag(tag);
+  const tag = (await resolveTag(rawTag)) ?? slugToTag(rawTag);
+  const articles = await getEntriesByTag(tag);
 
   return (
     <div className="min-h-screen bg-[#faf9f6]">

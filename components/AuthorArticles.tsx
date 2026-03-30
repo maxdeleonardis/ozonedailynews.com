@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getEntriesByAuthor, type ContentEntry } from '@/lib/content-registry';
+import { getEntriesByAuthor, type ContentEntry } from '@/lib/registry-service';
 
 /**
  * AuthorArticles — Auto-populated article list from the content registry.
@@ -22,12 +22,12 @@ interface AuthorArticlesProps {
   extraArticles?: { href: string; title: string; date: string; category: string }[];
 }
 
-export default function AuthorArticles({
+export default async function AuthorArticles({
   authorSlug,
   limit,
   extraArticles = [],
 }: AuthorArticlesProps) {
-  const registryArticles = getEntriesByAuthor(authorSlug);
+  const registryArticles = await getEntriesByAuthor(authorSlug);
 
   // Merge registry articles and extras, deduplicate by href/slug
   const slugSet = new Set(registryArticles.map((a) => a.slug));

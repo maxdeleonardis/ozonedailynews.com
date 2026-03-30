@@ -58,7 +58,15 @@ All fetching is server-side. Zero client-side Supabase calls in page components.
 
 ## Publishing Workflows
 
-**Workflow A — content file → Supabase (preferred for new news articles):**
+**Workflow A — `wiki:publish` (default for ALL new article pages):**
+
+Write the full `page.tsx` with real JSX content inside the correct component (`<ArticlePage>`, `<NewsArticle>`, `<JackArticle>`, `<CreatorArticle>`), then run:
+```bash
+npm run wiki:publish -- --file app/your/path/page.tsx
+```
+The script auto-detects the component, upserts to the correct Supabase table, adds a `content_registry` entry, and trims the file to a stub. One command does everything.
+
+**Workflow B — content file → Supabase (for `articles` table only, news format):**
 ```bash
 cp content/articles/_template.ts content/articles/[category]/your-slug.ts
 # fill fields and content_html
@@ -66,15 +74,18 @@ npm run content:dry-run
 npm run content:publish
 ```
 
-**Workflow B — existing static page.tsx → Supabase:**
-```bash
-npm run wiki:migrate   # ALWAYS first — extracts JSX → HTML → Supabase row
-npm run wiki:trim      # ALWAYS second — replaces file with 3-line stub
-npm run registry:write # add entry to content_registry
-```
-Trim before migrate = no Supabase row = 404 in production.
-
 **Workflow C — `/admin/editor` UI** — use only for quick edits or non-developer contributors.
+
+**Workflow D — bulk sync (use with caution):**
+```bash
+npm run wiki:sync      # upserts all pages + deletes orphan Supabase rows
+npm run wiki:status    # diagnostic: shows sync state across filesystem, registry, Supabase
+```
+
+### Critical rules
+- **Never write a DB stub manually.** Always run `wiki:publish` on the full content file first.
+- **Never use `<ArticlePageDB>` (or any `*DB` component) in a full content file.** The `*DB` variants are only for stubs after the script has run.
+- Slug is derived automatically from the file path. Do not set it manually in the file.
 
 ---
 

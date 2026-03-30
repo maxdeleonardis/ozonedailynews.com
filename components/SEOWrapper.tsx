@@ -22,7 +22,7 @@
  *   }
  */
 
-import { getEntry } from '@/lib/content-registry';
+import { getEntry } from '@/lib/registry-service';
 
 const SITE_URL = 'https://www.objectwire.org';
 const ORG_NAME = 'ObjectWire';
@@ -32,8 +32,8 @@ interface SEOWrapperProps {
   children: React.ReactNode;
 }
 
-export function SEOWrapper({ slug, children }: SEOWrapperProps) {
-  const entry = getEntry(slug);
+export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
+  const entry = await getEntry(slug);
 
   // ── NewsArticle schema ──────────────────────────────────────────────────────
   // Resolve author URL: use explicit authorSlug, or derive from author name if it

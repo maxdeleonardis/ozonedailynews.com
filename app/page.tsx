@@ -3,8 +3,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getAllBlogPosts, getCreatorArticles } from '@/lib/blog-service';
 import type { BlogPostFull } from '@/lib/blog-service';
-import { contentRegistry } from '@/lib/content-registry';
-import type { ContentEntry } from '@/lib/content-registry';
+import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/EngagementBar';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
 
@@ -61,12 +60,12 @@ function fromRegistry(e: ContentEntry): Article {
   };
 }
 
-function fromBlog(p: BlogPostFull): Article | null {
+function fromBlog(p: BlogPostFull, registry: ContentEntry[]): Article | null {
   // Articles migrated from page routes have slugs derived from their path
   // (e.g. /social/meta/news/article → slug "social-meta-news-article").
   // Look up the canonical URL in the content registry. If no match, skip the
   // article entirely — we never link to the legacy /blog/[slug] route.
-  const registryEntry = contentRegistry.find(
+  const registryEntry = registry.find(
     (e) => e.slug.replace(/^\//, '').replace(/\//g, '-') === p.slug
   );
   if (!registryEntry) return null;
@@ -330,13 +329,16 @@ function HeadlineRow({ article }: { article: Article }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default async function HomePage() {
+  // Load the content registry from Supabase
+  const contentRegistry = await getAllEntries();
+
   // Load Supabase blog posts (non-fatal)
   let blogArticles: Article[] = [];
   try {
     const all = await getAllBlogPosts();
     blogArticles = all
       .filter((p) => p.status === 'published')
-      .map(fromBlog)
+      .map((p) => fromBlog(p, contentRegistry))
       .filter((a): a is Article => a !== null);
   } catch {
     // Supabase unavailable — static registry still shows

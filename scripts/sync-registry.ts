@@ -35,7 +35,6 @@ try {
 // ---------------------------------------------------------------------------
 const ROOT = path.resolve(__dirname, '..');
 const APP_DIR = path.join(ROOT, 'app');
-const REGISTRY_PATH = path.join(ROOT, 'lib', 'content-registry.ts');
 const DEFAULT_AUTHOR = 'ObjectWire Editorial';
 const DEFAULT_AUTHOR_SLUG = undefined; // only set on named-author entries
 const TODAY = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
@@ -219,13 +218,25 @@ function scanApp(dir: string, results: PageMeta[] = []): PageMeta[] {
 }
 
 // ---------------------------------------------------------------------------
-// read existing registry slugs
+// read existing registry slugs — from Supabase (source of truth)
 // ---------------------------------------------------------------------------
-function getRegisteredSlugs(registrySource: string): Set<string> {
-  const slugs = new Set<string>();
-  const matches = registrySource.matchAll(/slug\s*:\s*['"`]([^'"`]+)['"`]/g);
-  for (const m of matches) slugs.add(m[1]);
-  return slugs;
+async function getRegisteredSlugsFromSupabase(): Promise<Set<string>> {
+  const url  = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key  = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+            ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) return new Set();
+
+  let createClient: (url: string, key: string) => { from: (t: string) => { select: (cols: string) => Promise<{ data: { slug: string }[] | null; error: { message: string } | null }> } };
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    ({ createClient } = require('@supabase/supabase-js'));
+  } catch { return new Set(); }
+
+  const supabase = createClient(url, key);
+  const { data, error } = await supabase.from('content_registry').select('slug');
+  if (error || !data) return new Set();
+  return new Set(data.map((r: { slug: string }) => r.slug));
 }
 
 // ---------------------------------------------------------------------------
@@ -241,26 +252,6 @@ function sanitizeStr(s: string): string {
     .replace(/"/g, '\\"')         // escape double-quotes
     .replace(/\s{2,}/g, ' ')      // collapse multiple spaces
     .trim();
-}
-
-function generateEntry(meta: PageMeta): string {
-  const { category, tags } = detectCategory(meta.slug);
-  const priority = detectPriority(meta.slug, category);
-  const changeFrequency = detectChangeFrequency(category);
-  const tagsStr = tags.map(t => `"${sanitizeStr(t)}"`).join(', ');
-
-  return `  {
-    slug: "${sanitizeStr(meta.slug)}",
-    title: "${sanitizeStr(meta.title)}",
-    description: "${sanitizeStr(meta.description)}",
-    publishDate: "${TODAY}",
-    modifiedDate: "${TODAY}",
-    category: "${sanitizeStr(category)}",
-    tags: [${tagsStr}],
-    author: "${sanitizeStr(meta.author)}",
-    priority: ${priority},
-    changeFrequency: "${changeFrequency}",
-  },`;
 }
 
 // Supabase row shape (snake_case column names)
@@ -337,9 +328,9 @@ async function main() {
   const allPages = scanApp(APP_DIR);
   console.log(`    Found ${allPages.length} pages\n`);
 
-  const registrySource = fs.readFileSync(REGISTRY_PATH, 'utf-8');
-  const registeredSlugs = getRegisteredSlugs(registrySource);
-  console.log(`📋  Currently registered: ${registeredSlugs.size} entries\n`);
+  // Source of truth is now Supabase — check what's already registered there
+  const registeredSlugs = await getRegisteredSlugsFromSupabase();
+  console.log(`📋  Currently registered in Supabase: ${registeredSlugs.size} entries\n`);
 
   const missing = allPages.filter(p => !registeredSlugs.has(p.slug));
   console.log(`➕  Missing from registry: ${missing.length} pages\n`);
@@ -349,60 +340,23 @@ async function main() {
     return;
   }
 
-  // group by category for readability
-  const byCategory = new Map<string, PageMeta[]>();
-  for (const page of missing) {
-    const { category } = detectCategory(page.slug);
-    if (!byCategory.has(category)) byCategory.set(category, []);
-    byCategory.get(category)!.push(page);
-  }
-
-  // build the new block of entries
-  const lines: string[] = [
-    '',
-    `  // ===========================================================================`,
-    `  // AUTO-SYNCED ${TODAY} — ${missing.length} entries added by scripts/sync-registry.ts`,
-    `  // Review publishDate / modifiedDate / featured / imageUrl on each entry.`,
-    `  // ===========================================================================`,
-  ];
-
-  for (const [category, pages] of [...byCategory.entries()].sort()) {
-    lines.push(`\n  // --- ${category} (${pages.length}) ---`);
-    for (const page of pages.sort((a, b) => a.slug.localeCompare(b.slug))) {
-      lines.push(generateEntry(page));
-    }
-  }
-
-  const newBlock = lines.join('\n');
-
   if (!WRITE_FLAG) {
+    // Preview mode — just print what would be added
     console.log('--- PREVIEW (pass --write to apply) ---\n');
-    console.log(newBlock);
+    for (const page of missing.slice(0, 20)) {
+      console.log(`  ${page.slug}`);
+    }
+    if (missing.length > 20) console.log(`  … and ${missing.length - 20} more`);
     console.log('\n--- END PREVIEW ---');
     console.log('\nRun:  npm run registry:sync -- --write');
     return;
   }
 
-  // --- 1. Update the TypeScript file (keeps legacy consumers working) -------
-  const ARRAY_CLOSE_RE = /(\r?\n\];\r?\n\r?\n\/\/ =+\r?\n\/\/ HELPER FUNCTIONS)/;
-  if (!ARRAY_CLOSE_RE.test(registrySource)) {
-    console.error('❌  Could not locate the end of the contentRegistry array.\n   Aborting.');
-    process.exit(1);
-  }
-
-  const updated = registrySource.replace(
-    ARRAY_CLOSE_RE,
-    (_fullMatch, closingBlock: string) => newBlock + closingBlock
-  );
-
-  fs.writeFileSync(REGISTRY_PATH, updated, 'utf-8');
-  console.log(`✅  Wrote ${missing.length} new entries to lib/content-registry.ts`);
-
-  // --- 2. Also upsert to Supabase (new source of truth) ---------------------
+  // Upsert missing entries to Supabase only (TS file is no longer the store)
   const rows = missing.map(buildEntryObject);
   await upsertToSupabase(rows);
 
-  console.log('    Review the entries, fill in real publishDates, and add imageUrls where needed.');
+  console.log('✅  Done. Review the new entries in Supabase and fill in real publishDates + imageUrls.');
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

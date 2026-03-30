@@ -1,6 +1,6 @@
 ---
 name: ostandard
-description: "Use when: writing, editing, or reviewing any ObjectWire article component or Supabase article record. Covers SEO, formatting standards, heading conventions, and content structure required for all ObjectWire editorial content. Invoke with: OStandard, article standard, writing standard, article component, Supabase article."
+description: "Use when: writing, editing, or reviewing any ObjectWire article component or Supabase article record. Covers the full publish pipeline, component routing, SEO standards, heading conventions, and content structure. Invoke with: OStandard, article standard, writing standard, article component, Supabase article, wiki:publish, publish article."
 ---
 
 # OStandard — ObjectWire Article & SEO Writing Standard
@@ -9,44 +9,161 @@ Every article component written for ObjectWire, and every article record synced 
 
 ---
 
-## 1. Title Formatting
+## 1. Component Routing — Pick the Right Table
+
+Every article belongs to exactly one component and one Supabase table. **Use the wrong component and you will query the wrong table.**
+
+| Component | Supabase Table | Use For |
+|---|---|---|
+| `<ArticlePage>` | `article_pages` | Profiles, wiki-style pages, evergreen reference guides |
+| `<NewsArticle>` | `articles` | Breaking news, tech, gaming, features, analysis |
+| `<JackArticle>` | `jack_articles` | Research reports, investigations, premium long-form |
+| `<CreatorArticle>` | `creator_articles` | Creator/influencer/artist hubs |
+| `<AlysaArticle>` | `alysa_articles` | Alysa-bylined content |
+
+**`jack_articles` has no `status` column.** Never query `status` from it.
+
+The script auto-detects which component you used by scanning the JSX source. No manual configuration needed.
+
+---
+
+## 2. The Correct Publish Pipeline
+
+**NEVER manually write a stub or manually upsert to Supabase.** Always use the publish script.
+
+### Step-by-step
+
+**Step 1 — Write the full `page.tsx`** with real JSX content inside the component:
+
+```tsx
+import type { Metadata } from 'next';
+import { ArticlePage } from '@/components/ArticlePage';   // ← full component, NOT ArticlePageDB
+
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Your Title | ObjectWire',
+  description: '140–160 char description with primary keyword in first 60 chars.',
+  alternates: { canonical: 'https://www.objectwire.org/your/path' },
+  openGraph: { ... },
+};
+
+export default function YourPage() {
+  return (
+    <ArticlePage
+      title="Your Title"
+      category="News"
+      lastUpdated="March 30, 2026"
+      slug="your-path-slug"
+      url="/your/path"
+    >
+      <div className="prose prose-lg max-w-none">
+        <p>Full article body here...</p>
+        <h2 id="section-one">Specific Section Heading</h2>
+        ...
+      </div>
+    </ArticlePage>
+  );
+}
+```
+
+**Step 2 — Run the publish script:**
+
+```bash
+npm run wiki:publish -- --file app/your/path/page.tsx
+```
+
+The script automatically:
+1. Detects the component type (`ArticlePage`, `NewsArticle`, etc.)
+2. Extracts title, category, content_html, and all props from the JSX
+3. Upserts the row to the correct Supabase table (`article_pages`, `articles`, etc.)
+4. Adds an entry to `content_registry` (slug + route)
+5. Trims `page.tsx` to a 3-line stub pointing at `<ArticlePageDB slug="..." />`
+6. Verifies the Supabase row exists and prints confirmation
+
+**Step 3 — Dry-run first if unsure:**
+
+```bash
+npm run wiki:publish -- --file app/your/path/page.tsx --dry-run
+```
+
+Prints the row that would be upserted without writing anything.
+
+### What the slug will be
+
+The slug is derived from the **file path**, not anything inside the file:
+
+```
+app/artists/yeat/ADL-26/page.tsx  →  slug: "artists-yeat-ADL-26"
+app/trump/foo-bar/page.tsx        →  slug: "trump-foo-bar"
+```
+
+The slug in the file's `ArticlePageDB` stub and the Supabase row will be set to this automatically. You do not set it manually.
+
+### Never do this manually
+
+```tsx
+// ❌ WRONG — writing a stub before running the script
+export default function Page() {
+  return <ArticlePageDB slug="artists-yeat-ADL-26" />;
+}
+
+// ❌ WRONG — using ArticlePageDB in a full content page
+import { ArticlePageDB } from '@/components/ArticlePageDB';
+```
+
+---
+
+## 3. Other Wiki Scripts
+
+| Script | Command | When to Use |
+|---|---|---|
+| `wiki-publish.ts` | `npm run wiki:publish -- --file <path>` | **Default.** Publish a single new or updated article. |
+| `sync-wiki-content.ts` | `npm run wiki:sync` | Full bidirectional sync of ALL pages to Supabase. Deletes orphan rows. Use with caution. |
+| `trim-wiki-pages.ts` | `npm run wiki:trim` | Bulk-trim many full pages to stubs after a batch migration. |
+| `wiki-status.ts` | `npm run wiki:status` | Diagnostic dashboard showing sync state of all pages across filesystem, registry, and Supabase. |
+
+---
+
+## 4. Title Formatting
 
 - **Use `|` to separate the article title from the site name** — never `:` or `—`
   - ✅ `Trump Backs Musk on DOGE Cuts | ObjectWire`
   - ❌ `Trump Backs Musk on DOGE Cuts: ObjectWire`
   - ❌ `Trump Backs Musk on DOGE Cuts — ObjectWire`
 
-- **Never use a dash `—` or `–` in any heading (H1–H6), title, or meta title**
-  - Replace em dashes and en dashes with a comma, `|`, or rewrite the clause
+- **Never use an em dash `—` or en dash `–` anywhere** — in headings, titles, meta titles, or prose
+  - Replace with a comma, `|`, or rewrite the clause
   - ✅ `Google Fires 200 Engineers | Layoffs Hit Search Division`
   - ❌ `Google Fires 200 Engineers — Search Division Hit`
 
-- Titles should be **sentence-case** for readability but can be **title-case** for breaking/featured pieces
+- Titles should be **sentence-case** for readability, or **title-case** for breaking/featured pieces
 - Keep titles under **65 characters** for full Google SERP display
 
 ---
 
-## 2. Meta Description
+## 5. Meta Description
 
-- 140–160 characters
-- Must contain the **primary keyword** in the first half of the sentence
+- 130–155 characters
+- Primary keyword in the **first 60 characters**
 - Written as a direct, factual summary — no clickbait phrasing
 - No trailing punctuation
+- No generic phrases ("learn more", "find out", "click here")
 
 ---
 
-## 3. Headings Structure
+## 6. Headings Structure
 
-Every article **must** have multiple niche, specific, and relevant subheadings. Generic headings like "Background" or "Overview" are not acceptable.
+Every article **must** have multiple niche, specific, and relevant subheadings. Generic headings like "Background" or "Overview" are banned.
 
 ### Rules
 - **H1** — Article title only. One per article.
 - **H2** — Major section breaks. Must be specific and keyword-rich.
 - **H3** — Sub-points within an H2 section.
-- **Never use `—` or `–` in any heading**. Use `|` or restructure.
-- Headings must describe what the section actually contains — a reader skimming only the headings should understand the article's full narrative arc.
+- **Never use `—` or `–` in any heading.** Use `|` or restructure.
+- Headings must describe what the section actually contains — a reader skimming only the headings should understand the full narrative arc.
 
-### Examples of Good vs Bad Subheadings
+### Good vs Bad Subheadings
 | ❌ Avoid | ✅ Use Instead |
 |---|---|
 | Background | How the Policy Was Drafted in 2024 |
@@ -65,66 +182,65 @@ Every article **must** have multiple niche, specific, and relevant subheadings. 
 
 ---
 
-## 4. SEO — Keyword Usage
+## 7. SEO — Keyword Usage
 
 - **Primary keyword** must appear in: H1, first 100 words of body, at least one H2, meta description
-- **Secondary keywords** (2–4) should appear naturally in subheadings and body
-- No keyword stuffing — each keyword should read as natural editorial language
-- Use **niche, specific long-tail variants** in H3s (e.g. "how DOGE layoffs affect federal contractors in Virginia")
+- **Secondary keywords** (2–4) appear naturally in subheadings and body
+- No keyword stuffing — every keyword must read as natural editorial language
+- Use niche long-tail variants in H3s (e.g. "how DOGE layoffs affect federal contractors in Virginia")
 
 ---
 
-## 5. Content Niche & Depth
+## 8. Content Depth
 
-- Every article must have **specific, verifiable facts** — numbers, names, dates, and sources
-- Niche subheadings must match the article's actual content — no filler sections
-- **Each H2 section must be self-contained** — a reader jumping to that section should understand it without reading the rest
-- Include at least one of the following in every long-form piece:
+- Every article must have **specific, verifiable facts** — numbers, names, dates, sources
+- Subheadings must match actual content — no filler sections
+- **Each H2 section must be self-contained** — a reader jumping directly to it should understand it without reading prior sections
+- Every long-form piece must include at least one of:
   - A data table or comparison block
-  - A quoted statement or attributed claim
+  - A quoted statement or attributed claim (use `, Name, Title` format in blockquote footer — never `—`)
   - A timeline or numbered list of key events
 
 ---
 
-## 6. Supabase Field Standards
+## 9. `article_pages` Column Reference
 
-When writing or syncing an article record to Supabase, populate fields as follows:
+The `article_pages` Supabase table has **no `description` column**. `extractPageContent` in `wiki-publish.ts` must never attempt to write one. Columns used:
 
-| Field | Requirement |
+| Column | Source in JSX |
 |---|---|
-| `title` | Plain title only — no site suffix (e.g. `"Trump Backs Musk on DOGE Cuts"`) |
-| `meta_title` | Full title with site suffix using `|` (e.g. `"Trump Backs Musk on DOGE Cuts | ObjectWire"`) |
-| `excerpt` / `description` | 140–160 chars, primary keyword in first half |
-| `category` | Lowercase slug — `technology`, `finance`, `entertainment`, `news`, `gaming`, `sports` |
-| `author_name` | Full name as it appears on the byline |
-| `published_at` | ISO 8601 UTC timestamp |
-| `breaking` | `true` only if the story is a live developing situation |
-| `featured` | `true` only for editor-selected lead stories |
-| `tags` | Array of 3–8 lowercase, hyphenated strings |
-| `slug` | Lowercase, hyphenated, no stop words unless critical for SEO |
+| `slug` | Auto-derived from file path |
+| `title` | `metadata.title` (suffix stripped) |
+| `category` | `category` prop on `<ArticlePage>` |
+| `last_updated` | `lastUpdated` prop on `<ArticlePage>` |
+| `content_html` | JSX body inside `<ArticlePage>...</ArticlePage>` |
+| `info_box` | JSONB — set directly in Supabase after publish |
+| `table_of_contents` | JSONB — set directly in Supabase after publish |
+| `related_links` | JSONB — set directly in Supabase after publish |
+| `back_link` | JSONB — set directly in Supabase after publish |
+| `url` | Auto-set from route |
 
 ---
 
-## 7. Slug Conventions
+## 10. Slug Conventions
 
-- All lowercase, hyphen-separated
-- Remove stop words (`the`, `a`, `an`, `of`, `in`, `on`, `at`) unless removing them breaks SEO intent
-- Max 6–8 words
-- Must reflect the primary keyword
-- ✅ `trump-doge-federal-layoffs-2026`
-- ❌ `the-story-of-how-trump-backed-elon-musk-on-doge-cuts-in-2026`
+- Derived automatically from the file path by the publish script — segments joined with `-`
+- All lowercase, hyphen-separated (the script handles this)
+- Keep route folder names: lowercase, hyphen-only, no stop words
+- ✅ `app/trump/doge-federal-layoffs-2026/page.tsx` → slug `trump-doge-federal-layoffs-2026`
+- ❌ `app/trump/The-Story-Of-How-DOGE-Cut-Federal-Jobs/page.tsx`
 
 ---
 
-## 8. Component Checklist (before shipping any article page)
+## 11. Publish Checklist
 
-- [ ] H1 title uses `|` not `—` if site name is appended
-- [ ] No `—` or `–` in any heading
-- [ ] Minimum subheading count met for article length
-- [ ] All subheadings are niche and specific — no generic section names
-- [ ] Primary keyword in H1, first paragraph, and at least one H2
-- [ ] Meta description is 140–160 characters
-- [ ] Supabase `title`, `meta_title`, `excerpt`, `slug` all populated correctly
-- [ ] `category` is a valid lowercase slug
-- [ ] `tags` array has 3–8 entries
-- [ ] `published_at` is set
+- [ ] Full `<ArticlePage>` (or correct component) with JSX body — **not** a DB stub
+- [ ] `metadata.title` uses `|`, under 65 chars, no em dashes
+- [ ] `metadata.description` is 130–155 chars, primary keyword in first 60 chars
+- [ ] `canonical` URL set in `alternates`
+- [ ] `openGraph` block complete: title, description, image (1200x675), `publishedTime`, `section`
+- [ ] All H2 subheadings are niche and specific — no "Background", "Overview", "Details"
+- [ ] No `—` or `–` anywhere in the file
+- [ ] `category` is a valid value: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`
+- [ ] Ran `npm run wiki:publish -- --file <path>` and got `✅ Published successfully!`
+- [ ] Committed: `git add -A && git commit -m "feat: publish /your/path"`

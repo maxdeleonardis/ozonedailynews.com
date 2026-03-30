@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import type { ContentEntry } from '@/lib/content-registry';
+import type { ContentEntry } from '@/lib/registry-service';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

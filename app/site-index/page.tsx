@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { contentRegistry, ContentEntry } from '@/lib/content-registry';
+import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import { SiteIndexTree } from './SiteIndexTree';
 
 export const dynamic = 'force-dynamic';
@@ -72,8 +72,9 @@ export interface SiteIndexCategory {
   articles: SiteIndexArticle[];
 }
 
-export default function SiteIndexPage() {
+export default async function SiteIndexPage() {
   /* Build data on the server */
+  const contentRegistry = await getAllEntries();
   const articles = contentRegistry.filter(isArticle);
 
   /* Group by category */

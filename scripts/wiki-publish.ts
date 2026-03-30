@@ -213,7 +213,7 @@ function extractPageContent(source: string): Record<string, unknown> {
   if (typeof row.title === 'string') {
     row.title = (row.title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
-  row.description = extractMetaProp(source, 'description') ?? '';
+  // article_pages has no description column — omit it
   row.category    = extractProp(source, 'category') ?? null;
   row.last_updated= extractProp(source, 'lastUpdated') ?? new Date().toISOString().split('T')[0];
 

@@ -841,11 +841,13 @@ export default function JackArticle({
       {/* Hero Image — news layout */}
       {heroImage && layout === 'news' && (
         <div className="w-full">
-          <img
-            src={heroImage.src}
-            alt={heroImage.alt}
-            className="w-full h-[40vh] md:h-[60vh] object-cover"
-          />
+          <div className="w-full max-h-[480px] overflow-hidden aspect-video">
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
           {(heroImage.caption || heroImage.credit) && (
             <div className="max-w-5xl mx-auto px-6 py-2 border-b border-gray-200">
               {heroImage.caption && (

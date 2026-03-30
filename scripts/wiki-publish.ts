@@ -401,6 +401,12 @@ function buildStub(
   const metaMatch = source.match(/(export const metadata[\s\S]*?^};)/m);
   const metadata = metaMatch ? metaMatch[0] : '';
 
+  // Preserve const SLUG and const OG_IMAGE so metadata template literals don't break
+  const slugConstMatch   = source.match(/^const SLUG\s*=\s*.+;/m);
+  const ogImageConstMatch = source.match(/^const OG_IMAGE\s*=\s*.+;/m);
+  const slugConst   = slugConstMatch   ? slugConstMatch[0]   : `const SLUG = '/${slug.replace(/-/g, '/')}';`;
+  const ogImageConst = ogImageConstMatch ? ogImageConstMatch[0] : `const OG_IMAGE = '';`;
+
   const imports: Record<string, string> = {
     JackArticle:    "import { JackArticleDB } from '@/components/JackArticleDB';",
     NewsArticle:    "import { NewsArticleDB } from '@/components/NewsArticleDB';",
@@ -429,6 +435,9 @@ ${imports[component]}
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
+
+${slugConst}
+${ogImageConst}
 
 ${metadata}
 

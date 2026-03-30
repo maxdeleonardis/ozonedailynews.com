@@ -370,7 +370,8 @@ export function NewsHeader({
                   `}</style>
                   {/* wrapper fills the full height of the gradient header via flex-stretch */}
                   <div
-                    className="relative w-full h-full rounded-l-xl overflow-hidden genie-wrap"
+                    className="relative w-full rounded-l-xl overflow-hidden genie-wrap"
+                    style={aspectRatioCss ? { aspectRatio: aspectRatioCss } : { height: '100%' }}
                   >
                     <img
                       src={thumbnail.src}
@@ -381,7 +382,6 @@ export function NewsHeader({
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        ...(aspectRatioCss ? { aspectRatio: aspectRatioCss } : {}),
                       }}
                     />
                     {/* Sweep flare 1 — diagonal golden streak */}

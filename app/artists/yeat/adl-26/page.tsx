@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'ObjectWire',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&h=675&fit=crop',
+        url: 'https://www.objectwire.org/artist/Yeat-adl.png',
         width: 1200,
         height: 675,
         alt: 'Yeat ADL album cover 2026',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Yeat ADL Album | ObjectWire',
     description:
       "Yeat drops ADL, a 21-track double album feat. Elton John, Kid Cudi, Grimes, Don Toliver, and more. Full breakdown inside.",
-    images: ['https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&h=675&fit=crop'],
+    images: ['https://www.objectwire.org/artist/Yeat-adl.png'],
   },
 };
 

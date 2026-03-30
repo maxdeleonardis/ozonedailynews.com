@@ -5,6 +5,9 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/crypto/news/anchorage-digital-tron-institutional-custody-2026';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1578286788444-8c1487fcd823?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
+
 export const metadata: Metadata = {
   title: 'Anchorage Digital Adds TRON to U.S. Institutional Platform | TRX Custody 2026 | ObjectWire',
   description:

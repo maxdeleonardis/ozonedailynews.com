@@ -5,6 +5,9 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/crypto/coinbase/clarity-act-stablecoin-yield-ban';
+const OG_IMAGE = '/crypto/coinbase.png';
+
 export const metadata: Metadata = {
   title: 'Coinbase Clarity Act Stablecoin Yield Ban | Circle Stock Drop | ObjectWire',
   description:

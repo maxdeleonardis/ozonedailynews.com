@@ -5,6 +5,9 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/nvidia/news/indie-devs-dlss5-boycott-new-blood-interactive';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1578286788444-8c1487fcd823?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
+
 export const metadata: Metadata = {
   title: 'Indie Devs Call for Nvidia Boycott Over DLSS 5 | New Blood Interactive | ObjectWire',
   description:

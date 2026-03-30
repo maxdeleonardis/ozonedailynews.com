@@ -5,6 +5,9 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/nvidia/class-action-jensen-huang-crypto-revenue-2026';
+const OG_IMAGE = '/crypto/huang.png';
+
 export const metadata: Metadata = {
   title: 'NVIDIA Class Action Certified | Jensen Huang Crypto Revenue Fraud | ObjectWire',
   description:

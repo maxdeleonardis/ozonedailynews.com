@@ -5,6 +5,9 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
+const SLUG = '/central-cee/all-roads-lead-home-march-28th-ep';
+const OG_IMAGE = '/artist/centralcee.png';
+
 export const metadata: Metadata = {
   title: 'Central Cee All Roads Lead Home EP | West London Return | ObjectWire',
   description:

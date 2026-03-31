@@ -136,7 +136,7 @@ export default async function RootLayout({
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans" style={{ background: '#faf9f6' }}>
         <AuthProvider>
             {/* ── Newspaper Masthead ─────────────────────────────────────── */}
-            <header className="border-b-4 border-black bg-white sticky top-0 z-40">
+            <header className="border-b-4 border-black bg-white relative sm:sticky top-0 z-40">
 
               {/* Top info strip */}
               <div className="border-b border-gray-300 bg-gray-50">

@@ -140,8 +140,8 @@ export default async function RootLayout({
 
               {/* Top info strip */}
               <div className="border-b border-gray-300 bg-gray-50">
-                <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
-                  <span className="text-xs font-mono text-gray-500">
+                <div className="container mx-auto px-4 py-1 flex items-center justify-between">
+                  <span className="hidden sm:block text-xs font-mono text-gray-500">
                     {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                   </span>
                   <TopStripSearch />
@@ -149,17 +149,17 @@ export default async function RootLayout({
               </div>
 
               {/* Nameplate */}
-              <div className="container mx-auto px-4 py-4 md:py-6 text-center">
+              <div className="container mx-auto px-4 py-2 md:py-5 text-center">
                 <Link href="/" className="inline-block group">
-                  <div className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-none font-serif">
+                  <div className="text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif">
                     OBJECTWIRE
                   </div>
-                  <div className="flex items-center justify-center gap-6 mt-2">
-                    <div className="h-px w-16 md:w-28 bg-black" />
-                    <p className="text-[9px] tracking-[.35em] uppercase text-gray-500 font-mono whitespace-nowrap">
+                  <div className="flex items-center justify-center gap-4 mt-1.5">
+                    <div className="h-px w-10 md:w-28 bg-black" />
+                    <p className="text-[8px] tracking-[.25em] uppercase text-gray-500 font-mono whitespace-nowrap">
                       Independent · Verified · In-Depth
                     </p>
-                    <div className="h-px w-16 md:w-28 bg-black" />
+                    <div className="h-px w-10 md:w-28 bg-black" />
                   </div>
                 </Link>
               </div>

@@ -849,7 +849,7 @@ export default function JackArticle({
             />
           </div>
           {(heroImage.caption || heroImage.credit) && (
-            <div className="max-w-5xl mx-auto px-6 py-2 border-b border-gray-200">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 py-2 border-b border-gray-200">
               {heroImage.caption && (
                 <p className="text-sm text-gray-600 italic">{heroImage.caption}</p>
               )}
@@ -1029,7 +1029,7 @@ export default function JackArticle({
 
           {/* Report Footer */}
           <footer className="bg-gray-50 border-t border-gray-200 py-16 mt-12">
-            <div className="max-w-5xl mx-auto px-6 text-center">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
               <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-4">
                 ObjectWire Research &amp; Intelligence
               </p>
@@ -1067,10 +1067,10 @@ export default function JackArticle({
         <article itemScope itemType="https://schema.org/NewsArticle">
           {/* Header */}
           <header className="border-b-2 border-black">
-            <div className="max-w-6xl mx-auto px-6 py-8 md:py-12">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 md:py-12">
               {/* Breadcrumbs */}
               {breadcrumbs && breadcrumbs.length > 0 && (
-                <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+                <nav className="flex items-center gap-1.5 text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6 flex-wrap" aria-label="Breadcrumb">
                   {breadcrumbs.map((crumb, i) => (
                     <React.Fragment key={i}>
                       <Link href={crumb.href} className="hover:text-black transition-colors">
@@ -1083,26 +1083,26 @@ export default function JackArticle({
               )}
 
               {/* Category Badges & Read Time */}
-              <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
                 {categories?.map((cat, i) => (
                   <span
                     key={i}
-                    className={`${accentBadgeBgMap[cat.color || 'black']} text-xs font-bold px-3 py-1 border`}
+                    className={`${accentBadgeBgMap[cat.color || 'black']} text-xs font-bold px-2.5 py-0.5 border`}
                   >
                     {cat.label}
                   </span>
                 ))}
                 {categoryLabel && !categories?.length && (
-                  <span className="bg-gray-100 text-gray-900 text-[10px] font-black px-4 py-1.5 uppercase tracking-[0.2em] rounded-sm border border-gray-200">
+                  <span className="bg-gray-100 text-gray-900 text-[10px] font-black px-3 py-1 uppercase tracking-[0.2em] rounded-sm border border-gray-200">
                     {categoryLabel}
                   </span>
                 )}
-                {readTime && <span className="text-sm text-gray-500">{readTime}</span>}
+                {readTime && <span className="text-xs text-gray-500">{readTime}</span>}
               </div>
 
               {/* Title */}
               <h1
-                className="text-3xl md:text-5xl font-black leading-tight mb-6 max-w-4xl"
+                className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight mb-4 max-w-4xl"
                 itemProp="headline"
               >
                 {title}
@@ -1110,22 +1110,22 @@ export default function JackArticle({
 
               {/* Subtitle */}
               {subtitle && (
-                <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-4 sm:mb-6">
                   {subtitle}
                 </p>
               )}
 
               {/* Author & Date */}
-              <div className="flex flex-wrap items-center gap-4 text-sm border-t border-gray-200 pt-6">
+              <div className="flex flex-wrap items-center gap-3 text-sm border-t border-gray-200 pt-4">
                 {author && (
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
                     {author.slug ? (
                       <Link href={`/authors/${author.slug}`} className="shrink-0">
                         {author.avatar ? (
-                          <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full" />
+                          <img src={author.avatar} alt={author.name} className="w-8 h-8 rounded-full" />
                         ) : (
-                          <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
-                            <span className="text-white font-bold">
+                          <div className={`w-8 h-8 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center`}>
+                            <span className="text-white font-bold text-xs">
                               {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
                             </span>
                           </div>
@@ -1133,17 +1133,17 @@ export default function JackArticle({
                       </Link>
                     ) : (
                       author.avatar ? (
-                        <img src={author.avatar} alt={author.name} className="w-10 h-10 rounded-full shrink-0" />
+                        <img src={author.avatar} alt={author.name} className="w-8 h-8 rounded-full shrink-0" />
                       ) : (
-                        <div className={`w-10 h-10 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center shrink-0`}>
-                          <span className="text-white font-bold">
+                        <div className={`w-8 h-8 ${accentBgMap[accentColor]} rounded-full flex items-center justify-center shrink-0`}>
+                          <span className="text-white font-bold text-xs">
                             {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
                           </span>
                         </div>
                       )
                     )}
                     <div>
-                      <p className="font-semibold" itemProp="author">
+                      <p className="font-semibold text-sm" itemProp="author">
                         {author.slug ? (
                           <Link href={`/authors/${author.slug}`} className="hover:underline">
                             {author.name}
@@ -1152,11 +1152,11 @@ export default function JackArticle({
                           author.name
                         )}
                       </p>
-                      {author.department && <p className="text-gray-500">{author.department}</p>}
+                      {author.department && <p className="text-xs text-gray-500">{author.department}</p>}
                     </div>
                   </div>
                 )}
-                <div className="text-gray-500">
+                <div className="text-xs text-gray-500">
                   <time dateTime={isoDate} itemProp="datePublished">
                     {publishDate}
                   </time>
@@ -1167,7 +1167,7 @@ export default function JackArticle({
 
           {/* UUID Tracking Bar */}
           {uuid && (
-            <div className="max-w-6xl mx-auto px-6 pt-6">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
               <div className="bg-gray-50 border border-gray-200 rounded px-4 py-2 text-[10px] font-mono text-gray-500 inline-block">
                 UUID: {uuid}{version ? ` | v${version}` : ''}
               </div>
@@ -1175,8 +1175,8 @@ export default function JackArticle({
           )}
 
           {/* Main Content Grid */}
-          <div className="max-w-6xl mx-auto px-6 py-8 md:py-12">
-            <div className={hasSidebar ? 'grid lg:grid-cols-12 gap-12' : ''}>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 md:py-12">
+            <div className={hasSidebar ? 'grid lg:grid-cols-12 gap-8 lg:gap-12' : ''}>
               {/* Article Body */}
               <div className={hasSidebar ? 'lg:col-span-8' : 'max-w-4xl'}>
                 <div className="prose prose-lg max-w-none" itemProp="articleBody">
@@ -1301,7 +1301,7 @@ export default function JackArticle({
           </div>
 
           {/* Reaction Bar — Like/Comment/Share/Save */}
-          <div className="max-w-6xl mx-auto px-6 pb-4">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-4">
             <ReactionBar
               slug={engagementSlug}
               title={title}
@@ -1312,13 +1312,13 @@ export default function JackArticle({
           </div>
 
           {/* Discord Comments */}
-          <div className="max-w-6xl mx-auto px-6 pb-12">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
             {engagementSlug && <DiscordComments slug={engagementSlug} articleTitle={title} />}
           </div>
 
           {/* News Footer */}
           <footer className="border-t border-gray-200 bg-gray-50">
-            <div className="max-w-6xl mx-auto px-6 py-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
                   <p className="text-sm text-gray-500">

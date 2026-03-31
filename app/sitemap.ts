@@ -1,6 +1,5 @@
 ﻿import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/site-config';
-import { getPublishedBlogPosts } from '@/lib/blog-service';
 import { createClient } from '@/lib/supabase/server';
 
 // Regenerate daily — but dates come from content-registry, not filesystem
@@ -36,23 +35,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Supabase unavailable — sitemap will include homepage + blog posts only
   }
 
-  // Supabase-published articles at /blog/[slug]
-  let supabaseEntries: MetadataRoute.Sitemap = [];
-  try {
-    const posts = await getPublishedBlogPosts();
-    supabaseEntries = posts
-      .filter((post) => !!post.publishedAt)
-      .map((post) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: new Date(post.publishedAt),
-        changeFrequency: 'weekly' as const,
-        priority: 0.7,
-      }));
-  } catch {
-    // Supabase unavailable — continue with static entries only
-  }
-
-  const all = [...staticEntries, ...registryEntries, ...supabaseEntries];
+  // All article URLs come from the content_registry (auto-synced on build).
+  // No separate /blog/[slug] routes exist — removed legacy blog entries.
+  const all = [...staticEntries, ...registryEntries];
 
   // Deduplicate (registry takes precedence over static)
   const unique = Array.from(

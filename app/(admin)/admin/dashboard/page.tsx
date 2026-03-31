@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated, destroySession } from '@/lib/auth';
-import type { BlogPostFull } from '@/lib/blog-service';
+import type { ArticleFull } from '@/lib/article-service';
 import { createBrowserClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const [posts, setPosts] = useState<BlogPostFull[]>([]);
+  const [posts, setPosts] = useState<ArticleFull[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,13 +32,14 @@ export default function AdminDashboard() {
       const supabase = createBrowserClient();
       const { data, error: sbError } = await supabase
         .from('articles')
-        .select('id, title, slug, content, published_at, created_at, category, status, author_name, excerpt, image_url, tags, featured, trending, breaking, exclusive')
+        .select('id, title, slug, url, content, published_at, created_at, category, status, author_name, excerpt, image_url, tags, featured, trending, breaking, exclusive')
         .order('created_at', { ascending: false });
       if (sbError) throw new Error(sbError.message);
-      const mapped: BlogPostFull[] = (data || []).map((row: any) => ({
+      const mapped: ArticleFull[] = (data || []).map((row: any) => ({
         id: row.id,
         title: row.title,
         slug: row.slug,
+        url: row.url || `/${row.slug}`,
         content: row.content,
         publishedAt: row.published_at || row.created_at,
         category: row.category,

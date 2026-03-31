@@ -131,7 +131,7 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
         {articles.map((a) => (
           <li key={a.slug}>
             <Link
-              href={a.url ?? `/${a.slug.replace(/-/g, '/')}`}
+              href={a.url ?? `/${a.slug}`}
               className="group block"
             >
               {a.thumbnail_src && (

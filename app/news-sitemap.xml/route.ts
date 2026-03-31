@@ -1,4 +1,3 @@
-import { getAllBlogPosts } from '@/lib/blog-service';
 import { SITE_CONFIG } from '@/lib/site-config';
 import { createClient } from '@/lib/supabase/server';
 
@@ -41,27 +40,9 @@ export async function GET() {
       keywords: Array.isArray(row.tags) ? row.tags.join(', ') : (row.category || ''),
     }));
 
-    // Get dynamic posts from database (CMS-authored content)
-    const posts = await getAllBlogPosts();
-    
-    const recentPosts = posts
-      ? posts
-          .filter((post: any) => post.status === 'published')
-          .filter((post: any) => new Date(post.published_at || post.publishedAt || post.created_at || Date.now()) > cutoff)
-      : [];
-    
-    // Combine registry + CMS articles
-    const allArticles = [
-      // Content registry articles (auto-maintained)
-      ...registryArticles,
-      // Dynamic CMS posts
-      ...recentPosts.map((post: any) => ({
-        loc: `${baseUrl}/${post.slug}`,
-        title: post.title,
-        publicationDate: new Date(post.published_at || post.publishedAt || post.created_at || Date.now()).toISOString(),
-        keywords: post.tags?.join(', ') || post.category || '',
-      })),
-    ];
+    // All news articles come from the content_registry (auto-synced on build).
+    // No separate CMS/blog query needed.
+    const allArticles = [...registryArticles];
     
     // Sort by publication date (most recent first)
     allArticles.sort((a, b) => 

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { scanAllContent } from '@/lib/content-scanner';
-import { getPublishedBlogPosts } from '@/lib/blog-service';
 import Breadcrumb from '@/components/Breadcrumb';
 import type { Metadata } from 'next';
 
@@ -44,32 +43,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   if (query) {
     searchPerformed = true;
 
-    // Fetch all content
-    const filesystemArticles = await scanAllContent();
-    const databasePosts = await getPublishedBlogPosts();
+    // Single source of truth: filesystem scan finds ALL pages with metadata.
+    // No separate Supabase query — avoids duplicates and broken slug-to-URL mapping.
+    const allArticles = await scanAllContent();
 
-    // Combine sources
-    const allArticles = [
-      ...filesystemArticles,
-      ...(databasePosts?.map((post: any) => ({
-        title: post.title,
-        excerpt: post.excerpt || '',
-        category: post.category || 'News',
-        date: post.published_at || post.publishedAt
-          ? new Date(post.published_at || post.publishedAt).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })
-          : 'Recently published',
-        slug: post.slug,
-        author: post.author || 'ObjectWire Team',
-        readTime: post.read_time || '5 min',
-        createdAt: post.published_at || post.publishedAt ? new Date(post.published_at || post.publishedAt) : new Date(),
-      })) || [])
-    ];
-
-    // Search algorithm: title, excerpt, category
+    // Search algorithm: title, excerpt, category, author
     results = allArticles.filter(article => {
       const searchableText = `
         ${article.title} 

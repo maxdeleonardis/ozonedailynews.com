@@ -1,4 +1,3 @@
-import { getAllBlogPosts } from '@/lib/blog-service';
 import { SITE_CONFIG } from '@/lib/site-config';
 import { getNewsArticlePages } from '@/lib/page-scanner';
 
@@ -34,27 +33,8 @@ export async function GET() {
       featured_image: undefined,
     }));
     
-    // Also fetch database posts
-    try {
-      const posts = await getAllBlogPosts();
-      
-      if (posts && posts.length > 0) {
-        const publishedPosts = posts.map(post => ({
-          title: post.title,
-          slug: post.slug,
-          excerpt: '',
-          author: 'ObjectWire Editorial Team',
-          category: post.category || 'News',
-          tags: [],
-          published_at: post.publishedAt,
-          created_at: post.publishedAt,
-          featured_image: undefined,
-        }));
-        allArticles.push(...publishedPosts);
-      }
-    } catch (error) {
-      console.error('Error fetching blog posts:', error);
-    }
+    // All articles come from the filesystem page scanner.
+    // No separate database/blog query needed.
     
     // Sort by published date (newest first)
     allArticles.sort((a, b) => {

@@ -9,7 +9,7 @@ import TopStripSearch from "@/components/TopStripSearch";
 import NavUserButton from "@/components/NavUserButton";
 import NavBreakingTicker from "@/components/NavBreakingTicker";
 import TopStrip from "@/components/TopStrip";
-import { getBreakingHeadlines } from "@/lib/blog-service";
+import { getBreakingHeadlines } from "@/lib/article-service";
 import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";

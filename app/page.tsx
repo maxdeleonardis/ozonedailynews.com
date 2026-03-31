@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getAllBlogPosts, getCreatorArticles } from '@/lib/blog-service';
-import type { BlogPostFull } from '@/lib/blog-service';
+import { getAllArticles, getCreatorArticles } from '@/lib/article-service';
+import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/EngagementBar';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
@@ -60,24 +60,25 @@ function fromRegistry(e: ContentEntry): Article {
   };
 }
 
-function fromBlog(p: BlogPostFull, registry: ContentEntry[]): Article | null {
+function fromBlog(p: ArticleFull, registry: ContentEntry[]): Article | null {
   // Articles migrated from page routes have slugs derived from their path
   // (e.g. /social/meta/news/article → slug "social-meta-news-article").
-  // Look up the canonical URL in the content registry. If no match, skip the
-  // article entirely — we never link to the legacy /blog/[slug] route.
+  // Look up the canonical URL in the content registry. If no match, use
+  // the `url` field from the article itself (set by wiki:publish).
   const registryEntry = registry.find(
     (e) => e.slug.replace(/^\//, '').replace(/\//g, '-') === p.slug
   );
-  if (!registryEntry) return null;
+  const href = registryEntry?.slug ?? p.url;
+  if (!href) return null;
   return {
     id: String(p.id),
     title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
     excerpt: p.excerpt ?? undefined,
-    href: registryEntry.slug,
+    href,
     publishDate: (p.published_at ?? p.publishedAt ?? ''),
     category: p.category ?? 'News',
     author: p.author_name ?? 'ObjectWire',
-    imageUrl: p.image_url ?? p.thumbnail_url ?? undefined,
+    imageUrl: p.imageUrl ?? p.thumbnail_url ?? undefined,
     imageAlt: p.image_alt ?? p.thumbnail_alt ?? undefined,
     breaking: p.breaking ?? false,
     featured: p.featured ?? false,
@@ -332,14 +333,14 @@ export default async function HomePage() {
   // Load the content registry from Supabase
   const contentRegistry = await getAllEntries();
 
-  // Load Supabase blog posts (non-fatal)
+  // Load Supabase articles (non-fatal)
   let blogArticles: Article[] = [];
   try {
-    const all = await getAllBlogPosts();
+    const all = await getAllArticles();
     blogArticles = all
-      .filter((p) => p.status === 'published')
-      .map((p) => fromBlog(p, contentRegistry))
-      .filter((a): a is Article => a !== null);
+      .filter((p: ArticleFull) => p.status === 'published')
+      .map((p: ArticleFull) => fromBlog(p, contentRegistry))
+      .filter((a: Article | null): a is Article => a !== null);
   } catch {
     // Supabase unavailable — static registry still shows
   }
@@ -348,8 +349,7 @@ export default async function HomePage() {
   try {
     const creators = await getCreatorArticles();
     const creatorArticles = creators.map((p) => {
-      // Creator slugs are path-based (e.g. "influencer/eden-gross")
-      const href = p.slug.startsWith('/') ? p.slug : `/${p.slug}`;
+      const href = p.url;
       return {
         id: p.slug,
         title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
@@ -358,7 +358,7 @@ export default async function HomePage() {
         publishDate: p.published_at ?? p.publishedAt ?? '',
         category: p.category ?? 'Entertainment',
         author: p.author_name ?? 'ObjectWire',
-        imageUrl: p.image_url ?? undefined,
+        imageUrl: p.imageUrl ?? undefined,
         imageAlt: p.image_alt ?? undefined,
         breaking: false,
         featured: false,

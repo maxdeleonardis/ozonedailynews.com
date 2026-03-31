@@ -18,7 +18,7 @@ export default function AdminLogin() {
   // Check if already logged in
   useEffect(() => {
     if (isAuthenticated()) {
-      router.push('/admin/dashboard');
+      router.push('/admin/editor');
     }
   }, [router]);
 
@@ -31,7 +31,7 @@ export default function AdminLogin() {
       // Trim whitespace to handle copy-paste issues
       if (validateCredentials(username.trim(), password.trim())) {
         createSession('admin-user');
-        router.push('/admin/dashboard');
+        router.push('/admin/editor');
       } else {
         setError('Invalid username or password');
       }

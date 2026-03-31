@@ -174,8 +174,8 @@ export default function ArticleEditor() {
       <div className="border-b border-gray-300 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/admin/dashboard" className="text-xs font-mono text-gray-500 hover:text-black">
-              ← Dashboard
+            <Link href="/admin" className="text-xs font-mono text-gray-500 hover:text-black">
+              ← Logout
             </Link>
             <span className="text-sm font-black tracking-wider">ARTICLE EDITOR</span>
             {data && (

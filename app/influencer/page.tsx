@@ -2,10 +2,13 @@ import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { SEOWrapper } from '@/components/SEOWrapper';
+import { createClient } from '@/lib/supabase/server';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO METADATA
 // ─────────────────────────────────────────────────────────────────────────────
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Influencer Hub | Profiles, News & Culture | ObjectWire',
@@ -146,33 +149,80 @@ const PROFILES = [
 // LATEST NEWS (curated)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const LATEST_NEWS = [
-  {
-    href: '/influencer/mrbeast-launches-beast-games-season-2-casting',
-    title: 'MrBeast Launches Beast Games Season 2 Casting',
-    description:
-      'MrBeast opens casting for the next season of Beast Games, the record-breaking Amazon Prime competition series. Applications are live now.',
-    badge: 'NEWS',
-    badgeStyle: 'breaking' as const,
-    emoji: '🎬',
-    meta: '2026 · MrBeast · Amazon Prime',
-  },
-  {
-    href: '/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube',
-    title: "Steve Will Do It Kicked Off Logan Paul's Podcast | Making an Official Return to YouTube",
-    description:
-      "Steve Will Do It was removed from Logan Paul's IMPAULSIVE podcast amid controversy. Now he's staging a full comeback on his own YouTube channel.",
-    badge: 'NEWS',
-    emoji: '📺',
-    meta: '2026 · YouTube · Creator Drama',
-  },
+// Tags and categories used to pull fresh articles from Supabase
+const INFLUENCER_TAGS = [
+  'influencer', 'Influencer', 'MrBeast', 'Logan Paul', 'Tren Twins',
+  'Diamond Gym', 'Bryson DeChambeau', 'Iman Gadzhi', 'creator',
+  'YouTuber', 'TikTok', 'fitness influencer', 'content creator',
 ];
+
+interface ArticleRow {
+  slug: string;
+  title: string;
+  category: string;
+  publish_date: string;
+  thumbnail_src?: string;
+  url?: string;
+  tags?: string[];
+}
+
+async function fetchInfluencerNews(): Promise<ArticleRow[]> {
+  try {
+    const supabase = await createClient();
+
+    // Pull articles where category = Influencer OR tags overlap
+    const { data: byCat } = await supabase
+      .from('articles')
+      .select('slug, title, category, publish_date, thumbnail_src, url, tags')
+      .eq('status', 'published')
+      .eq('category', 'Influencer')
+      .order('published_at', { ascending: false })
+      .limit(20);
+
+    // Also pull by any of the relevant tags using contains
+    const { data: byTag } = await supabase
+      .from('articles')
+      .select('slug, title, category, publish_date, thumbnail_src, url, tags')
+      .eq('status', 'published')
+      .overlaps('tags', INFLUENCER_TAGS)
+      .order('published_at', { ascending: false })
+      .limit(20);
+
+    // Also pull articles whose url starts with /influencer
+    const { data: byUrl } = await supabase
+      .from('articles')
+      .select('slug, title, category, publish_date, thumbnail_src, url, tags')
+      .eq('status', 'published')
+      .like('url', '/influencer/%')
+      .order('published_at', { ascending: false })
+      .limit(20);
+
+    // Merge and deduplicate by slug
+    const all = [...(byCat ?? []), ...(byTag ?? []), ...(byUrl ?? [])];
+    const seen = new Set<string>();
+    const deduped: ArticleRow[] = [];
+    for (const row of all) {
+      if (!seen.has(row.slug)) {
+        seen.add(row.slug);
+        deduped.push(row);
+      }
+    }
+
+    // Sort by publish_date descending (string sort works for "Month D, YYYY" if same year)
+    // Use published_at if available — fall back to array order (already sorted)
+    return deduped.slice(0, 12);
+  } catch {
+    return [];
+  }
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function InfluencerHubPage() {
+export default async function InfluencerHubPage() {
+  const liveNews = await fetchInfluencerNews();
+
   return (
     <SEOWrapper slug="/influencer">
 
@@ -212,7 +262,7 @@ export default function InfluencerHubPage() {
             { label: 'Creator Profiles', value: `${PROFILES.length}` },
             { label: 'Categories', value: 'Fitness · Golf · Business · Lifestyle' },
             { label: 'Platforms Tracked', value: 'YouTube · TikTok · Instagram' },
-            { label: 'Updated', value: '2026' },
+            { label: 'Live Articles', value: `${liveNews.length}` },
           ]}
           columns={4}
         />
@@ -237,20 +287,22 @@ export default function InfluencerHubPage() {
 
         {/* ── Latest News ────────────────────────────────────────────────── */}
         <Hub.Section title="Latest News" icon="📰" variant="default">
-          <div className="space-y-4">
-            {LATEST_NEWS.map((article) => (
-              <Hub.Card
-                key={article.href}
-                href={article.href}
-                title={article.title}
-                description={article.description}
-                badge={article.badge}
-                badgeStyle={article.badgeStyle ?? 'default'}
-                emoji={article.emoji}
-                meta={article.meta}
-              />
-            ))}
-          </div>
+          {liveNews.length > 0 ? (
+            <div className="space-y-4">
+              {liveNews.map((article) => (
+                <Hub.Card
+                  key={article.slug}
+                  href={article.url ?? `/${article.slug}`}
+                  title={article.title}
+                  badge="NEWS"
+                  thumbnail={article.thumbnail_src}
+                  meta={`${article.publish_date}${article.category && article.category !== 'Influencer' ? ` · ${article.category}` : ''}`}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 text-sm">No recent influencer news found.</p>
+          )}
         </Hub.Section>
 
         {/* ── Browse by Category ─────────────────────────────────────────── */}

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = 'influencer/faithordway';
 const PAGE_URL = 'https://www.objectwire.org/influencer/faithordway';
-const IMAGE_URL = '/influencer/faithordway/thumbnail.jpg';
+const IMAGE_URL = '/influncer/faithordway.png';
 
 export const metadata: Metadata = {
   title: 'Faith Ordway | TikTok Star, Fitness Creator & Model',
@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     tags: ['Faith Ordway', 'TikTok', 'Influencer', 'Fitness', 'YoungLA', 'Dance Creator'],
     publishedTime: '2026-03-31T12:00:00Z',
     modifiedTime: '2026-03-31T12:00:00Z',
+    images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Faith Ordway - TikTok Star and Fitness Creator' }],
   },
   twitter: {
     card: 'summary_large_image',

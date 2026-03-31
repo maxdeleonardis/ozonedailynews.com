@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = 'influencer/kirstentoosweet';
 const PAGE_URL = 'https://www.objectwire.org/influencer/kirstentoosweet';
-const IMAGE_URL = '/influencer/kirstentoosweet/thumbnail.jpg';
+const IMAGE_URL = '/influncer/kristentoosweet.png';
 
 export const metadata: Metadata = {
   title: 'Kirsten Toosweet | TikTok Creator & Lifestyle Influencer',
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     tags: ['Kirsten Toosweet', 'TikTok', 'Influencer', 'Lifestyle Creator', 'Instagram', 'YouTube'],
     publishedTime: '2026-03-31T12:00:00Z',
     modifiedTime: '2026-03-31T12:00:00Z',
+    images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Kirsten Toosweet - TikTok Creator and Lifestyle Influencer' }],
   },
   twitter: {
     card: 'summary_large_image',

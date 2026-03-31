@@ -181,10 +181,12 @@ export default async function RootLayout({
 
                     {/* Right: Index + user */}
                     <div className="flex items-center divide-x divide-black ml-auto">
-                      <Link href="/site-index" className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
+                      <Link href="/site-index" className="hidden sm:block px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
                         Index
                       </Link>
-                      <NavUserButton />
+                      <div className="hidden sm:block">
+                        <NavUserButton />
+                      </div>
                       {/* Mobile hamburger */}
                       <div className="md:hidden shrink-0">
                         <MobileNav />

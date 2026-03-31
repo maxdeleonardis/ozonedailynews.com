@@ -177,5 +177,5 @@ Sub-articles within a cluster must link to the hub, and the hub must link to all
 ## Git / Deploy Rules
 
 - **Never `git push` unless the user explicitly says to push.**
-- Always commit locally (`git add` + `git commit`) but stop before `git push`.
+- **Never commit after every change.** Only commit when the user explicitly says to commit, or at the end of a writing session. Batch all changes into a single commit.
 - Never deploy to Railway unless the user explicitly says "deploy" or "push to Railway".

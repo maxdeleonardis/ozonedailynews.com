@@ -1,6 +1,77 @@
 # Central Writer | Auth & Permissions Roadmap
 
-This document outlines the plan for locking down ObjectWire's admin editor using Supabase Auth and role-based access control (RBAC).
+This document outlines the plan for locking down ObjectWire's admin editor using Supabase Auth and role-based access control (RBAC), plus infrastructure work in progress.
+
+---
+
+## Session Log (March 30, 2026)
+
+### Completed This Session
+
+1. **Rewrote `/apple/page.tsx`** from `WikiArticle` stub → full inline `ArticlePage` component (298 lines). InfoBox sidebar, 8 content sections, Unsplash hero (Apple Park aerial by Carles Rabada). Internal links to 5 Apple sub-pages. OStandard-compliant metadata.
+
+2. **Rewrote `/redbull/page.tsx`** from `WikiArticle` stub → full inline `ArticlePage` component (320 lines). InfoBox with company overview, F1 teams, football clubs. 9 content sections. Unsplash thumbnail (Red Bull can by Jesper Brouwers).
+
+3. **Updated copilot-instructions.md** — added "never commit after every change" rule under Git / Deploy Rules.
+
+4. **Started `generateMetadata()` infrastructure** (partially complete, see below).
+
+### Files Changed (Uncommitted)
+
+- `.github/copilot-instructions.md` — updated git commit rule
+- `app/apple/page.tsx` — full ArticlePage rewrite
+- `app/redbull/page.tsx` — full ArticlePage rewrite
+- `lib/generate-article-metadata.ts` — NEW, shared metadata helper
+- `scripts/add-meta-columns.ts` — NEW, migration script for meta columns
+- `sql/add-meta-columns.sql` — NEW, raw SQL for adding meta columns
+- `central_writer.md` — this file
+
+---
+
+## Next Session | Dynamic Metadata Pipeline (Priority)
+
+### Problem
+Meta title and description are hardcoded in each `page.tsx` stub's `export const metadata`. When you edit `title` or `subtitle` in the admin editor, the visible headline changes but Google/OG meta stays frozen. No way to edit SEO metadata without deploying code.
+
+### Solution Architecture
+
+```
+page.tsx stub (generateMetadata)
+       ↓
+lib/generate-article-metadata.ts (fetches row from Supabase)
+       ↓
+Supabase row: meta_title, meta_description columns
+       ↓
+Falls back to: title + " | ObjectWire", subtitle
+```
+
+### What's Done
+- [x] `lib/generate-article-metadata.ts` — shared helper created. Accepts slug + table, fetches row, builds full `Metadata` object with fallback chain.
+- [x] `sql/add-meta-columns.sql` — SQL to add `meta_title` and `meta_description` to all 3 tables.
+- [x] `scripts/add-meta-columns.ts` — Node script to run the migration (needs `exec_sql` RPC or manual SQL).
+- [x] Admin editor already shows `meta_title` and `meta_description` in `TOP_FIELDS`.
+
+### What's Left To Do
+- [ ] **Run `sql/add-meta-columns.sql` in Supabase Dashboard SQL Editor** — the script couldn't run because there's no `exec_sql` RPC function. Go to Supabase Dashboard → SQL Editor → paste and run. This adds `meta_title` and `meta_description` columns to `articles`, `jack_articles`, and `article_pages`.
+- [ ] **Fix `META_SELECT` in `generate-article-metadata.ts`** — currently selects columns that don't exist on all tables (e.g. `hero_image` only exists on `jack_articles`, `hero_image_src` only on `articles`). Need to use `*` or table-specific selects to avoid Supabase errors.
+- [ ] **Test `generateArticleMetadata()`** — load a slug, verify the Metadata object is correct.
+- [ ] **Create first page stub using `generateMetadata()`** — pick one `NewsArticleDB` page, replace static `export const metadata` with dynamic `generateMetadata()`. Verify Google sees the right title/description.
+- [ ] **Backfill existing stubs** — once proven, update remaining stubs to use `generateMetadata()` over time. Low priority since static metadata still works fine.
+
+---
+
+## Next Session | Component Additions
+
+### RelatedArticles on ArticlePage and JackArticle
+- `RelatedArticles` already works inside `NewsArticle` (80/20 sidebar layout).
+- `ArticlePage` and `JackArticle` do NOT have RelatedArticles yet.
+- **Task**: Add `RelatedArticles` to `ArticlePage.tsx` and `JackArticle.tsx` as a sidebar or bottom section.
+
+### Future Components to Build
+- **ReadingProgress** — thin progress bar at top of article showing scroll position
+- **ShareBar** — floating share buttons (X/Twitter, LinkedIn, copy link)
+- **AuthorCard** — reusable author bio card at bottom of articles (currently inline in NewsArticle)
+- **TableOfContents (floating)** — sticky TOC sidebar that highlights current section on scroll (ArticlePage already has a static TOC)
 
 ---
 

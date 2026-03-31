@@ -17,6 +17,7 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ArticlePage, TableOfContents } from './ArticlePage';
+import { ContentRenderer } from './ContentRenderer';
 
 interface ArticlePageDBProps {
   slug: string;
@@ -49,7 +50,7 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
       {row.table_of_contents && row.table_of_contents.length > 0 && (
         <TableOfContents items={row.table_of_contents} />
       )}
-      <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
+      <ContentRenderer html={row.content_html ?? ''} />
     </ArticlePage>
   );
 }

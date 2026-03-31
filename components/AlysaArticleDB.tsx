@@ -17,6 +17,7 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import CreatorArticle from './CreatorArticle';
+import { ContentRenderer } from './ContentRenderer';
 
 interface AlysaArticleDBProps {
   slug: string;
@@ -77,7 +78,7 @@ export async function AlysaArticleDB({ slug }: AlysaArticleDBProps) {
       }}
       tiktokEmbed={row.tiktok_embed ?? false}
     >
-      <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
+      <ContentRenderer html={row.content_html ?? ''} />
     </CreatorArticle>
   );
 }

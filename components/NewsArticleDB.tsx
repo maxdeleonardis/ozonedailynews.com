@@ -14,6 +14,7 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { NewsArticle } from './NewsArticle';
+import { ContentRenderer } from './ContentRenderer';
 
 interface NewsArticleDBProps {
   slug: string;
@@ -76,7 +77,7 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
       slug={slug}
       url={row.url ?? undefined}
     >
-      <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
+      <ContentRenderer html={row.content_html ?? ''} />
     </NewsArticle>
   );
 }

@@ -18,6 +18,7 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import JackArticle from './JackArticle';
+import { ContentRenderer } from './ContentRenderer';
 
 interface JackArticleDBProps {
   slug: string;
@@ -69,7 +70,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       uuid={row.uuid ?? undefined}
       version={row.version ?? undefined}
     >
-      <div dangerouslySetInnerHTML={{ __html: row.content_html ?? '' }} />
+      <ContentRenderer html={row.content_html ?? ''} />
     </JackArticle>
   );
 }

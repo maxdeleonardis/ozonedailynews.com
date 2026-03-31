@@ -20,10 +20,11 @@ Whenever writing or editing any article, component, Supabase record, or editoria
 
 - **No em dashes (`—`) ever.** Use `|` in headings/titles. Use `,` in prose.
 - **No en dashes (`–`) ever.** Use `-` or rewrite the sentence.
+- **No `&` in H1/H2/H3 headings or article body prose.** Use `,` or rewrite. `&` is allowed in `metadata.title` and `openGraph.title` only.
 - **Headings use `|`** as a separator, never `:` followed by a dependent clause.
 - Subheadings must be niche and specific, not generic (`"Background"`, `"Overview"` are banned).
 - Meta description: 130–155 chars, contains primary keyword, no generic phrases.
-- `meta_title` format: `Primary Keyword | ObjectWire`
+- `metadata.title` format: `Primary Keyword | Specific Detail` — **no brand suffix** (`| ObjectWire` is dropped). Max 60 chars. No em dashes. `&` allowed.
 - Every article slug must be lowercase, hyphen-only, no stop words.
 - `tags` must be an array of 4–8 real proper nouns (no generic terms).
 - `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`.
@@ -44,6 +45,86 @@ Every article belongs to exactly one Supabase table. Use the correct component o
 **`jack_articles` has no `status` column.** Never query `status` from it.
 
 All fetching is server-side. Zero client-side Supabase calls in page components. Every `page.tsx` must export `dynamic = 'force-dynamic'`.
+
+---
+
+## Gold Standard Article | `/entertainment/news/fortnite-moves-into-movies`
+
+**This is the reference article all new `NewsArticle` pages must match.**
+
+Live: `https://www.objectwire.org/entertainment/news/fortnite-moves-into-movies`
+Slug: `entertainment-news-fortnite-moves-into-movies` | Table: `articles` | Component: `NewsArticleDB`
+
+### Why it is the standard
+
+1. **Layout** — 80/20 grid: main article body left (80%), `RelatedArticles` sticky sidebar right (20%)
+2. **Related Articles sidebar** — auto-populated by `RelatedArticles` (client component). Queries `articles` by category, cross-ranks with the user's `localStorage` reading history tags. No manual curation needed. It just works.
+3. **Animated thumbnail** — when there is no hero image, a `thumbnail_src` set in Supabase renders inside the gradient header with the "genie float" animation (golden flare sweep, subtle bob). This is the preferred header style for news/tech/gaming articles.
+4. **Full engagement stack** — every article gets: `ReactionBar` (like/share/save), `DiscordComments`, `NewsletterSignupInline`, `ArticleViewTracker`, `TagsSection`, and an author card footer. These are automatic. Do not remove them.
+5. **Metadata quality** — 18 targeted keywords, full `openGraph` block with `publishedTime` + `section`, `twitter` card, canonical URL.
+6. **Content depth** — specific named figures (153 productions, 65% GDC stat, 44% YoY ICVFX growth), data tables, H2 headings with numbers and `|` separators, internal links to hub pages.
+
+### `page.tsx` stub pattern (after `wiki:publish`)
+
+```tsx
+import type { Metadata } from 'next';
+import { NewsArticleDB } from '@/components/NewsArticleDB';
+
+export const dynamic = 'force-dynamic';
+
+const SLUG = '/your/path/here';
+
+export const metadata: Metadata = {
+  title: 'Primary Keyword | Specific Detail',  // max 60 chars, no brand suffix, no em dashes, no &
+  description: '130-155 chars. Primary keyword in first 60 chars. No generic phrases.',
+  keywords: ['keyword 1', 'keyword 2', /* 10-18 targeted keywords */],
+  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  openGraph: {
+    title: 'Article Title Without Brand Suffix',
+    description: 'Slightly different from meta description — emphasize data/hook.',
+    type: 'article',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
+    authors: ['Author Name'],
+    publishedTime: '2026-03-12T00:00:00Z',
+    modifiedTime: '2026-03-12T00:00:00Z',
+    section: 'Entertainment',   // matches category
+    tags: ['Tag1', 'Tag2', 'Tag3', 'Tag4'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Twitter-optimized headline (hook-first)',
+    description: 'Data-led, punchy — one key stat or claim.',
+  },
+};
+
+export default function YourPage() {
+  return <NewsArticleDB slug="your-path-slug" />;
+}
+```
+
+### Required `articles` Supabase fields
+
+Every `NewsArticle` article must have ALL of these populated before `wiki:publish`:
+
+| Field | Rule |
+|---|---|
+| `title` | Full headline. No em dashes. `|` for separators. |
+| `subtitle` | One sentence. Data-led or hook-led. Ends without period. |
+| `category` | Valid category value (see OStandard) |
+| `status` | `'published'` |
+| `breaking` / `trending` / `exclusive` | `true` only when genuinely applicable |
+| `topic_tag` | One of the valid `TopicTagType` values (e.g. `"gaming"`, `"entertainment"`, `"ai"`) |
+| `content_html` | Full HTML body wrapped in `<div class="prose prose-lg max-w-none">` |
+| `publish_date` | Display string: `"March 12, 2026"` |
+| `published_at` | ISO-8601: `2026-03-12T00:00:00Z` |
+| `author_name` | Display name |
+| `author_slug` | Kebab-case, links to `/authors/[slug]` |
+| `read_time` | String, e.g. `"7 min read"` |
+| `thumbnail_src` | Real hosted image URL — triggers the animated genie header |
+| `thumbnail_alt` | Descriptive alt text for the thumbnail |
+| `tags` | Array of 4-8 proper nouns |
+| `url` | Full canonical path: `/entertainment/news/fortnite-moves-into-movies` |
 
 ---
 

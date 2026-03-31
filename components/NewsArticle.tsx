@@ -175,86 +175,91 @@ export function NewsHeader({
 }: Omit<NewsArticleProps, "children" | "tags">) {
   return (
     <header className="relative">
-      {/* Hero Image with Gradient Overlay */}
+      {/* Hero Image — full width, image above, text below */}
       {heroImage && (
-        <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-          <img
-            src={heroImage.src}
-            alt={heroImage.alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-          
-          {/* Hero Content Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
-            <div className="container mx-auto max-w-4xl">
-              {/* Badges */}
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                {breaking && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-red-600 text-white animate-pulse">
-                    🔴 Breaking
-                  </span>
-                )}
-                {exclusive && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-500 text-black">
-                    ⭐ Exclusive
-                  </span>
-                )}
-                {trending && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 text-white">
-                    🔥 Trending
-                  </span>
-                )}
-                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${categoryBadgeColors[categoryColor]} text-white`}>
-                  {category}
+        <div>
+          {/* Image block — full bleed, no overlay */}
+          <div className="w-full aspect-video sm:h-[55vh] sm:aspect-auto overflow-hidden">
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {heroImage.caption || heroImage.credit ? (
+            <p className="text-xs text-gray-500 px-4 sm:px-0 container mx-auto max-w-4xl pt-1.5 pb-0">
+              {heroImage.caption}{heroImage.caption && heroImage.credit ? ' — ' : ''}{heroImage.credit ? `Photo: ${heroImage.credit}` : ''}
+            </p>
+          ) : null}
+
+          {/* Header text — below image, on white background */}
+          <div className="container mx-auto max-w-4xl px-4 sm:px-6 pt-5 pb-4">
+            {/* Badges */}
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              {breaking && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-red-600 text-white animate-pulse">
+                  🔴 Breaking
                 </span>
-              </div>
-
-              {/* Title */}
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 drop-shadow-lg">
-                {title}
-              </h1>
-
-              {/* Subtitle */}
-              {subtitle && (
-                <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-3xl">
-                  {subtitle}
-                </p>
               )}
+              {exclusive && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-500 text-black">
+                  ⭐ Exclusive
+                </span>
+              )}
+              {trending && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+                  🔥 Trending
+                </span>
+              )}
+              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider ${categoryBadgeColors[categoryColor]} text-white`}>
+                {category}
+              </span>
+            </div>
 
-              {/* Meta Info */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300">
-                {author && (
-                  <div className="flex items-center gap-2">
-                    {author.avatar ? (
-                      <img
-                        src={author.avatar}
-                        alt={author.name}
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                    ) : (
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
-                        {author.name.charAt(0)}
-                      </div>
-                    )}
-                    {author.authorSlug ? (
-                      <Link href={`/authors/${author.authorSlug}`} className="font-medium text-white hover:underline hover:text-white/80 transition-colors">
-                        {author.name}
-                      </Link>
-                    ) : (
-                      <span className="font-medium text-white">{author.name}</span>
-                    )}
-                  </div>
-                )}
-                <span className="text-gray-400">•</span>
-                <span>{publishDate}</span>
-                {readTime && (
-                  <>
-                    <span className="text-gray-400">•</span>
-                    <span>📖 {readTime}</span>
-                  </>
-                )}
-              </div>
+            {/* Title */}
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-3">
+              {title}
+            </h1>
+
+            {/* Subtitle */}
+            {subtitle && (
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 max-w-3xl">
+                {subtitle}
+              </p>
+            )}
+
+            {/* Meta Info */}
+            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 border-t border-gray-200 pt-3">
+              {author && (
+                <div className="flex items-center gap-2">
+                  {author.avatar ? (
+                    <img
+                      src={author.avatar}
+                      alt={author.name}
+                      className="w-7 h-7 rounded-full border border-gray-200"
+                    />
+                  ) : (
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xs">
+                      {author.name.charAt(0)}
+                    </div>
+                  )}
+                  {author.authorSlug ? (
+                    <Link href={`/authors/${author.authorSlug}`} className="font-medium text-gray-900 hover:underline transition-colors">
+                      {author.name}
+                    </Link>
+                  ) : (
+                    <span className="font-medium text-gray-900">{author.name}</span>
+                  )}
+                </div>
+              )}
+              <span className="text-gray-300">•</span>
+              <span>{publishDate}</span>
+              {readTime && (
+                <>
+                  <span className="text-gray-300">•</span>
+                  <span>📖 {readTime}</span>
+                </>
+              )}
             </div>
           </div>
         </div>

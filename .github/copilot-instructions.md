@@ -171,3 +171,11 @@ Sub-articles within a cluster must link to the hub, and the hub must link to all
 - File names: kebab-case for pages/routes, PascalCase for components.
 - `content_html` bodies must be wrapped in `<div class="prose prose-lg max-w-none">`.
 - Blockquote footers use `, Name, Title` format — never start with `—`.
+
+---
+
+## Git / Deploy Rules
+
+- **Never `git push` unless the user explicitly says to push.**
+- Always commit locally (`git add` + `git commit`) but stop before `git push`.
+- Never deploy to Railway unless the user explicitly says "deploy" or "push to Railway".

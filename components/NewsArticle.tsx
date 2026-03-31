@@ -4,6 +4,7 @@ import ReactionBar from '@/components/ReactionBar';
 import DiscordComments from '@/components/discord-comments';
 import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
+import RelatedArticles from '@/components/RelatedArticles';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -704,42 +705,57 @@ export function NewsArticle({
         exclusive={exclusive}
       />
 
-      {/* Article Content */}
-      <article className="container mx-auto px-6 py-12 max-w-4xl">
-        {/* Article Body */}
-        <div className="prose prose-lg prose-gray max-w-none 
-          prose-headings:font-black prose-headings:text-gray-900
-          prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-purple-500 prose-h2:pl-4
-          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-          prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-          prose-a:text-purple-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-          prose-blockquote:border-l-4 prose-blockquote:border-purple-300 prose-blockquote:bg-purple-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
-          prose-strong:text-gray-900
-          prose-img:rounded-xl prose-img:shadow-lg
-          prose-ul:space-y-2 prose-li:text-gray-700
-        ">
-          {children}
+      {/* Article Content — 80/20 grid: body left, related sidebar right */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 md:py-12 max-w-6xl">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+
+          {/* Main body — 80% */}
+          <article className="w-full lg:w-4/5 min-w-0">
+            <div className="prose prose-lg prose-gray max-w-none 
+              prose-headings:font-black prose-headings:text-gray-900
+              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-purple-500 prose-h2:pl-4
+              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+              prose-a:text-purple-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+              prose-blockquote:border-l-4 prose-blockquote:border-purple-300 prose-blockquote:bg-purple-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
+              prose-strong:text-gray-900
+              prose-img:rounded-xl prose-img:shadow-lg
+              prose-ul:space-y-2 prose-li:text-gray-700
+            ">
+              {children}
+            </div>
+
+            {/* Reaction Bar */}
+            <ReactionBar
+              slug={slug}
+              title={title}
+              url={url}
+              image={heroImage?.src}
+              category={category}
+            />
+
+            {/* Tags */}
+            {tags && tags.length > 0 && <TagsSection tags={tags} />}
+
+            {/* Discord Comments */}
+            {slug && <DiscordComments slug={slug} articleTitle={title} />}
+          </article>
+
+          {/* Related Articles sidebar — 20%, stacks below on mobile */}
+          <aside className="w-full lg:w-1/5 lg:sticky lg:top-6 shrink-0">
+            <RelatedArticles
+              currentSlug={slug ?? ''}
+              category={category}
+              tags={tags}
+            />
+          </aside>
+
         </div>
-
-        {/* Reaction Bar — Like/Comment/Share/Save (Google sign-in gated) */}
-        <ReactionBar
-          slug={slug}
-          title={title}
-          url={url}
-          image={heroImage?.src}
-          category={category}
-        />
-
-        {/* Tags */}
-        {tags && tags.length > 0 && <TagsSection tags={tags} />}
-
-        {/* Discord Comments Section */}
-        {slug && <DiscordComments slug={slug} articleTitle={title} />}
-      </article>
+      </div>
 
       {/* Footer */}
       <footer className="border-t-2 border-gray-200 bg-gradient-to-br from-gray-50 to-white mt-8">
-        <div className="container mx-auto px-6 py-12 max-w-4xl">
+        <div className="container mx-auto px-4 sm:px-6 py-12 max-w-6xl">
           {/* Author Card */}
           {author && (
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl border border-gray-200 shadow-sm mb-8">

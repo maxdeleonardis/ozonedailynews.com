@@ -75,6 +75,7 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
               apikey: SUPABASE_ANON,
               Authorization: `Bearer ${SUPABASE_ANON}`,
             },
+            cache: 'no-store',
           }
         );
         const rows: ArticleRow[] = await res.json();

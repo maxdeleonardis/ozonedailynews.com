@@ -257,12 +257,33 @@ export function CreatorArticle({
 
         {/* ── Hero Banner ─────────────────────────────────────────── */}
         <header style={{ background: gradient }}>
-          <div className="max-w-5xl mx-auto px-4 py-14">
+
+          {/* Mobile-only full-width portrait image */}
+          <div className="relative w-full sm:hidden" style={{ aspectRatio: '4/5', maxHeight: '75vw' }}>
+            <Image
+              src={hero.image.src}
+              alt={hero.image.alt}
+              fill
+              className="object-cover object-top"
+              sizes="100vw"
+              priority
+            />
+            {/* gradient fade into the content below */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: `linear-gradient(to bottom, transparent 40%, ${gradient.match(/#[0-9a-f]{6}/i)?.[0] ?? '#0f172a'} 100%)`,
+              }}
+            />
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4 py-8 sm:py-14">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
 
-              {/* Thumbnail */}
+              {/* Thumbnail — hidden on mobile (replaced by full-width image above) */}
               <div
-                className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-xl overflow-hidden border-4 shrink-0"
+                className="hidden sm:block relative w-36 h-36 rounded-xl overflow-hidden border-4 shrink-0"
                 style={{ borderColor: 'rgba(255,255,255,0.3)' }}
               >
                 <Image

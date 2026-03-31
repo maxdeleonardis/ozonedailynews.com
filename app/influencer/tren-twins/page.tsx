@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { CreatorArticleDB } from '@/components/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/tren-twins';
+const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const OG_IMAGE = '/influncer/tren_twins_wiki.PNG';
 
 export const metadata: Metadata = {
-  title: 'Tren Twins (Christian & Michael Gaiera) | Fitness Influencers & YoungLA Athletes | ObjectWire',
+  title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers',
   description:
-    'Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and YoungLA brand athletes. Their rise, controversies, and impact on gym culture.',
+    'Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and YoungLA brand athletes.',
   keywords: [
     'Tren Twins',
     'Christian Gaiera',
@@ -25,28 +27,29 @@ export const metadata: Metadata = {
     'fitness influencers',
     'Tren Twins TikTok',
   ],
-  alternates: {
-    canonical: 'https://www.objectwire.org/influencer/tren-twins',
-  },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers & YoungLA Athletes',
     description:
-      'Profile of the Tren Twins: viral fitness influencers, YoungLA brand athletes, and one of the most talked-about duos in gym culture. Honest, raw, and built different.',
+      'Profile of the Tren Twins: viral fitness influencers, YoungLA brand athletes, and one of the most talked-about duos in gym culture.',
     type: 'article',
-    url: 'https://www.objectwire.org/influencer/tren-twins',
+    url: PAGE_URL,
     siteName: 'ObjectWire',
-    authors: ['ObjectWire Editorial'],
+    authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',
     tags: ['Tren Twins', 'Fitness', 'Bodybuilding', 'YoungLA', 'YouTube', 'Influencer'],
+    publishedTime: '2026-03-31T12:00:00Z',
+    modifiedTime: '2026-03-31T12:00:00Z',
+    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Tren Twins - Christian and Michael Gaiera' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers',
     description:
-      'Full profile of the Tren Twins: Michigan-born bodybuilders, YoungLA athletes, and some of the most authentic fitness creators on the internet.',
+      'Michigan-born identical twins, viral bodybuilders, YoungLA athletes. Full profile on ObjectWire.',
   },
 };
 
-export default function TrenTwinsPage() {
-  return <WikiArticle slug="influencer-tren-twins" />;
+export default function InfluencerTrenTwinsPage() {
+  return <CreatorArticleDB slug="influencer-tren-twins" />;
 }

@@ -171,145 +171,6 @@ function SectionRule({ label, href }: { label: string; href?: string }) {
   );
 }
 
-// Lead story — largest, left column
-function LeadCard({ article, mostRead }: { article: Article; mostRead?: boolean }) {
-  return (
-    <div className="h-full">
-      {/* Most-read banner — shown when GA4 promotes this article */}
-      {mostRead && (
-        <div className="flex items-center gap-2 mb-3">
-          <span className="inline-flex items-center gap-1.5 text-[9px] font-black px-2.5 py-1 tracking-[.2em] uppercase bg-black text-white">
-            <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-1.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"/></svg>
-            Most Read This Week
-          </span>
-        </div>
-      )}
-      <Link href={article.href} className="group block">
-        {article.imageUrl ? (
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-3">
-            <Image
-              src={article.imageUrl}
-              alt={article.imageAlt ?? article.title}
-              fill
-              priority
-              className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 42vw"
-            />
-            {mostRead && (
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-            )}
-          </div>
-        ) : mostRead ? (
-          <div className="w-full aspect-[16/9] bg-gray-100 mb-3 flex items-center justify-center">
-            <span className="text-gray-300 text-4xl font-black tracking-tighter">OW</span>
-          </div>
-        ) : null}
-        <CatLabel category={article.category} breaking={article.breaking} />
-        <h2 className="font-serif text-2xl md:text-3xl font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
-          {article.title}
-        </h2>
-        {article.exclusive && (
-          <span className="inline-block text-[9px] font-black px-2 py-0.5 tracking-widest uppercase border border-black text-black mb-2">
-            EXCLUSIVE
-          </span>
-        )}
-        {article.excerpt && (
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
-            {article.excerpt}
-          </p>
-        )}
-        <p className="text-[11px] text-gray-500 font-mono border-t border-gray-200 pt-2">
-          <span className="font-semibold text-black">{article.author}</span>
-          {' · '}{timeAgo(article.publishDate)}
-        </p>
-      </Link>
-      <div className="mt-2 pt-2 border-t border-gray-100">
-        <EngagementBar
-          slug={article.href}
-          title={article.title}
-          url={article.href}
-          image={article.imageUrl}
-          category={article.category}
-        />
-      </div>
-    </div>
-  );
-}
-
-// Secondary story — middle column
-function SecondaryCard({ article }: { article: Article }) {
-  return (
-    <Link href={article.href} className="group block">
-      {article.imageUrl && (
-        <div className="relative w-full aspect-video overflow-hidden bg-gray-100 mb-3">
-          <Image
-            src={article.imageUrl}
-            alt={article.imageAlt ?? article.title}
-            fill
-            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, 28vw"
-          />
-        </div>
-      )}
-      <CatLabel category={article.category} breaking={article.breaking} />
-      <h3 className="font-serif text-lg font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
-        {article.title}
-      </h3>
-      {article.excerpt && (
-        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 mb-2">
-          {article.excerpt}
-        </p>
-      )}
-      <p className="text-[10px] text-gray-500 font-mono">
-        <span className="font-semibold text-black">{article.author}</span>
-        {' · '}{timeAgo(article.publishDate)}
-      </p>
-    </Link>
-  );
-}
-
-// Compact sidebar item with rank number
-function SideItem({ article, rank }: { article: Article; rank: number }) {
-  return (
-    <Link href={article.href} className="group flex gap-3 py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 -mx-3 px-3 transition-colors">
-      <span className="text-2xl font-black text-gray-200 tabular-nums leading-none w-6 shrink-0 pt-0.5">{rank}</span>
-      <div className="flex-1 min-w-0">
-        <CatLabel category={article.category} breaking={article.breaking} />
-        <h4 className="font-serif text-sm font-black leading-snug mt-1 group-hover:underline line-clamp-2">
-          {article.title}
-        </h4>
-        <p className="text-[10px] text-gray-500 font-mono mt-1">{timeAgo(article.publishDate)}</p>
-      </div>
-    </Link>
-  );
-}
-
-// 4-column grid story card
-function GridCard({ article }: { article: Article }) {
-  return (
-    <Link href={article.href} className="group block border-t-2 border-black pt-3">
-      {article.imageUrl && (
-        <div className="relative w-full aspect-video overflow-hidden bg-gray-100 mb-3">
-          <Image
-            src={article.imageUrl}
-            alt={article.imageAlt ?? article.title}
-            fill
-            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-            sizes="(max-width: 640px) 100vw, 25vw"
-          />
-        </div>
-      )}
-      <CatLabel category={article.category} breaking={article.breaking} />
-      <h3 className="font-serif text-base font-black leading-snug mt-2 mb-1 group-hover:underline line-clamp-3">
-        {article.title}
-      </h3>
-      <p className="text-[10px] text-gray-500 font-mono mt-1">
-        {article.author} · {timeAgo(article.publishDate)}
-      </p>
-    </Link>
-  );
-}
-
 // Compact headline list row
 function HeadlineRow({ article }: { article: Article }) {
   return (
@@ -422,11 +283,9 @@ export default async function HomePage() {
     }
   }
 
-  const [lead, second, third, fourth, ...rest] = merged;
-  const sidebarArticles  = rest.slice(0, 7);
-  const gridArticles     = rest.slice(7, 23);   // 4-col × 4 rows
-  const headlineArticles = rest.slice(23, 55);  // 2-col headline list
-  const breakingArticles = merged.filter((a) => a.breaking).slice(0, 5);
+  const [lead, second, third, ...rest] = merged;
+  const moreStories      = rest.slice(0, 24);   // 3-col grid below the fold
+  const headlineArticles = rest.slice(24, 55);  // overflow headline list
 
   const editionDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
@@ -447,52 +306,191 @@ export default async function HomePage() {
           </div>
         )}
 
-        {/* ── FRONT PAGE: 3-COLUMN NEWSPAPER GRID ──────────────────────────── */}
+        {/* ── FEATURED: 1 HERO + 2 SECONDARY ──────────────────────────── */}
         {lead && (
-          <section className="grid lg:grid-cols-12 gap-0 border-b-2 border-black pb-8 mb-0">
+          <section className="border-b-2 border-black pb-8 mb-0">
+            <div className="grid lg:grid-cols-2 gap-6">
 
-            {/* Lead — 5 cols */}
-            <div className="lg:col-span-5 lg:pr-6 pb-6 lg:pb-0 border-b-2 lg:border-b-0 lg:border-r-2 border-black">
-              <LeadCard article={lead} mostRead={isMostRead} />
-            </div>
-
-            {/* Middle — 4 cols: two stacked stories */}
-            <div className="lg:col-span-4 lg:px-6 py-6 lg:py-0 lg:border-r-2 border-black space-y-6">
-              {second && <SecondaryCard article={second} />}
-              {third && (
-                <div className="border-t border-dashed border-gray-300 pt-5">
-                  <SecondaryCard article={third} />
+              {/* Hero — left, large */}
+              <div>
+                <Link href={lead.href} className="group block">
+                  {lead.imageUrl ? (
+                    <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-4">
+                      <Image
+                        src={lead.imageUrl}
+                        alt={lead.imageAlt ?? lead.title}
+                        fill
+                        priority
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      {isMostRead && (
+                        <div className="absolute top-3 left-3">
+                          <span className="inline-flex items-center gap-1.5 text-[9px] font-black px-2.5 py-1 tracking-[.2em] uppercase bg-black text-white">
+                            <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-1.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"/></svg>
+                            Most Read
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="w-full aspect-[16/9] bg-gray-100 mb-4 flex items-center justify-center">
+                      <span className="text-gray-300 text-5xl font-black tracking-tighter">OW</span>
+                    </div>
+                  )}
+                  <CatLabel category={lead.category} breaking={lead.breaking} />
+                  <h2 className="font-serif text-2xl md:text-4xl font-black leading-tight mt-3 mb-3 group-hover:underline decoration-2">
+                    {lead.title}
+                  </h2>
+                  {lead.exclusive && (
+                    <span className="inline-block text-[9px] font-black px-2 py-0.5 tracking-widest uppercase border border-black text-black mb-2">
+                      EXCLUSIVE
+                    </span>
+                  )}
+                  {lead.excerpt && (
+                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
+                      {lead.excerpt}
+                    </p>
+                  )}
+                  <p className="text-[11px] text-gray-500 font-mono">
+                    <span className="font-semibold text-black">{lead.author}</span>
+                    {' · '}{timeAgo(lead.publishDate)}
+                  </p>
+                </Link>
+                <div className="mt-3 pt-3 border-t border-gray-100">
+                  <EngagementBar
+                    slug={lead.href}
+                    title={lead.title}
+                    url={lead.href}
+                    image={lead.imageUrl}
+                    category={lead.category}
+                  />
                 </div>
-              )}
-              {fourth && (
-                <div className="border-t border-dashed border-gray-300 pt-5 hidden xl:block">
-                  <SecondaryCard article={fourth} />
-                </div>
-              )}
-            </div>
+              </div>
 
-            {/* Right sidebar — 3 cols: ranked latest */}
-            <div className="lg:col-span-3 lg:pl-6 pt-6 lg:pt-0">
-              <p className="text-[9px] font-black tracking-[.3em] uppercase border-b-2 border-black pb-2 mb-0">
-                Latest Stories
-              </p>
-              {sidebarArticles.map((a, i) => (
-                <SideItem key={a.id} article={a} rank={i + 1} />
-              ))}
-              <Link href="/site-index" className="block mt-3 text-[9px] font-black tracking-widest uppercase text-gray-500 hover:text-black transition-colors">
-                View all stories →
-              </Link>
+              {/* Right column — 2 stacked secondary cards */}
+              <div className="flex flex-col gap-6">
+                {second && (
+                  <Link href={second.href} className="group flex flex-col flex-1 border border-gray-200 hover:border-black hover:shadow-md transition-all rounded-sm overflow-hidden">
+                    {second.imageUrl && (
+                      <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
+                        <Image
+                          src={second.imageUrl}
+                          alt={second.imageAlt ?? second.title}
+                          fill
+                          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, 25vw"
+                        />
+                      </div>
+                    )}
+                    <div className="p-4 flex-1 flex flex-col">
+                      <CatLabel category={second.category} breaking={second.breaking} />
+                      <h3 className="font-serif text-lg font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
+                        {second.title}
+                      </h3>
+                      {second.excerpt && (
+                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 mb-2">
+                          {second.excerpt}
+                        </p>
+                      )}
+                      <p className="text-[10px] text-gray-500 font-mono mt-auto pt-2 border-t border-gray-100">
+                        <span className="font-semibold text-black">{second.author}</span>
+                        {' · '}{timeAgo(second.publishDate)}
+                      </p>
+                    </div>
+                  </Link>
+                )}
+                {third && (
+                  <Link href={third.href} className="group flex flex-col flex-1 border border-gray-200 hover:border-black hover:shadow-md transition-all rounded-sm overflow-hidden">
+                    {third.imageUrl && (
+                      <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
+                        <Image
+                          src={third.imageUrl}
+                          alt={third.imageAlt ?? third.title}
+                          fill
+                          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, 25vw"
+                        />
+                      </div>
+                    )}
+                    <div className="p-4 flex-1 flex flex-col">
+                      <CatLabel category={third.category} breaking={third.breaking} />
+                      <h3 className="font-serif text-lg font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
+                        {third.title}
+                      </h3>
+                      {third.excerpt && (
+                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 mb-2">
+                          {third.excerpt}
+                        </p>
+                      )}
+                      <p className="text-[10px] text-gray-500 font-mono mt-auto pt-2 border-t border-gray-100">
+                        <span className="font-semibold text-black">{third.author}</span>
+                        {' · '}{timeAgo(third.publishDate)}
+                      </p>
+                    </div>
+                  </Link>
+                )}
+              </div>
             </div>
           </section>
         )}
 
-        {/* ── 4-COLUMN GRID ─────────────────────────────────────────────────── */}
-        {gridArticles.length > 0 && (
+        {/* ── MORE STORIES (news-library style grid) ──────────────────── */}
+        {moreStories.length > 0 && (
           <>
             <SectionRule label="More Stories" href="/site-index" />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 border-b-2 border-black pb-10">
-              {gridArticles.map((a) => (
-                <GridCard key={a.id} article={a} />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 border-b-2 border-black pb-10">
+              {moreStories.map((a) => (
+                <Link
+                  key={a.id}
+                  href={a.href}
+                  className="group flex flex-col bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all duration-150 rounded-sm overflow-hidden"
+                >
+                  {/* Thumbnail */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
+                    {a.imageUrl ? (
+                      <Image
+                        src={a.imageUrl}
+                        alt={a.imageAlt ?? a.title}
+                        fill
+                        sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-50 flex items-center justify-center">
+                        <span className="text-gray-200 text-2xl font-black tracking-tighter">OW</span>
+                      </div>
+                    )}
+                    {a.breaking && (
+                      <span className="absolute top-2 left-2 bg-black text-white text-[9px] font-black px-2 py-0.5 uppercase tracking-widest">
+                        Breaking
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="p-4 flex-1 flex flex-col">
+                    {/* Category */}
+                    <CatLabel category={a.category} breaking={false} />
+
+                    {/* Title */}
+                    <h3 className="font-serif text-sm font-black text-gray-900 group-hover:underline underline-offset-2 leading-snug mt-2 mb-2">
+                      {a.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    {a.excerpt && (
+                      <p className="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-3">
+                        {a.excerpt}
+                      </p>
+                    )}
+
+                    {/* Meta */}
+                    <div className="flex flex-col gap-0.5 text-[10px] font-mono border-t border-gray-100 pt-2 mt-auto">
+                      <span className="font-semibold text-gray-700">{a.author}</span>
+                      <span className="text-gray-400">{timeAgo(a.publishDate)}</span>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </>

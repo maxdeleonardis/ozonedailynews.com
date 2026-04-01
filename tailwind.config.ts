@@ -76,6 +76,8 @@ const config: Config & { safelist?: any[] } = {
     'grid-cols-1',
     'lg:grid-cols-12',
     'min-h-screen',
+    'dark:bg-[#121212]',
+    'dark:text-gray-100',
   ],
 };
 

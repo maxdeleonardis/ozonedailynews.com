@@ -9,6 +9,7 @@ import TopStripSearch from "@/components/TopStripSearch";
 import NavUserButton from "@/components/NavUserButton";
 import NavBreakingTicker from "@/components/NavBreakingTicker";
 import TopStrip from "@/components/TopStrip";
+import ThemeProvider from "@/components/ThemeProvider";
 import { getBreakingHeadlines } from "@/lib/article-service";
 import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
@@ -133,8 +134,9 @@ export default async function RootLayout({
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans" style={{ background: '#faf9f6' }}>
+      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans dark:bg-[#121212] dark:text-gray-100">
         <AuthProvider>
+          <ThemeProvider>
             {/* ── Newspaper Masthead ─────────────────────────────────────── */}
             <header className="border-b-4 border-black bg-white sticky sm:relative top-0 z-40">
 
@@ -268,6 +270,7 @@ export default async function RootLayout({
           </div>
         </footer>
         
+        </ThemeProvider>
         </AuthProvider>
         {/* GA4 — Script tags in server component for guaranteed detection */}
         <Script

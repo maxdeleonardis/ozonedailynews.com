@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 export default function TopStrip({ dateString }: { dateString: string }) {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -63,7 +64,9 @@ export default function TopStrip({ dateString }: { dateString: string }) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
                 </svg>
               </button>
-              <span className="text-xs font-mono text-gray-500 hidden sm:block">Est. 2024 · Independent</span>
+              <span className="text-xs font-mono text-gray-500 hidden sm:block">Est. 2024 ·</span>
+              <ThemeToggle />
+              <span className="text-xs font-mono text-gray-500 hidden sm:block">Independent</span>
             </>
           )}
         </div>

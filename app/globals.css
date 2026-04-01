@@ -5,6 +5,9 @@
 
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Use CSS variables from Next.js font optimization */
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -33,24 +36,29 @@
   html {
     scroll-behavior: smooth;
     background: #faf9f6;
-    /* Prevent text size adjustment on orientation change */
     -webkit-text-size-adjust: 100%;
-    /* Prevent horizontal scroll / zoom-out on mobile */
     overflow-x: hidden;
   }
 
+  html.dark {
+    background: #121212;
+  }
+
   body {
-    background: #faf9f6 !important;
+    background: #faf9f6;
     color: #1a1a1a;
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Prevent layout shift from scrollbar */
     overflow-y: scroll;
-    /* Prevent horizontal scroll / zoom-out on mobile */
     overflow-x: hidden;
+  }
+
+  .dark body {
+    background: #121212;
+    color: #e0e0e0;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -59,8 +67,11 @@
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: #0f0f0f;
-    /* Prevent FOUT */
     font-display: swap;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #f0f0f0;
   }
 
   /* Paragraph styling - clean sans-serif (Perplexity-style) */
@@ -72,6 +83,10 @@
     font-weight: 400;
   }
 
+  .dark p {
+    color: #d4d4d4;
+  }
+
   /* Article prose styling */
   .prose p {
     font-family: var(--font-sans);
@@ -81,6 +96,10 @@
     margin-bottom: 1.5rem;
   }
 
+  .dark .prose p {
+    color: #d4d4d4;
+  }
+
   .prose li {
     font-family: var(--font-sans);
     font-size: 1.0625rem;
@@ -88,9 +107,17 @@
     color: #1a1a1a;
   }
 
+  .dark .prose li {
+    color: #d4d4d4;
+  }
+
   .prose blockquote {
     font-family: var(--font-sans);
     color: #1a1a1a;
+  }
+
+  .dark .prose blockquote {
+    color: #d4d4d4;
   }
 
   a {
@@ -101,6 +128,11 @@
   ::selection {
     background: #b3d4fc;
     color: #0f0f0f;
+  }
+
+  .dark ::selection {
+    background: #3b5998;
+    color: #f0f0f0;
   }
 
   /* News page animations */
@@ -117,30 +149,50 @@
 /* =============================================================================
    BRAND OVERRIDES — Eggshell white background, clean sans-serif everywhere
    All dark page-level backgrounds are stripped in favor of the global bg.
+   In dark mode, swap to dark surfaces instead.
    ============================================================================= */
 
 /* Force eggshell background — overrides any dark tailwind bg-* utility on page wrappers */
-.min-h-screen {
+:root:not(.dark) .min-h-screen {
   background-color: #faf9f6 !important;
   color: #1a1a1a;
 }
 
-/* Cards, panels, and article sections should use white or light surface */
-.bg-slate-900, .bg-slate-800, .bg-gray-900, .bg-gray-800,
-.bg-zinc-900, .bg-zinc-800, .bg-black, .bg-neutral-900 {
+.dark .min-h-screen {
+  background-color: #121212 !important;
+  color: #e0e0e0;
+}
+
+/* Cards, panels, and article sections — light mode: white; dark mode: dark surface */
+:root:not(.dark) .bg-slate-900,
+:root:not(.dark) .bg-slate-800,
+:root:not(.dark) .bg-gray-900,
+:root:not(.dark) .bg-gray-800,
+:root:not(.dark) .bg-zinc-900,
+:root:not(.dark) .bg-zinc-800,
+:root:not(.dark) .bg-black,
+:root:not(.dark) .bg-neutral-900 {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
 }
 
 /* Override dark gradient hero sections to eggshell */
-[class*="from-slate-9"], [class*="from-gray-9"],
-[class*="from-zinc-9"], [class*="from-indigo-9"] {
+:root:not(.dark) [class*="from-slate-9"],
+:root:not(.dark) [class*="from-gray-9"],
+:root:not(.dark) [class*="from-zinc-9"],
+:root:not(.dark) [class*="from-indigo-9"] {
   background: #faf9f6 !important;
 }
 
 /* Ensure all text in formerly-dark containers is readable */
-.bg-slate-800\/50, .bg-slate-900\/50 {
+:root:not(.dark) .bg-slate-800\/50,
+:root:not(.dark) .bg-slate-900\/50 {
   background-color: rgba(255,255,255,0.6) !important;
+}
+
+.dark .bg-slate-800\/50,
+.dark .bg-slate-900\/50 {
+  background-color: rgba(30,30,30,0.6) !important;
 }
 
 /* =============================================================================
@@ -152,12 +204,18 @@ h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
 h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
 h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
 
-/* Dark text on formerly-dark badge/tag elements */
-.text-white {
+/* Dark text on formerly-dark badge/tag elements — only in light mode */
+:root:not(.dark) .text-white {
   color: #0f0f0f !important;
 }
-.text-gray-300, .text-gray-400 {
+:root:not(.dark) .text-gray-300,
+:root:not(.dark) .text-gray-400 {
   color: #4a4a4a !important;
+}
+
+.dark .text-gray-300,
+.dark .text-gray-400 {
+  color: #9ca3af !important;
 }
 
 /* Utility Classes - keep these light */
@@ -267,6 +325,11 @@ img {
   animation: shimmer 1.5s infinite;
 }
 
+.dark .img-placeholder {
+  background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -282,6 +345,11 @@ img {
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 4px;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
 }
 
 /* Reserve space for ad slots (if used) */
@@ -314,4 +382,223 @@ img {
 .gpu-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* =============================================================================
+   DARK MODE — Global overrides
+   Swaps blacks/whites while keeping reds, blues, and accent colors intact.
+   Triggered by .dark class on <html>.
+   ============================================================================= */
+
+/* ── Surfaces ────────────────────────────────────────────────────────────── */
+
+/* bg-white → dark surface */
+.dark .bg-white {
+  background-color: #1a1a1a !important;
+}
+
+/* bg-gray-50 (top strip, footer, cards) → dark surface */
+.dark .bg-gray-50 {
+  background-color: #1e1e1e !important;
+}
+
+/* bg-gray-100 → slightly lighter dark */
+.dark .bg-gray-100 {
+  background-color: #222 !important;
+}
+
+/* ── Borders ─────────────────────────────────────────────────────────────── */
+
+.dark .border-black {
+  border-color: #444 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #333 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #3a3a3a !important;
+}
+
+.dark .divide-black > :not(:first-child) {
+  border-color: #444 !important;
+}
+
+.dark .border-b-4.border-black {
+  border-color: #555 !important;
+}
+
+.dark .border-t-2.border-black {
+  border-color: #444 !important;
+}
+
+/* ── Text ────────────────────────────────────────────────────────────────── */
+
+.dark .text-gray-500 {
+  color: #888 !important;
+}
+
+.dark .text-gray-600 {
+  color: #999 !important;
+}
+
+.dark .text-gray-700 {
+  color: #aaa !important;
+}
+
+.dark .text-gray-800 {
+  color: #ccc !important;
+}
+
+.dark .text-gray-900 {
+  color: #e0e0e0 !important;
+}
+
+.dark .text-black {
+  color: #f0f0f0 !important;
+}
+
+/* ── Header / Nav ────────────────────────────────────────────────────────── */
+
+/* Masthead nameplate — keep OBJECTWIRE readable */
+.dark header {
+  color: #f0f0f0;
+}
+
+.dark header .font-serif {
+  color: #f0f0f0 !important;
+}
+
+/* Black divider lines in header → dark gray */
+.dark header .bg-black {
+  background-color: #f0f0f0 !important;
+}
+
+.dark header .h-px.bg-black {
+  background-color: #555 !important;
+}
+
+/* Nav hover: invert for dark */
+.dark nav a:hover {
+  background-color: #f0f0f0 !important;
+  color: #121212 !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.dark footer {
+  background-color: #1a1a1a !important;
+  border-color: #333 !important;
+}
+
+.dark footer .bg-black {
+  background-color: #f0f0f0 !important;
+}
+
+.dark footer .bg-black .text-white {
+  color: #121212 !important;
+}
+
+.dark footer .text-gray-600 {
+  color: #888 !important;
+}
+
+.dark footer input {
+  background-color: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark footer button.bg-black {
+  background-color: #f0f0f0 !important;
+  color: #121212 !important;
+}
+
+/* ── Cards / Articles ────────────────────────────────────────────────────── */
+
+/* White cards → dark surface */
+.dark .bg-white\/80 {
+  background-color: rgba(26,26,26,0.8) !important;
+}
+
+.dark .bg-white\/60 {
+  background-color: rgba(26,26,26,0.6) !important;
+}
+
+/* Hover states */
+.dark .hover\:bg-gray-50:hover {
+  background-color: #252525 !important;
+}
+
+.dark .hover\:bg-black:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.dark .hover\:text-black:hover {
+  color: #f0f0f0 !important;
+}
+
+/* ── Inputs ──────────────────────────────────────────────────────────────── */
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #666;
+}
+
+/* ── Prose callout boxes (article content_html) ──────────────────────────── */
+/* Keep the colored accent borders, just darken the backgrounds slightly */
+.dark .prose .bg-blue-50 {
+  background-color: rgba(30, 58, 95, 0.3) !important;
+}
+.dark .prose .bg-red-50 {
+  background-color: rgba(95, 30, 30, 0.3) !important;
+}
+.dark .prose .bg-green-50 {
+  background-color: rgba(30, 95, 50, 0.3) !important;
+}
+.dark .prose .bg-purple-50 {
+  background-color: rgba(60, 30, 95, 0.3) !important;
+}
+.dark .prose .bg-orange-50 {
+  background-color: rgba(95, 60, 20, 0.3) !important;
+}
+.dark .prose .bg-yellow-50 {
+  background-color: rgba(95, 85, 20, 0.3) !important;
+}
+
+/* Callout text stays readable */
+.dark .prose [class*="text-blue-800"],
+.dark .prose [class*="text-blue-900"] {
+  color: #93c5fd !important;
+}
+.dark .prose [class*="text-red-800"],
+.dark .prose [class*="text-red-900"] {
+  color: #fca5a5 !important;
+}
+.dark .prose [class*="text-green-800"],
+.dark .prose [class*="text-green-900"] {
+  color: #86efac !important;
+}
+.dark .prose [class*="text-purple-800"],
+.dark .prose [class*="text-purple-900"] {
+  color: #c4b5fd !important;
+}
+
+/* ── Transition on theme switch ──────────────────────────────────────────── */
+html.dark,
+html:not(.dark) {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body, header, footer, main, nav {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

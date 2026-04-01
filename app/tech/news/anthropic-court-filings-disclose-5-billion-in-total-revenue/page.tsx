@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'Anthropic Court Filings Disclose $5 Billion Total Revenue vs. $19 Billion Reported Run Rate | ObjectWire',
   description:
-    'Court documents filed by Anthropic in its lawsuit against the U.S. Department of Defense reveal approximately $5 billion in total revenue since commercializing its AI technology in 2023, standing in contrast to the $19 billion annualized run rate cited in investor discussions.',
+    'Court documents filed by Anthropic in its lawsuit against the U.S. Department of Defense reveal approximately $5 billion in total revenue since commercializing its AI technology in 2023 — standing in contrast to the $19 billion annualized run rate cited in investor discussions.',
   keywords: [
     'Anthropic court filing revenue disclosure',
     'Anthropic $5 billion total revenue 2023 2025',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description:
       'CFO Krishna Rao\'s declaration in the DoD blacklisting lawsuit puts Anthropic\'s cumulative revenue since commercializing Claude at ~$5B. Industry reports had cited a $19B annualized run rate. The gap reveals just how fast the ramp was in late 2025.',
     type: 'article',
-    url: ARTICLE_URL,
+    url: 'https://www.objectwire.org/tech/news/anthropic-court-filings-disclose-5-billion-in-total-revenue',
     siteName: 'ObjectWire',
     publishedTime: '2026-03-12T00:00:00Z',
     modifiedTime: '2026-03-12T00:00:00Z',
@@ -61,6 +61,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AnthropicRevenueFiling2026Page() {
+export default function AnthropicCourtFilingsDisclose5BillionInTotalRevenuePage() {
   return <JackArticleDB slug="tech-news-anthropic-court-filings-disclose-5-billion-in-total-revenue" />;
 }

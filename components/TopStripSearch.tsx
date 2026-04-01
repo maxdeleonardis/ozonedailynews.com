@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 export default function TopStripSearch() {
   const [open, setOpen] = useState(false);
@@ -64,7 +65,9 @@ export default function TopStripSearch() {
       </button>
 
       {/* Est. label — always to the right of the icon */}
-      <span className="text-xs font-mono text-gray-500 hidden sm:block whitespace-nowrap">Est. 2024 · Independent</span>
+      <span className="text-xs font-mono text-gray-500 hidden sm:block whitespace-nowrap">Est. 2024 ·</span>
+      <ThemeToggle />
+      <span className="text-xs font-mono text-gray-500 hidden sm:block whitespace-nowrap">Independent</span>
     </div>
   );
 }

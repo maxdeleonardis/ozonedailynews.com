@@ -5,6 +5,7 @@ import { getAllArticles, getCreatorArticles } from '@/lib/article-service';
 import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/EngagementBar';
+import HeadlineList from '@/components/HeadlineList';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
 
 export const metadata: Metadata = {
@@ -284,8 +285,8 @@ export default async function HomePage() {
   }
 
   const [lead, second, third, ...rest] = merged;
-  const moreStories      = rest.slice(0, 24);   // 3-col grid below the fold
-  const headlineArticles = rest.slice(24, 55);  // overflow headline list
+  const moreStories      = rest.slice(0, 12);   // 4-col × 3-row grid below the fold
+  const headlineArticles = rest.slice(12, 55);  // overflow headline list
 
   const editionDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
@@ -295,7 +296,7 @@ export default async function HomePage() {
     <div className="min-h-screen bg-white">
 
       {/* ══ MAIN CONTENT ══════════════════════════════════════════════════════ */}
-      <main className="container mx-auto px-4 py-6">
+      <main className="container mx-auto px-0 sm:px-2 py-6">
 
         {/* date stamp above fold */}
         {lead && (
@@ -439,7 +440,7 @@ export default async function HomePage() {
         {moreStories.length > 0 && (
           <>
             <SectionRule label="More Stories" href="/site-index" />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 border-b-2 border-black pb-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 border-b-2 border-black pb-10">
               {moreStories.map((a) => (
                 <Link
                   key={a.id}
@@ -453,7 +454,7 @@ export default async function HomePage() {
                         src={a.imageUrl}
                         alt={a.imageAlt ?? a.title}
                         fill
-                        sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
+                        sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,25vw"
                         className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
                       />
                     ) : (
@@ -502,11 +503,9 @@ export default async function HomePage() {
             <SectionRule label="Today's Headlines" href="/site-index" />
             <div className="grid lg:grid-cols-3 gap-8 mb-10">
 
-              {/* 2-col compact headline list */}
-              <div className="lg:col-span-2 grid sm:grid-cols-2 gap-x-8 content-start">
-                {headlineArticles.map((a) => (
-                  <HeadlineRow key={a.id} article={a} />
-                ))}
+              {/* 2-col compact headline list with load-more */}
+              <div className="lg:col-span-2">
+                <HeadlineList articles={headlineArticles} />
               </div>
 
               {/* Coverage beats */}

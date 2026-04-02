@@ -305,56 +305,93 @@ function extractCreatorContent(source: string, componentTag: string): Record<str
   // Status defaults to published when migrating from JSX
   row.status = 'published';
 
-  // ── Schema fields ─────────────────────────────────────────────────────────
-  row.schema_title       = extractMetaProp(source, 'title') ?? '';
+  // ── Schema fields — scoped to the schema={{ ... }} prop block ─────────────
+  // Extract the raw schema={{ ... }} block first so inner keys don't cross-match
+  const schemaPropMatch = source.match(/schema=\{\{([\s\S]*?)\}\}/);
+  const schemaBlock = schemaPropMatch ? schemaPropMatch[1] : source;
+
+  const schemaTitleMatch = schemaBlock.match(/title:\s*["'`]([^"'`]+)["'`]/);
+  row.schema_title = schemaTitleMatch ? schemaTitleMatch[1] : (extractMetaProp(source, 'title') ?? '');
   if (typeof row.schema_title === 'string') {
     row.schema_title = (row.schema_title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
-  row.schema_description = extractMetaProp(source, 'description') ?? '';
-  row.schema_author      = extractProp(source, 'author') ?? 'ObjectWire';
-  row.schema_section     = extractProp(source, 'section') ?? '';
 
-  // schema.articleUrl / schema.imageUrl
-  const schemaUrlMatch = source.match(/articleUrl:\s*["']([^"']+)["']/);
+  const schemaDescMatch = schemaBlock.match(/description:\s*["'`]([^"'`]+)["'`]/);
+  row.schema_description = schemaDescMatch ? schemaDescMatch[1] : (extractMetaProp(source, 'description') ?? '');
+
+  const schemaAuthorMatch = schemaBlock.match(/author:\s*["'`]([^"'`]+)["'`]/);
+  row.schema_author = schemaAuthorMatch ? schemaAuthorMatch[1] : 'ObjectWire';
+
+  const schemaSectionMatch = schemaBlock.match(/section:\s*["'`]([^"'`]+)["'`]/);
+  row.schema_section = schemaSectionMatch ? schemaSectionMatch[1] : '';
+
+  const schemaUrlMatch = schemaBlock.match(/articleUrl:\s*["'`]([^"'`]+)["'`]/);
   if (schemaUrlMatch) row.schema_article_url = schemaUrlMatch[1];
 
-  const schemaImgMatch = source.match(/imageUrl:\s*["']([^"']+)["']/);
+  const schemaImgMatch = schemaBlock.match(/imageUrl:\s*["'`]([^"'`]+)["'`]/);
   if (schemaImgMatch) row.schema_image_url = schemaImgMatch[1];
 
-  const pubTimeMatch = source.match(/publishedTime:\s*["']([^"']+)["']/);
+  const pubTimeMatch = schemaBlock.match(/publishedTime:\s*["'`]([^"'`]+)["'`]/);
   if (pubTimeMatch) row.schema_published_time = pubTimeMatch[1];
 
-  const modTimeMatch = source.match(/modifiedTime:\s*["']([^"']+)["']/);
+  const modTimeMatch = schemaBlock.match(/modifiedTime:\s*["'`]([^"'`]+)["'`]/);
   if (modTimeMatch) row.schema_modified_time = modTimeMatch[1];
 
-  // ── Hero fields ───────────────────────────────────────────────────────────
-  const heroImgBlock = source.match(/hero=\{\{[\s\S]*?image:\s*\{[\s\S]*?src:\s*["']([^"']+)["'][\s\S]*?alt:\s*["']([^"']+)["']/);
-  if (heroImgBlock) {
-    row.hero_image_src = heroImgBlock[1];
-    row.hero_image_alt = heroImgBlock[2];
-  }
+  // ── Hero fields — scoped to the hero={{ ... }} prop block ─────────────────
+  const heroPropMatch = source.match(/hero=\{\{([\s\S]*?)\}\}/);
+  const heroBlock = heroPropMatch ? heroPropMatch[1] : '';
 
-  const heroNameMatch = source.match(/name:\s*["']([^"']+)["']/);
+  const heroImgSrcMatch = heroBlock.match(/src:\s*["'`]([^"'`]+)["'`]/);
+  if (heroImgSrcMatch) row.hero_image_src = heroImgSrcMatch[1];
+
+  const heroImgAltMatch = heroBlock.match(/alt:\s*["'`]([^"'`]+)["'`]/);
+  if (heroImgAltMatch) row.hero_image_alt = heroImgAltMatch[1];
+
+  const heroNameMatch = heroBlock.match(/name:\s*["'`]([^"'`]+)["'`]/);
   if (heroNameMatch) row.hero_name = heroNameMatch[1];
 
-  const heroSubMatch = source.match(/subtitle:\s*["']([^"']+)["']/);
+  const heroSubMatch = heroBlock.match(/subtitle:\s*["'`]([^"'`]+)["'`]/);
   if (heroSubMatch) row.hero_subtitle = heroSubMatch[1];
 
-  const heroDescMatch = source.match(/description:\s*["']([^"']+)["']/);
+  const heroDescMatch = heroBlock.match(/description:\s*["'`]([^"'`]+)["'`]/);
   if (heroDescMatch) row.hero_description = heroDescMatch[1];
 
-  const heroGradientMatch = source.match(/gradient:\s*["']([^"']+)["']/);
+  const heroGradientMatch = heroBlock.match(/gradient:\s*["'`]([^"'`]+)["'`]/);
   if (heroGradientMatch) row.hero_gradient = heroGradientMatch[1];
 
-  // ── Sidebar meta ──────────────────────────────────────────────────────────
-  const pubDateMatch = source.match(/publishedDate:\s*["']([^"']+)["']/);
+  // ── Sidebar fields — scoped to sidebar={{ ... }} prop block ───────────────
+  const sidebarPropMatch = source.match(/sidebar=\{\{([\s\S]*?)\}\}/);
+  const sidebarBlock = sidebarPropMatch ? sidebarPropMatch[1] : '';
+
+  // Infobox sub-block
+  const infoboxBlock = sidebarBlock.match(/infobox:\s*\{([\s\S]*?)(?:,\s*(?:callout|timeline|relatedLinks|meta):|\}$)/)?.[1] ?? sidebarBlock;
+
+  const infoImgSrcMatch = infoboxBlock.match(/src:\s*["'`]([^"'`]+)["'`]/);
+  if (infoImgSrcMatch) row.sidebar_infobox_image_src = infoImgSrcMatch[1];
+
+  const infoImgAltMatch = infoboxBlock.match(/alt:\s*["'`]([^"'`]+)["'`]/);
+  if (infoImgAltMatch) row.sidebar_infobox_image_alt = infoImgAltMatch[1];
+
+  const infoNameMatch = infoboxBlock.match(/name:\s*["'`]([^"'`]+)["'`]/);
+  if (infoNameMatch) row.sidebar_infobox_name = infoNameMatch[1];
+
+  const infoSubMatch = infoboxBlock.match(/subtitle:\s*["'`]([^"'`]+)["'`]/);
+  if (infoSubMatch) row.sidebar_infobox_subtitle = infoSubMatch[1];
+
+  // Meta sub-block
+  const metaBlock = sidebarBlock.match(/meta:\s*\{([\s\S]*?)(?:\}|$)/)?.[1] ?? '';
+
+  const pubDateMatch = metaBlock.match(/publishedDate:\s*["'`]([^"'`]+)["'`]/) ?? sidebarBlock.match(/publishedDate:\s*["'`]([^"'`]+)["'`]/);
   if (pubDateMatch) row.sidebar_meta_published_date = pubDateMatch[1];
 
-  const authorMatch = source.match(/author:\s*["']([^"']+)["']/);
-  if (authorMatch) row.sidebar_meta_author = authorMatch[1];
+  const updatedDateMatch = metaBlock.match(/updatedDate:\s*["'`]([^"'`]+)["'`]/);
+  if (updatedDateMatch) row.sidebar_meta_updated_date = updatedDateMatch[1];
 
-  const categoryMatch = source.match(/category:\s*["']([^"']+)["']/);
-  if (categoryMatch) row.sidebar_meta_category = categoryMatch[1];
+  const sidebarAuthorMatch = metaBlock.match(/author:\s*["'`]([^"'`]+)["'`]/) ?? sidebarBlock.match(/author:\s*["'`]([^"'`]+)["'`]/);
+  if (sidebarAuthorMatch) row.sidebar_meta_author = sidebarAuthorMatch[1];
+
+  const sidebarCategoryMatch = metaBlock.match(/category:\s*["'`]([^"'`]+)["'`]/) ?? sidebarBlock.match(/category:\s*["'`]([^"'`]+)["'`]/);
+  if (sidebarCategoryMatch) row.sidebar_meta_category = sidebarCategoryMatch[1];
 
   // ── Body HTML ─────────────────────────────────────────────────────────────
   const bodyMatch = source.match(new RegExp(`<${componentTag}[\\s\\S]*?>\\s*([\\s\\S]*?)\\s*<\\/${componentTag}>`));

@@ -170,6 +170,16 @@ export default async function RootLayout({
               <div className="border-t-2 border-black">
                 <div className="container mx-auto px-4">
                   <nav className="flex items-center divide-x divide-black">
+                    {/* Home icon */}
+                    <Link
+                      href="/"
+                      aria-label="Home"
+                      className="px-3 md:px-4 py-2.5 hover:bg-black hover:text-white transition-colors shrink-0 flex items-center"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                        <path d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7Z" />
+                      </svg>
+                    </Link>
                     {/* Left: News */}
                     <Link
                       href="/news"

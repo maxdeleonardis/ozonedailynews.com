@@ -397,13 +397,13 @@ export function CreatorArticle({
 
                 {/* Infobox */}
                 <div className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                  <div className="relative w-full h-56">
+                  <div className="relative w-full h-56 lg:h-[448px]">
                     <Image
                       src={sidebar.infobox.image.src}
                       alt={sidebar.infobox.image.alt}
                       fill
                       className="object-cover object-top"
-                      sizes="300px"
+                      sizes="(min-width: 1024px) 400px, 300px"
                     />
                     <div
                       style={{

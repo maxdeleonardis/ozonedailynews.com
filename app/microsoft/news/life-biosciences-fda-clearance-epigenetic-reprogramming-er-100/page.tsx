@@ -2,52 +2,69 @@ import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/microsoft/news/life-biosciences-fda-clearance-epigenetic-reprogramming-er-100';
+const OG_IMAGE = '';
 
 export const metadata: Metadata = {
-  title: 'Life Biosciences Receives FDA Clearance for First Human Trial of Partial Epigenetic Reprogramming Therapy ER-100 | ObjectWire',
+  title: 'ER-100 FDA Clearance | First Epigenetic Reprogramming Human Trial',
   description:
-    'The FDA cleared Life Biosciences IND for ER-100, an AAV-delivered OSK gene therapy for partial epigenetic reprogramming targeting glaucoma and NAION. First human trial of cellular rejuvenation.',
+    'ER-100 receives FDA IND clearance January 28, 2026, the first human trial of partial epigenetic reprogramming using AAV2-delivered OSK Yamanaka factors for glaucoma and NAION',
   keywords: [
-    'Life Biosciences FDA clearance',
-    'ER-100 gene therapy',
-    'partial epigenetic reprogramming',
-    'OSK Yamanaka factors',
-    'glaucoma gene therapy',
-    'NAION treatment',
-    'retinal ganglion cell rejuvenation',
-    'cellular rejuvenation human trial',
-    'AAV2 OSK gene therapy',
-    'optic neuropathy clinical trial',
-    'Phase 1 epigenetic reprogramming',
-    'Life Biosciences IND approval',
+    'ER-100 FDA IND clearance 2026',
+    'Life Biosciences epigenetic reprogramming trial',
+    'partial epigenetic reprogramming human clinical trial',
+    'OSK Yamanaka factors retinal ganglion cells',
+    'AAV2 gene therapy glaucoma 2026',
+    'NAION gene therapy treatment clinical trial',
+    'NCT07290244 Phase 1 epigenetic trial',
+    'epigenetic age reversal FDA clearance',
+    'OCT4 SOX2 KLF4 retinal rejuvenation',
+    'cellular rejuvenation optic nerve human trial',
+    'doxycycline controlled gene expression AAV',
+    'retinal ganglion cell epigenetic therapy',
+    'Life Biosciences IND application ER-100',
+    'partial reprogramming without pluripotency',
+    'optic neuropathy regenerative medicine 2026',
+    'glaucoma epigenetic gene therapy Phase 1',
+    'intravitreal AAV2 OSK injection trial',
+    'first human epigenetic reprogramming FDA',
   ],
   alternates: {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Life Biosciences Receives FDA Clearance for First Human Trial of ER-100 Epigenetic Reprogramming',
+    title: 'ER-100 FDA Clearance | First Human Epigenetic Reprogramming Trial for Glaucoma & NAION',
     description:
-      'FDA clears first human trial of partial epigenetic reprogramming. ER-100 delivers OSK Yamanaka factors via AAV to treat glaucoma and NAION.',
+      'Life Biosciences ER-100 cleared for Phase 1 human trial, AAV2-delivered OSK Yamanaka factors targeting retinal ganglion cell rejuvenation in glaucoma and NAION patients. First-ever FDA-cleared epigenetic reprogramming study.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Science Desk'],
-    publishedTime: '2026-03-05T10:00:00Z',
+    publishedTime: '2026-01-28T12:00:00Z',
     modifiedTime: '2026-03-05T10:00:00Z',
-    section: 'Science & Biotech',
-    tags: ['Life Biosciences', 'ER-100', 'FDA', 'Gene Therapy', 'Epigenetic Reprogramming', 'Glaucoma'],
+    section: 'Science',
+    tags: [
+      'Life Biosciences',
+      'ER-100',
+      'FDA',
+      'Epigenetic Reprogramming',
+      'Gene Therapy',
+      'Glaucoma',
+      'NAION',
+      'Yamanaka Factors',
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FDA Clears First Human Trial of Epigenetic Reprogramming Therapy ER-100',
-    description: 'Life Biosciences receives IND clearance for ER-100, delivering OSK Yamanaka factors to treat optic neuropathies.',
+    title: 'FDA Clears First Human Trial of Epigenetic Reprogramming | ER-100',
+    description:
+      'Life Biosciences ER-100: AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells. Phase 1 in glaucoma and NAION, Q1 2026. First-ever human epigenetic reprogramming trial.',
   },
 };
 
-export default function LifeBiosciencesFDAPage() {
+export default function MicrosoftNewsLifeBiosciencesFdaClearanceEpigeneticReprogrammingEr100Page() {
   return <NewsArticleDB slug="microsoft-news-life-biosciences-fda-clearance-epigenetic-reprogramming-er-100" />;
 }

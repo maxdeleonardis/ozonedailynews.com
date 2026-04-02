@@ -2,26 +2,61 @@ import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/microsoft/news/nvidia-groq-inference-processor-gtc-2026';
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const OG_IMAGE = '';
 
 export const metadata: Metadata = {
-  title: 'Nvidia Plans Groq-Integrated Inference Processor Unveil at GTC 2026 Following $20 Billion Deal | ObjectWire',
-  description: 'Nvidia will introduce a new inference processor platform at GTC 2026 incorporating Groq LPU technology from a $20 billion licensing deal. OpenAI committed 3GW of dedicated inference capacity.',
-  keywords: ['Nvidia Groq inference processor', 'GTC 2026 Nvidia', 'Groq LPU technology', 'Nvidia $20 billion Groq deal', 'AI inference hardware', 'LPX inference platform', 'OpenAI inference capacity', 'Nvidia GTC March 2026', 'Jonathan Ross Groq'],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
-  openGraph: {
-    title: 'Nvidia Plans Groq-Integrated Inference Processor at GTC 2026',
-    description: 'New platform incorporates Groq LPU architecture from $20B licensing deal. OpenAI committed 3GW inference capacity.',
-    type: 'article', url: `https://www.objectwire.org${SLUG}`, siteName: 'ObjectWire',
-    authors: ['ObjectWire Technology Desk'], publishedTime: '2026-03-05T10:00:00Z', modifiedTime: '2026-03-05T10:00:00Z',
-    section: 'Technology', tags: ['Nvidia', 'Groq', 'GTC', 'AI Inference', 'LPU'],
+  title: 'Nvidia Groq LPU Deal | $20B Inference Chip at GTC 2026',
+  description:
+    'Nvidia acquired Groq LPU technology for $20 billion in December 2025. New LPX inference platform targets 64-256 LPUs per rack. OpenAI committed 3GW capacity.',
+  keywords: [
+    'Nvidia Groq $20 billion licensing deal',
+    'Groq LPU inference processor',
+    'Nvidia GTC 2026 inference chip',
+    'LPX inference platform specs',
+    'OpenAI 3GW inference capacity Nvidia',
+    'Groq Language Processing Unit architecture',
+    'Jonathan Ross Groq founder Nvidia',
+    'Nvidia inference vs training hardware',
+    'deterministic execution SRAM inference chip',
+    'Groq 10000 tokens per second demo',
+    'Nvidia Mellanox acquisition parallel',
+    'Cerebras SambaNova inference competition',
+    'Nvidia stock decline Q4 earnings 2025',
+    'GroqCloud independent operations',
+    'AI inference hardware market 2026',
+    'LPU RealScale ASIC tile architecture',
+    'Nvidia Blackwell vs LPX inference',
+    'agentic AI real-time inference latency',
+  ],
+  alternates: {
+    canonical: ARTICLE_URL,
   },
-  twitter: { card: 'summary_large_image', title: 'Nvidia Unveiling Groq-Powered Inference Chip at GTC 2026', description: '$20B Groq deal yields new inference platform. OpenAI commits 3GW capacity.' },
+  openGraph: {
+    title: 'Nvidia Groq LPU Deal | $20B Inference Chip at GTC 2026',
+    description:
+      'Nvidia acquired Groq LPU technology for $20B. LPX inference platform with 64-256 LPUs per rack unveiled at GTC 2026. OpenAI committed 3GW.',
+    type: 'article',
+    url: ARTICLE_URL,
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Technology Desk'],
+    publishedTime: '2026-03-05T10:00:00Z',
+    modifiedTime: '2026-04-01T10:00:00Z',
+    section: 'Tech',
+    tags: ['Nvidia', 'Groq', 'GTC 2026', 'LPU', 'AI Inference', 'OpenAI', 'Jensen Huang'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nvidia Acquires Groq LPU for $20B | New Inference Chip at GTC 2026',
+    description:
+      'LPX platform targets 64-256 LPUs per rack. OpenAI commits 3GW. The biggest inference hardware shift since Nvidia bought Mellanox.',
+  },
 };
 
-export default function NvidiaGroqGTCPage() {
+export default function MicrosoftNewsNvidiaGroqInferenceProcessorGtc2026Page() {
   return <NewsArticleDB slug="microsoft-news-nvidia-groq-inference-processor-gtc-2026" />;
 }

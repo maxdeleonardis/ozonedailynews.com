@@ -2,55 +2,61 @@ import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/google/news/turboquant-llm-kv-cache-compression';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
+const OG_IMAGE = '';
 
 export const metadata: Metadata = {
-  title: 'Google Research Drops "TurboQuant" to Smash LLM Memory Bottleneck | ObjectWire',
+  title: 'TurboQuant KV Cache Compression | 6x Memory, 8x Speed',
   description:
-    'Google Research has released TurboQuant, a training-free compression suite that cuts LLM KV cache memory by 6x and delivers up to 8x faster attention computation, eliminating the single greatest obstacle to long-context AI.',
+    'Google Research TurboQuant cuts LLM KV cache memory 6x and attention speed 8x at 3 bits per value with zero accuracy loss, no retraining. PolarQuant plus QJL explained.',
   keywords: [
-    'TurboQuant Google Research',
-    'LLM KV cache compression',
-    'PolarQuant quantization',
-    'QJL Quantized Johnson-Lindenstrauss',
-    'LLM memory bottleneck',
-    'GPU VRAM AI',
-    'Google AI research 2026',
-    'ICLR 2026 AI',
-    'long context LLM',
-    'attention speedup AI',
-    'training-free quantization',
+    'TurboQuant KV cache compression',
+    'LLM KV cache memory reduction',
+    'PolarQuant polar coordinate quantization',
+    'QJL Quantized Johnson-Lindenstrauss transform',
+    'Google Research LLM compression 2026',
+    'training-free KV cache quantization',
+    'data-oblivious quantization LLM',
+    'GPU VRAM LLM inference bottleneck',
+    'ICLR 2026 PolarQuant paper',
+    'AISTATS 2026 QJL paper',
+    'long context LLM memory optimization',
+    '3-bit KV cache quantization accuracy',
+    '70B parameter model VRAM usage',
+    'attention speedup 8x LLM inference',
+    'KV cache 40GB VRAM 100K tokens',
+    'Flash Attention vs TurboQuant',
+    'calibration-free LLM compression',
+    'Google AI infrastructure research',
   ],
   alternates: {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Google Research Drops "TurboQuant" to Smash LLM Memory Bottleneck',
+    title: 'TurboQuant KV Cache Compression | 6x Memory, 8x Speed',
     description:
-      'Google Research\'s TurboQuant compresses LLM KV caches by 6x and speeds up attention by 8x, using a data-oblivious, training-free approach that runs at 3 bits per value with virtually zero accuracy loss.',
+      'Google Research TurboQuant compresses LLM KV caches 6x and speeds attention 8x at 3 bits per value. Training-free, calibration-free, zero accuracy loss.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
-    images: [IMAGE_URL],
+    authors: ['Jack Wang'],
     publishedTime: '2026-03-25T09:00:00Z',
-    modifiedTime: '2026-03-25T09:00:00Z',
-    section: 'Technology',
-    tags: ['Google', 'AI', 'LLM', 'Quantization', 'KV Cache', 'VRAM', 'TurboQuant', 'ICLR 2026', 'Research'],
+    modifiedTime: '2026-04-01T09:00:00Z',
+    section: 'Tech',
+    tags: ['Google Research', 'TurboQuant', 'PolarQuant', 'QJL', 'LLM', 'KV Cache', 'ICLR 2026', 'AISTATS 2026'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Google Research Drops "TurboQuant" | 6x Less VRAM, 8x Faster Attention',
+    title: 'TurboQuant | Google Cuts LLM Memory 6x, Speeds Attention 8x',
     description:
-      'A training-free LLM compression breakthrough from Google Research. 3 bits per value, zero accuracy loss, and 8x faster attention, TurboQuant is the memory upgrade long-context AI has been waiting for.',
-    images: [IMAGE_URL],
+      '3 bits per value, zero accuracy loss, no retraining. TurboQuant is the biggest KV cache breakthrough since Flash Attention.',
   },
 };
 
-export default function TurboQuantArticlePage() {
+export default function GoogleNewsTurboquantLlmKvCacheCompressionPage() {
   return <NewsArticleDB slug="google-news-turboquant-llm-kv-cache-compression" />;
 }

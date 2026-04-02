@@ -122,8 +122,8 @@ export async function POST(req: NextRequest) {
         .eq('slug', slug)
         .single();
 
-      const siteUrl = process.env.NEXTAUTH_URL ?? 'https://www.objectwire.org';
-      const articleUrl = `${siteUrl}/${slug}`;
+      // Always use the production URL for article links in Discord
+      const articleUrl = `https://www.objectwire.org/${slug}`;
       const threadTitle = articleTitle || slug.split('/').pop()?.replace(/-/g, ' ') || slug;
 
       const webhookPayload: Record<string, unknown> = {
@@ -139,55 +139,55 @@ export async function POST(req: NextRequest) {
             description: text.trim(),
             fields: [
               {
-                name: '📰 Read Article',
+                name: '📰 Article',
                 value: `[${threadTitle}](${articleUrl})`,
               },
             ],
-            footer: {
-              text: `objectwire.org`,
-            },
+            footer: { text: 'objectwire.org' },
             timestamp: comment.createdAt,
           },
         ],
       };
 
-      let targetUrl = webhookUrl;
-
+      // Build the correct URL — ?wait=true always, ?thread_id only when appending
+      const params = new URLSearchParams({ wait: 'true' });
       if (thread?.thread_id) {
-        // Append to existing Forum Post
-        targetUrl = `${webhookUrl}?thread_id=${thread.thread_id}`;
+        params.set('thread_id', thread.thread_id);
       } else {
-        // Create a new Forum Post — pass thread_name to auto-create
+        // First comment on this article — auto-create a Forum Post (thread)
         webhookPayload.thread_name = threadTitle;
       }
+      const targetUrl = `${webhookUrl}?${params.toString()}`;
 
-      const webhookRes = await fetch(`${targetUrl}?wait=true`, {
+      const webhookRes = await fetch(targetUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(webhookPayload),
       });
 
-      // If we just created a new Forum Post, save the thread_id
+      // On a new thread creation, save the thread_id for future comments
       if (!thread?.thread_id && webhookRes.ok) {
         try {
           const webhookData = await webhookRes.json();
-          const newThreadId = webhookData.channel_id; // Discord returns the thread's channel_id
+          // Discord returns channel_id = the new Forum thread's channel id
+          const newThreadId = webhookData.channel_id;
           if (newThreadId) {
             await supabase
               .from('discord_threads')
-              .insert({
-                slug,
-                thread_id: newThreadId,
-                thread_name: threadTitle,
-              });
+              .insert({ slug, thread_id: newThreadId, thread_name: threadTitle });
           }
         } catch {
-          // Thread tracking failed — non-critical, next comment will create a new post
+          // Non-critical — next comment will create a new thread
         }
+      }
+
+      if (!webhookRes.ok) {
+        const errBody = await webhookRes.text().catch(() => '');
+        console.error('[discord/comments] webhook error', webhookRes.status, errBody);
       }
     } catch (err) {
       console.error('[discord/comments] webhook failed:', err);
-      // Don't fail the whole request if webhook has an issue
+      // Never fail the whole request over a webhook error
     }
   }
 

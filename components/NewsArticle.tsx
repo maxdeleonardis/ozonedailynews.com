@@ -1,10 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import ReactionBar from '@/components/ReactionBar';
-import DiscordComments from '@/components/discord-comments';
-import NewsletterSignupInline from '@/components/NewsletterSignupInline';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
 import RelatedArticles from '@/components/RelatedArticles';
+import ArticleFooter from '@/components/ArticleFooter';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -678,7 +676,7 @@ export function NewsArticle({
   url,
 }: NewsArticleProps) {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-gray-950">
       {/* Record view in reading history for logged-in users */}
       {slug && url && (
         <ArticleViewTracker
@@ -712,33 +710,29 @@ export function NewsArticle({
           {/* Main body — 80% */}
           <article className="w-full lg:w-4/5 min-w-0">
             <div className="prose prose-lg prose-gray max-w-none 
-              prose-headings:font-black prose-headings:text-gray-900
+              prose-headings:font-black prose-headings:text-gray-900 dark:prose-headings:text-gray-100
               prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-purple-500 prose-h2:pl-4
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-              prose-a:text-purple-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-              prose-blockquote:border-l-4 prose-blockquote:border-purple-300 prose-blockquote:bg-purple-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
-              prose-strong:text-gray-900
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 dark:prose-p:text-gray-300
+              prose-a:text-purple-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline dark:prose-a:text-purple-400
+              prose-blockquote:border-l-4 prose-blockquote:border-purple-300 prose-blockquote:bg-purple-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic dark:prose-blockquote:bg-purple-950/40 dark:prose-blockquote:border-purple-600
+              prose-strong:text-gray-900 dark:prose-strong:text-gray-100
               prose-img:rounded-xl prose-img:shadow-lg
-              prose-ul:space-y-2 prose-li:text-gray-700
+              prose-ul:space-y-2 prose-li:text-gray-700 dark:prose-li:text-gray-300
             ">
               {children}
             </div>
 
-            {/* Reaction Bar */}
-            <ReactionBar
-              slug={slug}
+            {/* Engagement stack — Tags, ReactionBar, Comments, Author, Newsletter */}
+            <ArticleFooter
+              slug={slug ?? ''}
               title={title}
               url={url}
               image={heroImage?.src}
               category={category}
+              tags={tags}
+              author={author}
             />
-
-            {/* Tags */}
-            {tags && tags.length > 0 && <TagsSection tags={tags} />}
-
-            {/* Discord Comments */}
-            {slug && <DiscordComments slug={slug} articleTitle={title} />}
           </article>
 
           {/* Related Articles sidebar — 20%, stacks below on mobile */}
@@ -753,83 +747,6 @@ export function NewsArticle({
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t-2 border-gray-200 bg-gradient-to-br from-gray-50 to-white mt-8">
-        <div className="container mx-auto px-4 sm:px-6 py-12 max-w-6xl">
-          {/* Author Card */}
-          {author && (
-            <div className="flex items-center gap-4 p-6 bg-white rounded-xl border border-gray-200 shadow-sm mb-8">
-              {author.avatar ? (
-                <img
-                  src={author.avatar}
-                  alt={author.name}
-                  className="w-16 h-16 rounded-full"
-                />
-              ) : (
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
-                  {author.name.charAt(0)}
-                </div>
-              )}
-              <div>
-                <p className="text-sm text-gray-500">Written by</p>
-                {author.authorSlug ? (
-                  <Link
-                    href={`/authors/${author.authorSlug}`}
-                    className="font-bold text-gray-900 hover:text-purple-600 transition-colors"
-                  >
-                    {author.name}
-                  </Link>
-                ) : (
-                  <p className="font-bold text-gray-900">{author.name}</p>
-                )}
-                {author.role && (
-                  <p className="text-sm text-gray-600">{author.role}</p>
-                )}
-                {author.twitter && (
-                  <a
-                    href={`https://twitter.com/${author.twitter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-purple-600 hover:underline"
-                  >
-                    @{author.twitter}
-                  </a>
-                )}
-              </div>
-            </div>
-          )}
-
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-            <span>Part of</span>
-            <Link href="/" className="font-bold text-black hover:underline">
-              ObjectWire
-            </Link>
-            <span>coverage</span>
-          </div>
-
-          {/* Newsletter signup */}
-          <NewsletterSignupInline />
-        </div>
-      </footer>
-
-      {/* Full-size thumbnail — spans the full container width at the very end */}
-      {thumbnail && (() => {
-        const aspectRatioCss = (thumbnail.aspectRatio ?? '16:9').replace(':', '/');
-        return (
-          <div className="w-full mt-0 overflow-hidden">
-            <img
-              src={thumbnail.src}
-              alt={thumbnail.alt}
-              style={{
-                display: 'block',
-                width: '100%',
-                aspectRatio: aspectRatioCss,
-                objectFit: 'cover',
-              }}
-            />
-          </div>
-        );
-      })()}
     </main>
   );
 }

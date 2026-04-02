@@ -3,27 +3,24 @@
 // =============================================================================
 // DiscordComments
 // =============================================================================
-// Two ways to comment — no login required:
+// Commenting requires a Supabase session (Google or Discord OAuth).
 //
-//   1. GUEST   — type a name + message, post instantly. Shows as "Name (Guest)"
-//                in the comment list and in Discord.
-//   2. DISCORD — click "Connect Discord", OAuth via Supabase, real username
-//                and avatar used on both site and Discord.
+// ANONYMOUS_COMMENTS flag: set to `true` once Supabase anonymous sign-ins
+// are enabled in the dashboard (Authentication → Settings → "Allow anonymous
+// sign-ins"). When true, a guest name field appears and no login is needed.
 //
 // Every comment is saved to discord_comments in Supabase and forwarded to the
 // Discord Forum Channel at:
 //   https://discord.com/channels/1385068774549360772/1485009785048010934
-//
-// Usage:
-//   import DiscordComments from '@/components/discord-comments';
-//   <DiscordComments slug="youtube/sidemen/ksi" articleTitle="KSI | ObjectWire" />
 // =============================================================================
+
+// ─── Feature flag ────────────────────────────────────────────────────────────
+// Supabase anonymous sign-ins are enabled — guests get a real anon session.
+const ANONYMOUS_COMMENTS = false;
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createBrowserClient } from '@/lib/supabase/client';
 import Image from 'next/image';
-
-// ── Types ─────────────────────────────────────────────────────────────────────
 
 interface Comment {
   id: string;
@@ -40,9 +37,7 @@ interface Props {
   articleTitle?: string;
 }
 
-// ── GA4 client-side helper ────────────────────────────────────────────────────
-
-// ── Sub-components ────────────────────────────────────────────────────────────
+// ── Icons ─────────────────────────────────────────────────────────────────────
 
 function DiscordIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
@@ -51,6 +46,19 @@ function DiscordIcon({ className = 'w-5 h-5' }: { className?: string }) {
     </svg>
   );
 }
+
+function GoogleIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden>
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+    </svg>
+  );
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function timeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();
@@ -62,10 +70,13 @@ function timeAgo(iso: string): string {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
+// ── CommentCard ───────────────────────────────────────────────────────────────
+
 function CommentCard({ comment }: { comment: Comment }) {
-  const isGuest = comment.discordId.startsWith('guest_');
+  const isGuest = comment.discordId.startsWith('guest_') || comment.discordId.startsWith('anon_');
+  const isDiscord = !isGuest && comment.discordId.length > 10 && !comment.discordId.includes('@');
   const avatarSrc = comment.discordAvatar ||
-    `https://ui-avatars.com/api/?name=${encodeURIComponent(comment.discordUsername)}&background=${isGuest ? '9ca3af' : '5865F2'}&color=fff&size=72`;
+    `https://ui-avatars.com/api/?name=${encodeURIComponent(comment.discordUsername)}&background=${isDiscord ? '5865F2' : isGuest ? '9ca3af' : '6366f1'}&color=fff&size=72`;
 
   return (
     <div className="flex gap-3 py-4">
@@ -75,11 +86,15 @@ function CommentCard({ comment }: { comment: Comment }) {
       <div className="flex-1 min-w-0">
         <div className="flex items-baseline gap-2 mb-1 flex-wrap">
           <span className="font-semibold text-gray-900 text-sm">{comment.discordUsername}</span>
-          {isGuest ? (
-            <span className="text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full font-medium">Guest</span>
-          ) : (
+          {isDiscord ? (
             <span className="inline-flex items-center gap-0.5 text-[10px] text-[#5865F2] font-medium">
               <DiscordIcon className="w-3 h-3" /> Discord
+            </span>
+          ) : isGuest ? (
+            <span className="text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full font-medium">Guest</span>
+          ) : (
+            <span className="inline-flex items-center gap-0.5 text-[10px] text-indigo-500 font-medium">
+              <GoogleIcon className="w-3 h-3" /> Google
             </span>
           )}
           <span className="text-xs text-gray-400">{timeAgo(comment.createdAt)}</span>
@@ -90,48 +105,135 @@ function CommentCard({ comment }: { comment: Comment }) {
   );
 }
 
+// ── Sign-in Gate ──────────────────────────────────────────────────────────────
+
+function SignInGate({
+  onDiscord,
+  onGoogle,
+  discordLoading,
+  googleLoading,
+}: {
+  onDiscord: () => void;
+  onGoogle: () => void;
+  discordLoading: boolean;
+  googleLoading: boolean;
+}) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center mb-8">
+      <div className="w-10 h-10 rounded-full bg-[#5865F2]/10 flex items-center justify-center mx-auto mb-3">
+        <DiscordIcon className="w-5 h-5 text-[#5865F2]" />
+      </div>
+      <h3 className="text-sm font-bold text-gray-900 mb-1">Join the discussion</h3>
+      <p className="text-xs text-gray-500 mb-1">Sign in to ObjectWire to leave a comment.</p>
+      <p className="text-xs text-gray-400 mb-5">Your comment appears live in our Discord server.</p>
+
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        {/* Discord — preferred */}
+        <button
+          onClick={onDiscord}
+          disabled={discordLoading}
+          className="inline-flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors disabled:opacity-60 w-full sm:w-auto justify-center"
+        >
+          <DiscordIcon className="w-4 h-4" />
+          {discordLoading ? 'Connecting…' : 'Sign in with Discord'}
+        </button>
+
+        {/* Google / OWire account */}
+        <button
+          onClick={onGoogle}
+          disabled={googleLoading}
+          className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-lg border border-gray-300 transition-colors disabled:opacity-60 w-full sm:w-auto justify-center shadow-sm"
+        >
+          <GoogleIcon className="w-4 h-4" />
+          {googleLoading ? 'Connecting…' : 'Sign in with OWire'}
+        </button>
+      </div>
+      <p className="text-xs text-gray-400 mt-4">
+        New to ObjectWire?{' '}
+        <a href="/login" className="text-[#5865F2] hover:underline font-medium">Create a free account →</a>
+      </p>
+    </div>
+  );
+}
+
 // ── Main Component ────────────────────────────────────────────────────────────
 
 export default function DiscordComments({ slug, articleTitle }: Props) {
-  const [comments, setComments]               = useState<Comment[]>([]);
+  const [comments, setComments]             = useState<Comment[]>([]);
   const [loadingComments, setLoadingComments] = useState(true);
 
-  // Discord OAuth identity (Supabase)
-  const [discordUser, setDiscordUser]         = useState<{ id: string; name: string; avatar: string } | null>(null);
-  const [discordLoading, setDiscordLoading]   = useState(false);
+  // Auth state
+  const [user, setUser] = useState<{ id: string; name: string; avatar: string; provider: string } | null>(null);
+  const [authLoading, setAuthLoading]       = useState(true);
+  const [discordLoading, setDiscordLoading] = useState(false);
+  const [googleLoading, setGoogleLoading]   = useState(false);
+
+  // Guest mode (only when ANONYMOUS_COMMENTS = true)
+  const [guestName, setGuestName] = useState('');
 
   // Form
   const [draft, setDraft]           = useState('');
-  const [guestName, setGuestName]   = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState('');
   const [successMsg, setSuccessMsg] = useState('');
 
   const hasMounted = useRef(false);
 
-  // ── On mount: restore guest name + check for Discord Supabase session ─────
+  // ── On mount: check Supabase session ─────────────────────────────────────
   useEffect(() => {
     if (hasMounted.current) return;
     hasMounted.current = true;
 
-    // Restore saved guest name
-    try {
-      const saved = localStorage.getItem('ow_guest_name');
-      if (saved) setGuestName(saved);
-    } catch { /* ignore */ }
+    // Restore guest name if anon mode will be used
+    if (ANONYMOUS_COMMENTS) {
+      try {
+        const saved = localStorage.getItem('ow_guest_name');
+        if (saved) setGuestName(saved);
+      } catch { /* ignore */ }
+    }
 
-    // Check if user already has a Discord Supabase session
     const supabase = createBrowserClient();
     supabase.auth.getUser().then(({ data }) => {
       const u = data.user;
-      if (u?.app_metadata?.provider === 'discord') {
-        setDiscordUser({
-          id:     u.id,
-          name:   u.user_metadata?.full_name ?? u.user_metadata?.custom_claims?.global_name ?? u.user_metadata?.name ?? 'Discord User',
-          avatar: u.user_metadata?.avatar_url ?? '',
+      if (u) {
+        const provider = u.app_metadata?.provider ?? 'google';
+        setUser({
+          id:       u.id,
+          name:     u.user_metadata?.full_name
+                 ?? u.user_metadata?.custom_claims?.global_name
+                 ?? u.user_metadata?.name
+                 ?? u.email?.split('@')[0]
+                 ?? 'User',
+          avatar:   u.user_metadata?.avatar_url ?? '',
+          provider,
         });
       }
+      setAuthLoading(false);
     });
+
+    // Also subscribe to auth changes (e.g. after OAuth redirect back)
+    const supabase2 = createBrowserClient();
+    const { data: { subscription } } = supabase2.auth.onAuthStateChange((_event, session) => {
+      const u = session?.user;
+      if (u) {
+        const provider = u.app_metadata?.provider ?? 'google';
+        setUser({
+          id:       u.id,
+          name:     u.user_metadata?.full_name
+                 ?? u.user_metadata?.custom_claims?.global_name
+                 ?? u.user_metadata?.name
+                 ?? u.email?.split('@')[0]
+                 ?? 'User',
+          avatar:   u.user_metadata?.avatar_url ?? '',
+          provider,
+        });
+      } else {
+        setUser(null);
+      }
+      setAuthLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   // ── Fetch comments ────────────────────────────────────────────────────────
@@ -148,8 +250,8 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
 
   useEffect(() => { fetchComments(); }, [fetchComments]);
 
-  // ── Connect Discord (Supabase OAuth) ──────────────────────────────────────
-  async function handleConnectDiscord() {
+  // ── Auth handlers ─────────────────────────────────────────────────────────
+  async function handleDiscordLogin() {
     setDiscordLoading(true);
     const supabase = createBrowserClient();
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
@@ -163,14 +265,27 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
       setDiscordLoading(false);
       setError('Could not connect Discord. Please try again.');
     }
-    // On success the browser redirects away; loading stays until redirect
   }
 
-  // ── Disconnect Discord ────────────────────────────────────────────────────
-  async function handleDisconnectDiscord() {
+  async function handleGoogleLogin() {
+    setGoogleLoading(true);
+    const supabase = createBrowserClient();
+    const { error: oauthError } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${location.origin}/auth/callback?next=${encodeURIComponent(location.pathname + '#discord-comments')}`,
+      },
+    });
+    if (oauthError) {
+      setGoogleLoading(false);
+      setError('Could not connect Google. Please try again.');
+    }
+  }
+
+  async function handleSignOut() {
     const supabase = createBrowserClient();
     await supabase.auth.signOut();
-    setDiscordUser(null);
+    setUser(null);
   }
 
   // ── Submit comment ────────────────────────────────────────────────────────
@@ -178,9 +293,9 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
     e.preventDefault();
     if (!draft.trim() || submitting) return;
 
-    // Guest mode requires a name
-    if (!discordUser && !guestName.trim()) {
-      setError('Enter your name to post as a guest.');
+    // In anon mode, require a guest name
+    if (ANONYMOUS_COMMENTS && !user && !guestName.trim()) {
+      setError('Enter your name to post.');
       return;
     }
 
@@ -188,21 +303,38 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
     setError('');
     setSuccessMsg('');
 
-    // Persist guest name for next time
-    if (!discordUser && guestName.trim()) {
+    if (ANONYMOUS_COMMENTS && !user && guestName.trim()) {
       try { localStorage.setItem('ow_guest_name', guestName.trim()); } catch { /* ignore */ }
     }
 
     try {
+      // If anonymous mode and not yet signed in, create a Supabase anon session first
+      if (ANONYMOUS_COMMENTS && !user) {
+        const supabase = createBrowserClient();
+        const { data: anonData, error: anonError } = await supabase.auth.signInAnonymously();
+        if (anonError || !anonData.user) {
+          setError('Could not create anonymous session. Please try again.');
+          setSubmitting(false);
+          return;
+        }
+        // Update local user state so the avatar/name pill shows
+        setUser({
+          id:       anonData.user.id,
+          name:     guestName.trim() || 'Guest',
+          avatar:   '',
+          provider: 'anonymous',
+        });
+      }
+
       const res = await fetch('/api/discord/comments', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           slug,
-          body:        draft.trim(),
+          body:         draft.trim(),
           articleTitle,
-          // If not Discord-authed, send guest identity in the payload
-          guestName:   discordUser ? undefined : guestName.trim(),
+          // Pass guest name so Discord webhook can display it
+          guestName:    (ANONYMOUS_COMMENTS && !user) ? guestName.trim() : undefined,
         }),
       });
 
@@ -224,15 +356,20 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
     }
   }
 
-  // ── Render ────────────────────────────────────────────────────────────────
-  const posterName   = discordUser?.name ?? (guestName.trim() || 'Guest');
-  const posterAvatar = discordUser?.avatar ||
-    `https://ui-avatars.com/api/?name=${encodeURIComponent(posterName)}&background=9ca3af&color=fff&size=72`;
+  // ── Derived ───────────────────────────────────────────────────────────────
+  const isDiscordUser = user?.provider === 'discord';
+  const posterName    = user?.name ?? (ANONYMOUS_COMMENTS ? (guestName.trim() || 'Guest') : 'You');
+  const posterAvatar  = user?.avatar ||
+    `https://ui-avatars.com/api/?name=${encodeURIComponent(posterName)}&background=${isDiscordUser ? '5865F2' : '6366f1'}&color=fff&size=72`;
 
+  // Can post if: logged in OR (anon mode + guest name filled)
+  const canPost = !!user || (ANONYMOUS_COMMENTS && !!guestName.trim());
+
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <section id="discord-comments" aria-label="Comments" className="mt-12 border-t border-gray-200 pt-10">
 
-      {/* ── Header ─────────────────────────────────────────────────────────── */}
+      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
           <DiscordIcon className="w-5 h-5 text-[#5865F2]" />
@@ -242,102 +379,106 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
           )}
         </h2>
 
-        {/* Discord connected pill */}
-        {discordUser && (
+        {/* Signed-in pill */}
+        {user && (
           <div className="flex items-center gap-2 text-sm">
             <Image
-              src={discordUser.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(discordUser.name)}&background=5865F2&color=fff&size=48`}
-              alt={discordUser.name}
+              src={posterAvatar}
+              alt={user.name}
               width={24}
               height={24}
               className="rounded-full"
               unoptimized
             />
-            <span className="text-gray-700 font-medium hidden sm:inline">{discordUser.name}</span>
-            <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2]" />
+            <span className="text-gray-700 font-medium hidden sm:inline">{user.name}</span>
+            {isDiscordUser
+              ? <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2]" />
+              : <GoogleIcon className="w-3.5 h-3.5" />
+            }
             <button
-              onClick={handleDisconnectDiscord}
+              onClick={handleSignOut}
               className="text-xs text-gray-400 hover:text-gray-600 underline underline-offset-2 ml-1"
             >
-              Disconnect
+              Sign out
             </button>
           </div>
         )}
       </div>
 
-      {/* ── Comment Form (always visible — guest or Discord) ───────────────── */}
-      <form onSubmit={handleSubmit} className="mb-8">
-        <div className="flex gap-3">
-          {/* Avatar */}
-          <div className="shrink-0 pt-0.5">
-            <Image src={posterAvatar} alt={posterName} width={36} height={36} className="rounded-full" unoptimized />
-          </div>
-
-          <div className="flex-1 space-y-2">
-            {/* Guest name field — only when not connected to Discord */}
-            {!discordUser && (
-              <input
-                type="text"
-                value={guestName}
-                onChange={(e) => setGuestName(e.target.value)}
-                placeholder="Your name"
-                maxLength={40}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5865F2]/40 focus:border-[#5865F2] transition"
-              />
-            )}
-
-            {/* Comment textarea */}
-            <textarea
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder={discordUser ? `Comment as ${discordUser.name}…` : 'Write a comment…'}
-              maxLength={1000}
-              rows={3}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#5865F2]/40 focus:border-[#5865F2] transition"
-            />
-
-            {/* Footer row */}
-            <div className="flex items-center justify-between gap-3 flex-wrap">
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-gray-400">{draft.length}/1000</span>
-
-                {/* Connect Discord nudge */}
-                {!discordUser && (
-                  <button
-                    type="button"
-                    onClick={handleConnectDiscord}
-                    disabled={discordLoading}
-                    className="inline-flex items-center gap-1.5 text-xs text-[#5865F2] hover:text-[#4752C4] font-medium transition-colors disabled:opacity-60"
-                  >
-                    <DiscordIcon className="w-3.5 h-3.5" />
-                    {discordLoading ? 'Connecting…' : 'Connect Discord'}
-                  </button>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={!draft.trim() || submitting || (!discordUser && !guestName.trim())}
-                className="inline-flex items-center gap-1.5 bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <DiscordIcon className="w-3.5 h-3.5" />
-                {submitting ? 'Posting…' : 'Post'}
-              </button>
+      {/* Sign-in gate or comment form */}
+      {authLoading ? (
+        <div className="h-24 rounded-xl bg-gray-100 animate-pulse mb-8" />
+      ) : !user && !ANONYMOUS_COMMENTS ? (
+        /* ── Locked: must sign in ── */
+        <SignInGate
+          onDiscord={handleDiscordLogin}
+          onGoogle={handleGoogleLogin}
+          discordLoading={discordLoading}
+          googleLoading={googleLoading}
+        />
+      ) : (
+        /* ── Comment form (logged in OR anon mode) ── */
+        <form onSubmit={handleSubmit} className="mb-8">
+          <div className="flex gap-3">
+            <div className="shrink-0 pt-0.5">
+              <Image src={posterAvatar} alt={posterName} width={36} height={36} className="rounded-full" unoptimized />
             </div>
 
-            {error && <p className="text-xs text-red-600" role="alert">{error}</p>}
-            {successMsg && (
-              <p className="text-xs text-green-600" role="status">
-                {successMsg}{' '}
-                <a href="https://discord.gg/wBsgkU4uAf" target="_blank" rel="noopener noreferrer"
-                  className="text-[#5865F2] hover:underline">See it in Discord →</a>
-              </p>
-            )}
-          </div>
-        </div>
-      </form>
+            <div className="flex-1 space-y-2">
+              {/* Guest name — only in anon mode when not logged in */}
+              {ANONYMOUS_COMMENTS && !user && (
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                    Your name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={guestName}
+                    onChange={(e) => setGuestName(e.target.value)}
+                    placeholder="e.g. Alex"
+                    maxLength={40}
+                    required
+                    autoComplete="nickname"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5865F2]/40 focus:border-[#5865F2] transition bg-white"
+                  />
+                </div>
+              )}
 
-      {/* ── Comment List ───────────────────────────────────────────────────── */}
+              <textarea
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                placeholder={user ? `Comment as ${user.name}…` : 'Write a comment…'}
+                maxLength={1000}
+                rows={3}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#5865F2]/40 focus:border-[#5865F2] transition"
+              />
+
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <span className="text-xs text-gray-400">{draft.length}/1000</span>
+                <button
+                  type="submit"
+                  disabled={!draft.trim() || submitting || !canPost}
+                  className="inline-flex items-center gap-1.5 bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <DiscordIcon className="w-3.5 h-3.5" />
+                  {submitting ? 'Posting…' : 'Post'}
+                </button>
+              </div>
+
+              {error && <p className="text-xs text-red-600" role="alert">{error}</p>}
+              {successMsg && (
+                <p className="text-xs text-green-600" role="status">
+                  {successMsg}{' '}
+                  <a href="https://discord.gg/wBsgkU4uAf" target="_blank" rel="noopener noreferrer"
+                    className="text-[#5865F2] hover:underline">See it in Discord →</a>
+                </p>
+              )}
+            </div>
+          </div>
+        </form>
+      )}
+
+      {/* Comment list */}
       {loadingComments ? (
         <div className="space-y-4">
           {[1, 2, 3].map((i) => (
@@ -362,7 +503,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         </div>
       )}
 
-      {/* ── Discord Banner ─────────────────────────────────────────────────── */}
+      {/* Discord banner */}
       <div className="mt-8 rounded-xl bg-[#5865F2]/5 border border-[#5865F2]/20 p-4 flex flex-col sm:flex-row items-center gap-4">
         <div className="flex items-center gap-3 flex-1 min-w-0">
           <DiscordIcon className="w-8 h-8 text-[#5865F2] shrink-0" />

@@ -1,47 +1,50 @@
 import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/NewsArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/trump/news/trump-administration-10-billion-fee-tiktok-deal';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = '/entertainment/trump_tiktok.PNG';
 
 export const metadata: Metadata = {
-  title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal | ObjectWire',
+  title: 'Trump TikTok Deal | $10 Billion Government Broker Fee',
   description:
-    "The Trump administration is set to collect approximately $10 billion from investors involved in the deal transferring TikTok's U.S. operations from ByteDance to an American-aligned consortium, a payment historians describe as \"nearly unprecedented for a government helping arrange a transaction.\"",
+    "The Trump administration is set to collect approximately $10 billion from investors in the TikTok ownership transfer from ByteDance, a fee historians describe as nearly unprecedented for a government brokering a private-sector transaction.",
   keywords: [
-    'Trump TikTok deal $10 billion',
-    'TikTok ByteDance US deal',
-    'Trump administration TikTok fee',
-    'TikTok US operations sale',
+    'Trump TikTok deal',
+    'TikTok $10 billion fee',
+    'Trump administration broker fee',
+    'TikTok ByteDance divestiture',
     'ByteDance American investor consortium',
-    'Trump TikTok broker fee',
-    'TikTok deal Wall Street Journal',
+    'TikTok US operations sale 2026',
+    'Wall Street Journal TikTok',
     'government broker fee TikTok',
     'TikTok national security deal',
-    'Trump administration unprecedented fee',
-    'TikTok US ownership 2026',
-    'ByteDance divestiture',
-    'TikTok American investors',
+    'Trump unprecedented government fee',
+    'TikTok US ownership transfer',
+    'ByteDance sell TikTok',
+    'TikTok 170 million users',
+    'Trump TikTok ban extension',
+    'TikTok Supreme Court 2025',
   ],
   openGraph: {
     title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal',
     description:
-      "The Trump administration will receive ~$10 billion from investors in the TikTok deal, a fee historians call \"nearly unprecedented for a government helping arrange a transaction,\" per the Wall Street Journal.",
+      "The Trump administration will receive ~$10 billion from investors in the TikTok ownership transfer, a fee historians call nearly unprecedented for a government brokering a private-sector transaction, per the Wall Street Journal.",
     url: FULL_URL,
     type: 'article',
-    images: [{ url: IMAGE_URL, alt: 'Trump TikTok deal $10 billion broker fee' }],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Editorial'],
+    publishedTime: '2026-03-15T05:00:00Z',
+    modifiedTime: '2026-04-02T00:00:00Z',
+    section: 'Politics',
+    tags: ['TikTok', 'ByteDance', 'Trump Administration', 'Wall Street Journal'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trump to Collect ~$10B for Brokering TikTok Deal | Historians Call It "Nearly Unprecedented"',
+    title: 'Trump to Collect ~$10B for Brokering TikTok Deal',
     description:
-      "The Trump administration is set to receive ~$10B from investors in the TikTok ownership transfer from ByteDance to American-aligned consortium, per WSJ.",
-    images: [IMAGE_URL],
+      "Historians call it nearly unprecedented, a government collecting $10 billion for brokering a private-sector transaction, per WSJ.",
   },
   alternates: { canonical: FULL_URL },
 };

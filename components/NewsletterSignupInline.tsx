@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { useAuth }  from '@/lib/hooks/use-auth';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useAuth } from '@/lib/hooks/use-auth';
 
 // =============================================================================
 // NEWSLETTER SIGNUP INLINE — Client Component
@@ -16,9 +17,19 @@ import { useAuth }  from '@/lib/hooks/use-auth';
 export default function NewsletterSignupInline() {
   const { email: authEmail, isAuth, loading: authLoading } = useAuth();
 
-  const [email, setEmail]     = useState('');
-  const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
-  const [message, setMessage] = useState('');
+  const [email, setEmail]           = useState('');
+  const [status, setStatus]         = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
+  const [message, setMessage]       = useState('');
+  const [isSubscribed, setIsSubscribed] = useState<boolean | null>(null); // null = unchecked
+
+  // Check subscription status once we know the logged-in email
+  useEffect(() => {
+    if (!isAuth || !authEmail || authLoading) return;
+    fetch(`/api/newsletter/status?email=${encodeURIComponent(authEmail)}`)
+      .then(r => r.json())
+      .then(d => setIsSubscribed(d.subscribed === true))
+      .catch(() => setIsSubscribed(false));
+  }, [isAuth, authEmail, authLoading]);
 
   // Use auth email if logged in, otherwise use the manual input
   const subscribeEmail = isAuth && authEmail ? authEmail : email;
@@ -59,16 +70,12 @@ export default function NewsletterSignupInline() {
   }
 
   return (
-    <section className="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black px-6 py-10 my-8 shadow-xl border border-gray-700">
+    <section className="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black px-6 py-10 shadow-xl border border-gray-700">
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute -top-16 -right-16 w-64 h-64 rounded-full bg-purple-600/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-pink-600/15 blur-2xl" />
 
       <div className="relative z-10 flex flex-col items-center text-center gap-4 max-w-xl mx-auto">
-        {/* Badge */}
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-600/30 border border-purple-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest text-purple-300">
-          📩 Newsletter
-        </span>
 
         <h3 className="text-2xl font-extrabold text-white leading-tight">
           Stay ahead of every story
@@ -101,12 +108,7 @@ export default function NewsletterSignupInline() {
             <button
               onClick={handleOneClick}
               disabled={status === 'loading'}
-              className="
-                w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600
-                px-5 py-3.5 text-sm font-bold text-white shadow-lg
-                hover:from-purple-500 hover:to-pink-500 hover:shadow-purple-500/25
-                active:scale-[0.98] disabled:opacity-60 transition-all
-              "
+              className="w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg hover:from-purple-500 hover:to-pink-500 hover:shadow-purple-500/25 active:scale-[0.98] disabled:opacity-60 transition-all"
             >
               {status === 'loading' ? (
                 <span className="flex items-center justify-center gap-2">
@@ -132,22 +134,12 @@ export default function NewsletterSignupInline() {
               value={email}
               onChange={e => setEmail(e.target.value)}
               disabled={status === 'loading'}
-              className="
-                flex-1 rounded-xl border border-gray-600 bg-gray-800/80 px-4 py-3
-                text-white placeholder-gray-500 text-sm
-                focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent
-                disabled:opacity-50 transition
-              "
+              className="flex-1 rounded-xl border border-gray-600 bg-gray-800/80 px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:opacity-50 transition"
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="
-                shrink-0 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600
-                px-5 py-3 text-sm font-bold text-white shadow
-                hover:from-purple-500 hover:to-pink-500
-                active:scale-95 disabled:opacity-60 transition-all
-              "
+              className="shrink-0 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3 text-sm font-bold text-white shadow hover:from-purple-500 hover:to-pink-500 active:scale-95 disabled:opacity-60 transition-all"
             >
               {status === 'loading' ? '...' : 'Subscribe'}
             </button>

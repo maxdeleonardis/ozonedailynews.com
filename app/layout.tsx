@@ -8,6 +8,9 @@ import MobileNav from "@/components/MobileNav";
 import TopStripSearch from "@/components/TopStripSearch";
 import NavUserButton from "@/components/NavUserButton";
 import NavBreakingTicker from "@/components/NavBreakingTicker";
+import NewsletterSignupInline from "@/components/NewsletterSignupInline";
+import FooterAuthorSlot from "@/components/FooterAuthorSlot";
+import { FooterAuthorProvider } from "@/lib/footer-author-context";
 import TopStrip from "@/components/TopStrip";
 import ThemeProvider from "@/components/ThemeProvider";
 import { getBreakingHeadlines } from "@/lib/article-service";
@@ -137,6 +140,7 @@ export default async function RootLayout({
       <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans dark:bg-[#121212] dark:text-gray-100">
         <AuthProvider>
           <ThemeProvider>
+            <FooterAuthorProvider>
             {/* ── Newspaper Masthead ─────────────────────────────────────── */}
             <header className="border-b-4 border-black bg-white sticky sm:relative top-0 z-40">
 
@@ -212,74 +216,49 @@ export default async function RootLayout({
             <main style={{ marginLeft: '10px', marginRight: '10px' }}>{children}</main>
 
         {/* Footer */}
-        <footer className="border-t border-gray-200 bg-gray-50 mt-24">
-          <div className="container py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <footer className="border-t border-gray-200 bg-white dark:bg-gray-950 dark:border-gray-800 mt-24">
+          <div className="container max-w-6xl mx-auto px-4 sm:px-6 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_2fr] gap-x-16 gap-y-12">
+
               {/* Brand */}
-              <div>
-                <Link href="/" className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-black flex items-center justify-center">
-                    <span className="text-white font-bold text-base">O</span>
-                  </div>
-                  <span className="font-bold text-lg">ObjectWire</span>
-                </Link>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Precision intelligence for professionals who demand verified, source-cited reporting.
-                </p>
-              </div>
-              
-              {/* Useful Links */}
-              <div>
-                <h4 className="font-semibold text-sm uppercase tracking-wide mb-4">Useful Links</h4>
-                <div className="flex flex-col gap-2.5">
-                  <Link href="/" className="text-sm text-gray-600 hover:text-black transition-colors">Home</Link>
-                  <Link href="/finance" className="text-sm text-gray-600 hover:text-black transition-colors">Finance</Link>
-                  <Link href="/technology" className="text-sm text-gray-600 hover:text-black transition-colors">Technology</Link>
-                  <Link href="/news" className="text-sm text-gray-600 hover:text-black transition-colors">News</Link>
-                  <Link href="/editorial-standards" className="text-sm text-gray-600 hover:text-black transition-colors">Editorial Standards</Link>
-                  <Link href="/about" className="text-sm text-gray-600 hover:text-black transition-colors">About</Link>
-                </div>
-              </div>
+              <FooterAuthorSlot />
 
-              {/* Legal */}
-              <div>
-                <h4 className="font-semibold text-sm uppercase tracking-wide mb-4">Legal</h4>
-                <div className="flex flex-col gap-2.5">
-                  <Link href="/privacy-policy" className="text-sm text-gray-600 hover:text-black transition-colors">Privacy Policy</Link>
-                  <Link href="/terms-of-service" className="text-sm text-gray-600 hover:text-black transition-colors">Terms of Service</Link>
-                  <Link href="/admin" className="text-sm text-gray-600 hover:text-black transition-colors">Admin Portal</Link>
-                </div>
-              </div>
-
-              {/* Newsletter */}
-              <div>
-                <h4 className="font-semibold text-sm uppercase tracking-wide mb-4">Stay Updated</h4>
-                <p className="text-sm text-gray-600 mb-3">Subscribe to our newsletter for the latest insights.</p>
+              {/* Company — narrow */}
+              <div className="shrink-0">
+                <h4 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Company</h4>
                 <div className="flex flex-col gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="Your email" 
-                    className="px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                  />
-                  <button className="px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 transition-colors rounded">
-                    Subscribe
-                  </button>
+                  <Link href="/about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">About</Link>
+                  <Link href="/editorial-standards" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Editorial Standards</Link>
+                  <Link href="/corrections" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Corrections</Link>
+                  <Link href="/privacy-policy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Privacy Policy</Link>
+                  <Link href="/terms-of-service" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Terms of Service</Link>
                 </div>
               </div>
+
+              {/* Newsletter — wide */}
+              <div>
+                <NewsletterSignupInline />
+              </div>
+
             </div>
-            
-            {/* Bottom Bar */}
-            <div className="border-t border-gray-300 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-gray-500">© 2026 ObjectWire. All rights reserved.</p>
-              <div className="flex gap-6 text-sm text-gray-500">
-                <a href="#" className="hover:text-black transition-colors">Twitter</a>
-                <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-                <a href="#" className="hover:text-black transition-colors">GitHub</a>
+
+            {/* Bottom bar */}
+            <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span>© 2026 ObjectWire.</span>
+                <span className="hidden sm:inline">All rights reserved.</span>
+                <span className="text-gray-300 dark:text-gray-600">·</span>
+                <span className="text-xs">Verified reporting. Primary sources only.</span>
+              </div>
+              <div className="flex items-center gap-1 text-xs text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
+                <span>objectwire.org</span>
               </div>
             </div>
           </div>
         </footer>
-        
+
+            </FooterAuthorProvider>
         </ThemeProvider>
         </AuthProvider>
         {/* GA4 — Script tags in server component for guaranteed detection */}

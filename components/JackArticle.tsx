@@ -2,9 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import ReactionBar from '@/components/ReactionBar';
-import DiscordComments from '@/components/discord-comments';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
+import ArticleFooter from '@/components/ArticleFooter';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -1013,17 +1012,14 @@ export default function JackArticle({
                 </div>
               )}
 
-              {/* Reaction Bar — Like/Comment/Share/Save */}
-              <ReactionBar
-                slug={engagementSlug}
+              {/* Engagement stack — Tags, ReactionBar, Comments, Newsletter */}
+              <ArticleFooter
+                slug={engagementSlug ?? ''}
                 title={title}
                 url={articleUrl}
                 image={heroImage?.src}
                 category={section ?? categoryLabel}
               />
-
-              {/* Discord Comments Section */}
-              {engagementSlug && <DiscordComments slug={engagementSlug} articleTitle={title} />}
             </article>
           </div>
 
@@ -1300,20 +1296,15 @@ export default function JackArticle({
             </div>
           </div>
 
-          {/* Reaction Bar — Like/Comment/Share/Save */}
+          {/* Engagement stack — Tags, ReactionBar, Comments, Newsletter */}
           <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-4">
-            <ReactionBar
-              slug={engagementSlug}
+            <ArticleFooter
+              slug={engagementSlug ?? ''}
               title={title}
               url={articleUrl}
               image={heroImage?.src}
               category={section ?? categoryLabel}
             />
-          </div>
-
-          {/* Discord Comments */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
-            {engagementSlug && <DiscordComments slug={engagementSlug} articleTitle={title} />}
           </div>
 
           {/* News Footer */}

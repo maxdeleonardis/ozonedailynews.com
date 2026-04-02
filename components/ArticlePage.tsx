@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import ReactionBar from '@/components/ReactionBar';
-import DiscordComments from '@/components/discord-comments';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
+import ArticleFooter from '@/components/ArticleFooter';
 
 // =============================================================================
 // TYPES
@@ -474,16 +473,13 @@ export function ArticlePage({
               <RelatedLinks links={relatedLinks} />
             )}
 
-            {/* Reaction Bar — Like/Comment/Share/Save */}
-            <ReactionBar
-              slug={slug}
+            {/* Engagement stack — Tags, ReactionBar, Comments, Newsletter */}
+            <ArticleFooter
+              slug={slug ?? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}
               title={title}
               url={url}
               category={category}
             />
-
-            {/* Discord Comments Section */}
-            <DiscordComments slug={slug ?? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} articleTitle={title} />
           </article>
 
           {/* Sidebar Column */}

@@ -22,7 +22,6 @@ import {
   HighlightBox,
   EmbedBox,
   Timeline,
-  TagsSection,
   RelatedStories,
 } from '@/components/NewsArticle';
 import {
@@ -80,12 +79,8 @@ const COMPONENTS: Record<string, ComponentDef> = {
     ),
     selfClosing: true,
   },
-  TagsSection: {
-    render: (props) => (
-      <TagsSection tags={(props.tags as string[]) ?? []} />
-    ),
-    selfClosing: true,
-  },
+  // TagsSection removed from ContentRenderer — tags are rendered by ArticleFooter
+  // from the Supabase `tags` column, preventing duplicates.
   EmbedBox: {
     render: (props) => (
       <EmbedBox

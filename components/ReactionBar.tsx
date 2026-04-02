@@ -57,13 +57,13 @@ export default function ReactionBar({ slug, title, url, image, category }: React
       .then((r) => r.json())
       .then((data) => {
         setLikeCount(data.count ?? 0);
-        if (isAuth) setLiked(!!data.liked);
+        setLiked(!!data.liked);
       })
       .catch(() => {});
   }, [articleKey, isAuth]);
 
   useEffect(() => {
-    if (!isAuth || articleKey === 'unknown') return;
+    if (articleKey === 'unknown') return;
     fetch(`/api/saves?slug=${encodeURIComponent(articleKey)}`)
       .then((r) => r.json())
       .then((data) => { setSaved(!!data.saved); })
@@ -135,74 +135,81 @@ export default function ReactionBar({ slug, title, url, image, category }: React
 
   // ── Render ────────────────────────────────────────────────────────────────
   return (
-    <div className="my-8 flex flex-wrap items-center justify-center gap-3 p-5 bg-gray-50 rounded-xl border border-gray-100">
+    <div className="my-10 border-y border-gray-100">
+      <div className="flex items-stretch divide-x divide-gray-100">
 
-      {/* Like */}
-      <button
-        onClick={handleLike}
-        disabled={likeLoading}
-        title={isAuth ? (liked ? 'Unlike this article' : 'Like this article') : 'Sign in to like'}
-        aria-pressed={liked}
-        className={`flex items-center gap-2 px-4 py-2 rounded-full border font-medium text-sm transition-all duration-150 disabled:opacity-60 ${
-          liked
-            ? 'bg-red-50 border-red-400 text-red-600 shadow-sm'
-            : 'bg-white border-gray-200 text-gray-700 hover:border-red-300 hover:bg-red-50'
-        }`}
-      >
-        <span>{liked ? '❤️' : '🤍'}</span>
-        <span>{liked ? 'Liked' : 'Like'}</span>
-        {likeCount !== null && likeCount > 0 && (
-          <span className={`text-xs font-semibold tabular-nums px-1.5 py-0.5 rounded-full ${
-            liked ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-500'
-          }`}>
-            {likeCount >= 1000 ? `${(likeCount / 1000).toFixed(1)}k` : likeCount}
-          </span>
-        )}
-        {!isAuth && (
-          <span className="text-[10px] text-gray-400 font-normal">· sign in</span>
-        )}
-      </button>
-
-      {/* Comment */}
-      <button
-        onClick={handleComment}
-        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 font-medium text-sm transition-all duration-150"
-      >
-        <span>💬</span>
-        <span>Comment</span>
-      </button>
-
-      {/* Save */}
-      <button
-        onClick={handleSave}
-        disabled={saveLoading}
-        title={isAuth ? (saved ? 'Remove from saved' : 'Save for later') : 'Sign in to save'}
-        aria-pressed={saved}
-        className={`flex items-center gap-2 px-4 py-2 rounded-full border font-medium text-sm transition-all duration-150 disabled:opacity-60 ${
-          saved
-            ? 'bg-yellow-50 border-yellow-400 text-yellow-700 shadow-sm'
-            : 'bg-white border-gray-200 text-gray-700 hover:border-yellow-300 hover:bg-yellow-50'
-        }`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill={saved ? 'currentColor' : 'none'}
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-4 h-4"
-          aria-hidden="true"
+        {/* Like */}
+        <button
+          onClick={handleLike}
+          disabled={likeLoading}
+          title={isAuth ? (liked ? 'Unlike' : 'Like this article') : 'Sign in to like'}
+          aria-pressed={liked}
+          className={`group flex-1 flex flex-col items-center justify-center gap-1.5 py-5 transition-colors duration-150 disabled:opacity-50 ${
+            liked
+              ? 'bg-red-50 text-red-600'
+              : 'bg-white text-gray-500 hover:bg-red-50 hover:text-red-500'
+          }`}
         >
-          <path d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-        </svg>
-        <span>{saved ? 'Saved' : 'Save'}</span>
-        {!isAuth && (
-          <span className="text-[10px] text-gray-400 font-normal">· sign in</span>
-        )}
-      </button>
+          <svg
+            viewBox="0 0 24 24"
+            fill={liked ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`w-5 h-5 transition-transform duration-150 ${liked ? 'scale-110' : 'group-hover:scale-110'}`}
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          <span className="text-xs font-semibold tracking-wide">
+            {liked ? 'Liked' : 'Like'}
+            {likeCount !== null && likeCount > 0 && (
+              <span className="ml-1.5 tabular-nums opacity-70">
+                {likeCount >= 1000 ? `${(likeCount / 1000).toFixed(1)}k` : likeCount}
+              </span>
+            )}
+          </span>
+        </button>
 
+        {/* Comment — scrolls to Discord comments section */}
+        <button
+          onClick={handleComment}
+          className="group flex-1 flex flex-col items-center justify-center gap-1.5 py-5 bg-white text-gray-500 hover:bg-[#5865F2] hover:text-white transition-colors duration-150"
+        >
+          {/* Discord mark */}
+          <svg className="w-5 h-5 transition-transform duration-150 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <span className="text-xs font-semibold tracking-wide">Comment</span>
+        </button>
+
+        {/* Save */}
+        <button
+          onClick={handleSave}
+          disabled={saveLoading}
+          title={isAuth ? (saved ? 'Remove from saved' : 'Save for later') : 'Sign in to save'}
+          aria-pressed={saved}
+          className={`group flex-1 flex flex-col items-center justify-center gap-1.5 py-5 transition-colors duration-150 disabled:opacity-50 ${
+            saved
+              ? 'bg-amber-50 text-amber-600'
+              : 'bg-white text-gray-500 hover:bg-amber-50 hover:text-amber-500'
+          }`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill={saved ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`w-5 h-5 transition-transform duration-150 ${saved ? 'scale-110' : 'group-hover:scale-110'}`}
+          >
+            <path d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+          </svg>
+          <span className="text-xs font-semibold tracking-wide">{saved ? 'Saved' : 'Save'}</span>
+        </button>
+
+      </div>
     </div>
   );
 }

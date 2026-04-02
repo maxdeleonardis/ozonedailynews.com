@@ -80,23 +80,30 @@ export async function POST(req: NextRequest) {
   const authSupabase = await createAuthClient();
   const { data: { user } } = await authSupabase.auth.getUser();
 
-  if (user?.id) {
-    // Authenticated (Discord OAuth via Supabase)
+  if (user?.id && !user.is_anonymous) {
+    // Fully authenticated (Discord or Google OAuth via Supabase)
+    const provider = user.app_metadata?.provider ?? 'google';
     commenterId     = user.id;
     commenterName   = user.user_metadata?.full_name
                    ?? user.user_metadata?.custom_claims?.global_name
                    ?? user.user_metadata?.name
                    ?? user.email?.split('@')[0]
-                   ?? 'Discord User';
+                   ?? (provider === 'discord' ? 'Discord User' : 'Google User');
     commenterAvatar = user.user_metadata?.avatar_url ?? '';
+  } else if (user?.id && user.is_anonymous) {
+    // Supabase anonymous session — use the guestName from the request body
+    const sanitized = (guestName ?? '').trim().slice(0, 40) || 'Guest';
+    commenterId     = `anon_${user.id.slice(0, 8)}`;
+    commenterName   = sanitized;
+    commenterAvatar = '';
   } else if (guestName && typeof guestName === 'string' && guestName.trim().length > 0) {
-    // Guest mode — no auth required
+    // Fallback: no session but guestName provided (legacy / edge cases)
     const sanitized = guestName.trim().slice(0, 40);
     commenterId     = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     commenterName   = sanitized;
     commenterAvatar = '';
   } else {
-    return NextResponse.json({ error: 'Sign in with Discord or provide a guest name' }, { status: 400 });
+    return NextResponse.json({ error: 'Sign in to comment' }, { status: 401 });
   }
 
   const supabase = await createClient();
@@ -143,16 +150,17 @@ export async function POST(req: NextRequest) {
       // Always use the production URL for article links in Discord
       const articleUrl = `https://www.objectwire.org/${slug}`;
       const threadTitle = articleTitle || slug.split('/').pop()?.replace(/-/g, ' ') || slug;
-      const isGuest = commenterId.startsWith('guest_');
+      const isAnon  = commenterId.startsWith('anon_') || commenterId.startsWith('guest_');
+      const embedColor = isAnon ? 0x9ca3af : 0x5865f2; // gray for guests, purple for OAuth
 
       const webhookPayload: Record<string, unknown> = {
-        username: isGuest ? `${commenterName} (Guest) via ObjectWire` : `${commenterName} via ObjectWire`,
+        username: isAnon ? `${commenterName} (Guest) via ObjectWire` : `${commenterName} via ObjectWire`,
         avatar_url: commenterAvatar || undefined,
         embeds: [
           {
-            color: isGuest ? 0x9ca3af : 0x5865f2,
+            color: embedColor,
             author: {
-              name: isGuest ? `${commenterName} (Guest)` : commenterName,
+              name: isAnon ? `${commenterName} (Guest)` : commenterName,
               icon_url: commenterAvatar || undefined,
             },
             description: text.trim(),
@@ -180,7 +188,10 @@ export async function POST(req: NextRequest) {
 
       const webhookRes = await fetch(targetUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'DiscordBot (https://objectwire.org, 1.0)',
+        },
         body: JSON.stringify(webhookPayload),
       });
 

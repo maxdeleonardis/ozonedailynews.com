@@ -6,11 +6,13 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/saas/news/shopify-agentic-storefronts-chatgpt-default-march-2026';
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const OG_IMAGE = 'https://www.objectwire.org/shopify/shopify.PNG';
 
 export const metadata: Metadata = {
-  title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT | March 2026 | ObjectWire",
+  title: "Shopify Agentic Storefronts | ChatGPT Default 2026",
   description:
-    "Shopify notified its millions of merchants on March 11, 2026 that 'Agentic Storefronts' will be activated by default for all eligible U.S. stores in late March, automatically syndicating products into ChatGPT conversations. Meanwhile, OpenAI has quietly walked back in-chat Instant Checkout.",
+    'Shopify auto-syndicates products into ChatGPT for all U.S. merchants by late March 2026. OpenAI shelved Instant Checkout over tax complexity and a 14% consumer trust floor.',
   keywords: [
     'Shopify agentic storefronts ChatGPT 2026',
     'Shopify ChatGPT product discovery default',
@@ -28,42 +30,28 @@ export const metadata: Metadata = {
     'Shopify merchants ChatGPT late March 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT",
     description:
       "Shopify's millions of merchants will have their products auto-syndicated into ChatGPT starting late March 2026, no app install required. But in-chat checkout is already dead. Tax complexity, inventory sync failures, and a 14% consumer trust problem killed it.",
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-18T14:00:00Z',
     modifiedTime: '2026-03-18T14:00:00Z',
-    section: 'Technology',
-    tags: [
-      'Shopify', 'ChatGPT', 'OpenAI', 'Agentic Commerce',
-      'E-Commerce', 'AI', 'Retail', 'SaaS', 'Merchants',
-      'Instant Checkout', 'Product Discovery',
-    ],
-    images: [
-      {
-        url: 'https://www.objectwire.org/shopify/shopify.PNG',
-        alt: 'Shopify Agentic Storefronts ChatGPT Integration 2026',
-        width: 1200,
-        height: 630,
-      },
-    ],
+    section: 'Tech',
+    tags: ['Shopify', 'ChatGPT', 'OpenAI', 'Agentic Commerce', 'Instant Checkout', 'E-Commerce'],
+    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Shopify Agentic Storefronts ChatGPT integration 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Shopify Activates 'Agentic Storefronts' by Default in ChatGPT",
     description:
       "Discovery is now default, but checkout is dead. Shopify auto-syndicates products into ChatGPT starting late March 2026. OpenAI quietly killed in-chat payments over tax complexity, inventory chaos, and a 14% consumer trust floor.",
-  },
-  other: {
-    news_keywords:
-      'Shopify ChatGPT agentic storefronts, Shopify AI discovery default, OpenAI Instant Checkout cancelled, agentic commerce 2026, Shopify merchant AI syndication, ChatGPT shopping integration, Shopify admin AI settings',
+    images: [OG_IMAGE],
   },
 };
 

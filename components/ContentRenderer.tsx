@@ -438,55 +438,137 @@ type Segment = HtmlSegment | ComponentSegment;
 
 /**
  * Split an HTML string into segments of raw HTML and component blocks.
+ *
+ * Uses a cursor-based parser instead of a single regex to correctly handle
+ * nested component tags (e.g. JackSection containing JackStats />).
+ * The old regex `<Component(props?)\\s*\\/>` matched inner self-closing tags
+ * as the outer component's closing, swallowing children.
  */
 function splitIntoSegments(html: string): Segment[] {
   const segments: Segment[] = [];
+  const componentSet = new Set(COMPONENT_NAMES.split('|'));
 
-  // Build regex to find component tags
-  // Match self-closing: <PrismTable ... />
-  // Match with children: <HighlightBox ...>children</HighlightBox>
-  const componentPattern = new RegExp(
-    `<(${COMPONENT_NAMES})((?:\\s[\\s\\S]*?)?)\\s*\\/>` +    // self-closing
-    `|<(${COMPONENT_NAMES})((?:\\s[\\s\\S]*?)?)\\s*>([\\s\\S]*?)<\\/\\3>`, // with children
-    'g'
-  );
+  // Regex to find the START of any known component tag
+  const tagStartPattern = new RegExp(`<(${COMPONENT_NAMES})[\\s/>]`, 'g');
 
   let lastIndex = 0;
-  let match: RegExpExecArray | null;
+  let startMatch: RegExpExecArray | null;
 
-  while ((match = componentPattern.exec(html)) !== null) {
+  while ((startMatch = tagStartPattern.exec(html)) !== null) {
+    const tagPos = startMatch.index;
+    const name = startMatch[1];
+
+    // Find the end of the opening tag — we need to handle JSX props
+    // with nested braces, quotes, etc.
+    let i = tagPos + 1 + name.length; // position right after `<ComponentName`
+    let isSelfClosing = false;
+    let propsEnd = -1;
+
+    // Walk forward to find `>` or `/>` that closes the opening tag,
+    // skipping over quoted strings and brace expressions in props
+    while (i < html.length) {
+      const ch = html[i];
+      if (ch === '"') {
+        // Skip double-quoted string
+        i++;
+        while (i < html.length && html[i] !== '"') i++;
+        i++; // skip closing quote
+      } else if (ch === "'") {
+        // Skip single-quoted string
+        i++;
+        while (i < html.length && html[i] !== "'") i++;
+        i++; // skip closing quote
+      } else if (ch === '{') {
+        // Skip brace expression (handles nested braces)
+        let depth = 1;
+        i++;
+        while (i < html.length && depth > 0) {
+          if (html[i] === '{') depth++;
+          else if (html[i] === '}') depth--;
+          else if (html[i] === '"') { i++; while (i < html.length && html[i] !== '"') i++; }
+          else if (html[i] === "'") { i++; while (i < html.length && html[i] !== "'") i++; }
+          i++;
+        }
+      } else if (ch === '/' && html[i + 1] === '>') {
+        // Self-closing tag
+        isSelfClosing = true;
+        propsEnd = i;
+        i += 2; // skip />
+        break;
+      } else if (ch === '>') {
+        // Open tag (with children)
+        propsEnd = i;
+        i++; // skip >
+        break;
+      } else {
+        i++;
+      }
+    }
+
+    if (propsEnd === -1) break; // malformed — stop
+
+    const propsStr = html.slice(tagPos + 1 + name.length, propsEnd).trim();
+
     // Add HTML before this component
-    if (match.index > lastIndex) {
-      const htmlContent = html.slice(lastIndex, match.index).trim();
+    if (tagPos > lastIndex) {
+      const htmlContent = html.slice(lastIndex, tagPos).trim();
       if (htmlContent) {
         segments.push({ type: 'html', content: htmlContent });
       }
     }
 
-    if (match[1]) {
-      // Self-closing component
-      const name = match[1];
-      const propsStr = match[2] ?? '';
+    if (isSelfClosing) {
       segments.push({
         type: 'component',
         name,
         props: parseProps(propsStr),
       });
-    } else if (match[3]) {
-      // Component with children
-      const name = match[3];
-      const propsStr = match[4] ?? '';
-      const children = match[5] ?? '';
-      const props = parseProps(propsStr);
-      props.__children = children;
-      segments.push({
-        type: 'component',
-        name,
-        props,
-      });
+      lastIndex = i;
+    } else {
+      // Find the matching closing tag, accounting for same-name nesting
+      const closingTag = `</${name}>`;
+      let depth = 1;
+      let searchPos = i;
+      while (depth > 0 && searchPos < html.length) {
+        const nextOpen = html.indexOf(`<${name}`, searchPos);
+        const nextClose = html.indexOf(closingTag, searchPos);
+
+        if (nextClose === -1) break; // no closing tag found
+
+        if (nextOpen !== -1 && nextOpen < nextClose) {
+          // Check if this is actually the same component (not a substring match)
+          const charAfterOpen = html[nextOpen + 1 + name.length];
+          if (charAfterOpen === ' ' || charAfterOpen === '>' || charAfterOpen === '/') {
+            depth++;
+          }
+          searchPos = nextOpen + 1;
+        } else {
+          depth--;
+          if (depth === 0) {
+            const children = html.slice(i, nextClose);
+            const props = parseProps(propsStr);
+            props.__children = children;
+            segments.push({
+              type: 'component',
+              name,
+              props,
+            });
+            lastIndex = nextClose + closingTag.length;
+          } else {
+            searchPos = nextClose + closingTag.length;
+          }
+        }
+      }
+
+      if (depth > 0) {
+        // Couldn't find closing tag — treat as raw HTML
+        segments.push({ type: 'html', content: html.slice(tagPos, i) });
+        lastIndex = i;
+      }
     }
 
-    lastIndex = match.index + match[0].length;
+    // Reset regex lastIndex to continue after current match
+    tagStartPattern.lastIndex = lastIndex;
   }
 
   // Add remaining HTML

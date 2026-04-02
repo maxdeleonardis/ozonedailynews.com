@@ -7,6 +7,7 @@ import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/EngagementBar';
 import HeadlineList from '@/components/HeadlineList';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
+import { MoreStoriesSection } from '@/components/MoreStoriesSection';
 
 export const metadata: Metadata = {
   title: 'ObjectWire | Independent Investigative Journalism & Tech News',
@@ -44,6 +45,7 @@ type Article = {
   breaking?: boolean;
   featured?: boolean;
   exclusive?: boolean;
+  tags?: string[];
 };
 
 function fromRegistry(e: ContentEntry): Article {
@@ -58,6 +60,7 @@ function fromRegistry(e: ContentEntry): Article {
     imageUrl: e.imageUrl,
     imageAlt: e.imageAlt,
     featured: e.featured,
+    tags: e.tags,
   };
 }
 
@@ -84,6 +87,7 @@ function fromBlog(p: ArticleFull, registry: ContentEntry[]): Article | null {
     breaking: p.breaking ?? false,
     featured: p.featured ?? false,
     exclusive: p.exclusive ?? false,
+    tags: Array.isArray(p.tags) ? p.tags : [],
   };
 }
 
@@ -447,64 +451,11 @@ export default async function HomePage() {
           </section>
         )}
 
-        {/* ── MORE STORIES (news-library style grid) ──────────────────── */}
+        {/* ── MORE STORIES (news-library style grid with category filter) ── */}
         {moreStories.length > 0 && (
           <>
             <SectionRule label="More Stories" href="/site-index" />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 border-b-2 border-black pb-10">
-              {moreStories.map((a) => (
-                <Link
-                  key={a.id}
-                  href={a.href}
-                  className="group flex flex-col bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all duration-150 rounded-sm overflow-hidden"
-                >
-                  {/* Thumbnail */}
-                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
-                    {a.imageUrl ? (
-                      <Image
-                        src={a.imageUrl}
-                        alt={a.imageAlt ?? a.title}
-                        fill
-                        sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,25vw"
-                        className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gray-50 flex items-center justify-center">
-                        <span className="text-gray-200 text-2xl font-black tracking-tighter">OW</span>
-                      </div>
-                    )}
-                    {a.breaking && (
-                      <span className="absolute top-2 left-2 bg-black text-white text-[9px] font-black px-2 py-0.5 uppercase tracking-widest">
-                        Breaking
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="p-4 flex-1 flex flex-col">
-                    {/* Category */}
-                    <CatLabel category={a.category} breaking={false} />
-
-                    {/* Title */}
-                    <h3 className="font-serif text-sm font-black text-gray-900 group-hover:underline underline-offset-2 leading-snug mt-2 mb-2">
-                      {a.title}
-                    </h3>
-
-                    {/* Excerpt */}
-                    {a.excerpt && (
-                      <p className="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-3">
-                        {a.excerpt}
-                      </p>
-                    )}
-
-                    {/* Meta */}
-                    <div className="flex flex-col gap-0.5 text-[10px] font-mono border-t border-gray-100 pt-2 mt-auto">
-                      <span className="font-semibold text-gray-700">{a.author}</span>
-                      <span className="text-gray-400">{timeAgo(a.publishDate)}</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <MoreStoriesSection articles={moreStories} />
           </>
         )}
 

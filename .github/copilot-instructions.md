@@ -27,7 +27,7 @@ Whenever writing or editing any article, component, Supabase record, or editoria
 - `metadata.title` format: `Primary Keyword | Specific Detail` — **no brand suffix** (`| ObjectWire` is dropped). Max 60 chars. No em dashes. `&` allowed.
 - Every article slug must be lowercase, hyphen-only, no stop words.
 - `tags` must be an array of 4–8 real proper nouns (no generic terms).
-- `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`.
+- `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Crypto`, `Gaming`.
 - `published_at` must be a full ISO-8601 timestamp (e.g. `2026-03-28T14:00:00Z`).
 
 ---
@@ -41,6 +41,7 @@ Every article belongs to exactly one Supabase table. Use the correct component o
 | `NewsArticleDB` | `articles` | News, breaking, gaming, tech, features, analysis |
 | `JackArticleDB` | `jack_articles` | Research reports, investigations, premium long-form |
 | `ArticlePageDB` | `article_pages` | Profiles, wiki-style, evergreen reference guides |
+| `AlysaArticleDB` | `alysa_articles` | Creator profiles, influencer features |
 
 **`jack_articles` has no `status` column.** Never query `status` from it.
 
@@ -128,6 +129,74 @@ Every `NewsArticle` article must have ALL of these populated before `wiki:publis
 
 ---
 
+## Gold Standard JackArticle | `/crypto/news/anchorage-usat-expands-to-celo-network`
+
+**This is the reference article all new `JackArticle` pages must match.**
+
+Live: `https://www.objectwire.org/crypto/news/anchorage-usat-expands-to-celo-network`
+Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Table: `jack_articles` | Component: `JackArticleDB`
+
+### Why it is the standard
+
+1. **Layout** — `layout="news"` with `accentColor` matched to topic (green for crypto/finance, blue for tech, orange for policy)
+2. **Full sub-component stack** — every premium article uses: `JackStats`, `JackCardGrid`, `JackCard`, `JackCallout`, `JackSideBlock`, `JackProcess`, `JackIndicatorGrid`, `JackQuote`, `JackSection` (numbered)
+3. **Timeline** — 5-7 item chronological `timeline` array showing the story arc
+4. **Sources** — numbered `sources` array with real URLs. Every factual claim must be traceable.
+5. **Related articles** — 4-6 manually curated `relatedArticles` with accurate `categoryColor`
+6. **Author** — always `Jack Sterling` (slug: `jack-sterling`), department varies by beat
+7. **Breadcrumbs** — 3 levels: hub, sub-hub, article
+8. **Content depth** — specific named figures, percentages, dates. No vague claims.
+
+### `page.tsx` stub pattern (after `wiki:publish`)
+
+```tsx
+import type { Metadata } from 'next';
+import { JackArticleDB } from '@/components/JackArticleDB';
+
+export const dynamic = 'force-dynamic';
+
+const SLUG = '/your/path/here';
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // REQUIRED — wiki:publish removes this, add it back manually
+const OG_IMAGE = 'https://www.objectwire.org/your-image.png';
+
+export const metadata: Metadata = {
+  title: 'Primary Keyword | Specific Detail',
+  description: '130-155 chars. Primary keyword in first 60 chars.',
+  keywords: ['keyword 1', /* 10-18 targeted */],
+  alternates: { canonical: ARTICLE_URL },
+  openGraph: {
+    title: 'OG Title',
+    description: 'OG description',
+    type: 'article',
+    url: ARTICLE_URL,
+    siteName: 'ObjectWire',
+    authors: ['Jack Sterling'],
+    publishedTime: '2026-04-02T16:00:00Z',
+    modifiedTime: '2026-04-02T16:00:00Z',
+    section: 'Crypto',
+    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Alt text' }],
+    tags: ['Tag1', 'Tag2', 'Tag3', 'Tag4'],
+  },
+  twitter: { card: 'summary_large_image', title: 'Twitter headline', description: 'Punchy stat.', images: [OG_IMAGE] },
+};
+
+export default function YourPage() {
+  return <JackArticleDB slug="your-path-slug" />;
+}
+```
+
+### CRITICAL | Post-`wiki:publish` ARTICLE_URL fix
+
+`wiki:publish` **always removes** the `const ARTICLE_URL = ...` line from the stub but leaves `ARTICLE_URL` references in `metadata.alternates.canonical` and `metadata.openGraph.url`. **After every `wiki:publish` on a JackArticle, manually re-add:**
+
+```ts
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+```
+
+Place it immediately after the `const SLUG = ...` line. This applies to NewsArticle stubs too when they use `ARTICLE_URL`.
+
+---
+
 ## Slug Format Rules
 
 - `app/california/my-article/page.tsx` → slug: `california-my-article`
@@ -167,6 +236,7 @@ npm run wiki:status    # diagnostic: shows sync state across filesystem, registr
 - **Never write a DB stub manually.** Always run `wiki:publish` on the full content file first.
 - **Never use `<ArticlePageDB>` (or any `*DB` component) in a full content file.** The `*DB` variants are only for stubs after the script has run.
 - Slug is derived automatically from the file path. Do not set it manually in the file.
+- **After every `wiki:publish`, check the stub for `ARTICLE_URL` references.** The trimmer removes the `const` but leaves usages. Re-add `const ARTICLE_URL = \`https://www.objectwire.org${SLUG}\`` after the SLUG line.
 
 ---
 
@@ -252,6 +322,43 @@ Sub-articles within a cluster must link to the hub, and the hub must link to all
 - File names: kebab-case for pages/routes, PascalCase for components.
 - `content_html` bodies must be wrapped in `<div class="prose prose-lg max-w-none">`.
 - Blockquote footers use `, Name, Title` format — never start with `—`.
+
+### Internal Link Styling
+
+All `<Link>` elements inside article body prose must use blue anchor styling:
+```tsx
+<Link href="/path" className="text-blue-600 hover:text-blue-800 underline">anchor text</Link>
+```
+Never render internal links as unstyled black text.
+
+### Data Tables in Articles
+
+Use `<PrismTable>` from `@/components/PrismTable` instead of raw HTML `<table>` elements inside article prose. PrismTable is 2-column (label, description). For the label column, combine title + subtitle using JSX. Available accents: `purple`, `blue`, `red`, `green`, `orange`, `cyan`, `yellow`.
+
+```tsx
+import { PrismTable } from '@/components/PrismTable';
+
+<PrismTable
+  accent="blue"
+  headers={['Feature', 'Description']}
+  rows={[
+    ['Row label', 'Row description text'],
+    [<><span className="block font-black">Title</span><span className="block text-xs">Subtitle</span></>, 'Description'],
+  ]}
+  caption="Optional caption below table"
+/>
+```
+
+Raw `<table>` is acceptable only inside `<JackSection>` sub-components within JackArticles where PrismTable layout conflicts with the JackArticle column width.
+
+### Homepage Article Pipeline
+
+The homepage (`app/page.tsx`) sources articles from three Supabase tables via `lib/article-service.ts`:
+- `articles` — via `getAllArticles()`
+- `creator_articles` — via `getCreatorArticles()`
+- `jack_articles` — via `getJackArticles()` (added April 2, 2026)
+
+All three are merged and sorted by `publishDate` before display. JackArticles appear on the homepage as long as their `article_url` field is populated with the canonical path.
 
 ---
 

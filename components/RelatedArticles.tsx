@@ -80,8 +80,8 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
         );
         const rows: ArticleRow[] = await res.json();
 
-        // Filter out current article
-        const candidates = rows.filter((r) => r.slug !== currentSlug);
+        // Filter out current article and any rows missing a url (can't build correct path from slug alone)
+        const candidates = rows.filter((r) => r.slug !== currentSlug && r.url);
 
         // Score by tag overlap with user history + current article tags
         const scored = candidates.map((r) => {

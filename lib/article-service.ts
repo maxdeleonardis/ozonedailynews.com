@@ -213,7 +213,7 @@ export async function getJackArticles(): Promise<ArticleFull[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
       .from('jack_articles')
-      .select('slug, title, subtitle, description, publish_date, section, hero_image, author, article_url, keywords, thumbnail_src, thumbnail_alt')
+      .select('slug, title, subtitle, description, publish_date, section, hero_image, author, article_url, keywords')
       .order('publish_date', { ascending: false });
 
     if (error) { console.error('[article-service] getJackArticles:', error.message); return []; }
@@ -238,8 +238,8 @@ export async function getJackArticles(): Promise<ArticleFull[]> {
         author_name: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
         author: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
         excerpt: row.subtitle ?? row.description ?? undefined,
-        imageUrl: heroObj?.src ? String(heroObj.src) : row.thumbnail_src ?? undefined,
-        image_alt: heroObj?.alt ? String(heroObj.alt) : row.thumbnail_alt ?? undefined,
+        imageUrl: heroObj?.src ? String(heroObj.src) : undefined,
+        image_alt: heroObj?.alt ? String(heroObj.alt) : undefined,
         tags: row.keywords ?? [],
         featured: false,
         trending: false,

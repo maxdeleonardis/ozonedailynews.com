@@ -332,17 +332,14 @@ function parseProps(propsStr: string): Record<string, unknown> {
       } else if (/^-?\d+(\.\d+)?$/.test(expr)) {
         result[name] = Number(expr);
       } else {
-        // Try JSON parse with normalisation
+        // Use Function() to evaluate JS expressions safely — handles single-quoted
+        // arrays/objects, nested structures, and text with apostrophes without the
+        // fragile quote-replacement that breaks values containing ' or :.
         try {
-          const jsonStr = expr
-            .replace(/'/g, '"')
-            .replace(/(\w+)\s*:/g, '"$1":')
-            .replace(/,\s*([}\]])/g, '$1')
-            // Handle escaped single quotes in values
-            .replace(/\\'/g, "'");
-          result[name] = JSON.parse(jsonStr);
+          // eslint-disable-next-line no-new-func
+          result[name] = new Function(`return (${expr})`)();
         } catch {
-          // Store as raw string if can't parse
+          // Fall back: store as raw string if expression can't be evaluated
           result[name] = expr;
         }
       }

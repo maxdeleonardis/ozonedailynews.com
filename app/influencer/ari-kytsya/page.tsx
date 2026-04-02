@@ -10,9 +10,9 @@ const PAGE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/influncer/ariKytsya 1.png';
 
 export const metadata: Metadata = {
-  title: 'Ari Kytsya | Seattle Influencer, Model & Creator Profile',
+  title: 'Ari Kytsya | Seattle Model, Influencer & Creator Profile',
   description:
-    'Ari Kytsya is a Seattle-based model, fashion influencer, and content creator with 3M Instagram followers and 5M TikTok followers. Full profile, career timeline, and public story.',
+    'Ari Kytsya is a Seattle-based model, fashion influencer, and content creator with 3M Instagram followers and 5M TikTok followers. Full biography, career timeline, and public story.',
   keywords: [
     'Ari Kytsya',
     'Ari Kytsya age',
@@ -23,24 +23,24 @@ export const metadata: Metadata = {
     'Ari Kytsya influencer',
     'Ari Kytsya model',
     'Ari Kytsya biography',
+    'Ari Kytsya OnlyFans',
     'Ari Kytsya creator',
-    'OnlyFans influencer Seattle',
+    'Seattle influencer',
     'fashion creator biography',
-    'lifestyle influencer profile',
   ],
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: 'Ari Kytsya | Seattle Influencer, Model & Creator Profile',
+    title: 'Ari Kytsya | Seattle Model, Influencer & Creator Profile',
     description:
-      'Full profile of Ari Kytsya, Seattle-based fashion model and content creator with 3M Instagram and 5M TikTok followers. Career history, Yung Gravy relationship, and creator journey.',
+      'Full profile of Ari Kytsya, Seattle-based fashion model and content creator with 3M Instagram and 5M TikTok followers. Career history, relationship with Yung Gravy, and creator journey.',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',
-    tags: ['Ari Kytsya', 'Influencer', 'Seattle', 'Model', 'TikTok', 'Content Creator'],
+    tags: ['Ari Kytsya', 'Influencer', 'Seattle', 'Model', 'TikTok', 'Yung Gravy'],
     publishedTime: '2026-04-02T12:00:00Z',
     modifiedTime: '2026-04-02T12:00:00Z',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Ari Kytsya, Seattle-based influencer and model' }],

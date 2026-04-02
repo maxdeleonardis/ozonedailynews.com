@@ -202,7 +202,7 @@ export default function ContactPage() {
               <h3 className="font-bold mb-4">Follow Us</h3>
               <div className="flex gap-3">
                 <a 
-                  href="https://twitter.com/objectwire" 
+                  href="https://twitter.com/object_wire" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors"
@@ -210,12 +210,12 @@ export default function ContactPage() {
                   𝕏
                 </a>
                 <a 
-                  href="https://linkedin.com/company/objectwire" 
+                  href="https://www.tiktok.com/@object_wire" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-600 text-white rounded flex items-center justify-center hover:bg-blue-700 transition-colors font-bold"
+                  className="w-10 h-10 bg-black text-white rounded flex items-center justify-center hover:bg-gray-900 transition-colors font-bold text-xs"
                 >
-                  in
+                  TT
                 </a>
               </div>
             </div>

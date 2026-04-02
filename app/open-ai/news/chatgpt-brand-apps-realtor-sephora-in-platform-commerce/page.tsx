@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixli
 export const metadata: Metadata = {
   title: 'Realtor.com, Sephora Launch ChatGPT Apps | In-Platform Commerce Race',
   description:
-    'Realtor.com and Sephora launched dedicated apps inside ChatGPT this week, joining a growing wave of brands building conversational commerce directly within OpenAI\'s platform as it pivots toward product discovery.',
+    "Realtor.com and Sephora launched dedicated apps inside ChatGPT this week, joining a growing wave of brands building conversational commerce directly within OpenAI's platform as it pivots toward product discovery.",
   keywords: [
     'Realtor.com ChatGPT app 2026',
     'Sephora ChatGPT app beauty',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Realtor.com, Sephora Launch ChatGPT Apps | In-Platform Commerce Race',
     description:
-      'Two major consumer brands built dedicated apps inside ChatGPT in a single week. OpenAI\'s platform is becoming a commerce destination, and brands are racing to claim their spot.',
+      "Two major consumer brands built dedicated apps inside ChatGPT in a single week. OpenAI's platform is becoming a commerce destination, and brands are racing to claim their spot.",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Realtor.com, Sephora Launch Inside ChatGPT | Brands Race to Build',
     description:
-      'Two major brands built ChatGPT apps in one week. OpenAI is no longer just an AI assistant — it\'s becoming a commerce platform. Here\'s what that means.',
+      "Two major brands built ChatGPT apps in one week. OpenAI is no longer just an AI assistant. It's becoming a commerce platform. Here's what that means.",
     images: [OG_IMAGE],
   },
 };

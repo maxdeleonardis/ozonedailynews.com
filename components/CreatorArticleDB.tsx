@@ -78,6 +78,7 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
         },
       }}
       tiktokEmbed={row.tiktok_embed ?? false}
+      tags={row.schema_keywords?.length ? row.schema_keywords : undefined}
     >
       <ContentRenderer html={row.content_html ?? ''} />
     </CreatorArticle>

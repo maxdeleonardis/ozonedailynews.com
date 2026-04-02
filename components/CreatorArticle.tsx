@@ -6,7 +6,8 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { NewsArticleSchema } from '@/components/NewsArticleSchema';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import NewsletterSignupInline from '@/components/NewsletterSignupInline';
+import ArticleFooter from '@/components/ArticleFooter';
+import ArticleViewTracker from '@/components/ArticleViewTracker';
 
 // =============================================================================
 // CREATOR ARTICLE — Reusable profile/biography article layout
@@ -145,6 +146,8 @@ export interface CreatorArticleProps {
   sidebar: CreatorSidebar;
   /** Set true if any section uses <CreatorTikTok> — loads TikTok embed.js */
   tiktokEmbed?: boolean;
+  /** Display tags shown in the article footer (FiledUnder). Defaults to schema.keywords slice. */
+  tags?: string[];
   children: React.ReactNode;
 }
 
@@ -221,11 +224,14 @@ export function CreatorArticle({
   hero,
   sidebar,
   tiktokEmbed = false,
+  tags,
   children,
 }: CreatorArticleProps) {
   const gradient =
     hero.gradient ??
     'linear-gradient(135deg, #0f172a 0%, #1e3a5f 45%, #b45309 100%)';
+
+  const articleSlug = schema.articleUrl.replace('https://www.objectwire.org', '');
 
   return (
     <>
@@ -386,9 +392,23 @@ export function CreatorArticle({
 
             {/* ── Article Body ───────────────────────────────────── */}
             <article className="lg:col-span-2 space-y-12">
+              <ArticleViewTracker
+                slug={articleSlug}
+                title={schema.title}
+                url={schema.articleUrl}
+                image={schema.imageUrl}
+                category={schema.section}
+              />
               {children}
-              {/* Newsletter */}
-              <NewsletterSignupInline />
+              <ArticleFooter
+                slug={articleSlug}
+                title={schema.title}
+                url={schema.articleUrl}
+                image={schema.imageUrl}
+                category={schema.section}
+                tags={tags ?? schema.keywords.slice(0, 8)}
+                author={{ name: sidebar.meta.author }}
+              />
             </article>
 
             {/* ── Sidebar ────────────────────────────────────────── */}
@@ -504,6 +524,144 @@ export function CreatorArticle({
         </div>
       </div>
     </>
+  );
+}
+
+// =============================================================================
+// CREATOR IMAGE GALLERY
+// A responsive 3-column photo grid with rounded borders and click-to-open
+// lightbox. Place between sections to break up text and showcase photos.
+// =============================================================================
+
+export interface CreatorGalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface CreatorImageGalleryProps {
+  images: CreatorGalleryImage[];
+  /** Optional section heading above the grid */
+  heading?: string;
+}
+
+export function CreatorImageGallery({ images, heading }: CreatorImageGalleryProps) {
+  const [lightbox, setLightbox] = React.useState<number | null>(null);
+
+  return (
+    <div className="not-prose my-8">
+      {heading && (
+        <h3 className="text-lg font-bold text-gray-900 mb-4">{heading}</h3>
+      )}
+
+      {/* Grid */}
+      <div className="grid grid-cols-3 gap-3">
+        {images.map((img, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setLightbox(i)}
+            className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+            style={{ aspectRatio: '3/4' }}
+            aria-label={`View ${img.alt}`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 1024px) 200px, (min-width: 768px) 33vw, 33vw"
+            />
+            {img.caption && (
+              <div
+                className="absolute inset-x-0 bottom-0 px-2 py-1.5"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)' }}
+              >
+                <p className="text-white text-xs font-medium line-clamp-1">{img.caption}</p>
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.92)' }}
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
+        >
+          <div
+            className="relative w-full max-w-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close */}
+            <button
+              type="button"
+              className="absolute -top-10 right-0 text-white/70 hover:text-white text-sm font-semibold"
+              onClick={() => setLightbox(null)}
+              aria-label="Close lightbox"
+            >
+              Close ×
+            </button>
+
+            {/* Image */}
+            <div className="relative w-full rounded-2xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
+              <Image
+                src={images[lightbox].src}
+                alt={images[lightbox].alt}
+                fill
+                className="object-cover object-top"
+                sizes="448px"
+                priority
+              />
+            </div>
+
+            {images[lightbox].caption && (
+              <p className="text-white/75 text-sm text-center mt-3 px-2">
+                {images[lightbox].caption}
+              </p>
+            )}
+
+            {/* Counter */}
+            <p className="text-white/40 text-xs text-center mt-1">
+              {lightbox + 1} / {images.length}
+            </p>
+
+            {/* Prev / Next */}
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightbox((lightbox - 1 + images.length) % images.length);
+                  }}
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightbox((lightbox + 1) % images.length);
+                  }}
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

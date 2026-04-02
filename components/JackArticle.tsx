@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import ArticleViewTracker from '@/components/ArticleViewTracker';
 import ArticleFooter from '@/components/ArticleFooter';
+import RelatedArticles from '@/components/RelatedArticles';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -617,7 +618,7 @@ export function JackQuote({
       {quote}
       {(author || title) && (
         <footer className="text-sm text-gray-500 mt-2 not-italic">
-          {author && <span>&mdash; {author}</span>}
+          {author && <span>{author}</span>}
           {title && <span>, {title}</span>}
         </footer>
       )}
@@ -801,9 +802,8 @@ export default function JackArticle({
   uuid,
   version,
 }: JackArticleProps) {
-  const hasSidebar =
-    layout === 'news' &&
-    (relatedArticles?.length || timeline?.length || documents?.length || showNewsletter);
+  // Always show the sidebar in news layout — RelatedArticles renders at minimum
+  const hasSidebar = layout === 'news';
 
   // Resolve the ISO date for <time> element
   const isoDate = publishDateISO || undefined;
@@ -1208,7 +1208,15 @@ export default function JackArticle({
               {/* Sidebar */}
               {hasSidebar && (
                 <aside className="lg:col-span-4">
-                  {/* Related Articles */}
+                  {/* Auto Related Articles — queries articles table by category */}
+                  <div className="mb-8">
+                    <RelatedArticles
+                      currentSlug={slug ?? ''}
+                      category={section ?? categoryLabel ?? 'Politics'}
+                    />
+                  </div>
+
+                  {/* Manual Related Coverage */}
                   {relatedArticles && relatedArticles.length > 0 && (
                     <div className="border border-gray-200 mb-8">
                       <div className="bg-black text-white px-4 py-2">

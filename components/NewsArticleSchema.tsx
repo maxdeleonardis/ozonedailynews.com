@@ -52,9 +52,9 @@ export function NewsArticleSchema({
       },
       "url": "https://objectwire.org",
       "sameAs": [
-        "https://twitter.com/objectwire",
+        "https://twitter.com/object_wire",
         "https://www.facebook.com/objectwire",
-        "https://www.linkedin.com/company/objectwire"
+        "https://www.tiktok.com/@object_wire"
       ]
     },
     "mainEntityOfPage": {
@@ -104,9 +104,9 @@ export function OrganizationSchema() {
       }
     ],
     "sameAs": [
-      "https://twitter.com/objectwire",
+      "https://twitter.com/object_wire",
       "https://www.facebook.com/objectwire",
-      "https://www.linkedin.com/company/objectwire"
+      "https://www.tiktok.com/@object_wire"
     ],
     "contactPoint": {
       "@type": "ContactPoint",

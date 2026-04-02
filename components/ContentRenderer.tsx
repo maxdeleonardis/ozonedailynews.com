@@ -42,6 +42,15 @@ import {
   FactList,
 } from '@/components/JackArticle';
 import type { JackAccentColor } from '@/components/JackArticle';
+import {
+  CreatorSection,
+  CreatorCalloutBox,
+  CreatorQuote,
+  CreatorStat,
+  CreatorTable,
+  CreatorImageGallery,
+} from '@/components/CreatorArticle';
+import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorGalleryImage } from '@/components/CreatorArticle';
 
 // ── Known component registry ────────────────────────────────────────────────
 
@@ -69,7 +78,7 @@ const COMPONENTS: Record<string, ComponentDef> = {
         type={(props.type as 'quote' | 'key-point' | 'stat') ?? 'quote'}
         color={(props.color as 'purple' | 'blue' | 'pink' | 'orange' | 'green') ?? 'purple'}
       >
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </HighlightBox>
     ),
   },
@@ -108,7 +117,7 @@ const COMPONENTS: Record<string, ComponentDef> = {
         title={(props.title as string) ?? ''}
         accentColor={props.accentColor as JackAccentColor | undefined}
       >
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </JackSection>
     ),
   },
@@ -118,14 +127,14 @@ const COMPONENTS: Record<string, ComponentDef> = {
         <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
       </JackSubheading>
     ),
-  },
+  }, // plain text only — no nested components expected
   JackCallout: {
     render: (props) => (
       <JackCallout
         label={props.label as string | undefined}
         accentColor={props.accentColor as JackAccentColor | undefined}
       >
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </JackCallout>
     ),
   },
@@ -146,14 +155,14 @@ const COMPONENTS: Record<string, ComponentDef> = {
         title={(props.title as string) ?? ''}
         variant={props.variant as 'white' | 'gray' | undefined}
       >
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </JackCard>
     ),
   },
   JackCardGrid: {
     render: (props) => (
       <JackCardGrid columns={props.columns as 2 | 3 | undefined}>
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </JackCardGrid>
     ),
   },
@@ -194,7 +203,7 @@ const COMPONENTS: Record<string, ComponentDef> = {
         title={(props.title as string) ?? ''}
         accentColor={props.accentColor as JackAccentColor | undefined}
       >
-        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+        <ContentRenderer html={(props.__children as string) ?? ''} />
       </JackSideBlock>
     ),
   },
@@ -240,6 +249,68 @@ const COMPONENTS: Record<string, ComponentDef> = {
       <FactList
         title={props.title as string | undefined}
         items={(props.items as Array<{ label: string; value: string }>) ?? []}
+      />
+    ),
+    selfClosing: true,
+  },
+  // ── CreatorArticle components ─────────────────────────────────────────────
+  CreatorSection: {
+    render: (props) => (
+      <CreatorSection
+        heading={(props.heading as string) ?? ''}
+        prose={props.prose as boolean | undefined}
+      >
+        <span dangerouslySetInnerHTML={{ __html: (props.__children as string) ?? '' }} />
+      </CreatorSection>
+    ),
+  },
+  CreatorCalloutBox: {
+    render: (props) => (
+      <CreatorCalloutBox
+        heading={(props.heading as string) ?? ''}
+        items={(props.items as Array<{ label: string; detail: string }>) ?? []}
+        color={(props.color as CreatorCalloutColor) ?? 'blue'}
+      />
+    ),
+    selfClosing: true,
+  },
+  CreatorQuote: {
+    render: (props) => (
+      <CreatorQuote
+        quote={(props.quote as string) ?? ''}
+        attribution={props.attribution as string | undefined}
+        role={props.role as string | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  CreatorStat: {
+    render: (props) => (
+      <CreatorStat
+        value={(props.value as string) ?? ''}
+        label={(props.label as string) ?? ''}
+        sub={props.sub as string | undefined}
+        color={(props.color as 'blue' | 'yellow' | 'green' | 'red' | 'purple' | 'gray') ?? 'blue'}
+      />
+    ),
+    selfClosing: true,
+  },
+  CreatorTable: {
+    render: (props) => (
+      <CreatorTable
+        columns={(props.columns as CreatorTableColumn[]) ?? []}
+        rows={(props.rows as CreatorTableRow[]) ?? []}
+        highlightKey={props.highlightKey as string | undefined}
+        highlightValue={props.highlightValue as string | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  CreatorImageGallery: {
+    render: (props) => (
+      <CreatorImageGallery
+        images={(props.images as CreatorGalleryImage[]) ?? []}
+        heading={props.heading as string | undefined}
       />
     ),
     selfClosing: true,

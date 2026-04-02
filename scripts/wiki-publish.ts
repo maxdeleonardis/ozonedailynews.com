@@ -337,6 +337,15 @@ function extractCreatorContent(source: string, componentTag: string): Record<str
   const modTimeMatch = schemaBlock.match(/modifiedTime:\s*["'`]([^"'`]+)["'`]/);
   if (modTimeMatch) row.schema_modified_time = modTimeMatch[1];
 
+  // keywords array inside schema={{ ... }}
+  const schemaKeywordsMatch = schemaBlock.match(/keywords:\s*(\[[\s\S]*?\])/);
+  if (schemaKeywordsMatch) {
+    try {
+      // eslint-disable-next-line no-new-func
+      row.schema_keywords = new Function(`return (${schemaKeywordsMatch[1]})`)();
+    } catch { /* ignore — defaults to {} */ }
+  }
+
   // ── Hero fields — scoped to the hero={{ ... }} prop block ─────────────────
   const heroPropMatch = source.match(/hero=\{\{([\s\S]*?)\}\}/);
   const heroBlock = heroPropMatch ? heroPropMatch[1] : '';

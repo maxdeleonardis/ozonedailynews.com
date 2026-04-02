@@ -63,6 +63,20 @@ const AUTHORS = [
     text: 'text-blue-700',
     quote: 'Markets move on narrative before they move on numbers.',
   },
+  {
+    slug: 'jack-brennan',
+    initials: 'JB',
+    name: 'Jack Brennan',
+    role: 'Investigations Reporter',
+    department: 'Investigations',
+    location: 'Washington, D.C.',
+    bio: 'Investigations reporter covering federal environmental law, national security, regulatory agencies, and the Trump administration. Led reporting on the first God Squad exemption since 1992 and the Endangered Species Act national security override.',
+    beats: ['Investigations', 'Environmental Law', 'National Security', 'Energy Policy', 'Trump Administration'],
+    accent: 'bg-green-800',
+    border: 'border-green-800',
+    text: 'text-green-800',
+    quote: 'The document does not lie. The source does.',
+  },
 ];
 
 export default function AuthorsPage() {
@@ -91,7 +105,7 @@ export default function AuthorsPage() {
             </div>
             <div className="shrink-0 flex gap-8 md:pb-1">
               <div className="text-right">
-                <p className="text-3xl font-black text-gray-900">3</p>
+                <p className="text-3xl font-black text-gray-900">4</p>
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mt-1">Journalists</p>
               </div>
               <div className="text-right">

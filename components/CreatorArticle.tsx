@@ -283,7 +283,7 @@ export function CreatorArticle({
 
               {/* Thumbnail — hidden on mobile (replaced by full-width image above) */}
               <div
-                className="hidden sm:block relative w-72 h-72 rounded-xl overflow-hidden border-4 shrink-0"
+                className="hidden sm:block relative w-36 h-36 lg:w-64 lg:h-64 rounded-xl overflow-hidden border-4 shrink-0"
                 style={{ borderColor: 'rgba(255,255,255,0.3)' }}
               >
                 <Image
@@ -291,7 +291,7 @@ export function CreatorArticle({
                   alt={hero.image.alt}
                   fill
                   className="object-cover object-top"
-                  sizes="288px"
+                  sizes="(min-width: 1024px) 256px, 144px"
                   priority
                 />
               </div>

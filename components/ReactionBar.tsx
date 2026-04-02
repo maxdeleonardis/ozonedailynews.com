@@ -3,7 +3,7 @@
 // =============================================================================
 // ReactionBar — Interactive article engagement bar
 //
-// Buttons: ❤️ Like (+ count)  💬 Comment  🔗 Share  🔖 Save
+// Buttons: ❤️ Like (+ count)  💬 Comment   Save
 //
 // • Like & Save are backed by Supabase via /api/likes and /api/saves.
 //   State is loaded from the DB on mount whenever a session exists.
@@ -14,8 +14,6 @@
 //
 // • Not signed in → clicking Like or Save triggers Google OAuth and returns
 //   the user to the same article after authentication.
-//
-// • Share uses the Web Share API with a clipboard fallback.
 //
 // Props:
 //   slug     — article identifier (defaults to window.location.pathname)
@@ -44,7 +42,6 @@ export default function ReactionBar({ slug, title, url, image, category }: React
   const [liked,       setLiked]       = useState(false);
   const [likeCount,   setLikeCount]   = useState<number | null>(null);
   const [saved,       setSaved]       = useState(false);
-  const [shared,      setShared]      = useState(false);
   const [likeLoading, setLikeLoading] = useState(false);
   const [saveLoading, setSaveLoading] = useState(false);
 
@@ -128,24 +125,10 @@ export default function ReactionBar({ slug, title, url, image, category }: React
     }
   }, [isAuth, saved, saveLoading, articleKey, articleTitle, articleUrl, image, category]);
 
-  // ── Share handler ─────────────────────────────────────────────────────────
-  function handleShare() {
-    const fire = () => {
-      setShared(true);
-      setTimeout(() => setShared(false), 2500);
-      tracking.trackArticleReaction('share', articleKey, articleTitle, 'add');
-    };
-    if (typeof navigator.share === 'function') {
-      navigator.share({ title: articleTitle, url: articleUrl }).then(fire).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(articleUrl).then(fire).catch(() => {});
-    }
-  }
-
   // ── Comment handler ───────────────────────────────────────────────────────
   function handleComment() {
     tracking.trackArticleReaction('comment_click', articleKey, articleTitle, 'add');
-    const el = document.getElementById('comments');
+    const el = document.getElementById('discord-comments');
     if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
     else    { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
   }
@@ -189,19 +172,6 @@ export default function ReactionBar({ slug, title, url, image, category }: React
         <span>Comment</span>
       </button>
 
-      {/* Share */}
-      <button
-        onClick={handleShare}
-        className={`flex items-center gap-2 px-4 py-2 rounded-full border font-medium text-sm transition-all duration-150 ${
-          shared
-            ? 'bg-green-50 border-green-400 text-green-600 shadow-sm'
-            : 'bg-white border-gray-200 text-gray-700 hover:border-green-300 hover:bg-green-50'
-        }`}
-      >
-        <span>{shared ? '✅' : '🔗'}</span>
-        <span>{shared ? 'Copied!' : 'Share'}</span>
-      </button>
-
       {/* Save */}
       <button
         onClick={handleSave}
@@ -214,7 +184,19 @@ export default function ReactionBar({ slug, title, url, image, category }: React
             : 'bg-white border-gray-200 text-gray-700 hover:border-yellow-300 hover:bg-yellow-50'
         }`}
       >
-        <span>{saved ? '🔖' : '📌'}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill={saved ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-4 h-4"
+          aria-hidden="true"
+        >
+          <path d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+        </svg>
         <span>{saved ? 'Saved' : 'Save'}</span>
         {!isAuth && (
           <span className="text-[10px] text-gray-400 font-normal">· sign in</span>

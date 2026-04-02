@@ -50,21 +50,14 @@ export async function GET(req: NextRequest) {
 
 // ── POST /api/discord/comments ────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
-  // Auth check via Supabase
-  const authSupabase = await createAuthClient();
-  const { data: { user } } = await authSupabase.auth.getUser();
-  if (!user?.email) {
-    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-  }
-
-  let body: { slug: string; body: string; articleTitle?: string };
+  let body: { slug: string; body: string; articleTitle?: string; guestName?: string };
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const { slug, body: text, articleTitle } = body;
+  const { slug, body: text, articleTitle, guestName } = body;
 
   if (!slug || typeof slug !== 'string') {
     return NextResponse.json({ error: 'Missing slug' }, { status: 400 });
@@ -76,10 +69,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Comment exceeds 1000 characters' }, { status: 400 });
   }
 
-  // Build commenter identity from Supabase user metadata
-  const commenterId   = user.id;
-  const commenterName = user.user_metadata?.full_name ?? user.email?.split('@')[0] ?? 'Anonymous';
-  const commenterAvatar = user.user_metadata?.avatar_url ?? '';
+  // ── Determine commenter identity ──────────────────────────────────────────
+  // Two modes:
+  //   1. Discord-authed user → identity from Supabase session
+  //   2. Guest → identity from guestName in request body
+  let commenterId: string;
+  let commenterName: string;
+  let commenterAvatar: string;
+
+  const authSupabase = await createAuthClient();
+  const { data: { user } } = await authSupabase.auth.getUser();
+
+  if (user?.id) {
+    // Authenticated (Discord OAuth via Supabase)
+    commenterId     = user.id;
+    commenterName   = user.user_metadata?.full_name
+                   ?? user.user_metadata?.custom_claims?.global_name
+                   ?? user.user_metadata?.name
+                   ?? user.email?.split('@')[0]
+                   ?? 'Discord User';
+    commenterAvatar = user.user_metadata?.avatar_url ?? '';
+  } else if (guestName && typeof guestName === 'string' && guestName.trim().length > 0) {
+    // Guest mode — no auth required
+    const sanitized = guestName.trim().slice(0, 40);
+    commenterId     = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+    commenterName   = sanitized;
+    commenterAvatar = '';
+  } else {
+    return NextResponse.json({ error: 'Sign in with Discord or provide a guest name' }, { status: 400 });
+  }
 
   const supabase = await createClient();
 
@@ -125,15 +143,16 @@ export async function POST(req: NextRequest) {
       // Always use the production URL for article links in Discord
       const articleUrl = `https://www.objectwire.org/${slug}`;
       const threadTitle = articleTitle || slug.split('/').pop()?.replace(/-/g, ' ') || slug;
+      const isGuest = commenterId.startsWith('guest_');
 
       const webhookPayload: Record<string, unknown> = {
-        username: `${commenterName} via ObjectWire`,
+        username: isGuest ? `${commenterName} (Guest) via ObjectWire` : `${commenterName} via ObjectWire`,
         avatar_url: commenterAvatar || undefined,
         embeds: [
           {
-            color: 0x5865f2,
+            color: isGuest ? 0x9ca3af : 0x5865f2,
             author: {
-              name: commenterName,
+              name: isGuest ? `${commenterName} (Guest)` : commenterName,
               icon_url: commenterAvatar || undefined,
             },
             description: text.trim(),

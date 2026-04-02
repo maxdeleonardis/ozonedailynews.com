@@ -160,32 +160,47 @@ export async function getCreatorArticles(): Promise<ArticleFull[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
       .from('creator_articles')
-      .select('slug, hero_name, hero_subtitle, hero_description, hero_image_src, hero_image_alt, schema_published_time, schema_section, schema_author, schema_keywords, status')
+      .select('slug, hero_name, hero_subtitle, hero_description, hero_image_src, hero_image_alt, schema_published_time, schema_section, schema_author, schema_keywords, schema_article_url, status')
       .eq('status', 'published')
       .order('schema_published_time', { ascending: false });
 
     if (error) { console.error('[article-service] getCreatorArticles:', error.message); return []; }
-    return (data || []).map(row => ({
-      id: row.slug,
-      title: row.hero_name,
-      slug: row.slug,
-      url: row.slug.startsWith('/') ? row.slug : `/${row.slug}`,
-      content: [],
-      publishedAt: row.schema_published_time,
-      published_at: row.schema_published_time,
-      category: row.schema_section ?? 'Entertainment',
-      status: 'published' as const,
-      author_name: row.schema_author,
-      author: row.schema_author,
-      excerpt: row.hero_description,
-      imageUrl: row.hero_image_src,
-      image_alt: row.hero_image_alt,
-      tags: row.schema_keywords ?? [],
-      featured: false,
-      trending: false,
-      breaking: false,
-      exclusive: false,
-    } as any));
+    return (data || []).map(row => {
+      // Prefer schema_article_url (full canonical URL) → extract path.
+      // Fall back to slug-based path only when schema_article_url is absent.
+      let url: string;
+      if (row.schema_article_url) {
+        try {
+          url = new URL(row.schema_article_url).pathname;
+        } catch {
+          url = row.schema_article_url.startsWith('/') ? row.schema_article_url : `/${row.schema_article_url}`;
+        }
+      } else {
+        // Legacy fallback: slug may be slash-separated or dash-joined
+        url = row.slug.startsWith('/') ? row.slug : `/${row.slug}`;
+      }
+      return {
+        id: row.slug,
+        title: row.hero_name,
+        slug: row.slug,
+        url,
+        content: [],
+        publishedAt: row.schema_published_time,
+        published_at: row.schema_published_time,
+        category: row.schema_section ?? 'Entertainment',
+        status: 'published' as const,
+        author_name: row.schema_author,
+        author: row.schema_author,
+        excerpt: row.hero_description,
+        imageUrl: row.hero_image_src,
+        image_alt: row.hero_image_alt,
+        tags: row.schema_keywords ?? [],
+        featured: false,
+        trending: false,
+        breaking: false,
+        exclusive: false,
+      } as any;
+    });
   } catch { return []; }
 }
 

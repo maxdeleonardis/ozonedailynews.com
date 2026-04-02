@@ -192,15 +192,11 @@ const nextConfig: NextConfig = {
       },
 
       // ==========================================================================
-      // CRYPTO CONTENT MIGRATION - Moved from /crypto to /define/crypto
-      // Date: February 23, 2026
+      // CRYPTO CONTENT MIGRATION - /crypto hub restored, only wiki-style
+      // definitions still redirect to /define/crypto/*
+      // Date: April 2, 2026
       // ==========================================================================
 
-      {
-        source: '/crypto',
-        destination: '/define/crypto',
-        permanent: true,
-      },
       {
         source: '/crypto/tether',
         destination: '/define/crypto/tether',

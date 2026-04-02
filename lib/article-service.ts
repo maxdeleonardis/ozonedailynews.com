@@ -205,6 +205,52 @@ export async function getCreatorArticles(): Promise<ArticleFull[]> {
 }
 
 /**
+ * Fetch published jack_articles (premium research, investigations).
+ * jack_articles has no `status` column — every row is treated as published.
+ */
+export async function getJackArticles(): Promise<ArticleFull[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('jack_articles')
+      .select('slug, title, subtitle, description, publish_date, section, hero_image, author, article_url, keywords, thumbnail_src, thumbnail_alt')
+      .order('publish_date', { ascending: false });
+
+    if (error) { console.error('[article-service] getJackArticles:', error.message); return []; }
+    return (data || []).map(row => {
+      const authorObj = row.author as Record<string, unknown> | null;
+      const heroObj = row.hero_image as Record<string, unknown> | null;
+      let url: string;
+      if (row.article_url) {
+        try { url = new URL(row.article_url).pathname; } catch { url = row.article_url.startsWith('/') ? row.article_url : `/${row.article_url}`; }
+      } else {
+        url = `/${row.slug.replace(/-/g, '/')}`;
+      }
+      return {
+        id: row.slug,
+        title: row.title,
+        slug: row.slug,
+        url,
+        publishedAt: row.publish_date,
+        published_at: row.publish_date,
+        category: row.section ?? 'Research',
+        status: 'published' as const,
+        author_name: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
+        author: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
+        excerpt: row.subtitle ?? row.description ?? undefined,
+        imageUrl: heroObj?.src ? String(heroObj.src) : row.thumbnail_src ?? undefined,
+        image_alt: heroObj?.alt ? String(heroObj.alt) : row.thumbnail_alt ?? undefined,
+        tags: row.keywords ?? [],
+        featured: false,
+        trending: false,
+        breaking: false,
+        exclusive: false,
+      } as any;
+    });
+  } catch { return []; }
+}
+
+/**
  * Breaking headlines for ticker banners.
  */
 export async function getBreakingHeadlines(): Promise<string[]> {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getAllArticles, getCreatorArticles } from '@/lib/article-service';
+import { getAllArticles, getCreatorArticles, getJackArticles } from '@/lib/article-service';
 import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/EngagementBar';
@@ -230,6 +230,17 @@ export default async function HomePage() {
     blogArticles.push(...creatorArticles);
   } catch {
     // Creator articles unavailable — no-op
+  }
+
+  // Load jack articles (premium research, investigations)
+  try {
+    const jacks = await getJackArticles();
+    const jackArticles = jacks
+      .map((p: ArticleFull) => fromBlog(p, contentRegistry))
+      .filter((a): a is Article => a !== null);
+    blogArticles.push(...jackArticles);
+  } catch {
+    // JackArticles unavailable — no-op
   }
 
   // Content registry: exclude section/hub pages (< 2 path segments)

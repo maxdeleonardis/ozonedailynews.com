@@ -2,6 +2,7 @@
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 import { getAllEntries } from '@/lib/registry-service';
 import { compareDescending, getRelativeTime } from '@/lib/date-utils';
+import { getPopularSlugs } from '@/lib/popular-lead';
 import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/NewsLibrary';
 
 export const metadata: Metadata = {
@@ -88,6 +89,7 @@ export default async function NewsPage() {
         ? a.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
         : (a.date ?? ''),
       relativeDate: toRelativeDate(a),
+      publishedAtISO: a.publishedAt ? a.publishedAt.toISOString() : undefined,
       readTime: a.readTime,
       urgent: a.urgent,
       isUpdated: isUpdatedArticle(a),
@@ -114,8 +116,10 @@ export default async function NewsPage() {
   const totalArticles = allArticles.length;
   const articlesThisWeek = thisWeekArticles.length;
 
-  return (
+  let popularSlugs: string[] = [];
+  try { popularSlugs = await getPopularSlugs(100); } catch { /* graceful fallback */ }
 
+  return (
     <NewsLibrary
       articles={libraryArticles}
       categories={libraryCategories}
@@ -123,6 +127,7 @@ export default async function NewsPage() {
       articlesThisWeek={articlesThisWeek}
       today={today}
       urgentTicker={urgentTicker}
+      popularSlugs={popularSlugs}
     />
   );
 }

@@ -1212,7 +1212,7 @@ export default function JackArticle({
                   <div className="mb-8">
                     <RelatedArticles
                       currentSlug={slug ?? ''}
-                      category={section ?? categoryLabel ?? 'Politics'}
+                      category={section ?? categoryLabel ?? categories?.[0]?.label ?? 'News'}
                     />
                   </div>
 

@@ -80,3 +80,59 @@ export async function getPopularLeadSlug(): Promise<string | null> {
     return null;
   }
 }
+
+/**
+ * Returns the top N article paths by page views over the past 7 days.
+ * Used by the /news list-view "popular" sort.
+ */
+export async function getPopularSlugs(limit = 50): Promise<string[]> {
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  const serviceAccountRaw = process.env.GA4_SERVICE_ACCOUNT;
+
+  if (!propertyId || !serviceAccountRaw) return [];
+
+  try {
+    const sa = JSON.parse(serviceAccountRaw);
+    const auth = new JWT({
+      email: sa.client_email,
+      key: sa.private_key,
+      scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
+    });
+    const { token } = await auth.getAccessToken();
+    if (!token) return [];
+
+    const res = await fetch(
+      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
+          dimensions: [{ name: 'pagePath' }],
+          metrics: [{ name: 'screenPageViews' }],
+          orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
+          limit: limit * 3, // over-fetch to account for SKIP_SLUGS filtering
+        }),
+        next: { revalidate: 3600 },
+      }
+    );
+
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    const results: string[] = [];
+    for (const row of data.rows ?? []) {
+      const slug: string = row.dimensionValues?.[0]?.value ?? '';
+      if (isArticlePage(slug)) {
+        results.push(slug);
+        if (results.length >= limit) break;
+      }
+    }
+    return results;
+  } catch {
+    return [];
+  }
+}

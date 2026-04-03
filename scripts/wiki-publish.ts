@@ -570,7 +570,7 @@ function buildStub(
   const ogImageConst = ogImageConstMatch ? ogImageConstMatch[0] : `const OG_IMAGE = '';`;
 
   const imports: Record<string, string> = {
-    JackArticle:    "import { JackArticleDB } from '@/components/JackArticleDB';",
+    JackArticle:    "import { JackArticleDB } from '@/components/articles/JackArticleDB';",
     NewsArticle:    "import { NewsArticleDB } from '@/components/articles/NewsArticleDB';",
     ArticlePage:    "import { ArticlePageDB } from '@/components/ArticlePageDB';",
     CreatorArticle: "import { CreatorArticleDB } from '@/components/CreatorArticleDB';",
@@ -669,6 +669,8 @@ async function main() {
   else                                  row = extractPageContent(source);
 
   row.slug = slug;
+  // Always ensure url is set — fallback to route derived from file path
+  if (!row.url) row.url = route;
   console.log(`  Title     : ${c.bold(String(row.title || '(empty — check metadata)'))}`);
 
   // ── Step 3: Validate thumbnail ────────────────────────────────────────────

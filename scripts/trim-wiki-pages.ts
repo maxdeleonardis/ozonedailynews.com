@@ -130,7 +130,9 @@ function buildThinFile(metadata: string, componentName: string, slug: string, so
 
   // Priority: JackArticle → ArticlePage → NewsArticle → WikiArticle (fallback)
   const isJackArticle = source.includes("from '@/components/JackArticle'") ||
-    source.includes('from "@/components/JackArticle"');
+    source.includes('from "@/components/JackArticle"') ||
+    source.includes("from '@/components/articles/JackArticle'") ||
+    source.includes('from "@/components/articles/JackArticle"');
   const isArticlePageComp = source.includes("from '@/components/ArticlePage'") ||
     source.includes('from "@/components/ArticlePage"');
   const isNewsArticle = source.includes("from '@/components/NewsArticle'") ||

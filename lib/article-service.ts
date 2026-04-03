@@ -95,7 +95,7 @@ export async function getAllArticles(): Promise<ArticleFull[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
       .from('articles')
-      .select('id, title, slug, url, content, published_at, created_at, category, status, author_name, excerpt, image_url, hero_image_src, hero_image_alt, tags, featured, trending, breaking, exclusive')
+      .select('id, title, slug, url, content, published_at, created_at, category, status, author_name, excerpt, image_url, hero_image_src, hero_image_alt, thumbnail_src, thumbnail_alt, tags, featured, trending, breaking, exclusive')
       .order('created_at', { ascending: false });
 
     if (error) { console.error('[article-service] getAllArticles:', error.message); return []; }
@@ -112,8 +112,8 @@ export async function getAllArticles(): Promise<ArticleFull[]> {
       author: row.author_name,
       author_name: row.author_name,
       excerpt: row.excerpt,
-      imageUrl: row.image_url || row.hero_image_src || undefined,
-      image_alt: row.hero_image_alt ?? undefined,
+      imageUrl: row.image_url || row.hero_image_src || row.thumbnail_src || undefined,
+      image_alt: row.hero_image_alt ?? row.thumbnail_alt ?? undefined,
       tags: row.tags,
       featured: row.featured,
       trending: row.trending,
@@ -224,7 +224,7 @@ export async function getJackArticles(): Promise<ArticleFull[]> {
       if (row.article_url) {
         try { url = new URL(row.article_url).pathname; } catch { url = row.article_url.startsWith('/') ? row.article_url : `/${row.article_url}`; }
       } else {
-        url = `/${row.slug.replace(/-/g, '/')}`;
+        url = `/${row.slug}`;
       }
       return {
         id: row.slug,

@@ -41,7 +41,8 @@ Every article belongs to exactly one Supabase table. Use the correct component o
 | `NewsArticleDB` | `articles` | News, breaking, gaming, tech, features, analysis |
 | `JackArticleDB` | `jack_articles` | Research reports, investigations, premium long-form |
 | `ArticlePageDB` | `article_pages` | Profiles, wiki-style, evergreen reference guides |
-| `AlysaArticleDB` | `alysa_articles` | Creator profiles, influencer features |
+| `CreatorArticleDB` | `creator_articles` | Creator profiles, influencer features, athlete bios |
+| `AlysaArticleDB` | `alysa_articles` | Winter Olympics / athlete-specific legacy profiles |
 
 **`jack_articles` has no `status` column.** Never query `status` from it.
 
@@ -194,6 +195,128 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 ```
 
 Place it immediately after the `const SLUG = ...` line. This applies to NewsArticle stubs too when they use `ARTICLE_URL`.
+
+---
+
+## Gold Standard CreatorArticle | `/influencer/ari-kytsya`
+
+**This is the reference article all new `CreatorArticle` pages must match.**
+
+Live: `https://www.objectwire.org/influencer/ari-kytsya`
+Slug: `influencer-ari-kytsya` | Table: `creator_articles` | Component: `CreatorArticleDB`
+
+### Why it is the standard
+
+1. **Layout** — 2/3 article body + 1/3 sticky sidebar. The sidebar IS the Wikipedia-style infobox. No `RelatedArticles`.
+2. **Wikipedia-style infobox** — sidebar portrait image with name/subtitle overlay, followed by a row table: Born, Nationality, Based in, Occupation, all social handles (linked with `href`), business email, agency, follower counts.
+3. **Hero CTA buttons** — Instagram, TikTok, YouTube linked from the gradient header. Use `variant: 'secondary'` with emoji icons.
+4. **Photo gallery mid-article** — `CreatorImageGallery` placed after the primary content sections, NOT at the top. Put it after the quote block.
+5. **Keyword-rich H2s** — Every `CreatorSection heading` includes the subject's full name as primary keyword: `"Ari Kytsya TikTok | 5M Followers from Seattle"`, `"Ari Kytsya and Yung Gravy | Relationship"`. Generic headings like `"Background"` or `"Overview"` are banned.
+6. **Full sub-component stack** — `CreatorSection`, `CreatorStat` (3 stats at top), `CreatorCalloutBox`, `CreatorQuote`, `CreatorImageGallery`, `CreatorTable`.
+7. **Social links section** — a dedicated `CreatorSection` near the bottom lists all official accounts as `<a>` links + `CreatorTable` with platform, handle, followers, focus.
+8. **Engagement footer** — `ArticleViewTracker` + `ArticleFooter` (like/save/share/Discord). No `NewsletterSignupInline`.
+9. **15-18 keywords** — includes `[name] age`, `[name] age 2026`, `[name] Instagram`, `[name] TikTok`, `[name] real name`, `[name] 2026`, and topic variants like `notburnttoasthehe TikTok`.
+10. **Article Info sidebar card** — below the infobox, a styled card shows Published, Updated, Author, Category in the same row style as the infobox.
+
+### `page.tsx` stub pattern (after `wiki:publish`)
+
+```tsx
+import type { Metadata } from 'next';
+import { CreatorArticleDB } from '@/components/CreatorArticleDB';
+
+export const dynamic = 'force-dynamic';
+
+const SLUG = '/influencer/your-creator';
+const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const IMAGE_URL = '/influncer/yourCreator.jpg';  // local public file
+
+export const metadata: Metadata = {
+  title: 'Creator Name | Age, TikTok, Instagram, Bio 2026',  // max 60 chars
+  description: '130-155 chars. Name + age + platforms + location. Primary keyword in first 60 chars.',
+  keywords: [
+    'Creator Name',
+    'Creator Name age',
+    'Creator Name age 2026',
+    'Creator Name Instagram',
+    'Creator Name TikTok',
+    'Creator Name YouTube',
+    'Creator Name biography',
+    'Creator Name 2026',
+    /* 15-18 total */
+  ],
+  alternates: { canonical: PAGE_URL },
+  openGraph: {
+    title: 'Creator Name | Age, TikTok, Instagram & Bio 2026',
+    description: 'Full profile: age, platforms, social handles, career history.',
+    type: 'article',
+    url: PAGE_URL,
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Influencer Desk'],
+    section: 'Influencer',
+    tags: ['Creator Name', 'Influencer', 'City', 'Platform'],
+    publishedTime: '2026-04-02T12:00:00Z',
+    modifiedTime: '2026-04-02T12:00:00Z',
+    images: [{ url: `https://www.objectwire.org${IMAGE_URL}`, width: 1200, height: 675, alt: 'Creator Name portrait' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Creator Name | Platform Followers, Bio',
+    description: 'Name, age, social handles, and creator career.',
+  },
+};
+
+export default function InfluencerYourCreatorPage() {
+  return <CreatorArticleDB slug="influencer-your-creator" />;
+}
+```
+
+### Required `creator_articles` Supabase fields
+
+| Field | Rule |
+|---|---|
+| `schema_title` | Full name + role, e.g. `"Ari Kytsya | Seattle Model, Influencer & Creator Profile"` |
+| `schema_description` | 130-155 chars, name first, platforms + location |
+| `schema_author` | `"ObjectWire Influencer Desk"` |
+| `schema_article_url` | Full canonical URL |
+| `schema_image_url` | Full URL to portrait image (`https://www.objectwire.org/influncer/...`) |
+| `schema_section` | `"Influencer"` |
+| `schema_keywords` | Array of 15-18 terms matching `page.tsx` keywords |
+| `schema_published_time` | ISO-8601 |
+| `schema_modified_time` | ISO-8601 |
+| `breadcrumbs` | Array: Home → Influencer → Creator Name |
+| `hero_image_src` | Local public path (`/influncer/ariK.jpg`) |
+| `hero_image_alt` | Descriptive alt text |
+| `hero_gradient` | CSS gradient string matching creator brand colors |
+| `hero_name` | Display name |
+| `hero_subtitle` | Short role line, e.g. `"Model, Influencer, Creator"` |
+| `hero_description` | 2-3 sentence bio for the gradient header |
+| `hero_badges` | Array: `{ label: 'Seattle', style: 'default' }` etc. |
+| `hero_cta_buttons` | Array: `{ href, label, icon, variant: 'secondary' }` for each social platform |
+| `sidebar_infobox_image_src` | Same as `hero_image_src` |
+| `sidebar_infobox_name` | Display name |
+| `sidebar_infobox_subtitle` | Role subtitle |
+| `sidebar_infobox_rows` | Wikipedia-style rows: Born, Nationality, Based in, Occupation, social handles (with `href`), business email, follower counts |
+| `sidebar_meta_published_date` | Display string: `"April 2, 2026"` |
+| `sidebar_meta_updated_date` | Display string or omit |
+| `sidebar_meta_author` | `"ObjectWire Influencer Desk"` |
+| `sidebar_meta_category` | `"Influencer"` |
+| `content_html` | Full component-tagged HTML — see section order below |
+
+### `content_html` section order (gold standard)
+
+1. `<CreatorSection heading="Who Is [Name]">` — 2-paragraph bio
+2. `<div>` with 3 `<CreatorStat>` cards (primary platform followers, secondary platform, age)
+3. `<CreatorSection heading="[Name] [Platform] | Followers + City">` — platform origin story
+4. `<CreatorSection heading="[Name] Content | Topic, Topic, Topic">` — content style
+5. `<CreatorCalloutBox heading="Content Categories">` — labeled list
+6. `<CreatorSection heading="[Name] [Monetization] | Dual-Platform Model">` — platform economics
+7. `<CreatorQuote>` — direct quote with attribution
+8. `<CreatorImageGallery>` — 2-3 photos with captions (**here, not at the top**)
+9. Notable event sections (lecture, relationship, incident) — one `CreatorSection` each
+10. `<CreatorCalloutBox>` for safety / controversy context (color `"red"` if serious)
+11. `<CreatorSection heading="[Name] Social Media | Official Accounts 2026">` with `<ul>` of linked handles
+12. `<CreatorSection heading="[Name] Social Media Accounts | 2026 Follower Counts">` + `<CreatorTable>`
+13. `<CreatorSection heading="[Name] 2026 | Creator Profile Summary">` — closing context
 
 ---
 

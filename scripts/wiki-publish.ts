@@ -87,9 +87,20 @@ function routeFromPath(p: string): string {
 
 // Extract a string prop value from JSX source (handles single/double/template quotes)
 function extractProp(source: string, propName: string): string | null {
-  const re = new RegExp(`${propName}=\\{?["\`']([^"'\`]+)["\`']\\}?`);
-  const m = source.match(re);
-  return m ? m[1] : null;
+  // Try double-quoted: prop="value" (allows single quotes inside)
+  const reDouble = new RegExp(`${propName}="([^"]*)"`);
+  const mDouble = source.match(reDouble);
+  if (mDouble) return mDouble[1];
+
+  // Try single-quoted: prop='value' (allows double quotes inside)
+  const reSingle = new RegExp(`${propName}='([^']*)'`);
+  const mSingle = source.match(reSingle);
+  if (mSingle) return mSingle[1];
+
+  // Try JSX expression: prop={"value"} or prop={'value'}
+  const reExpr = new RegExp(`${propName}=\\{["']([^"']+)["']\\}`);
+  const mExpr = source.match(reExpr);
+  return mExpr ? mExpr[1] : null;
 }
 
 // Extract a multiline string prop (title / description in metadata object)
@@ -135,8 +146,13 @@ function extractJSXPropValue(source: string, propName: string): unknown | null {
 
   const raw = source.slice(start, i).trim();
 
+  // Resolve common variable references (SLUG, ARTICLE_URL)
+  const slugConstMatch = source.match(/const\s+SLUG\s*=\s*['"`]([^'"`]+)['"`]/);
+  const slugVal = slugConstMatch ? slugConstMatch[1] : '';
+  const articleUrlVal = `https://www.objectwire.org${slugVal}`;
+
   // eslint-disable-next-line no-new-func
-  try { return new Function(`return (${raw})`)(); }
+  try { return new Function('SLUG', 'ARTICLE_URL', `return (${raw})`)(slugVal, articleUrlVal); }
   catch { return null; }
 }
 
@@ -212,6 +228,14 @@ function extractJackContent(source: string): Record<string, unknown> {
   } else {
     const heroBlock = source.match(/heroImage=\{\{[\s\S]*?src:\s*["']([^"']+)["'][\s\S]*?alt:\s*["']([^"']+)["']/);
     if (heroBlock) row.hero_image = { src: heroBlock[1], alt: heroBlock[2] };
+  }
+
+  // Fallback: map thumbnail prop to hero_image if hero_image is not set
+  if (!row.hero_image) {
+    const thumbObj = extractJSXPropValue(source, 'thumbnail') as Record<string, string> | null;
+    if (thumbObj && typeof thumbObj === 'object') {
+      row.hero_image = thumbObj;
+    }
   }
 
   // ── Structured JSONB props ───────────────────────────────────────────────

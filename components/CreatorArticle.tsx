@@ -524,11 +524,30 @@ export function CreatorArticle({
                 )}
 
                 {/* Article Meta */}
-                <div className="text-xs text-gray-400 space-y-1 px-1">
-                  <p>Published: {sidebar.meta.publishedDate}</p>
-                  {sidebar.meta.updatedDate && <p>Updated: {sidebar.meta.updatedDate}</p>}
-                  <p>Author: {sidebar.meta.author}</p>
-                  <p>Category: {sidebar.meta.category}</p>
+                <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                  <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                    <h3 className="font-bold text-gray-600 text-xs uppercase tracking-wider">Article Info</h3>
+                  </div>
+                  <div className="divide-y divide-gray-100">
+                    <div className="flex px-4 py-2.5 gap-2">
+                      <span className="text-gray-400 w-20 shrink-0 text-xs font-semibold">Published</span>
+                      <span className="font-medium text-gray-700 text-xs">{sidebar.meta.publishedDate}</span>
+                    </div>
+                    {sidebar.meta.updatedDate && (
+                      <div className="flex px-4 py-2.5 gap-2">
+                        <span className="text-gray-400 w-20 shrink-0 text-xs font-semibold">Updated</span>
+                        <span className="font-medium text-gray-700 text-xs">{sidebar.meta.updatedDate}</span>
+                      </div>
+                    )}
+                    <div className="flex px-4 py-2.5 gap-2">
+                      <span className="text-gray-400 w-20 shrink-0 text-xs font-semibold">Author</span>
+                      <span className="font-medium text-gray-700 text-xs">{sidebar.meta.author}</span>
+                    </div>
+                    <div className="flex px-4 py-2.5 gap-2">
+                      <span className="text-gray-400 w-20 shrink-0 text-xs font-semibold">Category</span>
+                      <span className="font-medium text-gray-700 text-xs">{sidebar.meta.category}</span>
+                    </div>
+                  </div>
                 </div>
 
               </div>

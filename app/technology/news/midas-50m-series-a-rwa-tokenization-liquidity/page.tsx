@@ -6,6 +6,7 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/technology/news/midas-50m-series-a-rwa-tokenization-liquidity';
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 

@@ -5,7 +5,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 // Run 'npm run wiki:migrate' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
-const SLUG = '/fortnite/epic-games-vbucks-shrinkflation-chapter-7-season-2-2026';
+const SLUG = '/video-games/epic/epic-games-vbucks-shrinkflation-chapter-7-season-2-2026';
 
 export const metadata: Metadata = {
   title: "Epic Games Implements V-Bucks 'Shrinkflation' Explained",

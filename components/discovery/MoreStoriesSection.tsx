@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -78,22 +78,34 @@ interface Props {
   articles: MoreStoriesArticle[];
 }
 
+const PREDEFINED_CATEGORIES = [
+  'All',
+  'Finance',
+  'Influencer',
+  'Politics',
+  'Tech',
+  'Science',
+  'Gaming',
+  'Crypto'
+];
+
 export function MoreStoriesSection({ articles }: Props) {
   const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isMounted, setIsMounted] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const ITEMS_PER_PAGE = 12;
 
-  // Derive unique categories present in the data, preserving rough order of first appearance
-  const categories = useMemo(() => {
-    const seen = new Set<string>();
-    const result: string[] = [];
-    for (const a of articles) {
-      const key = a.category.toLowerCase();
-      if (!seen.has(key)) {
-        seen.add(key);
-        result.push(a.category);
-      }
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const scrollToTop = () => {
+    if (sectionRef.current) {
+      const top = sectionRef.current.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
-    return result;
-  }, [articles]);
+  };
 
   const filtered = useMemo(() => {
     if (activeFilter === 'All') return articles;
@@ -102,16 +114,34 @@ export function MoreStoriesSection({ articles }: Props) {
     );
   }, [activeFilter, articles]);
 
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const currentItems = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+  // Helper to generate page numbers
+  const pages = [];
+  const maxPagesToShow = 10;
+  let startPage = Math.max(1, currentPage - 5);
+  let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+  if (endPage - startPage < maxPagesToShow - 1) {
+    startPage = Math.max(1, endPage - maxPagesToShow + 1);
+  }
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i);
+  }
+
   return (
-    <>
+    <div ref={sectionRef}>
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {['All', ...categories].map((cat) => {
+        {PREDEFINED_CATEGORIES.map((cat) => {
           const isActive = activeFilter === cat;
           return (
             <button
               key={cat}
-              onClick={() => setActiveFilter(cat)}
+              onClick={() => {
+                setActiveFilter(cat);
+                setCurrentPage(1);
+              }}
               className={`text-[10px] font-black px-3 py-1.5 tracking-[.15em] uppercase transition-all border ${
                 isActive
                   ? 'bg-black text-white border-black'
@@ -126,9 +156,9 @@ export function MoreStoriesSection({ articles }: Props) {
 
       {/* Article grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 border-b-2 border-black pb-10">
-        {filtered.map((a) => (
+        {currentItems.map((a, i) => (
           <Link
-            key={a.id}
+            key={`${a.id}-${i}`}
             href={a.href}
             className="group flex flex-col bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all duration-150 rounded-sm overflow-hidden"
           >
@@ -180,12 +210,64 @@ export function MoreStoriesSection({ articles }: Props) {
 
               <div className="flex flex-col gap-0.5 text-[10px] font-mono border-t border-gray-100 pt-2 mt-auto">
                 <span className="font-semibold text-gray-700">{a.author}</span>
-                <span className="text-gray-400">{timeAgo(a.publishDate)}</span>
+                <span className="text-gray-400" suppressHydrationWarning>{timeAgo(a.publishDate)}</span>
               </div>
             </div>
           </Link>
         ))}
       </div>
-    </>
+
+      {/* Pagination controls */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center pt-8 pb-4 gap-2">
+          {currentPage > 1 ? (
+            <button
+              onClick={() => {
+                setCurrentPage(p => p - 1);
+                scrollToTop();
+              }}
+              className="px-3 py-1.5 text-xs font-black uppercase text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              ← Prev
+            </button>
+          ) : (
+            <span className="px-3 py-1.5 text-xs font-black uppercase text-gray-300">← Prev</span>
+          )}
+
+          <div className="flex items-end gap-1 text-xl font-bold">
+            {pages.map(p => (
+              <button
+                key={p}
+                onClick={() => {
+                  setCurrentPage(p);
+                  scrollToTop();
+                }}
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                  currentPage === p
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-blue-600'
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+
+          {currentPage < totalPages ? (
+            <button
+              onClick={() => {
+                setCurrentPage(p => p + 1);
+              }}
+              className="px-3 py-1.5 text-xs font-black uppercase text-blue-600 hover:text-blue-800 transition-colors"
+            >  scrollToTop();
+              
+              Next →
+            </button>
+          ) : (
+            <span className="px-3 py-1.5 text-xs font-black uppercase text-gray-300">Next →</span>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

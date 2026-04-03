@@ -300,9 +300,8 @@ export default async function HomePage() {
   }
 
   const [lead, second, third, ...rest] = merged;
-  const moreStories      = rest.slice(0, 12);   // 4-col × 3-row grid below the fold
-  const headlineArticles = rest.slice(12, 55);  // overflow headline list
-
+    const moreStories      = rest.slice(0, 120);  // 4-col × 3-row grid with 10 pages
+    const headlineArticles = rest.slice(120, 160); // overflow headline list
   const editionDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   });

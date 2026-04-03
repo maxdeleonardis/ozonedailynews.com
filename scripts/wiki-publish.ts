@@ -674,14 +674,19 @@ async function main() {
   // ── Step 3: Validate thumbnail ────────────────────────────────────────────
   const thumbSrc = (row.thumbnail_src ?? (row.thumbnail as Record<string,string>)?.src ?? row.hero_image_src ?? (row.hero_image as Record<string,string>)?.src) as string | undefined;
   if (thumbSrc) {
-    const thumbAbs = path.join(process.cwd(), 'public', thumbSrc.replace(/^\//, ''));
-    if (!fs.existsSync(thumbAbs)) {
-      console.error(c.red(`\n❌  Thumbnail not found on disk:`));
-      console.error(c.red(`   public/${thumbSrc.replace(/^\//, '')}`));
-      console.error(c.yellow('   Fix the image path in page.tsx before publishing.\n'));
-      process.exit(1);
+    // Remote URLs (Unsplash, CDN, etc.) don't need a disk check
+    if (/^https?:\/\//.test(thumbSrc)) {
+      console.log(`  Thumbnail : ${c.green('✅')} ${thumbSrc} ${c.gray('(remote URL)')}`);
     } else {
-      console.log(`  Thumbnail : ${c.green('✅')} ${thumbSrc}`);
+      const thumbAbs = path.join(process.cwd(), 'public', thumbSrc.replace(/^\//, ''));
+      if (!fs.existsSync(thumbAbs)) {
+        console.error(c.red(`\n❌  Thumbnail not found on disk:`));
+        console.error(c.red(`   public/${thumbSrc.replace(/^\//, '')}`));
+        console.error(c.yellow('   Fix the image path in page.tsx before publishing.\n'));
+        process.exit(1);
+      } else {
+        console.log(`  Thumbnail : ${c.green('✅')} ${thumbSrc}`);
+      }
     }
   } else {
     console.log(`  Thumbnail : ${c.yellow('⚠️  none detected')}`);

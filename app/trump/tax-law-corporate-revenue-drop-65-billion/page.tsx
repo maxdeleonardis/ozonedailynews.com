@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JackArticleDB } from '@/components/JackArticleDB';
+import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.

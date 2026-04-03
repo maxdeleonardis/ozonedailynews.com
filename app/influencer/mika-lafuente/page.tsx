@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { CreatorArticleDB } from '@/components/CreatorArticleDB';
+import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 export const dynamic = 'force-dynamic';
 

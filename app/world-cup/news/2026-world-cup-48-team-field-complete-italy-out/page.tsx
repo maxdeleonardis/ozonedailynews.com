@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { NewsArticleDB } from '@/components/NewsArticleDB';
+import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.

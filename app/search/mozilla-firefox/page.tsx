@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
-import { NewsArticleSchema } from "@/components/NewsArticleSchema";
+import Breadcrumb from "@/components/nav/Breadcrumb";
+import { NewsArticleSchema } from "@/components/articles/NewsArticleSchema";
 
 export const metadata: Metadata = {
   title: "Mozilla Firefox: Open-Source Web Browser & Privacy-Focused Technology | ObjectWire",

@@ -1,8 +1,8 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { AuthorArticlesServer } from '@/components/AuthorArticlesServer';
-import AuthorSchema from '@/components/AuthorSchema';
+import { AuthorArticlesServer } from '@/components/authors/AuthorArticlesServer';
+import AuthorSchema from '@/components/authors/AuthorSchema';
 
 export const dynamic = 'force-dynamic';
 

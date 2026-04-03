@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { NewsArticle } from '@/components/NewsArticle';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
+import { NewsArticle } from '@/components/articles/NewsArticle';
+import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
 
 // =============================================================================
 // NEWS ARTICLE TEMPLATE

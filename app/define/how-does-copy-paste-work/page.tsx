@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.

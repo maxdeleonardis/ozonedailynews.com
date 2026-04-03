@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage } from '@/components/ArticlePage';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { ArticlePage } from '@/components/articles/ArticlePage';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 const SLUG = 'redbull';
 const PAGE_URL = 'https://www.objectwire.org/redbull';

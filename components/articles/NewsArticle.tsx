@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import ArticleViewTracker from '@/components/ArticleViewTracker';
-import RelatedArticles from '@/components/RelatedArticles';
-import ArticleFooter from '@/components/ArticleFooter';
+import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
+import RelatedArticles from '@/components/discovery/RelatedArticles';
+import ArticleFooter from '@/components/articles/ArticleFooter';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -573,7 +573,7 @@ export function Timeline({
 
 // ReactionBar is now a standalone 'use client' component in components/ReactionBar.tsx
 // It is re-exported here for backwards-compatible named imports.
-export { default as ReactionBar } from '@/components/ReactionBar';
+export { default as ReactionBar } from '@/components/engagement/ReactionBar';
 
 // =============================================================================
 // TAGS SECTION

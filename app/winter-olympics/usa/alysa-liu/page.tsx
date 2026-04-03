@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { CreatorArticleDB } from '@/components/CreatorArticleDB';
+import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.

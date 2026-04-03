@@ -1,7 +1,7 @@
 // app/history/page.tsx — Reading history page
 
 import type { Metadata } from 'next';
-import ArticleHistory from '@/components/ArticleHistory';
+import ArticleHistory from '@/components/articles/ArticleHistory';
 import Link           from 'next/link';
 
 export const metadata: Metadata = {

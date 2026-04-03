@@ -12,7 +12,7 @@
  * new articles show up automatically as soon as they are published to Supabase.
  *
  * Usage:
- *   import { AuthorArticlesServer } from '@/components/AuthorArticlesServer';
+ *   import { AuthorArticlesServer } from '@/components/authors/AuthorArticlesServer';
  *   <AuthorArticlesServer authorSlug="jack-sterling" authorName="Jack Sterling" />
  */
 

@@ -1,7 +1,7 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, InfoBox } from '@/components/ArticlePage';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { ArticlePage, InfoBox } from '@/components/articles/ArticlePage';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 const SLUG = 'hulu-streaming-wiki';
 const PAGE_URL = 'https://www.objectwire.org/entertainment/hulu';

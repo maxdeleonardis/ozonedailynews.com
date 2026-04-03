@@ -12,7 +12,7 @@
 
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 interface WikiArticleProps {
   slug: string;

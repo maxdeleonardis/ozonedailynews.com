@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import ArticleViewTracker from '@/components/ArticleViewTracker';
-import ArticleFooter from '@/components/ArticleFooter';
-import RelatedArticles from '@/components/RelatedArticles';
+import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
+import ArticleFooter from '@/components/articles/ArticleFooter';
+import RelatedArticles from '@/components/discovery/RelatedArticles';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)

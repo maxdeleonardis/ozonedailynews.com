@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { NewsArticle } from '@/components/NewsArticle';
+import { NewsArticle } from '@/components/articles/NewsArticle';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JackArticleDB } from '@/components/JackArticleDB';
+import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders via ISR — HTML cached at CDN edge, refreshed at most every hour.
 // Run 'npm run wiki:migrate' to update content in Supabase, then redeploy to bust cache.

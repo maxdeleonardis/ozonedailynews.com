@@ -17,13 +17,13 @@
 'use client';
 
 import React from 'react';
-import { PrismTable } from '@/components/PrismTable';
+import { PrismTable } from '@/components/articles/PrismTable';
 import {
   HighlightBox,
   EmbedBox,
   Timeline,
   RelatedStories,
-} from '@/components/NewsArticle';
+} from '@/components/articles/NewsArticle';
 import {
   JackCallout,
   JackCard,
@@ -40,8 +40,8 @@ import {
   JackProcess,
   ScienceCallout,
   FactList,
-} from '@/components/JackArticle';
-import type { JackAccentColor } from '@/components/JackArticle';
+} from '@/components/articles/JackArticle';
+import type { JackAccentColor } from '@/components/articles/JackArticle';
 import {
   CreatorSection,
   CreatorCalloutBox,
@@ -49,8 +49,8 @@ import {
   CreatorStat,
   CreatorTable,
   CreatorImageGallery,
-} from '@/components/CreatorArticle';
-import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorGalleryImage } from '@/components/CreatorArticle';
+} from '@/components/articles/CreatorArticle';
+import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorGalleryImage } from '@/components/articles/CreatorArticle';
 
 // ── Known component registry ────────────────────────────────────────────────
 

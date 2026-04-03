@@ -1,9 +1,9 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 import { getAllEntries } from '@/lib/registry-service';
 import { compareDescending, getRelativeTime } from '@/lib/date-utils';
 import { getPopularSlugs } from '@/lib/popular-lead';
-import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/NewsLibrary';
+import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/discovery/NewsLibrary';
 
 export const metadata: Metadata = {
   title: "ObjectWire | News That Matters",

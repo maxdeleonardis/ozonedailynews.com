@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import SignInButton from "./SignInButton";
-import UserProfile from "./UserProfile";
+import UserProfile from "@/components/user/UserProfile";
 
 export default function AuthButton() {
   const { data: session, status } = useSession();

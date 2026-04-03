@@ -2,7 +2,7 @@
  * PrismTable — A styled two-column feature/description table for article content.
  *
  * Usage:
- *   import { PrismTable } from '@/components/PrismTable';
+ *   import { PrismTable } from '@/components/articles/PrismTable';
  *
  *   <PrismTable
  *     headers={['Feature', 'Description']}

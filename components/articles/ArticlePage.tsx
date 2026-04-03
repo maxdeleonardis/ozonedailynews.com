@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import ArticleViewTracker from '@/components/ArticleViewTracker';
-import ArticleFooter from '@/components/ArticleFooter';
+import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
+import ArticleFooter from '@/components/articles/ArticleFooter';
 
 // =============================================================================
 // TYPES

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArticlePageDB } from '@/components/ArticlePageDB';
+import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 // Page renders dynamically, content fetched from Supabase at request time.
 export const dynamic = 'force-dynamic';

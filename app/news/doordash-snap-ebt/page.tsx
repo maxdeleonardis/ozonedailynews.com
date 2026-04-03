@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/WikiArticle';
+import { WikiArticle } from '@/components/articles/WikiArticle';
 import { generateArticleMetadata } from '@/lib/seo-utils';
 
 // Page renders dynamically — content fetched from Supabase at request time.

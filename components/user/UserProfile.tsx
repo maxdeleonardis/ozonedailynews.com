@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import { NewsletterPanel } from "./NewsletterDropdown";
+import { NewsletterPanel } from "@/components/newsletter/NewsletterDropdown";
 
 export default function UserProfile() {
   const { data: session } = useSession();

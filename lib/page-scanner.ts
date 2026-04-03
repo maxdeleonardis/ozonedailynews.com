@@ -44,7 +44,7 @@ export function scanAllPages(): PageInfo[] {
           
           // Check if this is a NewsArticle component page
           const isNewsArticle = content.includes('from \'@/components/NewsArticle\'') || 
-                                content.includes('from "@/components/NewsArticle"');
+                                content.includes('from "@/components/articles/NewsArticle"');
           
           // Extract metadata from the file
           const metadata = extractMetadata(content);

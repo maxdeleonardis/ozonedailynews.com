@@ -1,7 +1,7 @@
 // app/saved/page.tsx — Saved articles page
 
 import type { Metadata } from 'next';
-import SavedArticles    from '@/components/SavedArticles';
+import SavedArticles    from '@/components/discovery/SavedArticles';
 import Link             from 'next/link';
 
 export const metadata: Metadata = {

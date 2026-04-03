@@ -19,9 +19,9 @@
 'use client';
 
 import Link from 'next/link';
-import ReactionBar from '@/components/ReactionBar';
-import DiscordComments from '@/components/discord-comments';
-import FooterAuthorBroadcast from '@/components/FooterAuthorBroadcast';
+import ReactionBar from '@/components/engagement/ReactionBar';
+import DiscordComments from '@/components/engagement/discord-comments';
+import FooterAuthorBroadcast from '@/components/authors/FooterAuthorBroadcast';
 
 export interface ArticleFooterAuthor {
   name: string;

@@ -5,7 +5,7 @@
 // automatically records the view for the logged-in user.
 //
 // Usage:
-//   import ArticleViewTracker from '@/components/ArticleViewTracker';
+//   import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 //   ...
 //   <ArticleViewTracker slug="my-article" title="My Article" url="/news/my-article" />
 // =============================================================================

@@ -4,10 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import ArticleFooter from '@/components/ArticleFooter';
-import ArticleViewTracker from '@/components/ArticleViewTracker';
+import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
+import ArticleFooter from '@/components/articles/ArticleFooter';
+import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 
 // =============================================================================
 // CREATOR ARTICLE — Reusable profile/biography article layout

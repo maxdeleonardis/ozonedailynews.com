@@ -4,10 +4,10 @@ import type { Metadata } from 'next';
 import { getAllArticles, getCreatorArticles, getJackArticles } from '@/lib/article-service';
 import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
-import EngagementBar from '@/components/EngagementBar';
-import HeadlineList from '@/components/HeadlineList';
+import EngagementBar from '@/components/engagement/EngagementBar';
+import HeadlineList from '@/components/discovery/HeadlineList';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
-import { MoreStoriesSection } from '@/components/MoreStoriesSection';
+import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 
 export const metadata: Metadata = {
   title: 'ObjectWire | Independent Investigative Journalism & Tech News',

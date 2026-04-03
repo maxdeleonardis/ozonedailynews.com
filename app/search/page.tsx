@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { scanAllContent } from '@/lib/content-scanner';
-import Breadcrumb from '@/components/Breadcrumb';
+import Breadcrumb from '@/components/nav/Breadcrumb';
 import type { Metadata } from 'next';
 
 const jakarta = Plus_Jakarta_Sans({

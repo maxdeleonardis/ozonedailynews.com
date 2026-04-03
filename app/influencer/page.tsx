@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
 import { SEOWrapper } from '@/components/SEOWrapper';
 import { createClient } from '@/lib/supabase/server';
 

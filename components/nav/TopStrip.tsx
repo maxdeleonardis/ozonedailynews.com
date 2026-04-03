@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function TopStrip({ dateString }: { dateString: string }) {
   const [searchOpen, setSearchOpen] = useState(false);

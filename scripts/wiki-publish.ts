@@ -571,7 +571,7 @@ function buildStub(
 
   const imports: Record<string, string> = {
     JackArticle:    "import { JackArticleDB } from '@/components/JackArticleDB';",
-    NewsArticle:    "import { NewsArticleDB } from '@/components/NewsArticleDB';",
+    NewsArticle:    "import { NewsArticleDB } from '@/components/articles/NewsArticleDB';",
     ArticlePage:    "import { ArticlePageDB } from '@/components/ArticlePageDB';",
     CreatorArticle: "import { CreatorArticleDB } from '@/components/CreatorArticleDB';",
     AlysaArticle:   "import { AlysaArticleDB } from '@/components/AlysaArticleDB';",

@@ -42,6 +42,8 @@ export interface CreatorBadge {
 export interface CreatorInfoRow {
   label: string;
   value: string | React.ReactNode;
+  /** Optional URL — renders value as a clickable link */
+  href?: string;
 }
 
 export interface CreatorTimelineItem {
@@ -444,8 +446,19 @@ export function CreatorArticle({
                   <div className="divide-y divide-gray-100 text-sm">
                     {sidebar.infobox.rows.map((row, i) => (
                       <div key={i} className="flex px-4 py-2.5 gap-2">
-                        <span className="text-gray-500 w-24 shrink-0 text-xs">{row.label}</span>
-                        <span className="font-medium text-gray-800 text-xs">{row.value}</span>
+                        <span className="text-gray-500 w-24 shrink-0 text-xs font-semibold">{row.label}</span>
+                        {row.href ? (
+                          <a
+                            href={row.href}
+                            target={row.href.startsWith('http') ? '_blank' : undefined}
+                            rel={row.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="font-medium text-blue-600 hover:text-blue-800 underline text-xs break-all"
+                          >
+                            {row.value as React.ReactNode}
+                          </a>
+                        ) : (
+                          <span className="font-medium text-gray-800 text-xs">{row.value as React.ReactNode}</span>
+                        )}
                       </div>
                     ))}
                   </div>

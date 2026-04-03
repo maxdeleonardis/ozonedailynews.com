@@ -99,6 +99,47 @@ function extractMetaProp(source: string, propName: string): string | null {
   return m ? m[1].replace(/\\'/g, "'").replace(/\\"/g, '"') : null;
 }
 
+/**
+ * Extract a JSX prop value that contains an object or array literal.
+ * Handles nested braces, quoted strings, and template literals.
+ * Uses brace-depth tracking to find the matching close brace.
+ * Returns the parsed JS value or null if not found / parse error.
+ *
+ * Only used by wiki:publish (local build tool) on developer-authored source files.
+ */
+function extractJSXPropValue(source: string, propName: string): unknown | null {
+  const re = new RegExp(`\\b${propName}=\\{`);
+  const match = source.match(re);
+  if (!match || match.index === undefined) return null;
+
+  const start = match.index + match[0].length;
+  let depth = 1;
+  let i = start;
+
+  while (i < source.length && depth > 0) {
+    const ch = source[i];
+    if (ch === '{') { depth++; }
+    else if (ch === '}') { depth--; if (depth === 0) break; }
+    else if (ch === '"' || ch === "'" || ch === '`') {
+      const quote = ch;
+      i++;
+      while (i < source.length && source[i] !== quote) {
+        if (source[i] === '\\') i++;
+        i++;
+      }
+    }
+    i++;
+  }
+
+  if (depth !== 0) return null;
+
+  const raw = source.slice(start, i).trim();
+
+  // eslint-disable-next-line no-new-func
+  try { return new Function(`return (${raw})`)(); }
+  catch { return null; }
+}
+
 // ── JSX → HTML (minimal, handles the common patterns) ────────────────────────
 function jsxToHtml(jsx: string): string {
   return jsx
@@ -123,41 +164,92 @@ function jsxToHtml(jsx: string): string {
 function extractJackContent(source: string): Record<string, unknown> {
   const row: Record<string, unknown> = {};
 
-  // title — from metadata
+  // ── Metadata-derived fields ──────────────────────────────────────────────
   row.title = extractMetaProp(source, 'title') ?? '';
-  // Clean off " | ObjectWire" suffix if present
   if (typeof row.title === 'string') {
     row.title = (row.title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
-
   row.description   = extractMetaProp(source, 'description') ?? '';
-  row.publish_date  = extractMetaProp(source, 'publishDate') ?? new Date().toISOString().split('T')[0];
-  row.read_time     = extractProp(source, 'readTime') ?? null;
-  row.category_label= extractProp(source, 'categoryLabel') ?? null;
-  row.layout        = extractProp(source, 'layout') ?? 'news';
-  row.accent_color  = extractProp(source, 'accentColor') ?? 'blue';
-  row.section       = extractProp(source, 'section') ?? null;
 
-  // Extract author name
-  const authorMatch = source.match(/name:\s*["']([^"']+)["']/);
-  if (authorMatch) {
-    row.author = { name: authorMatch[1] };
+  // ISO dates from metadata openGraph block
+  row.publish_date_iso  = extractMetaProp(source, 'publishedTime') ?? null;
+  row.modified_date_iso = extractMetaProp(source, 'modifiedTime') ?? null;
+
+  // keywords from metadata
+  const metaKeywordsMatch = source.match(/keywords:\s*\[([\s\S]*?)\]/);
+  if (metaKeywordsMatch) {
+    try {
+      // eslint-disable-next-line no-new-func
+      row.keywords = new Function(`return [${metaKeywordsMatch[1]}]`)();
+    } catch { /* ignore */ }
   }
 
-  // Hero image
-  const heroSrc = extractProp(source, 'heroImage');
-  const heroBlock = source.match(/heroImage=\{\{[\s\S]*?src:\s*["']([^"']+)["'][\s\S]*?alt:\s*["']([^"']+)["']/);
-  if (heroBlock) {
-    row.hero_image = { src: heroBlock[1], alt: heroBlock[2] };
+  // ── Simple string props from <JackArticle ...> ───────────────────────────
+  row.publish_date   = extractProp(source, 'publishDate') ?? new Date().toISOString().split('T')[0];
+  row.read_time      = extractProp(source, 'readTime') ?? null;
+  row.category_label = extractProp(source, 'categoryLabel') ?? null;
+  row.layout         = extractProp(source, 'layout') ?? 'news';
+  row.accent_color   = extractProp(source, 'accentColor') ?? 'blue';
+  row.section        = extractProp(source, 'section') ?? null;
+  row.subtitle       = extractProp(source, 'subtitle') ?? null;
+  row.subject        = extractProp(source, 'subject') ?? null;
+  row.footer_tagline = extractProp(source, 'footerTagline') ?? null;
+
+  // ── Author — full object ─────────────────────────────────────────────────
+  const authorObj = extractJSXPropValue(source, 'author') as Record<string, string> | null;
+  if (authorObj && typeof authorObj === 'object') {
+    row.author = authorObj;
+  } else {
+    // Fallback: try simple name extraction
+    const authorMatch = source.match(/name:\s*["']([^"']+)["']/);
+    if (authorMatch) row.author = { name: authorMatch[1] };
   }
 
-  // Thumbnail
-  const thumbBlock = source.match(/thumbnail=\{\{[\s\S]*?src:\s*["']([^"']+)["'][\s\S]*?alt:\s*["']([^"']+)["']/);
-  if (thumbBlock) {
-    row.thumbnail = { src: thumbBlock[1], alt: thumbBlock[2] };
+  // ── Hero image — object ──────────────────────────────────────────────────
+  const heroObj = extractJSXPropValue(source, 'heroImage') as Record<string, string> | null;
+  if (heroObj && typeof heroObj === 'object') {
+    row.hero_image = heroObj;
+  } else {
+    const heroBlock = source.match(/heroImage=\{\{[\s\S]*?src:\s*["']([^"']+)["'][\s\S]*?alt:\s*["']([^"']+)["']/);
+    if (heroBlock) row.hero_image = { src: heroBlock[1], alt: heroBlock[2] };
   }
 
-  // Extract body HTML — content between <JackArticle ...> children and </JackArticle>
+  // ── Structured JSONB props ───────────────────────────────────────────────
+  const timeline = extractJSXPropValue(source, 'timeline');
+  if (Array.isArray(timeline)) row.timeline = timeline;
+
+  const sources = extractJSXPropValue(source, 'sources');
+  if (Array.isArray(sources)) row.sources = sources;
+
+  const relatedArticles = extractJSXPropValue(source, 'relatedArticles');
+  if (Array.isArray(relatedArticles)) row.related_articles = relatedArticles;
+
+  const breadcrumbs = extractJSXPropValue(source, 'breadcrumbs');
+  if (Array.isArray(breadcrumbs)) row.breadcrumbs = breadcrumbs;
+
+  const categories = extractJSXPropValue(source, 'categories');
+  if (Array.isArray(categories)) row.categories = categories;
+
+  const documents = extractJSXPropValue(source, 'documents');
+  if (Array.isArray(documents)) row.documents = documents;
+
+  const footerLinks = extractJSXPropValue(source, 'footerLinks');
+  if (Array.isArray(footerLinks)) row.footer_links = footerLinks;
+
+  // ── Boolean props ────────────────────────────────────────────────────────
+  if (source.includes('showNewsletter={true}'))          row.show_newsletter = true;
+  if (source.includes('showCorrections={false}'))        row.show_corrections = false;
+  if (source.includes('showEditorialStandards={false}')) row.show_editorial_standards = false;
+
+  // ── article_url — derive from file path (SLUG const) ────────────────────
+  // The JSX usually references a variable: articleUrl={ARTICLE_URL}
+  // Resolve from the const SLUG line in the file
+  const slugConstMatch = source.match(/const\s+SLUG\s*=\s*['"`]([^'"`]+)['"`]/);
+  if (slugConstMatch) {
+    row.article_url = slugConstMatch[1];
+  }
+
+  // ── Body HTML — content between <JackArticle ...> and </JackArticle> ────
   const bodyMatch = source.match(/<JackArticle[\s\S]*?>\s*([\s\S]*?)\s*<\/JackArticle>/);
   row.content_html = bodyMatch ? jsxToHtml(bodyMatch[1]) : '';
 

@@ -89,6 +89,8 @@ export async function middleware(request: NextRequest) {
     // MHA consolidated under /video-games
     '/mha': '/video-games/mha',
     '/mha/ultra-rumble-season-15-everything-we-know': '/video-games/mha/ultra-rumble/season-15',
+    // Fortnite moved under /video-games/epic
+    '/fortnite/epic-games-vbucks-shrinkflation-chapter-7-season-2-2026': '/video-games/epic/epic-games-vbucks-shrinkflation-chapter-7-season-2-2026',
     // Old Supabase DB-slug format → canonical URL (legacy blog/* redirects)
     '/blog/trump-news-trump-administration-10-billion-fee-tiktok-deal': '/trump/news/trump-administration-10-billion-fee-tiktok-deal',
     '/blog/youtube-news-omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation': '/youtube/news/omnibus-project-ken-jennings-john-roderick-suspended-ai-moderation',

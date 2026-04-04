@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 import { getAllEntries } from '@/lib/registry-service';
+import { getAllArticles, getJackArticles, getCreatorArticles } from '@/lib/article-service';
 import { compareDescending, getRelativeTime } from '@/lib/date-utils';
 import { getPopularSlugs } from '@/lib/popular-lead';
 import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/discovery/NewsLibrary';
@@ -50,6 +51,21 @@ export default async function NewsPage() {
   // Merge: registry entries override filesystem dates
   const contentRegistry = await getAllEntries();
   const registryMap = new Map(contentRegistry.map(e => [e.slug, e]));
+
+  // Build image lookup from Supabase article tables
+  const imageMap = new Map<string, string>();
+  try {
+    const [blogArticles, jackArticles, creatorArticles] = await Promise.all([
+      getAllArticles(),
+      getJackArticles(),
+      getCreatorArticles(),
+    ]);
+    for (const a of [...blogArticles, ...jackArticles, ...creatorArticles]) {
+      const img = a.imageUrl || a.thumbnail_url;
+      if (img && a.slug) imageMap.set(a.slug, img);
+    }
+  } catch { /* Supabase unavailable — images will fall back to registry */ }
+
   const allArticles = filesystemArticles.map(a => {
     const reg = registryMap.get(a.slug);
     if (reg) {
@@ -79,6 +95,7 @@ export default async function NewsPage() {
 
   const libraryArticles: LibraryArticle[] = allArticles.map(a => {
     const reg = registryMap.get(a.slug);
+    const dbSlug = a.slug.replace(/^\//, '').replace(/\//g, '-');
     return {
       slug: a.slug,
       title: a.title,
@@ -93,7 +110,7 @@ export default async function NewsPage() {
       readTime: a.readTime,
       urgent: a.urgent,
       isUpdated: isUpdatedArticle(a),
-      imageUrl: reg?.imageUrl,
+      imageUrl: imageMap.get(dbSlug) ?? reg?.imageUrl,
     };
   });
 

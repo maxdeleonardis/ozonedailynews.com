@@ -54,6 +54,9 @@ export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
         description: entry.description,
         datePublished: entry.publishDate,
         dateModified: entry.modifiedDate,
+        inLanguage: 'en',
+        isAccessibleForFree: true,
+        ...(entry.category ? { articleSection: entry.category } : {}),
         author: {
           '@type': 'Person',
           name: entry.author,

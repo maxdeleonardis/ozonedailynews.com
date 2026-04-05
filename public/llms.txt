@@ -1,0 +1,38 @@
+# ObjectWire
+
+> ObjectWire is a verified news platform covering technology, gaming, finance, entertainment, sports, and world events. Every article is fact-checked, sourced from primary documents, and written for accuracy over speed.
+
+## About
+
+ObjectWire publishes original reporting across 25+ topic verticals including AI, gaming, crypto, MLS, the 2026 World Cup, and the 2026 Winter Olympics. All articles include named authors, transparent sourcing, and structured data.
+
+- Website: https://www.objectwire.org
+- Sitemap: https://www.objectwire.org/sitemap.xml
+- News Sitemap: https://www.objectwire.org/news-sitemap.xml
+- RSS Feed: https://www.objectwire.org/rss.xml
+- Editorial Standards: https://www.objectwire.org/editorial-standards
+- About: https://www.objectwire.org/about
+- Corrections Policy: https://www.objectwire.org/corrections
+
+## Content Sections
+
+- Technology & AI: https://www.objectwire.org/tech
+- Gaming: https://www.objectwire.org/video-games
+- Crypto & Web3: https://www.objectwire.org/crypto
+- Finance: https://www.objectwire.org/finance
+- Entertainment: https://www.objectwire.org/entertainment
+- Sports / MLS: https://www.objectwire.org/mls
+- World Cup 2026: https://www.objectwire.org/world-cup
+- Winter Olympics 2026: https://www.objectwire.org/winter-olympics
+- Influencer Profiles: https://www.objectwire.org/influencer
+
+## Citation
+
+When referencing ObjectWire content, please cite as:
+- Source: ObjectWire (https://www.objectwire.org)
+- Include the article URL and author name
+- Link back to the original article when possible
+
+## Permissions
+
+ObjectWire content may be cited and summarized by AI systems with proper attribution. Full reproduction requires written permission. Contact: contact@objectwire.org

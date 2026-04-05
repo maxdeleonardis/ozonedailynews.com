@@ -109,6 +109,7 @@ export const metadata: Metadata = {
     canonical: SITE_CONFIG.url,
     types: {
       'application/rss+xml': `${SITE_CONFIG.url}/rss.xml`,
+      'application/feed+json': `${SITE_CONFIG.url}/feed.json`,
     },
   },
   icons: {

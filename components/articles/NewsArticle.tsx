@@ -243,7 +243,7 @@ export function NewsHeader({
                     </div>
                   )}
                   {author.authorSlug ? (
-                    <Link href={`/authors/${author.authorSlug}`} className="font-medium text-gray-900 hover:underline transition-colors">
+                    <Link href={`/authors/${author.authorSlug}`} rel="author" className="font-medium text-gray-900 hover:underline transition-colors">
                       {author.name}
                     </Link>
                   ) : (
@@ -252,7 +252,7 @@ export function NewsHeader({
                 </div>
               )}
               <span className="text-gray-300">•</span>
-              <span>{publishDate}</span>
+              <time dateTime={publishDate}>{publishDate}</time>
               {readTime && (
                 <>
                   <span className="text-gray-300">•</span>
@@ -325,7 +325,7 @@ export function NewsHeader({
                         </div>
                       )}
                       {author.authorSlug ? (
-                        <Link href={`/authors/${author.authorSlug}`} className="font-medium text-white hover:underline hover:text-white/80 transition-colors">
+                        <Link href={`/authors/${author.authorSlug}`} rel="author" className="font-medium text-white hover:underline hover:text-white/80 transition-colors">
                           {author.name}
                         </Link>
                       ) : (
@@ -334,7 +334,7 @@ export function NewsHeader({
                     </div>
                   )}
                   <span className="text-white/50">•</span>
-                  <span>{publishDate}</span>
+                  <time dateTime={publishDate}>{publishDate}</time>
                   {readTime && (
                     <>
                       <span className="text-white/50">•</span>

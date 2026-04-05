@@ -83,29 +83,21 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
       
-      // Google News crawler - more permissive for news content
+      // Google News crawler - allow all content, block only non-content pages
       {
         userAgent: 'Googlebot-News',
-        allow: [
-          '/',
-          '/news/',
-          '/blog/',
-          '/opinion/',
-          '/trump/',
-          '/tiktok/',
-          '/james-cameron/',
-          '/contributors/',
-        ],
+        allow: '/',
         disallow: [
           '/api/',
           '/admin/',
           '/(admin)/',
-          '/about',
-          '/contact',
-          '/privacy-policy',
-          '/editorial-standards',
-          '/corrections',
-          '/get-help',
+          '/auth/',
+          '/login/',
+          '/account/',
+          '/saved/',
+          '/profile/',
+          '/search',
+          '/preview/',
         ],
         crawlDelay: 0,
       },
@@ -152,6 +144,51 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Claude-Web',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      {
+        userAgent: 'Applebot',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      {
+        userAgent: 'cohere-ai',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      {
+        userAgent: 'YouBot',
         allow: '/',
         disallow: [
           '/api/',

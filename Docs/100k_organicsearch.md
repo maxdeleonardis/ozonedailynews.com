@@ -1,178 +1,204 @@
 # 100K Organic Search | ObjectWire Growth Plan
 
-> **Goal:** Reach 100,000 monthly organic search sessions within 12 months, starting from ~330 indexed pages across 25+ verticals, powered by an automated SEO pipeline (content registry, news sitemap, structured data) that already exists.
+> **Goal:** Reach 100,000 monthly organic search sessions within 12 months.
+> **Last updated:** April 4, 2026
+> **Starting baseline (March 2026):** ~330 indexed pages, 25+ verticals.
+> **Current state (April 2026):** 560 pages, 5 active Hub pages, full GA4 + custom tracking, registry migrated to Supabase.
 
 ---
 
-## Current State | March 2026 Audit
+## Implementation Status | April 2026 Audit
 
-| Metric | Value |
-|---|---|
-| Total pages (app/) | 330 |
-| Registered in content registry | 344 entries |
-| Top sections | Winter Olympics (32), Video Games (28), YouTube (25), News (24) |
-| Categories covered | 25+ (YouTube, Sports, Technology, Gaming, News, Entertainment, Finance, etc.) |
-| SEO infrastructure | ✅ Sitemap, ✅ News sitemap (auto from registry), ✅ JSON-LD on every article, ✅ robots.txt with Googlebot-News rules, ✅ canonical tags, ✅ OG metadata |
-| Auto-sync | ✅ `prebuild` script registers new pages before every deploy |
-| CMS (Supabase) | ✅ Wired, `/admin/editor` → Supabase → `/blog/[slug]` |
-| Newsletter | ✅ Inline on every NewsArticle |
-| Build time | ~15–20s (Turbopack) |
+### What Has Been Built (Completed)
 
-### Strengths
+| Feature | Status | Details |
+|---|---|---|
+| Content Registry | ✅ Done | Migrated from local TS to Supabase `content_registry` table. Auto-synced on every build via `prebuild` script. |
+| Sitemap (main) | ✅ Done | Dynamic, registry-driven, sorted by priority, 24h revalidation. `app/sitemap.ts` |
+| News Sitemap | ✅ Done | 2-day rolling window, auto-feeds from registry. `app/news-sitemap.xml/route.ts` |
+| JSON-LD Structured Data | ✅ Done | `NewsArticle` + `BreadcrumbList` schema on every article. |
+| Breadcrumbs | ✅ Done | Visual + JSON-LD `BreadcrumbList` schema. Accessible. `components/nav/Breadcrumb.tsx` |
+| RelatedArticles | ✅ Done | Automatic client component. Reads user `localStorage` reading history, matches by category + tags, ranks by overlap + recency. Zero manual curation. |
+| GA4 Integration | ✅ Done | Client-side page views on every navigation. Measurement ID: `G-9FM4W3K6GV`. `components/GoogleAnalytics.tsx` |
+| Custom Event Tracking | ✅ Done | `article_engagement`, `time_spent`, `article_reaction`, `email_signup` events via `lib/tracking.ts`. |
+| Server-Side Analytics | ✅ Done | Measurement Protocol API at `/api/analytics/identify`. Hashed email, visitor identity persisted. |
+| Article View Tracking | ✅ Done | `ArticleViewTracker` component logs per-user views to `article_view_history` table (slug, title, url, image, category). Max 50 items, 7-day TTL. |
+| Scroll Depth + Time on Page | ✅ Done | `usePageTracking()` hook captures scroll milestones and dwell time. |
+| Author Pages | ✅ Done | 5 named authors (Jack Sterling, Jack Wang, Jack Brennan, Conan Boyle, Alfansa) + authors index. |
+| Hub Pages | ✅ Partial | 5 active hubs built with `Hub.tsx`: Video Games, Crypto, MLS, Influencer, MHA. 50+ hub slugs defined but pages not yet created. |
+| Definition Pages | ✅ Partial | 16+ pages in `/define/`. Target is 100+. |
+| Newsletter | ✅ Done | `NewsletterSignupInline` on every `NewsArticle` page. |
+| Article Components | ✅ Done | Full system: `NewsArticle`, `JackArticle`, `CreatorArticle`, `ArticlePage` + DB variants. |
+| Admin Editor | ✅ Done | `/admin/editor` → Supabase → `/blog/[slug]` for non-developer publishing. |
+| wiki:publish Pipeline | ✅ Done | Single command upserts to Supabase, adds registry entry, trims to stub. |
+| Page Count | ✅ 560 pages | Up from ~330 baseline. Growth of 70% in 3 weeks. |
 
-- **Deep topical authority** in Video Games, Tech, Finance, YouTube, Google rewards depth
-- **Structured data on every page**, NewsArticle + BreadcrumbList JSON-LD, critical for Top Stories
-- **News sitemap auto-feeds from registry**, zero friction to surface new articles to Google News
-- **Component library (NewsArticle, ObjectDesign)** enables fast article output with consistent schema
-- **Topic hub architecture**, `/video-games/gta-6`, `/video-games/forza-horizon-6`, etc. create internal link clusters
+### What Still Needs to Be Done
 
-### Gaps
-
-- Many pages have generic auto-synced descriptions ("ObjectWire coverage of...")
-- `imageUrl` / `imageWidth` / `imageHeight` missing on most registry entries, blocks Google Top Stories eligibility
-- YouTube section (43 pages, largest) has low search intent, review pages serve better than wiki profiles
-- Category naming inconsistent (both "Tech" and "Technology", "Gaming" and "Video Games")
-- No programmatic content generation for high-volume keyword clusters
-- Some thin hub pages (e.g., `/social/meta`) with boilerplate content
-- No internal linking automation, interlinks are manually added per article
-
----
-
-## Phase 1 | Foundation Fixes (Weeks 1–3)
-
-**Target: Fix the 80% of entries missing critical SEO fields, unify categories, and fill Google Top Stories requirements.**
-
-### 1.1 Registry Data Quality Pass
-
-Every content registry entry needs these filled:
-- `description`, unique, 130–155 chars, contains the primary keyword
-- `imageUrl`, hosted on objectwire.org or Supabase, min 1200×675 (16:9)
-- `imageWidth` + `imageHeight`, Google requires exact dimensions for Top Stories
-- `imageAlt`, descriptive alt text
-
-**Action:** Write a `scripts/audit-registry.ts` script that flags entries with:
-- Description < 80 chars or containing "ObjectWire coverage of"
-- Missing `imageUrl`
-- Missing `imageWidth` or `imageHeight`
-- Duplicate descriptions
-
-### 1.2 Category Consolidation
-
-Merge overlapping categories to create clean topic signals:
-
-| Merge From | Merge To |
-|---|---|
-| Tech | Technology |
-| Gaming, Video Games | Gaming |
-| SaaS | Technology |
-| Social Media | Technology |
-| Blog | (use actual topic category) |
-| General | News |
-
-### 1.3 Google News Publisher Center
-
-- Register at [Google Publisher Center](https://publishercenter.google.com/)
-- Verify `objectwire.org` ownership
-- Submit `/news-sitemap.xml` as the news feed
-- Label sections: Technology, Gaming, Entertainment, Finance, Science
-- Upload publisher logo (min 1000×1000 square)
-
-### 1.4 Google Search Console Validation
-
-- Verify sitemap coverage (all 344 URLs indexed)
-- Check for soft 404s on thin hub pages
-- Submit news sitemap separately
-- Fix any coverage issues flagged
-
----
-
-## Phase 2 | Content Engine (Weeks 3–8)
-
-**Target: Publish 5–7 articles per week across 4 pillar verticals, building topical authority clusters.**
-
-### 2.1 Pillar Verticals (Priority Order)
-
-Based on existing depth, search volume, and competition analysis:
-
-| Pillar | Current Pages | Keyword Opportunity | Why |
+| Gap | Priority | Impact | Effort |
 |---|---|---|---|
-| **Gaming** | 28 | GTA 6, Forza, Nintendo Switch 2, PS5 | Massive search volume, you already have deep pages. Every game announcement = traffic spike |
-| **Tech / AI** | 54 (Tech+Technology combined) | OpenAI, Google AI, Apple, Nvidia | Breaking AI news has insatiable demand. You cover Google, Apple, Nvidia, OpenAI already |
-| **Entertainment** | 21 | Streaming news, studio deals, movie/show stuff | Growing section. The Paramount/WBD article is the template |
-| **Finance / Business** | 17 | Bank of America, crypto, IPOs, startup funding | Established presence. B2B + retail investor keywords |
+| **Expand Hub pages to all pillars** | P1 | High | 2-3 days |
+| **Fix registry images for top 50 articles** | P1 | Unlocks Google Top Stories | 1-2 days |
+| **Register Google Publisher Center** | P1 | Required for Google News | 30 min |
+| **Register Bing News PubHub** | P1 | Free distribution channel | 10 min |
+| **Category consolidation (Tech/Technology, Gaming/Video Games)** | P2 | Cleaner topical signals | 1 day |
+| **Scale definition pages to 100+** | P2 | Low-competition long-tail captures | Ongoing |
+| **Build GTA 6, Switch 2, OpenAI clusters** | P1 | Highest search volume targets | 1-2 weeks |
+| **Rewrite generic meta descriptions on top 30 pages** | P2 | Better CTR | 1 day |
+| **Submit to Apple News** | P3 | Mobile traffic channel | 30 min |
+| **Build custom analytics dashboard** | P2 | Internal traffic visibility | 2-3 days |
 
-### 2.2 Content Cadence
+---
+
+## Phase 1 | Foundation Fixes (Weeks 1-3) — MOSTLY COMPLETE
+
+### 1.1 Registry Data Quality Pass — ✅ DONE (Supabase migration)
+
+Registry moved to Supabase `content_registry` table. All fields available: `description`, `imageUrl`, `imageWidth`, `imageHeight`, `imageAlt`. Auto-synced on build.
+
+**Remaining action:** Run a query against the registry to find entries still missing `imageUrl` and fix the top 50 by traffic. Use Unsplash API for sourcing images (key stored in user memory).
+
+---
+
+## Phase 2 | Hub Page Expansion + Content Engine (Weeks 3-8)
+
+**Target: Build hub pages for every pillar vertical using `Hub.tsx`, then fill each with 5-7 cluster articles.**
+
+### 2.1 Hub Page Strategy
+
+The `Hub.tsx` component is battle-tested (Video Games, Crypto, MLS, Influencer, MHA all use it). Every pillar needs its own hub page with:
+- `Hub.InfoGrid` for coverage stats
+- `Hub.Section` + `Hub.CardGrid` for featured articles
+- `Hub.LinkGrid` for sub-topic navigation
+- `Hub.Table` for data (standings, timelines, comparisons)
+- `Hub.StatBar` for key metrics
+- Auto-discovered articles via `scanAllContent()` + `filterByCategory()`
+
+### 2.2 Hub Pages to Build (Priority Order)
+
+#### Tier 1 | High Volume, Existing Content Base
+
+| Hub | Path | Search Volume | Existing Pages | Status | Sub-Articles Needed |
+|---|---|---|---|---|---|
+| **Video Games** | `/video-games` | 5M+/mo combined | 28 | ✅ Hub exists | GTA 6 cluster (7), Switch 2 cluster (5), Forza (5) |
+| **Crypto** | `/crypto` | 1M+/mo | 15+ | ✅ Hub exists | Bitcoin halving, stablecoin regulation, DeFi protocol deep-dives |
+| **MLS** | `/mls` | 500K+/mo seasonal | 4 | ✅ Hub exists | Team profiles, transfer tracker, match previews, standings updates |
+
+#### Tier 2 | High Volume, Needs Hub Page
+
+| Hub | Path | Search Volume | Existing Pages | Action |
+|---|---|---|---|---|
+| **Tech / AI** | `/tech` | 3M+/mo combined | 54 scattered | Build hub, consolidate `/open-ai`, `/google`, `/nvidia`, `/apple` as sub-hubs |
+| **Finance** | `/finance` | 500K+/mo | 17 | Build hub with market data, earnings calendar, rate decision tracker |
+| **Entertainment** | `/entertainment` | Seasonal | 21 | Build hub with streaming news, studio deals, awards coverage |
+| **Sports** | `/sports` | 2M+/mo combined | Growing | Build hub linking to `/mls`, `/world-cup`, `/winter-olympics`, `/formula-1` |
+| **World Cup 2026** | `/world-cup` | 5M+ seasonal peak | Started | Build hub before pre-event coverage begins (June ramp) |
+
+#### Tier 3 | Authority Building, Lower Volume
+
+| Hub | Path | Search Volume | Action |
+|---|---|---|---|
+| **OpenAI** | `/open-ai` | 3M+/mo | Expand from 3 to 10+ pages (GPT-5, o3, Sora, pricing, enterprise) |
+| **Google** | `/google` | 2M+/mo | Expand from 3 to 8+ pages (Gemini 3.0, Pixel 11, AI Plus, I/O 2026) |
+| **Nvidia** | `/nvidia` | 800K+/mo | Expand from 2 to 6+ pages (RTX 5090, CUDA, GTC 2026, Blackwell) |
+| **Apple** | `/apple` | 1M+/mo | Good base (11 pages). Add WWDC 2026 preview, iPhone 18 rumors |
+
+### 2.3 Practical Hub Build Pattern
+
+Every new hub follows this exact pattern (copy from `/mls/page.tsx`):
+
+```tsx
+import { Hub } from '@/components/Hub';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
+import { SEOWrapper } from '@/components/SEOWrapper';
+import { scanAllContent, filterByCategory } from '@/lib/content-scanner';
+
+export default async function HubPage() {
+  const allArticles = await scanAllContent();
+  const filtered = filterByCategory(allArticles, 'CATEGORY');
+  return (
+    <SEOWrapper slug="/hub-path">
+      <Breadcrumb items={[...]} />
+      <Hub badge="LABEL" badgeColor="from-X to-Y" title="Hub Title" subtitle="...">
+        <Hub.InfoGrid ... />
+        <Hub.Section title="Featured" variant="card">
+          <Hub.CardGrid>
+            {/* Curated featured articles */}
+          </Hub.CardGrid>
+        </Hub.Section>
+        <Hub.Section title="All Coverage">
+          {/* Auto-discovered articles from scanAllContent */}
+        </Hub.Section>
+      </Hub>
+    </SEOWrapper>
+  );
+}
+```
+
+### 2.4 Content Cadence
 
 | Day | Article Type | Pillar | Example |
 |---|---|---|---|
-| Monday | Breaking news | Tech/AI | "OpenAI Announces GPT-5 Pricing — $30/Month for Pro" |
-| Tuesday | Deep-dive / analysis | Gaming | "GTA 6 Pre-Orders Tracker: Every Edition, Price, & Platform" |
-| Wednesday | Breaking news | Entertainment | "Netflix Reports Q1 2026 Subscribers, 310M Milestone" |
-| Thursday | Evergreen guide | Gaming/Tech | "Best Gaming Monitors 2026, 4K 240Hz Buyer's Guide" |
-| Friday | Breaking news | Finance | "Fed Holds Rates at 4.75%, March 2026 FOMC Decision" |
-| Saturday | Weekend feature | Any | "How Japan's Touge Culture Shaped Forza Horizon 6's Map" |
-| Sunday | Update / roundup | Any | "This Week in AI: March 1–7, 2026" |
+| Monday | Breaking news | Tech/AI | "OpenAI Announces GPT-5 Pricing" |
+| Tuesday | Deep-dive / analysis | Gaming | "GTA 6 Pre-Orders Tracker | Every Edition, Price, Platform" |
+| Wednesday | Breaking news | Entertainment | "Netflix Reports Q1 2026 Subscribers | 310M Milestone" |
+| Thursday | Evergreen guide | Gaming/Tech | "Best Gaming Monitors 2026 | 4K 240Hz Buyer's Guide" |
+| Friday | Breaking news | Finance | "Fed Holds Rates at 4.75% | March 2026 FOMC Decision" |
+| Saturday | Weekend feature | Sports/Any | "MLS 2026 | Transfer Window Analysis" |
+| Sunday | Update / roundup | Any | "This Week in AI | April 1-7 2026" |
 
-### 2.3 SEO-First Article Template
-
-Every article must ship with:
+### 2.5 SEO-First Article Checklist (Every Article Ships With)
 
 ```
-✅ metadata.title       , keyword + brand ("Forza Horizon 6 Release Date | ObjectWire")
-✅ metadata.description , 130–155 chars, primary keyword in first 60 chars
-✅ metadata.keywords    , 10–15 long-tail keywords
-✅ canonical URL        , always set
-✅ openGraph            , title, description, image (1200×675), publishedTime, section
-✅ NewsArticleSchema    , matches registry entry exactly
-✅ SEOWrapper           , slug pointed at registry
-✅ Breadcrumb           , 3–4 levels deep
-✅ H2 headings          , one per major section, keyword-rich
-✅ Internal links       , 4–6 interlinks to related ObjectWire pages
-✅ thumbnail + imageUrl , real image, 1200px+ wide, hosted on objectwire.org
+✅ metadata.title       | keyword + specific detail (max 60 chars, no brand suffix)
+✅ metadata.description | 130-155 chars, primary keyword in first 60 chars
+✅ metadata.keywords    | 10-15 long-tail keywords
+✅ canonical URL        | always set in alternates
+✅ openGraph            | title, description, image (1200x675), publishedTime, section
+✅ NewsArticleSchema    | matches registry entry exactly
+✅ SEOWrapper           | slug pointed at registry
+✅ Breadcrumb           | 3-4 levels deep
+✅ H2 headings          | one per major section, keyword-rich, uses | separator
+✅ Internal links       | 4-6 interlinks to related ObjectWire pages
+✅ thumbnail + imageUrl | real Unsplash image, 1200px+ wide
 ```
-
-### 2.4 Supabase for Volume
-
-Once the cadence exceeds 5 articles/week, shift all new content to `/admin/editor` → Supabase. Benefits:
-- No code deploys for new articles
-- Draft → Publish workflow
-- Batch scheduling
-- No build time growth (dynamic route, single `page.tsx`)
 
 ---
 
-## Phase 3 | Keyword Clusters & Topic Authority (Weeks 4–12)
+## Phase 3 | Keyword Clusters + Topic Authority (Weeks 4-12)
 
-**Target: Build deep clusters around 10 high-volume keyword families to dominate long-tail.**
+**Target: Build deep clusters around 10 high-volume keyword families.**
 
-### 3.1 Cluster Architecture
+### 3.1 Cluster Architecture — ✅ PROVEN
 
-Each cluster follows this pattern:
+Each cluster follows this pattern (already working on Video Games, MLS, Crypto):
 
 ```
-Hub Page (high authority, broad keyword)
- ├── Sub-article 1 (specific long-tail)
- ├── Sub-article 2 (specific long-tail)
- ├── Sub-article 3 (specific long-tail)
+Hub Page (Hub.tsx, high authority, broad keyword)
+ ├── Sub-article 1 (NewsArticle, specific long-tail)
+ ├── Sub-article 2 (NewsArticle, specific long-tail)
+ ├── Sub-article 3 (JackArticle, deep investigation)
  └── Sub-article N
 ```
 
-All sub-articles link back to the hub. The hub links to all sub-articles. Internal linking is **the single highest-leverage SEO tactic** for a new publisher.
+All sub-articles link back to the hub. The hub auto-discovers sub-articles via `scanAllContent()`. Internal linking is **the single highest-leverage SEO tactic** for a new publisher.
 
-### 3.2 Priority Clusters
+### 3.2 Priority Clusters (Updated April 2026)
 
-| # | Hub URL | Hub Keyword (monthly search vol est.) | Sub-Articles Needed |
-|---|---|---|---|
-| 1 | `/video-games/gta-6` | "GTA 6" (5M+/mo) | Pre-orders, price by country, PC release, map size, characters, online mode, system requirements |
-| 2 | `/video-games/forza-horizon-6` | "Forza Horizon 6" (500K+/mo) | Car list, map breakdown, editions comparison, Japan routes, PC specs |
-| 3 | `/video-games/switch2` | "Nintendo Switch 2" (2M+/mo) | Switch 2 specs, launch games, price, backwards compatibility, Joy-Con 2 |
-| 4 | `/apple` | "Apple news" (1M+/mo) | iPhone 18, WWDC 2026, Core AI framework, Mac Mini M5, Apple TV F1 |
-| 5 | `/google` | "Google news" (2M+/mo) | Gemini 3, Google AI Plus, Agentic Vision, Pixel 11 |
-| 6 | `/nvidia` | "Nvidia news" (800K+/mo) | RTX 5090, CUDA updates, AI hardware, Blackwell B200 |
-| 7 | `/open-ai` | "OpenAI" (3M+/mo) | GPT-5, ChatGPT Pro, o3 model, Sora video, pricing changes |
-| 8 | `/winter-olympics` | "2026 Winter Olympics" (1M+ seasonal) | Medal tracker, Team USA, event schedule, Milan Cortina travel |
-| 9 | `/world-cup` | "2026 World Cup" (5M+ seasonal) | Groups, schedule, venues, USA cities, ticket prices |
-| 10 | `/finance` | "finance news" (500K+/mo) | Fed rate decisions, bank earnings, crypto regulation |
+| # | Hub URL | Hub Keyword (monthly vol) | Status | Sub-Articles Needed |
+|---|---|---|---|---|
+| 1 | `/video-games/gta-6` | "GTA 6" (5M+/mo) | ✅ Hub exists | Pre-orders, price by country, PC release, map size, characters, online mode, system requirements |
+| 2 | `/video-games/switch2` | "Nintendo Switch 2" (2M+/mo) | Needs hub | Switch 2 specs, launch games, price, backwards compatibility, Joy-Con 2 |
+| 3 | `/video-games/forza-horizon-6` | "Forza Horizon 6" (500K+/mo) | Needs hub | Car list, map breakdown, editions comparison, Japan routes, PC specs |
+| 4 | `/open-ai` | "OpenAI" (3M+/mo) | 3 pages, needs hub | GPT-5, ChatGPT Pro, o3 model, Sora video, pricing changes |
+| 5 | `/google` | "Google news" (2M+/mo) | 3 pages, needs hub | Gemini 3, Google AI Plus, Agentic Vision, Pixel 11 |
+| 6 | `/nvidia` | "Nvidia news" (800K+/mo) | 2 pages, needs hub | RTX 5090, CUDA updates, AI hardware, Blackwell B200 |
+| 7 | `/apple` | "Apple news" (1M+/mo) | 11 pages, hub exists | iPhone 18, WWDC 2026, Core AI framework, Mac Mini M5 |
+| 8 | `/mls` | "MLS" (500K+/mo) | ✅ Hub + 3 articles | Team profiles (28 remaining), transfer tracker, match previews, standings |
+| 9 | `/world-cup` | "2026 World Cup" (5M+ seasonal) | Needs hub | Groups, schedule, venues, USA cities, ticket prices |
+| 10 | `/winter-olympics` | "2026 Winter Olympics" (1M+ seasonal) | 32 pages, strong | Medal tracker, event schedule, maintain coverage |
+| 11 | `/crypto` | "Crypto" (1M+/mo) | ✅ Hub exists | Bitcoin halving, stablecoin regulation, DeFi deep-dives |
+| 12 | `/finance` | "Finance news" (500K+/mo) | Needs hub | Fed decisions, bank earnings, IPO tracker |
 
 ### 3.3 Cluster Completion Targets
 
@@ -187,23 +213,19 @@ All sub-articles link back to the hub. The hub links to all sub-articles. Intern
 
 ---
 
-## Phase 4 | Google News Acceleration (Ongoing)
-
-**Target: Consistent presence in Google News Top Stories carousel.**
+## Phase 4 | Google News Acceleration (Ongoing) — PARTIALLY COMPLETE
 
 ### 4.1 Top Stories Eligibility Checklist
 
-Every article that should reach Google News **must** have all of these:
-
-| Requirement | ObjectWire Status | Notes |
+| Requirement | Status | Notes |
 |---|---|---|
-| Published within last 2 days | ✅ Auto via `publishDate` filter in news-sitemap | Already working |
-| `NewsArticle` JSON-LD on page | ✅ `NewsArticleSchema` component | Already on every article |
-| Listed in news sitemap | ✅ Auto from content registry | Wired in `app/news-sitemap.xml/route.ts` |
-| `imageUrl` ≥ 1200px wide | ⚠️ Missing on most entries | **Must fix, Phase 1** |
-| Publisher registered in Google Publisher Center | ❌ Not yet done | **Must do, Phase 1** |
-| Transparent authorship (real author name) | ✅ Author on every article | Some use "ObjectWire Editorial", add real names |
-| Original reporting, not rewrites | ✅ Original analysis + sourcing | Maintain this standard |
+| Published within last 2 days | ✅ Done | Auto via `publishDate` filter in news-sitemap |
+| `NewsArticle` JSON-LD on page | ✅ Done | `NewsArticleSchema` component on every article |
+| Listed in news sitemap | ✅ Done | Auto from content registry, 2-day window |
+| `imageUrl` >= 1200px wide | ⚠️ Partial | Fixed on new articles (Unsplash API), legacy articles still need images |
+| Publisher registered in Google Publisher Center | ❌ Not done | **Must do this week** |
+| Transparent authorship | ✅ Done | 5 named authors with profile pages |
+| Original reporting | ✅ Done | All content is original analysis + sourcing |
 
 ### 4.2 Breaking News Velocity
 
@@ -371,3 +393,37 @@ ObjectWire already has `/about`, `/editorial-standards`, `/authors/*`, these are
 ---
 
 *This plan builds on ObjectWire's existing technical infrastructure — the content registry, auto-sync, news sitemap, structured data, and Supabase CMS are all operational. The gap is content volume and data completeness, not tooling.*
+
+---
+
+## Deferred Items (Do Last)
+
+### D.1 Category Consolidation
+
+Still need to merge:
+
+| Merge From | Merge To |
+|---|---|
+| Tech | Technology |
+| Gaming, Video Games | Gaming |
+| SaaS | Technology |
+| Social Media | Technology |
+| Blog | (use actual topic category) |
+| General | News |
+
+**Action:** Write a migration script against the Supabase `content_registry` and `articles` tables.
+
+### D.2 Google News Publisher Center
+
+- Register at [Google Publisher Center](https://publishercenter.google.com/)
+- Verify `objectwire.org` ownership
+- Submit `/news-sitemap.xml` as the news feed
+- Label sections: Technology, Gaming, Entertainment, Finance, Science
+- Upload publisher logo (min 1000x1000 square)
+
+### D.3 Google Search Console Validation
+
+- Verify sitemap coverage (all 560+ URLs indexed)
+- Check for soft 404s on thin hub pages
+- Submit news sitemap separately
+- Fix any coverage issues flagged

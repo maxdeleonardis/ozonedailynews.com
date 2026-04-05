@@ -12,6 +12,7 @@ export async function GET() {
       news_sitemap: `${baseUrl}/news-sitemap.xml`,
       rss: `${baseUrl}/rss.xml`,
       atom: `${baseUrl}/atom.xml`,
+      json_feed: `${baseUrl}/feed.json`,
     },
     api: {
       articles: `${baseUrl}/api/articles`,

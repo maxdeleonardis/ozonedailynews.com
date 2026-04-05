@@ -12,11 +12,7 @@ export const SITE_CONFIG = {
 };
 
 export const BLOCKED_USER_AGENTS = [
-  'GPTBot',
-  'ChatGPT-User',
   'CCBot',
-  'anthropic-ai',
-  'Claude-Web',
 ];
 
 export const TRACKING_PARAMS = [

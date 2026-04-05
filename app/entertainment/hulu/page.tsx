@@ -8,7 +8,7 @@ const PAGE_URL = 'https://www.objectwire.org/entertainment/hulu';
 const IMAGE_URL = 'https://www.objectwire.org/entertainment/hulu.PNG';
 
 export const metadata: Metadata = {
-  title: 'Hulu â€” Streaming Platform Wiki | ObjectWire',
+  title: 'Hulu | Streaming Platform Wiki, Subscribers, Plans 2026',
   description:
     'Hulu is an American subscription streaming service owned by The Walt Disney Company. With 50M+ subscribers, it offers next-day TV, Hulu Originals, live sports, and a growing film library.',
   keywords: [
@@ -25,13 +25,18 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Hulu â€” Streaming Platform Wiki | ObjectWire',
+    title: 'Hulu | Streaming Platform Wiki, Subscribers, Plans 2026',
     description:
       'Complete wiki profile of Hulu: history, ownership, subscriber stats, Originals, live TV bundle, and competitive position in the streaming wars.',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Hulu streaming service' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hulu | Streaming Platform Wiki, 50M+ Subscribers',
+    description: 'Hulu wiki: 50M+ subscribers, next-day TV, Originals, live sports, and Disney Bundle pricing.',
   },
 };
 

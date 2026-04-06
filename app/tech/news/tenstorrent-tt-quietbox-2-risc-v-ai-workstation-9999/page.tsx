@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V "QuietBox 2" | ObjectWire',
+    'Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V "QuietBox 2"',
   description:
-    "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026, a $9,999 liquid-cooled RISC-V AI workstation capable of running 120B-parameter models locally. The first developer-ready workstation to deliver teraflop-class inference without Nvidia's CUDA.",
+    "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026, a $9,999 liquid-cooled RISC-V AI workstation capable of running 120B-parameter",
   keywords: [
     'Tenstorrent QuietBox 2 RISC-V workstation 2026',
     'TT-QuietBox 2 $9999 AI workstation',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Tenstorrent Fires at Nvidia With $9,999 RISC-V "QuietBox 2" AI Workstation',
     description:
-      "The TT-QuietBox 2 runs 120B-parameter models locally, delivers teraflop-class inference, uses a fully open-source stack, and costs $2,000 less than its predecessor. Jim Keller's CUDA alternative is here.",
+      "The TT-QuietBox 2 runs 120B-parameter models locally, delivers teraflop-class inference, uses a fully open-source stack, and costs $2,000 less than its",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tenstorrent QuietBox 2: $9,999 RISC-V Workstation Runs 120B-Param Models Locally',
     description:
-      "Jim Keller's Tenstorrent just shipped a liquid-cooled, fully open-source AI workstation for $9,999. No CUDA. No Nvidia. Teraflop inference. 120B parameters. It's real.",
+      "Jim Keller's Tenstorrent just shipped a liquid-cooled, fully open-source AI workstation for $9,999. No CUDA. No Nvidia. Teraflop inference. 120B",
   },
 };
 

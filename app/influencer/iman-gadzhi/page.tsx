@@ -6,14 +6,22 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Iman Gadzhi - Digital Marketing Entrepreneur & Educator | OBJECTWIRE',
-  description: 'Comprehensive profile of Iman Gadzhi, Russian-British entrepreneur, digital marketing educator, and founder of IAG Media and Educate. From teenage dropout to multi-millionaire business owner.',
+  title: 'Iman Gadzhi | Digital Marketing Entrepreneur & Educator | OBJECTWIRE',
+  description: 'Comprehensive profile of Iman Gadzhi, Russian-British entrepreneur, digital marketing educator, and founder of IAG Media and Educate. From teenage dropout',
   keywords: 'Iman Gadzhi, digital marketing, SMMA, social media marketing agency, IAG Media, Educate, entrepreneur, influencer',
   openGraph: {
-    title: 'Iman Gadzhi - Digital Marketing Entrepreneur',
+    title: 'Iman Gadzhi | Digital Marketing Entrepreneur',
     description: 'From high school dropout to building a digital marketing empire. The story of Iman Gadzhi.',
     type: 'article',
     publishedTime: '2026-02-09T10:00:00Z',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Iman Gadzhi | Digital Marketing Entrepreneur',
+    description: 'From high school dropout to building a digital marketing empire. The story of Iman Gadzhi.',
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/influencer/iman-gadzhi',
   },
 };
 

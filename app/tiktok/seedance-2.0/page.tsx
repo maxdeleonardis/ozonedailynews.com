@@ -7,9 +7,9 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:
-    "Seedance 2.0 Global Launch Delayed Amid Hollywood Copyright Backlash | ObjectWire",
+    "Seedance 2.0 Global Launch Delayed Amid Hollywood Copyright Backlash",
   description:
-    "ByteDance's Seedance 2.0 AI video model launched in China on February 12, 2026, but its global API rollout, originally set for February 24, has been postponed indefinitely after the MPA accused it of pervasive copyright infringement involving Disney, Warner Bros., and Netflix properties.",
+    "ByteDance's Seedance 2.0 AI video model launched in China on February 12, 2026, but its global API rollout, originally set for February 24, has been",
   keywords: [
     "Seedance 2.0",
     "ByteDance AI video",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Seedance 2.0 Launch Delayed | Hollywood vs ByteDance AI | ObjectWire",
+    title: "Seedance 2.0 Launch Delayed | Hollywood vs ByteDance AI",
     description:
       "MPA, Disney, Warner Bros., and SAG-AFTRA moved to block ByteDance's Seedance 2.0 global rollout over deepfake and copyright concerns.",
   },

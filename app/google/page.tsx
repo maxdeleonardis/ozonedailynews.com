@@ -6,16 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Google & Alphabet Inc - News, Analysis & Updates | ObjectWire",
-  description: "Comprehensive coverage of Google, Alphabet Inc, and its subsidiaries including Waymo, DeepMind, and more. Latest news, business analysis, and technology updates.",
-  keywords: ["Google", "Alphabet Inc", "Waymo", "DeepMind", "Google AI", "autonomous vehicles", "search engine", "tech news"],
+  title: 'Google | Alphabet, AI, Search, YouTube & Android News',
+  description: 'ObjectWire coverage of Google and Alphabet Inc. Search, AI Gemini models, DeepMind, Waymo self-driving, YouTube, and Android news from primary sources.',
+  keywords: ['Google', 'Alphabet Inc', 'Waymo', 'DeepMind', 'Google AI', 'Gemini AI', 'YouTube', 'Android', 'autonomous vehicles', 'search engine', 'tech news', 'Sundar Pichai'],
   openGraph: {
-    title: "Google & Alphabet Inc Coverage | ObjectWire",
-    description: "In-depth reporting on Google, Alphabet, and all subsidiary companies.",
-    type: "website",
+    title: 'Google | Alphabet, AI, Search, YouTube & Android News',
+    description: 'ObjectWire covers Google and Alphabet Inc: Search, AI, DeepMind, Waymo, YouTube, Android, and all Sundar Pichai news.',
+    type: 'website',
+    url: 'https://www.objectwire.org/google',
+    siteName: 'ObjectWire',
   },
   alternates: {
-    canonical: "https://www.objectwire.org/google",
+    canonical: 'https://www.objectwire.org/google',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Google | Alphabet, AI, Search, YouTube & Android',
+    description: 'ObjectWire Google hub: Gemini AI, DeepMind, Waymo, YouTube, Android, and Sundar Pichai news.',
   },
 };
 

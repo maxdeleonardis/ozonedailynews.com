@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/default/meta.png';
 export const metadata: Metadata = {
   title: 'Meta Bay Area Layoffs 2026 | 200 Jobs Cut in Burlingame, Sunnyvale',
   description:
-    'Meta is cutting nearly 200 workers at its Burlingame and Sunnyvale offices, effective late May 2026. The cuts extend a pattern of reductions as Meta redirects billions toward AI infrastructure.',
+    'Meta is cutting nearly 200 workers at its Burlingame and Sunnyvale offices, effective late May 2026. The cuts extend a pattern of reductions as Meta',
   keywords: [
     'Meta layoffs 2026',
     'Meta Bay Area layoffs',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta Cuts Nearly 200 Bay Area Jobs | Burlingame & Sunnyvale, May 2026',
     description:
-      'State WARN filings confirm Meta is eliminating nearly 200 roles in Burlingame and Sunnyvale by late May. The cuts follow 700+ January reductions and extend a pattern stretching back to early 2026.',
+      'State WARN filings confirm Meta is eliminating nearly 200 roles in Burlingame and Sunnyvale by late May. The cuts follow 700+ January reductions and',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

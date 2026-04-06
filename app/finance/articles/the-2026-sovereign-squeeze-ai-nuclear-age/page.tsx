@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Strategic Report: The 2026 Sovereign Energy Squeeze | ObjectWire",
-  description: "Institutional analysis of the global shift toward 'Energy Sovereignty.' Why Big Tech's transition to nuclear power is creating a structural breaking point in the uranium market.",
+  title: "Strategic Report: The 2026 Sovereign Energy Squeeze",
+  description: "Institutional analysis of the global shift toward 'Energy Sovereignty.' Why Big Tech's transition to nuclear power is creating a structural breaking point",
   keywords: [
     "AI data center energy demands 2026",
     "investing in uranium for AI growth",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/the-2026-sovereign-squeeze-ai-nuclear-age',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Strategic Report: The 2026 Sovereign Energy Squeeze',
+    description: 'Financial Intelligence: ',
   },
 };
 

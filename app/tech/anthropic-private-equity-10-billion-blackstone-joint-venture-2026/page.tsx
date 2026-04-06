@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/tech/anthropic-private-equity-10-billion-blackstone-joint-venture-2026';
 
 export const metadata: Metadata = {
-  title: "Anthropic & Private Equity: A $10 Billion Play for Enterprise AI Dominance | ObjectWire",
+  title: "Anthropic & Private Equity: A $10 Billion Play for Enterprise AI Dominance",
   description:
-    "Anthropic is in advanced talks with Blackstone, Hellman & Friedman, and Permira to form a $10 billion AI joint venture that would embed Claude directly into hundreds of PE portfolio companies, as the company simultaneously fights a Department of Defense blacklisting in federal court.",
+    "Anthropic is in advanced talks with Blackstone, Hellman & Friedman, and Permira to form a $10 billion AI joint venture that would embed Claude directly",
   keywords: [
     'Anthropic private equity joint venture 2026',
     'Anthropic Blackstone $10 billion AI venture',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Anthropic & Private Equity: A $10 Billion Play for Enterprise AI Dominance",
     description:
-      "Blackstone, Hellman & Friedman, and Permira are in advanced talks to co-found a $10B AI joint venture with Anthropic, embedding Claude into their trillion-dollar portfolios using the Palantir consulting model. Meanwhile, Anthropic is fighting a federal blacklisting in two courts.",
+      "Blackstone, Hellman & Friedman, and Permira are in advanced talks to co-found a $10B AI joint venture with Anthropic, embedding Claude into their",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Anthropic & Private Equity: A $10 Billion Play for Enterprise AI Dominance",
     description:
-      "Blackstone + Anthropic = a $10B AI venture to implant Claude into a trillion-dollar PE portfolio. Simultaneously, Anthropic is suing the federal government over a DoD blacklisting it calls retaliatory. The stakes couldn't be higher.",
+      "Blackstone + Anthropic = a $10B AI venture to implant Claude into a trillion-dollar PE portfolio. Simultaneously, Anthropic is suing the federal",
   },
   other: {
     news_keywords:

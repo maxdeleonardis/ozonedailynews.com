@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Perplexity Unveils "Personal Computer" AI Agent & Developer Suite at Ask 2026 | ObjectWire',
+    'Perplexity Unveils "Personal Computer" AI Agent & Developer Suite at Ask 2026',
   description:
-    'At its inaugural Ask 2026 developer conference in San Francisco, Perplexity AI revealed "Personal Computer", a 24/7 autonomous AI agent anchored to a Mac mini, alongside four new developer APIs: Agent, Sandbox, Search, and Embeddings.',
+    'At its inaugural Ask 2026 developer conference in San Francisco, Perplexity AI revealed "Personal Computer", a 24/7 autonomous AI agent anchored to a Mac',
   keywords: [
     'Perplexity Personal Computer AI agent 2026',
     'Perplexity Ask 2026 developer conference',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Perplexity Unveils "Personal Computer" AI Agent & Developer Suite at Ask 2026',
     description:
-      'A Mac mini becomes a 24/7 autonomous AI worker. Perplexity released four developer APIs and took direct aim at Bloomberg and FactSet with Perplexity Finance.',
+      'A Mac mini becomes a 24/7 autonomous AI worker. Perplexity released four developer APIs and took direct aim at Bloomberg and FactSet with Perplexity',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

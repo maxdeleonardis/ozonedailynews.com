@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Life Biosciences FDA Clearance: ER-100 Epigenetic Reprogramming Trial for Glaucoma & NAION, January 2026 | ObjectWire',
+    'Life Biosciences FDA Clearance: ER-100 Epigenetic Reprogramming Trial for Glaucoma & NAION, January 2026',
   description:
-    "The FDA cleared Life Biosciences' ER-100 IND application on January 28, 2026, the first human trial of partial epigenetic reprogramming using OSK Yamanaka factors delivered via AAV2 to retinal ganglion cells in glaucoma and NAION patients.",
+    "The FDA cleared Life Biosciences' ER-100 IND application on January 28, 2026, the first human trial of partial epigenetic reprogramming using OSK Yamanaka",
   keywords: [
     'Life Biosciences ER-100 FDA clearance 2026',
     'epigenetic reprogramming clinical trial human',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title:
       'FDA Clears First Human Trial of Partial Epigenetic Reprogramming, Life Biosciences ER-100',
     description:
-      "On January 28, 2026, the FDA cleared Life Biosciences' ER-100 IND, a Phase 1 trial of AAV2-delivered OSK Yamanaka factors for retinal rejuvenation in glaucoma and NAION. The first human test of partial epigenetic reprogramming.",
+      "On January 28, 2026, the FDA cleared Life Biosciences' ER-100 IND, a Phase 1 trial of AAV2-delivered OSK Yamanaka factors for retinal rejuvenation in",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title:
       'FDA Clears ER-100: The First Human Trial of Partial Epigenetic Reprogramming',
     description:
-      "Life Biosciences' ER-100, an AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells, received FDA IND clearance January 28, 2026. Phase 1 trials begin Q1 2026 in glaucoma and NAION patients.",
+      "Life Biosciences' ER-100, an AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells, received FDA IND clearance January 28, 2026. Phase 1",
     images: [IMAGE_URL],
   },
 };

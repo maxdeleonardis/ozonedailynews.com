@@ -11,9 +11,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/apple/apple-tv-spring-2026-slate.jpg';
 
 export const metadata: Metadata = {
-  title: 'Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More | ObjectWire',
+  title: 'Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More',
   description:
-    "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks, from March 18 to April 15. Headlined by the SXSW breakout Margo's Got Money Troubles, Keanu Reeves in Outcome, Elisabeth Moss in Imperfect Women, and the long-awaited For All Mankind Season 5.",
+    "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks, from March 18 to April 15. Headlined by the SXSW",
   keywords: [
     'Apple TV+ spring 2026',
     "Margo's Got Money Troubles Apple TV+",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apple TV+ Spring 2026: Five-Week Premiere Blitz From March 18 to April 15',
     description:
-      "Apple TV+ kicks off a five-week spring slate with Imperfect Women (March 18), For All Mankind S5 (March 27), Your Friends & Neighbors S2 (April 3), Outcome (April 10), and the SXSW hit Margo's Got Money Troubles (April 15).",
+      "Apple TV+ kicks off a five-week spring slate with Imperfect Women (March 18), For All Mankind S5 (March 27), Your Friends & Neighbors S2 (April 3),",
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Apple TV+ Spring 2026 Premier Schedule' }],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Apple TV+ Spring 2026: Margo's Got Money Troubles, Outcome, For All Mankind S5 & More",
     description:
-      "Five weeks, five major premieres. Apple TV+'s spring 2026 blitz runs March 18 – April 15 with Elisabeth Moss, Keanu Reeves, Jon Hamm, and the SXSW breakout starring Elle Fanning and Michelle Pfeiffer.",
+      "Five weeks, five major premieres. Apple TV+'s spring 2026 blitz runs March 18 – April 15 with Elisabeth Moss, Keanu Reeves, Jon Hamm, and the SXSW",
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },

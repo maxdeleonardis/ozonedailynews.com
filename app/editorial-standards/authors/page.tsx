@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Our Authors | Editorial Standards - ObjectWire.org",
+  title: "Our Authors | Editorial Standards | ObjectWire.org",
   description: "Objectwire.org is a beacon of truth in a crowded digital landscape, driven by our exceptional team of journalists, analysts, and contributors.",
   alternates: {
     canonical: 'https://www.objectwire.org/editorial-standards/authors',

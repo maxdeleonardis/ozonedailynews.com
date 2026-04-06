@@ -10,9 +10,9 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Pokémon Pokopia Sells 2.2M Copies in 4 Days, Shattering Spin-Off Records | ObjectWire',
+    'Pokémon Pokopia Sells 2.2M Copies in 4 Days, Shattering Spin-Off Records',
   description:
-    'The Pokémon Company confirmed Pokémon Pokopia sold 2.2 million units in its first four days on Nintendo Switch 2, with over 1 million copies sold in Japan alone. Nintendo stock surged 15% in 48 hours. Full sales breakdown.',
+    'The Pokémon Company confirmed Pokémon Pokopia sold 2.2 million units in its first four days on Nintendo Switch 2, with over 1 million copies sold in Japan',
   keywords: [
     'Pokémon Pokopia sales 2.2 million',
     'Pokémon Pokopia launch week sales Nintendo Switch 2',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pokémon Pokopia: 2.2M Sold in 4 Days | Nintendo Stock Up 15%',
     description:
-      'The Pokémon Company confirms 2.2 million units sold in four days. Japan accounted for nearly 1 million copies. Physical stock sold out at Amazon, Currys, and Smyths. Analysts say it\'s on track to dethrone Pokémon Stadium as the best-selling spin-off in franchise history.',
+      'The Pokémon Company confirms 2.2 million units sold in four days. Japan accounted for nearly 1 million copies. Physical stock sold out at Amazon, Currys,',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

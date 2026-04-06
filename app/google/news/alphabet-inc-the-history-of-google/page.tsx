@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Alphabet Inc– The History of Google - ObjectWire.org",
-  description: "Founded by two Stanford students in the late 1990s, Google has transformed from a simple search engine project into a multinational conglomerate controlling vast swaths of the internet.",
+  title: "Alphabet Inc | The History of Google | ObjectWire.org",
+  description: "Founded by two Stanford students in the late 1990s, Google has transformed from a simple search engine project into a multinational conglomerate",
   alternates: {
     canonical: 'https://www.objectwire.org/alphabet-inc-the-history-of-google',
   },

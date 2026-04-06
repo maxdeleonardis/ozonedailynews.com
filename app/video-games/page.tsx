@@ -8,10 +8,11 @@ import { scanAllContent, filterByCategory } from '@/lib/content-scanner';
 // SEO METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
-  title: 'Video Games | News, Reviews & Guides | ObjectWire',
-  description:
-    "ObjectWire's complete video games coverage hub, GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, anime battle royales, and the latest gaming news.",
+  title: 'Video Games | News, Reviews, Guides & Gaming Coverage 2026',
+  description: "ObjectWire video games hub. GTA 6, Marvel's Wolverine, Resident Evil, Nintendo, PS5, Xbox, and the latest gaming news from primary sources.",
   keywords: [
     'video games',
     'GTA 6',
@@ -27,13 +28,19 @@ export const metadata: Metadata = {
     'Xbox Series X',
   ],
   openGraph: {
-    title: 'Video Games | News, Reviews & Guides | ObjectWire',
-    description:
-      "ObjectWire's complete video games hub covering GTA 6, Marvel's Wolverine, Resident Evil Requiem, Nintendo, and the latest gaming news.",
+    title: 'Video Games | News, Reviews, Guides & Gaming Coverage 2026',
+    description: "ObjectWire video games hub covering GTA 6, Marvel's Wolverine, Resident Evil, Nintendo, PS5, Xbox, and the latest gaming news.",
     type: 'website',
+    url: 'https://www.objectwire.org/video-games',
+    siteName: 'ObjectWire',
   },
   alternates: {
     canonical: 'https://www.objectwire.org/video-games',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Video Games | GTA 6, Nintendo, PS5, Xbox & Gaming News',
+    description: "ObjectWire gaming hub: GTA 6, Marvel's Wolverine, Resident Evil, Nintendo, and the latest news.",
   },
 };
 

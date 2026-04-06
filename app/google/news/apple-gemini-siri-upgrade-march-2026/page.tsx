@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/news/mac_mini.PNG';
 
 export const metadata: Metadata = {
-  title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March | ObjectWire",
+  title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
   description:
-    "Apple may yet deliver the first taste of its long-overdue Gemini-powered Siri overhaul before March ends, according to a 9to5Mac timeline analysis published March 20 \u2014 but the window is razor-thin and requires a rapid succession of software releases over the coming days.",
+    "Apple may yet deliver the first taste of its long-overdue Gemini-powered Siri overhaul before March ends, according to a 9to5Mac timeline analysis",
   keywords: [
     'Apple Siri Gemini upgrade March 2026',
     'Apple Gemini partnership Siri',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
     description:
-      "The window is razor-thin. According to a 9to5Mac timeline analysis, Apple could still deliver its Gemini-powered Siri overhaul before March ends \u2014 if it moves fast.",
+      "The window is razor-thin. According to a 9to5Mac timeline analysis, Apple could still deliver its Gemini-powered Siri overhaul before March ends \u2014 if",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
     description:
-      "9to5Mac says Apple could still hit its March target for the Gemini-powered Siri overhaul \u2014 but only if a rapid succession of software releases lands in the next few days.",
+      "9to5Mac says Apple could still hit its March target for the Gemini-powered Siri overhaul \u2014 but only if a rapid succession of software releases lands",
     images: [IMAGE_URL],
   },
 };

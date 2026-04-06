@@ -4,8 +4,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'How Technology Is Reshaping Real Estate in 2026 | ObjectWire',
-  description: 'From AI-powered valuations to blockchain property records and virtual tours, technology is transforming how homes are bought, sold, and managed. A deep dive into proptech trends shaping real estate in 2026.',
+  title: 'How Technology Is Reshaping Real Estate in 2026',
+  description: 'From AI-powered valuations to blockchain property records and virtual tours, technology is transforming how homes are bought, sold, and managed. A deep',
   keywords: ['proptech 2026','real estate technology','AI home valuation','blockchain real estate','virtual tours','smart home technology','real estate trends','property technology'],
   alternates: { canonical: 'https://www.objectwire.org/tech/real-estate' },
   openGraph: {

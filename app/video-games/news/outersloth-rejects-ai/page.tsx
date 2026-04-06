@@ -10,9 +10,9 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Outersloth Rejects 100% of Generative AI Pitches, GDC Festival of Gaming 2026 | ObjectWire',
+    'Outersloth Rejects 100% of Generative AI Pitches, GDC Festival of Gaming 2026',
   description:
-    'Outersloth, the indie fund founded by Among Us creator Innersloth, confirmed at GDC 2026 it has rejected 100% of generative AI submissions. Of ~3,400 pitches received, 30% of the rejected pile were AI-classified. The fund also published its full contract publicly.',
+    'Outersloth, the indie fund founded by Among Us creator Innersloth, confirmed at GDC 2026 it has rejected 100% of generative AI submissions. Of ~3,400',
   keywords: [
     'Outersloth rejects generative AI pitches',
     'Outersloth GDC 2026 Festival of Gaming',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Outersloth Rejects 100% of Generative AI Pitches at GDC 2026',
     description:
-      '"I really like a game that has soul. I don\'t know how to graph that... but we know it when we see it." Outersloth has rejected every single GenAI pitch it has received, out of ~3,400 total submissions.',
+      '"I really like a game that has soul. I don\'t know how to graph that... but we know it when we see it." Outersloth has rejected every single GenAI pitch',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

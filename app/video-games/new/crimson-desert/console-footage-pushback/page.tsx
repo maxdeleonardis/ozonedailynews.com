@@ -9,9 +9,9 @@ const SLUG = '/video-games/new/crimson-desert/console-footage-pushback';
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Crimson Desert Dev Pushes Back on Claims of Hiding Console Footage | ObjectWire',
+  title: 'Crimson Desert Dev Pushes Back on Claims of Hiding Console Footage',
   description:
-    'Pearl Abyss responds to fan accusations that the studio is deliberately hiding PS5 and Xbox Series X|S footage of Crimson Desert ahead of its March 19, 2026 launch.',
+    'Pearl Abyss responds to fan accusations that the studio is deliberately hiding PS5 and Xbox Series X|S footage of Crimson Desert ahead of its March 19,',
   keywords: [
     'Crimson Desert console footage',
     'Crimson Desert PS5 gameplay',

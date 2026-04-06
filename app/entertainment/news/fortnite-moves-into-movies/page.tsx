@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/entertainment/news/fortnite-moves-into-movies';
 
 export const metadata: Metadata = {
-  title: 'Unreal Engine Becomes the Backbone of 2026 Entertainment Production | ObjectWire',
+  title: 'Unreal Engine Becomes the Backbone of 2026 Entertainment Production',
   description:
-    'Unreal Engine 5.7 now powers over 153 film and TV productions in 2025 alone. From ILM StageCraft to Netflix virtual stages, the same engine behind Fortnite is reshaping Hollywood.',
+    'Unreal Engine 5.7 now powers over 153 film and TV productions in 2025 alone. From ILM StageCraft to Netflix virtual stages, the same engine behind',
   keywords: [
     'Unreal Engine 2026 entertainment',
     'Unreal Engine 5.7 film production',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Unreal Engine Becomes the Backbone of 2026 Entertainment Production',
     description:
-      '153 films and TV shows in 2025 alone. 500+ cumulative productions. The engine that runs Fortnite now renders Gotham, Arrakis, and the Upside Down, in real time, on set.',
+      '153 films and TV shows in 2025 alone. 500+ cumulative productions. The engine that runs Fortnite now renders Gotham, Arrakis, and the Upside Down, in real',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Unreal Engine: The Engine That Runs Fortnite Is Now Running Hollywood',
     description:
-      '153 film & TV productions in 2025 alone. 65% of entertainment developers now use Unreal Engine as their primary real-time engine. The Fortnite engine grew up.',
+      '153 film & TV productions in 2025 alone. 65% of entertainment developers now use Unreal Engine as their primary real-time engine. The Fortnite engine grew',
   },
 };
 

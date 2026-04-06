@@ -9,7 +9,7 @@ const SLUG = '/microsoft/news/project-helix-xbox-pc-hybrid-console';
 
 export const metadata: Metadata = {
   title: 'Project Helix | Next Xbox Runs PC & Console Games Natively',
-  description: 'Microsoft Gaming CEO Asha Sharma unveiled Project Helix, a next-generation Xbox that natively runs PC and console games, powered by a custom AMD Magnus chipset.',
+  description: 'Microsoft Gaming CEO Asha Sharma unveiled Project Helix, a next-generation Xbox that natively runs PC and console games, powered by a custom AMD Magnus',
   keywords: [
     'Project Helix Xbox',
     'Microsoft Project Helix',

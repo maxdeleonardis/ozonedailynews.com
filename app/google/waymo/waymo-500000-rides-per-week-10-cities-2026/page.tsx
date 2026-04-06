@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: 'Waymo Nears 500,000 Rides Per Week Across 10 U.S. Cities | ObjectWire',
+  title: 'Waymo Nears 500,000 Rides Per Week Across 10 U.S. Cities',
   description:
-    'Alphabet\'s Waymo is completing roughly 500,000 fully autonomous rides per week across 10 U.S. cities, co-CEO Dmitri Dolgov confirmed on March 24, 2026, with a target of one million paid rides per week by end of 2026.',
+    'Alphabet\'s Waymo is completing roughly 500,000 fully autonomous rides per week across 10 U.S. cities, co-CEO Dmitri Dolgov confirmed on March 24, 2026,',
   keywords: [
     'Waymo 500000 rides 2026',
     'Waymo autonomous miles 2026',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Waymo Nears 500,000 Rides Per Week Across 10 U.S. Cities',
     description:
-      'Co-CEO Dmitri Dolgov says Waymo\'s 3,000-vehicle fleet drives more than 4 million fully autonomous miles per week and is targeting one million paid rides weekly by year\'s end.',
+      'Co-CEO Dmitri Dolgov says Waymo\'s 3,000-vehicle fleet drives more than 4 million fully autonomous miles per week and is targeting one million paid rides',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

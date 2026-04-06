@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Seven Deadly Sins: Origin Open World Launches March 2026 on PS5 and Steam | ObjectWire',
+  title: 'Seven Deadly Sins: Origin Open World Launches March 2026 on PS5 and Steam',
   description:
-    'The Seven Deadly Sins: Origin launches March 16, 2026, on PS5 and Steam, followed by iOS, Android, and PC expansion on March 23. The free-to-play open-world action RPG from Netmarble uses Unreal Engine 5 and features Prince Tristan in a fractured Britannia.',
+    'The Seven Deadly Sins: Origin launches March 16, 2026, on PS5 and Steam, followed by iOS, Android, and PC expansion on March 23. The free-to-play',
   keywords: [
     'Seven Deadly Sins Origin',
     'Seven Deadly Sins Origin open world',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Seven Deadly Sins: Origin Open World RPG -- March 16 on PS5 and Steam, March 23 Mobile',
     description:
-      'Free-to-play open-world action RPG in the Seven Deadly Sins universe. Unreal Engine 5, real-time tag combat, climbing, gliding, crafting, anime voice cast, and gacha hero collection.',
+      'Free-to-play open-world action RPG in the Seven Deadly Sins universe. Unreal Engine 5, real-time tag combat, climbing, gliding, crafting, anime voice',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/anime/seven-deadly-sins-origin',
     siteName: 'ObjectWire',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Seven Deadly Sins: Origin -- Open World RPG Coming March 2026',
     description:
-      'PS5 and Steam on March 16. iOS, Android, and PC expanded access on March 23. Unreal Engine 5, Prince Tristan, real-time tag combat, and open-world Britannia.',
+      'PS5 and Steam on March 16. iOS, Android, and PC expanded access on March 23. Unreal Engine 5, Prince Tristan, real-time tag combat, and open-world',
   },
 };
 

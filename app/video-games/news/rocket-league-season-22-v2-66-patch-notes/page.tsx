@@ -11,7 +11,7 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Rocket League Season 22 Patch Notes | v2.66, Rocket Pass, LTE Changes',
   description:
-    'Rocket League Season 22 (v2.66) adds a new Rocket Pass, concurrent Limited Time Events, a redesigned News Panel, ranked modifications, and major training and visibility QoL upgrades.',
+    'Rocket League Season 22 (v2.66) adds a new Rocket Pass, concurrent Limited Time Events, a redesigned News Panel, ranked modifications, and major training',
   keywords: [
     'Rocket League Season 22',
     'Rocket League v2.66 patch notes',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rocket League Season 22 | New Rocket Pass, Concurrent LTEs, Training QoL',
     description:
-      'v2.66 launches Season 22 with a new Rocket Pass, concurrent Limited Time Events, expanded preset slots, flip-reset indicators, and boost-pad recharge visuals.',
+      'v2.66 launches Season 22 with a new Rocket Pass, concurrent Limited Time Events, expanded preset slots, flip-reset indicators, and boost-pad recharge',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

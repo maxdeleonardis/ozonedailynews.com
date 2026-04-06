@@ -12,7 +12,7 @@ const OG_IMAGE = '/equipment-camera-placeholder.jpg';
 export const metadata: Metadata = {
   title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Camera Review',
   description:
-    'Complete guide to the Hasselblad 907X and CFV 100C medium-format digital system. 100MP BSI sensor, 15 stops dynamic range, 1TB built-in storage, PDAF, and V-system compatibility from 1957.',
+    'Complete guide to the Hasselblad 907X and CFV 100C medium-format digital system. 100MP BSI sensor, 15 stops dynamic range, 1TB built-in storage, PDAF, and',
   keywords: [
     'Hasselblad 907X',
     'Hasselblad CFV 100C',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Modular Camera',
     description:
-      'The Hasselblad 907X and CFV 100C combine a 100MP BSI sensor, 15 stops of dynamic range, 1TB built-in SSD, and V-system compatibility into a compact modular medium-format system.',
+      'The Hasselblad 907X and CFV 100C combine a 100MP BSI sensor, 15 stops of dynamic range, 1TB built-in SSD, and V-system compatibility into a compact',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

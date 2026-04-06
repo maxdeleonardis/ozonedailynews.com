@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Most Important Stablecoins in the World 2026 | Complete Guide | ObjectWire",
-  description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status, and why stablecoins matter to the global financial system.",
+  title: "The Most Important Stablecoins in the World 2026 | Complete Guide",
+  description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status,",
   keywords: [
     "most important stablecoins 2026 ranking",
     "USDT Tether market cap largest stablecoin",

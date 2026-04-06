@@ -7,9 +7,9 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Conan Boyle | Science & Technology Writer | ObjectWire',
+  title: 'Conan Boyle | Science & Technology Writer',
   description:
-    'Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI hardware, gaming, and emerging technologies.',
+    'Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI',
   alternates: { canonical: 'https://www.objectwire.org/authors/conan-boyle' },
   openGraph: {
     title: 'Conan Boyle | ObjectWire Founding Writer',

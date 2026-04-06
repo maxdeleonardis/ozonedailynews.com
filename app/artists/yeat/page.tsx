@@ -6,9 +6,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/artists/yeat';
 
 export const metadata: Metadata = {
-  title: 'Yeat | Rage Rap Pioneer & Chart-Topping Artist | ObjectWire',
+  title: 'Yeat | Rage Rap Pioneer & Chart-Topping Artist',
   description:
-    'Complete profile of Yeat (Noah Olivier Smith), the rage rap phenomenon dominating modern hip-hop. Discography, streaming stats, musical style, and tour dates.',
+    'Complete profile of Yeat (Noah Olivier Smith), the rage rap phenomenon dominating modern hip-hop. Discography, streaming stats, musical style, and tour',
   keywords: [
     'Yeat',
     'Noah Olivier Smith',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'profile',
-    title: 'Yeat | Rage Rap Pioneer | ObjectWire',
+    title: 'Yeat | Rage Rap Pioneer',
     description:
       'Profile of Yeat, the rage rap phenomenon with 42M+ monthly Spotify listeners. Discography from 4L to Lyfestyle (#1), tour dates, and latest news.',
     url: `https://www.objectwire.org${SLUG}`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yeat | ObjectWire',
+    title: 'Yeat',
     description:
       'Rage rap pioneer Yeat, 42M+ monthly listeners, first #1 album with Lyfestyle. Full profile and discography.',
     images: ['https://www.objectwire.org/artist/Yeat-adl.png'],

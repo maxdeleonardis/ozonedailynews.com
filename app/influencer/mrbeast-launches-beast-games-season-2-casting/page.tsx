@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "MrBeast Announces Beast Games Season 2 Casting: Everything You Need to Know | ObjectWire",
+  title: "MrBeast Announces Beast Games Season 2 Casting: Everything You Need to Know",
   description:
     "MrBeast has officially opened casting for Beast Games Season 2. Here's how to apply, what to expect, and why this season could be even bigger.",
   keywords: [

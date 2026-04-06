@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/crypto/kucoin.png';
 export const metadata: Metadata = {
   title: 'KuCoin CFTC Settlement | Peken Global Barred from U.S.',
   description:
-    'KuCoin operator Peken Global Limited agrees to a $500K CFTC civil penalty and is indefinitely barred from letting U.S. persons trade without foreign board of trade registration.',
+    'KuCoin operator Peken Global Limited agrees to a $500K CFTC civil penalty and is indefinitely barred from letting U.S. persons trade without foreign board',
   keywords: [
     'KuCoin CFTC settlement 2026',
     'Peken Global Limited CFTC consent order',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'KuCoin CFTC Settlement | Peken Global Barred from U.S.',
     description:
-      'KuCoin operator Peken Global Limited accepts a $500K CFTC civil penalty and is indefinitely blocked from serving U.S. traders. The consent order closes the loop on a two-year U.S. regulatory reckoning.',
+      'KuCoin operator Peken Global Limited accepts a $500K CFTC civil penalty and is indefinitely blocked from serving U.S. traders. The consent order closes',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

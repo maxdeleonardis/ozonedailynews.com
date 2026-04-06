@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/yamanaka-factors-reverse-cellular-aging-markers';
 
 export const metadata: Metadata = {
-  title: 'Yamanaka Factors Can Reverse Cellular Aging Markers in Studies | But Not Yet Safely in Whole Humans | ObjectWire',
+  title: 'Yamanaka Factors Can Reverse Cellular Aging Markers in Studies | But Not Yet Safely in Whole Humans',
   description:
-    'Yamanaka factors OCT4 SOX2 KLF4 and c-MYC can reverse epigenetic aging in cells and mice, but no approved human rejuvenation therapy exists. Review of partial reprogramming research, safety risks, and clinical status as of 2026.',
+    'Yamanaka factors OCT4 SOX2 KLF4 and c-MYC can reverse epigenetic aging in cells and mice, but no approved human rejuvenation therapy exists. Review of',
   keywords: [
     'Yamanaka factors cellular aging',
     'OSKM partial reprogramming',

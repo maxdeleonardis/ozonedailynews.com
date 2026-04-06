@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/google/news/iran-cyber-attacks-google-threat-intelligence-march-2026';
 
 export const metadata: Metadata = {
-  title: 'Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026 | ObjectWire',
+  title: 'Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026',
   description:
-    'Google Threat Intelligence Group issued an alert March 2, 2026, warning that Iranian state-affiliated actors launched a coordinated cyber campaign targeting Israel, Gulf states, Europe, and North America, with 150+ hacktivist-claimed incidents logged in 72 hours.',
+    'Google Threat Intelligence Group issued an alert March 2, 2026, warning that Iranian state-affiliated actors launched a coordinated cyber campaign',
   keywords: [
     'Google Threat Intelligence Iran cyber attacks 2026',
     'Iranian cyber campaign March 2026',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026",
     description:
-      "150+ hacktivist-claimed incidents in 72 hours. DDoS peaks at 1.2 Tbps. Google, Mandiant, Cloudflare, and Microsoft all issued alerts. No confirmed critical OT compromise as of March 2.",
+      "150+ hacktivist-claimed incidents in 72 hours. DDoS peaks at 1.2 Tbps. Google, Mandiant, Cloudflare, and Microsoft all issued alerts. No confirmed",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Google: Iran-Linked Actors Hit Israel, Gulf States & Western Infrastructure | 150+ Incidents in 72 Hrs",
     description:
-      "Google Threat Intelligence Group alert March 2, 2026: Iranian state-aligned hacktivists targeted energy, finance, aviation, and telecoms in coordinated campaign tied to Operation Roaring Lion.",
+      "Google Threat Intelligence Group alert March 2, 2026: Iranian state-aligned hacktivists targeted energy, finance, aviation, and telecoms in coordinated",
   },
 };
 

@@ -10,9 +10,9 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Clair Obscur: Expedition 33 Built by Just 4 Programmers, Most Awarded Game in History | ObjectWire',
+    'Clair Obscur: Expedition 33 Built by Just 4 Programmers, Most Awarded Game in History',
   description:
-    'At GDC 2026, Sandfall Interactive revealed that 95% of Clair Obscur: Expedition 33 was built using Unreal Engine 5 Blueprints by a team of four programmers. The game has now surpassed Elden Ring with 436 GOTY awards, the most in history.',
+    'At GDC 2026, Sandfall Interactive revealed that 95% of Clair Obscur: Expedition 33 was built using Unreal Engine 5 Blueprints by a team of four',
   keywords: [
     'Clair Obscur Expedition 33 GDC 2026',
     'Sandfall Interactive Blueprint scripting',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Clair Obscur Was Built by 4 Programmers | And Just Became the Most Awarded Game Ever',
     description:
-      '95% Blueprint, 4 programmers, under $10M budget. Sandfall Interactive\'s GDC 2026 talk revealed how Clair Obscur: Expedition 33 beat Elden Ring\'s all-time GOTY record with 436 wins.',
+      '95% Blueprint, 4 programmers, under $10M budget. Sandfall Interactive\'s GDC 2026 talk revealed how Clair Obscur: Expedition 33 beat Elden Ring\'s',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Clair Obscur: 4 Programmers, 95% Blueprint, Most Awarded Game in History',
     description:
-      '436 GOTY wins. 9 TGA awards in one night. Built by 4 programmers using Unreal Engine Blueprints. Sandfall\'s GDC 2026 talk left the Moscone Center in a "collective murmur of shock."',
+      '436 GOTY wins. 9 TGA awards in one night. Built by 4 programmers using Unreal Engine Blueprints. Sandfall\'s GDC 2026 talk left the Moscone Center in a',
   },
 };
 

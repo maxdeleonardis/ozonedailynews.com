@@ -7,9 +7,9 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Alfansa â€” Finance & Markets Reporter | ObjectWire',
+  title: 'Alfansa â€” Finance & Markets Reporter',
   description:
-    'Alfansa is ObjectWire\'s Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, My Hero Academia, and gaming culture.',
+    'Alfansa is ObjectWire\'s Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, My Hero Academia,',
   alternates: { canonical: 'https://www.objectwire.org/authors/alfansa' },
   openGraph: {
     title: 'Alfansa | ObjectWire Finance & Markets Reporter',

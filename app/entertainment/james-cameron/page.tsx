@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "James Cameron - Filmmaker & Explorer | ObjectWire",
+  title: "James Cameron | Filmmaker & Explorer",
   description:
     "James Cameron is a Canadian filmmaker and deep-sea explorer. Director of Avatar, Titanic, and The Terminator franchise.",
   keywords: [

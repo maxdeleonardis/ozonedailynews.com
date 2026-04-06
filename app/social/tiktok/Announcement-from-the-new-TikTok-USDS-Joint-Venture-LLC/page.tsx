@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "TikTok Announces USDS Joint Venture LLC to Address U.S. Security Concerns | ObjectWire",
+  title: "TikTok Announces USDS Joint Venture LLC to Address U.S. Security Concerns",
   description:
-    "TikTok unveils groundbreaking joint venture with U.S. technology and security partners, creating USDS LLC to operate the platform domestically while addressing national security concerns.",
+    "TikTok unveils groundbreaking joint venture with U.S. technology and security partners, creating USDS LLC to operate the platform domestically while",
   keywords: [
     "TikTok",
     "USDS",

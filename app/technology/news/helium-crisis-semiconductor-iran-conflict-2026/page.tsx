@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Helium Crisis Hits Semiconductor Giants | Iran Conflict Supply Shock',
   description:
-    'The U.S.-Israel conflict with Iran has cut off roughly 33% of the world\'s helium supply from Qatar, sending the PHLX Semiconductor Index down 3% and threatening fab shutdowns at Samsung, SK Hynix, and TSMC.',
+    'The U.S.-Israel conflict with Iran has cut off roughly 33% of the world\'s helium supply from Qatar, sending the PHLX Semiconductor Index down 3% and',
   keywords: [
     'helium semiconductor supply crisis 2026',
     'Iran conflict chip supply shock',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Helium Crisis | Iran Conflict Cuts 33% of Global Chip Supply Input',
     description:
-      'The PHLX Semiconductor Index fell 3% as investors realized Iran\'s conflict has physically cut off Qatar\'s helium — a non-substitutable input for every advanced chip fab on earth.',
+      'The PHLX Semiconductor Index fell 3% as investors realized Iran\'s conflict has physically cut off Qatar\'s helium — a non-substitutable input for every',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

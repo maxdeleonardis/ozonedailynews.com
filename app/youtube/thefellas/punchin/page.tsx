@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Punchin' Podcast | Danny Aarons & Tennessee Thresher | ObjectWire",
-  description: "Complete profile of Punchin', the weekly couple podcast hosted by Danny Aarons and Tennessee Thresher on The Fellas Studios network. Episodes, topics, style, and how to listen.",
+  title: "Punchin' Podcast | Danny Aarons & Tennessee Thresher",
+  description: "Complete profile of Punchin', the weekly couple podcast hosted by Danny Aarons and Tennessee Thresher on The Fellas Studios network. Episodes, topics,",
   alternates: {
     canonical: 'https://www.objectwire.org/youtube/thefellas/punchin',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'UK YouTubers podcast',
   ],
   openGraph: {
-    title: "Punchin' Podcast | Danny Aarons & Tennessee Thresher | ObjectWire",
+    title: "Punchin' Podcast | Danny Aarons & Tennessee Thresher",
     description: "Full profile of Punchin', the candid weekly couple podcast hosted by Danny Aarons and Tennessee Thresher on The Fellas Studios network.",
     type: "article",
     url: "https://www.objectwire.org/youtube/thefellas/punchin",

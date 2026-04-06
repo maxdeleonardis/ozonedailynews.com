@@ -9,9 +9,9 @@ const SLUG = '/video-games/anime/neverness-to-everness';
 const OG_IMAGE = '/video-games/neverness-to-everness.png';
 
 export const metadata: Metadata = {
-  title: 'Neverness to Everness | 30M Pre-Registrations, April 29 Launch | ObjectWire',
+  title: 'Neverness to Everness | 30M Pre-Registrations, April 29 Launch',
   description:
-    'Neverness to Everness tops 30 million pre-registrations ahead of its April 29, 2026 global launch. Free A-Class character Haniel unlocked for all players at launch.',
+    'Neverness to Everness tops 30 million pre-registrations ahead of its April 29, 2026 global launch. Free A-Class character Haniel unlocked for all players',
   keywords: [
     'Neverness to Everness pre-registration',
     'Neverness to Everness release date',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Neverness to Everness Tops 30M Pre-Registrations | Launches April 29, 2026 | ObjectWire',
+    title: 'Neverness to Everness Tops 30M Pre-Registrations | Launches April 29, 2026',
     description:
       'Hotta Studio\'s open-world anime RPG hits 30M pre-registrations. Free A-Class character Haniel unlocked at launch. Global release April 29, 2026.',
     url: `https://www.objectwire.org${SLUG}`,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neverness to Everness | 30M Pre-Regs, Free Haniel at Launch | ObjectWire',
+    title: 'Neverness to Everness | 30M Pre-Regs, Free Haniel at Launch',
     description:
       'Anime GTA hits 30M pre-registrations. Haniel is free for all players. Global launch April 29, 2026.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

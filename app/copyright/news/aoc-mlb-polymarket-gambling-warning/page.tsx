@@ -11,9 +11,9 @@ const IMAGE_URL =
   'https://www.objectwire.org/default/aoc.PNG';
 
 export const metadata: Metadata = {
-  title: "AOC Calls MLB's $300M Polymarket Deal 'Sad,' Warns Against Pervasive Gambling | ObjectWire",
+  title: "AOC Calls MLB's $300M Polymarket Deal 'Sad,' Warns Against Pervasive Gambling",
   description:
-    "Rep. Alexandria Ocasio-Cortez condemned Major League Baseball's exclusive prediction market deal with Polymarket, warning that embedding gambling into America's national pastime is 'not good for society.' MLB became the first major U.S. sports league to partner with a prediction exchange.",
+    "Rep. Alexandria Ocasio-Cortez condemned Major League Baseball's exclusive prediction market deal with Polymarket, warning that embedding gambling into",
   keywords: [
     'AOC Polymarket MLB',
     'Alexandria Ocasio-Cortez Polymarket',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AOC Calls MLB's $300M Polymarket Deal 'Sad,' Warns Against Pervasive Gambling",
     description:
-      "MLB named Polymarket its official prediction market exchange partner, the first such deal in major U.S. sports. AOC responded immediately, warning that gambling expansion into sports is 'not good for society.'",
+      "MLB named Polymarket its official prediction market exchange partner, the first such deal in major U.S. sports. AOC responded immediately, warning that",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "AOC on MLB-Polymarket: 'Sad.' Gambling in Sports Is 'Not Good for Society'",
     description:
-      "MLB became the first U.S. major league to partner with a prediction exchange. AOC fired back immediately. The debate over pervasive sports gambling is heating up.",
+      "MLB became the first U.S. major league to partner with a prediction exchange. AOC fired back immediately. The debate over pervasive sports gambling is",
     images: [IMAGE_URL],
   },
 };

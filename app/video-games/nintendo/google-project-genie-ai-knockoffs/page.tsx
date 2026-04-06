@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Google\'s Project Genie AI Tool Generates Nintendo Game Knockoffs | ObjectWire',
-  description: 'Google launches Project Genie AI tool that generates playable Nintendo knockoffs including Super Mario and Zelda worlds without copyright safeguards, raising legal and ethical concerns.',
+  title: 'Google\'s Project Genie AI Tool Generates Nintendo Game Knockoffs',
+  description: 'Google launches Project Genie AI tool that generates playable Nintendo knockoffs including Super Mario and Zelda worlds without copyright safeguards,',
   keywords: [
     'Google Project Genie',
     'AI gaming',

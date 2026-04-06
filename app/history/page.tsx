@@ -5,9 +5,12 @@ import ArticleHistory from '@/components/articles/ArticleHistory';
 import Link           from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Reading History | ObjectWire',
+  title: 'Reading History',
   description: 'Your recently viewed articles on ObjectWire.',
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: 'https://www.objectwire.org/history',
+  },
 };
 
 export default function HistoryPage() {

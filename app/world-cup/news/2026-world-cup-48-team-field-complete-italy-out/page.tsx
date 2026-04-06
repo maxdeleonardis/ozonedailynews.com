@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/world-cup/worldcup-usa-drama-strike
 export const metadata: Metadata = {
   title: '2026 World Cup Field Complete | Italy Out, 48 Nations Set',
   description:
-    'Iraq beat Bolivia and DR Congo beat Jamaica to fill the last two spots in the 2026 World Cup. Italy lost to Bosnia on penalties, missing a third consecutive tournament.',
+    'Iraq beat Bolivia and DR Congo beat Jamaica to fill the last two spots in the 2026 World Cup. Italy lost to Bosnia on penalties, missing a third',
   keywords: [
     '2026 World Cup 48 teams',
     'World Cup 2026 qualified teams',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '2026 World Cup 48-Team Field Complete | Italy Out, Iraq and DR Congo In',
     description:
-      'Iraq and DR Congo claimed the last two World Cup spots. Italy lost to Bosnia on penalties, becoming the first four-time champion to miss three straight tournaments.',
+      'Iraq and DR Congo claimed the last two World Cup spots. Italy lost to Bosnia on penalties, becoming the first four-time champion to miss three straight',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

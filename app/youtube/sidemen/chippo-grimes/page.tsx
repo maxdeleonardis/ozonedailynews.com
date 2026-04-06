@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "ChrisMD (Chippo) - Football YouTube Creator & Sidemen Collaborator | ObjectWire",
+  title: "ChrisMD (Chippo) | Football YouTube Creator & Sidemen Collaborator",
   description: "Complete profile of ChrisMD (Chris Dixon), British football YouTube creator known for skills videos, challenges, and regular Sidemen appearances.",
   keywords: ["ChrisMD", "Chris Dixon", "Chippo", "Sidemen", "Football YouTube", "UK YouTuber", "Soccer"],
   alternates: {

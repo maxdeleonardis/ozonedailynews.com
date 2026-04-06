@@ -12,7 +12,7 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 export const metadata: Metadata = {
   title: 'ObjectWire | Independent Investigative Journalism & Tech News',
   description:
-    'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage of business, politics, and innovation.',
+    'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
   alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
     title: 'ObjectWire | Independent Investigative Journalism',

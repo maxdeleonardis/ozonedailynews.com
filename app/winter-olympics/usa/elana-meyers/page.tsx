@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Elana Meyers Taylor | Team USA Bobsled | Olympic Profile | ObjectWire',
+  title: 'Elana Meyers Taylor | Team USA Bobsled | Olympic Profile',
   description:
-    'Full profile of Elana Meyers Taylor, the 41-year-old American bobsled legend who won Olympic gold at Milano Cortina 2026, becoming the oldest Olympic bobsled champion in history and the most decorated female bobsledder of all time.',
+    'Full profile of Elana Meyers Taylor, the 41-year-old American bobsled legend who won Olympic gold at Milano Cortina 2026, becoming the oldest Olympic',
   keywords: [
     'Elana Meyers Taylor',
     'Team USA bobsled',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Elana Meyers Taylor | The Most Decorated Female Bobsledder in Olympic History',
     description:
-      'How a college softball player from Georgia became a five-time Olympian, a gold medalist at 41, and the greatest female bobsled pilot in the history of the sport.',
+      'How a college softball player from Georgia became a five-time Olympian, a gold medalist at 41, and the greatest female bobsled pilot in the history of the',
     type: 'article',
     publishedTime: '2026-02-17T14:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],

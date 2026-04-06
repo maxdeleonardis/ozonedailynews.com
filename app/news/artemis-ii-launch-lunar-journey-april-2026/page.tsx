@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1457364887197-9150188c107b?i
 export const metadata: Metadata = {
   title: 'Artemis II Launches | First Humans to Moon in 54 Years',
   description:
-    'NASA\'s Artemis II lifted off April 1, 2026, sending four astronauts on a 10-day lunar journey for the first time since 1972. Commander Reid Wiseman leads the crew toward a free-return trajectory around the Moon.',
+    'NASA\'s Artemis II lifted off April 1, 2026, sending four astronauts on a 10-day lunar journey for the first time since 1972. Commander Reid Wiseman leads',
   keywords: [
     'Artemis II launch 2026',
     'NASA Artemis II crew',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Artemis II Launches | First Humans Beyond Earth Orbit Since 1972',
     description:
-      'Four astronauts are headed to the Moon for the first time in 54 years. SLS lifted off April 1, 2026. Translunar injection burn tonight. Lunar flyby at 252,000 miles on April 6.',
+      'Four astronauts are headed to the Moon for the first time in 54 years. SLS lifted off April 1, 2026. Translunar injection burn tonight. Lunar flyby at',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

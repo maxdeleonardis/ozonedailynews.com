@@ -9,9 +9,9 @@ const SLUG = '/crypto/news/fed-cbdc-halted-stablecoins-digital-dollar-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1771736007142-e1348a02f006?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework | ObjectWire',
+  title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework',
   description:
-    'The Federal Reserve has confirmed it will not pursue a central bank digital currency, instead backing stablecoins and tokenized bank deposits as the U.S. digital dollar framework.',
+    'The Federal Reserve has confirmed it will not pursue a central bank digital currency, instead backing stablecoins and tokenized bank deposits as the U.S.',
   keywords: [
     'Federal Reserve CBDC halted 2026',
     'Fed stablecoin support',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework | ObjectWire',
+    title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework',
     description:
-      'The Federal Reserve has confirmed it will not pursue a CBDC, throwing its weight behind stablecoins and tokenized bank deposits as the preferred digital dollar frameworks for the United States.',
+      'The Federal Reserve has confirmed it will not pursue a CBDC, throwing its weight behind stablecoins and tokenized bank deposits as the preferred digital',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'US hundred dollar bill representing Federal Reserve monetary policy' }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins Instead',
     description:
-      'The Federal Reserve will not pursue a central bank digital currency. Stablecoins and tokenized bank deposits are now the official U.S. digital dollar framework.',
+      'The Federal Reserve will not pursue a central bank digital currency. Stablecoins and tokenized bank deposits are now the official U.S. digital dollar',
     images: [OG_IMAGE],
   },
 };

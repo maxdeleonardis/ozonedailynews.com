@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/crypto';
 
 export const metadata: Metadata = {
-  title: 'Crypto | Stablecoins, Regulation & Digital Assets | ObjectWire',
+  title: 'Crypto | Stablecoins, Regulation & Digital Assets',
   description:
     'ObjectWire crypto coverage hub. USDC, stablecoin regulation, Coinbase, XRP, Circle, DeFi news, and digital asset analysis from primary sources.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'crypto compliance',
   ],
   openGraph: {
-    title: 'Crypto | Stablecoins, Regulation & Digital Assets | ObjectWire',
+    title: 'Crypto | Stablecoins, Regulation & Digital Assets',
     description:
       'Complete crypto coverage from ObjectWire. Stablecoin policy, USDC issuance, Coinbase, XRP, DeFi infrastructure, and regulatory analysis.',
     type: 'website',
@@ -40,6 +40,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `https://www.objectwire.org${SLUG}`,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crypto | Stablecoins, Regulation & Digital Assets',
+    description: 'ObjectWire crypto hub: stablecoin policy, USDC, Coinbase, XRP, DeFi infrastructure, and regulatory analysis.',
   },
 };
 

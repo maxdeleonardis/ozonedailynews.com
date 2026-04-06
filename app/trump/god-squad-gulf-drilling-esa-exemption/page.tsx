@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'God Squad Exempts Gulf Drilling | ESA Override 2026',
     description:
-      "The Endangered Species Committee voted unanimously March 31 to shield all Gulf oil operations from ESA constraints. Environmental groups say it could push the Rice's whale to extinction.",
+      "The Endangered Species Committee voted unanimously March 31 to shield all Gulf oil operations from ESA constraints. Environmental groups say it could push",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "God Squad Exempts All Gulf Drilling from ESA | First Ruling Since 1992",
     description:
-      "Pete Hegseth invoked a never-before-used national security provision to force the God Squad's hand. The committee voted unanimously, putting the Rice's whale at grave risk.",
+      "Pete Hegseth invoked a never-before-used national security provision to force the God Squad's hand. The committee voted unanimously, putting the Rice's",
   },
 };
 

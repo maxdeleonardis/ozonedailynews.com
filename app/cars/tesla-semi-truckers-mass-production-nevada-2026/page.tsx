@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/entertainment/waymo.jpg';
 
 export const metadata: Metadata = {
-  title: 'Tesla Semi Wins Over Truckers Ahead of Mass Production Ramp | ObjectWire',
+  title: 'Tesla Semi Wins Over Truckers Ahead of Mass Production Ramp',
   description:
-    'Truck drivers and fleet operators who piloted the Tesla Semi are praising its centered driving position, 500-mile range, faster charging, and $100,000 cost advantage over competing BEV trucks \u2014 as the Class 8 electric Semi transitions from years of limited testing into mass production at a dedicated Nevada factory.',
+    'Truck drivers and fleet operators who piloted the Tesla Semi are praising its centered driving position, 500-mile range, faster charging, and $100,000',
   keywords: [
     'Tesla Semi mass production 2026',
     'Tesla Semi truckers review 2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Tesla Semi Wins Over Truckers Ahead of Mass Production Ramp',
     description:
-      'Truckers who drove the Tesla Semi in pilot programs loved it \u2014 and it costs $100,000 less than competing BEV trucks. Now mass production is finally ramping in Nevada.',
+      'Truckers who drove the Tesla Semi in pilot programs loved it \u2014 and it costs $100,000 less than competing BEV trucks. Now mass production is finally',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tesla Semi Wins Over Truckers Ahead of Mass Production Ramp',
     description:
-      'The WSJ found truckers who piloted the Tesla Semi loved it. 500-mile range, $100K cheaper than rivals, and Elon Musk says it\u2019s \u201csuper fun to drive.\u201d Mass production starts now.',
+      'The WSJ found truckers who piloted the Tesla Semi loved it. 500-mile range, $100K cheaper than rivals, and Elon Musk says it\u2019s \u201csuper fun to',
     images: [IMAGE_URL],
   },
 };

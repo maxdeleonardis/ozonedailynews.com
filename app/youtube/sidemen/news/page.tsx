@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "How to Get Last-Minute Sidemen Charity Match 2026 Tickets | ObjectWire",
-  description: "Complete guide to securing last-minute tickets for the Sidemen Charity Match 2026 at Wembley Stadium. Learn about resale options, hospitality packages, and tips for attending this epic YouTube creator football event.",
+  title: "How to Get Last-Minute Sidemen Charity Match 2026 Tickets",
+  description: "Complete guide to securing last-minute tickets for the Sidemen Charity Match 2026 at Wembley Stadium. Learn about resale options, hospitality packages,",
   alternates: {
     canonical: 'https://www.objectwire.org/sidemen/news',
   },

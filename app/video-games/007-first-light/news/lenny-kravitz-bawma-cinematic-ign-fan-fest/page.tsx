@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Lenny Kravitz Revealed as Villain Bawma in 007 First Light Cinematic at IGN Fan Fest 2026 | ObjectWire',
+  title: 'Lenny Kravitz Revealed as Villain Bawma in 007 First Light Cinematic at IGN Fan Fest 2026',
   description:
-    'IGN unveiled a new cinematic trailer for 007: First Light at Fan Fest 2026 spotlighting Lenny Kravitz as villain Bawma, a pirate king and black-market dealer. Director Hakan Abrak says the character avoids one-dimensional villainy. The game releases May 27, 2026.',
+    'IGN unveiled a new cinematic trailer for 007: First Light at Fan Fest 2026 spotlighting Lenny Kravitz as villain Bawma, a pirate king and black-market',
   keywords: [
     'Lenny Kravitz 007 First Light',
     'Bawma villain 007 First Light',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Lenny Kravitz as Villain Bawma in 007: First Light -- IGN Fan Fest 2026 Cinematic Trailer',
     description:
-      'New cinematic trailer for IO Interactive\'s 007: First Light reveals Lenny Kravitz as pirate king Bawma. Multi-layered antagonist, crocodile scene, and May 27, 2026 release date confirmed.',
+      'New cinematic trailer for IO Interactive\'s 007: First Light reveals Lenny Kravitz as pirate king Bawma. Multi-layered antagonist, crocodile scene, and',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
     siteName: 'ObjectWire',

@@ -7,9 +7,9 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:
-    "FIFA World Cup 2026, Schedule, Teams, Host Cities & News | ObjectWire",
+    "FIFA World Cup 2026, Schedule, Teams, Host Cities & News",
   description:
-    "Complete coverage of FIFA World Cup 2026 across the USA, Mexico, and Canada. 48 teams, 104 matches, 16 host cities, schedules, qualified teams, tournament format, and breaking news.",
+    "Complete coverage of FIFA World Cup 2026 across the USA, Mexico, and Canada. 48 teams, 104 matches, 16 host cities, schedules, qualified teams, tournament",
   keywords: [
     "FIFA World Cup 2026",
     "World Cup 2026",
@@ -21,13 +21,18 @@ export const metadata: Metadata = {
     "football",
   ],
   openGraph: {
-    title: "FIFA World Cup 2026 | ObjectWire",
+    title: "FIFA World Cup 2026",
     description:
       "48 teams, 104 matches, 16 host cities across North America. Full tournament coverage.",
     type: "website",
   },
   alternates: {
     canonical: "https://www.objectwire.org/world-cup",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FIFA World Cup 2026',
+    description: '48 teams, 104 matches, 16 host cities across North America. Full tournament coverage.',
   },
 };
 

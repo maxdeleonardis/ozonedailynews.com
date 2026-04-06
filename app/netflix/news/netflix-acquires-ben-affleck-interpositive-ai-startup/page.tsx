@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/entertainment/Ben%20Aflecc.PNG';
 
 export const metadata: Metadata = {
-  title: 'Netflix Drops $600M for Ben Affleck\'s InterPositive AI Startup After Warner Bros. Bid Collapse | ObjectWire',
+  title: 'Netflix Drops $600M for Ben Affleck\'s InterPositive AI Startup After Warner Bros. Bid Collapse',
   description:
-    "Netflix confirmed a deal worth up to $600 million to acquire InterPositive, Ben Affleck's AI filmmaking startup, a smart pivot after the collapse of Netflix's $82.7 billion bid for Warner Bros. Discovery. Deal structure includes initial cash plus performance-based earnouts.",
+    "Netflix confirmed a deal worth up to $600 million to acquire InterPositive, Ben Affleck's AI filmmaking startup, a smart pivot after the collapse of",
   keywords: [
     'Netflix acquires InterPositive',
     'Ben Affleck AI startup',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Netflix Drops $600M for Ben Affleck\'s InterPositive After Warner Bros. Bid Collapse',
     description:
-      "Netflix confirms up to $600M to acquire InterPositive, Ben Affleck's AI filmmaking startup. Initial cash plus earnouts. The deal follows Netflix walking away from its $82.7B WBD bid after Paramount Skydance's $111B offer.",
+      "Netflix confirms up to $600M to acquire InterPositive, Ben Affleck's AI filmmaking startup. Initial cash plus earnouts. The deal follows Netflix walking",
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: 'Ben Affleck InterPositive Netflix acquisition' }],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Netflix Confirms $600M for Ben Affleck\'s InterPositive After WB Bid Collapse',
     description:
-      "Netflix confirms up to $600M deal for InterPositive, initial cash + earnouts. Follows Netflix's failed $82.7B WBD bid, outbid by Paramount Skydance at $111B.",
+      "Netflix confirms up to $600M deal for InterPositive, initial cash + earnouts. Follows Netflix's failed $82.7B WBD bid, outbid by Paramount Skydance at",
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },

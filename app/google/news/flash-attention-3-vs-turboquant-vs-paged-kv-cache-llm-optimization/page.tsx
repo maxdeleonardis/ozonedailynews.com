@@ -12,7 +12,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'FlashAttention 3 vs TurboQuant vs Paged KV Cache | LLM Stack',
   description:
-    'FlashAttention 3 speeds up attention compute 1.5-2x on H100. TurboQuant compresses KV cache 6x at 3 bits. Paged KV Cache cuts memory waste from 60-80% to under 5%. How they stack together.',
+    'FlashAttention 3 speeds up attention compute 1.5-2x on H100. TurboQuant compresses KV cache 6x at 3 bits. Paged KV Cache cuts memory waste from 60-80% to',
   keywords: [
     'FlashAttention 3 vs TurboQuant comparison',
     'Paged KV Cache vs FlashAttention',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FlashAttention 3 vs TurboQuant vs Paged KV Cache | LLM Stack',
     description:
-      'Three LLM optimization techniques that solve different bottlenecks and stack together. Compute speed, memory compression, and allocation efficiency explained.',
+      'Three LLM optimization techniques that solve different bottlenecks and stack together. Compute speed, memory compression, and allocation efficiency',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    "Federal Agencies Flagged Grok's Safety Risks. The Pentagon Approved It for Classified Use Anyway. | ObjectWire",
+    "Federal Agencies Flagged Grok's Safety Risks. The Pentagon Approved It for Classified Use Anyway.",
   description:
-    "The GSA found Grok-4 failed federal safety standards. The NSA identified unique security vulnerabilities. The Biden-era CDAO rejected it. Then the Pentagon authorized xAI's Grok for classified military environments in February 2026 under a $200M contract, over documented objections.",
+    "The GSA found Grok-4 failed federal safety standards. The NSA identified unique security vulnerabilities. The Biden-era CDAO rejected it. Then the",
   keywords: [
     'Grok xAI Pentagon classified approval 2026',
     'federal agencies Grok safety warnings GSA NSA',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title:
       "GSA: Grok Failed Federal Safety Standards. NSA: Unique Vulnerabilities. Pentagon: Approved.",
     description:
-      "Multiple federal agencies flagged xAI's Grok chatbot as unsafe before the Pentagon authorized it for classified use in February 2026. The WSJ reported the full paper trail on February 27, 2026.",
+      "Multiple federal agencies flagged xAI's Grok chatbot as unsafe before the Pentagon authorized it for classified use in February 2026. The WSJ reported the",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "The GSA Said Grok Failed Safety Standards. The NSA Found Unique Vulnerabilities. The Pentagon Approved It.",
     description:
-      "Federal agencies documented Grok's risks for over a year before the Pentagon cleared it for classified use in February 2026. The WSJ reported it all on February 27.",
+      "Federal agencies documented Grok's risks for over a year before the Pentagon cleared it for classified use in February 2026. The WSJ reported it all on",
     images: [IMAGE_URL],
   },
 };

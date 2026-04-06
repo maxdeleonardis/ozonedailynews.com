@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Surveillance - The Objective Wire | Texas Business &Tech News",
-  description: "Covert Surveillance for Legal, Domestic, and Corporate Cases. Infidelity investigations, child custody verification, worker's compensation claims, and more.",
+  title: "Surveillance | The Objective Wire | Texas Business &Tech News",
+  description: "Covert Surveillance for Legal, Domestic, and Corporate Cases. Infidelity investigations, child custody verification, worker's compensation claims, and",
   alternates: {
     canonical: 'https://www.objectwire.org/surveillance',
   },

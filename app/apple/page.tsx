@@ -10,8 +10,8 @@ const IMAGE_URL = 'https://images.unsplash.com/photo-1591292784843-aa35ebb7897b?
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Apple Inc. | ObjectWire',
-  description: 'Apple Inc. is the world\'s most valuable company, making the iPhone, Mac, iPad, Apple Watch, and Vision Pro. Full profile of products, leadership, and financials.',
+  title: 'Apple Inc.',
+  description: 'Apple Inc. is the world\'s most valuable company, making the iPhone, Mac, iPad, Apple Watch, and Vision Pro. Full profile of products, leadership, and',
   keywords: [
     'Apple Inc',
     'Apple company',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Apple Inc. | ObjectWire',
+    title: 'Apple Inc.',
     description: 'Full company profile of Apple Inc., the world\'s most valuable technology company. Products, leadership, financials, and latest developments.',
     url: PAGE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apple Inc. | ObjectWire',
+    title: 'Apple Inc.',
     description: 'Full company profile of Apple Inc., the world\'s most valuable technology company.',
     images: [IMAGE_URL],
   },

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "England and Scotland World Cup Stadium Row | ObjectWire",
+  title: "England and Scotland World Cup Stadium Row",
   description: "Home nations face potential last-minute venue changes as £6 million dispute threatens FIFA World Cup 2026 preparations.",
   keywords: ["World Cup 2026", "England", "Scotland", "FIFA", "Stadium", "Wembley", "Glasgow"],
   authors: [{ name: "ObjectWire Editorial Team" }],

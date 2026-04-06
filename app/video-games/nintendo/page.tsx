@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Nintendo Co., Ltd. - Gaming Company Profile | ObjectWire',
-  description: 'Complete profile of Nintendo, Japanese multinational video game company. History, gaming consoles, franchises like Mario and Zelda, Switch success, and latest developments.',
+  title: 'Nintendo Co., Ltd. | Gaming Company Profile',
+  description: 'Complete profile of Nintendo, Japanese multinational video game company. History, gaming consoles, franchises like Mario and Zelda, Switch success, and',
   keywords: [
     'Nintendo',
     'Nintendo Company',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/nintendo',
   },
   openGraph: {
-    title: 'Nintendo Co., Ltd. - Gaming Company Profile',
+    title: 'Nintendo Co., Ltd. | Gaming Company Profile',
     description: 'Japanese video game company: history, iconic franchises, and gaming innovations.',
     type: 'article',
     url: 'https://www.objectwire.org/nintendo',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nintendo - Company Profile',
+    title: 'Nintendo | Company Profile',
     description: 'Complete guide to Nintendo gaming company.',
   },
 };

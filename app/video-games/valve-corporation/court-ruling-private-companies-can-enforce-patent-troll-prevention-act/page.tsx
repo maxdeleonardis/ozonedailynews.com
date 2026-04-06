@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Valve Wins Jury Verdict Under Washington Patent Troll Prevention Act | ObjectWire',
+  title: 'Valve Wins Jury Verdict Under Washington Patent Troll Prevention Act',
   description:
-    'A federal jury in the Western District of Washington ruled for Valve on all counts against patent troll Display Technologies, LLC on February 17, 2026 -- the first U.S. jury verdict under a state patent troll prevention statute. Damages totaled $152,093.',
+    'A federal jury in the Western District of Washington ruled for Valve on all counts against patent troll Display Technologies, LLC on February 17, 2026 --',
   keywords: [
     'Valve Corporation',
     'Patent Troll Prevention Act',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Valve Wins First U.S. Jury Verdict Under State Patent Troll Prevention Law',
     description:
-      'Federal jury awards Valve $152,093 against patent troll Display Technologies, LLC. Court confirms private companies can sue under Washington PTPA via Consumer Protection Act.',
+      'Federal jury awards Valve $152,093 against patent troll Display Technologies, LLC. Court confirms private companies can sue under Washington PTPA via',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/valve-corporation/court-ruling-private-companies-can-enforce-patent-troll-prevention-act',
     siteName: 'ObjectWire',

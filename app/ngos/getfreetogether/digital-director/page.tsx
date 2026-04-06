@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Naftali Ehrenkranz - Digital Director at Get Free Together | ObjectWire",
-  description: "Profile of Naftali Ehrenkranz, Digital Director at Get Free Together 501(c)(4) organization. Examining background, hiring practices, and role in the organization's operations.",
+  title: "Naftali Ehrenkranz | Digital Director at Get Free Together",
+  description: "Profile of Naftali Ehrenkranz, Digital Director at Get Free Together 501(c)(4) organization. Examining background, hiring practices, and role in the",
   keywords: [
     "Naftali Ehrenkranz",
     "Get Free Together",
@@ -21,8 +21,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "article",
-    title: "Naftali Ehrenkranz - Digital Director Profile",
+    title: "Naftali Ehrenkranz | Digital Director Profile",
     description: "Investigating the Digital Director of Get Free Together 501(c)(4) organization.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Naftali Ehrenkranz | Digital Director Profile',
+    description: 'Investigating the Digital Director of Get Free Together 501(c)(4) organization.',
   },
 };
 

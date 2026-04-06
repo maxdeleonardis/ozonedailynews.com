@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "social network",
   ],
   openGraph: {
-    title: "X (Twitter): Complete Company Profile & History | ObjectWire",
+    title: "X (Twitter): Complete Company Profile & History",
     description: "From Twitter to X - Elon Musk's transformation of the microblogging platform.",
     type: "article",
     url: "https://www.objectwire.org/x-twitter",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "X (Twitter) Wiki 2026: History, Elon Musk Acquisition & 550M Users",
     description: "Complete profile of X, the platform formerly known as Twitter.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/social/x-twitter',
   },
 };
 

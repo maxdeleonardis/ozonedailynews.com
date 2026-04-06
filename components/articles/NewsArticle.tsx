@@ -3,6 +3,7 @@ import React from "react";
 import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 import RelatedArticles from '@/components/discovery/RelatedArticles';
 import ArticleFooter from '@/components/articles/ArticleFooter';
+import { HubBacklink } from '@/components/HubBacklink';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -662,6 +663,7 @@ export function NewsArticle({
   subtitle,
   category,
   categoryColor = "red",
+  topicTag,
   publishDate,
   readTime,
   author,
@@ -737,6 +739,7 @@ export function NewsArticle({
 
           {/* Related Articles sidebar — 20%, stacks below on mobile */}
           <aside className="w-full lg:w-1/5 lg:sticky lg:top-6 shrink-0">
+            <HubBacklink category={category} topicTag={topicTag} />
             <RelatedArticles
               currentSlug={slug ?? ''}
               category={category}

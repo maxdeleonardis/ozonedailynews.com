@@ -9,9 +9,9 @@ const SLUG = '/jackarticle/test';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Pipeline Test | JackArticle Component | ObjectWire',
+  title: 'Pipeline Test | JackArticle Component',
   description:
-    'End-to-end pipeline verification article using the JackArticle component. Confirms that wiki:migrate extracts content to the jack_articles table and wiki:trim replaces this file with a JackArticleDB stub.',
+    'End-to-end pipeline verification article using the JackArticle component. Confirms that wiki:migrate extracts content to the jack_articles table and',
   keywords: [
     'pipeline test',
     'jackarticle test',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Pipeline Test | JackArticle Component | ObjectWire',
+    title: 'Pipeline Test | JackArticle Component',
     description:
       'End-to-end pipeline verification using the JackArticle component. Confirms extraction to jack_articles table and auto-trim to JackArticleDB stub.',
     type: 'article',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pipeline Test | JackArticle Component | ObjectWire',
+    title: 'Pipeline Test | JackArticle Component',
     description: 'End-to-end pipeline verification for the commit-deploy automation.',
   },
 };

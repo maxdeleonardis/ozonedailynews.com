@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'France Wins Biathlon Men\'s Relay Gold in Dramatic Comeback at Milano Cortina 2026 | ObjectWire',
-  description: 'France stormed from nearly a minute behind to win men\'s biathlon relay gold at Milano Cortina 2026. Emilien Perrot\'s anchor leg powered the comeback over Norway and Sweden in one of the most dramatic races of the Games.',
+  title: 'France Wins Biathlon Men\'s Relay Gold in Dramatic Comeback at Milano Cortina 2026',
+  description: 'France stormed from nearly a minute behind to win men\'s biathlon relay gold at Milano Cortina 2026. Emilien Perrot\'s anchor leg powered the comeback',
   keywords: [
     'France biathlon relay gold', 'Emilien Perrot', 'biathlon Milano Cortina 2026',
     'men\'s biathlon relay', 'Winter Olympics 2026', 'France medal record',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'France Storms Back from a Minute Down to Win Biathlon Relay Gold at Milano Cortina 2026',
-    description: 'Emilien Perrot anchors a dramatic French comeback from nearly a minute behind Norway to claim men\'s relay gold, a historic moment for French Winter Olympics history.',
+    description: 'Emilien Perrot anchors a dramatic French comeback from nearly a minute behind Norway to claim men\'s relay gold, a historic moment for French Winter',
     type: 'article',
     publishedTime: '2026-02-18T14:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],

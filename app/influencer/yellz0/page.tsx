@@ -5,9 +5,9 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator | ObjectWire',
+  title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator',
   description:
-    'Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, model, and content creator known for lifestyle content and her signature blonde look.',
+    'Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, model, and content creator known for lifestyle',
   keywords: [
     'Yellz0',
     'Aniela Verbin',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator',
     description:
-      'Profile of Yellz0: real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, lifestyle model, and one of social media\'s most recognizable faces.',
+      'Profile of Yellz0: real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, lifestyle model, and one of social media\'s most',
     type: 'article',
     url: 'https://www.objectwire.org/influencer/yellz0',
     images: [{ url: '/influncer/yellz0_what_cup_size.PNG', width: 1200, height: 675 }],

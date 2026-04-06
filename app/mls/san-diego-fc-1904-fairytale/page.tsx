@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1551388749-6b3478890d58?ixli
 export const metadata: Metadata = {
   title: 'San Diego FC Unbeaten Start | Defying MLS Expansion Curse',
   description:
-    'San Diego FC are 5W-3D-0L through 8 matches in their inaugural MLS season, the best expansion-year start in league history. How the 30th franchise rewrote the playbook.',
+    'San Diego FC are 5W-3D-0L through 8 matches in their inaugural MLS season, the best expansion-year start in league history. How the 30th franchise rewrote',
   keywords: [
     'San Diego FC 2026',
     'San Diego FC MLS',

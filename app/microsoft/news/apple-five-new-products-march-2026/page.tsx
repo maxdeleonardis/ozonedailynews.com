@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/apple-five-new-products-march-2026';
 
 export const metadata: Metadata = {
-  title: 'Apple Set to Announce at Least Five New Products in Early March 2026 Via Multi-Day Press Releases | ObjectWire',
-  description: 'Apple plans to unveil five-plus hardware products between March 2-4, 2026, including low-cost MacBook, iPhone 17e, iPad updates, and MacBook Air/Pro refreshes with Apple Experience events.',
+  title: 'Apple Set to Announce at Least Five New Products in Early March 2026 Via Multi-Day Press Releases',
+  description: 'Apple plans to unveil five-plus hardware products between March 2-4, 2026, including low-cost MacBook, iPhone 17e, iPad updates, and MacBook Air/Pro',
   keywords: ['Apple March 2026 announcements', 'new MacBook 2026', 'iPhone 17e', 'MacBook Air M5', 'MacBook Pro M5', 'iPad 12th generation', 'iPad Air M4', 'Apple Experience event', 'Tim Cook March 2026', 'Apple spring launch 2026'],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {

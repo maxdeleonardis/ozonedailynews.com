@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/faithordway.png';
 export const metadata: Metadata = {
   title: 'Faith Ordway | TikTok Star, Fitness Creator & Model',
   description:
-    'Full profile of Faith Ordway, TikTok star with 5M+ followers and 243M+ likes. Ohio-born dancer, fitness creator, YoungLA ambassador, and social media personality.',
+    'Full profile of Faith Ordway, TikTok star with 5M+ followers and 243M+ likes. Ohio-born dancer, fitness creator, YoungLA ambassador, and social media',
   keywords: [
     'Faith Ordway',
     'faithordway',

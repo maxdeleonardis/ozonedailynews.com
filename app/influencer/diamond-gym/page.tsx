@@ -12,7 +12,7 @@ const OG_IMAGE = '/influncer/Diamond Gym.PNG';
 export const metadata: Metadata = {
   title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness Influencers Train',
   description:
-    'Diamond Gym in Maplewood, NJ has become one of the most talked-about training facilities in the US fitness influencer scene. Logan Paul, the Tren Twins, and dozens of elite athletes have trained here.',
+    'Diamond Gym in Maplewood, NJ has become one of the most talked-about training facilities in the US fitness influencer scene. Logan Paul, the Tren Twins,',
   keywords: [
     'Diamond Gym',
     'Diamond Gym Maplewood NJ',

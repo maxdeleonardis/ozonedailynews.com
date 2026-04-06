@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "World Cup Travel Bans: Trump's Foreign Policy Impact | ObjectWire",
+  title: "World Cup Travel Bans: Trump's Foreign Policy Impact",
   description: "Citizens from multiple qualified nations face entry restrictions as Trump's foreign policy creates unprecedented challenges for FIFA World Cup 2026.",
   keywords: ["Donald Trump", "World Cup 2026", "Travel Ban", "FIFA", "Foreign Policy", "USA", "Immigration"],
   authors: [{ name: "ObjectWire Editorial Team" }],

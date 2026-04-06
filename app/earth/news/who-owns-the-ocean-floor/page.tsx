@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/earth/news/who-owns-the-ocean-floor';
 
 export const metadata: Metadata = {
-  title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights | ObjectWire",
+  title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights",
   description:
-    "No single country owns the deep ocean floor, but that hasn't stopped nations and corporations from racing to claim it. Here's how international law governs the seabed, who has the power to mine it, and why the rules are breaking down.",
+    "No single country owns the deep ocean floor, but that hasn't stopped nations and corporations from racing to claim it. Here's how international law",
   keywords: [
     'who owns the ocean floor international law',
     'deep sea mining rights UNCLOS 2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights",
     description:
-      "The deep ocean is technically nobody's, and everybody's. As the race to mine it intensifies, the international legal framework governing the seabed is facing its biggest stress test since it was written.",
+      "The deep ocean is technically nobody's, and everybody's. As the race to mine it intensifies, the international legal framework governing the seabed is",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Who Owns the Ocean Floor? Nobody. Everybody. That's the Problem.",
     description:
-      "The deep seabed is governed by a 1982 treaty the US never ratified. As corporations and nations race to mine it, the legal framework is under serious strain.",
+      "The deep seabed is governed by a 1982 treaty the US never ratified. As corporations and nations race to mine it, the legal framework is under serious",
   },
 };
 

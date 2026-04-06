@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Inside | Sidemen Netflix Documentary Series | ObjectWire",
-  description: "Complete guide to Inside: The Sidemen's groundbreaking Netflix documentary series exploring YouTube culture, creator life, and the group's journey from bedroom gamers to entertainment empire. 2026 coverage.",
+  title: "Inside | Sidemen Netflix Documentary Series",
+  description: "Complete guide to Inside: The Sidemen's groundbreaking Netflix documentary series exploring YouTube culture, creator life, and the group's journey from",
   keywords: [
     "Inside Sidemen Netflix",
     "Sidemen documentary series",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     type: "article",
     url: "https://www.objectwire.org/youtube/sidemen/inside-uk",
     siteName: "ObjectWire",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Inside | Sidemen Netflix Documentary Series',
+    description: 'Complete guide to the Sidemen',
   },
 };
 

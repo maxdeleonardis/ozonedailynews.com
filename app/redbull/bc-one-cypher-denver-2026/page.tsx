@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull BC One Cypher Denver 2026 | Breaking Battle',
   description:
-    'Red Bull BC One Cypher Denver on April 3, 2026 sends top breakers to the larger BC One circuit. Event format, qualification path, and how to watch the Denver cypher.',
+    'Red Bull BC One Cypher Denver on April 3, 2026 sends top breakers to the larger BC One circuit. Event format, qualification path, and how to watch the',
   keywords: [
     'Red Bull BC One Cypher Denver 2026',
     'BC One Denver breaking battle',

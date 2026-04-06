@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixli
 export const metadata: Metadata = {
   title: 'Ripple, Convera Partner on Stablecoin B2B Cross-Border Payments',
   description:
-    'Ripple and Convera announce a strategic partnership to settle B2B cross-border payments using a "stablecoin sandwich" model, compressing 3-5 day settlement to under an hour. RLUSD reaches $1.4B market cap.',
+    'Ripple and Convera announce a strategic partnership to settle B2B cross-border payments using a "stablecoin sandwich" model, compressing 3-5 day',
   keywords: [
     'Ripple Convera partnership 2026',
     'stablecoin sandwich payments',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ripple, Convera Partner on "Stablecoin Sandwich" B2B Payments',
     description:
-      'Convera, the world\'s largest non-bank commercial payment provider, integrates Ripple\'s RLUSD to cut cross-border settlement from 5 days to under an hour. RLUSD hits $1.4B market cap.',
+      'Convera, the world\'s largest non-bank commercial payment provider, integrates Ripple\'s RLUSD to cut cross-border settlement from 5 days to under an',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ripple, Convera Partner on Stablecoin B2B Settlement',
     description:
-      '3-5 day wire transfers down to under an hour. Ripple\'s RLUSD now powering Convera\'s global B2B payment rails. RLUSD hits $1.4B market cap. The stablecoin land grab accelerates.',
+      '3-5 day wire transfers down to under an hour. Ripple\'s RLUSD now powering Convera\'s global B2B payment rails. RLUSD hits $1.4B market cap. The',
     images: [OG_IMAGE],
   },
 };

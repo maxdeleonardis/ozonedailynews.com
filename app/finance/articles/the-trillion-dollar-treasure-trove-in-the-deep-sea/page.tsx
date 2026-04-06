@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Trillion-Dollar Treasure: Polymetallic Nodules and the Deep-Sea Frontier | ObjectWire",
-  description: "Analysis of the Clarion-Clipperton Zone (CCZ) and the macroeconomic impact of deep-sea mining on critical metal supply chains including nickel, cobalt, and manganese.",
+  title: "The Trillion-Dollar Treasure: Polymetallic Nodules and the Deep-Sea Frontier",
+  description: "Analysis of the Clarion-Clipperton Zone (CCZ) and the macroeconomic impact of deep-sea mining on critical metal supply chains including nickel, cobalt,",
   keywords: [
     "deep sea mining economics 2026",
     "polymetallic nodules CCZ",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/the-trillion-dollar-treasure-trove-in-the-deep-sea',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Trillion-Dollar Treasure: Polymetallic Nodules and the Deep-Sea Frontier',
+    description: 'Financial Intelligence: Assessing the industrial potential and regulatory hurdles of the $1 trillion deep-sea metal reserve.',
   },
 };
 

@@ -12,9 +12,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Eledon Pharmaceuticals (ELDN): CD40L Pathway, Tegoprubart, Transplant & ALS Pipeline, February 2026 | ObjectWire',
+    'Eledon Pharmaceuticals (ELDN): CD40L Pathway, Tegoprubart, Transplant & ALS Pipeline, February 2026',
   description:
-    "Eledon Pharmaceuticals (Nasdaq: ELDN) is a clinical-stage biotech targeting the CD40L pathway with tegoprubart, an IgG1 anti-CD40L antibody. Phase 2 BESTOW kidney trial topline data, islet transplant insulin-independence results, $57.5M raise, and Q2 2027 cash runway, as of February 2026.",
+    "Eledon Pharmaceuticals (Nasdaq: ELDN) is a clinical-stage biotech targeting the CD40L pathway with tegoprubart, an IgG1 anti-CD40L antibody. Phase 2",
   keywords: [
     'Eledon Pharmaceuticals ELDN stock 2026',
     'tegoprubart anti-CD40L antibody transplant',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title:
       'Eledon Pharmaceuticals (ELDN): Tegoprubart, CD40L Pathway & the Push for One Transplant for Life',
     description:
-      "Phase 2 BESTOW kidney data, islet cell insulin independence, $57.5M raise, and Q2 2027 runway, a full overview of Eledon Pharmaceuticals' CD40L pipeline as of February 2026.",
+      "Phase 2 BESTOW kidney data, islet cell insulin independence, $57.5M raise, and Q2 2027 runway, a full overview of Eledon Pharmaceuticals' CD40L pipeline",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title:
       'Eledon Pharmaceuticals (ELDN): Anti-CD40L Antibody Keeps Transplanted Kidneys & Islets Alive Without Tacrolimus',
     description:
-      "Tegoprubart's Phase 2 kidney data and islet insulin-independence results signal a potential new era in transplant medicine. Full company overview, February 2026.",
+      "Tegoprubart's Phase 2 kidney data and islet insulin-independence results signal a potential new era in transplant medicine. Full company overview,",
     images: [IMAGE_URL],
   },
 };

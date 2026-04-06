@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Intel Corporation - Semiconductor Company Profile | ObjectWire',
-  description: 'Complete profile of Intel Corporation, American multinational semiconductor company. History, processor architectures, market position, and latest developments.',
+  title: 'Intel Corporation | Semiconductor Company Profile',
+  description: 'Complete profile of Intel Corporation, American multinational semiconductor company. History, processor architectures, market position, and latest',
   keywords: [
     'Intel',
     'Intel Corporation',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/intel',
   },
   openGraph: {
-    title: 'Intel Corporation - Semiconductor Company Profile',
+    title: 'Intel Corporation | Semiconductor Company Profile',
     description: 'American multinational semiconductor corporation: history, products, and latest developments.',
     type: 'article',
     url: 'https://www.objectwire.org/intel',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Intel Corporation - Company Profile',
+    title: 'Intel Corporation | Company Profile',
     description: 'Complete guide to Intel semiconductor company.',
   },
 };

@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Digital Realty $3.25B Hyperscale Data Center Fund | Final Close 2026',
   description:
-    'Digital Realty closed its first U.S. hyperscale data center fund at $3.25 billion, backed by sovereign wealth funds, pensions, and endowments. The fund targets Tier I markets including Northern Virginia, Dallas, and Santa Clara.',
+    'Digital Realty closed its first U.S. hyperscale data center fund at $3.25 billion, backed by sovereign wealth funds, pensions, and endowments. The fund',
   keywords: [
     'Digital Realty hyperscale data center fund 2026',
     'Digital Realty $3.25 billion fund close',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Digital Realty Closes $3.25B Hyperscale Data Center Fund',
     description:
-      'Sovereign wealth funds, pensions, and endowments backed Digital Realty\'s first U.S. hyperscale fund. The $3.25B vehicle targets six Tier I metros as AI infrastructure demand pushes capital into data centers at record pace.',
+      'Sovereign wealth funds, pensions, and endowments backed Digital Realty\'s first U.S. hyperscale fund. The $3.25B vehicle targets six Tier I metros as AI',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

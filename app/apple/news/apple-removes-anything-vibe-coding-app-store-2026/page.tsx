@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Apple Removes Anything Vibe Coding App from App Store',
   description:
-    'Apple pulled AI-powered vibe coding app Anything from the App Store, confirmed by co-founder Dhruv Amin. The removal is Apple\'s most aggressive action yet against no-code AI app builders.',
+    'Apple pulled AI-powered vibe coding app Anything from the App Store, confirmed by co-founder Dhruv Amin. The removal is Apple\'s most aggressive action',
   keywords: [
     'Apple removes Anything app',
     'vibe coding app Apple rejection',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apple Pulls Vibe Coding App Anything from the App Store',
     description:
-      'Apple removed Anything, an AI-powered app that lets users build software without writing code, in its most aggressive move yet against vibe coding tools targeting the App Store.',
+      'Apple removed Anything, an AI-powered app that lets users build software without writing code, in its most aggressive move yet against vibe coding tools',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

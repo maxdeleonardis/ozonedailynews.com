@@ -11,9 +11,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    "Alibaba Launches Wukong AI Agent Platform for Enterprises | ObjectWire",
+    "Alibaba Launches Wukong AI Agent Platform for Enterprises",
   description:
-    "Alibaba has launched Wukong, an enterprise AI platform that coordinates multiple autonomous agents to handle complex business tasks through a single interface, the company's boldest move yet into China's fast-growing agentic AI market.",
+    "Alibaba has launched Wukong, an enterprise AI platform that coordinates multiple autonomous agents to handle complex business tasks through a single",
   keywords: [
     "Alibaba Wukong AI agent platform enterprise March 2026",
     "Alibaba agentic AI enterprise China 2026",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alibaba Launches Wukong AI Agent Platform for Enterprises",
     description:
-      "Alibaba's new Wukong platform coordinates multiple autonomous AI agents to handle complex business tasks through a single interface, marking the company's boldest push into China's fast-growing agentic AI market.",
+      "Alibaba's new Wukong platform coordinates multiple autonomous AI agents to handle complex business tasks through a single interface, marking the company's",
     type: "article",
     url: FULL_URL,
     siteName: "ObjectWire",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alibaba Launches Wukong AI Agent Platform for Enterprises | ObjectWire",
+    title: "Alibaba Launches Wukong AI Agent Platform for Enterprises",
     description:
-      "Alibaba's Wukong platform coordinates multiple autonomous agents for complex business tasks through a single interface, the company's boldest agentic AI move yet.",
+      "Alibaba's Wukong platform coordinates multiple autonomous agents for complex business tasks through a single interface, the company's boldest agentic AI",
     images: ["https://www.objectwire.org/entertainment/alibaba.PNG"],
   },
   other: {

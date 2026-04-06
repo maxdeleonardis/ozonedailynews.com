@@ -9,7 +9,7 @@ const SLUG = '/trump/news/world-foundation-wld-token-sale-65-million-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'World Foundation Sells $65M in WLD Tokens Near All-Time Low | ObjectWire',
+  title: 'World Foundation Sells $65M in WLD Tokens Near All-Time Low',
   description:
     'The World Foundation sold 239 million WLD tokens for $65 million through OTC deals as Worldcoin trades more than 97% below its all-time high.',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'World Foundation Sells $65M in WLD Tokens Near All-Time Low | ObjectWire',
+    title: 'World Foundation Sells $65M in WLD Tokens Near All-Time Low',
     description:
       'The World Foundation sold 239 million WLD tokens for $65 million through OTC deals as Worldcoin trades more than 97% below its all-time high.',
     url: `https://www.objectwire.org${SLUG}`,

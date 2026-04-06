@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Authors & Contributors | ObjectWire',
+  title: 'Authors & Contributors',
   description:
-    'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and breaking news.',
+    'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and',
   alternates: { canonical: 'https://www.objectwire.org/authors' },
   openGraph: {
     title: 'ObjectWire Authors & Contributors',

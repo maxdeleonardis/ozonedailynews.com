@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Winter Olympics 2026 Closing Ceremony: Everything You Need to Know | ObjectWire',
+  title: 'Winter Olympics 2026 Closing Ceremony: Everything You Need to Know',
   description:
-    'The 2026 Milano Cortina Winter Olympics closing ceremony takes place February 22 at the Verona Arena. Date, time, performers, how to watch, the Olympic flag handoff to 2030 French Alps, and a full look back at the greatest moments of the Games.',
+    'The 2026 Milano Cortina Winter Olympics closing ceremony takes place February 22 at the Verona Arena. Date, time, performers, how to watch, the Olympic',
   keywords: [
     'Winter Olympics 2026 closing ceremony',
     'Milano Cortina 2026 closing',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Winter Olympics 2026 Closing Ceremony | Date, Time, Performers & How to Watch',
     description:
-      'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22, performers, flag handoff to 2030, medal highlights, and how to watch live.',
+      'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22, performers, flag handoff to 2030, medal',
     type: 'article',
     publishedTime: '2026-02-22T10:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],

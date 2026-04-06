@@ -9,9 +9,9 @@ const SLUG = '/winter-olympics/lindsey-vonn/near-amputation-fasciotomy';
 
 export const metadata: Metadata = {
   title:
-    "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash | ObjectWire",
+    "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash",
   description:
-    'Lindsey Vonn revealed on Monday that she came dangerously close to having her left leg amputated following her crash at the 2026 Winter Olympics. An emergency fasciotomy performed on the mountain by orthopedic surgeon Dr. Hackett saved her leg.',
+    'Lindsey Vonn revealed on Monday that she came dangerously close to having her left leg amputated following her crash at the 2026 Winter Olympics. An',
   keywords: [
     'Lindsey Vonn leg amputation',
     'Lindsey Vonn fasciotomy',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash",
     description:
-      "Vonn disclosed on Monday that she came within hours of having her left leg amputated. An emergency fasciotomy, performed on the mountain by team surgeon Dr. Hackett, restored blood flow and saved her leg.",
+      "Vonn disclosed on Monday that she came within hours of having her left leg amputated. An emergency fasciotomy, performed on the mountain by team surgeon",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Lindsey Vonn: Surgeon 'Filleted It Open' to Save Her Leg From Amputation After Olympic Crash",
     description:
-      "Vonn reveals she came close to losing her left leg after her crash at the 2026 Winter Olympics. An emergency fasciotomy performed on the mountain restored blood flow and saved it.",
+      "Vonn reveals she came close to losing her left leg after her crash at the 2026 Winter Olympics. An emergency fasciotomy performed on the mountain restored",
   },
 };
 

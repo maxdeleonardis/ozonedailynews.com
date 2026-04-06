@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "the intercept sues doge - ObjectWire.org",
-  description: "The lawsuits allege that DOGE's structure and actions violate federal transparency laws, raising questions about its authority and potential conflicts of interest.",
+  title: "the intercept sues doge | ObjectWire.org",
+  description: "The lawsuits allege that DOGE's structure and actions violate federal transparency laws, raising questions about its authority and potential conflicts of",
   alternates: {
     canonical: 'https://www.objectwire.org/the-intercept-sues-doge',
   },

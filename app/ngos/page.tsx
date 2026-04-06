@@ -6,24 +6,33 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NGO Investigations | ObjectWire",
-  description: "Investigative journalism covering nonprofit organizations, 501(c) entities, charitable foundations, and NGO accountability. Following the money and examining transparency.",
+  title: 'NGO Investigations | Nonprofits, Foundations, Dark Money',
+  description: 'ObjectWire investigates nonprofits, 501(c) entities, charitable foundations, and NGO accountability. Following the money, examining transparency.',
   keywords: [
-    "NGO investigations",
-    "nonprofit accountability",
-    "501c3 organizations",
-    "501c4 organizations",
-    "charity watchdog",
-    "foundation transparency",
-    "nonprofit journalism"
+    'NGO investigations',
+    'nonprofit accountability',
+    '501c3 organizations',
+    '501c4 organizations',
+    'charity watchdog',
+    'foundation transparency',
+    'nonprofit journalism',
+    'dark money',
+    'NGO watchdog',
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/ngos',
   },
   openGraph: {
-    type: "website",
-    title: "NGO & Nonprofit Investigations",
-    description: "Investigative reporting on nonprofit organizations, foundations, and tax-exempt entities.",
+    type: 'website',
+    title: 'NGO Investigations | Nonprofits, Foundations, Dark Money',
+    description: 'ObjectWire investigative reporting on nonprofits, foundations, 501(c) entities, and NGO accountability.',
+    url: 'https://www.objectwire.org/ngos',
+    siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NGO Investigations | Nonprofits, Foundations, Dark Money',
+    description: 'ObjectWire investigates nonprofits, 501(c) entities, foundations, and NGO accountability. Following the money.',
   },
 };
 

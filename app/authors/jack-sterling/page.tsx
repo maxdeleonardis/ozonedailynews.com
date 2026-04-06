@@ -7,9 +7,9 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jack Sterling | Journalist & Reporter | ObjectWire',
+  title: 'Jack Sterling | Journalist & Reporter',
   description:
-    'Jack Sterling is a journalist and reporter at ObjectWire covering breaking news, federal investigations, Congress, politics, and AI policy. Published bylines on landmark legislation and federal accountability reporting.',
+    'Jack Sterling is a journalist and reporter at ObjectWire covering breaking news, federal investigations, Congress, politics, and AI policy. Published',
   alternates: { canonical: 'https://www.objectwire.org/authors/jack-sterling' },
   openGraph: {
     title: 'Jack Sterling | Journalist at ObjectWire',

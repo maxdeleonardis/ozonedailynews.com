@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Italy Wins First Gold as Milano Cortina Olympics Open - Lollobrigida Sets Record | ObjectWire",
-  description: "Francesca Lollobrigida set an Olympic record in women's 3,000-meter speed skating on her 35th birthday, thrilling the home crowd and securing Italy's first gold medal at the Milano Cortina 2026 Winter Olympics.",
+  title: "Italy Wins First Gold as Milano Cortina Olympics Open | Lollobrigida Sets Record",
+  description: "Francesca Lollobrigida set an Olympic record in women's 3,000-meter speed skating on her 35th birthday, thrilling the home crowd and securing Italy's",
   keywords: [
     "Francesca Lollobrigida",
     "Italy gold medal",

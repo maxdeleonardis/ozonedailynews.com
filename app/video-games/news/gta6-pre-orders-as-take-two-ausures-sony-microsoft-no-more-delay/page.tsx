@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay';
 
 export const metadata: Metadata = {
-  title: 'GTA 6 Pre-Orders Near as PlayStation Database Lists Title IDs | Take-Two Assures Sony & Microsoft No Delay | ObjectWire',
+  title: 'GTA 6 Pre-Orders Near as PlayStation Database Lists Title IDs | Take-Two Assures Sony & Microsoft No Delay',
   description:
-    'Two Grand Theft Auto VI title IDs appeared in the PlayStation Store backend on March 1, 2026, signaling imminent pre-orders. Separately, Take-Two Interactive reportedly assured Sony and Microsoft the November 19, 2026 release remains firm.',
+    'Two Grand Theft Auto VI title IDs appeared in the PlayStation Store backend on March 1, 2026, signaling imminent pre-orders. Separately, Take-Two',
   keywords: [
     'GTA 6 pre-orders',
     'GTA 6 PlayStation Store',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'GTA 6 Pre-Orders May Be Imminent | PlayStation Backend Lists Title IDs, Take-Two Assures No Delay',
     description:
-      'PlayStation Store backend surfaced two GTA VI title IDs on March 1, 2026. Take-Two has reportedly told Sony and Microsoft the November 19 launch is locked. Everything we know.',
+      'PlayStation Store backend surfaced two GTA VI title IDs on March 1, 2026. Take-Two has reportedly told Sony and Microsoft the November 19 launch is',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

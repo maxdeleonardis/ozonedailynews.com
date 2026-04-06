@@ -6,15 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'SKIMS - Shapewear, Loungewear & Underwear Brand | OBJECTWIRE',
-  description: 'Comprehensive history of SKIMS, the revolutionary shapewear and loungewear company founded by Kim Kardashian and Jens Grede. From controversial launch to billion-dollar valuation.',
+  title: 'SKIMS | Shapewear, Loungewear & Underwear Brand | OBJECTWIRE',
+  description: 'Comprehensive history of SKIMS, the revolutionary shapewear and loungewear company founded by Kim Kardashian and Jens Grede. From controversial launch to',
   keywords: 'SKIMS, Kim Kardashian, Jens Grede, shapewear, loungewear, underwear, fashion brand, body inclusivity',
   openGraph: {
-    title: 'SKIMS - The Complete Company History',
+    title: 'SKIMS | The Complete Company History',
     description: 'From Kimono controversy to billion-dollar brand. The story of SKIMS shapewear revolution.',
     type: 'article',
     publishedTime: '2026-02-09T10:00:00Z',
     authors: ['OBJECTWIRE Fashion Desk'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SKIMS | The Complete Company History',
+    description: 'From Kimono controversy to billion-dollar brand. The story of SKIMS shapewear revolution.',
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/clothing/skims',
   },
 };
 

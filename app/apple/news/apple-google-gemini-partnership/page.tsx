@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Apple and Google Announce Strategic Gemini AI Partnership | ObjectWire",
-  description: "In a historic move, Apple and Google have announced a strategic partnership to integrate Google's Gemini AI into Apple's ecosystem, marking a major shift in the tech industry.",
+  title: "Apple and Google Announce Strategic Gemini AI Partnership",
+  description: "In a historic move, Apple and Google have announced a strategic partnership to integrate Google's Gemini AI into Apple's ecosystem, marking a major shift",
   keywords: ["Apple", "Google", "Gemini AI", "artificial intelligence", "tech partnership", "iOS", "iPhone", "AI integration"],
   openGraph: {
     title: "Apple and Google Announce Strategic Gemini AI Partnership",
@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.objectwire.org/apple-google-gemini-partnership',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Apple and Google Announce Strategic Gemini AI Partnership',
+    description: 'Historic partnership brings Google',
   },
 };
 

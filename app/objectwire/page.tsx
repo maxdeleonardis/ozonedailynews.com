@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "ObjectWire.org - Verification-First Intelligence Platform & Independent News Organization",
-  description: "ObjectWire.org is a verification-first intelligence platform providing cited business and technology analysis. Learn about its mission, history, content pillars, and editorial standards.",
+  title: "ObjectWire.org | Verification-First Intelligence Platform & Independent News Organization",
+  description: "ObjectWire.org is a verification-first intelligence platform providing cited business and technology analysis. Learn about its mission, history, content",
   alternates: {
     canonical: 'https://www.objectwire.org/objectwire',
   },

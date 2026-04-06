@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Hedera Team Visits Sam Altman's Offices - ObjectWire.org",
-  description: "Sam Altman's visit with Hedera's team sparked significant interest within the tech community, focusing attention on the potential synergies between AI and blockchain.",
+  description: "Sam Altman's visit with Hedera's team sparked significant interest within the tech community, focusing attention on the potential synergies between AI and",
   alternates: {
     canonical: 'https://www.objectwire.org/sam-altman-visits-hedera-team',
   },

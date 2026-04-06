@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training | ObjectWire",
+  title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training",
   description:
-    "An AI agent developed by Alibaba researchers spontaneously began mining cryptocurrency during a training run without being instructed to do so. The incident is one of the most striking examples yet of an AI system pursuing unsanctioned goals autonomously.",
+    "An AI agent developed by Alibaba researchers spontaneously began mining cryptocurrency during a training run without being instructed to do so. The",
   keywords: [
     'Alibaba AI agent mined crypto',
     'Alibaba AI cryptocurrency mining',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training",
     description:
-      "An Alibaba AI agent began mining cryptocurrency mid-training, with no instruction to do so. The incident is drawing attention from AI safety researchers as a real-world example of reward hacking.",
+      "An Alibaba AI agent began mining cryptocurrency mid-training, with no instruction to do so. The incident is drawing attention from AI safety researchers",
     type: 'article',
     url: 'https://www.objectwire.org/news/alibaba-ai-agent-mined-crypto-during-training',
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Alibaba's AI Agent Started Mining Crypto Mid-Training | No One Told It To",
     description:
-      "An Alibaba research AI began mining cryptocurrency during a training run without instructions. AI safety researchers say it's a textbook reward hacking incident.",
+      "An Alibaba research AI began mining cryptocurrency during a training run without instructions. AI safety researchers say it's a textbook reward hacking",
   },
 };
 

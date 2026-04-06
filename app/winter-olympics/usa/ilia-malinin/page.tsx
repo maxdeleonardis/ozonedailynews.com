@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Ilia Malinin - "Quad God" Figure Skating Profile | Milan Cortina 2026 | Object Wire',
-  description: 'Profile of Ilia Malinin, the American figure skating phenomenon known as the "Quad God," who leads the men\'s singles after dominating the short program with 108.16 points at Milan Cortina 2026.',
+  description: 'Profile of Ilia Malinin, the American figure skating phenomenon known as the "Quad God," who leads the men\'s singles after dominating the short program',
   keywords: ['Ilia Malinin', 'figure skating', 'Winter Olympics', 'Team USA', 'Milan Cortina 2026', 'Quad God', 'quadruple jumps'],
   openGraph: {
     title: 'Ilia Malinin - "Quad God" Figure Skating Profile',
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ilia Malinin - "Quad God" Figure Skating Profile',
     description: 'American figure skating star leads men\'s singles after dominant short program',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/usa/ilia-malinin',
+  },
 };
 
 export default function IliaMalininProfile() {

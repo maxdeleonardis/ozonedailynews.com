@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "ArthurTV - YouTube Content Creator & Sidemen Collaborator | ObjectWire",
+  title: "ArthurTV | YouTube Content Creator & Sidemen Collaborator",
   description: "Complete profile of ArthurTV (Arthur Frederick), British YouTube content creator known for collaborations with the Sidemen and his charismatic personality.",
   keywords: ["ArthurTV", "Arthur Frederick", "Sidemen", "YouTube", "UK YouTuber", "Entertainment"],
   alternates: {

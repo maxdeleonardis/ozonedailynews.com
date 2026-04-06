@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'ER-100 FDA Clearance | First Epigenetic Reprogramming Human Trial',
   description:
-    'ER-100 receives FDA IND clearance January 28, 2026, the first human trial of partial epigenetic reprogramming using AAV2-delivered OSK Yamanaka factors for glaucoma and NAION',
+    'ER-100 receives FDA IND clearance January 28, 2026, the first human trial of partial epigenetic reprogramming using AAV2-delivered OSK Yamanaka factors',
   keywords: [
     'ER-100 FDA IND clearance 2026',
     'Life Biosciences epigenetic reprogramming trial',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ER-100 FDA Clearance | First Human Epigenetic Reprogramming Trial for Glaucoma & NAION',
     description:
-      'Life Biosciences ER-100 cleared for Phase 1 human trial, AAV2-delivered OSK Yamanaka factors targeting retinal ganglion cell rejuvenation in glaucoma and NAION patients. First-ever FDA-cleared epigenetic reprogramming study.',
+      'Life Biosciences ER-100 cleared for Phase 1 human trial, AAV2-delivered OSK Yamanaka factors targeting retinal ganglion cell rejuvenation in glaucoma and',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'FDA Clears First Human Trial of Epigenetic Reprogramming | ER-100',
     description:
-      'Life Biosciences ER-100: AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells. Phase 1 in glaucoma and NAION, Q1 2026. First-ever human epigenetic reprogramming trial.',
+      'Life Biosciences ER-100: AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells. Phase 1 in glaucoma and NAION, Q1 2026. First-ever human',
   },
 };
 

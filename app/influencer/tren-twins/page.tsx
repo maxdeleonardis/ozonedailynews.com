@@ -12,7 +12,7 @@ const OG_IMAGE = '/influncer/tren_twins_wiki.PNG';
 export const metadata: Metadata = {
   title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers',
   description:
-    'Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and YoungLA brand athletes.',
+    'Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and',
   keywords: [
     'Tren Twins',
     'Christian Gaiera',

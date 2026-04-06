@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Ferrari: History, Models, Formula 1 & Latest News | ObjectWire',
+  title: 'Ferrari: History, Models, Formula 1 & Latest News',
   description:
-    'Complete guide to Ferrari, the iconic Italian supercar manufacturer. Explore Ferrari\'s history, current lineup, Formula 1 success, and latest model releases.',
+    'Complete guide to Ferrari, the iconic Italian supercar manufacturer. Explore Ferrari\'s history, current lineup, Formula 1 success, and latest model',
   keywords: [
     'Ferrari',
     'Ferrari cars',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ferrari: History, Models, Formula 1 & Latest News | ObjectWire',
+    title: 'Ferrari: History, Models, Formula 1 & Latest News',
     description:
       'Complete guide to Ferrari, history, current lineup, Formula 1 success, and latest releases from Maranello.',
   },

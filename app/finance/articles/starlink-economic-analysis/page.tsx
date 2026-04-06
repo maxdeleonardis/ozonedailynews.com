@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine | ObjectWire",
-  description: "As of 2026, Starlink has transitioned into a cash-flow-positive juggernaut, leveraging SpaceX to rewrite the financial rules of the telecommunications industry.",
+  title: "Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine",
+  description: "As of 2026, Starlink has transitioned into a cash-flow-positive juggernaut, leveraging SpaceX to rewrite the financial rules of the telecommunications",
   keywords: [
     "Starlink economics 2026",
     "SpaceX Starlink IPO valuation",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     canonical: "https://www.objectwire.org/finance/articles/starlink-economic-analysis",
   },
   authors: [{ name: "ObjectWire Financial Desk" }],
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine',
+    description: 'Financial Intelligence: Starlink',
+  },
 };
 
 export default function StarlinkEconomicPage() {

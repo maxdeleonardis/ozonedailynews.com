@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The AI Sovereignty Shift: Why Your Questions Are Your Most Valuable IP | ObjectWire",
+  title: "The AI Sovereignty Shift: Why Your Questions Are Your Most Valuable IP",
   description: "Jensen Huang's strategy for the age of Digital Labor. Why the inquiry is the new proprietary moat and how to deploy Local AI Sovereignty.",
   keywords: ["Jensen Huang", "NVIDIA", "AI Strategy", "Digital Labor", "Physical AI", "IP Security"],
   authors: [{ name: "ObjectWire Editorial Team" }],

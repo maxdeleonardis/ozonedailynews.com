@@ -6,9 +6,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Arknights: Endfield Launches January 22, 2026 on PC, Mobile, and PS5 | ObjectWire',
+  title: 'Arknights: Endfield Launches January 22, 2026 on PC, Mobile, and PS5',
   description:
-    'Arknights: Endfield launched globally on January 22, 2026, for PC, iOS, Android, and PlayStation 5. The open-world action RPG from Hypergryph hit $173 million in global revenue in the first two weeks and 35 million pre-registrations.',
+    'Arknights: Endfield launched globally on January 22, 2026, for PC, iOS, Android, and PlayStation 5. The open-world action RPG from Hypergryph hit $173',
   keywords: [
     'Arknights Endfield',
     'Arknights Endfield launch',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Arknights: Endfield Launches January 22, 2026 -- $173M in Two Weeks',
     description:
-      'Hypergryph shifts from tower defense to open-world action RPG with real-time combat and factory automation on Talos-II. 35M pre-registrations, $173M global revenue in first two weeks.',
+      'Hypergryph shifts from tower defense to open-world action RPG with real-time combat and factory automation on Talos-II. 35M pre-registrations, $173M',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/arknights-endfield',
     siteName: 'ObjectWire',

@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/world-cup/news/host-cities-security-funding-frozen-dhs-shutdown';
 
 export const metadata: Metadata = {
-  title: 'U.S. 2026 World Cup Host Cities Warn of Security Funding Crisis Due to DHS Partial Shutdown | ObjectWire',
+  title: 'U.S. 2026 World Cup Host Cities Warn of Security Funding Crisis Due to DHS Partial Shutdown',
   description:
-    'Security officials from all 11 U.S. host cities testified before Congress on February 25, 2026, that the DHS partial shutdown has frozen nearly $900 million in federal security grants with just 107 days until the 2026 FIFA World Cup opens.',
+    'Security officials from all 11 U.S. host cities testified before Congress on February 25, 2026, that the DHS partial shutdown has frozen nearly $900',
   keywords: [
     '2026 FIFA World Cup security funding',
     'DHS partial shutdown World Cup',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'World Cup 2026: DHS Shutdown Freezes $900M in Host-City Security Grants With 107 Days to Kickoff',
     description:
-      'All 11 U.S. host cities testified before Congress that a DHS partial shutdown has frozen $625M in World Cup security grants and $500M in counter-drone funding, with kickoff 107 days away.',
+      'All 11 U.S. host cities testified before Congress that a DHS partial shutdown has frozen $625M in World Cup security grants and $500M in counter-drone',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DHS Shutdown Freezes $900M in World Cup Security Grants, 107 Days Before Kickoff',
     description:
-      'Eleven U.S. host cities told Congress: nearly $900M in security funding is frozen. Staffing, cybersecurity, and counter-drone programs are stalled. The tournament opens June 11.',
+      'Eleven U.S. host cities told Congress: nearly $900M in security funding is frozen. Staffing, cybersecurity, and counter-drone programs are stalled. The',
   },
 };
 

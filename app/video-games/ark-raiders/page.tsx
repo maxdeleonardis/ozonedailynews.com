@@ -13,7 +13,7 @@ const IMAGE_URL =
 export const metadata: Metadata = {
   title: 'ARK Raiders | Nexon Co-op Extraction Shooter',
   description:
-    'ARK Raiders is a free-to-play co-op extraction shooter from Nexon built on Unreal Engine 5. Full profile of gameplay, lore, developer history, platforms, and release roadmap.',
+    'ARK Raiders is a free-to-play co-op extraction shooter from Nexon built on Unreal Engine 5. Full profile of gameplay, lore, developer history, platforms,',
   keywords: [
     'ARK Raiders',
     'ARK Raiders game',

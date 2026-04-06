@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Get Free Together: Investigating the 501(c)(4) Organization | ObjectWire",
-  description: "An investigative report into Get Free Together, a 501(c)(4) social welfare organization. Examining funding sources, political activities, leadership structure, and operational transparency.",
+  title: "Get Free Together: Investigating the 501(c)(4) Organization",
+  description: "An investigative report into Get Free Together, a 501(c)(4) social welfare organization. Examining funding sources, political activities, leadership",
   keywords: [
     "Get Free Together",
     "501c4 organization",
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     type: "article",
     title: "Get Free Together: Inside the 501(c)(4) Organization",
     description: "Investigative analysis of Get Free Together's structure, funding, and political activities.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Get Free Together: Inside the 501(c)(4) Organization',
+    description: 'Investigative analysis of Get Free Together',
   },
 };
 

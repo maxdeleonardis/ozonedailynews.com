@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/apple/news/apple-video-podcasts-youtube';
 
 export const metadata: Metadata = {
-  title: 'Apple Launches Full Video Podcasts to Challenge YouTube Dominance | ObjectWire',
+  title: 'Apple Launches Full Video Podcasts to Challenge YouTube Dominance',
   description:
-    'Apple is integrating a native video experience into Apple Podcasts this spring, blending audio and video in one seamless app. The move is a direct challenge to YouTube\'s grip on video podcasting and puts new pressure on Spotify.',
+    'Apple is integrating a native video experience into Apple Podcasts this spring, blending audio and video in one seamless app. The move is a direct',
   keywords: [
     'Apple Podcasts video',
     'Apple video podcasts',

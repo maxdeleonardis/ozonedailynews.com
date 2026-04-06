@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Minnesota's Tech Hub Growth Threatens Austin's Dominance | ObjectWire",
-  description: "Minnesota emerges as a rising tech center, challenging Austin's position. Growth in tech companies, talent attraction, and innovation ecosystem transforms the Land of 10,000 Lakes.",
+  title: "Minnesota's Tech Hub Growth Threatens Austin's Dominance",
+  description: "Minnesota emerges as a rising tech center, challenging Austin's position. Growth in tech companies, talent attraction, and innovation ecosystem transforms",
   keywords: [
     "Minnesota tech hub",
     "Minnesota technology",
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     type: "article",
     title: "Minnesota Emerges as Major Tech Hub",
     description: "Growth and innovation challenge traditional tech centers, positioning Minnesota as a tech destination.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Minnesota Emerges as Major Tech Hub',
+    description: 'Growth and innovation challenge traditional tech centers, positioning Minnesota as a tech destination.',
   },
 };
 

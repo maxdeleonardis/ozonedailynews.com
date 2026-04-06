@@ -9,8 +9,8 @@ const SLUG = '/open-ai/news/symphony-open-source-autonomous-coding-agents';
 const IMAGE_URL = 'https://www.objectwire.org/open-ai.PNG';
 
 export const metadata: Metadata = {
-  title: 'OpenAI Open-Sources Symphony: An Autonomous Coding Agent Framework to Replace Prompt-Based Development | ObjectWire',
-  description: 'OpenAI released Symphony, an open-source autonomous coding agent framework built in Elixir under Apache 2.0, that monitors GitHub Issues and Linear, spawns isolated agents, runs tests, and submits pull requests without human prompting.',
+  title: 'OpenAI Open-Sources Symphony: An Autonomous Coding Agent Framework to Replace Prompt-Based Development',
+  description: 'OpenAI released Symphony, an open-source autonomous coding agent framework built in Elixir under Apache 2.0, that monitors GitHub Issues and Linear,',
   keywords: [
     'OpenAI Symphony open source',
     'Symphony autonomous coding agent framework',

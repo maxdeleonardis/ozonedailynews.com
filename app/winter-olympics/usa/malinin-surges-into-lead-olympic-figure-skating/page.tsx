@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Malinin Surges Into Lead in Olympic Men\'s Figure Skating | Breaking News | Object Wire',
-  description: 'American figure skater Ilia Malinin delivered his strongest performance at Milan Cortina, executing two quadruple jumps and his signature backflip to surge into first place in the men\'s short program with 108.16 points.',
+  description: 'American figure skater Ilia Malinin delivered his strongest performance at Milan Cortina, executing two quadruple jumps and his signature backflip to',
   keywords: ['Ilia Malinin', 'figure skating', 'Winter Olympics', 'Milano Cortina', 'quad jumps', 'backflip', 'Team USA', 'Yuma Kagiyama', 'short program'],
   openGraph: {
     title: 'Malinin Surges Into Lead in Olympic Men\'s Figure Skating',
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Malinin Surges Into Lead in Olympic Men\'s Figure Skating',
     description: 'Ilia Malinin scores 108.16 points with two quads and signature backflip to lead men\'s short program.',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/usa/malinin-surges-into-lead-olympic-figure-skating',
+  },
 };
 
 export default function MalininLeadsFigureSkatingArticle() {

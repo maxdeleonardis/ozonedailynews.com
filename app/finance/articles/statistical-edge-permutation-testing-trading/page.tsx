@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Building 51% Edges: The Quantitative Guide to Prop Firms & Algorithmic Trading | ObjectWire",
-  description: "Stop trading on vibes. Learn how quants use Permutation Testing, Monte Carlo simulations, and Expected Value to turn 51% probabilities into a scalable business.",
+  title: "Building 51% Edges: The Quantitative Guide to Prop Firms & Algorithmic Trading",
+  description: "Stop trading on vibes. Learn how quants use Permutation Testing, Monte Carlo simulations, and Expected Value to turn 51% probabilities into a scalable",
   keywords: [
     "quant trading p-value",
     "data mining bias in backtesting",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/statistical-edge-permutation-testing-trading',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Beyond Luck: A Statistical Framework for Algorithmic Trading',
+    description: 'If your strategy wins on random data, it',
   },
 };
 

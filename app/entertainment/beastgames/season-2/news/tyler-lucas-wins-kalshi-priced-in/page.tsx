@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/entertainment/beastgames/season-2/news/tyler-lucas-wins-kalshi-priced-in';
 
 export const metadata: Metadata = {
-  title: 'Beast Games Season 2 Winner Tyler Lucas (167) Was Priced In on Kalshi Before the Finale Aired | ObjectWire',
+  title: 'Beast Games Season 2 Winner Tyler Lucas (167) Was Priced In on Kalshi Before the Finale Aired',
   description:
-    'Tyler Lucas, contestant 167, won Beast Games Season 2 and $5.1 million on February 25, 2026. On Kalshi, his implied win probability hit 83-94% before the episode streamed. A MrBeast editor was already sanctioned five days earlier for insider trading on Beast Games markets.',
+    'Tyler Lucas, contestant 167, won Beast Games Season 2 and $5.1 million on February 25, 2026. On Kalshi, his implied win probability hit 83-94% before the',
   keywords: [
     'Beast Games Season 2 winner Tyler Lucas',
     'Tyler Lucas 167 Beast Games finale',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Beast Games Season 2 Winner Tyler Lucas Was Priced In at 83-94% Before the Finale Aired',
     description:
-      'Tyler Lucas won Beast Games Season 2 and $5.1M on February 25, 2026. Prediction markets had him as a near-certain winner days before broadcast. A MrBeast editor was sanctioned for insider trading five days before the finale.',
+      'Tyler Lucas won Beast Games Season 2 and $5.1M on February 25, 2026. Prediction markets had him as a near-certain winner days before broadcast. A MrBeast',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Beast Games Season 2: Tyler Lucas Priced at 83-94% on Kalshi Before the Finale',
     description:
-      'Tyler Lucas (167) wins $5.1M. Kalshi had him at 83%, Polymarket at 89% the night before. Combined volume: $1.2M. One MrBeast editor is already sanctioned for insider trading. The market knew.',
+      'Tyler Lucas (167) wins $5.1M. Kalshi had him at 83%, Polymarket at 89% the night before. Combined volume: $1.2M. One MrBeast editor is already sanctioned',
   },
 };
 

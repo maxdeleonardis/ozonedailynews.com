@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Intel Completes 18A Process Node, Begins High-Volume Chip Production | ObjectWire',
-  description: 'Intel announces 18A process node has entered high-volume manufacturing, completing its ambitious "5 Nodes in 4 Years" roadmap. Panther Lake and Clearwater Forest chips now in production at Arizona Fab 52.',
+  title: 'Intel Completes 18A Process Node, Begins High-Volume Chip Production',
+  description: 'Intel announces 18A process node has entered high-volume manufacturing, completing its ambitious "5 Nodes in 4 Years" roadmap. Panther Lake and Clearwater',
   keywords: [
     'Intel',
     'Intel 18A',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Intel Completes 18A Process Node, Enters High-Volume Chip Production',
-    description: 'Intel achieves critical milestone in semiconductor manufacturing comeback, positioning itself as credible TSMC alternative with advanced 18A process technology.',
+    description: 'Intel achieves critical milestone in semiconductor manufacturing comeback, positioning itself as credible TSMC alternative with advanced 18A process',
     type: 'article',
     url: 'https://www.objectwire.org/intel/18a-high-volume-manufacturing',
     siteName: 'ObjectWire',

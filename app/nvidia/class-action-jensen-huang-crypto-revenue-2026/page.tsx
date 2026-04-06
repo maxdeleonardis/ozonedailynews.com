@@ -9,9 +9,9 @@ const SLUG = '/nvidia/class-action-jensen-huang-crypto-revenue-2026';
 const OG_IMAGE = '/crypto/huang.png';
 
 export const metadata: Metadata = {
-  title: 'NVIDIA Class Action Certified | Jensen Huang Crypto Revenue Fraud | ObjectWire',
+  title: 'NVIDIA Class Action Certified | Jensen Huang Crypto Revenue Fraud',
   description:
-    'Federal judge certifies class action against NVIDIA and Jensen Huang over $1B in crypto mining revenue mislabeled as gaming sales during 2017-2018. Trial now proceeds.',
+    'Federal judge certifies class action against NVIDIA and Jensen Huang over $1B in crypto mining revenue mislabeled as gaming sales during 2017-2018. Trial',
   keywords: [
     'NVIDIA class action lawsuit 2026',
     'Jensen Huang crypto revenue fraud',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Federal Judge Certifies Class Action Against NVIDIA and Jensen Huang | ObjectWire',
+    title: 'Federal Judge Certifies Class Action Against NVIDIA and Jensen Huang',
     description:
       'A California judge certified a class action against NVIDIA and CEO Jensen Huang over $1B+ in crypto revenue mislabeled as gaming sales during 2017-2018.',
     url: `https://www.objectwire.org${SLUG}`,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NVIDIA Class Action Certified | Jensen Huang Crypto Fraud Lawsuit | ObjectWire',
+    title: 'NVIDIA Class Action Certified | Jensen Huang Crypto Fraud Lawsuit',
     description:
       'Judge certifies class action against NVIDIA over $1B in crypto GPU sales mislabeled as gaming revenue. Thousands of investors can now proceed as a group.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

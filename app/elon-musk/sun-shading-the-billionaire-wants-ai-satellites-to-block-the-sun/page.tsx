@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Sun-Shading: The Billionaire Wants AI Satellites to Block the Sun | ObjectWire",
-  description: "Elon Musk unveils controversial plan to deploy AI-controlled satellites that could shade Earth from solar radiation, sparking fierce debate about geoengineering and climate intervention.",
+  title: "Sun-Shading: The Billionaire Wants AI Satellites to Block the Sun",
+  description: "Elon Musk unveils controversial plan to deploy AI-controlled satellites that could shade Earth from solar radiation, sparking fierce debate about",
   keywords: ["Elon Musk", "sun shading", "geoengineering", "climate change", "satellites", "solar radiation", "AI satellites", "controversial technology"],
   alternates: {
     canonical: 'https://www.objectwire.org/elon-musk/sun-shading-the-billionaire-wants-ai-satellites-to-block-the-sun',

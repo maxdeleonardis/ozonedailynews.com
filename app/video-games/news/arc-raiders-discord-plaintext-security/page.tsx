@@ -9,9 +9,9 @@ const SLUG = '/video-games/news/arc-raiders-discord-plaintext-security';
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Arc Raiders Logged Discord DMs and Tokens in Plaintext â€” Embark Says Hotfix Coming | ObjectWire',
+  title: 'Arc Raiders Logged Discord DMs and Tokens in Plaintext â€” Embark Says Hotfix Coming',
   description:
-    'Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and authentication tokens to plaintext files when Discord integration was enabled. Embark Studios announced an emergency hotfix.',
+    'Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and authentication tokens to plaintext files when Discord',
   keywords: [
     'Arc Raiders security',
     'Arc Raiders Discord DMs',

@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/influencer/diamond-gym/prime';
 
 export const metadata: Metadata = {
-  title: 'PRIME x Diamond Gym: Logan Paul\'s Brand Becomes Official Hydration Sponsor of "The World\'s Most Dangerous Gym" | ObjectWire',
+  title: 'PRIME x Diamond Gym: Logan Paul\'s Brand Becomes Official Hydration Sponsor of "The World\'s Most Dangerous Gym"',
   description:
-    'Logan Paul\'s PRIME Hydration has officially partnered with Diamond Gym in Maplewood, NJ, "The World\'s Most Dangerous Gym." The deal includes a Special Edition TTD Prime bottle and Prime Protein Shakes, marking a major strategic shift for the brand.',
+    'Logan Paul\'s PRIME Hydration has officially partnered with Diamond Gym in Maplewood, NJ, "The World\'s Most Dangerous Gym." The deal includes a Special',
   keywords: [
     'PRIME Diamond Gym',
     'Logan Paul PRIME partnership',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PRIME x Diamond Gym: Logan Paul\'s Brand Becomes Official Hydration Sponsor of "The World\'s Most Dangerous Gym"',
     description:
-      'Logan Paul\'s PRIME Hydration partners with Diamond Gym, a historic deal that includes a Special Edition TTD bottle and Prime Protein, repositioning PRIME as a serious athlete brand.',
+      'Logan Paul\'s PRIME Hydration partners with Diamond Gym, a historic deal that includes a Special Edition TTD bottle and Prime Protein, repositioning PRIME',
     type: 'article',
     url: 'https://www.objectwire.org/influencer/diamond-gym/prime',
     siteName: 'ObjectWire',

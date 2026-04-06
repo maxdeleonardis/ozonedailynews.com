@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/nvidia/news/JensenHuang-AI-Agent-Will-Boost-Enterprise-Software-Value';
 
 export const metadata: Metadata = {
-  title: "Jensen Huang Says AI Will Boost Enterprise Software's Inherent Value | ObjectWire",
+  title: "Jensen Huang Says AI Will Boost Enterprise Software's Inherent Value",
   description:
-    'Nvidia CEO Jensen Huang told a Goldman Sachs conference on February 24, 2026 that markets have misjudged AI agents, arguing the technology will increase the value of ServiceNow, Snowflake, SAP, and Oracle rather than displace them.',
+    'Nvidia CEO Jensen Huang told a Goldman Sachs conference on February 24, 2026 that markets have misjudged AI agents, arguing the technology will increase',
   keywords: [
     'Jensen Huang AI enterprise software',
     'Nvidia CEO Goldman Sachs 2026',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jensen Huang: AI Agents Will Boost Enterprise Software Value, Not Destroy It",
     description:
-      'At a Goldman Sachs conference, Jensen Huang called the market sell-off in software stocks a misreading. He argues AI agents sit on top of ServiceNow, Snowflake, SAP, and Oracle as intelligent users, not replacements.',
+      'At a Goldman Sachs conference, Jensen Huang called the market sell-off in software stocks a misreading. He argues AI agents sit on top of ServiceNow,',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Jensen Huang: Markets Got It Wrong on AI and Enterprise Software",
     description:
-      "Nvidia's CEO says AI agents will act as intelligent users layered on top of ServiceNow, Snowflake, SAP, and Oracle -- not replace them. ServiceNow jumped 3.1% in pre-market.",
+      "Nvidia's CEO says AI agents will act as intelligent users layered on top of ServiceNow, Snowflake, SAP, and Oracle -- not replace them. ServiceNow jumped",
   },
 };
 

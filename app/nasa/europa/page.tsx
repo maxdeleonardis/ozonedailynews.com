@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Europa: Jupiter's Ocean Moon with 18-Mile Ice Shell | NASA Juno Mission Discovery | ObjectWire",
-  description: "NASA's Juno spacecraft measured Europa's ice shell at 18 miles thick, revealing insights into Jupiter's moon with a vast subsurface ocean. Implications for Europa Clipper mission and search for life.",
+  title: "Europa: Jupiter's Ocean Moon with 18-Mile Ice Shell | NASA Juno Mission Discovery",
+  description: "NASA's Juno spacecraft measured Europa's ice shell at 18 miles thick, revealing insights into Jupiter's moon with a vast subsurface ocean. Implications",
   keywords: [
     "Europa",
     "Jupiter moon",
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
         alt: "Europa ice shell illustration",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Europa: Jupiter',
+    description: 'NASA',
   },
 };
 

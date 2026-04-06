@@ -6,15 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Fabletics - Activewear & Athleisure Brand | OBJECTWIRE',
-  description: 'Comprehensive history of Fabletics, the membership-based activewear brand co-founded by Kate Hudson. From innovative subscription model to billion-dollar valuation.',
+  title: 'Fabletics | Activewear & Athleisure Brand | OBJECTWIRE',
+  description: 'Comprehensive history of Fabletics, the membership-based activewear brand co-founded by Kate Hudson. From innovative subscription model to billion-dollar',
   keywords: 'Fabletics, Kate Hudson, activewear, athleisure, VIP membership, TechStyle Fashion Group, Adam Goldenberg',
   openGraph: {
-    title: 'Fabletics - The Complete Company History',
+    title: 'Fabletics | The Complete Company History',
     description: 'How Kate Hudson and TechStyle Fashion Group disrupted the activewear industry with a membership-based model.',
     type: 'article',
     publishedTime: '2026-02-09T10:00:00Z',
     authors: ['OBJECTWIRE Fashion Desk'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fabletics | The Complete Company History',
+    description: 'How Kate Hudson and TechStyle Fashion Group disrupted the activewear industry with a membership-based model.',
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/clothing/fabletics',
   },
 };
 

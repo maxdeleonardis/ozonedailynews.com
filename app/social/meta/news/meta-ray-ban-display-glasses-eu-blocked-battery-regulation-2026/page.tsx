@@ -12,7 +12,7 @@ const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 export const metadata: Metadata = {
   title: 'Meta Ray-Ban Display Glasses Blocked in EU | Battery Law, AI Rules, Supply',
   description:
-    "Meta's display-equipped Ray-Ban smart glasses remain unavailable across the EU due to a 2027 battery regulation requiring user-replaceable cells, unresolved AI Act restrictions, and supply shortages stretching U.S. waitlists to late 2026.",
+    "Meta's display-equipped Ray-Ban smart glasses remain unavailable across the EU due to a 2027 battery regulation requiring user-replaceable cells,",
   keywords: [
     'Meta Ray-Ban glasses EU blocked',
     'Ray-Ban smart glasses Europe 2026',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta Ray-Ban Display Glasses Blocked in EU | Battery Law, AI Rules, Supply',
     description:
-      "EU Battery Regulation 2027, geofenced AI features, and a production shortage blocking UK, France, Italy, and Canada are keeping Meta's $799 Ray-Ban display glasses off European shelves.",
+      "EU Battery Regulation 2027, geofenced AI features, and a production shortage blocking UK, France, Italy, and Canada are keeping Meta's $799 Ray-Ban",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

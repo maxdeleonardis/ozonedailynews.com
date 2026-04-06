@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Nvidia Corporation: AI Computing, Graphics Processing & Data Center Technology | ObjectWire",
-  description: "Comprehensive overview of Nvidia Corporation, world leader in graphics processing units (GPUs), artificial intelligence computing, data centers, and accelerated computing technology.",
+  title: "Nvidia Corporation: AI Computing, Graphics Processing & Data Center Technology",
+  description: "Comprehensive overview of Nvidia Corporation, world leader in graphics processing units (GPUs), artificial intelligence computing, data centers, and",
   keywords: [
     "Nvidia",
     "GPU",

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ChatGPT on CarPlay | First Major AI App for iOS 26.4',
     description:
-      'OpenAI updated its iPhone app to add a dedicated CarPlay experience, making ChatGPT the first major AI chatbot on Apple\'s in-car platform. Voice-only, zero screen distractions.',
+      'OpenAI updated its iPhone app to add a dedicated CarPlay experience, making ChatGPT the first major AI chatbot on Apple\'s in-car platform. Voice-only,',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

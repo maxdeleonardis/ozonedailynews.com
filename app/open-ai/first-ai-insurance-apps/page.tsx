@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "OpenAI Authorizes First Insurance Apps in ChatGPT | ObjectWire",
+  title: "OpenAI Authorizes First Insurance Apps in ChatGPT",
   description: "Spanish insurer Tuio and US platform Insurify launch regulated insurance tools within ChatGPT, marking a shift to AI commerce.",
   keywords: ["OpenAI", "ChatGPT", "Insurance", "Tuio", "Insurify", "Fintech"],
   authors: [{ name: "ObjectWire Editorial Team" }],

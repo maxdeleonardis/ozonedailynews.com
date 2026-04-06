@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Kalshi Traders Report Losses on Khamenei "Out as Supreme Leader" Market Despite CEO Refund Pledge | ObjectWire',
+    'Kalshi Traders Report Losses on Khamenei "Out as Supreme Leader" Market Despite CEO Refund Pledge',
   description:
-    "Kalshi paused and settled its 'Ali Khamenei Out as Supreme Leader?' contract after reports of his death on February 28, 2026, resolving pre-death positions at the last traded price. CEO Tarek Mansour pledged full fee refunds, but traders holding 'Yes' positions reported net losses.",
+    "Kalshi paused and settled its 'Ali Khamenei Out as Supreme Leader?' contract after reports of his death on February 28, 2026, resolving pre-death",
   keywords: [
     'Kalshi Khamenei prediction market March 2026',
     'Kalshi Supreme Leader market settlement',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title:
       "Kalshi Traders Report Losses on Khamenei Market Despite CEO's Full Refund Pledge",
     description:
-      "Kalshi settled its 'Khamenei Out as Supreme Leader?' contract at the last pre-death traded price after reports of his death on Feb 28, 2026. CEO Tarek Mansour pledged fee refunds, but traders in 'Yes' positions at higher prices reported net losses. Polymarket resolved the same contract to Yes.",
+      "Kalshi settled its 'Khamenei Out as Supreme Leader?' contract at the last pre-death traded price after reports of his death on Feb 28, 2026. CEO Tarek",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title:
       "Kalshi Traders Report Losses on Khamenei Market, CEO Pledges Refunds",
     description:
-      "Kalshi settled 'Khamenei Out as Supreme Leader?' at last pre-death price. CEO refunded fees, but 'Yes' holders report net losses. Polymarket paid Yes; Kalshi's CFTC rules barred it.",
+      "Kalshi settled 'Khamenei Out as Supreme Leader?' at last pre-death price. CEO refunded fees, but 'Yes' holders report net losses. Polymarket paid Yes;",
     images: [IMAGE_URL],
   },
 };

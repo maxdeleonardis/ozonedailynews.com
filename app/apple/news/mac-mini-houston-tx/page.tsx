@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Apple to Manufacture Mac Mini in Houston, TX at Foxconn Facility | ObjectWire',
+  title: 'Apple to Manufacture Mac Mini in Houston, TX at Foxconn Facility',
   description:
-    'Apple will begin assembling the Mac Mini at a Foxconn facility in Houston, Texas in the second half of 2026, the first time the compact desktop has been produced in the United States, The Wall Street Journal reported.',
+    'Apple will begin assembling the Mac Mini at a Foxconn facility in Houston, Texas in the second half of 2026, the first time the compact desktop has been',
   keywords: [
     'Apple Mac Mini Houston Texas',
     'Mac Mini US manufacturing',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'article',
     title: 'Apple to Begin Manufacturing Mac Mini in Houston, TX at Foxconn Facility',
     description:
-      'Apple plans to assemble the Mac Mini at a Foxconn-operated facility in Houston, Texas, in H2 2026, making it only the second Mac desktop line to be built in the United States.',
+      'Apple plans to assemble the Mac Mini at a Foxconn-operated facility in Houston, Texas, in H2 2026, making it only the second Mac desktop line to be built',
     publishedTime: '2026-02-23T12:00:00Z',
     modifiedTime: '2026-02-23T12:00:00Z',
     url: 'https://www.objectwire.org/apple/news/mac-mini-houston-tx',

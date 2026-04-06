@@ -9,9 +9,9 @@ const SLUG = '/elon-musk/spacex-xai-merger-1-75-trillion-ipo-orbital-ai-2026';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse | IPO Targets Summer 2026 | ObjectWire",
+  title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse | IPO Targets Summer 2026",
   description:
-    "SpaceX completed an all-stock acquisition of xAI on February 2, 2026, valued at $1.25 trillion. Elon Musk has declared SpaceX will surpass all AI rivals combined within years. A $1.75 trillion IPO targeting Nasdaq is expected June/July 2026, while 9 of xAI's 11 co-founders have departed.",
+    "SpaceX completed an all-stock acquisition of xAI on February 2, 2026, valued at $1.25 trillion. Elon Musk has declared SpaceX will surpass all AI rivals",
   keywords: [
     'SpaceX xAI merger 2026',
     'SpaceX IPO $1.75 trillion 2026',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse",
     description:
-      "SpaceX absorbed xAI in a $1.25 trillion all-stock deal on February 2, 2026. Musk says SpaceX will surpass DeepMind and every other AI lab combined. A Nasdaq IPO at $1.75 trillion valuation is targeting June/July 2026. But 9 of xAI's 11 co-founders have already walked.",
+      "SpaceX absorbed xAI in a $1.25 trillion all-stock deal on February 2, 2026. Musk says SpaceX will surpass DeepMind and every other AI lab combined. A",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "SpaceX-xAI Merger: $1.75T IPO, Orbital AI, and 9 of 11 Co-Founders Gone | ObjectWire",
+    title: "SpaceX-xAI Merger: $1.75T IPO, Orbital AI, and 9 of 11 Co-Founders Gone",
     description:
-      "After absorbing xAI in February 2026, Musk says SpaceX will 'far exceed everyone else combined' in AI. A $1.75T Nasdaq IPO is targeting summer 2026. But the talent picture at xAI is turbulent: 9 of 11 co-founders have left.",
+      "After absorbing xAI in February 2026, Musk says SpaceX will 'far exceed everyone else combined' in AI. A $1.75T Nasdaq IPO is targeting summer 2026. But",
   },
   other: {
     news_keywords:

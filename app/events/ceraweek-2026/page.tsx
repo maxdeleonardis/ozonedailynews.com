@@ -9,9 +9,9 @@ const SLUG = '/events/ceraweek-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1765263857986-271b4923632d?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds | ObjectWire',
+  title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds',
   description:
-    'More than 300 clean energy startups at CERAWeek 2026 in Houston showcased AI-integrated battery storage, low-emission fuels, and grid tech as the sector adapts to cuts in renewable energy incentives.',
+    'More than 300 clean energy startups at CERAWeek 2026 in Houston showcased AI-integrated battery storage, low-emission fuels, and grid tech as the sector',
   keywords: [
     'CERAWeek 2026',
     'clean energy startups AI 2026',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds | ObjectWire',
+    title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds',
     description:
-      'More than 300 clean energy startups descended on Houston for CERAWeek 2026, signaling the sector is adapting to the rollback of renewable energy incentives by embedding AI into battery storage, grid management, and low-emission fuels.',
+      'More than 300 clean energy startups descended on Houston for CERAWeek 2026, signaling the sector is adapting to the rollback of renewable energy',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Solar panel and wind turbine, clean energy technology' }],
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI',
     description:
-      'More than 300 clean energy startups at CERAWeek 2026 are embedding AI into battery storage and grid tech to survive the rollback of federal renewable energy incentives.',
+      'More than 300 clean energy startups at CERAWeek 2026 are embedding AI into battery storage and grid tech to survive the rollback of federal renewable',
     images: [OG_IMAGE],
   },
 };

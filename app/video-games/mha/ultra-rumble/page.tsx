@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'My Hero Ultra Rumble: Complete Game Guide & Wiki | ObjectWire',
-  description: 'Comprehensive guide to My Hero Ultra Rumble, the free-to-play 24-player battle royale based on My Hero Academia. Characters, gameplay, seasons, and competitive scene.',
+  title: 'My Hero Ultra Rumble: Complete Game Guide & Wiki',
+  description: 'Comprehensive guide to My Hero Ultra Rumble, the free-to-play 24-player battle royale based on My Hero Academia. Characters, gameplay, seasons, and',
   keywords: [
     'My Hero Ultra Rumble',
     'MHA battle royale',

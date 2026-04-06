@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NASA (National Aeronautics and Space Administration): Missions, Discoveries & Space Exploration | ObjectWire",
-  description: "Comprehensive overview of NASA's missions, discoveries, and contributions to space exploration. From Artemis Moon missions to Europa ice measurements, tracking America's space agency achievements.",
+  title: "NASA (National Aeronautics and Space Administration): Missions, Discoveries & Space Exploration",
+  description: "Comprehensive overview of NASA's missions, discoveries, and contributions to space exploration. From Artemis Moon missions to Europa ice measurements,",
   keywords: [
     "NASA",
     "National Aeronautics and Space Administration",
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
         alt: "NASA Space Exploration",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NASA: America',
+    description: 'Complete overview of NASA',
   },
 };
 

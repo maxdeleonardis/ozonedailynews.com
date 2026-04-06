@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Natural Selection Ski 2026 | Big-Mountain Skiing Alaska',
   description:
-    'Natural Selection Ski sends elite skiers to big-mountain terrain in Alaska on April 14, 2026. Format, athletes, and why it is the hardest freeride ski event in the world.',
+    'Natural Selection Ski sends elite skiers to big-mountain terrain in Alaska on April 14, 2026. Format, athletes, and why it is the hardest freeride ski',
   keywords: [
     'Natural Selection Ski 2026',
     'Red Bull Natural Selection skiing',

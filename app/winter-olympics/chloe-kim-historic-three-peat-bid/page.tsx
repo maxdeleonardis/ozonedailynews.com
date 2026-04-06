@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Chloe Kim Faces Unfamiliar Hurdles in Bid for Historic Olympic Halfpipe Three-Peat | Object Wire',
-  description: 'Chloe Kim confronts new challenges in her pursuit of a third consecutive Olympic halfpipe gold medal at Milan Cortina 2026, including injuries, competitive pressure, and the weight of expectations.',
+  description: 'Chloe Kim confronts new challenges in her pursuit of a third consecutive Olympic halfpipe gold medal at Milan Cortina 2026, including injuries,',
   keywords: ['Chloe Kim', 'Winter Olympics', 'snowboarding', 'halfpipe', 'Milan Cortina 2026', 'Team USA', 'three-peat', 'Olympic gold'],
   openGraph: {
     title: 'Chloe Kim Faces Unfamiliar Hurdles in Historic Three-Peat Bid',
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Chloe Kim Faces Unfamiliar Hurdles in Historic Three-Peat Bid',
     description: 'Chloe Kim confronts injuries and pressure in pursuit of third consecutive Olympic halfpipe gold',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/chloe-kim-historic-three-peat-bid',
+  },
 };
 
 export default function ChloeKimArticle() {

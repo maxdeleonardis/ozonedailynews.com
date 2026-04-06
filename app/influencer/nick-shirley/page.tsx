@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Nick Shirley Wiki 2026: Investigative YouTuber & Fraud Exposé Expert",
-  description: "Complete profile of Nick Shirley - investigative content creator known for exposing fraud schemes, urban exploration, and viral Minnesota Feeding Our Future investigation with 2M+ subscribers.",
+  description: "Complete profile of Nick Shirley - investigative content creator known for exposing fraud schemes, urban exploration, and viral Minnesota Feeding Our",
   keywords: [
     "Nick Shirley",
     "investigative journalism",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "documentary filmmaker",
   ],
   openGraph: {
-    title: "Nick Shirley: Investigative YouTuber & Fraud Exposé Expert | ObjectWire",
+    title: "Nick Shirley: Investigative YouTuber & Fraud Exposé Expert",
     description: "From urban exploration to exposing multi-million dollar fraud schemes - Nick Shirley's rise as an investigative content creator.",
     type: "article",
     url: "https://www.objectwire.org/influencer/nick-shirley",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nick Shirley Wiki 2026: Investigative YouTuber & Fraud Exposé Expert",
     description: "Complete profile of the investigative content creator exposing fraud across America.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/influencer/nick-shirley',
   },
 };
 

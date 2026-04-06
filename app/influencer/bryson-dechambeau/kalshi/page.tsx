@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/influencer/bryson-dechambeau/kalshi';
 
 export const metadata: Metadata = {
-  title: 'Bryson DeChambeau and Kalshi Partnership | First Kalshi Athlete | ObjectWire',
+  title: 'Bryson DeChambeau and Kalshi Partnership | First Kalshi Athlete',
   description:
-    'Bryson DeChambeau became Kalshi\'s first official athlete partner. Explore the prediction market built around his 2026 YouTube course record challenge series, the market odds, and what makes this partnership a first in sports betting.',
+    'Bryson DeChambeau became Kalshi\'s first official athlete partner. Explore the prediction market built around his 2026 YouTube course record challenge',
   keywords: [
     'Bryson DeChambeau Kalshi',
     'Kalshi first athlete partner',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bryson DeChambeau and Kalshi Partnership | First Kalshi Athlete',
     description:
-      'Bryson DeChambeau became Kalshi\'s first official athlete partner. The prediction market around his 2026 YouTube course record series has crossed $159K in volume.',
+      'Bryson DeChambeau became Kalshi\'s first official athlete partner. The prediction market around his 2026 YouTube course record series has crossed $159K in',
     url: 'https://www.objectwire.org/influencer/bryson-dechambeau/kalshi',
     siteName: 'ObjectWire',
     type: 'article',

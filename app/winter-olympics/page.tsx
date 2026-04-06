@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Olympic schedule",
   ],
   openGraph: {
-    title: "Winter Olympics 2026: Milano Cortina Complete Coverage | ObjectWire",
+    title: "Winter Olympics 2026: Milano Cortina Complete Coverage",
     description: "Your hub for Winter Olympics 2026 news, schedules, results, and athlete stories from Milano Cortina, Italy.",
     type: "website",
     url: "https://www.objectwire.org/winter-olympics",
@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Winter Olympics 2026: Milano Cortina Complete Coverage",
     description: "Live updates, schedules, and stories from the Winter Olympics 2026.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics',
   },
 };
 

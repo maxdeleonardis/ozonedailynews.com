@@ -11,9 +11,9 @@ import { createClient } from '@/lib/supabase/server';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Influencer Hub | Profiles, News & Culture | ObjectWire',
+  title: 'Influencer Hub | Profiles, News & Culture',
   description:
-    "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and beyond.",
+    "ObjectWire's Influencer Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and",
   keywords: [
     'influencer profiles',
     'influencer news 2026',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/influencer',
   },
   openGraph: {
-    title: 'Influencer Hub | Profiles, News & Culture | ObjectWire',
+    title: 'Influencer Hub | Profiles, News & Culture',
     description:
       'In-depth profiles and breaking news covering the biggest influencers across fitness, YouTube, golf, and online culture. Updated 2026.',
     type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Influencer Hub | ObjectWire',
+    title: 'Influencer Hub',
     description:
       'Profiles, news, and cultural coverage of the biggest names in content creation, ObjectWire Influencer Hub.',
   },

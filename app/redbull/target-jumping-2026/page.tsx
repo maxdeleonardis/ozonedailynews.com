@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Target Jumping 2026 | Precision Bike Challenge',
   description:
-    'Red Bull Target Jumping returns April 1, 2026 with riders competing in a scored precision bike challenge. Full event format, scoring rules, and how to watch.',
+    'Red Bull Target Jumping returns April 1, 2026 with riders competing in a scored precision bike challenge. Full event format, scoring rules, and how to',
   keywords: [
     'Red Bull Target Jumping 2026',
     'Red Bull bike challenge',

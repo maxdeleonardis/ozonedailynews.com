@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Hetzner Cloud vs DigitalOcean 2026 | VPS Price, Specs, Bandwidth',
   description:
-    'Hetzner Cloud vs DigitalOcean compared spec-for-spec in 2026: vCPU pricing, 20TB vs 1TB bandwidth, dedicated cores, and which VPS wins for Next.js, blockchain nodes, and bots',
+    'Hetzner Cloud vs DigitalOcean compared spec-for-spec in 2026: vCPU pricing, 20TB vs 1TB bandwidth, dedicated cores, and which VPS wins for Next.js,',
   keywords: [
     'Hetzner Cloud vs DigitalOcean 2026',
     'Hetzner vs DigitalOcean pricing comparison',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hetzner Cloud vs DigitalOcean 2026 | Full VPS Pricing, Bandwidth & Performance Breakdown',
     description:
-      'Spec-for-spec VPS comparison: Hetzner includes 20TB bandwidth at half the price. DigitalOcean wins on managed services and developer tooling. Every tier compared.',
+      'Spec-for-spec VPS comparison: Hetzner includes 20TB bandwidth at half the price. DigitalOcean wins on managed services and developer tooling. Every tier',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

@@ -9,9 +9,9 @@ const SLUG = '/video-games/news/slay-the-spire-2';
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Slay the Spire 2 Shatters Records and Briefly "Slays" Steam â€” 430K Peak Players | ObjectWire',
+  title: 'Slay the Spire 2 Shatters Records and Briefly "Slays" Steam â€” 430K Peak Players',
   description:
-    'Slay the Spire 2 hit 430,456 concurrent Steam players within 24 hours of Early Access launch on March 5, 2026, crashing the Steam cart system and setting the all-time roguelike record.',
+    'Slay the Spire 2 hit 430,456 concurrent Steam players within 24 hours of Early Access launch on March 5, 2026, crashing the Steam cart system and setting',
   keywords: [
     'Slay the Spire 2 launch',
     'Slay the Spire 2 concurrent players',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Slay the Spire 2 Shatters Records â€” 430K Peak, Steam Cart Crash, 97% Positive Reviews',
     description:
-      'Mega Crit\'s sequel hit 430,456 concurrent players within 24 hours, crashed the Steam store for 30 minutes, and set the all-time roguelike concurrent player record.',
+      'Mega Crit\'s sequel hit 430,456 concurrent players within 24 hours, crashed the Steam store for 30 minutes, and set the all-time roguelike concurrent',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

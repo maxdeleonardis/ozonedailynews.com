@@ -10,7 +10,7 @@ const IMAGE_URL = 'https://www.objectwire.org/entertainment/hulu.PNG';
 export const metadata: Metadata = {
   title: 'Hulu | Streaming Platform Wiki, Subscribers, Plans 2026',
   description:
-    'Hulu is an American subscription streaming service owned by The Walt Disney Company. With 50M+ subscribers, it offers next-day TV, Hulu Originals, live sports, and a growing film library.',
+    'Hulu is an American subscription streaming service owned by The Walt Disney Company. With 50M+ subscribers, it offers next-day TV, Hulu Originals, live',
   keywords: [
     'Hulu streaming service',
     'Hulu originals 2026',

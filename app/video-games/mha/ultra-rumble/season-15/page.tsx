@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'My Hero Ultra Rumble Season 15: New Characters & Updates | ObjectWire',
+  title: 'My Hero Ultra Rumble Season 15: New Characters & Updates',
   description: 'Season 15 of My Hero Ultra Rumble brings new playable characters, balance updates, and fresh content to the popular free-to-play battle royale game.',
   keywords: [
     'My Hero Ultra Rumble Season 15',

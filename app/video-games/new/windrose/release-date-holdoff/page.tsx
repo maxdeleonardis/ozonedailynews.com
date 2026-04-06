@@ -9,9 +9,9 @@ const SLUG = '/video-games/new/windrose/release-date-holdoff';
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists | ObjectWire',
+  title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
   description:
-    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident the build meets its quality bar, despite crossing 1 million Steam wishlists.',
+    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident the build meets its quality bar, despite crossing 1',
   keywords: [
     'Windrose release date',
     'Windrose Crew update',

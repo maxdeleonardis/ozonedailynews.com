@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/winter-olympics/usa/alysa-liu';
 
 export const metadata: Metadata = {
-  title: 'Alysa Liu - Olympic Gold Medalist, Figure Skater | Milano Cortina 2026 | ObjectWire',
+  title: 'Alysa Liu | Olympic Gold Medalist, Figure Skater | Milano Cortina 2026',
   description:
-    "Full biography of Alysa Liu, American figure skater and 2026 Olympic gold medalist. California-born Chinese-American skater who ended a 20-year U.S. medal drought in women's singles with a score of 233.17 at Milano Cortina.",
+    "Full biography of Alysa Liu, American figure skater and 2026 Olympic gold medalist. California-born Chinese-American skater who ended a 20-year U.S. medal",
   keywords: [
     'Alysa Liu',
     'Alysa Liu Olympic gold',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/winter-olympics/usa/alysa-liu',
   },
   openGraph: {
-    title: 'Alysa Liu - Olympic Gold Medalist | Milano Cortina 2026',
+    title: 'Alysa Liu | Olympic Gold Medalist | Milano Cortina 2026',
     description:
-      "Full biography of Alysa Liu, 2026 Olympic gold medalist in women's singles figure skating. She ended a 20-year American medal drought with a breathtaking 233.17-point performance at Milano Cortina.",
+      "Full biography of Alysa Liu, 2026 Olympic gold medalist in women's singles figure skating. She ended a 20-year American medal drought with a breathtaking",
     type: 'article',
     url: 'https://www.objectwire.org/winter-olympics/usa/alysa-liu',
     siteName: 'ObjectWire',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alysa Liu - Olympic Gold Medalist | Milano Cortina 2026',
+    title: 'Alysa Liu | Olympic Gold Medalist | Milano Cortina 2026',
     description:
       "America's 20-year figure skating drought ended when Alysa Liu scored 233.17 points at the 2026 Winter Olympics. Full biography and coverage.",
     images: [

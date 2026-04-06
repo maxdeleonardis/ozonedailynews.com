@@ -9,9 +9,9 @@ const SLUG = '/tech/square/bitcoin-payments-4-million-merchants-2026';
 const OG_IMAGE = '';
 
 export const metadata: Metadata = {
-  title: 'Square Enables Bitcoin for 4 Million US Merchants | ObjectWire',
+  title: 'Square Enables Bitcoin for 4 Million US Merchants',
   description:
-    'Block\'s Square flipped Bitcoin payments from opt-in to opt-out for 4 million eligible US merchants on March 30, 2026. Customers pay via Lightning QR code. Merchants receive USD automatically.',
+    'Block\'s Square flipped Bitcoin payments from opt-in to opt-out for 4 million eligible US merchants on March 30, 2026. Customers pay via Lightning QR',
   keywords: [
     'Square Bitcoin payments 2026',
     'Square auto-enable Bitcoin merchants',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Square Auto-Enables Bitcoin for 4 Million US Merchants',
     description:
-      'Block flipped Square\'s Bitcoin feature from opt-in to opt-out on March 30, 2026. Customers scan a Lightning QR code. Merchants get USD. No volatility exposure, no setup required.',
+      'Block flipped Square\'s Bitcoin feature from opt-in to opt-out on March 30, 2026. Customers scan a Lightning QR code. Merchants get USD. No volatility',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: "China Bars Manus Co-Founders From Leaving Country Amid Meta Deal Review | ObjectWire",
+  title: "China Bars Manus Co-Founders From Leaving Country Amid Meta Deal Review",
   description:
-    "Chinese authorities have imposed travel restrictions on Manus AI co-founders Xiao Hong and Ji Yichao as regulators examine whether Meta's roughly $2 billion acquisition violated investment rules, the Financial Times reported.",
+    "Chinese authorities have imposed travel restrictions on Manus AI co-founders Xiao Hong and Ji Yichao as regulators examine whether Meta's roughly $2",
   keywords: [
     'Manus AI China 2026',
     'Manus co-founders travel ban',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "China Bars Manus Co-Founders From Leaving Country Amid Meta Deal Review",
     description:
-      "Manus CEO Xiao Hong and chief scientist Ji Yichao were summoned to Beijing's National Development and Reform Commission and told they cannot leave China while regulators examine Meta's ~$2B acquisition of the AI startup.",
+      "Manus CEO Xiao Hong and chief scientist Ji Yichao were summoned to Beijing's National Development and Reform Commission and told they cannot leave China",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

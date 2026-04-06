@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/aws-uae-data-center-fire-iran-strikes';
 
 export const metadata: Metadata = {
-  title: 'AWS Temporarily Shuts Down UAE Availability Zone After Objects Strike Facility, Sparking Fire | ObjectWire',
-  description: 'Amazon Web Services shut down UAE Availability Zone mec1-az2 after objects struck the data center creating sparks and fire on March 1, 2026, amid Iranian missile strikes across the Gulf region.',
+  title: 'AWS Temporarily Shuts Down UAE Availability Zone After Objects Strike Facility, Sparking Fire',
+  description: 'Amazon Web Services shut down UAE Availability Zone mec1-az2 after objects struck the data center creating sparks and fire on March 1, 2026, amid Iranian',
   keywords: ['AWS UAE data center fire', 'mec1-az2 availability zone shutdown', 'Amazon Web Services UAE', 'Iran strikes data center', 'AWS Middle East region outage', 'cloud infrastructure conflict', 'ME-CENTRAL-1 region', 'AWS Gulf region'],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {

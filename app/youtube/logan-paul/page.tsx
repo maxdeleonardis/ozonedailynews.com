@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/logan-paul';
 
 export const metadata: Metadata = {
-  title: 'Logan Paul | YouTuber, WWE Star & Entrepreneur | ObjectWire',
+  title: 'Logan Paul | YouTuber, WWE Star & Entrepreneur',
   description:
-    'Full profile of Logan Paul: YouTube career, Impaulsive podcast, PRIME Hydration, WWE appearances, and his record-breaking Pokémon card collection. ObjectWire coverage hub.',
+    'Full profile of Logan Paul: YouTube career, Impaulsive podcast, PRIME Hydration, WWE appearances, and his record-breaking Pokémon card collection.',
   keywords: [
     'Logan Paul',
     'Logan Paul YouTube',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Logan Paul | YouTuber, WWE Star & Entrepreneur | ObjectWire',
+    title: 'Logan Paul | YouTuber, WWE Star & Entrepreneur',
     description:
       'Full profile of Logan Paul: YouTube, PRIME Hydration, WWE, Impaulsive, and $16M Pikachu card.',
   },

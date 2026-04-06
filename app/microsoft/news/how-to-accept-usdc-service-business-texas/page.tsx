@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/how-to-accept-usdc-service-business-texas';
 
 export const metadata: Metadata = {
-  title: 'How to Accept USDC for Your Service Business in Texas (and Report It Properly) | ObjectWire',
+  title: 'How to Accept USDC for Your Service Business in Texas (and Report It Properly)',
   description:
-    'A comprehensive guide for Texas service businesses on accepting USDC stablecoin payments, covering setup, tax reporting, accounting, compliance, and conversion to USD under current IRS and Texas regulations.',
+    'A comprehensive guide for Texas service businesses on accepting USDC stablecoin payments, covering setup, tax reporting, accounting, compliance, and',
   keywords: [
     'accept USDC Texas service business',
     'USDC payment processing Texas',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to Accept USDC for Your Service Business in Texas (and Report It Properly)',
     description:
-      'Step-by-step guide for Texas service businesses on accepting USDC stablecoin payments, covering wallets, processors, tax obligations, accounting, and compliance.',
+      'Step-by-step guide for Texas service businesses on accepting USDC stablecoin payments, covering wallets, processors, tax obligations, accounting, and',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

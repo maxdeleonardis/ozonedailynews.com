@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/uk/stephen_tries.png';
 export const metadata: Metadata = {
   title: 'Stephen Tries | Age, YouTube, Instagram, Bio 2026',
   description:
-    'Stephen Tries (Stephen Lawson) is a British comedian and YouTuber from Norwich, 30 in 2026, with 1.6M+ subscribers. Full biography, "How To" series, Sidemen connections, and social media links.',
+    'Stephen Tries (Stephen Lawson) is a British comedian and YouTuber from Norwich, 30 in 2026, with 1.6M+ subscribers. Full biography, "How To" series,',
   keywords: [
     'Stephen Tries',
     'Stephen Tries age',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Stephen Tries | Age, YouTube, Instagram & Bio 2026',
     description:
-      'Full profile of Stephen Tries (real name: Stephen Lawson), Norwich comedian, 30 in 2026. YouTube: 1.6M subscribers. Known for "How To Be Stormzy" and UK pop culture parody.',
+      'Full profile of Stephen Tries (real name: Stephen Lawson), Norwich comedian, 30 in 2026. YouTube: 1.6M subscribers. Known for "How To Be Stormzy" and UK',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',

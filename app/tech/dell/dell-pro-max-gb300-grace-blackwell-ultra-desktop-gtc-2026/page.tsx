@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/tech/dell/dell-pro-max-gb300-grace-blackwell-ultra-desktop-gtc-2026';
 
 export const metadata: Metadata = {
-  title: "Dell Ships First Desktop with Nvidia GB300 Grace Blackwell Ultra for AI Agents | ObjectWire",
+  title: "Dell Ships First Desktop with Nvidia GB300 Grace Blackwell Ultra for AI Agents",
   description:
-    "Dell Technologies announced at Nvidia GTC 2026 that it is the first OEM to ship a desktop powered by Nvidia's GB300 Grace Blackwell Ultra Desktop Superchip. The Dell Pro Max with GB300 delivers 20 petaFLOPS of FP4 AI performance and 784GB of unified memory for autonomous AI agent workloads.",
+    "Dell Technologies announced at Nvidia GTC 2026 that it is the first OEM to ship a desktop powered by Nvidia's GB300 Grace Blackwell Ultra Desktop",
   keywords: [
     'Dell Pro Max GB300 desktop 2026',
     'Nvidia GB300 Grace Blackwell Ultra desktop',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dell Ships First Desktop with Nvidia's GB300 Grace Blackwell Ultra | 20 PetaFLOPS for AI Agents",
     description:
-      "Announced at GTC 2026, the Dell Pro Max with GB300 is the first OEM desktop powered by Nvidia's Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4, 784GB unified memory, data center AI in a desktop box built for autonomous agent development.",
+      "Announced at GTC 2026, the Dell Pro Max with GB300 is the first OEM desktop powered by Nvidia's Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4, 784GB",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dell Becomes First OEM to Ship a Desktop with Nvidia's GB300 | 20 PetaFLOPS, 784GB RAM | ObjectWire",
+    title: "Dell Becomes First OEM to Ship a Desktop with Nvidia's GB300 | 20 PetaFLOPS, 784GB RAM",
     description:
-      "At GTC 2026, Dell unveiled the Pro Max with GB300 Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4 AI performance and 784GB unified memory in a desktop, the same processor class used by OpenAI, Google, and Microsoft.",
+      "At GTC 2026, Dell unveiled the Pro Max with GB300 Grace Blackwell Ultra Superchip. 20 petaFLOPS FP4 AI performance and 784GB unified memory in a desktop,",
   },
   other: {
     news_keywords:

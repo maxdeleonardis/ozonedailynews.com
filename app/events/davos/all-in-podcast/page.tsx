@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "All-In Podcast at Davos 2026: Silicon Valley Meets Global Elite | ObjectWire",
-  description: "How Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg brought the All-In Podcast to the World Economic Forum in Davos, including exclusive interviews, private dinners, and live episodes.",
+  title: "All-In Podcast at Davos 2026: Silicon Valley Meets Global Elite",
+  description: "How Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg brought the All-In Podcast to the World Economic Forum in Davos, including",
   keywords: [
     "All-In Podcast",
     "Davos 2026",
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
         alt: "All-In Podcast at Davos 2026",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'All-In Podcast Takes Davos 2026 by Storm',
+    description: 'Inside the All-In Podcast',
   },
 };
 

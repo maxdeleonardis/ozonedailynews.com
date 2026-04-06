@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "From Static Equity to Programmable Capital: The State of Tokenization in 2026",
-  description: "A foundational analysis of the $16 trillion shift to the 'Financial Internet.' This report deconstructs atomic settlement, liquidity multipliers, and how tokenization is unlocking roughly 10% of global GDP.",
+  description: "A foundational analysis of the $16 trillion shift to the 'Financial Internet.' This report deconstructs atomic settlement, liquidity multipliers, and how",
   keywords: [
     "tokenization 2026",
     "CLARITY Act 2025",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/16-trillion-on-chain-tokenization-revolution-2026',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'From Static Equity to Programmable Capital: The State of Tokenization in 2026',
+    description: 'Institutional analysis: How the transition from information to value is unlocking $16 trillion in trapped liquidity.',
   },
 };
 

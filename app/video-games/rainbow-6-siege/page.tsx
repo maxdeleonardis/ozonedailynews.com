@@ -7,9 +7,9 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:
-    'Rainbow Six Siege, News, Operators, Maps & Esports | ObjectWire',
+    'Rainbow Six Siege, News, Operators, Maps & Esports',
   description:
-    "Complete Rainbow Six Siege coverage, Year 11 season updates, new operators, map reworks, ranked meta, esports tournaments, and Ubisoft's tactical FPS roadmap for 2026.",
+    "Complete Rainbow Six Siege coverage, Year 11 season updates, new operators, map reworks, ranked meta, esports tournaments, and Ubisoft's tactical FPS",
   keywords: [
     'Rainbow Six Siege',
     'R6 Siege',
@@ -24,13 +24,18 @@ export const metadata: Metadata = {
     'Six Invitational',
   ],
   openGraph: {
-    title: 'Rainbow Six Siege | News, Operators & Esports | ObjectWire',
+    title: 'Rainbow Six Siege | News, Operators & Esports',
     description:
       'Year 11 updates, new operators, competitive meta, and esports coverage for Ubisoft\'s tactical FPS.',
     type: 'website',
   },
   alternates: {
     canonical: 'https://www.objectwire.org/video-games/rainbow-6-siege',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Rainbow Six Siege | News, Operators & Esports",
+    description: "Year 11 updates, new operators, competitive meta, and esports coverage for Ubisoft\'s tactical FPS.",
   },
 };
 

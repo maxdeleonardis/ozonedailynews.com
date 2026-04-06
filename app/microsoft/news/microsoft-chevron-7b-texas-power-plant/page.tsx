@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1750074905408-db3b0f29202a?i
 export const metadata: Metadata = {
   title: 'Microsoft in Talks with Chevron on $7B Texas Power Plant',
   description:
-    'Microsoft is in exclusive negotiations with Chevron and Engine No. 1 to build a $7 billion natural gas power complex in West Texas to supply electricity to AI data centers.',
+    'Microsoft is in exclusive negotiations with Chevron and Engine No. 1 to build a $7 billion natural gas power complex in West Texas to supply electricity',
   keywords: [
     'Microsoft Chevron power plant Texas',
     'Microsoft $7 billion data center power',

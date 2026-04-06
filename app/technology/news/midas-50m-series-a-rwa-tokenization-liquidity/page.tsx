@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Midas $50M Series A | RWA Tokenization Liquidity',
   description:
-    'Midas raises $50M Series A to build 24/7 instant redemption for tokenized Treasuries. Franklin Templeton and Anchorage Digital participated in the Berlin fintech round.',
+    'Midas raises $50M Series A to build 24/7 instant redemption for tokenized Treasuries. Franklin Templeton and Anchorage Digital participated in the Berlin',
   keywords: [
     'Midas RWA tokenization $50M Series A',
     'Midas mTBILL stablecoin instant redemption',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Midas $50M Series A | Instant Redemption for Tokenized Treasuries',
     description:
-      'Berlin-based Midas raises $50M from Franklin Templeton, Coinbase Ventures, and Anchorage Digital to solve the 24-hour settlement delay blocking institutional RWA adoption. Total funding: $58.75M.',
+      'Berlin-based Midas raises $50M from Franklin Templeton, Coinbase Ventures, and Anchorage Digital to solve the 24-hour settlement delay blocking',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Midas Raises $50M | Instant Redemption for Tokenized Treasuries',
     description:
-      'Franklin Templeton, Coinbase Ventures, Anchorage Digital in the round. Midas builds 24/7 stablecoin exits for on-chain Treasury yields. RWA market: $2.5B, up 300% YoY.',
+      'Franklin Templeton, Coinbase Ventures, Anchorage Digital in the round. Midas builds 24/7 stablecoin exits for on-chain Treasury yields. RWA market: $2.5B,',
     images: [OG_IMAGE],
   },
 };

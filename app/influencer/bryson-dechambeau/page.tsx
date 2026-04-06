@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/influencer/bryson-dechambeau';
 
 export const metadata: Metadata = {
-  title: 'Bryson DeChambeau | "The Mad Scientist" | 2× US Open Champion & LIV Golf Star | ObjectWire',
+  title: 'Bryson DeChambeau | "The Mad Scientist" | 2× US Open Champion & LIV Golf Star',
   description:
-    'Full profile of Bryson DeChambeau: 2× US Open champion (2020, 2024), LIV Golf star, and one of the most analytically gifted, and physically transformed, golfers in history. Career, controversies, YouTube content, and more.',
+    'Full profile of Bryson DeChambeau: 2× US Open champion (2020, 2024), LIV Golf star, and one of the most analytically gifted, and physically transformed,',
   keywords: [
     'Bryson DeChambeau',
     'Bryson DeChambeau LIV Golf',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bryson DeChambeau | The Mad Scientist | 2× US Open Champion & LIV Golf Star',
     description:
-      'Full profile of Bryson DeChambeau: from NCAA phenom to 2× US Open champion and LIV Golf icon. Physics-based game, dramatic body transformation, and a growing content creator footprint.',
+      'Full profile of Bryson DeChambeau: from NCAA phenom to 2× US Open champion and LIV Golf icon. Physics-based game, dramatic body transformation, and a',
     type: 'article',
     url: 'https://www.objectwire.org/influencer/bryson-dechambeau',
     siteName: 'ObjectWire',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "New Balance Wiki 2026: History, Made in USA Sneakers & Athletic Innovation",
-  description: "Complete guide to New Balance Athletic Shoe, Inc. - Founded 1906, the iconic American footwear brand known for Made in USA manufacturing, 990 series, and performance athletic shoes.",
+  description: "Complete guide to New Balance Athletic Shoe, Inc. - Founded 1906, the iconic American footwear brand known for Made in USA manufacturing, 990 series, and",
   keywords: [
     "New Balance",
     "New Balance sneakers",
@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     title: "New Balance Wiki 2026: Made in USA Since 1906",
     description: "The complete history of New Balance - From arch supports to global athletic powerhouse.",
     images: ["https://objectwire.com/og-new-balance.jpg"],
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/clothing/new-balance',
   },
 };
 

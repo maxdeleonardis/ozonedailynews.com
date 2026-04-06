@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/video-games/epic/pherb.png';
 export const metadata: Metadata = {
   title: 'Fortnite Phineas and Ferb Cup | How to Win the Free Skins',
   description:
-    'The Fortnite Phineas and Ferb Cup runs April 3, 2026. Win enough points to unlock Buff Perry the Platypus and Dr. Doofenshmirtz skins before they hit the Item Shop on April 4 at 8 p.m. ET.',
+    'The Fortnite Phineas and Ferb Cup runs April 3, 2026. Win enough points to unlock Buff Perry the Platypus and Dr. Doofenshmirtz skins before they hit the',
   keywords: [
     'Fortnite Phineas and Ferb Cup',
     'Fortnite Phineas and Ferb skins',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fortnite Phineas and Ferb Cup | Win Buff Perry, Doofenshmirtz Free',
     description:
-      'The Fortnite Phineas and Ferb Cup is live April 3. Earn enough points to claim Buff Perry the Platypus and Dr. Doofenshmirtz before the Item Shop drop on April 4 at 8 p.m. ET.',
+      'The Fortnite Phineas and Ferb Cup is live April 3. Earn enough points to claim Buff Perry the Platypus and Dr. Doofenshmirtz before the Item Shop drop on',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

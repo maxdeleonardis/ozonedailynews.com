@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1558465202-92356bf74344?ixli
 export const metadata: Metadata = {
   title: 'San Jose Earthquakes 2026 | Timo Werner Golden Boot Charge',
   description:
-    'The San Jose Earthquakes have allowed just 9 goals in 8 matches and Timo Werner leads MLS with 7 goals. A defensive rebuild and a marquee signing are transforming the Quakes.',
+    'The San Jose Earthquakes have allowed just 9 goals in 8 matches and Timo Werner leads MLS with 7 goals. A defensive rebuild and a marquee signing are',
   keywords: [
     'San Jose Earthquakes 2026',
     'Timo Werner MLS',

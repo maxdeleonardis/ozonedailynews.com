@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Musk Confirms xAI Layoffs Amid Company Reorganization | Breaking News | Object Wire',
-  description: 'Elon Musk confirms layoffs at xAI as the artificial intelligence company undergoes restructuring. Details on the reorganization, affected departments, and strategic direction.',
+  description: 'Elon Musk confirms layoffs at xAI as the artificial intelligence company undergoes restructuring. Details on the reorganization, affected departments, and',
   keywords: ['xAI', 'Elon Musk', 'layoffs', 'artificial intelligence', 'AI', 'tech layoffs', 'company reorganization', 'restructuring'],
   openGraph: {
     title: 'Musk Confirms xAI Layoffs Amid Company Reorganization',
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Musk Confirms xAI Layoffs Amid Company Reorganization',
     description: 'Elon Musk confirms layoffs at xAI as the AI company undergoes restructuring',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/news/layoffs/xai-musk-confirms-layoffs-reorganization',
+  },
 };
 
 export default function xAILayoffsArticle() {

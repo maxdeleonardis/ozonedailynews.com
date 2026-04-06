@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Gatik: Autonomous Trucking Company Profile & History | ObjectWire',
-  description: 'Complete profile of Gatik, the first U.S. company to operate fully autonomous commercial trucks. Founded 2017, pioneering middle-mile logistics automation with Walmart and Kroger partnerships.',
+  title: 'Gatik: Autonomous Trucking Company Profile & History',
+  description: 'Complete profile of Gatik, the first U.S. company to operate fully autonomous commercial trucks. Founded 2017, pioneering middle-mile logistics automation',
   keywords: [
     'Gatik',
     'Gatik AI',

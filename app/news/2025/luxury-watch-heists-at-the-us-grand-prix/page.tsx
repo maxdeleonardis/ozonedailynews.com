@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "2025 US Grand Prix: Richard Mille Robberies [Suspect in Custody] - ObjectWire.org",
+  title: "2025 US Grand Prix: Richard Mille Robberies [Suspect in Custody] | ObjectWire.org",
   description: "Luxury watch heists at the 2025 US Grand Prix Formula 1 race. Richard Mille timepieces stolen from high-profile attendees.",
   alternates: {
     canonical: 'https://www.objectwire.org/luxury-watch-heists-at-the-us-grand-prix',

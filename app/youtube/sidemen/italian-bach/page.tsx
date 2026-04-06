@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Italian Bach - YouTube Content Creator & Sidemen Collaborator | ObjectWire",
-  description: "Complete profile of Italian Bach (Isaac Butterfield), British-Italian YouTube creator known for his appearances with the Sidemen and distinctive personality.",
+  title: "Italian Bach | YouTube Content Creator & Sidemen Collaborator",
+  description: "Complete profile of Italian Bach (Isaac Butterfield), British-Italian YouTube creator known for his appearances with the Sidemen and distinctive",
   keywords: ["Italian Bach", "Isaac Butterfield", "Sidemen", "YouTube", "UK YouTuber", "Italian"],
   alternates: {
     canonical: 'https://www.objectwire.org/youtube/sidemen/italian-bach',

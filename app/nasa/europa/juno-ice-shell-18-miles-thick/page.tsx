@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NASA's Juno Spacecraft Measures Europa's Ice Shell at 18 Miles Thick | ObjectWire",
-  description: "NASA's Juno mission has measured Europa's ice shell thickness at 18 miles, providing critical insights into Jupiter's ocean moon. Discovery advances understanding of potential habitability and informs Europa Clipper mission.",
+  title: "NASA's Juno Spacecraft Measures Europa's Ice Shell at 18 Miles Thick",
+  description: "NASA's Juno mission has measured Europa's ice shell thickness at 18 miles, providing critical insights into Jupiter's ocean moon. Discovery advances",
   keywords: [
     "NASA Juno",
     "Europa ice shell",

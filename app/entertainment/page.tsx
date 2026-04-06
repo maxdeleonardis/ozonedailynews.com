@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SEOWrapper } from '@/components/SEOWrapper';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Entertainment Hub | Hollywood, Streaming & Culture | ObjectWire',
+  title: 'Entertainment News | Hollywood, Streaming, Film, TV 2026',
   description:
-    'ObjectWire Entertainment: breaking news and deep coverage of Hollywood, Netflix, Disney, Hulu, Apple TV+, HBO Max, music, awards, and pop culture. Updated daily.',
+    'ObjectWire Entertainment: breaking news on Hollywood, Netflix, Disney, Hulu, Apple TV+, HBO Max, music, awards, and pop culture. Updated daily.',
   keywords: [
     'entertainment news 2026',
     'Hollywood news',
@@ -18,16 +21,21 @@ export const metadata: Metadata = {
     'TV shows 2026',
     'streaming news',
     'pop culture 2026',
-    'ObjectWire entertainment',
+    'film industry',
   ],
   alternates: { canonical: 'https://www.objectwire.org/entertainment' },
   openGraph: {
-    title: 'Entertainment Hub | Hollywood, Streaming & Culture | ObjectWire',
+    title: 'Entertainment News | Hollywood, Streaming, Film & TV',
     description:
       'Breaking entertainment news: Hollywood, Netflix, Disney, Hulu, Apple TV+, HBO Max, awards season, and pop culture, all in one place.',
     type: 'website',
     url: 'https://www.objectwire.org/entertainment',
     siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Entertainment News | Hollywood, Streaming, Film & TV',
+    description: 'Hollywood, Netflix, Disney+, Hulu, HBO Max, awards, and pop culture from ObjectWire.',
   },
 };
 
@@ -175,6 +183,7 @@ const CATEGORIES = [
 
 export default function EntertainmentHubPage() {
   return (
+    <SEOWrapper slug="/entertainment">
     <div className="min-h-screen bg-white">
 
       {/* ── Hub masthead ──────────────────────────────────────────────────── */}
@@ -324,5 +333,6 @@ export default function EntertainmentHubPage() {
 
       </div>
     </div>
+    </SEOWrapper>
   );
 }

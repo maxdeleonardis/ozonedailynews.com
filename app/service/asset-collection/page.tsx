@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Photography and Videography as a Service - ObjectWire.org",
-  description: "At Objective Wire, we specialize in professional photography and videography services designed for investigative, legal, and private documentation purposes.",
+  title: "Photography and Videography as a Service | ObjectWire.org",
+  description: "At Objective Wire, we specialize in professional photography and videography services designed for investigative, legal, and private documentation",
   alternates: {
     canonical: 'https://www.objectwire.org/asset-collection',
   },

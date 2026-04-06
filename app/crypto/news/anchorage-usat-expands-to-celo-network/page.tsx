@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/crypto/tether.png';
 export const metadata: Metadata = {
   title: 'Anchorage USA₮ Expands to Celo | First Post-Ethereum Chain',
   description:
-    'Anchorage Digital Bank launches its federally regulated stablecoin USA₮ on Celo, the first expansion beyond Ethereum. Celo hosts 4.2M weekly active stablecoin users and 14M MiniPay wallet users.',
+    'Anchorage Digital Bank launches its federally regulated stablecoin USA₮ on Celo, the first expansion beyond Ethereum. Celo hosts 4.2M weekly active',
   keywords: [
     'Anchorage Digital USA₮ Celo',
     'USA₮ stablecoin Celo network',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Anchorage USA₮ Expands to Celo | First Post-Ethereum Chain',
     description:
-      'USA₮, the first federally regulated stablecoin under the GENIUS Act, launches on Celo. 4.2M weekly active users, Google Cloud distribution, ZK-proof identity verification.',
+      'USA₮, the first federally regulated stablecoin under the GENIUS Act, launches on Celo. 4.2M weekly active users, Google Cloud distribution, ZK-proof',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Anchorage USA₮ Expands to Celo | First Chain Beyond Ethereum',
     description:
-      'Federally regulated USA₮ launches on Celo. 4.2M weekly active stablecoin users, 14M MiniPay wallets, Google Cloud faucet, ZK-proof identity. The regulated digital dollar goes mobile-first.',
+      'Federally regulated USA₮ launches on Celo. 4.2M weekly active stablecoin users, 14M MiniPay wallets, Google Cloud faucet, ZK-proof identity. The regulated',
     images: [OG_IMAGE],
   },
 };

@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'KSI (JJ Olatunji) | YouTuber, Boxer, Musician & PRIME Co-Founder | ObjectWire',
+  title: 'KSI (JJ Olatunji) | YouTuber, Boxer, Musician & PRIME Co-Founder',
   description:
-    'Complete profile of KSI (JJ Olatunji): Sidemen founding member, professional boxer with a 6-0-1 record, multi-platinum recording artist, and co-founder of PRIME Hydration. ObjectWire coverage hub.',
+    'Complete profile of KSI (JJ Olatunji): Sidemen founding member, professional boxer with a 6-0-1 record, multi-platinum recording artist, and co-founder of',
   keywords: [
     'KSI',
     'JJ Olatunji',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KSI (JJ Olatunji) | ObjectWire',
+    title: 'KSI (JJ Olatunji)',
     description: 'Full profile of KSI: YouTube, boxing, music, PRIME Hydration, and Sidemen.',
     images: ['https://www.objectwire.org/sidemen/ksi-talking-head.gif'],
   },

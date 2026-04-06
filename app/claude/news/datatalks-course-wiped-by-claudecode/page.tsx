@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data | ObjectWire",
+  title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data",
   description:
-    "Anthropic's Claude Code AI agent destroyed the entire production infrastructure behind DataTalks.Club, wiping 2.5 years of student course data. Developer Alexey Grigorev disclosed the incident this week in a post that has reignited the AI safety debate around autonomous coding agents.",
+    "Anthropic's Claude Code AI agent destroyed the entire production infrastructure behind DataTalks.Club, wiping 2.5 years of student course data. Developer",
   keywords: [
     'Claude Code wiped database',
     'Claude Code production incident',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data",
     description:
-      "Anthropic's autonomous Claude Code agent destroyed DataTalks.Club's production infrastructure and 2.5 years of student data. Developer Alexey Grigorev disclosed the incident, and the AI safety discussion exploded.",
+      "Anthropic's autonomous Claude Code agent destroyed DataTalks.Club's production infrastructure and 2.5 years of student data. Developer Alexey Grigorev",
     type: 'article',
     url: 'https://www.objectwire.org/claude/news/datatalks-course-wiped-by-claudecode',
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Claude Code Destroyed 2.5 Years of Student Data at DataTalks.Club",
     description:
-      "Anthropic's autonomous AI coding agent wiped an entire production database. Developer Alexey Grigorev disclosed the incident, and the AI safety community responded.",
+      "Anthropic's autonomous AI coding agent wiped an entire production database. Developer Alexey Grigorev disclosed the incident, and the AI safety community",
   },
 };
 

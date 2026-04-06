@@ -12,13 +12,21 @@ const IMAGE_URL = '/trump/musk-tsa-shutdown.PNG';
 export const metadata: Metadata = {
   title: "Trump Backs Musk's Offer to Personally Pay TSA Workers During Shutdown",
   description:
-    "Elon Musk offered via X to personally cover TSA worker salaries during the partial DHS shutdown. Trump endorsed the offer, saying 'Yeah, I'd love it.' Legal experts warn the plan faces steep hurdles under federal law.",
+    "Elon Musk offered via X to personally cover TSA worker salaries during the partial DHS shutdown. Trump endorsed the offer, saying 'Yeah, I'd love it.'",
   openGraph: {
     title: "Trump Backs Musk's Offer to Personally Pay TSA Workers During Shutdown",
     description:
-      "Musk offered to personally cover TSA salaries during the DHS partial shutdown. Trump endorsed it. Legal experts say federal law likely prohibits private payment of government employees.",
+      "Musk offered to personally cover TSA salaries during the DHS partial shutdown. Trump endorsed it. Legal experts say federal law likely prohibits private",
     url: FULL_URL,
     images: [{ url: IMAGE_URL }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trump Backs Musk',
+    description: 'Musk offered to personally cover TSA salaries during the DHS partial shutdown. Trump endorsed it. Legal experts say federal law likely prohibits private',
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/trump/musk-pay-tsa-workers-shutdown',
   },
 };
 

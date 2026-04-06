@@ -9,9 +9,9 @@ const SLUG = '/finance/private-credit-redemption-crisis-blackstone-blackrock-blu
 const OG_IMAGE = 'https://images.unsplash.com/photo-1468254095679-bbcba94a7066?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds | ObjectWire',
+  title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
   description:
-    'The $1.8 trillion private credit market is under pressure. February losses at BCRED and Ares, $13B in Q1 redemption requests, and withdrawal caps at BlackRock, Blue Owl, and Blackstone signal a structural liquidity problem.',
+    'The $1.8 trillion private credit market is under pressure. February losses at BCRED and Ares, $13B in Q1 redemption requests, and withdrawal caps at',
   keywords: [
     'private credit redemption crisis 2026',
     'Blackstone BCRED losses',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds | ObjectWire',
+    title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
     description:
-      'Blackstone, BlackRock, Blue Owl, and Ares all faced outsized redemption pressure in Q1 2026. More than $13B in withdrawal requests hit private credit funds but managers returned only about two-thirds of what investors sought.',
+      'Blackstone, BlackRock, Blue Owl, and Ares all faced outsized redemption pressure in Q1 2026. More than $13B in withdrawal requests hit private credit',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Wall Street representing private credit fund redemption crisis 2026' }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
     description:
-      'Blackstone BCRED posted its first monthly loss since 2022. BlackRock capped redemptions. Blue Owl eliminated quarterly windows entirely. Over $13B in Q1 withdrawal requests hit private credit funds.',
+      'Blackstone BCRED posted its first monthly loss since 2022. BlackRock capped redemptions. Blue Owl eliminated quarterly windows entirely. Over $13B in Q1',
     images: [OG_IMAGE],
   },
 };

@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Lifetime Fitness Austin New Location Opening November 2025 - 1301 South Lamar | ObjectWire",
-  description: "Lifetime Fitness opens new Austin location at 1301 South Lamar in November 2025. Details on amenities, membership options, and what to expect from the premium fitness club.",
+  title: "Lifetime Fitness Austin New Location Opening November 2025 | 1301 South Lamar",
+  description: "Lifetime Fitness opens new Austin location at 1301 South Lamar in November 2025. Details on amenities, membership options, and what to expect from the",
   keywords: [
     "Lifetime Fitness Austin",
     "1301 South Lamar",
@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     type: "article",
     title: "Lifetime Fitness Opens New Austin Location on South Lamar",
     description: "Premium fitness club opens November 2025 at 1301 South Lamar with state-of-the-art amenities.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lifetime Fitness Opens New Austin Location on South Lamar',
+    description: 'Premium fitness club opens November 2025 at 1301 South Lamar with state-of-the-art amenities.',
   },
 };
 

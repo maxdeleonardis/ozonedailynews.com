@@ -9,9 +9,9 @@ const SLUG = '/video-games/gamestop/news/gamestop-ps3-xbox-360-wii-u-retro-conso
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro Consoles | March 16, 2026 | ObjectWire",
+  title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro Consoles | March 16, 2026",
   description:
-    "GameStop officially designated the PlayStation 3, Xbox 360, and Nintendo Wii U as 'retro consoles' on March 16, 2026, citing component cables, the lack of Fortnite, and a joking presidential-era timestamp. The Wii U date reference is factually wrong, it launched under Obama, not Bush.",
+    "GameStop officially designated the PlayStation 3, Xbox 360, and Nintendo Wii U as 'retro consoles' on March 16, 2026, citing component cables, the lack of",
   keywords: [
     'GameStop retro consoles PS3 Xbox 360 Wii U 2026',
     'GameStop classifies PS3 retro',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GameStop Calls the PS3, Xbox 360, and Wii U 'Retro' | One Presidential Fact Is Wrong",
     description:
-      "GameStop moved the PS3, Xbox 360, and Wii U into its retro console category on March 16, 2026. The official X post cited 'component cables, lack of Fortnite, and launching during Bush.' The Wii U launched in 2012, under Obama.",
+      "GameStop moved the PS3, Xbox 360, and Wii U into its retro console category on March 16, 2026. The official X post cited 'component cables, lack of",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro Consoles | ObjectWire",
+    title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro Consoles",
     description:
-      "GameStop's retro classification criteria: component cables, no Fortnite, and a Bush-era launch. Two out of three ain't bad, the Wii U launched under Obama in 2012.",
+      "GameStop's retro classification criteria: component cables, no Fortnite, and a Bush-era launch. Two out of three ain't bad, the Wii U launched under Obama",
   },
   other: {
     news_keywords:

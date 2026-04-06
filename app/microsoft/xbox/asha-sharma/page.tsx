@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Asha Sharma | CVP Xbox Experiences & Platforms | Microsoft | ObjectWire',
+  title: 'Asha Sharma | CVP Xbox Experiences & Platforms | Microsoft',
   description:
-    'Asha Sharma is Corporate Vice President of Xbox Experiences & Platforms at Microsoft, overseeing the Xbox app on Windows, cross-device gaming infrastructure, and platform strategy for Game Pass and Xbox Cloud Gaming.',
+    'Asha Sharma is Corporate Vice President of Xbox Experiences & Platforms at Microsoft, overseeing the Xbox app on Windows, cross-device gaming',
   keywords: [
     'Asha Sharma Microsoft',
     'Asha Sharma Xbox',
@@ -25,12 +25,17 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/microsoft/xbox/asha-sharma',
   },
   openGraph: {
-    title: 'Asha Sharma | Corporate VP, Xbox Experiences & Platforms | ObjectWire',
+    title: 'Asha Sharma | Corporate VP, Xbox Experiences & Platforms',
     description:
-      'Profile of Asha Sharma, CVP at Microsoft Xbox, her role overseeing Xbox platform experiences, Windows gaming, and cross-device infrastructure at the world\'s largest gaming company.',
+      'Profile of Asha Sharma, CVP at Microsoft Xbox, her role overseeing Xbox platform experiences, Windows gaming, and cross-device infrastructure at the',
     type: 'profile',
     url: 'https://www.objectwire.org/microsoft/xbox/asha-sharma',
     siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Asha Sharma | Corporate VP, Xbox Experiences & Platforms",
+    description: "Profile of Asha Sharma, CVP at Microsoft Xbox, her role overseeing Xbox platform experiences, Windows gaming, and cross-device infrastructure at the",
   },
 };
 

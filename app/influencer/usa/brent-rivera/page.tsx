@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/usa/brentrivera.png';
 export const metadata: Metadata = {
   title: 'Brent Rivera | Age, YouTube, Instagram, TikTok, Bio 2026',
   description:
-    'Brent Rivera is a Huntington Beach-born YouTuber and Amp Studios CEO, 28 in 2026, with 41M+ YouTube subscribers. Full biography, Dream Vacation series, Alexander IRL film, and social media links.',
+    'Brent Rivera is a Huntington Beach-born YouTuber and Amp Studios CEO, 28 in 2026, with 41M+ YouTube subscribers. Full biography, Dream Vacation series,',
   keywords: [
     'Brent Rivera',
     'Brent Rivera age',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Brent Rivera | Age, YouTube, Instagram & Bio 2026',
     description:
-      'Full profile of Brent Rivera, Huntington Beach YouTuber and Amp Studios CEO, 28 in 2026. YouTube: 41M subscribers. Formerly MrBrent98. Film: Alexander IRL. Co-founded Amp Studios.',
+      'Full profile of Brent Rivera, Huntington Beach YouTuber and Amp Studios CEO, 28 in 2026. YouTube: 41M subscribers. Formerly MrBrent98. Film: Alexander',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',

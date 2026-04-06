@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'GTC 2026 | Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership | ObjectWire',
+  title: 'GTC 2026 | Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership',
   description:
-    "Full coverage of Nvidia GTC 2026 in San Jose, CA, the world's premier AI conference. Jensen Huang's keynote on March 16, the Vera Rubin VR200 NVL72 GPU platform, the mystery \"Feynman\" chip, Agentic AI, OpenClaw, and the landmark Intel-Nvidia partnership on display.",
+    "Full coverage of Nvidia GTC 2026 in San Jose, CA, the world's premier AI conference. Jensen Huang's keynote on March 16, the Vera Rubin VR200 NVL72 GPU",
   keywords: [
     'Nvidia GTC 2026',
     'GTC 2026 San Jose',
@@ -29,15 +29,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'GTC 2026 | Nvidia\'s "Age of AI" Summit: Vera Rubin, Feynman Chip & Intel Alliance',
     description:
-      "30,000+ attendees descend on San Jose as GTC 2026 opens March 16. Jensen Huang keynotes from SAP Center. The Vera Rubin VR200 NVL72 GPU platform, a mystery \"Feynman\" silicon photonics chip, Agentic AI, and a landmark Intel-Nvidia partnership take center stage.",
+      "30,000+ attendees descend on San Jose as GTC 2026 opens March 16. Jensen Huang keynotes from SAP Center. The Vera Rubin VR200 NVL72 GPU platform, a",
     type: 'website',
     images: ['/nvidia/gtc-2026-hero.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTC 2026 | Jensen Huang, Vera Rubin, Feynman & Intel × Nvidia | ObjectWire',
+    title: 'GTC 2026 | Jensen Huang, Vera Rubin, Feynman & Intel × Nvidia',
     description:
-      "GTC 2026 opens March 16 in San Jose. 30,000+ attendees. Jensen Huang keynote at SAP Center. Vera Rubin GPU, mystery Feynman chip, Agentic AI, and the Intel-Nvidia \"frenemy\" alliance on full display.",
+      "GTC 2026 opens March 16 in San Jose. 30,000+ attendees. Jensen Huang keynote at SAP Center. Vera Rubin GPU, mystery Feynman chip, Agentic AI, and the",
   },
   alternates: {
     canonical: 'https://www.objectwire.org/events/gtc-2026',

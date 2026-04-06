@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'SDNY Insider Trading Probe | Prediction Markets Investigation 2026',
   description:
-    'Federal prosecutors from the SDNY launched the first criminal probe into prediction market insider trading on March 30, 2026, focusing on $410K Maduro capture bets and Iran airstrike trades placed minutes before public confirmation.',
+    'Federal prosecutors from the SDNY launched the first criminal probe into prediction market insider trading on March 30, 2026, focusing on $410K Maduro',
   keywords: [
     'SDNY prediction market insider trading investigation 2026',
     'Polymarket insider trading federal probe',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SDNY Prosecutors Target Insider Trading in Prediction Markets',
     description:
-      'The SDNY Securities and Commodities Fraud Unit met with Polymarket representatives after a trader netted $410K on Maduro\'s capture hours before the announcement. Federal prosecutors are weighing commodity fraud, wire fraud, and STOCK Act charges.',
+      'The SDNY Securities and Commodities Fraud Unit met with Polymarket representatives after a trader netted $410K on Maduro\'s capture hours before the',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

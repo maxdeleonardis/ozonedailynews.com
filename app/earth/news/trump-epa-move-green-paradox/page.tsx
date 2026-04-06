@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/earth/news/trump-epa-move-green-paradox';
 
 export const metadata: Metadata = {
-  title: "Trump's EPA Rollback and the Green Paradox: Deep-Sea Mining, Rare Earth Minerals, and the EV Battery Dilemma | ObjectWire",
+  title: "Trump's EPA Rollback and the Green Paradox: Deep-Sea Mining, Rare Earth Minerals, and the EV Battery Dilemma",
   description:
-    "Rare earth minerals are essential for EV batteries and wind turbines, but mining them from the ocean floor could destroy undiscovered ecosystems. Trump's repeal of Obama-era EPA protections may accelerate that gamble.",
+    "Rare earth minerals are essential for EV batteries and wind turbines, but mining them from the ocean floor could destroy undiscovered ecosystems. Trump's",
   keywords: [
     'Trump EPA rollback ocean mining 2026',
     'deep sea mining rare earth minerals EV batteries',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trump's EPA Move and the Green Paradox: Can We Mine the Deep Sea Without Destroying It?",
     description:
-      "The minerals powering your EV battery may come from the world's least-explored ecosystems. And with the Trump administration rolling back Obama-era EPA protections, the race to the ocean floor just got faster.",
+      "The minerals powering your EV battery may come from the world's least-explored ecosystems. And with the Trump administration rolling back Obama-era EPA",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "The Green Paradox: Mining the Ocean Floor to Power Clean Energy | and What Trump's EPA Rollback Changes",
     description:
-      'Rare earth minerals are essential for the energy transition. The problem: the richest deposits sit on ocean floors that science has barely touched. Trump just made protecting them harder.',
+      'Rare earth minerals are essential for the energy transition. The problem: the richest deposits sit on ocean floors that science has barely touched. Trump',
   },
 };
 

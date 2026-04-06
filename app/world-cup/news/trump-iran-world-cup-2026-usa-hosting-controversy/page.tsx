@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/world-cup/worldcup-usa-drama-strike
 export const metadata: Metadata = {
   title: 'Trump Iran Comments | World Cup USA Hosting Controversy',
   description:
-    "Trump raised Iran as a security threat to the 2026 World Cup on US soil. FIFA's statutes prohibit excluding qualified nations on political grounds, and Iran has qualified for the tournament.",
+    "Trump raised Iran as a security threat to the 2026 World Cup on US soil. FIFA's statutes prohibit excluding qualified nations on political grounds, and",
   keywords: [
     'Trump Iran World Cup 2026',
     'World Cup USA hosting controversy',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trump Iran Comments | World Cup 2026 USA Hosting Controversy",
     description:
-      "Trump has flagged Iran as a security risk for 2026 World Cup matches on US soil. FIFA says its statutes prevent it from blocking qualified nations on political grounds. Here is what each side can do.",
+      "Trump has flagged Iran as a security risk for 2026 World Cup matches on US soil. FIFA says its statutes prevent it from blocking qualified nations on",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The End of the Bell: Nasdaq’s 2026 Proposal for 24/7 Trading | ObjectWire",
-  description: "Analysis of Nasdaq's filing with the SEC to extend trading hours for U.S.-listed securities. Examining the impact on global liquidity, algorithmic latency, and the infrastructure of the 'Always-On' market.",
+  title: "The End of the Bell: Nasdaq’s 2026 Proposal for 24/7 Trading",
+  description: "Analysis of Nasdaq's filing with the SEC to extend trading hours for U.S.-listed securities. Examining the impact on global liquidity, algorithmic",
   keywords: [
     "Nasdaq 24/7 trading proposal 2026",
     "SEC extended hours filing",
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/nasdaq-proposed-24-7-trading',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The End of the Bell: Nasdaq’s 2026 Proposal for 24/7 Trading',
+    description: 'Financial Intelligence: Deconstructing the pivot toward a continuous global equity market and its structural implications.',
   },
 };
 

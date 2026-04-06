@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Survivor Season 50 - Historic Milestone Season | ObjectWire",
-  description: "Everything about Survivor Season 50, the historic milestone season. Cast rumors, location speculation, theme details, and what to expect from this landmark edition of the reality competition.",
+  title: "Survivor Season 50 | Historic Milestone Season",
+  description: "Everything about Survivor Season 50, the historic milestone season. Cast rumors, location speculation, theme details, and what to expect from this",
   keywords: ["Survivor Season 50", "Survivor 50", "CBS Survivor", "reality TV", "Jeff Probst", "Survivor 2026"],
   alternates: {
     canonical: 'https://www.objectwire.org/survivor',

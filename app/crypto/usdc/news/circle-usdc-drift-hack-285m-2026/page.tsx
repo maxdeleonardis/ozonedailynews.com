@@ -11,7 +11,7 @@ const OG_IMAGE = '/crypto/usdc.png';
 export const metadata: Metadata = {
   title: 'Circle Slammed for Not Freezing USDC in $285M Drift Hack',
   description:
-    'Circle Internet Group faces backlash after failing to freeze stolen USDC during the $285 million Drift Protocol exploit on April 1, 2026. ZachXBT says Circle had six hours to act as funds moved via CCTP from Solana to Ethereum.',
+    'Circle Internet Group faces backlash after failing to freeze stolen USDC during the $285 million Drift Protocol exploit on April 1, 2026. ZachXBT says',
   keywords: [
     'Circle USDC Drift hack',
     'Drift Protocol hack 2026',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'article',
     title: 'Circle Slammed for Not Freezing USDC in $285M Drift Hack',
     description:
-      'ZachXBT says Circle had six hours to freeze stolen USDC as the Drift Protocol attacker bridged funds from Solana to Ethereum via CCTP. Circle took no action.',
+      'ZachXBT says Circle had six hours to freeze stolen USDC as the Drift Protocol attacker bridged funds from Solana to Ethereum via CCTP. Circle took no',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Jack Breenen'],

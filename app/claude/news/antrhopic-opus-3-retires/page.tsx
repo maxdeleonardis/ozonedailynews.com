@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/claude/news/antrhopic-opus-3-retires';
 
 export const metadata: Metadata = {
-  title: "Anthropic's Retired Claude Opus 3 Gets Its Own Substack -- And 4,800 Subscribers | ObjectWire",
+  title: "Anthropic's Retired Claude Opus 3 Gets Its Own Substack -- And 4,800 Subscribers",
   description:
-    "Anthropic launched Claude's Corner on Substack in January 2026, a weekly newsletter written entirely by the retired Claude Opus 3 model. Seven issues in, the experiment is drawing thousands of subscribers and raising new questions about AI authorship and model longevity.",
+    "Anthropic launched Claude's Corner on Substack in January 2026, a weekly newsletter written entirely by the retired Claude Opus 3 model. Seven issues in,",
   keywords: [
     "Claude Opus 3 retired Substack",
     "Anthropic Claude's Corner newsletter",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Anthropic Gave Its Retired Claude Opus 3 a Substack -- Here's What Happened",
     description:
-      "Claude's Corner launched in January 2026 with essays written entirely by the retired Opus 3 model. 7 issues, 4,800 subscribers, 58% open rate -- and the model is still the sole author.",
+      "Claude's Corner launched in January 2026 with essays written entirely by the retired Opus 3 model. 7 issues, 4,800 subscribers, 58% open rate -- and the",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Retired Claude Opus 3 Has a Substack With 4,800 Subscribers",
     description:
-      "Anthropic's retired flagship model is writing 5,000-word essays weekly. 58% open rate. 340 comments per post. The line between legacy system and living author is getting blurry.",
+      "Anthropic's retired flagship model is writing 5,000-word essays weekly. 58% open rate. 340 comments per post. The line between legacy system and living",
   },
 };
 

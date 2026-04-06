@@ -9,7 +9,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Trump TikTok Deal | $10 Billion Government Broker Fee',
   description:
-    "The Trump administration is set to collect approximately $10 billion from investors in the TikTok ownership transfer from ByteDance, a fee historians describe as nearly unprecedented for a government brokering a private-sector transaction.",
+    "The Trump administration is set to collect approximately $10 billion from investors in the TikTok ownership transfer from ByteDance, a fee historians",
   keywords: [
     'Trump TikTok deal',
     'TikTok $10 billion fee',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal',
     description:
-      "The Trump administration will receive ~$10 billion from investors in the TikTok ownership transfer, a fee historians call nearly unprecedented for a government brokering a private-sector transaction, per the Wall Street Journal.",
+      "The Trump administration will receive ~$10 billion from investors in the TikTok ownership transfer, a fee historians call nearly unprecedented for a",
     url: FULL_URL,
     type: 'article',
     siteName: 'ObjectWire',

@@ -9,9 +9,9 @@ const SLUG = '/shopify/news/shopify-tinker-app-100-ai-creative-tools-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1736605804642-b66ad75b1c9c?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Shopify Launches Tinker | Free App With 100+ AI Creative Tools | ObjectWire',
+  title: 'Shopify Launches Tinker | Free App With 100+ AI Creative Tools',
   description:
-    'Shopify released Tinker, a free iOS and Android app bundling 100+ AI creative tools for merchants and entrepreneurs. First previewed at Winter 26 Editions, now publicly available.',
+    'Shopify released Tinker, a free iOS and Android app bundling 100+ AI creative tools for merchants and entrepreneurs. First previewed at Winter 26',
   keywords: [
     'Shopify Tinker app',
     'Shopify AI tools 2026',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Shopify Launches Tinker | Free App With 100+ AI Creative Tools | ObjectWire',
+    title: 'Shopify Launches Tinker | Free App With 100+ AI Creative Tools',
     description:
       'Shopify released Tinker, a free mobile app bundling more than 100 specialized AI tools for merchants and entrepreneurs. Available now on iOS and Android.',
     url: `https://www.objectwire.org${SLUG}`,

@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Mario Kart World Version 1.6.0 | Bob-omb Blast Return',
   description:
-    'Nintendo released Mario Kart World Version 1.6.0 on March 30, 2026, adding Bob-omb Blast battle mode, Bullet Bill buffs, new invincibility scaling, and faster online lobbies.',
+    'Nintendo released Mario Kart World Version 1.6.0 on March 30, 2026, adding Bob-omb Blast battle mode, Bullet Bill buffs, new invincibility scaling, and',
   keywords: [
     'Mario Kart World Version 1.6.0',
     'Mario Kart World Bob-omb Blast',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mario Kart World 1.6.0 Brings Back Bob-omb Blast on Nintendo Switch 2',
     description:
-      'The first major Battle Mode update since launch adds Bob-omb Blast, hold-up-to-10 explosives, L Button throw control, Bullet Bill buffs, and dynamic invincibility scaling by weight class.',
+      'The first major Battle Mode update since launch adds Bob-omb Blast, hold-up-to-10 explosives, L Button throw control, Bullet Bill buffs, and dynamic',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

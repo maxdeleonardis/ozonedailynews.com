@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Valve Corporation - Company Profile 2026 | ObjectWire',
+  title: 'Valve Corporation | Company Profile 2026',
   description:
-    'Complete profile of Valve Corporation: founding, Steam platform, major franchises including Counter-Strike and Dota 2, loot box revenue, and organizational structure. Data current as of February 2026.',
+    'Complete profile of Valve Corporation: founding, Steam platform, major franchises including Counter-Strike and Dota 2, loot box revenue, and',
   keywords: [
     'Valve Corporation',
     'Gabe Newell',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/valve-corporation',
   },
   openGraph: {
-    title: 'Valve Corporation - Company Profile 2026',
+    title: 'Valve Corporation | Company Profile 2026',
     description:
       'Valve Corporation: Steam, Counter-Strike, Dota 2, and the loot box economy. Revenue, history, and key statistics.',
     type: 'article',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valve Corporation - Company Profile 2026',
+    title: 'Valve Corporation | Company Profile 2026',
     description:
       'Steam, Counter-Strike, loot boxes, and $5B in annual revenue. Full Valve Corporation profile.',
   },

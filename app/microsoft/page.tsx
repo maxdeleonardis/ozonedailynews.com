@@ -6,17 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Microsoft Corporation â€” Products, News & Analysis | ObjectWire',
-
-  description: "ObjectWire's full coverage hub for Microsoft Corporation â€” Azure, Xbox, Windows, GitHub, LinkedIn, Copilot AI, leadership, history, and all breaking business and technology news.",
-  keywords: ['Microsoft', 'Azure', 'Xbox', 'Windows', 'GitHub', 'LinkedIn', 'Satya Nadella', 'Copilot', 'OpenAI', 'cloud computing', 'AI', 'tech news'],
+  title: 'Microsoft | Azure, Xbox, Windows, Copilot AI News 2026',
+  description: "ObjectWire's full coverage hub for Microsoft Corporation. Azure, Xbox, Windows, GitHub, LinkedIn, Copilot AI, Satya Nadella, and all breaking business and",
+  keywords: ['Microsoft', 'Azure', 'Xbox', 'Windows', 'GitHub', 'LinkedIn', 'Satya Nadella', 'Copilot AI', 'OpenAI', 'cloud computing', 'AI news', 'tech news'],
   openGraph: {
-    title: 'Microsoft Corporation â€” Products, News & Analysis | ObjectWire',
+    title: 'Microsoft | Azure, Xbox, Windows, Copilot AI News 2026',
     description: 'ObjectWire coverage of Microsoft: Azure cloud, Xbox gaming, Windows, GitHub, LinkedIn, Copilot AI, executive leadership, and all breaking news.',
     type: 'website',
+    url: 'https://www.objectwire.org/microsoft',
+    siteName: 'ObjectWire',
   },
   alternates: {
     canonical: 'https://www.objectwire.org/microsoft',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Microsoft | Azure, Xbox, Windows, Copilot AI',
+    description: 'Breaking Microsoft news: Azure, Xbox, Windows 11, GitHub Copilot, Satya Nadella, and OpenAI partnership.',
   },
 };
 

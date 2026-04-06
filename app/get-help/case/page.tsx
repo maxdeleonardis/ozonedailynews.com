@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Contact Us | The Objective Wire - ObjectWire.org",
+  title: "Contact Us | The Objective Wire | ObjectWire.org",
   description: "Contact Object Wire for inquiries, tips, or story submissions. Get in touch with our team today.",
   alternates: {
     canonical: 'https://www.objectwire.org/case',

@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Donkey Kong Bananza | GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine | ObjectWire",
+  title: "Donkey Kong Bananza | GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine",
   description:
-    "Nintendo's GDC 2026 session revealed Donkey Kong Bananza's 347,070,464 individually destructible voxels per level, dynamic resolution system, and restore mechanic. Producer Kenta Motokura and engineer Tatsuya Kurihara detailed how voxel tech evolved from Super Mario Odyssey's snow to Switch 2's breakable worlds.",
+    "Nintendo's GDC 2026 session revealed Donkey Kong Bananza's 347,070,464 individually destructible voxels per level, dynamic resolution system, and restore",
   keywords: [
     "Donkey Kong Bananza GDC 2026",
     "Donkey Kong Bananza voxels 347 million",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Donkey Kong Bananza: 347M Voxels Per Level | Nintendo's GDC 2026 Tech Reveal",
     description:
-      "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels. The tech traces back to Mario Odyssey snow prototypes and was moved from Switch 1 to Switch 2 because the old hardware couldn't handle it.",
+      "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels. The",
     type: "article",
     url: "https://www.objectwire.org/video-games/nintendo/donkey-kong-bananza",
     siteName: "ObjectWire",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Donkey Kong Bananza: 347,070,464 Destructible Voxels Per Level | GDC 2026",
     description:
-      "Each level has 347M individually destructible voxels. Tech originated in Mario Odyssey snow drifts. Moved from Switch 1 to Switch 2 because the old hardware couldn't cope. Full GDC breakdown.",
+      "Each level has 347M individually destructible voxels. Tech originated in Mario Odyssey snow drifts. Moved from Switch 1 to Switch 2 because the old",
   },
 };
 

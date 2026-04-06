@@ -9,9 +9,9 @@ const SLUG = '/newsarticle/test';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Pipeline Test | NewsArticle Component | ObjectWire',
+  title: 'Pipeline Test | NewsArticle Component',
   description:
-    'End-to-end pipeline verification article using the NewsArticle component. This page is used to confirm that wiki:migrate correctly extracts content to the articles table and wiki:trim replaces this file with a NewsArticleDB stub.',
+    'End-to-end pipeline verification article using the NewsArticle component. This page is used to confirm that wiki:migrate correctly extracts content to the',
   keywords: [
     'pipeline test',
     'newsarticle test',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Pipeline Test | NewsArticle Component | ObjectWire',
+    title: 'Pipeline Test | NewsArticle Component',
     description:
       'End-to-end pipeline verification using the NewsArticle component. Confirms extraction to articles table and auto-trim to NewsArticleDB stub.',
     type: 'article',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pipeline Test | NewsArticle Component | ObjectWire',
+    title: 'Pipeline Test | NewsArticle Component',
     description: 'End-to-end pipeline verification for the commit-deploy automation.',
   },
 };

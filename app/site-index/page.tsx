@@ -5,19 +5,24 @@ import { SiteIndexTree } from './SiteIndexTree';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Site Index | ObjectWire',
+  title: 'Site Index',
   description:
-    'Browse the complete ObjectWire article index organized by category and tags. Explore 400+ verified articles across technology, gaming, finance, politics, sports, and more.',
+    'Browse the complete ObjectWire article index organized by category and tags. Explore 400+ verified articles across technology, gaming, finance, politics,',
   alternates: {
     canonical: 'https://www.objectwire.org/site-index',
   },
   openGraph: {
-    title: 'Site Index | ObjectWire',
+    title: 'Site Index',
     description:
       'Browse the complete ObjectWire article index organized by category and tags.',
     type: 'website',
     url: 'https://www.objectwire.org/site-index',
     siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Site Index',
+    description: 'Browse the complete ObjectWire article index organized by category and tags.',
   },
 };
 

@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     description: "Independent journalism covering technology, finance, investigations, and world events.",
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ObjectWire | News That Matters',
+    description: 'Independent journalism covering technology, finance, investigations, and world events.',
+  },
 };
 
 export const revalidate = 300;

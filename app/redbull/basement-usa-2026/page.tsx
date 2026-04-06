@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Basement USA 2026 | Student Tech Innovation',
   description:
-    'Red Bull Basement USA on May 8, 2026 gives student founders a pitch stage, mentorship, and a shot at the global final. Format, eligibility, and how to apply.',
+    'Red Bull Basement USA on May 8, 2026 gives student founders a pitch stage, mentorship, and a shot at the global final. Format, eligibility, and how to',
   keywords: [
     'Red Bull Basement USA 2026',
     'Red Bull student innovation program',

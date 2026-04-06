@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/usa/ben_azelart.png';
 export const metadata: Metadata = {
   title: 'Ben Azelart | Age, YouTube, Instagram, TikTok, Bio 2026',
   description:
-    'Ben Azelart is a Dallas-born YouTuber and skateboarder, 24 in 2026, with 49M+ YouTube subscribers and 15M+ TikTok fans. Full biography, Stay Wild brand, Hannah Thomas engagement, and social links.',
+    'Ben Azelart is a Dallas-born YouTuber and skateboarder, 24 in 2026, with 49M+ YouTube subscribers and 15M+ TikTok fans. Full biography, Stay Wild brand,',
   keywords: [
     'Ben Azelart',
     'Ben Azelart age',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ben Azelart | Age, YouTube, Instagram & Bio 2026',
     description:
-      'Full profile of Ben Azelart, Dallas-born challenger and skateboarder, 24 in 2026. YouTube: 49M subscribers. TikTok: 15M fans. Engaged to Hannah Thomas, Stay Wild brand founder.',
+      'Full profile of Ben Azelart, Dallas-born challenger and skateboarder, 24 in 2026. YouTube: 49M subscribers. TikTok: 15M fans. Engaged to Hannah Thomas,',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',

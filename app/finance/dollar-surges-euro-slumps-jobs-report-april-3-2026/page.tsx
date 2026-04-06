@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Dollar Surges, Euro Slumps | Blowout Jobs Report April 2026',
   description:
-    'The U.S. Dollar surged against the Euro on April 3, 2026, as a blowout NFP report added 178,000 jobs versus 65,000 expected, and safe-haven demand from the Middle East conflict pushed EUR/USD to $1.1540.',
+    'The U.S. Dollar surged against the Euro on April 3, 2026, as a blowout NFP report added 178,000 jobs versus 65,000 expected, and safe-haven demand from',
   keywords: [
     'EUR/USD April 2026',
     'US dollar surge April 2026',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Dollar Surges, Euro Slumps | 178K Jobs, Safe-Haven Demand April 2026',
     description:
-      'A triple signal, 178,000 new jobs, 202K jobless claims, 52.7 manufacturing PMI, sent the dollar to a 2026 high. EUR/USD fell to $1.1540 as Europe absorbs Middle East energy shock.',
+      'A triple signal, 178,000 new jobs, 202K jobless claims, 52.7 manufacturing PMI, sent the dollar to a 2026 high. EUR/USD fell to $1.1540 as Europe absorbs',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/cursor/automations-event-driven-ai-coding';
 
 export const metadata: Metadata = {
-  title: 'Cursor Launches Automations: Event-Driven AI Agents Replace Prompt-Based Coding | ObjectWire',
-  description: 'Anysphere launched Cursor Automations on March 4, 2026, enabling AI agents that trigger from Slack, GitHub, PagerDuty, and cron schedules without manual prompts. The feature arrives as Cursor surpasses $2 billion ARR.',
+  title: 'Cursor Launches Automations: Event-Driven AI Agents Replace Prompt-Based Coding',
+  description: 'Anysphere launched Cursor Automations on March 4, 2026, enabling AI agents that trigger from Slack, GitHub, PagerDuty, and cron schedules without manual',
   keywords: [
     'Cursor Automations',
     'Cursor AI event-driven agents',

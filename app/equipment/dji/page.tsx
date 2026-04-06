@@ -12,7 +12,7 @@ const OG_IMAGE = '/equipment-drone-gimbal-placeholder.jpg';
 export const metadata: Metadata = {
   title: 'DJI Ronin 4D | Full-Frame Cinema Camera System Specs and Review',
   description:
-    'Complete guide to the DJI Ronin 4D modular cinema camera. Full-frame sensor, 4-axis stabilization, LiDAR autofocus, ProRes RAW recording, and O3 Pro wireless transmission. Covers 6K and 8K variants.',
+    'Complete guide to the DJI Ronin 4D modular cinema camera. Full-frame sensor, 4-axis stabilization, LiDAR autofocus, ProRes RAW recording, and O3 Pro',
   keywords: [
     'DJI Ronin 4D',
     'DJI Ronin 4D specs',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'DJI Ronin 4D | Modular Full-Frame Cinema Camera System',
     description:
-      'The DJI Ronin 4D integrates a full-frame sensor, 4-axis gimbal, LiDAR focus, and O3 Pro wireless transmission into one modular cinema platform. Available in X9-6K and X9-8K configurations.',
+      'The DJI Ronin 4D integrates a full-frame sensor, 4-axis gimbal, LiDAR focus, and O3 Pro wireless transmission into one modular cinema platform. Available',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

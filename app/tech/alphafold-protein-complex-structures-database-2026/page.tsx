@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion | ObjectWire",
+    "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion",
   description:
-    "The AlphaFold Protein Structure Database has added protein complex structures for the first time, with 1.7 million high-confidence homodimer predictions produced by EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University.",
+    "The AlphaFold Protein Structure Database has added protein complex structures for the first time, with 1.7 million high-confidence homodimer predictions",
   keywords: [
     "AlphaFold protein complex structures 2026",
     "EMBL-EBI AlphaFold homodimer database update March 2026",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title:
       "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion",
     description:
-      "A four-way collaboration between EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University has added 1.7 million homodimer predictions to the AlphaFold database, the first time protein complexes have been included.",
+      "A four-way collaboration between EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University has added 1.7 million homodimer predictions to the",
     type: "article",
     url: FULL_URL,
     siteName: "ObjectWire",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "AlphaFold Database Adds 1.7 Million Protein Complex Structures | ObjectWire",
+      "AlphaFold Database Adds 1.7 Million Protein Complex Structures",
     description:
-      "EMBL-EBI, Google DeepMind, NVIDIA & Seoul National University expand AlphaFold with 1.7M homodimer complex predictions, a first for the landmark structural biology resource.",
+      "EMBL-EBI, Google DeepMind, NVIDIA & Seoul National University expand AlphaFold with 1.7M homodimer complex predictions, a first for the landmark",
   },
   other: {
     news_keywords:

@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Zerkaa (Josh Bradley) | Sidemen Leader & GTA RP Pioneer | ObjectWire",
-  description: "Complete profile of Zerkaa (Josh Bradley): Sidemen leadership, GTA RP content, relationship with Freya Nightingale, business acumen, and group organizational role. 4.7M+ subscribers. 2026 coverage.",
+  title: "Zerkaa (Josh Bradley) | Sidemen Leader & GTA RP Pioneer",
+  description: "Complete profile of Zerkaa (Josh Bradley): Sidemen leadership, GTA RP content, relationship with Freya Nightingale, business acumen, and group",
   keywords: [
     "Zerkaa",
     "Josh Bradley",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/youtube/sidemen/zerkaa',
     siteName: 'ObjectWire',
     section: 'YouTube',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zerkaa (Josh Bradley) | Sidemen Leader & GTA RP Creator',
+    description: 'Full profile of Zerkaa: Sidemen leadership, GTA RP mastery, engagement to Freya Nightingale, business operations, and group stability role.',
   },
 };
 

@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Chariot Race Missouri 2026 | Homemade Race Event',
   description:
-    'Red Bull Chariot Race hits Missouri April 11, 2026. Teams build homemade chariots and race them in a chaotic, crowd-judged competition. Full event details and format.',
+    'Red Bull Chariot Race hits Missouri April 11, 2026. Teams build homemade chariots and race them in a chaotic, crowd-judged competition. Full event details',
   keywords: [
     'Red Bull Chariot Race Missouri 2026',
     'Red Bull soapbox race Missouri',

@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "HashiCorp Vault - Identity-Based Secrets Management | ObjectWire",
-  description: "Comprehensive guide to HashiCorp Vault, the leading open-source identity-based secrets management system. Learn how Vault securely stores API keys, passwords, certificates, and encryption keys using zero-trust principles.",
+  title: "HashiCorp Vault | Identity-Based Secrets Management",
+  description: "Comprehensive guide to HashiCorp Vault, the leading open-source identity-based secrets management system. Learn how Vault securely stores API keys,",
   keywords: ["HashiCorp Vault", "secrets management", "identity-based security", "zero trust", "AppRole", "dynamic secrets", "encryption", "API keys", "certificate management", "cybersecurity"],
   alternates: {
     canonical: 'https://www.objectwire.org/hashicorp',

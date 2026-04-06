@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: 'Trump Appoints Silicon Valley "Dream Team" to AI Advisory Council | ObjectWire',
+  title: 'Trump Appoints Silicon Valley "Dream Team" to AI Advisory Council',
   description:
-    'President Trump has officially appointed 13 technology leaders, including Mark Zuckerberg, Jensen Huang, Larry Ellison, and Sergey Brin, to the President\'s Council of Advisors on Science and Technology (PCAST), co-chaired by AI Czar David Sacks.',
+    'President Trump has officially appointed 13 technology leaders, including Mark Zuckerberg, Jensen Huang, Larry Ellison, and Sergey Brin, to the',
   keywords: [
     'Trump PCAST 2026',
     'Trump AI Advisory Council',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Trump Appoints Silicon Valley "Dream Team" to AI Advisory Council',
     description:
-      'The White House confirmed 13 appointments to PCAST, Zuckerberg, Jensen Huang, Larry Ellison, Sergey Brin, Lisa Su, and more, co-chaired by AI Czar David Sacks. The council represents an unprecedented concentration of technology wealth and compute power in a presidential advisory role.',
+      'The White House confirmed 13 appointments to PCAST, Zuckerberg, Jensen Huang, Larry Ellison, Sergey Brin, Lisa Su, and more, co-chaired by AI Czar David',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Trump Appoints Zuckerberg, Jensen Huang, Ellison, Brin to AI Advisory Council',
     description:
-      '13 Silicon Valley heavyweights, including Meta, NVIDIA, Oracle, Google co-founder, AMD, and Dell, now formally advise the White House on AI policy, chaired by David Sacks.',
+      '13 Silicon Valley heavyweights, including Meta, NVIDIA, Oracle, Google co-founder, AMD, and Dell, now formally advise the White House on AI policy,',
     images: [IMAGE_URL],
   },
 };

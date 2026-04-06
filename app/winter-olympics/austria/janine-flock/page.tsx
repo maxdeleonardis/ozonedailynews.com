@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Janine Flock Wins Skeleton Gold - Austria\'s Veteran Finally Claims Olympic Glory | ObjectWire',
-  description: 'Janine Flock captures women\'s skeleton gold at Milan Cortina 2026 at age 36. Austria\'s greatest skeleton racer finally wins the Olympic title that eluded her for over a decade.',
+  title: 'Janine Flock Wins Skeleton Gold | Austria\'s Veteran Finally Claims Olympic Glory',
+  description: 'Janine Flock captures women\'s skeleton gold at Milan Cortina 2026 at age 36. Austria\'s greatest skeleton racer finally wins the Olympic title that',
   keywords: ['Janine Flock', 'skeleton', 'gold medal', 'Winter Olympics 2026', 'Milan Cortina', 'Austria', 'womens skeleton', 'Hall in Tirol', 'IBSF'],
   openGraph: {
     title: 'Janine Flock Finally Wins Olympic Gold at 36',
@@ -18,9 +18,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Janine Flock - Olympic Skeleton Gold',
+    title: 'Janine Flock | Olympic Skeleton Gold',
     description: 'Austrian veteran wins gold at Milan Cortina 2026 after four Olympic appearances',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/austria/janine-flock',
+  },
 };
 
 export default function JanineFlockProfile() {

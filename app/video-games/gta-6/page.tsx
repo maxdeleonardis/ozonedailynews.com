@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Grand Theft Auto VI | Release Date, Price, & Everything We Know | ObjectWire",
+  title: "Grand Theft Auto VI | Release Date, Price, & Everything We Know",
   description:
-    "Complete guide to Grand Theft Auto VI: confirmed November 19, 2026 release date, global pricing speculation including India ₹5,999–₹6,999 and US $89.99–$124.19 retailer leaks, platforms, protagonists Lucia & Jason, gameplay, and Rockstar's development timeline.",
+    "Complete guide to Grand Theft Auto VI: confirmed November 19, 2026 release date, global pricing speculation including India ₹5,999–₹6,999 and US",
   keywords: [
     "GTA 6",
     "Grand Theft Auto VI",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GTA 6 | Release Date, Price & Full Guide | ObjectWire",
+    title: "GTA 6 | Release Date, Price & Full Guide",
     description:
       "Confirmed: November 19, 2026. UK retailer posts £89.99 listing. India brace for ₹5,999–₹6,999. Complete GTA VI encyclopedia.",
   },

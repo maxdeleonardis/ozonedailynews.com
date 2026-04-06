@@ -10,9 +10,9 @@ const URL_PATH = '/articlepage/test';
 const FULL_URL = `https://www.objectwire.org${URL_PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Red Bull GmbH - Global Energy Drink Company & Sports Empire | ObjectWire',
+  title: 'Red Bull GmbH | Global Energy Drink Company & Sports Empire',
   description:
-    'Comprehensive profile of Red Bull GmbH, the Austrian energy drink giant. Explore the company history, products, sports empire including F1 teams and football clubs, financials, and global operations.',
+    'Comprehensive profile of Red Bull GmbH, the Austrian energy drink giant. Explore the company history, products, sports empire including F1 teams and',
   alternates: {
     canonical: FULL_URL,
   },

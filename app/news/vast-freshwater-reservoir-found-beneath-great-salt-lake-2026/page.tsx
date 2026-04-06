@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/salt-lake.jpg';
 
 export const metadata: Metadata = {
-  title: 'Vast Freshwater Reservoir Found Beneath Great Salt Lake | ObjectWire',
+  title: 'Vast Freshwater Reservoir Found Beneath Great Salt Lake',
   description:
-    'University of Utah geophysicists have discovered a massive freshwater reservoir hidden 3–4 kilometers beneath the Great Salt Lake, potentially reshaping drought management and water security strategies across the American West.',
+    'University of Utah geophysicists have discovered a massive freshwater reservoir hidden 3–4 kilometers beneath the Great Salt Lake, potentially reshaping',
   keywords: [
     'Great Salt Lake freshwater reservoir',
     'University of Utah geophysics 2026',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Vast Freshwater Reservoir Found Beneath Great Salt Lake',
     description:
-      'Water-saturated sediments extending up to 4 kilometers below the hypersaline surface may represent one of the largest undiscovered freshwater reserves in the American West, according to research published in Scientific Reports.',
+      'Water-saturated sediments extending up to 4 kilometers below the hypersaline surface may represent one of the largest undiscovered freshwater reserves in',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Scientists Find Massive Freshwater Reservoir Hidden Beneath the Great Salt Lake',
     description:
-      'A helicopter-borne electromagnetic survey has revealed water-saturated sediments 3–4 km deep, a find that could reframe water security across the drought-stricken American West.',
+      'A helicopter-borne electromagnetic survey has revealed water-saturated sediments 3–4 km deep, a find that could reframe water security across the',
     images: [IMAGE_URL],
   },
 };

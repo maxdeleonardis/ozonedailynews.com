@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/copyright/elemental-atlus-royalties';
 
 export const metadata: Metadata = {
-  title: 'Elemental Royalty (ELE) Completes Merger, Lists Nasdaq & Offers Tokenized Gold Dividends | ObjectWire',
+  title: 'Elemental Royalty (ELE) Completes Merger, Lists Nasdaq & Offers Tokenized Gold Dividends',
   description:
-    'Elemental Altus Royalties and EMX Royalty completed their merger on November 13, 2025. The merged company now trades as ELE on TSX Venture Exchange and introduced a groundbreaking dividend payable in Tether Gold (XAUT), the first of its kind for a publicly listed gold company.',
+    'Elemental Altus Royalties and EMX Royalty completed their merger on November 13, 2025. The merged company now trades as ELE on TSX Venture Exchange and',
   keywords: [
     'Elemental Royalty Corporation',
     'Elemental Altus Royalties',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Elemental Royalty Completes Merger & Introduces Tokenized Gold Dividends',
     description:
-      'The first publicly listed gold company to pay dividends in tokenized gold. Elemental Royalty (ELE) merged with EMX, raised $100M from Tether Investments, and announced XAUT-denominated quarterly dividends.',
+      'The first publicly listed gold company to pay dividends in tokenized gold. Elemental Royalty (ELE) merged with EMX, raised $100M from Tether Investments,',
     type: 'article',
     url: 'https://www.objectwire.org/copyright/elemental-atlus-royalties',
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Elemental Royalty (ELE): Merged, Listed, and Paying Dividends in Tokenized Gold',
     description:
-      'Elemental Royalty and EMX completed their merger in Nov 2025. Now they\'re the first public gold company offering dividends in Tether Gold (XAUT). Full breakdown on ObjectWire.',
+      'Elemental Royalty and EMX completed their merger in Nov 2025. Now they\'re the first public gold company offering dividends in Tether Gold (XAUT). Full',
   },
 };
 

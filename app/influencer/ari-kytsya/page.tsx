@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/ariK.jpg';
 export const metadata: Metadata = {
   title: 'Ari Kytsya | Age, TikTok, Instagram, Bio 2026',
   description:
-    'Ari Kytsya is a Seattle-based model and creator, 24-25 in 2026, with 5M TikTok followers and 3M on Instagram. Full biography, social links, relationship with Yung Gravy, and creator history.',
+    'Ari Kytsya is a Seattle-based model and creator, 24-25 in 2026, with 5M TikTok followers and 3M on Instagram. Full biography, social links, relationship',
   keywords: [
     'Ari Kytsya',
     'Ari Kytsya age',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ari Kytsya | Age, TikTok, Instagram & Bio 2026',
     description:
-      'Full profile of Ari Kytsya, Seattle-based fashion model and creator, 24-25 in 2026. TikTok: @notburnttoasthehe (5M), Instagram: @arikytsya (3M). Career, Yung Gravy relationship, and creator journey.',
+      'Full profile of Ari Kytsya, Seattle-based fashion model and creator, 24-25 in 2026. TikTok: @notburnttoasthehe (5M), Instagram: @arikytsya (3M). Career,',
     type: 'article',
     url: PAGE_URL,
     siteName: 'ObjectWire',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ari Kytsya | Seattle Model, 5M TikTok, 3M Instagram',
     description:
-      'Ari Kytsya profile: age, social media links, TikTok @notburnttoasthehe, Instagram @arikytsya, YouTube @Arielkytsya, Yung Gravy relationship, and creator career.',
+      'Ari Kytsya profile: age, social media links, TikTok @notburnttoasthehe, Instagram @arikytsya, YouTube @Arielkytsya, Yung Gravy relationship, and creator',
   },
 };
 

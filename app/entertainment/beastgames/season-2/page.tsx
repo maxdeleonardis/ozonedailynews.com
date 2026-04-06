@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Beast Games Season 2 - Latest News & Updates | ObjectWire",
-  description: "Everything you need to know about Beast Games Season 2. Latest news, casting updates, release date predictions, and what to expect from MrBeast's next reality competition season.",
+  title: "Beast Games Season 2 | Latest News & Updates",
+  description: "Everything you need to know about Beast Games Season 2. Latest news, casting updates, release date predictions, and what to expect from MrBeast's next",
   keywords: ["Beast Games Season 2", "MrBeast", "reality competition", "Amazon Prime Video", "casting", "release date"],
   alternates: {
     canonical: 'https://www.objectwire.org/entertainment/beastgames/season-2',

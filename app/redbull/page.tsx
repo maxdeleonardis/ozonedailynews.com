@@ -10,8 +10,8 @@ const IMAGE_URL = 'https://images.unsplash.com/photo-1613218222876-954978a4404e?
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Red Bull GmbH | ObjectWire',
-  description: 'Red Bull GmbH is the world\'s leading energy drink company, selling 12B+ cans annually across 170+ countries. Full profile of products, F1 teams, football clubs, and financials.',
+  title: 'Red Bull GmbH',
+  description: 'Red Bull GmbH is the world\'s leading energy drink company, selling 12B+ cans annually across 170+ countries. Full profile of products, F1 teams, football',
   keywords: [
     'Red Bull',
     'Red Bull GmbH',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Red Bull GmbH | ObjectWire',
+    title: 'Red Bull GmbH',
     description: 'Full company profile of Red Bull GmbH. Energy drinks, F1 teams, football clubs, extreme sports empire, and corporate structure.',
     url: PAGE_URL,
     siteName: 'ObjectWire',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Red Bull GmbH | ObjectWire',
+    title: 'Red Bull GmbH',
     description: 'Full profile of Red Bull GmbH, the world\'s leading energy drink company and sports empire.',
     images: [IMAGE_URL],
   },

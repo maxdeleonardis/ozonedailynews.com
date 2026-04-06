@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales | ObjectWire',
-  description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more. Complete rankings with player counts.',
+  title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales',
+  description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more. Complete',
   keywords: [
     'best anime games 2026',
     'top anime games',

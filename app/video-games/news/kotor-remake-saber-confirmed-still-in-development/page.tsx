@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'KOTOR Remake Still in Development, Saber Confirms | 5 Years After Reveal | ObjectWire',
+  title: 'KOTOR Remake Still in Development, Saber Confirms | 5 Years After Reveal',
   description:
-    'Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development, five years after its cinematic reveal at a PlayStation Showcase, with no gameplay footage ever shown.',
+    'Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development, five years after',
   keywords: [
     'KOTOR remake 2026',
     'Knights of the Old Republic remake Saber Interactive',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KOTOR Remake Still Alive, Saber Says | 5 Years After Reveal, Still No Gameplay",
     description:
-      'Tim Willits offered exactly 11 words: "Yes, it is still in development. That\'s all I can say." Five years on, no screenshot, no footage, and a developer shuffle that keeps growing.',
+      'Tim Willits offered exactly 11 words: "Yes, it is still in development. That\'s all I can say." Five years on, no screenshot, no footage, and a developer',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/news/kotor-remake-saber-confirmed-still-in-development',
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'KOTOR Remake Is Still in Development | Saber Confirms, 5 Years On',
     description:
-      '11 words from Saber\'s CCO Tim Willits keep the hope alive. But after half a decade with zero gameplay shown, the Star Wars community\'s patience is running thin.',
+      '11 words from Saber\'s CCO Tim Willits keep the hope alive. But after half a decade with zero gameplay shown, the Star Wars community\'s patience is',
   },
 };
 

@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/xAI_company_history_profile.png';
 
 export const metadata: Metadata = {
-  title: 'xAI | Elon Musk\'s AI Company, Grok Models & Colossus Supercluster | ObjectWire',
+  title: 'xAI | Elon Musk\'s AI Company, Grok Models & Colossus Supercluster',
   description:
-    'xAI is an American artificial intelligence company founded by Elon Musk in July 2023. The company develops the Grok family of large language models and operates the Colossus supercluster in Memphis, Tennessee, one of the largest AI training clusters in the world.',
+    'xAI is an American artificial intelligence company founded by Elon Musk in July 2023. The company develops the Grok family of large language models and',
   keywords: [
     'xAI',
     'xAI Elon Musk',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'xAI | Elon Musk\'s AI Company, Grok Models & Colossus Supercluster',
     description:
-      'Founded in July 2023, xAI has raised $12 billion, built the 200,000-GPU Colossus supercluster, and released Grok-3, one of the most capable large language models available as of 2026.',
+      'Founded in July 2023, xAI has raised $12 billion, built the 200,000-GPU Colossus supercluster, and released Grok-3, one of the most capable large language',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'xAI | ObjectWire',
+    title: 'xAI',
     description:
       'Elon Musk\'s AI lab: Grok models, the Colossus supercluster, and a mission to understand the true nature of the universe.',
     images: [IMAGE_URL],

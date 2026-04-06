@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/chicos-toxicos';
 
 export const metadata: Metadata = {
-  title: 'Chicos Toxicos | Latin YouTuber Entertainment Group | ObjectWire',
+  title: 'Chicos Toxicos | Latin YouTuber Entertainment Group',
   description:
-    'Full coverage of Chicos Toxicos, the Latin American YouTuber entertainment group featuring Felipe, Diego, and Brandom. Weekly Toxico Thursdays, Zoo Culture and Bradley Martyn collaborations.',
+    'Full coverage of Chicos Toxicos, the Latin American YouTuber entertainment group featuring Felipe, Diego, and Brandom. Weekly Toxico Thursdays, Zoo',
   keywords: [
     'Chicos Toxicos',
     'Felipito96',

@@ -12,7 +12,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'TurboQuant KV Cache Compression | 6x Memory, 8x Speed',
   description:
-    'Google Research TurboQuant cuts LLM KV cache memory 6x and attention speed 8x at 3 bits per value with zero accuracy loss, no retraining. PolarQuant plus QJL explained.',
+    'Google Research TurboQuant cuts LLM KV cache memory 6x and attention speed 8x at 3 bits per value with zero accuracy loss, no retraining. PolarQuant plus',
   keywords: [
     'TurboQuant KV cache compression',
     'LLM KV cache memory reduction',

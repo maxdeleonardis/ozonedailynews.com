@@ -10,9 +10,9 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Marathon Update 1.0.0.4, Bungie Nerfs UESC AI, Thermal Scopes, & More | ObjectWire',
+    'Marathon Update 1.0.0.4, Bungie Nerfs UESC AI, Thermal Scopes, & More',
   description:
-    'Bungie has deployed Marathon Update 1.0.0.4 on March 11, 2026. The first major balance pass reduces UESC enemy health by 10–15%, cuts boss shield HP by 25%, nerfs thermal scope range from 180m to 100m, and adds Med Cabinets and Munitions Crates to the Perimeter map. Full patch notes breakdown.',
+    'Bungie has deployed Marathon Update 1.0.0.4 on March 11, 2026. The first major balance pass reduces UESC enemy health by 10–15%, cuts boss shield HP by',
   keywords: [
     'Marathon Update 1.0.0.4 patch notes',
     'Marathon Bungie UESC nerf March 2026',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Marathon Update 1.0.0.4: UESC Nerfed, Thermal Nerfed, Perimeter Buffed',
     description:
-      'Bungie\'s first major balance pass for Marathon (2026) reduces UESC health by 10–15%, slashes boss shield HP by 25%, and caps thermal scope tracking at 100m. Full breakdown.',
+      'Bungie\'s first major balance pass for Marathon (2026) reduces UESC health by 10–15%, slashes boss shield HP by 25%, and caps thermal scope tracking at',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

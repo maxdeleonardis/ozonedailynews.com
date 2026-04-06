@@ -10,7 +10,7 @@ const PAGE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Netflix | Streaming Platform Profile, Subscribers, Shows 2026',
-  description: 'Complete profile of Netflix, the world\'s leading streaming service with 260M+ subscribers. Original content, movies, TV shows, documentaries, and subscriber growth data.',
+  description: 'Complete profile of Netflix, the world\'s leading streaming service with 260M+ subscribers. Original content, movies, TV shows, documentaries, and',
   keywords: [
     'Netflix',
     'Netflix subscribers 2026',

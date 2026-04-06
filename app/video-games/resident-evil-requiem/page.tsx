@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Resident Evil: Requiem - Upcoming Survival Horror Game | ObjectWire",
+  title: "Resident Evil: Requiem | Upcoming Survival Horror Game",
   description:
     "Everything about Resident Evil: Requiem, the next chapter in Capcoms legendary survival horror franchise. Release date, gameplay details, and latest news.",
   keywords: [

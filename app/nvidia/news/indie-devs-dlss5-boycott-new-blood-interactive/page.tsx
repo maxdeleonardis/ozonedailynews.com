@@ -9,9 +9,9 @@ const SLUG = '/nvidia/news/indie-devs-dlss5-boycott-new-blood-interactive';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1578286788444-8c1487fcd823?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Indie Devs Call for Nvidia Boycott Over DLSS 5 | New Blood Interactive | ObjectWire',
+  title: 'Indie Devs Call for Nvidia Boycott Over DLSS 5 | New Blood Interactive',
   description:
-    'New Blood Interactive CEO Dave Oshry is calling for an Nvidia boycott over DLSS 5, unveiled at GTC 2026. Critics say the tech is a generative AI filter disguised as a graphics upgrade.',
+    'New Blood Interactive CEO Dave Oshry is calling for an Nvidia boycott over DLSS 5, unveiled at GTC 2026. Critics say the tech is a generative AI filter',
   keywords: [
     'Nvidia DLSS 5 boycott',
     'New Blood Interactive Nvidia boycott',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Indie Devs Call Nvidia DLSS 5 Boycott | New Blood Interactive CEO Speaks Out | ObjectWire',
+    title: 'Indie Devs Call Nvidia DLSS 5 Boycott | New Blood Interactive CEO Speaks Out',
     description:
-      'More than a week after DLSS 5 debuted at GTC 2026, the backlash from indie developers is intensifying. New Blood\'s CEO is calling for a full Nvidia boycott.',
+      'More than a week after DLSS 5 debuted at GTC 2026, the backlash from indie developers is intensifying. New Blood\'s CEO is calling for a full Nvidia',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nvidia DLSS 5 Boycott | New Blood Interactive CEO Calls Out GPU Giant | ObjectWire',
+    title: 'Nvidia DLSS 5 Boycott | New Blood Interactive CEO Calls Out GPU Giant',
     description:
       'Indie developers are calling for an Nvidia boycott over DLSS 5, which critics describe as a generative AI filter masquerading as a graphics upgrade.',
     images: [`https://www.objectwire.org${SLUG}/og`],

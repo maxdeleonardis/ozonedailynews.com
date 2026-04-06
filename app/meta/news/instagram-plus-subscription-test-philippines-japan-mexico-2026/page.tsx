@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Instagram Plus Subscription | Meta Live Test Philippines Japan Mexico 2026',
   description:
-    'Meta confirmed on March 30, 2026 that it is live-testing Instagram Plus in the Philippines, Japan, and Mexico. The premium tier unlocks Stealth Mode, Story Extend, Rewatch Counts, and unlimited audience lists for under $2.20/month.',
+    'Meta confirmed on March 30, 2026 that it is live-testing Instagram Plus in the Philippines, Japan, and Mexico. The premium tier unlocks Stealth Mode,',
   keywords: [
     'Instagram Plus subscription 2026',
     'Meta Instagram Plus live test',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta Debuts Instagram Plus in First Live Subscription Test',
     description:
-      'Instagram Plus rolls out in the Philippines, Japan, and Mexico with Stealth Mode, Story Extend, Rewatch Counts, and unlimited audience lists. Pricing starts at $1.07/month. Meta eyes U.S. and Europe expansion later in 2026.',
+      'Instagram Plus rolls out in the Philippines, Japan, and Mexico with Stealth Mode, Story Extend, Rewatch Counts, and unlimited audience lists. Pricing',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

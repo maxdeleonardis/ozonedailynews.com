@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?i
 export const metadata: Metadata = {
   title: 'Binance Predict.fun | Yield-Bearing Prediction Markets',
   description:
-    'Binance integrated Predict.fun into its Web3 Wallet on March 31, 2026, offering yield-bearing prediction markets via Venus Protocol to 200M+ users across the BNB Smart Chain.',
+    'Binance integrated Predict.fun into its Web3 Wallet on March 31, 2026, offering yield-bearing prediction markets via Venus Protocol to 200M+ users across',
   keywords: [
     'Binance prediction market 2026',
     'Predict.fun Binance Wallet integration',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Binance Predict.fun | Yield-Bearing Prediction Markets Launch',
     description:
-      'Binance integrated Predict.fun on March 31, 2026. 200M+ users can now trade event contracts with yield on idle USDT collateral via Venus Protocol on BNB Smart Chain.',
+      'Binance integrated Predict.fun on March 31, 2026. 200M+ users can now trade event contracts with yield on idle USDT collateral via Venus Protocol on BNB',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Alibaba Group | Global E-Commerce & Technology Conglomerate | ObjectWire',
+  title: 'Alibaba Group | Global E-Commerce & Technology Conglomerate',
   description:
-    'Comprehensive profile of Alibaba Group Holding Limited. Covers company history from 1999 founding through regulatory crackdowns, leadership under Jack Ma and Eddie Wu, and future prospects in AI, cloud, and global logistics.',
+    'Comprehensive profile of Alibaba Group Holding Limited. Covers company history from 1999 founding through regulatory crackdowns, leadership under Jack Ma',
   keywords: [
     'Alibaba Group',
     'Jack Ma',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/technology/alibaba',
   },
   openGraph: {
-    title: 'Alibaba Group | Global E-Commerce & Technology Conglomerate | ObjectWire',
+    title: 'Alibaba Group | Global E-Commerce & Technology Conglomerate',
     description:
-      'From a Hangzhou apartment in 1999 to a $200B+ empire: the full profile of Alibaba Group, Jack Ma, leadership succession, regulatory crackdowns, and the company\'s AI pivot.',
+      'From a Hangzhou apartment in 1999 to a $200B+ empire: the full profile of Alibaba Group, Jack Ma, leadership succession, regulatory crackdowns, and the',
     type: 'article',
     url: 'https://www.objectwire.org/technology/alibaba',
     siteName: 'ObjectWire',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alibaba Group | Full Company Profile | ObjectWire',
+    title: 'Alibaba Group | Full Company Profile',
     description:
       'History, leadership, AI strategy, and future prospects of Alibaba Group. From Jack Ma to Eddie Wu, the full story.',
   },

@@ -9,9 +9,9 @@ const SLUG = '/technology/stablecoins/mastercard-bvnk-acquisition-1-8-billion-ma
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Mastercard to Acquire BVNK for $1.8 Billion in Largest Digital Asset Bet Yet | ObjectWire",
+  title: "Mastercard to Acquire BVNK for $1.8 Billion in Largest Digital Asset Bet Yet",
   description:
-    "Mastercard announced a definitive agreement to acquire London-based stablecoin infrastructure provider BVNK for up to $1.8 billion on March 17, 2026, including $300 million in earnouts. The deal closes by year-end 2026 and follows the collapse of a $2 billion Coinbase bid in late 2025.",
+    "Mastercard announced a definitive agreement to acquire London-based stablecoin infrastructure provider BVNK for up to $1.8 billion on March 17, 2026,",
   keywords: [
     'Mastercard acquires BVNK $1.8 billion 2026',
     'BVNK stablecoin infrastructure acquisition',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mastercard to Acquire Stablecoin Infrastructure Firm BVNK for Up to $1.8 Billion",
     description:
-      "Mastercard will pay up to $1.8 billion for BVNK, a London-based stablecoin rails provider, more than doubling its last valuation of $750 million. The move comes months after a rival Coinbase bid fell apart at $2 billion.",
+      "Mastercard will pay up to $1.8 billion for BVNK, a London-based stablecoin rails provider, more than doubling its last valuation of $750 million. The move",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mastercard to Buy BVNK for $1.8 Billion in Stablecoin Infrastructure Push | ObjectWire",
+    title: "Mastercard to Buy BVNK for $1.8 Billion in Stablecoin Infrastructure Push",
     description:
-      "Mastercard outmaneuvered Coinbase for BVNK, a stablecoin 'plumbing' provider that processed trillions in on-chain volume. Deal includes $300M in earnouts tied to stablecoin transaction growth.",
+      "Mastercard outmaneuvered Coinbase for BVNK, a stablecoin 'plumbing' provider that processed trillions in on-chain volume. Deal includes $300M in earnouts",
   },
   other: {
     news_keywords:

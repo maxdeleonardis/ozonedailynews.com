@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Bernstein Crowns Circle and Coinbase as "Stablecoin Kings" for the AI Era | ObjectWire',
+    'Bernstein Crowns Circle and Coinbase as "Stablecoin Kings" for the AI Era',
   description:
-    'Bernstein SocGen Group designates Circle (CRCL) and Coinbase (COIN) as the premier proxy plays for stablecoin growth in the AI era, citing a $190 price target for Circle and calling Agentic AI the next mega-catalyst for USDC adoption.',
+    'Bernstein SocGen Group designates Circle (CRCL) and Coinbase (COIN) as the premier proxy plays for stablecoin growth in the AI era, citing a $190 price',
   keywords: [
     'Bernstein Circle Coinbase stablecoin',
     'Circle CRCL price target $190',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bernstein Names Circle and Coinbase "Stablecoin Kings" for the AI Era',
     description:
-      'Bernstein SocGen gives Circle a $190 price target and names both CRCL and COIN the top proxy plays as stablecoins decouple from crypto volatility and Agentic AI drives machine-to-machine USDC demand.',
+      'Bernstein SocGen gives Circle a $190 price target and names both CRCL and COIN the top proxy plays as stablecoins decouple from crypto volatility and',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bernstein: Circle (CRCL) and Coinbase (COIN) Are the "Stablecoin Kings" of the AI Era',
     description:
-      '$190 price target for Circle, Coinbase x402 hitting $25M in 30 days, and USDC Nanopayments entering AI dev stacks, Bernstein makes the case stablecoins have permanently left the crypto cycle.',
+      '$190 price target for Circle, Coinbase x402 hitting $25M in 30 days, and USDC Nanopayments entering AI dev stacks, Bernstein makes the case stablecoins',
   },
 };
 

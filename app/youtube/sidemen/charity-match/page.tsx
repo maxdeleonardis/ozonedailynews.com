@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Sidemen Charity Match 2026: History, Players & Event Guide | YouTube's Biggest Football Match",
-  description: "Complete guide to the Sidemen Charity Match 2026 - The world's biggest YouTube football event featuring KSI, MrBeast, Logan Paul, IShowSpeed, and 100+ creators. History, confirmed players, and live coverage.",
+  description: "Complete guide to the Sidemen Charity Match 2026 - The world's biggest YouTube football event featuring KSI, MrBeast, Logan Paul, IShowSpeed, and 100+",
   keywords: [
     "Sidemen Charity Match 2026",
     "YouTube charity football",
@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     title: "Sidemen Charity Match 2026: YouTube's Biggest Football Event",
     description: "100+ creators. Millions raised. The match of the year returns.",
     images: ["https://objectwire.com/og-sidemen-charity-match-2026.jpg"],
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/youtube/sidemen/charity-match',
   },
 };
 

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Sepp Blatter Calls for World Cup Boycott | ObjectWire",
+  title: "Sepp Blatter Calls for World Cup Boycott",
   description: "Former FIFA president Sepp Blatter joins growing chorus calling for boycott of USA 2026 World Cup amid political and organizational concerns.",
   keywords: ["Sepp Blatter", "FIFA", "World Cup 2026", "Boycott", "USA", "Corruption"],
   authors: [{ name: "ObjectWire Editorial Team" }],

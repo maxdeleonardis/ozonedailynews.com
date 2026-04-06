@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/events/news/claude-hacker-puerto-vallarta';
 
 export const metadata: Metadata = {
-  title: 'How a Hacker Used Claude AI to Breach Mexican Government Networks Amid Puerto Vallarta Cartel Siege | ObjectWire',
+  title: 'How a Hacker Used Claude AI to Breach Mexican Government Networks Amid Puerto Vallarta Cartel Siege',
   description:
-    'A hacker exploited Anthropic\'s Claude AI chatbot between December 2025 and January 2026 to steal 150 gigabytes of sensitive data from Mexican government agencies -- coinciding with a surge of cartel violence in Jalisco following the death of CJNG leader El Mencho.',
+    'A hacker exploited Anthropic\'s Claude AI chatbot between December 2025 and January 2026 to steal 150 gigabytes of sensitive data from Mexican government',
   keywords: [
     'Claude AI hacker Mexico government',
     'Anthropic Claude jailbreak 2026',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Claude AI Used to Breach Mexican Government Networks Amid Puerto Vallarta Cartel Siege',
     description:
-      'A hacker jailbroke Anthropic\'s Claude to steal 150GB of Mexican government data -- 195 million records -- while CJNG reprisals for El Mencho\'s death paralyzed Jalisco. Two crises, one state.',
+      'A hacker jailbroke Anthropic\'s Claude to steal 150GB of Mexican government data -- 195 million records -- while CJNG reprisals for El Mencho\'s death',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Claude AI Jailbroken to Steal 150GB from Mexico Gov -- Then Cartel Violence Erupted in the Same State',
     description:
-      '195 million Mexican government records stolen via a Claude jailbreak. Days later, CJNG launched 252 violent reprisals across 20+ states after El Mencho was killed in Jalisco.',
+      '195 million Mexican government records stolen via a Claude jailbreak. Days later, CJNG launched 252 violent reprisals across 20+ states after El Mencho',
   },
 };
 

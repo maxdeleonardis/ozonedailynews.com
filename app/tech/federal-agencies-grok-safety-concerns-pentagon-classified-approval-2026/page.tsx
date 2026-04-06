@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Federal Agencies Raised Grok Safety and Reliability Concerns Before Pentagon Classified Approval, February 2026 | ObjectWire',
+    'Federal Agencies Raised Grok Safety and Reliability Concerns Before Pentagon Classified Approval, February 2026',
   description:
-    "Multiple U.S. federal agencies flagged xAI's Grok chatbot as unsafe for federal deployment before the Pentagon authorized its use in classified military environments in February 2026. GSA, NSA, and White House officials documented concerns about sycophancy, data poisoning, and unique security vulnerabilities, then the Pentagon approved it anyway.",
+    "Multiple U.S. federal agencies flagged xAI's Grok chatbot as unsafe for federal deployment before the Pentagon authorized its use in classified military",
   keywords: [
     'Grok xAI Pentagon classified approval 2026',
     'GSA Grok safety concerns federal deployment',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title:
       "Federal Agencies Flagged Grok as Unsafe. The Pentagon Approved It Anyway.",
     description:
-      "GSA called Grok-4 non-compliant with federal safety standards. The NSA identified unique security vulnerabilities. White House Chief of Staff Susie Wiles called a senior xAI executive. Then the Pentagon authorized Grok for classified use under a $200M contract, February 2026.",
+      "GSA called Grok-4 non-compliant with federal safety standards. The NSA identified unique security vulnerabilities. White House Chief of Staff Susie Wiles",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title:
       'GSA Said Grok Failed Federal Safety Standards. NSA Found Unique Vulnerabilities. Pentagon Approved It.',
     description:
-      'Internal reviews from the GSA, NSA, and CDAO all flagged Grok before Pentagon classified approval in February 2026. The Wall Street Journal reported the full sequence on February 27, 2026.',
+      'Internal reviews from the GSA, NSA, and CDAO all flagged Grok before Pentagon classified approval in February 2026. The Wall Street Journal reported the',
     images: [IMAGE_URL],
   },
 };

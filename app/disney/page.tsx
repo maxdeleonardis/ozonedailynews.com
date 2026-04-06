@@ -6,12 +6,24 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Walt Disney Company - Entertainment Conglomerate | ObjectWire",
-  description: "Comprehensive profile of The Walt Disney Company, the world's largest entertainment conglomerate. History, business segments, leadership, theme parks, streaming, and corporate developments.",
+  title: 'Disney | Parks, Streaming, Marvel, Star Wars & ESPN',
+  description: 'ObjectWire coverage of the Walt Disney Company. Theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, Bob Iger, and corporate news.',
   alternates: {
     canonical: 'https://www.objectwire.org/disney',
   },
-  keywords: ['Disney', 'Walt Disney Company', 'Disney Parks', 'Disney+', 'Bob Iger', 'Josh D\'Amaro', 'Marvel', 'Pixar', 'Star Wars', 'ESPN'],
+  keywords: ['Disney', 'Walt Disney Company', 'Disney Parks', 'Disney+', 'Bob Iger', "Josh D'Amaro", 'Marvel', 'Pixar', 'Star Wars', 'ESPN'],
+  openGraph: {
+    title: 'Disney | Parks, Streaming, Marvel, Star Wars & ESPN',
+    description: 'ObjectWire Disney coverage: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger leadership news.',
+    type: 'website',
+    url: 'https://www.objectwire.org/disney',
+    siteName: 'ObjectWire',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Disney | Parks, Marvel, Star Wars, ESPN & Disney+',
+    description: 'ObjectWire Disney hub: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger news.',
+  },
 };
 
 export default function DisneyWikiPage() {

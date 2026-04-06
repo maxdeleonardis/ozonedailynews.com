@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/boring_company.png';
 
 export const metadata: Metadata = {
-  title: 'The Boring Company | Underground Transit, Vegas Loop & Tunnel Technology | ObjectWire',
+  title: 'The Boring Company | Underground Transit, Vegas Loop & Tunnel Technology',
   description:
-    'The Boring Company is an American tunnel construction company founded by Elon Musk in 2016. Its flagship Vegas Loop network transports passengers beneath Las Vegas using Tesla vehicles, with plans to expand across multiple U.S. cities.',
+    'The Boring Company is an American tunnel construction company founded by Elon Musk in 2016. Its flagship Vegas Loop network transports passengers beneath',
   keywords: [
     'The Boring Company',
     'Boring Company Elon Musk',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Boring Company | Underground Transit, Vegas Loop & Tunnel Technology',
     description:
-      'Founded by Elon Musk in 2016, The Boring Company operates the Vegas Loop, a Tesla-powered underground transit network, and is developing tunnel projects across Los Angeles, Austin, and beyond.',
+      'Founded by Elon Musk in 2016, The Boring Company operates the Vegas Loop, a Tesla-powered underground transit network, and is developing tunnel projects',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Boring Company | ObjectWire',
+    title: 'The Boring Company',
     description:
       'Elon Musk\'s tunnel company: Vegas Loop, Prufrock boring machines, and the push to put high-speed transit underground.',
     images: [IMAGE_URL],

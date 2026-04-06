@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Apple 50th Anniversary | Grand Finale at Apple Park April 2026',
   description:
-    'Apple turns 50 on April 1, 2026, closing a week of global celebrations with a private grand finale at Apple Park. Mark Gurman reports a "British Invasion" headliner Steve Jobs "would have been ecstatic" about — widely read as Paul McCartney.',
+    'Apple turns 50 on April 1, 2026, closing a week of global celebrations with a private grand finale at Apple Park. Mark Gurman reports a "British Invasion"',
   keywords: [
     'Apple 50th anniversary 2026',
     'Apple Park grand finale April 2026',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apple Turns 50 | Grand Finale at Apple Park Caps a Week of Global Celebrations',
     description:
-      'From a Los Altos garage to a $3.6T company with 2.5B active devices, Apple marks 50 years with a private Apple Park event headlined by a "British Invasion" act Gurman says Steve Jobs would have loved.',
+      'From a Los Altos garage to a $3.6T company with 2.5B active devices, Apple marks 50 years with a private Apple Park event headlined by a "British',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Apple turns 50 Wednesday. The grand finale at Apple Park has a mystery headliner.',
     description:
-      'Gurman says it\'s someone from the "British Invasion" who Steve Jobs "would\'ve been ecstatic" about. The Visitor Center closes early Tuesday. All signs point to Paul McCartney.',
+      'Gurman says it\'s someone from the "British Invasion" who Steve Jobs "would\'ve been ecstatic" about. The Visitor Center closes early Tuesday. All signs',
   },
 };
 

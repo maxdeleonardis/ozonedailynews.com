@@ -11,7 +11,7 @@ const OG_IMAGE = '/video-games/gta6.png';
 export const metadata: Metadata = {
   title: 'GTA 6 | Take-Two Shakes Up AI Team Despite Zelnick Pledge',
   description:
-    'Take-Two Interactive has restructured its internal AI division weeks after CEO Strauss Zelnick pledged "hundreds of pilots" to investors. The move raises questions about GTA 6 NPC automation and QA features at launch.',
+    'Take-Two Interactive has restructured its internal AI division weeks after CEO Strauss Zelnick pledged "hundreds of pilots" to investors. The move raises',
   keywords: [
     'GTA 6',
     'Take-Two AI restructuring',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'article',
     title: 'GTA 6 | Take-Two Shakes Up AI Team Despite CEO Hundreds of Pilots Pledge',
     description:
-      'Take-Two restructures its AI division weeks after Zelnick told investors they were running "hundreds of pilots." What it means for GTA 6 NPC behavior, QA automation, and the $1B launch.',
+      'Take-Two restructures its AI division weeks after Zelnick told investors they were running "hundreds of pilots." What it means for GTA 6 NPC behavior, QA',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Gaming'],

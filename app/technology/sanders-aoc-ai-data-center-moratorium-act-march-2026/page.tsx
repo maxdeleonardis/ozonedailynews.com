@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: 'Sanders and AOC Unveil "AI Data Center Moratorium Act" to Pause Infrastructure Boom | ObjectWire',
+  title: 'Sanders and AOC Unveil "AI Data Center Moratorium Act" to Pause Infrastructure Boom',
   description:
-    'Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez introduced the AI Data Center Moratorium Act on March 25, 2026, seeking an immediate federal freeze on AI data center construction until Congress establishes safeguards for ratepayers, the environment, and workers.',
+    'Senator Bernie Sanders and Representative Alexandria Ocasio-Cortez introduced the AI Data Center Moratorium Act on March 25, 2026, seeking an immediate',
   keywords: [
     'AI Data Center Moratorium Act 2026',
     'Bernie Sanders AI bill',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sanders and AOC Unveil "AI Data Center Moratorium Act" to Pause Infrastructure Boom',
     description:
-      'The new bill would freeze all AI data center construction nationwide until Congress passes safeguards on electricity costs, water use, labor protections, and AI safety, and ban high-end chip exports to countries lacking equivalent rules.',
+      'The new bill would freeze all AI data center construction nationwide until Congress passes safeguards on electricity costs, water use, labor protections,',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sanders & AOC Introduce Bill to Freeze AI Data Center Construction',
     description:
-      'The AI Data Center Moratorium Act would halt all new AI infrastructure until Congress passes rules on electricity costs, water, labor, and safety, plus a chip export ban.',
+      'The AI Data Center Moratorium Act would halt all new AI infrastructure until Congress passes rules on electricity costs, water, labor, and safety, plus a',
     images: [IMAGE_URL],
   },
 };

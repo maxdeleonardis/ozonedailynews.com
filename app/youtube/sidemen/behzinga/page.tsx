@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Behzinga (Ethan Payne) | Fitness Transformation & Mental Health Advocate | ObjectWire",
-  description: "Complete profile of Behzinga (Ethan Payne): Sidemen member's inspiring fitness transformation, mental health advocacy, relationship with Faith Kelly, and charity football performance. 2026 coverage.",
+  title: "Behzinga (Ethan Payne) | Fitness Transformation & Mental Health Advocate",
+  description: "Complete profile of Behzinga (Ethan Payne): Sidemen member's inspiring fitness transformation, mental health advocacy, relationship with Faith Kelly, and",
   keywords: [
     "Behzinga",
     "Ethan Payne",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/youtube/sidemen/behzinga',
     siteName: 'ObjectWire',
     section: 'YouTube',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Behzinga (Ethan Payne) | Fitness Journey & Mental Health Champion',
+    description: 'Full profile of Behzinga: transformative weight loss journey, mental health advocacy, engagement to Faith Kelly, and inspiring fitness content.',
   },
 };
 

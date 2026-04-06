@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Render Vs Vercel: For Free Start-Up App Deployment Review - ObjectWire.org",
-  description: "Render and Vercel have emerged as frontrunners for bootstrapped founders seeking free, scalable options. Both promise seamless deploys, but they serve different use cases.",
+  title: "Render Vs Vercel: For Free Start-Up App Deployment Review | ObjectWire.org",
+  description: "Render and Vercel have emerged as frontrunners for bootstrapped founders seeking free, scalable options. Both promise seamless deploys, but they serve",
   alternates: {
     canonical: 'https://www.objectwire.org/render-vs-vercel-for-free-start-up-app-deployment',
   },

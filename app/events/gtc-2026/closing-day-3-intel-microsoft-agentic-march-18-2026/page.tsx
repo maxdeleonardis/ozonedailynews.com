@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/events/gtc-2026/closing-day-3-intel-microsoft-agentic-march-18-2026';
 
 export const metadata: Metadata = {
-  title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up | ObjectWire",
+  title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up",
   description:
-    "As GTC 2026 enters its final stretch, Intel and NVIDIA debut their joint Sovereign AI rack, the OpenClaw Agentic program dominates Day 3, and Thursday's expo close brings the curtain down on the most consequential AI conference in Silicon Valley history.",
+    "As GTC 2026 enters its final stretch, Intel and NVIDIA debut their joint Sovereign AI rack, the OpenClaw Agentic program dominates Day 3, and Thursday's",
   keywords: [
     'GTC 2026 Day 3 wrap-up',
     'NVIDIA GTC 2026 closing',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up",
     description:
-      "Intel and NVIDIA showcase a joint Sovereign AI rack, OpenClaw workshops flood the floor, and Thursday's short expo window marks the end of the most consequential AI conference in Silicon Valley history.",
+      "Intel and NVIDIA showcase a joint Sovereign AI rack, OpenClaw workshops flood the floor, and Thursday's short expo window marks the end of the most",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "GTC 2026 Day 3: Intel & NVIDIA's Sovereign AI Rack, OpenClaw Agents, Final Sprint | ObjectWire",
+    title: "GTC 2026 Day 3: Intel & NVIDIA's Sovereign AI Rack, OpenClaw Agents, Final Sprint",
     description:
-      "Day 3 at GTC 2026 belongs to the partners. Intel and NVIDIA showcase their joint Sovereign AI rack, OpenClaw workshops dominate the afternoon, and Thursday's expo close wraps Silicon Valley's biggest AI week.",
+      "Day 3 at GTC 2026 belongs to the partners. Intel and NVIDIA showcase their joint Sovereign AI rack, OpenClaw workshops dominate the afternoon, and",
   },
   other: {
     news_keywords:

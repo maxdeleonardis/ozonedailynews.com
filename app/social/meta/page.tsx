@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Meta Quest",
   ],
   openGraph: {
-    title: "Meta Platforms: Complete Company Profile & History | ObjectWire",
+    title: "Meta Platforms: Complete Company Profile & History",
     description: "From Facebook to Meta - the social media giant's transformation and 3.9B user ecosystem.",
     type: "article",
     url: "https://www.objectwire.org/meta",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Meta Platforms Wiki 2026: Facebook, Instagram & 3.9B Users",
     description: "Complete profile of the world's largest social media conglomerate.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/social/meta',
   },
 };
 

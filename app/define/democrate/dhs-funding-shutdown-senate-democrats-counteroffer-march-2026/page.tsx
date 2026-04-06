@@ -9,9 +9,9 @@ const SLUG = '/define/democrate/dhs-funding-shutdown-senate-democrats-counteroff
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown | ObjectWire',
+  title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown',
   description:
-    'Senate Democrats delivered their latest counteroffer to the White House on Monday night to fund the Department of Homeland Security, as the partial government shutdown stretched into its 32nd day. Senate Majority Leader John Thune said the offer "didn\'t change much."',
+    'Senate Democrats delivered their latest counteroffer to the White House on Monday night to fund the Department of Homeland Security, as the partial',
   keywords: [
     'Democrats DHS funding proposal March 2026',
     'partial government shutdown 32 days DHS',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown',
     description:
-      'Senate Democrats sent their latest counteroffer to fund the Department of Homeland Security as the partial shutdown entered its 32nd day, but Senate Majority Leader John Thune said it "didn\'t change much from where we were."',
+      'Senate Democrats sent their latest counteroffer to fund the Department of Homeland Security as the partial shutdown entered its 32nd day, but Senate',
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown | ObjectWire',
+    title: 'Democrats Send DHS Funding Proposal Amid 32-Day Partial Shutdown',
     description:
-      'Senate Democrats sent the White House a new DHS funding counteroffer on Monday, but Thune says it "didn\'t change much." The partial shutdown is now in its 32nd day.',
+      'Senate Democrats sent the White House a new DHS funding counteroffer on Monday, but Thune says it "didn\'t change much." The partial shutdown is now in',
   },
   other: {
     news_keywords:

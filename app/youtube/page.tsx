@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "YouTube Wiki 2026: History, Google Acquisition & 2.7B Users",
-  description: "Complete profile of YouTube - founded 2005, acquired by Google for $1.65B in 2006. Now serving 2.7 billion monthly users with 500 hours uploaded per minute.",
+  description: "Complete profile of YouTube - founded 2005, acquired by Google for $1.65B in 2006. Now serving 2.7 billion monthly users with 500 hours uploaded per",
   keywords: [
     "YouTube",
     "video platform",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "video sharing",
   ],
   openGraph: {
-    title: "YouTube: Complete Company Profile & History | ObjectWire",
+    title: "YouTube: Complete Company Profile & History",
     description: "From garage startup to 2.7B users - YouTube's journey from 2005 to 2026.",
     type: "article",
     url: "https://www.objectwire.org/youtube",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "YouTube Wiki 2026: History, Google Acquisition & 2.7B Users",
     description: "Complete profile of the world's largest video platform.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/youtube',
   },
 };
 

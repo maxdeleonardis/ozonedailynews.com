@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NELK Boys - YouTube Entertainment Group | ObjectWire",
-  description: "Complete coverage of the NELK Boys, the controversial YouTube entertainment group. Latest news, member profiles, career highlights, and current ventures including Full Send.",
+  title: "NELK Boys | YouTube Entertainment Group",
+  description: "Complete coverage of the NELK Boys, the controversial YouTube entertainment group. Latest news, member profiles, career highlights, and current ventures",
   keywords: ["NELK Boys", "Full Send", "Kyle Forgeard", "Jesse Sebastiani", "Steve Deleonardis", "SteveWillDoIt", "YouTube pranks", "Happy Dad"],
   alternates: {
     canonical: 'https://www.objectwire.org/nelk-boys',

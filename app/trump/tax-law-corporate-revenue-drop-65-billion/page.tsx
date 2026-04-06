@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Trump Tax Law | Corporate Revenue Down $65B, Analysis Finds',
   description:
-    'A Bloomberg analysis of the 50 largest U.S. public companies found the Trump tax law cut federal corporate tax revenue by $65 billion annually, concentrated at Amazon, Walmart, and Verizon.',
+    'A Bloomberg analysis of the 50 largest U.S. public companies found the Trump tax law cut federal corporate tax revenue by $65 billion annually,',
   keywords: [
     'Trump tax law corporate revenue 2026',
     'Trump tax cuts $65 billion analysis',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Trump Tax Law | $65B Corporate Revenue Drop, Analysis Finds',
     description:
-      'Bloomberg study of 50 major U.S. firms shows Amazon saved $12.4B, Walmart $8.2B, and Verizon $6.1B annually, accounting for nearly 40% of a $65 billion federal revenue shortfall.',
+      'Bloomberg study of 50 major U.S. firms shows Amazon saved $12.4B, Walmart $8.2B, and Verizon $6.1B annually, accounting for nearly 40% of a $65 billion',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

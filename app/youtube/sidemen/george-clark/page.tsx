@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "George Clarkey - YouTube Content Creator & Sidemen Collaborator | ObjectWire",
+  title: "George Clarkey | YouTube Content Creator & Sidemen Collaborator",
   description: "Complete profile of George Clarkey (George Clark), British YouTube creator known for comedy challenges, pranks, and frequent Sidemen collaborations.",
   keywords: ["George Clarkey", "George Clark", "Sidemen", "YouTube", "UK YouTuber", "Comedy", "Challenges"],
   alternates: {

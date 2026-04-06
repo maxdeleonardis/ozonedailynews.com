@@ -6,14 +6,19 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Our Team | ObjectWire",
+  title: "Our Team",
   description: "Meet the ObjectWire editorial team. Our journalists, analysts, and contributors are dedicated to delivering verified, source-cited intelligence.",
   alternates: {
     canonical: 'https://www.objectwire.org/team',
   },
   openGraph: {
-    title: "Our Team | ObjectWire",
+    title: "Our Team",
     description: "Meet the journalists and analysts behind ObjectWire's precision intelligence reporting.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Team',
+    description: 'Meet the journalists and analysts behind ObjectWire',
   },
 };
 

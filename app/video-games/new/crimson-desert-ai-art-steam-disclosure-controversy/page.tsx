@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/video-games/thumbnail.PNG';
 
 export const metadata: Metadata = {
-  title: 'Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions | ObjectWire',
+  title: 'Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions',
   description:
-    'Crimson Desert players have identified in-game artwork they believe was created using generative AI, days after the Pearl Abyss RPG\u2019s March 19 launch \u2014 and the game\u2019s Steam page carries no disclosure of such use, reigniting the debate over AI transparency requirements on digital storefronts.',
+    'Crimson Desert players have identified in-game artwork they believe was created using generative AI, days after the Pearl Abyss RPG\u2019s March 19 launch',
   keywords: [
     'Crimson Desert AI art controversy',
     'Crimson Desert AI generated artwork Steam',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions',
     description:
-      'Days after its March 19 launch, players have flagged suspected AI-generated artwork inside Crimson Desert. The Steam page carries no disclosure \u2014 reigniting the debate over AI transparency on gaming storefronts.',
+      'Days after its March 19 launch, players have flagged suspected AI-generated artwork inside Crimson Desert. The Steam page carries no disclosure \u2014',
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',

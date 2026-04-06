@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Cloudflare, Inc. | Internet Infrastructure, CDN, Cybersecurity & Developer Platform | ObjectWire',
+  title: 'Cloudflare | CDN, Zero Trust, DDoS & Internet Security',
   description:
-    "Cloudflare is one of the world's largest internet infrastructure companies, providing CDN, DDoS mitigation, cybersecurity, Zero Trust networking, and edge computing to over 332,000 paying customers, protecting 21.3% of all websites as of early 2026.",
+    'Cloudflare provides CDN, DDoS mitigation, Zero Trust networking, and edge computing to 332,000+ customers, protecting 21.3% of all websites. Revenue',
   keywords: [
     'Cloudflare',
     'Cloudflare CDN',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/cloudflare',
   },
   openGraph: {
-    title: 'Cloudflare, Inc. | Internet Infrastructure, CDN & Cybersecurity',
+    title: 'Cloudflare | CDN, Zero Trust, DDoS Protection & Security',
     description:
-      "Cloudflare protects 21.3% of all websites on the internet, operates in 330+ cities across 125+ countries, and blocks 215 billion cyber threats per day. Revenue reached $2.168B in FY 2025.",
+      "Cloudflare protects 21.3% of all websites on the internet, operates in 330+ cities across 125+ countries, and blocks 215 billion cyber threats per day.",
     type: 'article',
     url: 'https://www.objectwire.org/cloudflare',
     siteName: 'ObjectWire',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cloudflare, Inc. | ObjectWire',
+    title: 'Cloudflare | CDN, Zero Trust, DDoS Protection & Security',
     description:
       'CDN, DDoS mitigation, Zero Trust networking, and edge computing for the modern internet.',
     images: ['/default/cloudflare/cloudflare.PNG'],

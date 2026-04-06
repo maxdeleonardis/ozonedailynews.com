@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming | ObjectWire',
+  title: 'The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming',
   description:
-    'The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips, without permission. Ben Stiller is demanding removal. Legal experts call it a "shadow license" crisis with no clear accountability.',
+    'The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips, without',
   keywords: [
     'White House war edits copyright',
     'White House social media copyright violation',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Shadow License Problem: White House 'War Edits' Put Hollywood and the Pentagon on Edge",
     description:
-      'White House montages splicing Iran strike drone footage with GTA "Wasted" screens and Tom Cruise clips have triggered copyright demands from Ben Stiller and Kesha, and exposed a legal grey zone with no clear accountability.',
+      'White House montages splicing Iran strike drone footage with GTA "Wasted" screens and Tom Cruise clips have triggered copyright demands from Ben Stiller',
     type: 'article',
     url: 'https://www.objectwire.org/trump/shadow-license-problem',
     siteName: 'ObjectWire',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "White House 'War Edits' Hit Back: Ben Stiller, GTA, and the Shadow License Problem",
     description:
-      'The White House is treating Hollywood and gaming IP as public property for war montages. Ben Stiller wants his Tropic Thunder clip pulled. Legal experts say there\'s no clear mechanism to make them comply.',
+      'The White House is treating Hollywood and gaming IP as public property for war montages. Ben Stiller wants his Tropic Thunder clip pulled. Legal experts',
   },
 };
 

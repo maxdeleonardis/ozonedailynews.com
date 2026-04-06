@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Reels",
   ],
   openGraph: {
-    title: "Instagram: Complete Company Profile & History | ObjectWire",
+    title: "Instagram: Complete Company Profile & History",
     description: "From startup to 2.4B users - Instagram's evolution from 2010 to 2026.",
     type: "article",
     url: "https://www.objectwire.org/instagram",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Instagram Wiki 2026: History, Meta Acquisition & 2.4B Users",
     description: "Complete profile of the world's leading photo-sharing platform.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/influencer/instagram',
   },
 };
 

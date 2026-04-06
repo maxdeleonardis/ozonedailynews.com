@@ -11,9 +11,9 @@ const IMAGE_URL =
   'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Meta Platforms Inc. | ObjectWire',
+  title: 'Meta Platforms | Facebook, Instagram, WhatsApp & AI',
   description:
-    'Meta Platforms (formerly Facebook Inc.) owns Facebook, Instagram, WhatsApp, and Threads, serving 3.35 billion daily active users. Full profile: Mark Zuckerberg, AI infrastructure, Reality Labs, advertising business, and legal controversies.',
+    'Meta Platforms owns Facebook, Instagram, WhatsApp, and Threads, serving 3.35B daily users. Zuckerberg, AI infrastructure, Reality Labs, and advertising',
   keywords: [
     'Meta Platforms',
     'Meta Platforms Inc',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Meta Platforms Inc. | ObjectWire',
+    title: 'Meta Platforms | Facebook, Instagram, WhatsApp & AI',
     description:
       'Full company profile of Meta Platforms Inc. Facebook, Instagram, WhatsApp, Threads, Reality Labs, AI infrastructure, and legal controversies.',
     url: PAGE_URL,
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meta Platforms Inc. | ObjectWire',
+    title: 'Meta Platforms | Facebook, Instagram, WhatsApp & AI',
     description:
-      'Full company profile of Meta Platforms. Facebook, Instagram, WhatsApp, Threads, Llama AI, Reality Labs, and the largest digital advertising business on Earth.',
+      'Full company profile of Meta Platforms. Facebook, Instagram, WhatsApp, Threads, Llama AI, Reality Labs, and the largest digital advertising business on',
     images: [IMAGE_URL],
   },
 };

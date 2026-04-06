@@ -6,14 +6,19 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Corrections Policy | ObjectWire",
+  title: "Corrections Policy",
   description: "ObjectWire is committed to accuracy. Learn about our corrections policy, how we handle errors, and how to report inaccuracies.",
   alternates: {
     canonical: 'https://www.objectwire.org/corrections',
   },
   openGraph: {
-    title: "Corrections Policy | ObjectWire",
+    title: "Corrections Policy",
     description: "Our commitment to transparency and accuracy in correcting errors.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Corrections Policy',
+    description: 'Our commitment to transparency and accuracy in correcting errors.',
   },
 };
 

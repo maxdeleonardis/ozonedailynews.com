@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Novartis: Swiss Pharmaceutical Company Profile & History | ObjectWire',
-  description: 'Complete profile of Novartis AG, one of the world\'s largest pharmaceutical companies. Founded 1996, specializing in cardiovascular, oncology, and immunology drugs with $49B annual revenue.',
+  title: 'Novartis: Swiss Pharmaceutical Company Profile & History',
+  description: 'Complete profile of Novartis AG, one of the world\'s largest pharmaceutical companies. Founded 1996, specializing in cardiovascular, oncology, and',
   keywords: [
     'Novartis',
     'Novartis AG',

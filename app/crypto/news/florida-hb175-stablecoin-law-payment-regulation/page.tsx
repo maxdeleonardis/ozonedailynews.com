@@ -4,13 +4,13 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Florida Passes First State-Level Stablecoin Law in the US | HB 175 | ObjectWire',
-  description: 'Florida HB 175 passed the House 102–2 and Senate 37–0, creating the first full state-level rulebook for payment stablecoins in the US and launching a live pilot for government fee payments.',
+  title: 'Florida Passes First State-Level Stablecoin Law in the US | HB 175',
+  description: 'Florida HB 175 passed the House 102–2 and Senate 37–0, creating the first full state-level rulebook for payment stablecoins in the US and launching a live',
   keywords: ['Florida stablecoin law HB 175','Florida payment stablecoin regulation 2026','HB 175 Florida stablecoin','Florida crypto regulation 2026','GENIUS Act state implementation','qualified payment stablecoin issuer','Florida Office of Financial Regulation stablecoin','stablecoin not security Florida','DeSantis stablecoin bill','Florida stablecoin pilot program','state stablecoin regulation United States','payment stablecoin AML compliance','stablecoin government fee payments','OFR stablecoin licensing Florida'],
   alternates: { canonical: 'https://www.objectwire.org/crypto/news/florida-hb175-stablecoin-law-payment-regulation' },
   openGraph: {
     title: 'Florida Passes First State-Level Stablecoin Law | HB 175 Heads to DeSantis',
-    description: 'HB 175 passed 102–2 in the House and 37–0 in the Senate. Florida defines "payment stablecoin," requires OFR licensing, implements the federal GENIUS Act, and launches a pilot for stablecoin fee payments.',
+    description: 'HB 175 passed 102–2 in the House and 37–0 in the Senate. Florida defines "payment stablecoin," requires OFR licensing, implements the federal GENIUS Act,',
     type: 'article',
     url: 'https://www.objectwire.org/crypto/news/florida-hb175-stablecoin-law-payment-regulation',
     siteName: 'ObjectWire',

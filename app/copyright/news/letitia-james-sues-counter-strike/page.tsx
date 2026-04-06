@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/copyright/news/letitia-james-sues-counter-strike';
 
 export const metadata: Metadata = {
-  title: "NY AG Letitia James Sues Valve Over Counter-Strike Loot Boxes -- Gabe Newell Responds 'GL HF' | ObjectWire",
+  title: "NY AG Letitia James Sues Valve Over Counter-Strike Loot Boxes -- Gabe Newell Responds 'GL HF'",
   description:
-    "New York Attorney General Letitia James has filed a lawsuit against Valve Corporation, alleging that Counter-Strike 2 loot boxes constitute illegal gambling under New York law. Valve CEO Gabe Newell responded in two words: GL HF.",
+    "New York Attorney General Letitia James has filed a lawsuit against Valve Corporation, alleging that Counter-Strike 2 loot boxes constitute illegal",
   keywords: [
     'Letitia James Valve lawsuit 2026',
     'Counter-Strike loot box lawsuit New York',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NY AG Letitia James Sues Valve Over Loot Boxes -- Gabe Newell Responds 'GL HF'",
     description:
-      "New York's AG alleges Counter-Strike 2 loot boxes are illegal gambling. Some CS skins have sold for over $1 million. The broader skins market is worth billions. Gabe Newell's official response: 'GL HF'.",
+      "New York's AG alleges Counter-Strike 2 loot boxes are illegal gambling. Some CS skins have sold for over $1 million. The broader skins market is worth",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "NY AG Sues Valve Over CS2 Loot Boxes. Gabe Newell Responds: 'GL HF'",
     description:
-      "Letitia James says Counter-Strike loot boxes are illegal gambling. Some skins sell for over $1M. The skins market is worth billions. Valve CEO Gabe Newell's full statement: GL HF.",
+      "Letitia James says Counter-Strike loot boxes are illegal gambling. Some skins sell for over $1M. The skins market is worth billions. Valve CEO Gabe",
   },
 };
 

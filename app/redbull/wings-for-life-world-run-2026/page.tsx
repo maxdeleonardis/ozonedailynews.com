@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Wings for Life World Run 2026 | Global Charity Run',
   description:
-    'Wings for Life World Run on May 10, 2026 is a global charity run funding spinal cord injury research. 100% of entry fees go to research. How the catcher car format works.',
+    'Wings for Life World Run on May 10, 2026 is a global charity run funding spinal cord injury research. 100% of entry fees go to research. How the catcher',
   keywords: [
     'Wings for Life World Run 2026',
     'Red Bull charity run 2026',

@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Arc Raiders Flashpoint Update | New Enemies, Weapons, Map Conditions March 2026',
   description:
-    'Arc Raiders Flashpoint update launches Tuesday, March 31, 2026 at 1:30 AM PT across PC, PS5, and Xbox Series X|S. The free drop adds new enemies, weapons, and map conditions with 1-3 hours of server maintenance beforehand.',
+    'Arc Raiders Flashpoint update launches Tuesday, March 31, 2026 at 1:30 AM PT across PC, PS5, and Xbox Series X|S. The free drop adds new enemies, weapons,',
   keywords: [
     'Arc Raiders Flashpoint update 2026',
     'Arc Raiders March 31 update',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Arc Raiders Flashpoint Update Launches Tuesday | New Enemies, Weapons, Map Conditions',
     description:
-      'Embark Studios rolls out the free Flashpoint update for Arc Raiders on March 31, 2026 at 1:30 AM PT. New threats, weapons, and map conditions arrive across PC, PS5, and Xbox Series X|S after a 1-3 hour maintenance window.',
+      'Embark Studios rolls out the free Flashpoint update for Arc Raiders on March 31, 2026 at 1:30 AM PT. New threats, weapons, and map conditions arrive',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

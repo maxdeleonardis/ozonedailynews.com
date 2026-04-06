@@ -11,7 +11,7 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Y11S1.1 Patch | Flores, Jäger, Rook, Nøkk Buffs',
   description:
-    'Siege Y11S1.1 buffs Flores, Iana, Jäger, Nøkk, Rook, Wamai, Caveira M12, and Sens POF-9. Full breakdown of every operator and weapon change in the mid-season balance patch.',
+    'Siege Y11S1.1 buffs Flores, Iana, Jäger, Nøkk, Rook, Wamai, Caveira M12, and Sens POF-9. Full breakdown of every operator and weapon change in the',
   keywords: [
     'Rainbow Six Siege Y11S1.1 patch notes',
     'Siege Y11S1.1 balance patch',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Siege Y11S1.1 | Mid-Season Operator Buffs and Weapon Tuning',
     description:
-      'Y11S1.1 buffs eight operators and two weapons, fixes Wamai Mag-NET and Solid Snake radar bugs, and tightens the entry-fragging meta Ubisoft set in Silent Hunt.',
+      'Y11S1.1 buffs eight operators and two weapons, fixes Wamai Mag-NET and Solid Snake radar bugs, and tightens the entry-fragging meta Ubisoft set in Silent',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

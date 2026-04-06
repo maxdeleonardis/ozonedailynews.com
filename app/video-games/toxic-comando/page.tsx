@@ -6,9 +6,9 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "John Carpenter's Toxic Commando | Review Roundup, Launch Day Guide | ObjectWire",
+  title: "John Carpenter's Toxic Commando | Review Roundup, Launch Day Guide",
   description:
-    "John Carpenter's Toxic Commando launches March 12, 2026 on PS5, Xbox Series X|S, and PC. Developed by Saber Interactive. 74 Metascore, four playable classes, the Swarm Engine, and an original Carpenter synth soundtrack. Full launch day review roundup.",
+    "John Carpenter's Toxic Commando launches March 12, 2026 on PS5, Xbox Series X|S, and PC. Developed by Saber Interactive. 74 Metascore, four playable",
   keywords: [
     "Toxic Commando",
     "John Carpenter Toxic Commando",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Toxic Commando Review: John Carpenter's B-Movie Co-op Shooter | ObjectWire",
+    title: "Toxic Commando Review: John Carpenter's B-Movie Co-op Shooter",
     description:
       "74 Metascore at launch. Swarm Engine delivers hundreds of Sludge Zombies. Four classes, off-road driving, and a Carpenter synth soundtrack.",
   },

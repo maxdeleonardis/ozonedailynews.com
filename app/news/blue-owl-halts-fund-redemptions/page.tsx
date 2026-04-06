@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Blue Owl Halts Fund Redemptions, Sparking Private Credit Selloff | ObjectWire",
-  description: "Blue Owl Capital permanently halts quarterly redemptions for retail private credit fund OBDC II amid $1.4B asset sale, triggering selloff across private credit markets.",
+  title: "Blue Owl Halts Fund Redemptions, Sparking Private Credit Selloff",
+  description: "Blue Owl Capital permanently halts quarterly redemptions for retail private credit fund OBDC II amid $1.4B asset sale, triggering selloff across private",
   alternates: {
     canonical: 'https://www.objectwire.org/news/blue-owl-halts-fund-redemptions',
   },

@@ -12,7 +12,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Nvidia Groq LPU Deal | $20B Inference Chip at GTC 2026',
   description:
-    'Nvidia acquired Groq LPU technology for $20 billion in December 2025. New LPX inference platform targets 64-256 LPUs per rack. OpenAI committed 3GW capacity.',
+    'Nvidia acquired Groq LPU technology for $20 billion in December 2025. New LPX inference platform targets 64-256 LPUs per rack. OpenAI committed 3GW',
   keywords: [
     'Nvidia Groq $20 billion licensing deal',
     'Groq LPU inference processor',

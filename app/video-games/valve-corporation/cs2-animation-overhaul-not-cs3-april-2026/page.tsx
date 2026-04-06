@@ -11,7 +11,7 @@ const OG_IMAGE = '/influncer/valve-ceo-Gabe-Newell.PNG';
 export const metadata: Metadata = {
   title: 'Valve Ships CS2 Animation Overhaul | Not CS3',
   description:
-    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false, traced to April Fools\' Day jokes referencing a "March 32nd" launch date.',
+    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false,',
   keywords: [
     'CS2 animation update',
     'Counter-Strike 2 animation overhaul',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: 'article',
     title: 'Valve Ships CS2 Animation Overhaul | CS3 Reports Are False',
     description:
-      'Valve\'s April 1 beta overhauled CS2\'s entire animation system. The CS3 on Unreal Engine 5 rumor originated from April Fools\' jokes referencing a "March 32nd" launch date.',
+      'Valve\'s April 1 beta overhauled CS2\'s entire animation system. The CS3 on Unreal Engine 5 rumor originated from April Fools\' jokes referencing a "March',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Conan Boyle'],

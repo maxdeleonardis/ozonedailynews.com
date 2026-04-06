@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "007: First Light - James Bond Game by IO Interactive | ObjectWire",
+  title: "007: First Light | James Bond Game by IO Interactive",
   description:
-    "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007 experience.",
+    "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007",
   keywords: [
     "007 First Light",
     "James Bond game",

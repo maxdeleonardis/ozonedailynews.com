@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/world-cup/news/fifa-backs-mexico-after-cartel-violence-jalisco';
 
 export const metadata: Metadata = {
-  title: 'FIFA Backs Mexico After Jalisco Cartel Violence Raises 2026 World Cup Security Questions | ObjectWire',
+  title: 'FIFA Backs Mexico After Jalisco Cartel Violence Raises 2026 World Cup Security Questions',
   description:
-    'Violence linked to the Jalisco New Generation Cartel escalated sharply following the February 22, 2026 killing of CJNG leader El Mencho, with 252+ incidents in 72 hours. FIFA has reiterated confidence in Mexico\'s hosting capacity while reviewing contingency measures for Guadalajara venues.',
+    'Violence linked to the Jalisco New Generation Cartel escalated sharply following the February 22, 2026 killing of CJNG leader El Mencho, with 252+',
   keywords: [
     'FIFA Mexico 2026 World Cup security',
     'CJNG El Mencho death World Cup',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FIFA Backs Mexico After CJNG Violence Targets Jalisco, Home of a Key World Cup Host City',
     description:
-      'The killing of El Mencho on February 22 triggered 252+ violent incidents across Jalisco in 72 hours. Estadio Akron in Guadalajara hosts four World Cup group-stage matches. FIFA says it has full confidence. Carriers are cancelling Puerto Vallarta flights.',
+      'The killing of El Mencho on February 22 triggered 252+ violent incidents across Jalisco in 72 hours. Estadio Akron in Guadalajara hosts four World Cup',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'FIFA Backs Mexico as CJNG Violence Sweeps Jalisco, Home of World Cup Host Guadalajara',
     description:
-      '252+ violent incidents in 72 hours after El Mencho killed. Estadio Akron hosts four group games. Puerto Vallarta flights cancelled. FIFA says it has "full confidence", and is reviewing contingencies.',
+      '252+ violent incidents in 72 hours after El Mencho killed. Estadio Akron hosts four group games. Puerto Vallarta flights cancelled. FIFA says it has "full',
   },
 };
 

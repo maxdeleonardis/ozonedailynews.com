@@ -9,9 +9,9 @@ const SLUG = '/central-cee/all-roads-lead-home-march-28th-ep';
 const OG_IMAGE = '/artist/centralcee.png';
 
 export const metadata: Metadata = {
-  title: 'Central Cee All Roads Lead Home EP | West London Return | ObjectWire',
+  title: 'Central Cee All Roads Lead Home EP | West London Return',
   description:
-    'Central Cee drops surprise 7-track EP All Roads Lead Home on March 27, 2026. Features J Hus, A2ANTI, and a raw Shepherd\'s Bush sound one year after Can\'t Rush Greatness.',
+    'Central Cee drops surprise 7-track EP All Roads Lead Home on March 27, 2026. Features J Hus, A2ANTI, and a raw Shepherd\'s Bush sound one year after',
   keywords: [
     'Central Cee All Roads Lead Home',
     'Central Cee EP 2026',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Central Cee Drops Surprise EP All Roads Lead Home | West London Return | ObjectWire',
+    title: 'Central Cee Drops Surprise EP All Roads Lead Home | West London Return',
     description:
       'One year after Can\'t Rush Greatness, Central Cee releases a raw 7-track EP rooted in Shepherd\'s Bush. Features J Hus and A2ANTI, dropping March 27, 2026.',
     url: `https://www.objectwire.org${SLUG}`,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Central Cee All Roads Lead Home EP | ObjectWire',
+    title: 'Central Cee All Roads Lead Home EP',
     description:
       'Central Cee returns to his Shepherd\'s Bush roots with a surprise 7-track EP, featuring J Hus and A2ANTI. March 27, 2026.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

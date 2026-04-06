@@ -7,12 +7,12 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jack Brennan | Investigations Reporter | ObjectWire',
+  title: 'Jack Brennan | Investigations Reporter',
   description:
-    'Jack Brennan is ObjectWire\'s investigations reporter covering federal environmental policy, national security law, regulatory agencies, and the Trump administration. Based in Washington, D.C.',
+    'Jack Brennan is ObjectWire\'s investigations reporter covering federal environmental policy, national security law, regulatory agencies, and the Trump',
   alternates: { canonical: 'https://www.objectwire.org/authors/jack-brennan' },
   openGraph: {
-    title: 'Jack Brennan | Investigations Reporter | ObjectWire',
+    title: 'Jack Brennan | Investigations Reporter',
     description: 'Investigations reporter covering environmental law, national security, federal regulatory agencies, and the Trump administration at ObjectWire.',
     url: 'https://www.objectwire.org/authors/jack-brennan',
     siteName: 'ObjectWire',

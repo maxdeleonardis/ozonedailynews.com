@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Dance Your Style USA Qualifiers 2026 | Full Schedule',
   description:
-    'Red Bull Dance Your Style USA qualifiers run through October 2026 across U.S. cities. Crowd-judged freestyle battles feed into the national and world finals. Full schedule and format.',
+    'Red Bull Dance Your Style USA qualifiers run through October 2026 across U.S. cities. Crowd-judged freestyle battles feed into the national and world',
   keywords: [
     'Red Bull Dance Your Style USA 2026',
     'Dance Your Style qualifiers schedule',

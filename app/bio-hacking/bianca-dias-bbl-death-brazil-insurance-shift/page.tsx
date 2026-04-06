@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/bio-hacking/bianca-dias-bbl-death-brazil-insurance-shift';
 
 export const metadata: Metadata = {
-  title: "Bianca Dias and the BBL Crisis: How 'Complication Insurance' Is Adding a 30% Safety Tax to Cosmetic Surgery | ObjectWire",
+  title: "Bianca Dias and the BBL Crisis: How 'Complication Insurance' Is Adding a 30% Safety Tax to Cosmetic Surgery",
   description:
-    "On February 19, 2026, in São Paulo, Brazil's mandatory complication insurance policy for elective procedures went into effect, raising BBL costs by 30% and reshaping the global cosmetic surgery industry overnight.",
+    "On February 19, 2026, in São Paulo, Brazil's mandatory complication insurance policy for elective procedures went into effect, raising BBL costs by 30%",
   keywords: [
     'Bianca Dias BBL death São Paulo 2026',
     'BBL complication insurance Brazil mandatory',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bianca Dias and the BBL Crisis: The 30% 'Safety Tax' Reshaping Cosmetic Surgery",
     description:
-      "Brazil's new mandatory complication insurance for BBLs is driving procedure costs up 30%. It's meant to save lives. It's also creating a two-tier system where safety depends on what you can afford.",
+      "Brazil's new mandatory complication insurance for BBLs is driving procedure costs up 30%. It's meant to save lives. It's also creating a two-tier system",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Brazil Just Added a 30% 'Safety Tax' to BBLs | And It Started with Bianca Dias",
     description:
-      "Mandatory complication insurance for elective surgery is now law in Brazil. BBL prices are up 30%. The question: does pricing risk out of reach make it safer, or just more exclusive?",
+      "Mandatory complication insurance for elective surgery is now law in Brazil. BBL prices are up 30%. The question: does pricing risk out of reach make it",
   },
 };
 

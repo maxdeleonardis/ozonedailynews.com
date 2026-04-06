@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/crypto/usdc.png';
 export const metadata: Metadata = {
   title: 'Circle Mints $750M USDC on Solana | 24-Hour Liquidity Surge',
   description:
-    'Circle minted approximately $750 million in USDC on the Solana blockchain within 24 hours ending March 31, 2026, injecting fresh dollar liquidity into Solana DeFi and trading.',
+    'Circle minted approximately $750 million in USDC on the Solana blockchain within 24 hours ending March 31, 2026, injecting fresh dollar liquidity into',
   keywords: [
     'Circle USDC Solana mint 2026',
     'Circle $750 million USDC Solana',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Circle Mints $750M USDC on Solana | 24-Hour Liquidity Surge',
     description:
-      '$750M in USDC minted on Solana in 24 hours. Accounts for 0.3% of total USDC supply. Solana DEX volumes surged 18% as institutional demand for on-chain dollar liquidity accelerates.',
+      '$750M in USDC minted on Solana in 24 hours. Accounts for 0.3% of total USDC supply. Solana DEX volumes surged 18% as institutional demand for on-chain',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

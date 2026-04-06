@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "All-In Podcast - Tech & Business Insights | ObjectWire",
+  title: "All-In Podcast | Tech & Business Insights",
   description:
-    "Complete profile of the All-In Podcast hosted by the Besties: Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg. Tech, business, and policy analysis.",
+    "Complete profile of the All-In Podcast hosted by the Besties: Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg. Tech, business, and",
   keywords: [
     "All-In Podcast",
     "Chamath Palihapitiya",

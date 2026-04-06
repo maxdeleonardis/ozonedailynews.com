@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Joe Rogan Experience - Podcast Profile | ObjectWire",
+  title: "The Joe Rogan Experience | Podcast Profile",
   description:
     "Complete profile of The Joe Rogan Experience, the world's most popular podcast. Host info, notable episodes, Spotify deal, and cultural impact.",
   keywords: [

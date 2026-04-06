@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Photography & Videography Services Austin TX | ObjectWire",
-  description: "Professional investigative photography and videography in Austin, Texas. Surveillance documentation, legal evidence, scene photography, witness interviews, and court-admissible video/photo services.",
+  title: "Photography & Videography Services Austin TX",
+  description: "Professional investigative photography and videography in Austin, Texas. Surveillance documentation, legal evidence, scene photography, witness",
   keywords: ["Austin photography", "Austin videography", "surveillance photography Austin", "legal documentation Texas", "evidence photography"],
   alternates: {
     canonical: 'https://www.objectwire.org/service/photography-videography-austin-tx',

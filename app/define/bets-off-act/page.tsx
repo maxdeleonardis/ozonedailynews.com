@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "BETS OFF Act Explained: What It Is, What It Bans, and Who It Targets | ObjectWire",
+  title: "BETS OFF Act Explained: What It Is, What It Bans, and Who It Targets",
   description:
-    "Senator Chris Murphy and Representative Greg Casar introduced the BETS OFF Act on March 17, 2026, to ban CFTC-regulated prediction markets from listing contracts tied to government actions, terrorism, war, and assassination. Here's what the bill does and why it matters.",
+    "Senator Chris Murphy and Representative Greg Casar introduced the BETS OFF Act on March 17, 2026, to ban CFTC-regulated prediction markets from listing",
   keywords: [
     'BETS OFF Act explained 2026',
     'Banning Event Trading on Sensitive Operations Federal Functions Act',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BETS OFF Act Explained: The Democratic Bill to Ban Prediction Markets on Government Actions",
     description:
-      "The BETS OFF Act, introduced March 17, 2026, would prohibit CFTC-regulated platforms from listing contracts tied to government actions, terrorism, war, assassination, and events where a participant controls the outcome.",
+      "The BETS OFF Act, introduced March 17, 2026, would prohibit CFTC-regulated platforms from listing contracts tied to government actions, terrorism, war,",
     type: 'article',
     url: 'https://www.objectwire.org/define/bets-off-act',
     siteName: 'ObjectWire',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "BETS OFF Act: What It Bans and Who It Targets | ObjectWire",
+    title: "BETS OFF Act: What It Bans and Who It Targets",
     description:
       "Democrats want to ban prediction market contracts on government actions, terrorism, war, and assassination. Here's what the BETS OFF Act actually says.",
   },

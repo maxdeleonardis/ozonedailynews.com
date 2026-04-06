@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'UBC Researchers Develop First Topical CRISPR-Based Gene Therapy for Skin Disorders | ObjectWire',
+  title: 'UBC Researchers Develop First Topical CRISPR-Based Gene Therapy for Skin Disorders',
   description:
-    'Researchers at the University of British Columbia and Berlin Institute of Health at Charité have developed the first CRISPR base-editing therapy delivered topically to human skin, correcting disease-causing mutations in models of autosomal recessive congenital ichthyosis.',
+    'Researchers at the University of British Columbia and Berlin Institute of Health at Charité have developed the first CRISPR base-editing therapy delivered',
   keywords: [
     'UBC CRISPR gene therapy',
     'topical gene therapy skin',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'UBC Develops First Topical CRISPR Gene Therapy for Skin | Applied Like a Cream',
     description:
-      'UBC and Charité researchers used lipid nanoparticles to deliver a CRISPR base editor through skin, correcting ichthyosis mutations with no off-target effects in human skin models.',
+      'UBC and Charité researchers used lipid nanoparticles to deliver a CRISPR base editor through skin, correcting ichthyosis mutations with no off-target',
     type: 'article',
     publishedTime: '2026-03-10T14:00:00Z',
     authors: ['ObjectWire Science Desk'],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'First Topical CRISPR Therapy for Skin | UBC & Charité Research | ObjectWire',
+    title: 'First Topical CRISPR Therapy for Skin | UBC & Charité Research',
     description:
       'A CRISPR base editor in a lipid nanoparticle cream corrects ichthyosis mutations in human skin models. Here&apos;s what it means.',
   },

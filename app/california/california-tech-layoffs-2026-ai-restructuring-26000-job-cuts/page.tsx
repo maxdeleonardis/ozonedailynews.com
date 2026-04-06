@@ -9,9 +9,9 @@ const SLUG = '/california/california-tech-layoffs-2026-ai-restructuring-26000-jo
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "California Tech Sector Announces 26,000+ Job Cuts in Early 2026 Amid AI Restructuring | ObjectWire",
+  title: "California Tech Sector Announces 26,000+ Job Cuts in Early 2026 Amid AI Restructuring",
   description:
-    "California-based tech companies announced 26,283 job cuts year-to-date through February 2026, according to Challenger, Gray & Christmas, with Amazon, Meta, Workday, Block, and C3.ai all contributing to the wave of AI-driven workforce restructuring.",
+    "California-based tech companies announced 26,283 job cuts year-to-date through February 2026, according to Challenger, Gray & Christmas, with Amazon,",
   keywords: [
     'California tech layoffs 2026',
     'California 26283 job cuts February 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "California Tech Sector Announces 26,000+ Job Cuts in Early 2026 Amid AI Restructuring",
     description:
-      "26,283 tech job cuts announced in California through February 2026. Amazon, Meta, Block, Workday, and C3.ai all contributed, with 20.4% of global tracked cuts directly linked to AI adoption.",
+      "26,283 tech job cuts announced in California through February 2026. Amazon, Meta, Block, Workday, and C3.ai all contributed, with 20.4% of global tracked",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "26,000+ California Tech Jobs Cut in Early 2026 | AI Is the Common Thread | ObjectWire",
+    title: "26,000+ California Tech Jobs Cut in Early 2026 | AI Is the Common Thread",
     description:
-      "Amazon, Meta, Block, Workday, and C3.ai all contributed to 26,283 job cuts across California through February 2026. U.S. tech announcements are up 51% year-over-year.",
+      "Amazon, Meta, Block, Workday, and C3.ai all contributed to 26,283 job cuts across California through February 2026. U.S. tech announcements are up 51%",
   },
   other: {
     news_keywords:

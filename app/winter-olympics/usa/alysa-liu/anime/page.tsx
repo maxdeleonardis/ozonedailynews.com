@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Alysa Liu's Top 5 Anime Shows: Olympic Gold Medalist Proves Her Anime Street Cred | ObjectWire",
+  title: "Alysa Liu's Top 5 Anime Shows: Olympic Gold Medalist Proves Her Anime Street Cred",
   description:
-    "Olympic gold medalist Alysa Liu revealed her top five anime shows in a viral TikTok moment during the 2026 Winter Olympics. From Jujutsu Kaisen to Chainsaw Man, the figure skating champion is a certified anime fan.",
+    "Olympic gold medalist Alysa Liu revealed her top five anime shows in a viral TikTok moment during the 2026 Winter Olympics. From Jujutsu Kaisen to",
   keywords: [
     "Alysa Liu anime",
     "Alysa Liu top 5 anime",

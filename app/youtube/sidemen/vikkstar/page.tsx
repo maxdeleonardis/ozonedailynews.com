@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Vikkstar123 (Vikram Barn) | Warzone Legend & Gaming Entrepreneur | ObjectWire",
-  description: "Complete profile of Vikkstar123 (Vikram Barn): Warzone dominance, business ventures, Minecraft legacy, poker career, and entrepreneurial success. 7M+ subscribers. 2026 coverage.",
+  title: "Vikkstar123 (Vikram Barn) | Warzone Legend & Gaming Entrepreneur",
+  description: "Complete profile of Vikkstar123 (Vikram Barn): Warzone dominance, business ventures, Minecraft legacy, poker career, and entrepreneurial success. 7M+",
   keywords: [
     "Vikkstar123",
     "Vikram Barn",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/youtube/sidemen/vikkstar',
     siteName: 'ObjectWire',
     section: 'YouTube',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vikkstar123 (Vikram Barn) | Gaming Empire & Business Success',
+    description: 'Full profile of Vikkstar: Warzone tournament wins, business investments, Minecraft dominance, poker career, and entrepreneurial ventures.',
   },
 };
 

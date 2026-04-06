@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/news/cursor.PNG';
 
 export const metadata: Metadata = {
-  title: 'WordPress.com Lets AI Agents Write and Publish Site Content | ObjectWire',
+  title: 'WordPress.com Lets AI Agents Write and Publish Site Content',
   description:
-    'Automattic announced that WordPress.com now allows AI agents to create, edit, and publish website content through natural language commands, adding 19 new write operations across six content types to its Model Context Protocol server. Claude, ChatGPT, and Cursor can now draft posts, build pages, and manage media through conversation.',
+    'Automattic announced that WordPress.com now allows AI agents to create, edit, and publish website content through natural language commands, adding 19 new',
   keywords: [
     'WordPress AI agents write publish content 2026',
     'WordPress.com MCP server AI agents',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'WordPress.com Lets AI Agents Write and Publish Site Content',
     description:
-      'Automattic added 19 new write operations to WordPress.com\u2019s MCP server \u2014 letting AI agents like Claude, ChatGPT, and Cursor draft posts, build pages, and manage media through natural language.',
+      'Automattic added 19 new write operations to WordPress.com\u2019s MCP server \u2014 letting AI agents like Claude, ChatGPT, and Cursor draft posts, build',
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'WordPress.com Now Lets AI Agents Write and Publish Your Website',
     description:
-      'Automattic added 19 MCP write operations to WordPress.com. Claude, ChatGPT, and Cursor can now draft blog posts, build landing pages, and fix alt text across your media library \u2014 all through chat.',
+      'Automattic added 19 MCP write operations to WordPress.com. Claude, ChatGPT, and Cursor can now draft blog posts, build landing pages, and fix alt text',
     images: [IMAGE_URL],
   },
   other: {

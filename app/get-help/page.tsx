@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Austin Private Detective + Investigative Journalism Services - ObjectWire.org",
+  title: "Austin Private Detective + Investigative Journalism Services | ObjectWire.org",
   description: "Based in Austin, Texas, we provide discreet, results-driven private detective services for individuals, businesses, and legal professionals.",
   alternates: {
     canonical: 'https://www.objectwire.org/get-help',

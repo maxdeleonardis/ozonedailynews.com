@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/cloudflare.PNG';
 
 export const metadata: Metadata = {
-  title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution | ObjectWire",
+  title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution",
   description:
-    "Cloudflare has opened its Dynamic Workers feature to all paid Workers users, offering a lightweight alternative to containers for executing AI-generated code, with startup speeds 100x faster and memory usage up to 100x more efficient than Linux containers.",
+    "Cloudflare has opened its Dynamic Workers feature to all paid Workers users, offering a lightweight alternative to containers for executing AI-generated",
   keywords: [
     'Cloudflare Dynamic Workers 2026',
     'Cloudflare open beta AI',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution",
     description:
-      "Cloudflare's Dynamic Workers uses V8 JavaScript engine isolates instead of Linux containers, achieving startup speeds roughly 100x faster and memory usage 10–100x more efficient, now open to all paid Workers users.",
+      "Cloudflare's Dynamic Workers uses V8 JavaScript engine isolates instead of Linux containers, achieving startup speeds roughly 100x faster and memory usage",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Cloudflare Dynamic Workers Now in Open Beta | 100x Faster Startup Than Containers",
     description:
-      "Cloudflare's new Dynamic Workers feature uses V8 isolates to run AI-generated code with near-instant cold starts and a fraction of the memory overhead of traditional containers.",
+      "Cloudflare's new Dynamic Workers feature uses V8 isolates to run AI-generated code with near-instant cold starts and a fraction of the memory overhead of",
     images: [IMAGE_URL],
   },
 };

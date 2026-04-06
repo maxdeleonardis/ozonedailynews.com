@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/video-games/mariokart.png';
 export const metadata: Metadata = {
   title: 'Super Mario Wonder Switch 2 Edition | Bellabel Park',
   description:
-    'Super Mario Bros. Wonder Switch 2 Edition launches March 26, 2026 with Bellabel Park, 12-player online, 70+ training courses, and a $20 upgrade path for existing owners.',
+    'Super Mario Bros. Wonder Switch 2 Edition launches March 26, 2026 with Bellabel Park, 12-player online, 70+ training courses, and a $20 upgrade path for',
   keywords: [
     'Super Mario Bros. Wonder Switch 2 Edition',
     'Super Mario Wonder Switch 2',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Super Mario Wonder Switch 2 Edition | Bellabel Park Guide',
     description:
-      'Everything new in the Nintendo Switch 2 Edition of Super Mario Bros. Wonder, including Bellabel Park, 12-player online rooms, 70+ training courses, and a $20 upgrade offer for existing owners.',
+      'Everything new in the Nintendo Switch 2 Edition of Super Mario Bros. Wonder, including Bellabel Park, 12-player online rooms, 70+ training courses, and a',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

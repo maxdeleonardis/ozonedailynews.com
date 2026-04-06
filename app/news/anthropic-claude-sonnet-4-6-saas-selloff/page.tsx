@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/news/anthropic-claude-sonnet-4-6-saas-selloff';
 
 export const metadata: Metadata = {
-  title: 'Anthropic Claude Sonnet 4.6 Triggers Fresh SaaS Stock Selloff | ObjectWire',
+  title: 'Anthropic Claude Sonnet 4.6 Triggers Fresh SaaS Stock Selloff',
   description:
-    'Anthropic released Claude Sonnet 4.6 on February 17, 2026, its most capable mid-tier model yet. The announcement triggered declines in Oracle, Salesforce, Intuit, Adobe, and India\'s Nifty IT index as markets reacted to deepening AI automation pressure on enterprise software.',
+    'Anthropic released Claude Sonnet 4.6 on February 17, 2026, its most capable mid-tier model yet. The announcement triggered declines in Oracle, Salesforce,',
   keywords: [
     'Anthropic Claude Sonnet 4.6',
     'Claude 4.6',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Anthropic Claude Sonnet 4.6 Sells Fresh Wave of SaaS Falloff',
     description:
-      'Anthropic\'s Claude Sonnet 4.6 dropped Feb 17, 2026. Oracle fell 3.4%, Intuit 5.2%, Salesforce 2.7%, Adobe 1.4%. India\'s Nifty IT dropped 2.5% the next day. Full breakdown on ObjectWire.',
+      'Anthropic\'s Claude Sonnet 4.6 dropped Feb 17, 2026. Oracle fell 3.4%, Intuit 5.2%, Salesforce 2.7%, Adobe 1.4%. India\'s Nifty IT dropped 2.5% the next',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

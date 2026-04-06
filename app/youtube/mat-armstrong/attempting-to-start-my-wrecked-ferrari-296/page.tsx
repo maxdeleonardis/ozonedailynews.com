@@ -12,7 +12,7 @@ const OG_IMAGE = '/mat-armstrong-ferrari-296-gtb.jpg';
 export const metadata: Metadata = {
   title: 'Mat Armstrong Ferrari 296 | Attempting to Start the Wrecked GTB',
   description:
-    'Mat Armstrong bought a crash-damaged Ferrari 296 GTB, rebuilt it with a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to help until a direct email got a response.',
+    'Mat Armstrong bought a crash-damaged Ferrari 296 GTB, rebuilt it with a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to help',
   keywords: [
     'Mat Armstrong Ferrari 296',
     'Mat Armstrong wrecked Ferrari 296 GTB',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mat Armstrong | Attempting to Start My Wrecked Ferrari 296',
     description:
-      'Mat Armstrong rebuilt a crash-damaged Ferrari 296 GTB using a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to touch it, so he emailed them directly, and they finally responded.',
+      'Mat Armstrong rebuilt a crash-damaged Ferrari 296 GTB using a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to touch it, so he',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

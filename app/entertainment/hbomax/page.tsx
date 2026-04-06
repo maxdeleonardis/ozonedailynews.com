@@ -6,12 +6,20 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'HBO Max - Streaming Platform Profile | ObjectWire',
+  title: 'HBO Max | Streaming Platform Profile',
   description: 'Complete profile of HBO Max (now Max), the premium streaming service featuring HBO originals, Warner Bros. films, DC content, and exclusive series.',
   openGraph: {
-    title: 'HBO Max - Premium Streaming Service',
+    title: 'HBO Max | Premium Streaming Service',
     description: 'HBO Max streaming platform with HBO originals, blockbuster movies, and prestige television.',
     type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HBO Max | Premium Streaming Service',
+    description: 'HBO Max streaming platform with HBO originals, blockbuster movies, and prestige television.',
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/entertainment/hbomax',
   },
 };
 

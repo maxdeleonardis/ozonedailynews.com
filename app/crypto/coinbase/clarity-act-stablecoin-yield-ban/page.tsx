@@ -9,7 +9,7 @@ const SLUG = '/crypto/coinbase/clarity-act-stablecoin-yield-ban';
 const OG_IMAGE = '/crypto/coinbase.png';
 
 export const metadata: Metadata = {
-  title: 'Coinbase Clarity Act Stablecoin Yield Ban | Circle Stock Drop | ObjectWire',
+  title: 'Coinbase Clarity Act Stablecoin Yield Ban | Circle Stock Drop',
   description:
     'Coinbase says it cannot support the Digital Asset Market Clarity Act\'s stablecoin yield ban. Circle fell 20%, Coinbase 10% after the provision leaked.',
   keywords: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Coinbase Says It Can\'t Support Clarity Act Stablecoin Yield Ban | ObjectWire',
+    title: 'Coinbase Says It Can\'t Support Clarity Act Stablecoin Yield Ban',
     description:
-      'A leaked draft of the Digital Asset Market Clarity Act includes a provision banning stablecoin yield payments. Circle dropped 20%, Coinbase 10% on the news.',
+      'A leaked draft of the Digital Asset Market Clarity Act includes a provision banning stablecoin yield payments. Circle dropped 20%, Coinbase 10% on the',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Coinbase vs. Clarity Act | Stablecoin Yield Ban Tanks Circle 20% | ObjectWire',
+    title: 'Coinbase vs. Clarity Act | Stablecoin Yield Ban Tanks Circle 20%',
     description:
       'Leaked draft of Digital Asset Market Clarity Act would ban stablecoin yield on consumer balances. Circle -20%, Coinbase -10%, Robinhood -5%.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

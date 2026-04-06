@@ -12,7 +12,7 @@ const IMAGE_URL = 'https://www.objectwire.org/winter-olympics/Mario_by_Shigehisa
 export const metadata: Metadata = {
   title: 'Nintendo MAR10 Day 2026: 40th Anniversary Super Mario Deals, Switch 2 Sales & Galaxy Movie Details',
   description:
-    'Nintendo launches its MAR10 Day 2026 celebration with Switch 2 discounts, Virtual Boy classics on Nintendo Switch Online, the Talking Flower toy, and a countdown to The Super Mario Galaxy Movie on April 1.',
+    'Nintendo launches its MAR10 Day 2026 celebration with Switch 2 discounts, Virtual Boy classics on Nintendo Switch Online, the Talking Flower toy, and a',
   keywords: [
     'Nintendo MAR10 Day 2026',
     'MAR10 Day deals Switch 2',

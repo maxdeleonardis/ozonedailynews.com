@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/amazon-ceo-jassy-ai-eliminate-jobs';
 
 export const metadata: Metadata = {
-  title: 'Amazon CEO Andy Jassy States AI Will Reduce Headcount in Many Long-Standing Roles | ObjectWire',
-  description: 'Amazon CEO Andy Jassy said on CNBC that AI will mean fewer humans are needed for many jobs, as Block CEO Jack Dorsey cut 4,000+ employees citing AI efficiency gains.',
+  title: 'Amazon CEO Andy Jassy States AI Will Reduce Headcount in Many Long-Standing Roles',
+  description: 'Amazon CEO Andy Jassy said on CNBC that AI will mean fewer humans are needed for many jobs, as Block CEO Jack Dorsey cut 4,000+ employees citing AI',
   keywords: ['Amazon CEO Andy Jassy AI jobs', 'AI eliminate jobs', 'Block layoffs Jack Dorsey', 'Amazon AI workforce', 'tech layoffs 2026', 'AI job replacement', 'OpenAI Amazon partnership', 'Squawk Box AI interview'],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {

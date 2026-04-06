@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "TBJZL (Tobi Brown) | Sidemen Athlete & Positive Energy Icon | ObjectWire",
-  description: "Complete profile of TBJZL (Tobi Brown): Sidemen member's infectious laugh, athletic charity match performances, positive energy, Nigerian-British heritage, and 5M+ subscribers. 2026 coverage.",
+  title: "TBJZL (Tobi Brown) | Sidemen Athlete & Positive Energy Icon",
+  description: "Complete profile of TBJZL (Tobi Brown): Sidemen member's infectious laugh, athletic charity match performances, positive energy, Nigerian-British",
   keywords: [
     "TBJZL",
     "Tobi Brown",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/youtube/sidemen/tbjzl',
     siteName: 'ObjectWire',
     section: 'YouTube',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TBJZL (Tobi Brown) | Sidemen Athlete & Positive Vibes',
+    description: 'Full profile of TBJZL: infectious laugh, charity match athleticism, positive energy, and Nigerian-British representation in UK content creation.',
   },
 };
 

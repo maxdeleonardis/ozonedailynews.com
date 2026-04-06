@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Financial Gravity: How the CME Rules Gold, Bitcoin, and Global Markets | ObjectWire',
-  description: 'An exploration of the immense power of the Chicago Mercantile Exchange (CME) and how it influences asset prices through margin requirements and market rules.',
+  title: 'Financial Gravity: How the CME Rules Gold, Bitcoin, and Global Markets',
+  description: 'An exploration of the immense power of the Chicago Mercantile Exchange (CME) and how it influences asset prices through margin requirements and market',
   keywords: [
     'CME',
     'Chicago Mercantile Exchange',
@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/finance/articles/how-the-cme-rules-the-world',
     publishedTime: '2026-02-10T12:00:00Z',
     section: 'Finance',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Financial Gravity: How the CME Rules the Global Economy',
+    description: 'Overshadowed by the Federal Reserve, the CME wields ultimate power over Bitcoin, Gold, and institutional markets.',
   },
 };
 

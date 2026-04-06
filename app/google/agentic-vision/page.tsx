@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Google Launches Agentic Vision for Gemini 3 Flash: AI That Actively Investigates Images | ObjectWire",
-  description: "Google unveils Agentic Vision for Gemini 3 Flash, transforming static image analysis into active, iterative investigation. Revolutionary AI feature enables dynamic visual reasoning and multi-step problem solving.",
+  title: "Google Launches Agentic Vision for Gemini 3 Flash: AI That Actively Investigates Images",
+  description: "Google unveils Agentic Vision for Gemini 3 Flash, transforming static image analysis into active, iterative investigation. Revolutionary AI feature",
   keywords: [
     "Google Agentic Vision",
     "Gemini 3 Flash",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Google Launches Agentic Vision for Gemini 3 Flash",
-    description: "Revolutionary AI feature transforms static visual processing into active, iterative investigation. Gemini 3 Flash can now reason about images like humans do.",
+    description: "Revolutionary AI feature transforms static visual processing into active, iterative investigation. Gemini 3 Flash can now reason about images like humans",
     type: "article",
     url: "https://www.objectwire.org/google/agentic-vision",
     images: [

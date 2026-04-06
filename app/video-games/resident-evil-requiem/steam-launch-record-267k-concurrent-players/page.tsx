@@ -9,9 +9,9 @@ const SLUG = '/video-games/resident-evil-requiem/steam-launch-record-267k-concur
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Resident Evil Requiem Shatters Steam Records â€” 267K Concurrent Players at Launch | ObjectWire',
+  title: 'Resident Evil Requiem Shatters Steam Records â€” 267K Concurrent Players at Launch',
   description:
-    'Resident Evil Requiem hit 267,509 concurrent Steam players on launch day February 27, 2026, nearly doubling Village and beating the RE4 remake record by 100,000 players.',
+    'Resident Evil Requiem hit 267,509 concurrent Steam players on launch day February 27, 2026, nearly doubling Village and beating the RE4 remake record by',
   keywords: [
     'Resident Evil Requiem Steam record',
     'Resident Evil Requiem concurrent players',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Resident Evil Requiem Shatters Series Records â€” 267K Peak on Steam',
     description:
-      '267,509 concurrent players. Nearly 100K above RE4 remake. More than double Village. Fourth most-played game on Steam at peak. Capcom\'s open-zone horror gamble pays off.',
+      '267,509 concurrent players. Nearly 100K above RE4 remake. More than double Village. Fourth most-played game on Steam at peak. Capcom\'s open-zone horror',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Darryl Payne Jr. | Team USA Skeleton | Olympic Profile | ObjectWire',
+  title: 'Darryl Payne Jr. | Team USA Skeleton | Olympic Profile',
   description:
-    'Full profile of Darryl Payne Jr., the Temple, Texas native and Baylor University track athlete who became the first African American man to compete for the United States in Olympic skeleton at the 2026 Milano Cortina Winter Games.',
+    'Full profile of Darryl Payne Jr., the Temple, Texas native and Baylor University track athlete who became the first African American man to compete for',
   keywords: [
     'Darryl Payne Jr.',
     'Team USA skeleton',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Darryl Payne Jr. | First African American Man in U.S. Olympic Skeleton',
     description:
-      'How a track athlete from Temple, Texas became a history-maker at the 2026 Winter Olympics, the first African American man ever to represent the United States in Olympic skeleton.',
+      'How a track athlete from Temple, Texas became a history-maker at the 2026 Winter Olympics, the first African American man ever to represent the United',
     type: 'article',
     publishedTime: '2026-02-19T20:00:00Z',
     authors: ['ObjectWire Olympic Bureau'],

@@ -9,9 +9,9 @@ const SLUG = '/video-games/news/epic-games-sues-fortnite-leaks-contractor';
 const CANONICAL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Epic Games Sues Contractor Who Ran Fortnite Leaks Account | ObjectWire',
+  title: 'Epic Games Sues Contractor Who Ran Fortnite Leaks Account',
   description:
-    'Epic Games filed a lawsuit on March 5 against former contractor Hayden Cohen, who allegedly ran the "AdiraInfo" Fortnite leaks account on X and Discord while working inside the company.',
+    'Epic Games filed a lawsuit on March 5 against former contractor Hayden Cohen, who allegedly ran the "AdiraInfo" Fortnite leaks account on X and Discord',
   keywords: [
     'Epic Games lawsuit',
     'Fortnite leaks contractor',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Epic Games Sues Contractor Who Ran Fortnite Leaks Account',
     description:
-      'Former contractor Hayden Cohen allegedly operated the "AdiraInfo" leaks account on X and Discord, leaking a dozen unreleased Fortnite collaborations "for clout."',
+      'Former contractor Hayden Cohen allegedly operated the "AdiraInfo" leaks account on X and Discord, leaking a dozen unreleased Fortnite collaborations "for',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

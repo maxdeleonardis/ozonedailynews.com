@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Canada CFIA Slaughters 100s of Ostriches that had natural immunity - ObjectWire.org",
-  description: "What began as a local animal-health concern escalated into a high-stakes, internationally scrutinized incident when Canadian authorities forcibly slaughtered ostriches with natural immunity.",
+  title: "Canada CFIA Slaughters 100s of Ostriches that had natural immunity | ObjectWire.org",
+  description: "What began as a local animal-health concern escalated into a high-stakes, internationally scrutinized incident when Canadian authorities forcibly",
   alternates: {
     canonical: 'https://www.objectwire.org/oh-canada-what-has-happened',
   },

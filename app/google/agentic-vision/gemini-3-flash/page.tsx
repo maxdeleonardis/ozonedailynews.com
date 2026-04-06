@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Gemini 3 Flash: The Model Behind Google's Agentic Vision Breakthrough | ObjectWire",
-  description: "Deep dive into Gemini 3 Flash architecture and capabilities. How Google's latest multimodal AI model enables revolutionary Agentic Vision through advanced visual reasoning and iterative processing.",
+  title: "Gemini 3 Flash: The Model Behind Google's Agentic Vision Breakthrough",
+  description: "Deep dive into Gemini 3 Flash architecture and capabilities. How Google's latest multimodal AI model enables revolutionary Agentic Vision through advanced",
   keywords: [
     "Gemini 3 Flash",
     "Google Gemini",

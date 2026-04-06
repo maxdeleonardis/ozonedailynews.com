@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Jason Calacanis: All-In Podcast Host, Angel Investor, and Tech Entrepreneur Profile | ObjectWire",
-  description: "Complete profile of Jason Calacanis - All-In Podcast co-host, angel investor in Uber and Robinhood, founder of LAUNCH and Inside.com. Career highlights, investments, and influence in Silicon Valley.",
+  title: "Jason Calacanis: All-In Podcast Host, Angel Investor, and Tech Entrepreneur Profile",
+  description: "Complete profile of Jason Calacanis - All-In Podcast co-host, angel investor in Uber and Robinhood, founder of LAUNCH and Inside.com. Career highlights,",
   keywords: [
     "Jason Calacanis",
     "All-In Podcast",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/davos/all-in-podcast/jason',
   },
   openGraph: {
-    title: "Jason Calacanis Profile - All-In Podcast Host & Angel Investor",
+    title: "Jason Calacanis Profile | All-In Podcast Host & Angel Investor",
     description: "Inside the career of Jason Calacanis: from Weblogs Inc. to angel investing powerhouse, All-In Podcast co-host, and Silicon Valley kingmaker.",
     type: "article",
     url: "https://www.objectwire.org/davos/all-in-podcast/jason",
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
         alt: "Jason Calacanis - All-In Podcast Host",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jason Calacanis Profile | All-In Podcast Host & Angel Investor',
+    description: 'Inside the career of Jason Calacanis: from Weblogs Inc. to angel investing powerhouse, All-In Podcast co-host, and Silicon Valley kingmaker.',
   },
 };
 

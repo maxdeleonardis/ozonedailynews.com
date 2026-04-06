@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/entertainment/marty_supreme';
 
 export const metadata: Metadata = {
-  title: "'Marty Supreme' Enters Oscar Weekend With Nine Nods but Low Odds | ObjectWire",
+  title: "'Marty Supreme' Enters Oscar Weekend With Nine Nods but Low Odds",
   description:
-    "Josh Safdie's A24 sports drama Marty Supreme carries nine Oscar nominations into the 98th Academy Awards, including Best Picture, Best Director, and Best Actor for Timothée Chalamet. But prediction markets on Kalshi and Polymarket favor Ryan Coogler's Sinners to dominate the night.",
+    "Josh Safdie's A24 sports drama Marty Supreme carries nine Oscar nominations into the 98th Academy Awards, including Best Picture, Best Director, and Best",
   keywords: [
     'Marty Supreme Oscars',
     'Timothée Chalamet Best Actor',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "'Marty Supreme' Enters Oscar Weekend With Nine Nods but Low Odds",
     description:
-      "Timothée Chalamet's A24 film enters the 98th Oscars with nine nominations but faces long odds. Prediction markets favor Sinners and Michael B. Jordan as momentum shifts heading into Sunday night.",
+      "Timothée Chalamet's A24 film enters the 98th Oscars with nine nominations but faces long odds. Prediction markets favor Sinners and Michael B. Jordan as",
     url: FULL_URL,
     type: 'article',
     images: [{ url: IMAGE_URL, alt: "Timothée Chalamet in Marty Supreme" }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "'Marty Supreme' Has Nine Oscar Noms | but the Odds Say Zero Wins",
     description:
-      "Josh Safdie's A24 sports drama heads into the 98th Oscars with Best Picture, Director, and Actor nods. Kalshi and Polymarket bettors are betting on Sinners stealing the night.",
+      "Josh Safdie's A24 sports drama heads into the 98th Oscars with Best Picture, Director, and Actor nods. Kalshi and Polymarket bettors are betting on",
     images: [IMAGE_URL],
   },
   alternates: { canonical: FULL_URL },

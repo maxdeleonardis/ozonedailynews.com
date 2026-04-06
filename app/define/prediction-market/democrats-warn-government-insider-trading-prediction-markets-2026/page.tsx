@@ -11,7 +11,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Government Insider Trading | Democrats Target Prediction Markets 2026',
   description:
-    '40+ Democratic senators led by Warren and Warner sent an urgent CFTC letter on March 29, 2026, demanding ethics guidance to stop federal employees from profiting on Polymarket and Kalshi using non-public information.',
+    '40+ Democratic senators led by Warren and Warner sent an urgent CFTC letter on March 29, 2026, demanding ethics guidance to stop federal employees from',
   keywords: [
     'government insider trading prediction markets',
     'Elizabeth Warren prediction market letter CFTC 2026',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Democrats Warn of Government Insider Trading on Prediction Markets',
     description:
-      '40+ senators demanded CFTC and OGE action after suspicious Polymarket trades preceded Maduro capture, Leavitt speech timing, and Iran-Israel strike locations. The STOCK Act may already cover it.',
+      '40+ senators demanded CFTC and OGE action after suspicious Polymarket trades preceded Maduro capture, Leavitt speech timing, and Iran-Israel strike',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

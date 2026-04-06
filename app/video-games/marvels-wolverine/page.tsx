@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Marvels Wolverine - PS5 Exclusive Game | ObjectWire",
+  title: "Marvels Wolverine | PS5 Exclusive Game",
   description:
     "Everything you need to know about Marvels Wolverine, the brutal single-player adventure by Insomniac Games. Release date, gameplay, and latest news.",
   keywords: [

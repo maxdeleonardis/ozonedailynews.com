@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/forza-horizon-6';
 
 export const metadata: Metadata = {
-  title: 'Forza Horizon 6: Release Date, Map, Cars & Everything Known | March 2026 | ObjectWire',
+  title: 'Forza Horizon 6: Release Date, Map, Cars & Everything Known | March 2026',
   description:
-    'Forza Horizon 6 releases May 19, 2026 on Xbox Series X|S, PC, and later PlayStation 5. Japan open world, 550+ cars, Toyota GR GT cover vehicle, early access May 15 for Premium Edition owners. Everything confirmed as of March 2026.',
+    'Forza Horizon 6 releases May 19, 2026 on Xbox Series X|S, PC, and later PlayStation 5. Japan open world, 550+ cars, Toyota GR GT cover vehicle, early',
   keywords: [
     'Forza Horizon 6',
     'Forza Horizon 6 release date',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Forza Horizon 6 | May 19, 2026 | Japan Map, 550+ Cars, PS5 Confirmed',
     description:
-      "Everything confirmed about Forza Horizon 6: Japan open world five times larger than Edinburgh, 550+ cars, Toyota GR GT cover vehicle, early access May 15 for Premium Edition. Day-one on Game Pass.",
+      "Everything confirmed about Forza Horizon 6: Japan open world five times larger than Edinburgh, 550+ cars, Toyota GR GT cover vehicle, early access May 15",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

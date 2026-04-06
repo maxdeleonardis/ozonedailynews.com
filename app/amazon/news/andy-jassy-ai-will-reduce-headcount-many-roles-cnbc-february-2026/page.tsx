@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    "Amazon CEO Andy Jassy: AI Will Reduce Headcount in Many Long-Standing Roles While Creating New Ones, February 2026 | ObjectWire",
+    "Amazon CEO Andy Jassy: AI Will Reduce Headcount in Many Long-Standing Roles While Creating New Ones, February 2026",
   description:
-    "Amazon CEO Andy Jassy told CNBC on February 27, 2026 that AI will mean fewer humans are needed for many jobs that have relied on human labor for 20–30 years, while new job categories will emerge. The comments followed a $110B OpenAI funding round and Jack Dorsey's announcement of 4,000+ Block layoffs tied to AI efficiency.",
+    "Amazon CEO Andy Jassy told CNBC on February 27, 2026 that AI will mean fewer humans are needed for many jobs that have relied on human labor for 20–30",
   keywords: [
     'Andy Jassy AI workforce headcount CNBC 2026',
     'Amazon CEO AI jobs reduction February 2026',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title:
       "Andy Jassy: AI Will Mean Fewer Humans for Jobs We've Thrown People at for 30 Years, New Ones Will Emerge",
     description:
-      'Amazon CEO Andy Jassy told CNBC February 27, 2026 that AI will reduce headcount across many long-standing roles while creating new ones, hours after Jack Dorsey announced 4,000+ Block layoffs tied to AI efficiency gains.',
+      'Amazon CEO Andy Jassy told CNBC February 27, 2026 that AI will reduce headcount across many long-standing roles while creating new ones, hours after Jack',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title:
       "Jassy on CNBC: AI Will Cut Headcount in Decades-Old Roles. 'But There Will Be Other Jobs Created.'",
     description:
-      "Amazon CEO Andy Jassy said AI will reduce human labor in many long-standing jobs while new categories emerge, hours after Block CEO Jack Dorsey announced 4,000+ layoffs explicitly tied to AI efficiency. February 27, 2026.",
+      "Amazon CEO Andy Jassy said AI will reduce human labor in many long-standing jobs while new categories emerge, hours after Block CEO Jack Dorsey announced",
     images: [IMAGE_URL],
   },
 };

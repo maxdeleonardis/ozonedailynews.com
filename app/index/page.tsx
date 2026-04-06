@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Site Index - Complete Sitemap | ObjectWire",
+  title: "Site Index | Complete Sitemap",
   description: "Comprehensive site index showing all pages and sections of ObjectWire. Navigate our complete content hierarchy.",
   keywords: ["sitemap", "site index", "navigation", "ObjectWire pages"],
   alternates: {

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Introducing BitChat: Jack Dorsey\'s Game-Changing Bluetooth Mesh Messaging App | Object Wire',
-  description: 'Jack Dorsey unveils BitChat, a revolutionary Bluetooth mesh messaging app that works without internet or cellular networks. Learn about the technology, privacy features, and implications.',
+  description: 'Jack Dorsey unveils BitChat, a revolutionary Bluetooth mesh messaging app that works without internet or cellular networks. Learn about the technology,',
   keywords: ['BitChat', 'Jack Dorsey', 'mesh networking', 'Bluetooth messaging', 'decentralized communication', 'privacy messaging', 'offline messaging', 'Block Inc'],
   openGraph: {
     title: 'Introducing BitChat: Jack Dorsey\'s Game-Changing Bluetooth Mesh Messaging App',
@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2024-02-15T10:00:00Z',
     authors: ['Object Wire Staff'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Introducing BitChat: Jack Dorsey\'s Game-Changing Bluetooth Mesh Messaging App",
+    description: "Jack Dorsey unveils BitChat, a revolutionary Bluetooth mesh messaging app that works without internet or cellular networks.",
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/saas/news/introducing-bitchat-jack-dorseys-game-changing-bluetooth-mesh-messaging-app',
   },
 };
 

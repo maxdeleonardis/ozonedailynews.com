@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/federal-agencies-grok-safety-pentagon-classified';
 
 export const metadata: Metadata = {
-  title: 'Federal Agencies Raised Concerns About Grok Safety and Reliability Before Pentagon Classified Approval | ObjectWire',
-  description: 'Multiple federal agencies flagged xAI Grok chatbot safety risks including sycophancy and data manipulation before the Pentagon approved it for classified military settings in February 2026.',
+  title: 'Federal Agencies Raised Concerns About Grok Safety and Reliability Before Pentagon Classified Approval',
+  description: 'Multiple federal agencies flagged xAI Grok chatbot safety risks including sycophancy and data manipulation before the Pentagon approved it for classified',
   keywords: ['Grok safety risks Pentagon', 'xAI Grok classified military', 'GSA Grok safety report', 'NSA Grok vulnerability', 'Pentagon AI approval Grok', 'Elon Musk xAI government', 'Anthropic Claude federal', 'AI military deployment', 'Grok sycophantic manipulation'],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {

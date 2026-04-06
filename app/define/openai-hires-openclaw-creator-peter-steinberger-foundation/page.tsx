@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up Foundation | ObjectWire",
-  description: "OpenAI announces the hiring of Peter Steinberger, creator of OpenClaw robotics framework, and establishes the OpenAI Robotics Foundation to accelerate embodied AI research and open-source development.",
+  title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up Foundation",
+  description: "OpenAI announces the hiring of Peter Steinberger, creator of OpenClaw robotics framework, and establishes the OpenAI Robotics Foundation to accelerate",
   keywords: [
     "OpenAI hires Peter Steinberger 2026",
     "OpenClaw robotics framework creator",

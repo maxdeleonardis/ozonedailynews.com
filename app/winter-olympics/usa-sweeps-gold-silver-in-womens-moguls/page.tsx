@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'USA Sweeps Gold, Silver in Women\'s Moguls at Winter Olympics | Breaking News | Object Wire',
-  description: 'Team USA dominated the women\'s moguls competition at the Milano Cortina Winter Olympics, sweeping the gold and silver medals in a historic performance on the Italian slopes.',
+  description: 'Team USA dominated the women\'s moguls competition at the Milano Cortina Winter Olympics, sweeping the gold and silver medals in a historic performance on',
   keywords: ['Winter Olympics', 'Milano Cortina', 'womens moguls', 'Team USA', 'freestyle skiing', 'gold medal', 'silver medal', 'Olympic sweep'],
   openGraph: {
     title: 'USA Sweeps Gold, Silver in Women\'s Moguls at Winter Olympics',
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'USA Sweeps Gold, Silver in Women\'s Moguls at Winter Olympics',
     description: 'Team USA dominated the women\'s moguls competition, sweeping gold and silver at Milano Cortina 2026.',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/usa-sweeps-gold-silver-in-womens-moguls',
+  },
 };
 
 export default function USAMogulsSweepArticle() {

@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "W2S (Harry Lewis) | FIFA Pack Opening Legend & Sidemen Wildcard | ObjectWire",
-  description: "Complete profile of W2S (Harry Lewis/Wroetoshaw): 16M+ subscribers, legendary FIFA pack luck, chaotic energy, relationship with Katie Leach, and Sidemen wildcard moments. 2026 coverage.",
+  title: "W2S (Harry Lewis) | FIFA Pack Opening Legend & Sidemen Wildcard",
+  description: "Complete profile of W2S (Harry Lewis/Wroetoshaw): 16M+ subscribers, legendary FIFA pack luck, chaotic energy, relationship with Katie Leach, and Sidemen",
   keywords: [
     "W2S",
     "Harry Lewis",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.objectwire.org/youtube/sidemen/w2s',
     siteName: 'ObjectWire',
     section: 'YouTube',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'W2S (Harry Lewis) | Pack Opening King & Sidemen Wildcard',
+    description: 'Full profile of W2S: legendary FIFA pack luck, 16M+ subscribers, chaotic personality, relationship with Katie Leach, and wildcard Sidemen role.',
   },
 };
 

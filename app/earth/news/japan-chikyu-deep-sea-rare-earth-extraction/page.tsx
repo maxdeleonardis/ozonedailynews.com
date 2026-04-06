@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/earth/news/japan-chikyu-deep-sea-rare-earth-extraction';
 
 export const metadata: Metadata = {
-  title: "Beyond the Hype: How Japan's Chikyu Just Started the Real Deep-Sea Gold Rush | ObjectWire",
+  title: "Beyond the Hype: How Japan's Chikyu Just Started the Real Deep-Sea Gold Rush",
   description:
-    "On February 2, 2026, Japan's drilling vessel Chikyu successfully lifted rare earth-rich sediment from 6,000 meters beneath the Pacific, the world's first deep-sea rare earth extraction at that depth. This is no longer theoretical.",
+    "On February 2, 2026, Japan's drilling vessel Chikyu successfully lifted rare earth-rich sediment from 6,000 meters beneath the Pacific, the world's first",
   keywords: [
     'Japan Chikyu deep sea rare earth extraction 2026',
     'world first deep sea mining rare earth minerals',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Beyond the Hype: How Japan's Chikyu Just Started the Real Deep-Sea Gold Rush",
     description:
-      "Japan's Chikyu drilled to 6,000 meters beneath the Pacific on February 2, 2026 and came back up with rare earth-rich sediment. The deep-sea mining era is no longer a future scenario. It started 18 days ago.",
+      "Japan's Chikyu drilled to 6,000 meters beneath the Pacific on February 2, 2026 and came back up with rare earth-rich sediment. The deep-sea mining era is",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Japan Just Pulled Rare Earths from 6,000 Meters Below the Pacific. The Deep-Sea Gold Rush Is Real.",
     description:
-      "The Chikyu's February 2 extraction wasn't a test. It was proof of concept for an industry that could break China's stranglehold on the minerals powering the modern world.",
+      "The Chikyu's February 2 extraction wasn't a test. It was proof of concept for an industry that could break China's stranglehold on the minerals powering",
   },
 };
 

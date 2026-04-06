@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Apple Delays iPhone 18 to 2027, Prioritizing Foldable Launch | ObjectWire',
-  description: 'Apple postpones standard iPhone 18 until early 2027, shifting focus to premium models and its first-ever foldable iPhone launching in H2 2026, amid memory chip costs and supply chain pressures.',
+  title: 'Apple Delays iPhone 18 to 2027, Prioritizing Foldable Launch',
+  description: 'Apple postpones standard iPhone 18 until early 2027, shifting focus to premium models and its first-ever foldable iPhone launching in H2 2026, amid memory',
   keywords: [
     'Apple iPhone 18',
     'iPhone delay',

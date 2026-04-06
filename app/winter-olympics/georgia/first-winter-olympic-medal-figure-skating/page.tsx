@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Georgia Wins First Ever Winter Olympic Medal in Pairs Figure Skating | Milano Cortina 2026 | ObjectWire',
-  description: 'Anastasia Metelkina and Luka Berulava made history at Milano Cortina 2026 by winning Georgia\'s first-ever Winter Olympic medal, a silver in pairs figure skating that has sent a nation into celebration.',
+  title: 'Georgia Wins First Ever Winter Olympic Medal in Pairs Figure Skating | Milano Cortina 2026',
+  description: 'Anastasia Metelkina and Luka Berulava made history at Milano Cortina 2026 by winning Georgia\'s first-ever Winter Olympic medal, a silver in pairs figure',
   keywords: [
     'Georgia Winter Olympics', 'first Winter Olympic medal', 'Metelkina Berulava',
     'pairs figure skating', 'Milano Cortina 2026', 'Georgia silver medal',

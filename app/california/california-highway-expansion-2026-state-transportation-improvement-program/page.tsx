@@ -10,9 +10,9 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/earth/pexels-george-desipris-726478.jpg';
 
 export const metadata: Metadata = {
-  title: 'California Approves Highway Expansion as Record Heat Wave Grips the West | ObjectWire',
+  title: 'California Approves Highway Expansion as Record Heat Wave Grips the West',
   description:
-    'As California endured its hottest March days ever recorded, the California Transportation Commission voted on March 19\u201320 to adopt the 2026 State Transportation Improvement Program, greenlighting highway expansion projects that critics say undercut the state\u2019s climate goals.',
+    'As California endured its hottest March days ever recorded, the California Transportation Commission voted on March 19\u201320 to adopt the 2026 State',
   keywords: [
     'California highway expansion 2026',
     'California Transportation Commission STIP 2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'California Approves Highway Expansion as Record Heat Wave Grips the West',
     description:
-      'The California Transportation Commission adopted the 2026 STIP on March 19\u201320, approving highway expansion projects even as the state recorded its hottest-ever March temperatures.',
+      'The California Transportation Commission adopted the 2026 STIP on March 19\u201320, approving highway expansion projects even as the state recorded its',
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'California Approves Highway Expansion Amid Record March Heat Wave',
     description:
-      'The California Transportation Commission greenlighted new highway projects on March 19\u201320 \u2014 the same week the state broke all-time March temperature records.',
+      'The California Transportation Commission greenlighted new highway projects on March 19\u201320 \u2014 the same week the state broke all-time March',
     images: [IMAGE_URL],
   },
   other: {

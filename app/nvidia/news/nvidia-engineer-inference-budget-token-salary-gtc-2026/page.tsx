@@ -9,9 +9,9 @@ const SLUG = '/nvidia/news/nvidia-engineer-inference-budget-token-salary-gtc-202
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "NVIDIA to Grant Engineers 'Inference Budgets' Worth 50% of Base Salary | ObjectWire",
+  title: "NVIDIA to Grant Engineers 'Inference Budgets' Worth 50% of Base Salary",
   description:
-    "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary, worth $100,000–$150,000 in compute credits, redefining Silicon Valley compensation.",
+    "NVIDIA CEO Jensen Huang announced at GTC 2026 that engineers will receive an annual AI token budget equivalent to roughly half their base salary, worth",
   keywords: [
     'NVIDIA inference budget engineer compensation GTC 2026',
     'Jensen Huang token salary GTC keynote March 2026',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NVIDIA to Give Engineers AI 'Inference Budgets' Worth 50% of Base Salary",
     description:
-      "Jensen Huang announced at GTC 2026 that NVIDIA engineers will receive an annual token budget worth ~50% of base pay, up to $150K in AI compute credits. The move redefines tech compensation and could force rivals to match.",
+      "Jensen Huang announced at GTC 2026 that NVIDIA engineers will receive an annual token budget worth ~50% of base pay, up to $150K in AI compute credits.",
     type: 'article',
     url: FULL_URL,
     siteName: 'ObjectWire',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "NVIDIA Engineers to Get AI 'Inference Budgets' Worth 50% of Base Salary | ObjectWire",
+    title: "NVIDIA Engineers to Get AI 'Inference Budgets' Worth 50% of Base Salary",
     description:
-      "Huang's GTC 2026 announcement: NVIDIA engineers get $100K–$150K in annual AI compute credits on top of base salary. Total comp could hit $450K+. Silicon Valley recruiting just changed.",
+      "Huang's GTC 2026 announcement: NVIDIA engineers get $100K–$150K in annual AI compute credits on top of base salary. Total comp could hit $450K+. Silicon",
   },
   other: {
     news_keywords:

@@ -6,15 +6,15 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Yeat ADL Album | Cinematic Shift, Elton John, Kid Cudi | ObjectWire',
+  title: 'Yeat ADL Album | Cinematic Shift, Elton John, Kid Cudi',
   description:
-    "Yeat's sixth studio album ADL (A Dangerous Lyfe / A Dangerous Love) drops March 27, 2026 on Capitol Records. 21 tracks, 70 minutes, featuring Elton John, Kid Cudi, Grimes, and Don Toliver.",
+    "Yeat's sixth studio album ADL (A Dangerous Lyfe / A Dangerous Love) drops March 27, 2026 on Capitol Records. 21 tracks, 70 minutes, featuring Elton John,",
   alternates: {
     canonical: 'https://www.objectwire.org/artists/yeat/adl-26',
   },
   openGraph: {
     type: 'article',
-    title: 'Yeat ADL Album | Cinematic Shift and Star-Studded Evolution | ObjectWire',
+    title: 'Yeat ADL Album | Cinematic Shift and Star-Studded Evolution',
     description:
       "Yeat's sixth studio album ADL arrives March 27, 2026. A 21-track double album featuring Elton John, Kid Cudi, Grimes, Don Toliver, and Kylie Jenner.",
     url: 'https://www.objectwire.org/artists/yeat/adl-26',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yeat ADL Album | ObjectWire',
+    title: 'Yeat ADL Album',
     description:
       "Yeat drops ADL, a 21-track double album feat. Elton John, Kid Cudi, Grimes, Don Toliver, and more. Full breakdown inside.",
     images: ['https://www.objectwire.org/artist/Yeat-adl.png'],

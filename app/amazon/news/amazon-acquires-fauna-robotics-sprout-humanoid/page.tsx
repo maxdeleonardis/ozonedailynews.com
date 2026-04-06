@@ -11,9 +11,9 @@ const IMAGE_URL =
   'https://www.objectwire.org/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: "Amazon Acquires Fauna Robotics to Build 'Friendly' Home Humanoids | ObjectWire",
+  title: "Amazon Acquires Fauna Robotics to Build 'Friendly' Home Humanoids",
   description:
-    "Amazon has confirmed its acquisition of New York-based startup Fauna Robotics, maker of 'Sprout', a consumer humanoid robot designed for homes and schools. The deal closes as Amazon already operates over 1 million industrial robots in its warehouses, marking a major expansion into the consumer robotics market.",
+    "Amazon has confirmed its acquisition of New York-based startup Fauna Robotics, maker of 'Sprout', a consumer humanoid robot designed for homes and",
   keywords: [
     'Amazon Fauna Robotics acquisition 2026',
     'Fauna Robotics Sprout humanoid',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Amazon Acquires Fauna Robotics to Build 'Friendly' Home Humanoids",
     description:
-      "Amazon confirmed the acquisition of Fauna Robotics, maker of Sprout, a 'safe, approachable, and fun' humanoid for homes and schools. The deal comes just under two months after Fauna debuted Sprout and signals Amazon's entry into consumer humanoid robotics.",
+      "Amazon confirmed the acquisition of Fauna Robotics, maker of Sprout, a 'safe, approachable, and fun' humanoid for homes and schools. The deal comes just",
     url: FULL_URL,
     images: [{ url: IMAGE_URL }],
     type: 'article',

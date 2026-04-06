@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Strategic Report: The Greenland Fulcrum and the 'Golden Dome' Architecture | ObjectWire",
-  description: "Analysis of the 2026 Arctic Defense Alignment, the Golden Dome project, and its impact on critical minerals and defense sectors including CRML, MP, LMT, and WOLF.",
+  title: "Strategic Report: The Greenland Fulcrum and the 'Golden Dome' Architecture",
+  description: "Analysis of the 2026 Arctic Defense Alignment, the Golden Dome project, and its impact on critical minerals and defense sectors including CRML, MP, LMT,",
   openGraph: {
     title: "The Greenland Fulcrum and the 'Golden Dome' Architecture",
     description: "Financial Intelligence / Geopolitical Strategy: Analyzing the Arctic Defense Alignment and its multi-layered interception CapEx.",
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   alternates: {
     canonical: 'https://www.objectwire.org/finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Greenland Fulcrum and the ',
+    description: 'Financial Intelligence / Geopolitical Strategy: Analyzing the Arctic Defense Alignment and its multi-layered interception CapEx.',
   },
 };
 

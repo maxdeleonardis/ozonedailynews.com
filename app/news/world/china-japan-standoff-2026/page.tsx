@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "China–Japan Diplomatic Standoff (2026) | ObjectWire",
+  title: "China | Japan Diplomatic Standoff (2026)",
   description: "Escalating tensions following the LDP election landslide and Takaichi's Taiwan policy. Beijing issues a high-level warning to Tokyo.",
   keywords: ["China", "Japan", "Diplomacy", "Sanae Takaichi", "Taiwan", "Geopolitics"],
   authors: [{ name: "ObjectWire Editorial Team" }],

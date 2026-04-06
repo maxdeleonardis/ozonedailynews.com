@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Professional Investigative & Media Services | ObjectWire",
+  title: "Professional Investigative & Media Services",
   description:
-    "ObjectWire offers licensed private detective services in Austin, TX, surveillance, infidelity investigations, fact-finding, evidence collection, photography, videography, and press release distribution.",
+    "ObjectWire offers licensed private detective services in Austin, TX, surveillance, infidelity investigations, fact-finding, evidence collection,",
   keywords: [
     "private detective Austin",
     "Austin PI",
@@ -22,12 +22,17 @@ export const metadata: Metadata = {
     canonical: "https://www.objectwire.org/service",
   },
   openGraph: {
-    title: "Professional Investigative & Media Services | ObjectWire",
+    title: "Professional Investigative & Media Services",
     description:
       "Licensed private detective agency in Austin, TX. Surveillance, digital forensics, infidelity investigations, evidence collection, and media services.",
     url: "https://www.objectwire.org/service",
     siteName: "ObjectWire",
     type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Professional Investigative & Media Services',
+    description: 'Licensed private detective agency in Austin, TX. Surveillance, digital forensics, infidelity investigations, evidence collection, and media services.',
   },
 };
 

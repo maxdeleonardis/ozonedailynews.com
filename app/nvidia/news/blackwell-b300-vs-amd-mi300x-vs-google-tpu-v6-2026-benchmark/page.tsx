@@ -12,7 +12,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'B300 vs MI300X vs TPU v6 | 2026 AI Chip Comparison',
   description:
-    'Nvidia Blackwell B300 vs AMD MI300X vs Google TPU v6 Trillium compared on PFLOPS, VRAM, bandwidth, power, and cost per token for training and inference in 2026.',
+    'Nvidia Blackwell B300 vs AMD MI300X vs Google TPU v6 Trillium compared on PFLOPS, VRAM, bandwidth, power, and cost per token for training and inference in',
   keywords: [
     'Nvidia Blackwell B300 vs AMD MI300X benchmark',
     'B300 vs TPU v6 Trillium comparison',

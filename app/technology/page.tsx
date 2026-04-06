@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Technology | ObjectWire",
+  title: "Technology",
   description: "Investigative reporting on AI, orbital computing, and emerging industrial technologies.",
   alternates: {
     canonical: 'https://www.objectwire.org/technology',

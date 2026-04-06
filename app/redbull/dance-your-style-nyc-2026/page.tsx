@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Dance Your Style NYC 2026 | Freestyle Battle',
   description:
-    'Red Bull Dance Your Style NYC on April 11, 2026 brings freestyle dancers to New York for crowd-judged 1-on-1 battles. Event format, dance styles, and how to attend.',
+    'Red Bull Dance Your Style NYC on April 11, 2026 brings freestyle dancers to New York for crowd-judged 1-on-1 battles. Event format, dance styles, and how',
   keywords: [
     'Red Bull Dance Your Style NYC 2026',
     'Red Bull freestyle dance battle New York',

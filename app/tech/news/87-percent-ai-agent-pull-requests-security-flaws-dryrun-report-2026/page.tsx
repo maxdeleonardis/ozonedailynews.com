@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    '87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds | ObjectWire',
+    '87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds',
   description:
-    'A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously, 26 of 30 AI-generated pull requests introduced at least one high-severity vulnerability. Claude produced the most unresolved flaws; OpenAI Codex performed best.',
+    'A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously, 26 of 30 AI-generated pull requests introduced at least one',
   keywords: [
     'AI agent security flaws 2026',
     'DryRun Security agentic coding report',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '87% of AI Agent Pull Requests Introduce Security Flaws | DryRun Security 2026',
     description:
-      'DryRun Security tested Claude, Codex, and Gemini building full apps autonomously. 26 of 30 PRs had at least one high-severity security flaw. Claude produced the most unresolved vulnerabilities. Codex performed best.',
+      'DryRun Security tested Claude, Codex, and Gemini building full apps autonomously. 26 of 30 PRs had at least one high-severity security flaw. Claude',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '87% of AI Agent Pull Requests Have High-Severity Security Flaws',
     description:
-      'DryRun Security: Claude, Codex, Gemini tested on real apps. 26/30 PRs introduced a high-severity flaw. Claude worst for unresolved issues. Codex cleanest overall.',
+      'DryRun Security: Claude, Codex, Gemini tested on real apps. 26/30 PRs introduced a high-severity flaw. Claude worst for unresolved issues. Codex cleanest',
   },
 };
 

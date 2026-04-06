@@ -11,9 +11,9 @@ const IMAGE_URL = 'https://www.objectwire.org/news/cursor.PNG';
 
 export const metadata: Metadata = {
   title:
-    'Cursor Hits $2 Billion ARR, Anysphere Doubles Revenue in Three Months | ObjectWire',
+    'Cursor Hits $2 Billion ARR, Anysphere Doubles Revenue in Three Months',
   description:
-    'Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026, doubling the $1 billion ARR milestone announced in November 2025, one of the fastest ARR growth rates in SaaS history.',
+    'Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026, doubling the $1 billion ARR milestone announced in November 2025,',
   keywords: [
     'Cursor AI code editor ARR 2026',
     'Anysphere $2 billion revenue',

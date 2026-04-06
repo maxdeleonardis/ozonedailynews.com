@@ -6,11 +6,11 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Domen Prevc Wins Large Hill Gold - Slovenia\'s Flying Family Soars at Olympics | ObjectWire',
-  description: 'Domen Prevc captures ski jumping large hill gold at Milan Cortina 2026. The world record holder and Four Hills champion leads Slovenia\'s famous flying family to Olympic glory.',
+  title: 'Domen Prevc Wins Large Hill Gold | Slovenia\'s Flying Family Soars at Olympics',
+  description: 'Domen Prevc captures ski jumping large hill gold at Milan Cortina 2026. The world record holder and Four Hills champion leads Slovenia\'s famous flying',
   keywords: ['Domen Prevc', 'ski jumping', 'large hill gold', 'Winter Olympics 2026', 'Milan Cortina', 'Slovenia', 'world record', 'Four Hills Tournament', 'Prevc family'],
   openGraph: {
-    title: 'Domen Prevc Wins Large Hill Gold - Slovenia\'s Flying Family Soars',
+    title: 'Domen Prevc Wins Large Hill Gold | Slovenia\'s Flying Family Soars',
     description: 'World record holder Domen Prevc captures ski jumping gold at Milan Cortina 2026',
     type: 'article',
     publishedTime: '2026-02-14T22:00:00Z',
@@ -18,9 +18,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Domen Prevc - Ski Jumping Olympic Gold',
+    title: 'Domen Prevc | Ski Jumping Olympic Gold',
     description: 'Slovenia\'s world record holder wins large hill at Milan Cortina 2026',
-  }
+  },
+  alternates: {
+    canonical: 'https://www.objectwire.org/winter-olympics/slovenia/domen-prevc',
+  },
 };
 
 export default function DomenPrevcProfile() {

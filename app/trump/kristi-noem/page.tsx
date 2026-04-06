@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Kristi Noem | U.S. Secretary of Homeland Security | ObjectWire',
+  title: 'Kristi Noem | U.S. Secretary of Homeland Security',
   description:
-    'Kristi Noem is the U.S. Secretary of Homeland Security under President Donald Trump, confirmed January 25, 2025. Formerly the 33rd Governor of South Dakota (2019–2025) and U.S. Representative for South Dakota\'s at-large congressional district (2011–2019), she is one of the most prominent figures in the modern Republican Party.',
+    'Kristi Noem is the U.S. Secretary of Homeland Security under President Donald Trump, confirmed January 25, 2025. Formerly the 33rd Governor of South',
   keywords: [
     'Kristi Noem DHS Secretary',
     'Kristi Noem Homeland Security',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/trump/kristi-noem',
   },
   openGraph: {
-    title: 'Kristi Noem | U.S. Secretary of Homeland Security | ObjectWire',
+    title: 'Kristi Noem | U.S. Secretary of Homeland Security',
     description:
       'From South Dakota state legislator to Governor to head of DHS under Trump. The full profile of Kristi Noem.',
     type: 'article',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kristi Noem | U.S. Secretary of Homeland Security | ObjectWire',
+    title: 'Kristi Noem | U.S. Secretary of Homeland Security',
     description:
       'Former South Dakota Governor, now leading DHS under Trump. Full biography and policy record.',
   },

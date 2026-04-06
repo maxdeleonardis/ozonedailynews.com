@@ -6,8 +6,8 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Davos 2026: World Economic Forum Annual Meeting - Key Highlights and Outcomes | ObjectWire",
-  description: "Complete coverage of the 2026 World Economic Forum in Davos, Switzerland. AI governance, climate action, global economic outlook, and tech industry presence at the annual gathering of world leaders.",
+  title: "Davos 2026: World Economic Forum Annual Meeting | Key Highlights and Outcomes",
+  description: "Complete coverage of the 2026 World Economic Forum in Davos, Switzerland. AI governance, climate action, global economic outlook, and tech industry",
   keywords: [
     "Davos 2026",
     "World Economic Forum",
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
         alt: "Davos 2026 World Economic Forum",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Davos 2026: World Economic Forum Annual Meeting Coverage',
+    description: 'Inside the 2026 World Economic Forum in Davos - AI governance, tech leaders, and global economic policy discussions.',
   },
 };
 

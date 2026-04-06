@@ -6,9 +6,9 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Team USA Wins Women's Hockey Gold: Megan Keller's OT Goal Beats Canada 2-1 at Milano Cortina 2026 | ObjectWire",
+  title: "Team USA Wins Women's Hockey Gold: Megan Keller's OT Goal Beats Canada 2-1 at Milano Cortina 2026",
   description:
-    "Team USA won the women's ice hockey gold medal at the 2026 Winter Olympics, defeating Canada 2-1 in overtime. Megan Keller scored the winner at 4:07 of OT after Hilary Knight's clutch tying goal with 2:04 left in regulation.",
+    "Team USA won the women's ice hockey gold medal at the 2026 Winter Olympics, defeating Canada 2-1 in overtime. Megan Keller scored the winner at 4:07 of OT",
   keywords: [
     "Team USA women's hockey gold",
     'Milano Cortina 2026',

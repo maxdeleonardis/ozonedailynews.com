@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "TikTok - Complete Guide, History & Latest News 2026 | ObjectWire",
+  title: "TikTok | Complete Guide, History & Latest News 2026",
   description:
-    "Complete guide to TikTok: history from Musical.ly merger, algorithm explained, user demographics, controversies, US ban updates, and cultural impact. Latest TikTok news and USDS Joint Venture updates.",
+    "Complete guide to TikTok: history from Musical.ly merger, algorithm explained, user demographics, controversies, US ban updates, and cultural impact.",
   keywords: [
     "TikTok",
     "TikTok news",
@@ -33,10 +33,15 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/tiktok',
   },
   openGraph: {
-    title: 'TikTok - Complete Guide, History & Latest News 2026',
+    title: 'TikTok | Complete Guide, History & Latest News 2026',
     description: 'Everything you need to know about TikTok: algorithm, controversies, US ban updates, and cultural impact',
     url: 'https://www.objectwire.org/tiktok',
     type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TikTok | Complete Guide, History & Latest News 2026',
+    description: 'Everything you need to know about TikTok: algorithm, controversies, US ban updates, and cultural impact',
   },
 };
 

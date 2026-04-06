@@ -12,7 +12,7 @@ const IMAGE_URL = '/influncer/kristentoosweet.png';
 export const metadata: Metadata = {
   title: 'Kirsten Toosweet | TikTok Creator & Lifestyle Influencer',
   description:
-    'Full profile of Kirsten Toosweet, TikTok creator with 2.5M+ followers and 25M+ likes. Lifestyle, comedy, and beauty content across TikTok, Instagram, YouTube, and Snapchat.',
+    'Full profile of Kirsten Toosweet, TikTok creator with 2.5M+ followers and 25M+ likes. Lifestyle, comedy, and beauty content across TikTok, Instagram,',
   keywords: [
     'Kirsten Toosweet',
     'kirstentoosweet',

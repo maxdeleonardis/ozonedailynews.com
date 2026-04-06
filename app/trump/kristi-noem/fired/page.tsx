@@ -6,9 +6,9 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Kristi Noem Fired: Trump Removes DHS Secretary Amid $120M Horse Ad Scandal | ObjectWire',
+  title: 'Kristi Noem Fired: Trump Removes DHS Secretary Amid $120M Horse Ad Scandal',
   description:
-    'President Trump has fired Kristi Noem as U.S. Secretary of Homeland Security. The removal follows a growing $120 million contract scandal tied to the now-infamous "Kristi Noem on a Horse" campaign commercial, which drew bipartisan outrage over taxpayer spending.',
+    'President Trump has fired Kristi Noem as U.S. Secretary of Homeland Security. The removal follows a growing $120 million contract scandal tied to the',
   keywords: [
     'Kristi Noem fired',
     'Kristi Noem dismissed',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Kristi Noem Fired: Trump Removes DHS Secretary Amid $120M Horse Ad Scandal',
     description:
-      'Trump has removed Kristi Noem from DHS Secretary. The final straw: a $120 million campaign commercial featuring Noem on a horse, paid with government contract funds.',
+      'Trump has removed Kristi Noem from DHS Secretary. The final straw: a $120 million campaign commercial featuring Noem on a horse, paid with government',
     type: 'article',
     url: 'https://www.objectwire.org/trump/kristi-noem/fired',
     siteName: 'ObjectWire',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kristi Noem Fired from Trump Admin | $120M Horse Ad Scandal Was the Breaking Point',
     description:
-      'Trump removes Kristi Noem as DHS Secretary. The viral "Kristi Noem on a Horse" commercial cost $120 million and accelerated her exit from the administration.',
+      'Trump removes Kristi Noem as DHS Secretary. The viral "Kristi Noem on a Horse" commercial cost $120 million and accelerated her exit from the',
   },
 };
 

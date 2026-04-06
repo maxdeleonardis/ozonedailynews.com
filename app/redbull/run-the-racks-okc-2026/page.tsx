@@ -13,7 +13,7 @@ const IMAGE_URL = OG_IMAGE;
 export const metadata: Metadata = {
   title: 'Red Bull Run the Racks OKC 2026 | Street Basketball Event',
   description:
-    'Red Bull Run the Racks hits Oklahoma City April 12, 2026 with a street basketball competition built around speed, accuracy, and pickup game energy. Full format and details.',
+    'Red Bull Run the Racks hits Oklahoma City April 12, 2026 with a street basketball competition built around speed, accuracy, and pickup game energy. Full',
   keywords: [
     'Red Bull Run the Racks OKC 2026',
     'Red Bull basketball Oklahoma City',

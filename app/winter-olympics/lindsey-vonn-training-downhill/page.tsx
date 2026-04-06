@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Lindsey Vonn Posts Third-Fastest Training Time Before Olympic Downhill | ObjectWire",
-  description: "The 41-year-old American skiing legend posted the third-fastest time in Olympic downhill training just nine days after a crash, finishing 0.37 seconds behind teammate Breezy Johnson while skiing on a torn ACL.",
+  title: "Lindsey Vonn Posts Third-Fastest Training Time Before Olympic Downhill",
+  description: "The 41-year-old American skiing legend posted the third-fastest time in Olympic downhill training just nine days after a crash, finishing 0.37 seconds",
   keywords: [
     "Lindsey Vonn",
     "Olympic downhill",

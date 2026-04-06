@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/my-hero-ultra-rumble-season-15-review';
 
 export const metadata: Metadata = {
-  title: 'My Hero Ultra Rumble Season 15 Review: Tokoyami, Neo Academia & Patch 1.14.0 | ObjectWire',
+  title: 'My Hero Ultra Rumble Season 15 Review: Tokoyami, Neo Academia & Patch 1.14.0',
   description:
-    'My Hero Ultra Rumble Season 15 launched January 21, 2026, adding Fumikage Tokoyami as a new Assault character, the Neo Academia stage rotating every 2 hours, and events running through March 25, 2026. Full patch notes, gacha schedule, Steam metrics, and review.',
+    'My Hero Ultra Rumble Season 15 launched January 21, 2026, adding Fumikage Tokoyami as a new Assault character, the Neo Academia stage rotating every 2',
   keywords: [
     'My Hero Ultra Rumble Season 15 review',
     'MHUR Season 15 Tokoyami',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My Hero Ultra Rumble Season 15: Tokoyami, Neo Academia & Everything New',
     description:
-      "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam player data.",
+      "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam",
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MHUR Season 15: Tokoyami Drops, Neo Academia Launches, Steam Peaks at 4,558',
     description:
-      'Everything in My Hero Ultra Rumble Season 15, Dark Shadow kit, Neo Academia stage, all event rewards, gacha calendar, and Steam concurrent data through February 2026.',
+      'Everything in My Hero Ultra Rumble Season 15, Dark Shadow kit, Neo Academia stage, all event rewards, gacha calendar, and Steam concurrent data through',
   },
 };
 

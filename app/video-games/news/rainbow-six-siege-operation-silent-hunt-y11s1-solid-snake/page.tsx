@@ -11,7 +11,7 @@ const CANONICAL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Operation Silent Hunt | Solid Snake, 1v1 Arcade, Dual Front Exit',
   description:
-    'Rainbow Six Siege Y11S1 Operation Silent Hunt adds Solid Snake as an attacker, modernized Coastline, Villa, and Oregon, a public 1v1 Arcade mode, and begins Dual Front removal.',
+    'Rainbow Six Siege Y11S1 Operation Silent Hunt adds Solid Snake as an attacker, modernized Coastline, Villa, and Oregon, a public 1v1 Arcade mode, and',
   keywords: [
     'Rainbow Six Siege Operation Silent Hunt',
     'R6 Siege Y11S1',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'R6 Siege Operation Silent Hunt | Solid Snake Joins as Attacker',
     description:
-      'Y11S1 adds Solid Snake with the TACIT .45 and Soliton Radar Mk. III, modernizes three maps, launches a 1v1 Arcade playlist, and begins phasing out Dual Front.',
+      'Y11S1 adds Solid Snake with the TACIT .45 and Soliton Radar Mk. III, modernizes three maps, launches a 1v1 Arcade playlist, and begins phasing out Dual',
     type: 'article',
     url: CANONICAL,
     siteName: 'ObjectWire',

@@ -13,9 +13,9 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Marathon Server Slam Steam Concurrent Players Drop Over 50% From 143,621 Peak | ObjectWire',
+    'Marathon Server Slam Steam Concurrent Players Drop Over 50% From 143,621 Peak',
   description:
-    "Bungie's Marathon Server Slam beta peaked at 143,621 concurrent players on Steam on February 26, 2026, before dropping over 50% by March 1 to a live count of ~58,688. The open test runs through March 2; full launch is March 5, 2026.",
+    "Bungie's Marathon Server Slam beta peaked at 143,621 concurrent players on Steam on February 26, 2026, before dropping over 50% by March 1 to a live count",
   keywords: [
     'Marathon Server Slam Steam concurrent players 2026',
     'Marathon beta peak 143621 Steam February 2026',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title:
       "Marathon Server Slam: 143,621 Steam Peak on Day One, Then a 50%+ Drop Through March 1",
     description:
-      "Bungie's Marathon Server Slam hit 143,621 concurrent Steam players on February 26, 2026, then shed more than half by March 1. The open beta runs through March 2; full launch is March 5. Here's what the numbers, and feedback, actually say.",
+      "Bungie's Marathon Server Slam hit 143,621 concurrent Steam players on February 26, 2026, then shed more than half by March 1. The open beta runs through",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

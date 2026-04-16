@@ -298,6 +298,34 @@ function extractNewsContent(source: string): Record<string, unknown> {
   const authorMatch = source.match(/author=\{\{\s*name:\s*["']([^"']+)["']/);
   if (authorMatch) row.author_name = authorMatch[1];
 
+  const authorSlugMatch = source.match(/authorSlug:\s*["']([^"']+)["']/);
+  if (authorSlugMatch) row.author_slug = authorSlugMatch[1];
+
+  // published_at: prefer openGraph publishedTime ISO string, fall back to constructing from publishDate
+  const publishedTimeMatch = source.match(/publishedTime:\s*["']([^"']+)["']/);
+  if (publishedTimeMatch) {
+    row.published_at = publishedTimeMatch[1];
+  } else if (row.publish_date) {
+    // Convert "April 16, 2026" display string to ISO-8601
+    const d = new Date(row.publish_date as string);
+    row.published_at = isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  }
+
+  // topic_tag — derive from path prefix if not explicitly set
+  const topicTagMatch = source.match(/topic_tag=["']([^"']+)["']/);
+  if (topicTagMatch) {
+    row.topic_tag = topicTagMatch[1];
+  } else {
+    // Auto-derive from category
+    const cat = String(row.category ?? '').toLowerCase();
+    const catToTopic: Record<string, string> = {
+      tech: 'ai', technology: 'ai', gaming: 'gaming', entertainment: 'entertainment',
+      crypto: 'crypto', finance: 'finance', politics: 'politics', sports: 'sports',
+      science: 'science', world: 'world', culture: 'culture', news: 'news',
+    };
+    row.topic_tag = catToTopic[cat] ?? 'news';
+  }
+
   const tagsMatch = source.match(/tags=\{(\[[^\]]+\])\}/);
   if (tagsMatch) {
     try { row.tags = JSON.parse(tagsMatch[1].replace(/'/g, '"')); } catch { /* ignore */ }
@@ -563,18 +591,21 @@ function buildStub(
   const metaMatch = source.match(/(export const metadata[\s\S]*?^};)/m);
   const metadata = metaMatch ? metaMatch[0] : '';
 
-  // Preserve const SLUG and const OG_IMAGE so metadata template literals don't break
-  const slugConstMatch   = source.match(/^const SLUG\s*=\s*.+;/m);
+  // Preserve const SLUG, OG_IMAGE, and always emit ARTICLE_URL so metadata
+  // template literals that reference it don't break after trimming.
+  const slugConstMatch    = source.match(/^const SLUG\s*=\s*.+;/m);
   const ogImageConstMatch = source.match(/^const OG_IMAGE\s*=\s*.+;/m);
-  const slugConst   = slugConstMatch   ? slugConstMatch[0]   : `const SLUG = '/${slug.replace(/-/g, '/')}';`;
+  const slugConst    = slugConstMatch    ? slugConstMatch[0]    : `const SLUG = '/${slug.replace(/-/g, '/')}';`;
   const ogImageConst = ogImageConstMatch ? ogImageConstMatch[0] : `const OG_IMAGE = '';`;
+  // Always regenerate ARTICLE_URL from SLUG so it's never missing in the stub
+  const articleUrlConst = `const ARTICLE_URL = \`https://www.objectwire.org\${SLUG}\`; // restored by wiki:publish`;
 
   const imports: Record<string, string> = {
     JackArticle:    "import { JackArticleDB } from '@/components/articles/JackArticleDB';",
     NewsArticle:    "import { NewsArticleDB } from '@/components/articles/NewsArticleDB';",
-    ArticlePage:    "import { ArticlePageDB } from '@/components/ArticlePageDB';",
-    CreatorArticle: "import { CreatorArticleDB } from '@/components/CreatorArticleDB';",
-    AlysaArticle:   "import { AlysaArticleDB } from '@/components/AlysaArticleDB';",
+    ArticlePage:    "import { ArticlePageDB } from '@/components/articles/ArticlePageDB';",
+    CreatorArticle: "import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';",
+    AlysaArticle:   "import { AlysaArticleDB } from '@/components/articles/AlysaArticleDB';",
   };
 
   const returns: Record<string, string> = {
@@ -599,6 +630,7 @@ ${imports[component]}
 export const dynamic = 'force-dynamic';
 
 ${slugConst}
+${articleUrlConst}
 ${ogImageConst}
 
 ${metadata}
@@ -722,6 +754,37 @@ async function main() {
   if (alreadyRegistered) {
     console.log(c.gray('     (already in registry — skipping)'));
   } else {
+    // Extract imageUrl from OG_IMAGE const or openGraph.images[0].url in source
+    let imageUrl = '';
+    const ogImageConstVal = source.match(/const OG_IMAGE\s*=\s*['"`]([^'"`]+)['"`]/)?.[1];
+    if (ogImageConstVal && /^https?:\/\//.test(ogImageConstVal)) {
+      imageUrl = ogImageConstVal;
+    } else {
+      const ogImgMatch = source.match(/images:\s*\[\s*\{\s*url:\s*(?:OG_IMAGE|['"`]([^'"`]+)['"`])/);
+      if (ogImgMatch?.[1]) imageUrl = ogImgMatch[1];
+    }
+
+    // Extract first 5 keywords for tags array
+    const kwMatch = source.match(/keywords:\s*\[([\s\S]*?)\]/);
+    let registryTags: string[] = [];
+    if (kwMatch) {
+      try {
+        // eslint-disable-next-line no-new-func
+        const kws: string[] = new Function(`return [${kwMatch[1]}]`)();
+        registryTags = kws.slice(0, 5);
+      } catch { /* ignore */ }
+    }
+    // Fall back to tags from article props
+    if (!registryTags.length) {
+      const tagsMatch = source.match(/tags=\{(\[[^\]]+\])\}/);
+      if (tagsMatch) {
+        try { registryTags = JSON.parse(tagsMatch[1].replace(/'/g, '"')); } catch { /* ignore */ }
+      }
+    }
+
+    const registryCategory = String(row.category_label ?? row.category ?? 'News');
+    const registryPublishDate = String(row.publish_date ?? new Date().toISOString().split('T')[0]);
+
     // Find the closing bracket of the contentRegistry array
     const insertBefore = '// =============================================================================\n// HELPER FUNCTIONS';
     const newEntry = `
@@ -730,13 +793,13 @@ async function main() {
     slug: "${route}",
     title: ${JSON.stringify(String(row.title || ''))},
     description: ${JSON.stringify(String(row.subtitle ?? row.description ?? ''))},
-    publishDate: ${JSON.stringify(String(row.publish_date || new Date().toISOString().split('T')[0]))},
+    publishDate: ${JSON.stringify(registryPublishDate)},
     modifiedDate: ${JSON.stringify(new Date().toISOString().split('T')[0])},
-    category: ${JSON.stringify(String(row.category_label ?? row.category ?? 'General'))},
-    tags: [],
-    author: "ObjectWire Editorial",
+    category: ${JSON.stringify(registryCategory)},
+    tags: ${JSON.stringify(registryTags)},
+    author: ${JSON.stringify(String(row.author_name ?? 'ObjectWire Editorial'))},
     priority: 0.7,
-    changeFrequency: "weekly",
+    changeFrequency: "weekly",${imageUrl ? `\n    imageUrl: ${JSON.stringify(imageUrl)},\n    imageWidth: 1200,\n    imageHeight: 675,` : ''}
   },
 
 `;

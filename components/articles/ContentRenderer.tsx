@@ -323,6 +323,45 @@ const COMPONENT_NAMES = Object.keys(COMPONENTS).join('|');
 // ── JSX prop parser ─────────────────────────────────────────────────────────
 
 /**
+ * Strip JSX fragment/element wrappers from a string expression and collapse
+ * to plain text. E.g. `<><span>Title</span><span>Sub</span></>` → `"Title Sub"`.
+ */
+function stripJsxToText(expr: string): string {
+  return expr
+    .replace(/<\/?[A-Za-z][^>]*>/g, ' ')  // strip all HTML/JSX tags
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Try to evaluate a JS expression. If it contains JSX (angle brackets inside
+ * array literals), strip the JSX to plain text and re-attempt.
+ */
+function evalExpression(expr: string): unknown {
+  // Fast path: try direct evaluation (works for plain arrays/objects)
+  try {
+    // eslint-disable-next-line no-new-func
+    return new Function(`return (${expr})`)();
+  } catch {
+    // If expression contains JSX-like syntax, strip tags and retry
+    if (/<[A-Za-z>]/.test(expr)) {
+      try {
+        const cleaned = expr.replace(/<>([^<]*(?:<[^/][^>]*>[^<]*)*)<\/>/g, (_, inner) => {
+          return `'${stripJsxToText(inner).replace(/'/g, "\\'")}'`;
+        }).replace(/<([A-Za-z]\w*)[^>]*>([^<]*)<\/\1>/g, (_, _tag, text) => {
+          return `'${text.trim().replace(/'/g, "\\'")}'`;
+        });
+        // eslint-disable-next-line no-new-func
+        return new Function(`return (${cleaned})`)();
+      } catch {
+        // still failed
+      }
+    }
+    return expr;
+  }
+}
+
+/**
  * Parse a JSX-style props string into a Record.
  * Handles: prop="string", prop='string', prop={expression}, prop={true/false}
  * For expressions (arrays, objects), attempts JSON.parse with light normalisation.
@@ -398,16 +437,8 @@ function parseProps(propsStr: string): Record<string, unknown> {
       } else if (/^-?\d+(\.\d+)?$/.test(expr)) {
         result[name] = Number(expr);
       } else {
-        // Use Function() to evaluate JS expressions safely — handles single-quoted
-        // arrays/objects, nested structures, and text with apostrophes without the
-        // fragile quote-replacement that breaks values containing ' or :.
-        try {
-          // eslint-disable-next-line no-new-func
-          result[name] = new Function(`return (${expr})`)();
-        } catch {
-          // Fall back: store as raw string if expression can't be evaluated
-          result[name] = expr;
-        }
+        // Use evalExpression to handle JS expressions including JSX fragments
+        result[name] = evalExpression(expr);
       }
     } else {
       // Unquoted value — read until whitespace

@@ -80,10 +80,13 @@ const accentStyles: Record<
 
 export function PrismTable({
   headers,
-  rows,
+  rows: rawRows,
   caption,
   accent = 'purple',
 }: PrismTableProps) {
+  // Guard: if rows isn't an array (e.g. arrived as a raw string from ContentRenderer),
+  // fall back to an empty array so we don't crash on .map()
+  const rows: [CellContent, CellContent][] = Array.isArray(rawRows) ? rawRows : [];
   const a = accentStyles[accent];
 
   return (

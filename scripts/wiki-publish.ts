@@ -787,7 +787,7 @@ async function main() {
     const registryPublishDate = String(row.publish_date ?? new Date().toISOString().split('T')[0]);
 
     // Find the closing bracket of the contentRegistry array
-    const insertBefore = '// =============================================================================\n// HELPER FUNCTIONS';
+    const insertBefore = '// =============================================================================\n// SYNC HELPER FUNCTIONS';
     const newEntry = `
   // --- Auto-added by wiki:publish ${new Date().toISOString().split('T')[0]} ---
   {
@@ -811,7 +811,7 @@ async function main() {
       console.log(c.green('     ✅ Entry added to content-registry.ts'));
     } else {
       // Fallback: insert before the last ]; in the array
-      const updated = registrySource.replace(/\];\s*\n\/\/ =+\n\/\/ HELPER/, `${newEntry}];\n// =============================================================================\n// HELPER`);
+      const updated = registrySource.replace(/\];\s*\n\/\/ =+\n\/\/ SYNC HELPER/, `${newEntry}];\n// =============================================================================\n// HELPER`);
       fs.writeFileSync(registryPath, updated, 'utf-8');
       console.log(c.green('     ✅ Entry added to content-registry.ts (fallback insertion)'));
     }

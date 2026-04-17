@@ -702,7 +702,8 @@ async function main() {
 
   row.slug = slug;
   // Always ensure url is set — fallback to route derived from file path
-  if (!row.url) row.url = route;
+  // (jack_articles uses article_url instead of url)
+  if (table !== 'jack_articles' && !row.url) row.url = route;
   console.log(`  Title     : ${c.bold(String(row.title || '(empty — check metadata)'))}`);
 
   // ── Step 3: Validate thumbnail ────────────────────────────────────────────

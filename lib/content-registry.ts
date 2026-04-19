@@ -35,7 +35,40 @@ export interface ContentEntry {
 }
 
 // Empty array — sync fallback only. All data is in Supabase.
-export const contentRegistry: ContentEntry[] = [];
+export const contentRegistry: ContentEntry[] = [
+  // --- Auto-added by wiki:publish 2026-04-18 ---
+  {
+    slug: "/video-games/forza-horizon-6/news/pre-launch-511k-steam-presales-alinea-analytics-2026",
+    title: "Forza Horizon 6 | 511K Steam Pre-Sales, $30M Revenue Before Launch",
+    description: "Alinea Analytics data from April 15 projects a 2-million-unit day-one on Steam, a franchise record driven by the Japan setting, a viral gameplay reveal, and a solo-friendly achievement list.",
+    publishDate: "April 18, 2026",
+    modifiedDate: "2026-04-18",
+    category: "Gaming",
+    tags: ["Forza Horizon 6 Steam pre-sales","Forza Horizon 6 511000 pre-orders","Forza Horizon 6 $30 million revenue","Alinea Analytics Forza Horizon 6","Forza Horizon 6 2 million day one"],
+    author: "Jack Sterling",
+    priority: 0.7,
+    changeFrequency: "weekly",
+    imageUrl: "https://www.objectwire.org/entertainment/forza_horizon_6.PNG",
+    imageWidth: 1200,
+    imageHeight: 675,
+  },
+  // --- Auto-added by wiki:publish 2026-04-19 ---
+  {
+    slug: "/youtube/sidemen/charity-match-results-2026",
+    title: "Sidemen Charity Match 2026 | 10-10 Draw, YouTube Allstars Win Penalty Shootout, £6,218,875 Raised",
+    description: "A sold-out Wembley Stadium witnessed 20 goals, the most in the event's history, before YouTube Allstars won 4-1 on penalties to claim back-to-back victories. Jynxzi was Man of the Match. Miniminter scored a hat-trick.",
+    publishDate: "April 19, 2026",
+    modifiedDate: "2026-04-19",
+    category: "Entertainment",
+    tags: ["Sidemen Charity Match 2026 results","Sidemen Charity Match score","YouTube Allstars vs Sidemen FC 2026","Sidemen Charity Match Wembley 2026","Jynxzi Man of the Match"],
+    author: "ObjectWire Entertainment Desk",
+    priority: 0.7,
+    changeFrequency: "weekly",
+    imageUrl: "https://www.objectwire.org/influncer/sdmn_charitymatch_26.webp",
+    imageWidth: 1200,
+    imageHeight: 675,
+  },
+];
 
 // =============================================================================
 // SYNC HELPER FUNCTIONS (used as fallbacks by registry-service.ts)

@@ -4,7 +4,7 @@ import { ArticlePage } from '@/components/articles/ArticlePage';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 const SLUG = 'redbull';
-const PAGE_URL = 'https://www.objectwire.org/redbull';
+const ARTICLE_URL = 'https://www.objectwire.org/redbull';
 const IMAGE_URL = 'https://images.unsplash.com/photo-1613218222876-954978a4404e?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const dynamic = 'force-dynamic';
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'Krating Daeng',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     type: 'article',
     title: 'Red Bull GmbH',
     description: 'Full company profile of Red Bull GmbH. Energy drinks, F1 teams, football clubs, extreme sports empire, and corporate structure.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Red Bull energy drink can' }],
     publishedTime: '2026-02-21T15:00:00Z',

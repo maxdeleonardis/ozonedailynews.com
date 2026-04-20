@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/new/windrose/release-date-holdoff';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     'Windrose Steam release',
     'indie game release strategy',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
     description:
       'Despite crossing 1M wishlists and going viral at Steam Next Fest, Windrose Crew says they won\'t announce a date until the build is ready.',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',

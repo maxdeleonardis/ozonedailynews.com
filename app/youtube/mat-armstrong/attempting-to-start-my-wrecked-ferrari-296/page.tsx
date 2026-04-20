@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/youtube/mat-armstrong/attempting-to-start-my-wrecked-ferrari-296';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/mat-armstrong-ferrari-296-gtb.jpg';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'Mat Armstrong Ferrari email',
     'Ferrari 296 GTB repair',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Mat Armstrong | Attempting to Start My Wrecked Ferrari 296',
     description:
       'Mat Armstrong rebuilt a crash-damaged Ferrari 296 GTB using a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to touch it, so he',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire YouTube Desk'],
     publishedTime: '2026-03-31T14:00:00Z',

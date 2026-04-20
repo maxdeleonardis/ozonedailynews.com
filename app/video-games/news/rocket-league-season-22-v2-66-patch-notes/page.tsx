@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/rocket-league-season-22-v2-66-patch-notes';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rocket League Season 22 Patch Notes | v2.66, Rocket Pass, LTE Changes',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'Rocket League preset slots',
     'Rocket League News Panel redesign',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Rocket League Season 22 | New Rocket Pass, Concurrent LTEs, Training QoL',
     description:
       'v2.66 launches Season 22 with a new Rocket Pass, concurrent Limited Time Events, expanded preset slots, flip-reset indicators, and boost-pad recharge',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-03-31T15:00:00Z',

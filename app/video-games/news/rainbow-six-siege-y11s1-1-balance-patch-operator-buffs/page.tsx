@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/rainbow-six-siege-y11s1-1-balance-patch-operator-buffs';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Y11S1.1 Patch | Flores, Jäger, Rook, Nøkk Buffs',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'Siege POF-9 buff Sens',
     'R6 Siege operator buffs March 2026',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Siege Y11S1.1 | Mid-Season Operator Buffs and Weapon Tuning',
     description:
       'Y11S1.1 buffs eight operators and two weapons, fixes Wamai Mag-NET and Solid Snake radar bugs, and tightens the entry-fragging meta Ubisoft set in Silent',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-03-31T14:30:00Z',

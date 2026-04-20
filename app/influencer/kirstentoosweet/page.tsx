@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = 'influencer/kirstentoosweet';
-const PAGE_URL = 'https://www.objectwire.org/influencer/kirstentoosweet';
+const ARTICLE_URL = 'https://www.objectwire.org/influencer/kirstentoosweet';
 const IMAGE_URL = '/influncer/kristentoosweet.png';
 
 export const metadata: Metadata = {
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     'beauty content creator',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Kirsten Toosweet | TikTok Creator & Lifestyle Influencer',
     description:
       'Profile of Kirsten Toosweet, TikTok lifestyle creator with 2.5M+ followers. Comedy, beauty, and day-in-the-life content across all major platforms.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

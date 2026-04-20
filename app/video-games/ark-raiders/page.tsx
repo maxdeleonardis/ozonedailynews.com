@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = 'video-games-ark-raiders';
-const PAGE_URL = 'https://www.objectwire.org/video-games/ark-raiders';
+const ARTICLE_URL = 'https://www.objectwire.org/video-games/ark-raiders';
 const IMAGE_URL =
   'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     'best free to play shooters 2026',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     type: 'article',
     title: 'ARK Raiders | Nexon Co-op Extraction Shooter',
     description:
       'Full profile of ARK Raiders, the free-to-play co-op extraction shooter from Nexon. Gameplay, lore, platforms, developer background, and release timeline.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [
       {

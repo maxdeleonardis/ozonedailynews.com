@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = 'meta';
-const PAGE_URL = 'https://www.objectwire.org/meta';
+const ARTICLE_URL = 'https://www.objectwire.org/meta';
 const IMAGE_URL =
   'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     'Meta company headquarters Menlo Park',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     type: 'article',
     title: 'Meta Platforms | Facebook, Instagram, WhatsApp & AI',
     description:
       'Full company profile of Meta Platforms Inc. Facebook, Instagram, WhatsApp, Threads, Reality Labs, AI infrastructure, and legal controversies.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Meta Platforms headquarters, Menlo Park, California' }],
     publishedTime: '2026-03-31T00:00:00Z',

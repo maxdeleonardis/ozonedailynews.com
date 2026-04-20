@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = 'valve-steam-machine-steam-frame-compatibility-gdc-2026';
-const CANONICAL = `https://www.objectwire.org/events/gdc-2026/${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org/events/gdc-2026/${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Valve at GDC 2026: Steam Machine & Steam Frame Compatibility Standards Revealed',
     description: 'Valve confirmed 2026 hardware targets, published Verified requirements, and blamed RAM shortages for delays at a GDC session attended by 450 developers.',
   },
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
 };
 
 export default function ValveGDC2026Article() {

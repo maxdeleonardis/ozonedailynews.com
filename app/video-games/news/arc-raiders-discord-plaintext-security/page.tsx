@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/arc-raiders-discord-plaintext-security';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Arc Raiders Logged Discord DMs and Tokens in Plaintext â€” Embark Says Hotfix Coming',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'Timothy Meadows Arc Raiders',
     'Arc Raiders privacy',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Arc Raiders Logged Discord DMs and Tokens in Plaintext',
     description:
       'Embark Studios\' extraction shooter was writing private Discord messages and auth tokens to unencrypted local files. Emergency hotfix announced.',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',

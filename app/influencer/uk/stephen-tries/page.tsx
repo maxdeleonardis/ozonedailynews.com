@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/uk/stephen-tries';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/influncer/uk/stephen_tries.png';
 
 export const metadata: Metadata = {
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     'Stephen Tries How To series',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Stephen Tries | Age, YouTube, Instagram & Bio 2026',
     description:
       'Full profile of Stephen Tries (real name: Stephen Lawson), Norwich comedian, 30 in 2026. YouTube: 1.6M subscribers. Known for "How To Be Stormzy" and UK',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

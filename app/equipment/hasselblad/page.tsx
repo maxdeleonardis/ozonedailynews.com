@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/equipment/hasselblad';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-camera-placeholder.jpg';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'Hasselblad Natural Color Solution',
     'modular digital back camera',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Modular Camera',
     description:
       'The Hasselblad 907X and CFV 100C combine a 100MP BSI sensor, 15 stops of dynamic range, 1TB built-in SSD, and V-system compatibility into a compact',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Tech Desk'],
     publishedTime: '2026-03-31T14:00:00Z',

@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/tren-twins';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/influncer/tren_twins_wiki.PNG';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'fitness influencers',
     'Tren Twins TikTok',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers & YoungLA Athletes',
     description:
       'Profile of the Tren Twins: viral fitness influencers, YoungLA brand athletes, and one of the most talked-about duos in gym culture.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

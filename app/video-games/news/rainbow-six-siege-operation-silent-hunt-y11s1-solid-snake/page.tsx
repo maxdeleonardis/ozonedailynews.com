@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/rainbow-six-siege-operation-silent-hunt-y11s1-solid-snake';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Operation Silent Hunt | Solid Snake, 1v1 Arcade, Dual Front Exit',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'Ubisoft Siege Y11S1',
     'Siege Soliton Radar',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'R6 Siege Operation Silent Hunt | Solid Snake Joins as Attacker',
     description:
       'Y11S1 adds Solid Snake with the TACIT .45 and Soliton Radar Mk. III, modernizes three maps, launches a 1v1 Arcade playlist, and begins phasing out Dual',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-03-31T14:00:00Z',

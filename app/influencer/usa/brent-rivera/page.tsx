@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/usa/brent-rivera';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/influncer/usa/brentrivera.png';
 
 export const metadata: Metadata = {
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     'Brent Rivera Huntington Beach',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Brent Rivera | Age, YouTube, Instagram & Bio 2026',
     description:
       'Full profile of Brent Rivera, Huntington Beach YouTuber and Amp Studios CEO, 28 in 2026. YouTube: 41M subscribers. Formerly MrBrent98. Film: Alexander',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

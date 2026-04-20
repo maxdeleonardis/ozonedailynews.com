@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/apple/copyright/ninth-circuit-denies-apple-rehearing-epic-games-2026';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://kzcwclprrtonpsnownbl.supabase.co/storage/v1/object/public/thumbnails/apple-ninth-circuit-epic-games-2026.jpg';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'App Store competition law',
     'Apple developer payment rules 2026',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Ninth Circuit Unanimously Denies Apple Rehearing in Epic Games Case',
     description:
       'Apple loses its final appellate lifeline. The Ninth Circuit panel and full court both declined to revisit a December ruling that found Apple willfully',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Legal Desk'],
     publishedTime: '2026-03-31T14:00:00Z',

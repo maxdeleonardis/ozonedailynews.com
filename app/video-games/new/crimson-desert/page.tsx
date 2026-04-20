@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/crimson-desert';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Crimson Desert Hits 3 Million Wishlists Before March 19 Launch',
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'Pearl Abyss Black Desert',
     'Crimson Desert map size Skyrim',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Crimson Desert Hits 3M Wishlists â€” Pearl Abyss RPG Rivals Elden Ring Pre-Launch Hype',
     description:
       '3 million wishlists across PC, PS5, Xbox, and Mac. A map twice Skyrim\'s size. Pearl Abyss pivots from MMO to single-player action RPG ahead of March 19',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/slay-the-spire-2';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Slay the Spire 2 Shatters Records and Briefly "Slays" Steam â€” 430K Peak Players',
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'Slay the Spire 2 review',
     'indie game record 2026',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Slay the Spire 2 Shatters Records â€” 430K Peak, Steam Cart Crash, 97% Positive Reviews',
     description:
       'Mega Crit\'s sequel hit 430,456 concurrent players within 24 hours, crashed the Steam store for 30 minutes, and set the all-time roguelike concurrent',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',

@@ -6,8 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/capcom';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
-const ARTICLE_URL = PAGE_URL;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -33,12 +32,12 @@ export const metadata: Metadata = {
     'Capcom Store Taipei',
     'Dino Crisis remake 2026',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     type: 'article',
     title: 'Capcom | Golden Era, RE Engine & 2026 Company Profile',
     description: 'Eleven straight years of record profit. RE Engine. Resident Evil Requiem at 6M units. Monster Hunter Wilds. Full Capcom profile for 2026.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Capcom 2026 golden era company profile' }],
     publishedTime: '2026-04-21T18:00:00Z',

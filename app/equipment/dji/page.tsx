@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/equipment/dji';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-drone-gimbal-placeholder.jpg';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'DJI DL mount',
     'modular cinema camera system',
   ],
-  alternates: { canonical: CANONICAL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'DJI Ronin 4D | Modular Full-Frame Cinema Camera System',
     description:
       'The DJI Ronin 4D integrates a full-frame sensor, 4-axis gimbal, LiDAR focus, and O3 Pro wireless transmission into one modular cinema platform. Available',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Tech Desk'],
     publishedTime: '2026-03-31T14:00:00Z',

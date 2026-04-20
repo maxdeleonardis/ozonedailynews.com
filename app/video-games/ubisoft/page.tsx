@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     'Rainbow Six Mobile',
     'Ghost Recon OVR',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     type: 'article',
     title: 'Ubisoft | Company Profile, Creative Houses & 2026 Reset',
     description: 'Full profile of Ubisoft: five Creative Houses, Tencent\'s €1.16B investment, AC Shadows launch, 2026 game roadmap, and the organizational reset reshaping the French gaming giant.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
-    images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Ubisoft French gaming company 2026 profile' }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Ubisoft French gaming company 2026 profile' }],
     publishedTime: '2026-04-21T16:00:00Z',
     section: 'Gaming',
     tags: ['Ubisoft', 'Assassin\'s Creed', 'Gaming', 'France'],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ubisoft | Creative Houses, 2026 Reset & Game Roadmap',
     description: 'Five Creative Houses, Tencent backing, and a leaner org. Full Ubisoft profile for 2026.',
-    images: [IMAGE_URL],
+    images: [OG_IMAGE],
   },
 };
 

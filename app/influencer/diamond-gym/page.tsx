@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/diamond-gym';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/influncer/Diamond Gym.PNG';
 
 export const metadata: Metadata = {
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'elite gym New Jersey',
     'influencer training gym',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness Influencers Train',
     description:
       'Diamond Gym in Maplewood, NJ: the private gym where Logan Paul, the Tren Twins, and a wave of fitness influencers have trained. Full profile on ObjectWire.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

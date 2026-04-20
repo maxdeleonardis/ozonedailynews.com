@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/entertainment/netflix';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Netflix | Streaming Platform Profile, Subscribers, Shows 2026',
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     'Netflix profile',
     'streaming platform',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Netflix | 260M+ Subscribers, Global Streaming Leader',
     description: 'Netflix streaming platform profile with subscriber stats, original content, and market leadership information.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
   },
   twitter: {

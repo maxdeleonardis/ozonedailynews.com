@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/game-of-the-year-2026-Clair-Obscur';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     'Blueprint scripting vs C++ Unreal Engine',
   ],
   alternates: {
-    canonical: CANONICAL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Clair Obscur Was Built by 4 Programmers | And Just Became the Most Awarded Game Ever',
     description:
       '95% Blueprint, 4 programmers, under $10M budget. Sandfall Interactive\'s GDC 2026 talk revealed how Clair Obscur: Expedition 33 beat Elden Ring\'s',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     publishedTime: '2026-03-17T18:00:00Z',
     modifiedTime: '2026-03-17T18:00:00Z',

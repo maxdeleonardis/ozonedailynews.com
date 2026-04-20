@@ -4,7 +4,7 @@ import { ArticlePage } from '@/components/articles/ArticlePage';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 const SLUG = 'apple';
-const PAGE_URL = 'https://www.objectwire.org/apple';
+const ARTICLE_URL = 'https://www.objectwire.org/apple';
 const IMAGE_URL = 'https://images.unsplash.com/photo-1591292784843-aa35ebb7897b?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const dynamic = 'force-dynamic';
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'Apple Intelligence',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     type: 'article',
     title: 'Apple Inc.',
     description: 'Full company profile of Apple Inc., the world\'s most valuable technology company. Products, leadership, financials, and latest developments.',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Apple Park headquarters in Cupertino, California' }],
     publishedTime: '2026-01-30T15:00:00Z',

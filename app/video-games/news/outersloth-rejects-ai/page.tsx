@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/outersloth-rejects-ai';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     'GDC Festival of Gaming 2026 indie session',
   ],
   alternates: {
-    canonical: CANONICAL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Outersloth Rejects 100% of Generative AI Pitches at GDC 2026',
     description:
       '"I really like a game that has soul. I don\'t know how to graph that... but we know it when we see it." Outersloth has rejected every single GenAI pitch',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     publishedTime: '2026-03-12T00:00:00Z',
     modifiedTime: '2026-03-12T00:00:00Z',

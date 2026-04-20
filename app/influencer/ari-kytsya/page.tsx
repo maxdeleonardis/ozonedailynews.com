@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/ari-kytsya';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/influncer/ariK.jpg';
 
 export const metadata: Metadata = {
@@ -34,21 +34,21 @@ export const metadata: Metadata = {
     'fashion creator biography',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Ari Kytsya | Age, TikTok, Instagram & Bio 2026',
     description:
       'Full profile of Ari Kytsya, Seattle-based fashion model and creator, 24-25 in 2026. TikTok: @notburnttoasthehe (5M), Instagram: @arikytsya (3M). Career,',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',
     tags: ['Ari Kytsya', 'Influencer', 'Seattle', 'Model', 'TikTok', 'Yung Gravy'],
     publishedTime: '2026-04-02T12:00:00Z',
     modifiedTime: '2026-04-02T12:00:00Z',
-    images: [{ url: PAGE_URL.replace(SLUG, IMAGE_URL), width: 1200, height: 675, alt: 'Ari Kytsya, Seattle model and creator' }],
+    images: [{ url: ARTICLE_URL.replace(SLUG, IMAGE_URL), width: 1200, height: 675, alt: 'Ari Kytsya, Seattle model and creator' }],
   },
   twitter: {
     card: 'summary_large_image',

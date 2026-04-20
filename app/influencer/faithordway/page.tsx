@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = 'influencer/faithordway';
-const PAGE_URL = 'https://www.objectwire.org/influencer/faithordway';
+const ARTICLE_URL = 'https://www.objectwire.org/influencer/faithordway';
 const IMAGE_URL = '/influncer/faithordway.png';
 
 export const metadata: Metadata = {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'Faith Ordway music',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Faith Ordway | TikTok Star, Fitness Creator & Model',
     description:
       'Profile of Faith Ordway, Ohio-born TikTok star with 5M+ followers and 243M+ likes. Dance content, fitness, YoungLA ambassador, and music career.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/nintendo/pokemon-pokopia-2-million-copies-4-days-switch-2';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'best selling Pokémon spin-off history',
   ],
   alternates: {
-    canonical: CANONICAL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Pokémon Pokopia: 2.2M Sold in 4 Days | Nintendo Stock Up 15%',
     description:
       'The Pokémon Company confirms 2.2 million units sold in four days. Japan accounted for nearly 1 million copies. Physical stock sold out at Amazon, Currys,',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     publishedTime: '2026-03-12T10:00:00Z',
     modifiedTime: '2026-03-12T10:00:00Z',

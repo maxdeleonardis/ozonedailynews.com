@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes';
-const CANONICAL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'Marathon Rook backpack bug fix',
   ],
   alternates: {
-    canonical: CANONICAL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Marathon Update 1.0.0.4: UESC Nerfed, Thermal Nerfed, Perimeter Buffed',
     description:
       'Bungie\'s first major balance pass for Marathon (2026) reduces UESC health by 10–15%, slashes boss shield HP by 25%, and caps thermal scope tracking at',
     type: 'article',
-    url: CANONICAL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     publishedTime: '2026-03-12T10:00:00Z',
     modifiedTime: '2026-03-12T10:00:00Z',

@@ -4,7 +4,7 @@ import { ArticlePage, InfoBox } from '@/components/articles/ArticlePage';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 
 const SLUG = 'hulu-streaming-wiki';
-const PAGE_URL = 'https://www.objectwire.org/entertainment/hulu';
+const ARTICLE_URL = 'https://www.objectwire.org/entertainment/hulu';
 const IMAGE_URL = 'https://www.objectwire.org/entertainment/hulu.PNG';
 
 export const metadata: Metadata = {
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     'Hulu price',
     'Hulu wiki',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Hulu | Streaming Platform Wiki, Subscribers, Plans 2026',
     description:
       'Complete wiki profile of Hulu: history, ownership, subscriber stats, Originals, live TV bundle, and competitive position in the streaming wars.',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: IMAGE_URL, width: 1200, height: 675, alt: 'Hulu streaming service' }],
   },

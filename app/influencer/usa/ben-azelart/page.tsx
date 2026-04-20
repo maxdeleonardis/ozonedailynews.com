@@ -6,7 +6,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/usa/ben-azelart';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/influncer/usa/ben_azelart.png';
 
 export const metadata: Metadata = {
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     'Ben Azelart Hawaii',
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: ARTICLE_URL,
   },
   openGraph: {
     title: 'Ben Azelart | Age, YouTube, Instagram & Bio 2026',
     description:
       'Full profile of Ben Azelart, Dallas-born challenger and skateboarder, 24 in 2026. YouTube: 49M subscribers. TikTok: 15M fans. Engaged to Hannah Thomas,',
     type: 'article',
-    url: PAGE_URL,
+    url: ARTICLE_URL,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Influencer Desk'],
     section: 'Influencer',

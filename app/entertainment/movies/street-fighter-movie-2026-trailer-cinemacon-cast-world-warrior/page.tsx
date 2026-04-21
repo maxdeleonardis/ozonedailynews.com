@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1547149617-609fafa00a6b?w=12
 
 export const metadata: Metadata = {
   title: 'Street Fighter Movie 2026 | Full Trailer, Cast, Release Date',
-  description: 'The Street Fighter live-action reboot debuted its first full trailer at CinemaCon on April 16, 2026. October 16 release, directed by Kitao Sakurai, starring Andrew Koji, Noah Centineo, and Cody Rhodes.',
+  description: "The Street Fighter live-action reboot debuted its first full trailer at CinemaCon on April 16, 2026. October 16 release, directed by Kitao Sakurai, starring Andrew Koji, Noah Centineo, and Cody Rhodes.",
   keywords: [
     'Street Fighter movie 2026',
     'Street Fighter live action reboot',

@@ -1,13 +1,10 @@
 // =============================================================================
 // ArticleViewTracker
 //
-// Tiny "fire-once" client component.  Drop it inside any article page and it
-// automatically records the view for the logged-in user.
-//
-// Usage:
-//   import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
-//   ...
-//   <ArticleViewTracker slug="my-article" title="My Article" url="/news/my-article" />
+// Drop inside any article page. Records the view in two places:
+//   1. localStorage (`ow_reading_history`) — for ALL users, anonymous or
+//      signed in. Powers the on-device RelatedArticles ranking algorithm.
+//   2. Supabase via /api/history/track — only for signed-in users.
 // =============================================================================
 
 'use client';
@@ -21,18 +18,50 @@ interface Props {
   url:       string;
   image?:    string;
   category?: string;
+  tags?:     string[];
 }
 
-export default function ArticleViewTracker({ slug, title, url, image, category }: Props) {
+const HISTORY_KEY = 'ow_reading_history';
+const MAX_HISTORY = 30;
+
+interface LocalHistoryEntry {
+  slug:      string;
+  title:     string;
+  url:       string;
+  image?:    string;
+  category?: string;
+  tags?:     string[];
+  ts:        number;
+}
+
+function recordLocal(entry: LocalHistoryEntry) {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    const list: LocalHistoryEntry[] = raw ? JSON.parse(raw) : [];
+    const filtered = list.filter((e) => e.slug !== entry.slug);
+    const next = [entry, ...filtered].slice(0, MAX_HISTORY);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
+  } catch {
+    /* private mode / quota — fail silently */
+  }
+}
+
+export default function ArticleViewTracker({ slug, title, url, image, category, tags }: Props) {
   const { track, isLoggedIn } = useArticleHistory();
   const tracked = useRef(false);
 
   useEffect(() => {
-    if (!isLoggedIn || tracked.current) return;
+    if (tracked.current) return;
     tracked.current = true;
-    track({ slug, title, url, image, category });
-  }, [isLoggedIn, track, slug, title, url, image, category]);
 
-  // Invisible — renders nothing
+    // Local record powers RelatedArticles for everyone
+    recordLocal({ slug, title, url, image, category, tags, ts: Date.now() });
+
+    // Server mirror only when signed in
+    if (isLoggedIn) {
+      track({ slug, title, url, image, category });
+    }
+  }, [isLoggedIn, track, slug, title, url, image, category, tags]);
+
   return null;
 }

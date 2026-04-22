@@ -37,7 +37,9 @@
     scroll-behavior: smooth;
     background: #faf9f6;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
+    /* `clip` (not `hidden`) so descendants can use position: sticky.
+       `hidden` would make <html> a scroll container and break sticky. */
+    overflow-x: clip;
   }
 
   html.dark {
@@ -53,7 +55,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-y: scroll;
-    overflow-x: hidden;
+    /* See html note above — `clip` preserves position: sticky in children. */
+    overflow-x: clip;
   }
 
   .dark body {

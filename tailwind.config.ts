@@ -10,7 +10,7 @@ const config: Config & { safelist?: any[] } = {
     extend: {
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        serif: ['Georgia', 'Garamond', 'serif'],
+        serif: ['var(--font-source-serif)', 'Georgia', 'Garamond', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {

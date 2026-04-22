@@ -4,6 +4,7 @@ import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 import RelatedArticles from '@/components/discovery/RelatedArticles';
 import ArticleFooter from '@/components/articles/ArticleFooter';
 import { HubBacklink } from '@/components/HubBacklink';
+import ArticleTOC from '@/components/articles/ArticleTOC';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -193,45 +194,48 @@ export function NewsHeader({
           ) : null}
 
           {/* Header text — below image, on white background */}
-          <div className="container mx-auto max-w-4xl px-4 sm:px-6 pt-5 pb-4">
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-3">
+          <div className="container mx-auto max-w-4xl px-4 sm:px-6 pt-6 pb-4">
+            {/* Italic serif kicker (category) + status badges */}
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <span className="font-serif italic text-sm text-gray-600">
+                {category}
+              </span>
               {breaking && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-red-600 text-white animate-pulse">
-                  🔴 Breaking
+                <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-red-600 text-white">
+                  Breaking
                 </span>
               )}
               {exclusive && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-500 text-black">
-                  ⭐ Exclusive
+                <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-yellow-500 text-black">
+                  Exclusive
                 </span>
               )}
               {trending && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-pink-500 to-purple-500 text-white">
-                  🔥 Trending
+                <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-gray-900 text-white">
+                  Trending
                 </span>
               )}
-              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider ${categoryBadgeColors[categoryColor]} text-white`}>
-                {category}
-              </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-3">
+            <h1 className="font-serif font-bold tracking-tight leading-[1.05] text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-3">
               {title}
             </h1>
 
-            {/* Subtitle */}
+            {/* 60px black rule */}
+            <div className="w-16 h-1 bg-black mb-4" />
+
+            {/* Subtitle / dek */}
             {subtitle && (
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 max-w-3xl">
+              <p className="font-serif italic text-lg md:text-2xl text-gray-700 leading-relaxed mb-5 max-w-3xl">
                 {subtitle}
               </p>
             )}
 
-            {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 border-t border-gray-200 pt-3">
+            {/* Meta Info — hairline rules, uppercase tracked, no emojis */}
+            <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.15em] font-semibold text-gray-700 border-t border-b border-gray-300 py-3">
               {author && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 normal-case tracking-normal">
                   {author.avatar ? (
                     <img
                       src={author.avatar}
@@ -239,7 +243,7 @@ export function NewsHeader({
                       className="w-7 h-7 rounded-full border border-gray-200"
                     />
                   ) : (
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xs">
+                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 font-bold text-xs">
                       {author.name.charAt(0)}
                     </div>
                   )}
@@ -252,12 +256,12 @@ export function NewsHeader({
                   )}
                 </div>
               )}
-              <span className="text-gray-300">•</span>
-              <time dateTime={publishDate}>{publishDate}</time>
+              {author && <span className="text-gray-300">|</span>}
+              <time dateTime={publishDate} className="tabular-nums">{publishDate}</time>
               {readTime && (
                 <>
-                  <span className="text-gray-300">•</span>
-                  <span>📖 {readTime}</span>
+                  <span className="text-gray-300">|</span>
+                  <span className="tabular-nums">{readTime}</span>
                 </>
               )}
             </div>
@@ -276,44 +280,47 @@ export function NewsHeader({
 
               {/* Left column — all text content (fills remaining space) */}
               <div className="flex-1 min-w-0">
-                {/* Badges */}
-                <div className="flex flex-wrap items-center gap-3 mb-4">
+                {/* Italic serif kicker (category) + status badges */}
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <span className="font-serif italic text-sm text-white/85">
+                    {category}
+                  </span>
                   {breaking && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur animate-pulse">
-                      🔴 Breaking
+                    <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-red-600 text-white">
+                      Breaking
                     </span>
                   )}
                   {exclusive && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-yellow-400 text-black">
-                      ⭐ Exclusive
+                    <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-yellow-400 text-black">
+                      Exclusive
                     </span>
                   )}
                   {trending && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-white/20 text-white backdrop-blur">
-                      🔥 Trending
+                    <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-white/25 text-white backdrop-blur">
+                      Trending
                     </span>
                   )}
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/30 text-white backdrop-blur">
-                    {category}
-                  </span>
                 </div>
 
                 {/* Title */}
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+                <h1 className="font-serif font-bold tracking-tight leading-[1.05] text-4xl md:text-5xl lg:text-6xl text-white mb-4">
                   {title}
                 </h1>
 
-                {/* Subtitle */}
+                {/* 60px white rule */}
+                <div className="w-16 h-1 bg-white/80 mb-5" />
+
+                {/* Subtitle / dek */}
                 {subtitle && (
-                  <p className="text-lg md:text-xl text-white/90 mb-6 max-w-3xl">
+                  <p className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-6 max-w-3xl">
                     {subtitle}
                   </p>
                 )}
 
-                {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
+                {/* Meta Info — hairline rules, uppercase tracked, no emojis */}
+                <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.15em] font-semibold text-white/85 border-t border-b border-white/30 py-3">
                   {author && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 normal-case tracking-normal">
                       {author.avatar ? (
                         <img
                           src={author.avatar}
@@ -334,12 +341,12 @@ export function NewsHeader({
                       )}
                     </div>
                   )}
-                  <span className="text-white/50">•</span>
-                  <time dateTime={publishDate}>{publishDate}</time>
+                  {author && <span className="text-white/40">|</span>}
+                  <time dateTime={publishDate} className="tabular-nums">{publishDate}</time>
                   {readTime && (
                     <>
-                      <span className="text-white/50">•</span>
-                      <span>📖 {readTime}</span>
+                      <span className="text-white/40">|</span>
+                      <span className="tabular-nums">{readTime}</span>
                     </>
                   )}
                 </div>
@@ -679,7 +686,7 @@ export function NewsArticle({
 }: NewsArticleProps) {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
-      {/* Record view in reading history for logged-in users */}
+      {/* Record view in reading history (localStorage for everyone, server for signed-in users) */}
       {slug && url && (
         <ArticleViewTracker
           slug={slug}
@@ -687,6 +694,7 @@ export function NewsArticle({
           url={url}
           image={heroImage?.src}
           category={category}
+          tags={tags}
         />
       )}
       {/* Header */}
@@ -705,48 +713,75 @@ export function NewsArticle({
         exclusive={exclusive}
       />
 
-      {/* Article Content — 80/20 grid: body left, related sidebar right */}
-      <div className="container mx-auto px-4 sm:px-6 py-8 md:py-12 max-w-6xl">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+      {/* Article Content — TOC pinned to far-left margin, body in center, Related on right.
+          Sticky TOC + Related stop at the bottom of the body (engagement footer
+          renders below this flex so both rails unstick before comments).
 
-          {/* Main body — 80% */}
-          <article className="w-full lg:w-4/5 min-w-0">
-            <div className="prose prose-lg prose-gray max-w-none 
-              prose-headings:font-black prose-headings:text-gray-900 dark:prose-headings:text-gray-100
-              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-purple-500 prose-h2:pl-4
-              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 dark:prose-p:text-gray-300
-              prose-a:text-purple-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline dark:prose-a:text-purple-400
-              prose-blockquote:border-l-4 prose-blockquote:border-purple-300 prose-blockquote:bg-purple-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic dark:prose-blockquote:bg-purple-950/40 dark:prose-blockquote:border-purple-600
-              prose-strong:text-gray-900 dark:prose-strong:text-gray-100
-              prose-img:rounded-xl prose-img:shadow-lg
-              prose-ul:space-y-2 prose-li:text-gray-700 dark:prose-li:text-gray-300
+          KEY: parent flex must NOT have items-start, and sticky asides must NOT
+          have self-start — those collapse the flex-item box to content height and
+          break position:sticky. The article body gets self-start instead so it
+          doesn't stretch. Both sidebars stretch to the full flex-row height and
+          sticky has room to scroll within that contained area. */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 md:py-12 max-w-7xl">
+        <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-10">
+
+          {/* Left rail — sticky table of contents (lg+ only, hidden on mobile).
+              No self-start here — flex stretch gives it the full column height
+              so sticky:top-6 can scroll within the body length.
+              Negative margin pulls it into the gutter without taking body width. */}
+          <aside className="hidden lg:block lg:w-44 xl:w-52 shrink-0 lg:-ml-16 xl:-ml-32">
+            <div className="lg:sticky lg:top-6">
+              <ArticleTOC />
+            </div>
+          </aside>
+
+          {/* Main body — flex-1, self-start so it doesn't stretch vertically */}
+          <article className="w-full lg:flex-1 min-w-0 self-start">
+            <div data-article-body="true" className="max-w-none font-serif text-gray-900 dark:text-gray-100
+              [&_p]:!font-serif [&_p]:!text-[18px] [&_p]:!leading-[1.75] [&_p]:!text-gray-800 [&_p]:!mb-6 lg:[&_p]:!text-justify lg:[&_p]:!hyphens-auto dark:[&_p]:!text-gray-200
+              [&>div>p:first-of-type]:!text-[20px] [&>div>p:first-of-type]:!font-medium
+              [&>div>p:first-of-type]:first-letter:float-left [&>div>p:first-of-type]:first-letter:text-[5.5rem] [&>div>p:first-of-type]:first-letter:font-bold [&>div>p:first-of-type]:first-letter:mr-3 [&>div>p:first-of-type]:first-letter:mt-2 [&>div>p:first-of-type]:first-letter:leading-[0.85] [&>div>p:first-of-type]:first-letter:font-serif
+              [&_h1,&_h2,&_h3,&_h4]:!font-serif [&_h1,&_h2,&_h3,&_h4]:!font-bold [&_h1,&_h2,&_h3,&_h4]:!tracking-tight [&_h1,&_h2,&_h3,&_h4]:!text-gray-900 dark:[&_h1,&_h2,&_h3,&_h4]:!text-gray-100
+              [&_h2]:!text-[1.875rem] [&_h2]:!leading-[1.2] [&_h2]:!mt-12 [&_h2]:!mb-4 [&_h2]:!border-0 [&_h2]:!pl-0 [&_h2]:!pt-0
+              [&_h3]:!text-[1.375rem] [&_h3]:!mt-8 [&_h3]:!mb-3
+              [&_a]:!text-gray-900 [&_a]:!underline [&_a]:!underline-offset-[3px] [&_a]:!decoration-1 [&_a]:!font-medium hover:[&_a]:!decoration-2 dark:[&_a]:!text-gray-100
+              [&_blockquote]:!not-italic [&_blockquote]:!border-l-0 [&_blockquote]:!border-y [&_blockquote]:!border-gray-400 [&_blockquote]:!bg-transparent [&_blockquote]:!rounded-none [&_blockquote]:!py-6 [&_blockquote]:!px-0 [&_blockquote]:!my-10 [&_blockquote]:!text-2xl [&_blockquote]:!font-serif [&_blockquote]:!italic [&_blockquote]:!text-center [&_blockquote]:!text-gray-800 [&_blockquote]:!leading-snug dark:[&_blockquote]:!text-gray-200 dark:[&_blockquote]:!border-gray-600
+              [&_strong]:!text-gray-900 [&_strong]:!font-semibold dark:[&_strong]:!text-gray-100
+              [&_img]:!rounded-xl [&_img]:!shadow-lg [&_img]:!my-8
+              [&_ul]:!font-serif [&_ul]:!text-[18px] [&_ul]:!leading-[1.75] [&_li]:!text-gray-800 dark:[&_li]:!text-gray-200 [&_li]:!my-2
+              [&_hr]:!border-gray-300 [&_hr]:!my-12
             ">
               {children}
             </div>
-
-            {/* Engagement stack — Tags, ReactionBar, Comments, Author, Newsletter */}
-            <ArticleFooter
-              slug={slug ?? ''}
-              title={title}
-              url={url}
-              image={heroImage?.src}
-              category={category}
-              tags={tags}
-              author={author}
-            />
           </article>
 
-          {/* Related Articles sidebar — 20%, stacks below on mobile */}
-          <aside className="w-full lg:w-1/5 lg:sticky lg:top-6 shrink-0">
-            <HubBacklink category={category} topicTag={topicTag} />
-            <RelatedArticles
-              currentSlug={slug ?? ''}
-              category={category}
-              tags={tags}
-            />
+          {/* Right rail — sticky Related Articles + Hub backlink.
+              No self-start — same stretch trick as the left rail. */}
+          <aside className="w-full lg:w-1/5 shrink-0">
+            <div className="lg:sticky lg:top-6">
+              <HubBacklink category={category} topicTag={topicTag} />
+              <RelatedArticles
+                currentSlug={slug ?? ''}
+                category={category}
+                tags={tags}
+              />
+            </div>
           </aside>
 
+        </div>
+
+        {/* Engagement stack — Tags, ReactionBar, Comments, Author, Newsletter.
+            Rendered OUTSIDE the sticky flex so both rails unstick before comments. */}
+        <div className="mt-12">
+          <ArticleFooter
+            slug={slug ?? ''}
+            title={title}
+            url={url}
+            image={heroImage?.src}
+            category={category}
+            tags={tags}
+            author={author}
+          />
         </div>
       </div>
 

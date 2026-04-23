@@ -51,6 +51,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://www.objectwire.org/entertainment/forza_horizon_6.PNG",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Forza Horizon 6 Japan setting steam pre-sales 511K Alinea Analytics 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -67,6 +68,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://www.objectwire.org/influncer/sdmn_charitymatch_26.webp",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Sidemen Charity Match 2026 Wembley Stadium YouTube Allstars win penalty shootout",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -83,6 +85,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1678957949479-b1e876bee3f1?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Meta Broadcom MTIA chip partnership 2029 Hock Tan 2nm AI accelerator",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -99,6 +102,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Supernova Genesis 2026 influencer boxing Netflix Arena Ciudad de Mexico",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -115,6 +119,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Jack Ryan Ghost War trailer Prime Video John Krasinski May 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -131,6 +136,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Battlefield 6 2026 roadmap seasons 3 4 5 naval warfare Wake Island server browser",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
@@ -147,12 +153,13 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Unreal Engine 5.7 MegaLights PCG Nanite Voxels AI developer assistant 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
     slug: "/google/ai-coding-strike-team-antigravity-claude-code-2026",
     title: "Google AI Coding Strike Team | Antigravity vs Claude Code 2026",
-    description: "DeepMind mobilizes against Claude Code after Anthropic crosses $2.5B ARR",
+    description: "Google DeepMind mobilizes a dedicated AI coding strike team called Antigravity to compete directly against Claude Code after Anthropic crosses $2.5B ARR in April 2026.",
     publishDate: "April 21, 2026",
     modifiedDate: "2026-04-21",
     category: "Tech",
@@ -163,12 +170,13 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Google DeepMind Antigravity AI coding team vs Claude Code 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
     slug: "/tech/stripe/stripe-stablecoins-aws-for-money-payments-2026",
     title: "Stripe Stablecoins | AWS for Money Strategy, Bridge, Tempo 2026",
-    description: "The company's head of crypto go-to-market lays out the AWS for money vision at the RWA Summit in Cannes",
+    description: "Stripe's head of crypto go-to-market reveals the AWS for money strategy at the RWA Summit in Cannes, covering the Bridge acquisition, Tempo blockchain rails, and Stripe's plan to become the settlement layer for global stablecoin payments.",
     publishDate: "April 21, 2026",
     modifiedDate: "2026-04-21",
     category: "Tech",
@@ -179,12 +187,13 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Stripe stablecoins AWS for money strategy Bridge Tempo payments 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
     slug: "/tech/news/adobe-firefly-ai-assistant-canva-ai-2-agentic-design-2026",
     title: "Adobe Firefly AI Assistant vs Canva AI 2.0 | Agentic Design 2026",
-    description: "The two largest creative software platforms unveiled autonomous design systems within hours of each other in April 2026",
+    description: "Adobe Firefly AI Assistant and Canva AI 2.0 both launched autonomous agentic design systems within hours of each other in April 2026, marking the end of manual creative workflows for both platforms.",
     publishDate: "April 21, 2026",
     modifiedDate: "2026-04-21",
     category: "Tech",
@@ -195,12 +204,13 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Adobe Firefly AI Assistant vs Canva AI 2.0 agentic design tools 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
     slug: "/video-games/ubisoft",
     title: "Ubisoft | Company Profile, Creative Houses, 2026 Reset",
-    description: "French multinational video game company headquartered in Saint-Mandé, France",
+    description: "Ubisoft company profile: the French multinational behind Assassin's Creed, Far Cry, and Rainbow Six, its 2026 Creative Houses restructure, financial performance, and what the reset means for its upcoming game pipeline.",
     publishDate: "April 21, 2026",
     modifiedDate: "2026-04-21",
     category: "Gaming",
@@ -211,6 +221,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Ubisoft company profile Creative Houses restructure 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -227,6 +238,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Capcom company profile RE Engine golden era 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -243,6 +255,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Pragmata Capcom new IP 1 million units 48 hours Nintendo Switch 2 launch 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -259,6 +272,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Windrose pirate survival game 222K concurrent Steam players viral indie 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -275,6 +289,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://www.objectwire.org/entertainment/forza_horizon_6.PNG",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Forza Horizon 6 500K Steam pre-sales Alinea Analytics better than FH5 launch projection",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -291,6 +306,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1605901309584-818e25452571?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "PlayStation PSN age verification voice chat broadcasting UK Online Safety Act 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -307,6 +323,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1547149617-609fafa00a6b?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Street Fighter movie 2026 World Warrior trailer CinemaCon Andrew Koji Noah Centineo",
   },
   // --- Auto-added by wiki:publish 2026-04-20 ---
   {
@@ -323,6 +340,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Porsche company profile 911 Taycan Le Mans EV strategy 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -340,6 +358,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Porsche 911 GT3 S/C first production GT3 convertible 502hp manual $275K 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -357,6 +376,7 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "Perplexity Computer agentic AI platform multi-model orchestration Comet browser 2026",
   },
   // --- Auto-added by wiki:publish 2026-04-21 ---
   {
@@ -374,10 +394,43 @@ export const contentRegistry: ContentEntry[] = [
     imageUrl: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&h=675&fit=crop",
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: "California vs Amazon antitrust lawsuit unsealed emails artificial price floors 2026",
+  },
+  // --- Auto-added by wiki:publish 2026-04-23 ---
+  {
+    slug: "/finance/cross-river-bank-baas-visa-usdc",
+    title: "Cross River Bank | BaaS Infrastructure, Visa USDC Settlement Partner",
+    description: "Cross River Bank is the behind-the-scenes infrastructure powering fintech BaaS, and the settlement partner for Visa's USDC on Solana pilot. Full profile: funding, partners, and what it means for stablecoin payments.",
+    publishDate: "2026-04-23",
+    modifiedDate: "2026-04-23",
+    category: "Finance",
+    tags: ["Cross River Bank","Cross River Bank Visa USDC","Cross River Bank fintech","Cross River Bank BaaS","Cross River Bank Solana"],
+    author: "ObjectWire Editorial",
+    priority: 0.7,
+    changeFrequency: "weekly",
+    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=675&fit=crop",
+    imageWidth: 1200,
+    imageHeight: 675,
+    imageAlt: "Cross River Bank BaaS infrastructure Visa USDC Solana settlement partner",
+  },
+  // --- Auto-added by wiki:publish 2026-04-23 ---
+  {
+    slug: "/youtube/sidemen/inside-uk/season3/ratings-review-winner",
+    title: "Sidemen Inside Season 3 Review | Winner, Ratings, Worth Watching",
+    description: "Eddie Hall takes the crown in the most chaotic season yet, fans are split on the drama but united on the entertainment value. Full review: winner reveal, ratings, best moments, and whether season 3 lives up to the hype.",
+    publishDate: "March 30, 2026",
+    modifiedDate: "2026-04-23",
+    category: "Entertainment",
+    tags: ["Sidemen Inside Season 3","Sidemen Inside winner","Eddie Hall Sidemen","Sidemen Inside review","Sidemen Inside ratings"],
+    author: "Conan Boyle",
+    priority: 0.7,
+    changeFrequency: "weekly",
+    imageUrl: "https://www.objectwire.org/entertainment/InsideS3.webp",
+    imageWidth: 1200,
+    imageHeight: 675,
+    imageAlt: "Sidemen Inside Season 3 winner Eddie Hall ratings review 2026",
   },
 ];
-
-// =============================================================================
 // SYNC HELPER FUNCTIONS (used as fallbacks by registry-service.ts)
 // When Supabase is unreachable, these operate on the empty array above,
 // which means they return []. This is safe — the site degrades gracefully.

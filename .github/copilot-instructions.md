@@ -448,11 +448,12 @@ Sub-articles within a cluster must link to the hub, and the hub must link to all
 
 ### Internal Link Styling
 
-All `<Link>` elements inside article body prose must use blue anchor styling:
+All `<Link>` elements (internal) and `<a>` elements (external) inside article body prose must use blue anchor styling matching the browser default hyperlink appearance:
 ```tsx
 <Link href="/path" className="text-blue-600 hover:text-blue-800 underline">anchor text</Link>
+<a href="https://external.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">external text</a>
 ```
-Never render internal links as unstyled black text.
+Never render internal or external links as unstyled black text. Every hyperlink in article prose must be visually distinguishable — blue, underlined, matching the standard browser default.
 
 ### Data Tables in Articles
 

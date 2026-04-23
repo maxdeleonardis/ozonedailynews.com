@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/open-ai/news/chatgpt-carplay-launch';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'ChatGPT on CarPlay | First Major AI App for iOS 26.4',

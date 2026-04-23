@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/open-ai/news/openai-safety-fellowship-new-yorker-probe';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'OpenAI Launches Safety Fellowship After New Yorker Probe',

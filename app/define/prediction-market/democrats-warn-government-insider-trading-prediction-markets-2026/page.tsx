@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/define/prediction-market/democrats-warn-government-insider-trading-prediction-markets-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Government Insider Trading | Democrats Target Prediction Markets 2026',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/mario-kart/version-1-6-0-bob-omb-blast';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Mario Kart World Version 1.6.0 | Bob-omb Blast Return',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/bio-hacking/news/rockefeller-crispr-stem-cell-living-drug-factory-hiv-malaria-influenza';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Rockefeller CRISPR Stem Cell Study | Living Drug Factory for HIV, Malaria',

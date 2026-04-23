@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/technology/news/helium-crisis-semiconductor-iran-conflict-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Helium Crisis Hits Semiconductor Giants | Iran Conflict Supply Shock',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/bio-hacking/news/oslo-patient-hiv-cure-ccr5-bone-marrow-transplant-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Oslo Patient HIV Cure | CCR5 Mutation Bone Marrow Transplant 2026',

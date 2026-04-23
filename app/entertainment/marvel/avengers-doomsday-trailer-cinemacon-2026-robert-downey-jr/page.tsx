@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/entertainment/marvel/avengers-doomsday-trailer-cinemacon-2026-robert-downey-jr';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Avengers Doomsday Trailer | CinemaCon 2026 Robert Downey Jr Doctor Doom',

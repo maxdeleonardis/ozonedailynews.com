@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/intel/news/intel-joins-musk-terafab-ai-chip-project-texas';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Intel Joins Musk Terafab AI Chip Project in Texas',

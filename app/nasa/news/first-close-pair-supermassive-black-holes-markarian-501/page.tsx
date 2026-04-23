@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/nasa/news/first-close-pair-supermassive-black-holes-markarian-501';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'First Close Pair of Supermassive Black Holes Detected Nearing Merger',

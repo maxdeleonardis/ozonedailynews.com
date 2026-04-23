@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/open-ai/news/world-worldcoin-tools-for-humanity-deep-face-tinder-zoom-docusign-human-id';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'World ID Expands | Deep Face, Tinder Human Badge, Zoom, DocuSign',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/digital-realty/digital-realty-3-25-billion-hyperscale-data-center-fund-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Digital Realty $3.25B Hyperscale Data Center Fund | Final Close 2026',

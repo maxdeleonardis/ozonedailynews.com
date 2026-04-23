@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/investigations/rappers/d4vd-arrested-murder-celeste-rivas-hernandez-tesla';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'D4vd Arrested for Murder | Celeste Rivas Hernandez Body Found in Tesla',

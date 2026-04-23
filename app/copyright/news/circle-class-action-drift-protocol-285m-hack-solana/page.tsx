@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/copyright/news/circle-class-action-drift-protocol-285m-hack-solana';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Circle Class Action | Drift Protocol $285M Hack Solana',

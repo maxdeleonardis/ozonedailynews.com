@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/ark-raiders/flash-point-update';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Arc Raiders Flashpoint Update | New Enemies, Weapons, Map Conditions March 2026',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/copyright/news/deere-99m-settlement-right-to-repair-digital-tools';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Deere Agrees to $99M Settlement, Digital Tools in Right-to-Repair Suit',

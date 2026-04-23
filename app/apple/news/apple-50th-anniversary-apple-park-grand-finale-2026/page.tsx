@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/apple/news/apple-50th-anniversary-apple-park-grand-finale-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Apple 50th Anniversary | Grand Finale at Apple Park April 2026',

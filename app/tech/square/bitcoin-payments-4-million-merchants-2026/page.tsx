@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/square/bitcoin-payments-4-million-merchants-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Square Enables Bitcoin for 4 Million US Merchants',

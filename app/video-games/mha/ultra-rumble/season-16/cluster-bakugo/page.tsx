@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/mha/ultra-rumble/season-16/cluster-bakugo';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Cluster Bakugo Season 16 | My Hero Ultra Rumble Skill Set',

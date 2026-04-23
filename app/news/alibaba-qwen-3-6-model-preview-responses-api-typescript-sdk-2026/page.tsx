@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/news/alibaba-qwen-3-6-model-preview-responses-api-typescript-sdk-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Alibaba Qwen 3.6 Preview | Responses API, TypeScript SDK',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/world-cup/news/fifa-world-cup-2026-final-halftime-show-chris-martin';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'FIFA World Cup 2026 Halftime Show | Chris Martin, Global Citizen Confirmed',

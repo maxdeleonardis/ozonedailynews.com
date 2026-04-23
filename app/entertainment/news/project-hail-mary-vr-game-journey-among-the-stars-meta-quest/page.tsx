@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/entertainment/news/project-hail-mary-vr-game-journey-among-the-stars-meta-quest';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1617802690658-1173a812650d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Project Hail Mary VR Game | Journey Among the Stars, Meta Quest 3',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/netflix/news/netflix-q1-2026-earnings-tiktok-feed-ben-affleck-interpositive-reed-hastings';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Netflix Q1 2026 | TikTok Feed, Ben Affleck AI Deal, Reed Hastings Exit',

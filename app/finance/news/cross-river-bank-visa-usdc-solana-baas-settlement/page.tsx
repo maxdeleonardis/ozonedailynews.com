@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/finance/news/cross-river-bank-visa-usdc-solana-baas-settlement';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Cross River Bank | Visa USDC Solana Settlement Infrastructure',

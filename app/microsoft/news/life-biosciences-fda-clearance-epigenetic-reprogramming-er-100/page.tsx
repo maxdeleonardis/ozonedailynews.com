@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/microsoft/news/life-biosciences-fda-clearance-epigenetic-reprogramming-er-100';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'ER-100 FDA Clearance | First Epigenetic Reprogramming Human Trial',

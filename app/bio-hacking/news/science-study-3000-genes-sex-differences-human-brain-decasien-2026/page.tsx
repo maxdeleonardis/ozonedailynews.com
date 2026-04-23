@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/bio-hacking/news/science-study-3000-genes-sex-differences-human-brain-decasien-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Science Study | 3,000 Genes Show Sex Differences in Human Brain',

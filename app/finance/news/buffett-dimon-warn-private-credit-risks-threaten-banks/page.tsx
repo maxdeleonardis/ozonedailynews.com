@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/finance/news/buffett-dimon-warn-private-credit-risks-threaten-banks';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Buffett, Dimon Warn Private Credit Risks Threaten Banks',

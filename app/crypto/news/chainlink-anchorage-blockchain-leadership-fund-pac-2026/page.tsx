@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/crypto/news/chainlink-anchorage-blockchain-leadership-fund-pac-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Chainlink, Anchorage Launch Blockchain Leadership Fund PAC',

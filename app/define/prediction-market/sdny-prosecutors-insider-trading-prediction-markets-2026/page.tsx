@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/define/prediction-market/sdny-prosecutors-insider-trading-prediction-markets-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'SDNY Insider Trading Probe | Prediction Markets Investigation 2026',

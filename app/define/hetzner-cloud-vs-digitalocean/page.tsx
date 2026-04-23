@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/define/hetzner-cloud-vs-digitalocean';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Hetzner Cloud vs DigitalOcean 2026 | VPS Price, Specs, Bandwidth',

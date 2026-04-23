@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/entertainment/hbo-max/harry-potter-series-unprecedented-financial-commitment-hbo';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1481788915-eb25b47f81e3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'HBO Harry Potter Series | Unprecedented Financial Commitment, $2B-$5B Budget',

@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/trump/god-squad-gulf-drilling-esa-exemption';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'God Squad Exempts Gulf Drilling | ESA Override 2026',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/nvidia/news/blackwell-b300-vs-amd-mi300x-vs-google-tpu-v6-2026-benchmark';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'B300 vs MI300X vs TPU v6 | 2026 AI Chip Comparison',

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/redbull/news/red-bull-racing-crisis-2026-verstappen-exit-brain-drain';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Red Bull Racing Crisis 2026 | Verstappen Exit, Brain Drain, RB22 Disaster',

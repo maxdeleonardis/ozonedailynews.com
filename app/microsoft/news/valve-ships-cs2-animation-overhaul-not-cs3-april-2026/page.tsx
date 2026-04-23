@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/microsoft/news/valve-ships-cs2-animation-overhaul-not-cs3-april-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'CS2 Animation Overhaul | Valve Debunks CS3 Rumor, April 2026',

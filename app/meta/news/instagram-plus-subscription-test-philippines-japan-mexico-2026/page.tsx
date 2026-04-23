@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/meta/news/instagram-plus-subscription-test-philippines-japan-mexico-2026';
-const OG_IMAGE = '';
+const OG_IMAGE = 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Instagram Plus Subscription | Meta Live Test Philippines Japan Mexico 2026',

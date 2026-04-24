@@ -1,5 +1,6 @@
 // NewsArticle Schema Component for Google News, Perplexity, and MSN
 // Add this to your article pages for proper indexing
+// IMPORTANT: All URLs must use https://www.objectwire.org (canonical www domain)
 
 export interface ArticleSchemaProps {
   title: string;
@@ -39,18 +40,18 @@ export function NewsArticleSchema({
     "author": {
       "@type": "Person",
       "name": author,
-      "url": authorUrl || `https://objectwire.org/team/${author.toLowerCase().replace(/\s+/g, '-')}`
+      "url": authorUrl || `https://www.objectwire.org/authors/${author.toLowerCase().replace(/\s+/g, '-')}`
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
       "name": "ObjectWire",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://objectwire.org/logo.png",
+        "url": "https://www.objectwire.org/logo.png",
         "width": 600,
         "height": 60
       },
-      "url": "https://objectwire.org",
+      "url": "https://www.objectwire.org",
       "sameAs": [
         "https://twitter.com/object_wire",
         "https://www.facebook.com/objectwire",
@@ -66,7 +67,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://objectwire.org" },
+    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.objectwire.org" },
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": ["h1", "article"]
@@ -88,10 +89,10 @@ export function OrganizationSchema() {
     "@type": "NewsMediaOrganization",
     "name": "ObjectWire",
     "alternateName": "ObjectWire News Network",
-    "url": "https://objectwire.org",
+    "url": "https://www.objectwire.org",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://objectwire.org/logo.png",
+      "url": "https://www.objectwire.org/logo.png",
       "width": 600,
       "height": 60
     },
@@ -113,11 +114,11 @@ export function OrganizationSchema() {
       "contactType": "editorial",
       "email": "editorial@objectwire.org"
     },
-    "ethicsPolicy": "https://objectwire.org/editorial-standards",
-    "correctionsPolicy": "https://objectwire.org/corrections",
-    "verificationFactCheckingPolicy": "https://objectwire.org/editorial-standards",
-    "masthead": "https://objectwire.org/team",
-    "ownershipFundingInfo": "https://objectwire.org/about"
+    "ethicsPolicy": "https://www.objectwire.org/editorial-standards",
+    "correctionsPolicy": "https://www.objectwire.org/corrections",
+    "verificationFactCheckingPolicy": "https://www.objectwire.org/editorial-standards",
+    "masthead": "https://www.objectwire.org/team",
+    "ownershipFundingInfo": "https://www.objectwire.org/about"
   };
 
   return (
@@ -134,12 +135,12 @@ export function WebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ObjectWire",
-    "url": "https://objectwire.org",
+    "url": "https://www.objectwire.org",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://objectwire.org/search?q={search_term_string}"
+        "urlTemplate": "https://www.objectwire.org/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }

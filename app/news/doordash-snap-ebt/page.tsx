@@ -23,7 +23,7 @@ export const metadata: Metadata = generateArticleMetadata({
     "DoorDash revenue SNAP",
     "Big Soda SNAP",
   ],
-  canonicalUrl: "https://www.objectwire.org/does-doordash-take-snap",
+  canonicalUrl: "https://www.objectwire.org/news/doordash-snap-ebt",
   publishedTime: "2025-10-28T00:00:00Z",
   modifiedTime: "2026-01-24T00:00:00Z",
   authors: ["ObjectWire Policy & Business Desk"],

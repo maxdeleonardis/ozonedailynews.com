@@ -18,7 +18,7 @@ Whenever writing or editing any article, component, Supabase record, or editoria
 
 ### Core rules (quick reference):
 
-- **No em dashes (`—`) ever.** Use `|` in headings/titles. Use `,` in prose.
+- **No em dashes (`—`) EVER — anywhere.** Not in titles, headings, metadata, prose, JSX strings, Supabase fields, or code comments. Use `|` in headings. Use `,` in prose. Rewrite if needed. Non-negotiable and checked by the build guard.
 - **No en dashes (`–`) ever.** Use `-` or rewrite the sentence.
 - **No `&` in H1/H2/H3 headings or article body prose.** Use `,` or rewrite. `&` is allowed in `metadata.title` and `openGraph.title` only.
 - **Headings use `|`** as a separator, never `:` followed by a dependent clause.
@@ -29,6 +29,19 @@ Whenever writing or editing any article, component, Supabase record, or editoria
 - `tags` must be an array of 4–8 real proper nouns (no generic terms).
 - `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Crypto`, `Gaming`.
 - `published_at` must be a full ISO-8601 timestamp (e.g. `2026-03-28T14:00:00Z`).
+
+### Em Dash Zero-Tolerance Reference
+
+Never use `—`. Replace every instance with these substitutions:
+
+| Context | Wrong | Correct |
+|---|---|---|
+| Heading separator | `Title — Subtitle` | `Title \| Subtitle` |
+| Prose parenthetical | `The update — which ships Friday — adds X` | `The update, which ships Friday, adds X` |
+| Prose break | `It launched — and immediately crashed` | `It launched, and immediately crashed` |
+| Quote/attribution footer | `— Jack Sterling` | `, Jack Sterling` |
+| OG/Twitter description | `New feature — here's what changed` | `New feature, here is what changed` |
+| Supabase subtitle/description | `Record sales — 5M in 48h` | `Record sales, 5M in 48 hours` |
 
 ---
 
@@ -65,6 +78,7 @@ Slug: `entertainment-news-fortnite-moves-into-movies` | Table: `articles` | Comp
 4. **Full engagement stack** — every article gets: `ReactionBar` (like/share/save), `DiscordComments`, `NewsletterSignupInline`, `ArticleViewTracker`, `TagsSection`, and an author card footer. These are automatic. Do not remove them.
 5. **Metadata quality** — 18 targeted keywords, full `openGraph` block with `publishedTime` + `section`, `twitter` card, canonical URL.
 6. **Content depth** — specific named figures (153 productions, 65% GDC stat, 44% YoY ICVFX growth), data tables, H2 headings with numbers and `|` separators, internal links to hub pages.
+7. **Internal linking** — minimum 4 internal links per article. Must include: hub backlink, 2 cluster sibling links, 1 author page link. All links blue and underlined (see Interlinking Rules section).
 
 ### `page.tsx` stub pattern (after `wiki:publish`)
 
@@ -83,7 +97,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
     title: 'Article Title Without Brand Suffix',
-    description: 'Slightly different from meta description — emphasize data/hook.',
+    description: 'Slightly different from meta description, emphasize data/hook.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -96,7 +110,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Twitter-optimized headline (hook-first)',
-    description: 'Data-led, punchy — one key stat or claim.',
+    description: 'Data-led, punchy, one key stat or claim.',
   },
 };
 
@@ -147,6 +161,7 @@ Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Table: `jack_articl
 6. **Author** — always `Jack Sterling` (slug: `jack-sterling`), department varies by beat
 7. **Breadcrumbs** — 3 levels: hub, sub-hub, article
 8. **Content depth** — specific named figures, percentages, dates. No vague claims.
+9. **Internal linking** — minimum 5 internal links per JackArticle. Link to cluster hub, 2-3 related sub-articles, and 1 author page. External source links open in `_blank` with `rel="noopener noreferrer"`. All links blue and underlined.
 
 ### `page.tsx` stub pattern (after `wiki:publish`)
 
@@ -217,6 +232,7 @@ Slug: `influencer-ari-kytsya` | Table: `creator_articles` | Component: `CreatorA
 8. **Engagement footer** — `ArticleViewTracker` + `ArticleFooter` (like/save/share/Discord). No `NewsletterSignupInline`.
 9. **15-18 keywords** — includes `[name] age`, `[name] age 2026`, `[name] Instagram`, `[name] TikTok`, `[name] real name`, `[name] 2026`, and topic variants like `notburnttoasthehe TikTok`.
 10. **Article Info sidebar card** — below the infobox, a styled card shows Published, Updated, Author, Category in the same row style as the infobox.
+11. **Internal linking** — minimum 3 internal links per CreatorArticle. Social handle links in the infobox rows must use `<a href>` with `target="_blank" rel="noopener noreferrer"`. Body links to related profiles and hub pages must be blue and underlined.
 
 ### `page.tsx` stub pattern (after `wiki:publish`)
 
@@ -425,6 +441,87 @@ Sub-articles within a cluster must link to the hub, and the hub must link to all
 
 ---
 
+## Interlinking Rules — Enforced on Every Article Type
+
+Internal linking is mandatory on every publish. An article without proper internal links is incomplete, regardless of content quality.
+
+### Minimum link counts
+
+| Article Type | Min Internal Links | Min External Source Links |
+|---|---|---|
+| `NewsArticle` | 4 | 1 |
+| `JackArticle` | 5 | 3 (numbered `sources` array) |
+| `ArticlePage` / `WikiArticle` | 3 | 1 |
+| `CreatorArticle` | 3 | 2 (social handles + official sources) |
+| `AlysaArticle` | 3 | 1 |
+
+### Required link types (all article types)
+
+1. **Hub backlink** — every sub-article must link to its parent hub within the first 3 paragraphs. Example: `/video-games/gta-6/release-date` must link to `/video-games/gta-6`.
+2. **Cluster cross-links** — link to 2-3 sibling articles in the same cluster.
+3. **Author page link** — link to `/authors/[slug]` at least once per article if the author has a profile page.
+4. **Pillar hub links** — on first mention of a priority topic (GTA 6, OpenAI, Nintendo Switch 2, etc.), link to the pillar hub.
+5. **No orphan pages** — every new page must be linked from at least one existing page (hub, sibling article, or category index).
+
+### Link styling — non-negotiable, applies everywhere
+
+Every link in article prose must be blue and underlined. No exceptions.
+
+```tsx
+// Internal (Next.js Link)
+<Link href="/video-games/gta-6" className="text-blue-600 hover:text-blue-800 underline">
+  GTA 6 release date hub
+</Link>
+
+// External source / citation
+<a
+  href="https://source.com/article"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-600 hover:text-blue-800 underline"
+>
+  Reuters report
+</a>
+
+// Social handle (CreatorArticle infobox)
+<a
+  href="https://www.instagram.com/handle"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-600 hover:text-blue-800 underline"
+>
+  @handle
+</a>
+```
+
+Never:
+- Render linked text as unstyled or black (`text-gray-900`, `text-inherit`, or no class on an anchor)
+- Use bare `<a href>` with no class inside JSX or `content_html`
+- Omit `target="_blank" rel="noopener noreferrer"` on external links
+
+### Links inside `content_html` (raw HTML stored in Supabase)
+
+Use `class=` (not `className=`) in raw HTML strings. Embed the Tailwind classes directly:
+
+```html
+<!-- Internal -->
+<a href="/video-games/gta-6" class="text-blue-600 hover:text-blue-800 underline">GTA 6 hub</a>
+
+<!-- External source -->
+<a href="https://source.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">original source</a>
+```
+
+The `prose` Tailwind class applies default link colors but they are overridden by dark mode. Always set explicit blue/underline classes so links look correct in both themes.
+
+### Hub page linking checklist (run before committing a hub update)
+
+- [ ] Hub links to every published sub-article in the cluster
+- [ ] Each sub-article links back to the hub
+- [ ] Hub is linked from its parent category index
+- [ ] At least one recently published article in the cluster links sideways to 1-2 other cluster articles
+
+---
+
 ## Editorial Principles
 
 1. **Accuracy over speed** — verify before publishing, never chase breaking news without sourcing.
@@ -454,6 +551,16 @@ All `<Link>` elements (internal) and `<a>` elements (external) inside article bo
 <a href="https://external.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">external text</a>
 ```
 Never render internal or external links as unstyled black text. Every hyperlink in article prose must be visually distinguishable — blue, underlined, matching the standard browser default.
+
+This applies in all contexts:
+- JSX in `.tsx` files
+- Raw HTML strings in `content_html` Supabase fields (use `class=` not `className=` in raw HTML)
+- `<CreatorSection>`, `<JackSection>`, `<WikiArticle>` body content
+- Infobox `sidebar_infobox_rows` (social handle hrefs)
+- Source citations and footnotes
+- CTA buttons styled as links
+
+See the **Interlinking Rules** section for per-article-type minimum link counts and placement requirements.
 
 ### Data Tables in Articles
 
@@ -491,3 +598,36 @@ All three are merged and sorted by `publishDate` before display. JackArticles ap
 - **Never `git push` unless the user explicitly says to push.**
 - **Never commit after every change.** Only commit when the user explicitly says to commit, or at the end of a writing session. Batch all changes into a single commit.
 - Never deploy to Railway unless the user explicitly says "deploy" or "push to Railway".
+
+---
+
+## SEO System Rules (Updated April 24, 2026)
+
+These rules were added after a production canonical bug caused a major impressions drop on April 22, 2026.
+
+### Canonical URL rules
+
+- **Never add `<link rel="canonical">` to `app/layout.tsx` or any shared layout.** A hardcoded layout canonical overrides every page's self-canonical and tells Google all pages are duplicates of the homepage. This is what caused the April 2026 impressions cliff.
+- Every `page.tsx` sets its own canonical via `metadata.alternates.canonical`. No exceptions.
+- DB stubs (`*DB` components) must have `alternates: { canonical: ... }` in their exported `metadata` block.
+- `generateArticleMetadata` from `@/lib/seo-utils` correctly outputs `alternates.canonical` when `canonicalUrl` is passed.
+- `scripts/validate-canonicals.ts` runs at `prebuild` and fails the build if a hardcoded canonical is detected in any layout file.
+
+### Public directory rules
+
+- **Never place `robots.txt` or `sitemap.xml` in `/public`.** Next.js serves `/public` before App Router handlers, so a static file silently overrides the dynamic handler.
+- `app/robots.ts` is the single source of truth for robots rules.
+- `scripts/validate-public.ts` runs at `prebuild` and fails the build if `public/robots.txt` or `public/sitemap.xml` exist.
+- Emergency override: `OBJECTWIRE_OVERRIDE=true npm run build`
+
+### Schema / JSON-LD rules
+
+- All URLs in JSON-LD must use `https://www.objectwire.org` (with www). Non-www URLs cause a canonical mismatch between schema and the canonical tag.
+- Author fallback URL resolves to `/authors/[slug]`, not `/team/[slug]`.
+- `lib/seo.ts` has been deleted. Do not recreate it. Use `@/lib/seo-utils` or `@/lib/generate-article-metadata`.
+
+### Prebuild pipeline (runs before every `next build`)
+
+1. `validate-public.ts` — blocks if conflicting static files exist in `/public`
+2. `validate-canonicals.ts` — blocks if hardcoded canonical found in layouts; warns on missing page canonicals
+3. `sync-registry.ts --write` — syncs `content_registry` with filesystem

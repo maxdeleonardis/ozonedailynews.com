@@ -105,8 +105,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  // NOTE: Do NOT add canonical here. Each page.tsx sets its own via
+  // metadata.alternates.canonical. A site-wide canonical in the root layout
+  // collapses all pages into homepage duplicates in Google Search.
   alternates: {
-    canonical: SITE_CONFIG.url,
     types: {
       'application/rss+xml': `${SITE_CONFIG.url}/rss.xml`,
       'application/feed+json': `${SITE_CONFIG.url}/feed.json`,
@@ -133,7 +135,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="canonical" href={SITE_CONFIG.url} />
+        {/* Canonical is set per-page via metadata.alternates.canonical.
+            Do NOT hardcode a site-wide canonical here — it overrides every
+            page's self-canonical and tells Google all pages are duplicates of the homepage. */}
         <link rel="alternate" type="application/rss+xml" title={`${SITE_CONFIG.name} RSS Feed`} href={`${SITE_CONFIG.url}/rss.xml`} />
         <OrganizationSchema />
         <WebSiteSchema />

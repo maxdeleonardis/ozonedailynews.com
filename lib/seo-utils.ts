@@ -26,34 +26,48 @@ export function generateArticleMetadata(options: ArticleMetadataOptions): Metada
     publishedTime,
     modifiedTime,
     author,
+    authors,
     section,
+    category,
     tags,
+    keywords,
     images = [],
     url = '',
+    canonicalUrl,
+    canonical,
+    ogImage,
   } = options;
+
+  const resolvedCanonical = canonicalUrl || canonical;
+  const resolvedAuthors = authors ?? (author ? [author] : undefined);
+  const resolvedKeywords = keywords ?? tags;
+  const allImages = ogImage
+    ? [ogImage, ...images]
+    : images;
 
   return {
     title,
     description,
-    authors: author ? [{ name: author }] : undefined,
-    keywords: tags,
+    authors: resolvedAuthors ? resolvedAuthors.map(name => ({ name })) : undefined,
+    keywords: resolvedKeywords,
+    ...(resolvedCanonical ? { alternates: { canonical: resolvedCanonical } } : {}),
     openGraph: {
       title,
       description,
       type: 'article',
       publishedTime,
       modifiedTime,
-      authors: author ? [author] : undefined,
-      section,
+      authors: resolvedAuthors,
+      section: section ?? category,
       tags,
-      images: images.map(img => ({ url: img })),
-      url,
+      images: allImages.map(img => ({ url: img })),
+      url: resolvedCanonical ?? url,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images,
+      images: allImages,
     },
   };
 }

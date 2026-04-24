@@ -33,6 +33,7 @@ const META_SELECT_BASE = [
   'hero_image_alt',
   'thumbnail_src',
   'published_at',
+  'updated_at',
   'publish_date_iso',
   'url',
   // jack_articles-specific
@@ -63,6 +64,7 @@ interface MetaRow {
   hero_image_alt?: string | null;
   thumbnail_src?: string | null;
   published_at?: string | null;
+  updated_at?: string | null;
   publish_date_iso?: string | null;
   url?: string | null;
   description?: string | null;
@@ -140,6 +142,11 @@ export async function generateArticleMetadata(
   // ── Resolve published time ───────────────────────────────────────
   const publishedTime = r.published_at || r.publish_date_iso || undefined;
 
+  // ── Resolve modified time ────────────────────────────────────────
+  // updated_at is set by Supabase triggers or manual admin edits.
+  // Falls back to publishedTime so dateModified is always present.
+  const modifiedTime = r.updated_at || publishedTime;
+
   // ── Resolve keywords ─────────────────────────────────────────────
   const keywords = r.keywords || r.tags || undefined;
 
@@ -170,6 +177,7 @@ export async function generateArticleMetadata(
           }
         : {}),
       ...(publishedTime ? { publishedTime } : {}),
+      ...(modifiedTime ? { modifiedTime } : {}),
       ...(section ? { section } : {}),
       ...(keywords ? { tags: keywords } : {}),
     },

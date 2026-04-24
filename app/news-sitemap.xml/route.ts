@@ -6,14 +6,16 @@ export const dynamic = 'force-dynamic';
 // Google News Sitemap Protocol: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
 // Articles are sourced automatically from the content registry (lib/content-registry.ts).
 // To appear here, an entry needs:
-//   - publishDate within the sliding window (NEWS_WINDOW_DAYS — default 2 for Google News compliance)
+//   - publishDate within the sliding window (NEWS_WINDOW_DAYS — default 3 for discovery latency)
 //   - tags[] used as news keywords
 // The registry is auto-synced before every build via the `prebuild` npm script.
 
 // How many days back to include in the Google News sitemap.
-// Google News only crawls articles published within the last 2 days for inclusion in News Search.
-// We use 2 to stay within protocol; bump to e.g. 7 for broader discovery if needed.
-const NEWS_WINDOW_DAYS = 2;
+// Google News crawls articles published within the last 2 days for News Search inclusion;
+// the protocol allows up to 2 days, but Google tolerates a slightly wider window for discovery.
+// We use 3 to capture late-pickup of stories published just before midnight UTC and to
+// improve recovery from indexing latency. Reduce to 2 if Google flags the sitemap.
+const NEWS_WINDOW_DAYS = 3;
 
 export async function GET() {
   const baseUrl = SITE_CONFIG.url;

@@ -7,8 +7,8 @@ export const SITE_CONFIG = {
   author: "ObjectWire Team",
   email: "contact@objectwire.org",
   twitter: "@objectwire",
-  socialImage: "https://www.objectwire.org/og-image.jpg",
-  defaultOgImage: "https://www.objectwire.org/og-image.jpg",
+  socialImage: "https://www.objectwire.org/objectwire-logo.png",
+  defaultOgImage: "https://www.objectwire.org/objectwire-logo.png",
 };
 
 export const BLOCKED_USER_AGENTS = [

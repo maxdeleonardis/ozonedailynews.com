@@ -70,7 +70,7 @@ export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
           url: SITE_URL,
           logo: {
             '@type': 'ImageObject',
-            url: `${SITE_URL}/logo.png`,
+            url: `${SITE_URL}/objectwire-logo.png`,
           },
         },
         mainEntityOfPage: `${SITE_URL}${slug}`,

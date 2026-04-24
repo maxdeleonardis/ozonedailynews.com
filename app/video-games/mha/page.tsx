@@ -25,7 +25,7 @@ const articleSchema = {
     url: "https://www.objectwire.org",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.objectwire.org/logo.png",
+      url: "https://www.objectwire.org/objectwire-logo.png",
     },
   },
   image: "https://www.objectwire.org/images/mha-hub-og.jpg",

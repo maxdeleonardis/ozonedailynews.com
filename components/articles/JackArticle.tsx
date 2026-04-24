@@ -285,7 +285,7 @@ function JackSchema({
       name: 'ObjectWire',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://objectwire.org/logo.png',
+        url: 'https://www.objectwire.org/objectwire-logo.png',
         width: 600,
         height: 60,
       },

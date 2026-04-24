@@ -47,7 +47,7 @@ export function NewsArticleSchema({
       "name": "ObjectWire",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.objectwire.org/logo.png",
+        "url": "https://www.objectwire.org/objectwire-logo.png",
         "width": 600,
         "height": 60
       },
@@ -92,7 +92,7 @@ export function OrganizationSchema() {
     "url": "https://www.objectwire.org",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.objectwire.org/logo.png",
+      "url": "https://www.objectwire.org/objectwire-logo.png",
       "width": 600,
       "height": 60
     },

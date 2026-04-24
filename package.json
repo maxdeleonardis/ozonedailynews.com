@@ -32,6 +32,8 @@
     "wiki:status": "npx tsx --env-file=.env.local scripts/wiki-status.ts",
     "wiki:publish": "npx tsx --env-file=.env.local scripts/wiki-publish.ts",
     "audit:meta": "npx tsx scripts/audit-metadata.ts",
+    "audit:links": "npx tsx --env-file=.env.local scripts/audit-internal-links.ts",
+    "audit:links:csv": "npx tsx --env-file=.env.local scripts/audit-internal-links.ts --csv",
     "fix:meta": "npx tsx scripts/fix-metadata.ts",
     "fix:meta:write": "npx tsx scripts/fix-metadata.ts --write",
     "audit": "npx tsx scripts/audit-registry.ts",

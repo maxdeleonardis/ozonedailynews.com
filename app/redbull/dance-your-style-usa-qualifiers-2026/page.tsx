@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = OG_IMAGE;
 
 export const metadata: Metadata = {
-  title: 'Red Bull Dance Your Style USA Qualifiers 2026 | Full Schedule',
+  title: 'Red Bull Dance Your Style USA Qualifiers 2026 | Full',
   description:
     'Red Bull Dance Your Style USA qualifiers run through October 2026 across U.S. cities. Crowd-judged freestyle battles feed into the national and world',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Red Bull Dance Your Style USA Qualifiers 2026 | Full Schedule',
+    title: 'Red Bull Dance Your Style USA Qualifiers 2026 | Full',
     description: 'U.S. city battles leading to the national and world finals, running through October 2026.',
     type: 'article',
     url: ARTICLE_URL,

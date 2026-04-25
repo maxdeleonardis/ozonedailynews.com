@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1468254095679-bbcba94a7066?w
 
 export const metadata: Metadata = {
   title: 'Tokenized Trading 24/7 | Wall Street\'s Iran Crisis Gap',
-  description: 'Wall Street\'s Iran crisis showed why 24/7 tokenized trading matters. Oil jumped 7.8% and gold hit $3,508 on DeFi platforms while the NYSE sat closed all weekend.',
+  description: 'Wall Street\'s Iran crisis showed why 24/7 tokenized trading matters. Oil jumped 7.8% and gold hit $3,508 on DeFi platforms while the NYSE sat closed all',
   keywords: [
     'tokenized trading 24/7',
     'Wall Street tokenized assets 2026',

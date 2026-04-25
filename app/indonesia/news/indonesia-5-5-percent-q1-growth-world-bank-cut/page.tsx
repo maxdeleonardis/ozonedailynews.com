@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1680244116826-467f252cf503?i
 
 export const metadata: Metadata = {
   title: 'Indonesia Claims 5.5% Q1 Growth, Shrugs Off World Bank Cut',
-  description: 'Indonesia\'s Coordinating Minister Airlangga Hartarto said Q1 2026 GDP grew at least 5.5%, driven by household consumption and Ramadan spending, even as the World Bank trimmed its forecast to 4.7%.',
+  description: 'Indonesia\'s Coordinating Minister Airlangga Hartarto said Q1 2026 GDP grew at least 5.5%, driven by household consumption and Ramadan spending, even as',
   keywords: [
     'Indonesia GDP Q1 2026',
     'Indonesia 5.5 percent growth',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Indonesia Claims 5.5% Q1 Growth as World Bank Trims Forecast to 4.7%',
-    description: 'Airlangga Hartarto says household consumption and Ramadan spending drove at least 5.5% growth in Q1 2026. World Bank cut full-year forecast from 4.8% to 4.7%.',
+    title: 'Indonesia Claims 5.5% Q1 Growth as World Bank Trims',
+    description: 'Airlangga Hartarto says household consumption and Ramadan spending drove at least 5.5% growth in Q1 2026. World Bank cut full-year forecast from 4.8% to',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Indonesia Claims 5.5% Q1 Growth | Dismisses World Bank Downgrade',
+    title: 'Indonesia Claims 5.5% Q1 Growth | Dismisses World Bank',
     description: 'Household consumption (54% of GDP) and Ramadan spending powered the quarter. Tax revenue up 14.3% YoY. World Bank trimmed to 4.7%.',
     images: [OG_IMAGE],
   },

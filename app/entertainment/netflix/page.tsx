@@ -9,7 +9,7 @@ const SLUG = '/entertainment/netflix';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Netflix | Streaming Platform Profile, Subscribers, Shows 2026',
+  title: 'Netflix | Streaming Platform Profile, Subscribers, Shows',
   description: 'Complete profile of Netflix, the world\'s leading streaming service with 260M+ subscribers. Original content, movies, TV shows, documentaries, and',
   keywords: [
     'Netflix',

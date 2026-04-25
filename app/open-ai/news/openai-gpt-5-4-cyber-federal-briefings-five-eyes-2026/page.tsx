@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'OpenAI GPT-5.4-Cyber | Federal Agency Briefings, Five Eyes Access',
-  description: 'OpenAI briefed 50 federal cyber professionals in Washington and began Five Eyes outreach on GPT-5.4-Cyber, a defensive AI model that reaches broader government users than Anthropic\'s restricted Mythos.',
+  title: 'OpenAI GPT-5.4-Cyber | Federal Agency Briefings, Five Eyes',
+  description: 'OpenAI briefed 50 federal cyber professionals in Washington and began Five Eyes outreach on GPT-5.4-Cyber, a defensive AI model that reaches broader',
   keywords: [
     'OpenAI GPT-5.4-Cyber federal briefing',
     'OpenAI Five Eyes cybersecurity model',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'OpenAI GPT-5.4-Cyber | Federal Briefings, Five Eyes Outreach',
-    description: 'OpenAI hosted 50 federal cyber professionals in Washington and launched Five Eyes briefings on GPT-5.4-Cyber. The model takes a broader access approach than Anthropic\'s locked-down Mythos.',
+    description: 'OpenAI hosted 50 federal cyber professionals in Washington and launched Five Eyes briefings on GPT-5.4-Cyber. The model takes a broader access approach',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpenAI Is Briefing Federal Agencies on Its Cyber AI. 50 Showed Up in DC.',
+    title: 'OpenAI Is Briefing Federal Agencies on Its Cyber AI. 50',
     description: 'GPT-5.4-Cyber can reverse-engineer binaries and find vulnerabilities. OpenAI wants government defenders to have it. Five Eyes is next.',
   },
 };

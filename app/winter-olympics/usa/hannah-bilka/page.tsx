@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Hannah Bilka | Team USA Ice Hockey | From Texas to the Olympics',
+  title: 'Hannah Bilka | Team USA Ice Hockey | From Texas to the',
   description: 'Profile of Hannah Bilka, the Coppell, Texas native who defied the odds to become an Olympic ice hockey star. From playing on boys\' teams in Dallas to',
   keywords: ['Hannah Bilka', 'Team USA', 'ice hockey', 'Winter Olympics', 'Milan Cortina 2026', 'Coppell Texas', 'womens hockey', 'PWHL', 'Seattle Torrent'],
   openGraph: {

@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/nycs-ranked-choice-voting-system-faces-scrutiny',
   },
+  openGraph: {
+    title: "NYC",
+    description: "In the 2025 Democratic primary, former Governor Andrew Cuomo finished first in initial vote tallies. Yet he ultimately lost the nomination to State",
+    type: 'article',
+    url: "https://www.objectwire.org/nycs-ranked-choice-voting-system-faces-scrutiny",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "NYC",
+    description: "In the 2025 Democratic primary, former Governor Andrew Cuomo finished first in initial vote tallies. Yet he ultimately lost the nomination to State",
+  },
 };
 
 export default function NYCRankedChoiceVotingPage() {

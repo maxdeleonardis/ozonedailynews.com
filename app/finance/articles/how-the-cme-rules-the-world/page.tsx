@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Financial Gravity: How the CME Rules Gold, Bitcoin, and Global Markets',
+  title: 'Financial Gravity | How the CME Rules Gold, Bitcoin, and',
   description: 'An exploration of the immense power of the Chicago Mercantile Exchange (CME) and how it influences asset prices through margin requirements and market',
   keywords: [
     'CME',

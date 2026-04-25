@@ -9,7 +9,7 @@ const SLUG = '/crypto/news/anchorage-digital-tron-institutional-custody-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1578286788444-8c1487fcd823?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Anchorage Digital Adds TRON to U.S. Institutional Platform | TRX Custody 2026',
+  title: 'Anchorage Digital Adds TRON to U.S. Institutional',
   description:
     'Anchorage Digital, the only U.S. federally chartered crypto bank, has integrated TRON blockchain. Institutional TRX custody, TRC-20 support, and staking',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Anchorage Digital Integrates TRON | Institutional TRX Custody Now Live',
+    title: 'Anchorage Digital Integrates TRON | Institutional TRX',
     description:
       'The only U.S. federally chartered crypto bank has added TRON to its regulated platform, offering institutional-grade TRX custody with TRC-20 and staking',
     url: `https://www.objectwire.org${SLUG}`,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anchorage Digital Adds TRON | First Regulated U.S. TRX Custody',
+    title: 'Anchorage Digital Adds TRON | First Regulated U.S. TRX',
     description:
       'Anchorage Digital has integrated TRON into its federally chartered crypto bank platform. TRX custody is live now, with TRC-20 and staking coming in later',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

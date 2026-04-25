@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixli
 export const metadata: Metadata = {
   title: 'FIFA World Cup 2026 | 5 Major Issues With 50 Days to Go',
   description:
-    'Iran participation uncertainty, $150 train fares, $10,990 tickets, ICE immigration fears, and a shooting at Teotihuacan are the five biggest crises facing FIFA World Cup 2026 with 50 days remaining.',
+    'Iran participation uncertainty, $150 train fares, $10,990 tickets, ICE immigration fears, and a shooting at Teotihuacan are the five biggest crises facing',
   keywords: [
     'FIFA World Cup 2026 issues',
     'World Cup 2026 50 days',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FIFA World Cup 2026 | 5 Major Issues With 50 Days to Go',
     description:
-      'Iran war ceasefire, $150 train fares, $10,990 tickets, ICE raids, and a shooting in Mexico. Five crises FIFA and the host nations must resolve before June 11.',
+      'Iran war ceasefire, $150 train fares, $10,990 tickets, ICE raids, and a shooting in Mexico. Five crises FIFA and the host nations must resolve before June',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

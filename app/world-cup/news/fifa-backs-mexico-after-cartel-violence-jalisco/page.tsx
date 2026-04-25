@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/world-cup/news/fifa-backs-mexico-after-cartel-violence-jalisco';
 
 export const metadata: Metadata = {
-  title: 'FIFA Backs Mexico After Jalisco Cartel Violence Raises 2026 World Cup Security Questions',
+  title: 'FIFA Backs Mexico After Jalisco Cartel Violence Raises',
   description:
     'Violence linked to the Jalisco New Generation Cartel escalated sharply following the February 22, 2026 killing of CJNG leader El Mencho, with 252+',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'FIFA Backs Mexico After CJNG Violence Targets Jalisco, Home of a Key World Cup Host City',
+    title: 'FIFA Backs Mexico After CJNG Violence Targets Jalisco',
     description:
       'The killing of El Mencho on February 22 triggered 252+ violent incidents across Jalisco in 72 hours. Estadio Akron in Guadalajara hosts four World Cup',
     type: 'article',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FIFA Backs Mexico as CJNG Violence Sweeps Jalisco, Home of World Cup Host Guadalajara',
+    title: 'FIFA Backs Mexico as CJNG Violence Sweeps Jalisco, Home',
     description:
       '252+ violent incidents in 72 hours after El Mencho killed. Estadio Akron hosts four group games. Puerto Vallarta flights cancelled. FIFA says it has "full',
   },

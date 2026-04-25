@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'TikTok Supreme Court 2025',
   ],
   openGraph: {
-    title: 'Trump Administration to Collect $10 Billion Fee for Brokering TikTok Deal',
+    title: 'Trump Administration to Collect $10 Billion Fee for',
     description:
       "The Trump administration will receive ~$10 billion from investors in the TikTok ownership transfer, a fee historians call nearly unprecedented for a",
     url: FULL_URL,

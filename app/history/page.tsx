@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/history',
   },
+  openGraph: {
+    title: "Reading History",
+    description: "Your recently viewed articles on ObjectWire.",
+    type: 'article',
+    url: "https://www.objectwire.org/history",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Reading History",
+    description: "Your recently viewed articles on ObjectWire.",
+  },
 };
 
 export default function HistoryPage() {

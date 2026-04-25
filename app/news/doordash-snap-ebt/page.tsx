@@ -7,7 +7,7 @@ import { generateArticleMetadata } from '@/lib/seo-utils';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = generateArticleMetadata({
-  title: "Does DoorDash Accept SNAP EBT? Complete Guide 2026 + Revenue Impact Analysis",
+  title: "Does DoorDash Accept SNAP EBT? Complete Guide 2026",
   description: "UPDATED JAN 2026: Yes, DoorDash accepts SNAP EBT in select states. Comprehensive guide on using food stamps for delivery, eligible items, state availability, and how SNAP benefits impact DoorDash's $9B+ annual revenue.",
   keywords: [
     "DoorDash SNAP",

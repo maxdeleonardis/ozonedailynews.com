@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    "Amazon CEO Andy Jassy: AI Will Reduce Headcount in Many Long-Standing Roles While Creating New Ones, February 2026",
+    "Amazon CEO Andy Jassy | AI Will Reduce Headcount in Many",
   description:
     "Amazon CEO Andy Jassy told CNBC on February 27, 2026 that AI will mean fewer humans are needed for many jobs that have relied on human labor for 20–30",
   keywords: [

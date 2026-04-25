@@ -9,7 +9,7 @@ const SLUG = '/video-games/news/rocket-league-season-22-v2-66-patch-notes';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Rocket League Season 22 Patch Notes | v2.66, Rocket Pass, LTE Changes',
+  title: 'Rocket League Season 22 Patch Notes | v2.66, Rocket Pass',
   description:
     'Rocket League Season 22 (v2.66) adds a new Rocket Pass, concurrent Limited Time Events, a redesigned News Panel, ranked modifications, and major training',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Rocket League Season 22 | New Rocket Pass, Concurrent LTEs, Training QoL',
+    title: 'Rocket League Season 22 | New Rocket Pass, Concurrent LTEs',
     description:
       'v2.66 launches Season 22 with a new Rocket Pass, concurrent Limited Time Events, expanded preset slots, flip-reset indicators, and boost-pad recharge',
     type: 'article',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rocket League Season 22 | v2.66 Adds Concurrent LTEs and Training Upgrades',
+    title: 'Rocket League Season 22 | v2.66 Adds Concurrent LTEs and',
     description:
       'Season 22 brings a new Rocket Pass, concurrent Limited Time Events, flip-reset indicators, boost-pad visuals, and expanded preset slots.',
   },

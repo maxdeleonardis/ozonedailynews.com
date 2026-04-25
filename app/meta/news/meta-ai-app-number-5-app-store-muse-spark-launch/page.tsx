@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1757310998309-87a97e562ee5?i
 
 export const metadata: Metadata = {
   title: 'Meta AI App Surges to No. 5 on App Store After Muse Spark',
-  description: 'Meta launched Muse Spark, the first AI model from Superintelligence Labs led by Alexandr Wang, pushing the Meta AI app to No. 5 on the App Store with Instagram integration coming next.',
+  description: 'Meta launched Muse Spark, the first AI model from Superintelligence Labs led by Alexandr Wang, pushing the Meta AI app to No. 5 on the App Store with',
   keywords: [
     'Meta AI app App Store',
     'Muse Spark AI model',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Meta AI App Surges to No. 5 on App Store After Muse Spark Launch',
-    description: 'Muse Spark, the first model from Meta Superintelligence Labs, powers a multimodal AI assistant rolling out to Instagram, WhatsApp, Messenger, and Ray-Ban glasses.',
+    title: 'Meta AI App Surges to No. 5 on App Store After Muse',
+    description: 'Muse Spark, the first model from Meta Superintelligence Labs, powers a multimodal AI assistant rolling out to Instagram, WhatsApp, Messenger, and Ray-Ban',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

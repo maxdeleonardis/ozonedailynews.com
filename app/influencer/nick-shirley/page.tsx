@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Nick Shirley Wiki 2026: Investigative YouTuber & Fraud Exposé Expert",
+  title: "Nick Shirley Wiki 2026 | Investigative YouTuber & Fraud",
   description: "Complete profile of Nick Shirley - investigative content creator known for exposing fraud schemes, urban exploration, and viral Minnesota Feeding Our",
   keywords: [
     "Nick Shirley",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nick Shirley Wiki 2026: Investigative YouTuber & Fraud Exposé Expert",
+    title: "Nick Shirley Wiki 2026 | Investigative YouTuber & Fraud",
     description: "Complete profile of the investigative content creator exposing fraud across America.",
   },
   alternates: {

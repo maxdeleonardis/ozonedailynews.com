@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Bank of America: Global Banking, Financial Services & Investment Management",
+  title: "Bank of America | Global Banking, Financial Services",
   description: "Comprehensive overview of Bank of America Corporation, one of America's largest banks providing consumer banking, wealth management, corporate banking,",
   keywords: [
     "Bank of America",

@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/007-first-light',
   },
+  openGraph: {
+    title: "007: First Light | James Bond Game by IO Interactive",
+    description: "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007",
+    type: 'article',
+    url: "https://www.objectwire.org/007-first-light",
+    siteName: 'ObjectWire',
+    section: "Gaming",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "007: First Light | James Bond Game by IO Interactive",
+    description: "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007",
+  },
 };
 
 export default function JamesBondGamePage() {

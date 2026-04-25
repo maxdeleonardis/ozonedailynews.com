@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/youtube/chicos-toxicos/sava-schultz';
 
 export const metadata: Metadata = {
-  title: 'Sava Schultz | TikTok Star, OnlyFans Model & Social Media Influencer',
+  title: 'Sava Schultz | TikTok Star, OnlyFans Model & Social Media',
   description:
     'Who is Sava Schultz? American TikTok star Sava Schultz (@savaschulz) is a viral dance, lip sync, and fitness content creator and OnlyFans model. Full',
   keywords: [

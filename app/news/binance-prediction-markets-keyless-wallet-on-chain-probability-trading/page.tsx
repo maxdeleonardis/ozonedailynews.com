@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Binance Launches Prediction Markets | Keyless Wallet Integration',
+    title: 'Binance Launches Prediction Markets | Keyless Wallet',
     description: 'On-chain probability trading comes to the Binance App through a new Prediction Account powered by Keyless Wallet. Provided by Binance Barbados Limited.',
     type: 'article',
     url: ARTICLE_URL,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Binance enters prediction markets with Keyless Wallet integration',
+    title: 'Binance enters prediction markets with Keyless Wallet',
     description: 'On-chain probability trading now live in the Binance App. Separate Prediction Account required. Powered by Binance Barbados Limited.',
   },
 };

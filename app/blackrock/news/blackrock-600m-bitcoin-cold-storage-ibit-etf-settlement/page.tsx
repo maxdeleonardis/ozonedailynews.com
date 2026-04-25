@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635840418908-772c54d7931f?i
 
 export const metadata: Metadata = {
   title: 'BlackRock Moves $600M Bitcoin to Cold Storage | IBIT ETF',
-  description: 'BlackRock shifted $600 million in Bitcoin from Coinbase Prime to private cold wallets. The move signals long-term settlement, not a sell-off, as IBIT holds 784,000 BTC.',
+  description: 'BlackRock shifted $600 million in Bitcoin from Coinbase Prime to private cold wallets. The move signals long-term settlement, not a sell-off, as IBIT',
   keywords: [
     'BlackRock Bitcoin cold storage',
     'IBIT ETF Bitcoin movement',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'BlackRock Moves $600M in Bitcoin to Cold Storage as IBIT Holds 784K BTC',
+    title: 'BlackRock Moves $600M in Bitcoin to Cold Storage as IBIT',
     description: 'The $600M transfer from Coinbase Prime to private wallets is operational settlement, not a sell-off. IBIT now controls nearly 4% of total Bitcoin supply.',
     type: 'article',
     url: ARTICLE_URL,

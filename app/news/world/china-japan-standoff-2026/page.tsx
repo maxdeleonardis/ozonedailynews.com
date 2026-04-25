@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/news/world/china-japan-standoff-2026',
   },
+  openGraph: {
+    title: "China | Japan Diplomatic Standoff (2026)",
+    description: "Escalating tensions following the LDP election landslide and Takaichi",
+    type: 'article',
+    url: "https://www.objectwire.org/news/world/china-japan-standoff-2026",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "China | Japan Diplomatic Standoff (2026)",
+    description: "Escalating tensions following the LDP election landslide and Takaichi",
+  },
 };
 
 export default function ChinaJapanStandoffPage() {

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/open-ai/altman-government-oversight-pentagon-deal';
 
 export const metadata: Metadata = {
-  title: 'Sam Altman Calls for Government Oversight of AI After Controversial Pentagon Deal',
+  title: 'Sam Altman Calls for Government Oversight of AI After',
   description: 'OpenAI CEO Sam Altman stated the U.S. government should hold more authority over private AI companies, days after signing a classified DoD contract and',
   keywords: [
     'Sam Altman government oversight AI',

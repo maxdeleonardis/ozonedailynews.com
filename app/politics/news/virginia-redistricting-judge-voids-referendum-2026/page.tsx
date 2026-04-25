@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1773433443925-fd63ec426315?w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Virginia Redistricting | Judge Voids Referendum 24 Hours After Vote',
-  description: 'Judge Jack Hurley voided Virginia\'s redistricting referendum the day after voters approved it 51.5%, calling the ballot language misleading and citing a 90-day notice violation.',
+  title: 'Virginia Redistricting | Judge Voids Referendum 24 Hours',
+  description: 'Judge Jack Hurley voided Virginia\'s redistricting referendum the day after voters approved it 51.5%, calling the ballot language misleading and citing a',
   keywords: [
     'Virginia redistricting 2026',
     'Judge Hurley voids referendum',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Virginia Redistricting | Judge Voids Voter-Approved Referendum in 24 Hours',
+    title: 'Virginia Redistricting | Judge Voids Voter-Approved',
     description: 'Voters said yes 51.5%. A Tazewell County judge said no the next morning. Virginia\'s 10-1 Democratic map is now blocked pending a Supreme Court ruling.',
     type: 'article',
     url: ARTICLE_URL,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '3 Million Virginia Votes Thrown Out in 24 Hours | Judge Voids Redistricting Referendum',
+    title: '3 Million Virginia Votes Thrown Out in 24 Hours | Judge',
     description: 'Ballot language was "flagrantly misleading," says the circuit court. The 10-1 Democratic map is blocked. Virginia Supreme Court briefs due Friday.',
     images: [OG_IMAGE],
   },

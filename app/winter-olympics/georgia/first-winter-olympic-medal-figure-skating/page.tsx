@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Georgia Wins First Ever Winter Olympic Medal in Pairs Figure Skating | Milano Cortina 2026',
+  title: 'Georgia Wins First Ever Winter Olympic Medal in Pairs',
   description: 'Anastasia Metelkina and Luka Berulava made history at Milano Cortina 2026 by winning Georgia\'s first-ever Winter Olympic medal, a silver in pairs figure',
   keywords: [
     'Georgia Winter Olympics', 'first Winter Olympic medal', 'Metelkina Berulava',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Winter Olympics history', 'figure skating 2026', 'historic medal',
   ],
   openGraph: {
-    title: 'Georgia Wins Its First Ever Winter Olympic Medal in Pairs Figure Skating',
+    title: 'Georgia Wins Its First Ever Winter Olympic Medal in',
     description: 'Anastasia Metelkina and Luka Berulava win pairs figure skating silver, a historic first Winter Olympic medal for Georgia at Milano Cortina 2026.',
     type: 'article',
     publishedTime: '2026-02-14T18:00:00Z',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Georgia Wins First Ever Winter Olympic Medal | Pairs Figure Skating Silver',
+    title: 'Georgia Wins First Ever Winter Olympic Medal | Pairs Figure',
     description: 'Metelkina and Berulava make history for a nation at Milano Cortina 2026.',
   },
   alternates: {

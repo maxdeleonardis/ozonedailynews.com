@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w
 
 export const metadata: Metadata = {
   title: 'Intel Joins Musk Terafab AI Chip Project in Texas',
-  description: 'Intel announced it is joining Elon Musk\'s Terafab AI chip complex in Austin, Texas, bringing advanced 18A process technology and 3D packaging to the $20-25 billion joint venture.',
+  description: 'Intel announced it is joining Elon Musk\'s Terafab AI chip complex in Austin, Texas, bringing advanced 18A process technology and 3D packaging to the',
   keywords: [
     'Intel Terafab',
     'Intel Elon Musk',

@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/cloudflare.PNG';
 
 export const metadata: Metadata = {
-  title: 'Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution',
+  title: 'Cloudflare Launches Dynamic Workers Open Beta for AI',
   description:
     'Cloudflare has opened Dynamic Workers to all paid Workers users, offering V8 isolate-based execution that starts 100× faster and uses up to 100× less',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Cloudflare Launches Dynamic Workers Open Beta for AI Code Execution',
+    title: 'Cloudflare Launches Dynamic Workers Open Beta for AI',
     description:
       'Dynamic Workers uses V8 JavaScript isolates instead of Linux containers, achieving startup speeds 100× faster and memory efficiency up to 100× better, now',
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cloudflare Opens Dynamic Workers Beta | 100× Faster Than Containers for AI Code',
+    title: 'Cloudflare Opens Dynamic Workers Beta | 100× Faster Than',
     description:
       'V8 isolate-based execution replaces Linux containers for AI-generated code workflows. Available now to all paid Cloudflare Workers users.',
     images: [IMAGE_URL],

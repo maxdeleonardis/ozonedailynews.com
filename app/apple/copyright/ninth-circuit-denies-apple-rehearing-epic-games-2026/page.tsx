@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://kzcwclprrtonpsnownbl.supabase.co/storage/v1/object/public/thumbnails/apple-ninth-circuit-epic-games-2026.jpg';
 
 export const metadata: Metadata = {
-  title: 'Ninth Circuit Denies Apple Rehearing | Epic Games App Store Case',
+  title: 'Ninth Circuit Denies Apple Rehearing | Epic Games App Store',
   description:
     'The Ninth Circuit unanimously denied Apple rehearing en banc in the Epic Games antitrust case, upholding the December 2025 ruling that Apple willfully',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Ninth Circuit Unanimously Denies Apple Rehearing in Epic Games Case',
+    title: 'Ninth Circuit Unanimously Denies Apple Rehearing in Epic',
     description:
       'Apple loses its final appellate lifeline. The Ninth Circuit panel and full court both declined to revisit a December ruling that found Apple willfully',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ninth Circuit Denies Apple Rehearing | Epic Games App Store Ruling Stands',
+    title: 'Ninth Circuit Denies Apple Rehearing | Epic Games App Store',
     description:
       'Apple exhausts its Ninth Circuit options. The court unanimously rejected both panel and en banc rehearing, locking in a ruling that Apple violated a court',
   },

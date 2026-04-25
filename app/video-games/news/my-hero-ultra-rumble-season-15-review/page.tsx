@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/my-hero-ultra-rumble-season-15-review';
 
 export const metadata: Metadata = {
-  title: 'My Hero Ultra Rumble Season 15 Review: Tokoyami, Neo Academia & Patch 1.14.0',
+  title: 'My Hero Ultra Rumble Season 15 Review | Tokoyami, Neo',
   description:
     'My Hero Ultra Rumble Season 15 launched January 21, 2026, adding Fumikage Tokoyami as a new Assault character, the Neo Academia stage rotating every 2',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'My Hero Ultra Rumble Season 15: Tokoyami, Neo Academia & Everything New',
+    title: 'My Hero Ultra Rumble Season 15 | Tokoyami, Neo Academia',
     description:
       "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam",
     type: 'article',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MHUR Season 15: Tokoyami Drops, Neo Academia Launches, Steam Peaks at 4,558',
+    title: 'MHUR Season 15 | Tokoyami Drops, Neo Academia Launches',
     description:
       'Everything in My Hero Ultra Rumble Season 15, Dark Shadow kit, Neo Academia stage, all event rewards, gacha calendar, and Steam concurrent data through',
   },

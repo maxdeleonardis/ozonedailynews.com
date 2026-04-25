@@ -10,7 +10,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/video-games/thumbnail.PNG';
 
 export const metadata: Metadata = {
-  title: 'Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions',
+  title: 'Crimson Desert Players Flag Suspected AI Art, Raising',
   description:
     'Crimson Desert players have identified in-game artwork they believe was created using generative AI, days after the Pearl Abyss RPG\u2019s March 19 launch',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: FULL_URL,
   },
   openGraph: {
-    title: 'Crimson Desert Players Flag Suspected AI Art, Raising Steam Disclosure Questions',
+    title: 'Crimson Desert Players Flag Suspected AI Art, Raising',
     description:
       'Days after its March 19 launch, players have flagged suspected AI-generated artwork inside Crimson Desert. The Steam page carries no disclosure \u2014',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crimson Desert Players Flag Suspected AI Art \u2014 Steam Has No Disclosure',
+    title: 'Crimson Desert Players Flag Suspected AI Art \u2014',
     description:
       'Just days after its March 19 launch, Crimson Desert is contending with player-identified AI artwork and a Steam page with no generative AI disclosure.',
     images: [IMAGE_URL],

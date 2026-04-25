@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'FIFA World Cup 2026 Halftime Show | Chris Martin, Global Citizen Confirmed',
-  description: 'FIFA President Gianni Infantino confirmed the 2026 World Cup Final will feature the tournament\'s first-ever Super Bowl-style halftime show, curated by Coldplay\'s Chris Martin and Global Citizen.',
+  title: 'FIFA World Cup 2026 Halftime Show | Chris Martin, Global',
+  description: 'FIFA President Gianni Infantino confirmed the 2026 World Cup Final will feature the tournament\'s first-ever Super Bowl-style halftime show, curated by',
   keywords: [
     'FIFA World Cup 2026 halftime show',
     'World Cup 2026 final halftime show',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'FIFA Confirms World Cup 2026 Final Halftime Show | Chris Martin, Global Citizen',
-    description: 'The 2026 World Cup Final at MetLife Stadium will feature a Super Bowl-style halftime show curated by Coldplay\'s Chris Martin. Infantino: "It will be the biggest in the world."',
+    title: 'FIFA Confirms World Cup 2026 Final Halftime Show | Chris',
+    description: 'The 2026 World Cup Final at MetLife Stadium will feature a Super Bowl-style halftime show curated by Coldplay\'s Chris Martin. Infantino: "It will be the',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'World Cup 2026 Final gets first-ever halftime show — Chris Martin curating',
+    title: 'World Cup 2026 Final gets first-ever halftime show | Chris',
     description: 'Infantino confirms Super Bowl-style show at MetLife, July 19. "It\'s not one, it\'s more than one" artist. Global Citizen producing.',
   },
 };

@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?i
 export const metadata: Metadata = {
   title: 'GameStop Pokemon Power Packs | Digital Cards, PSA Vault 2026',
   description:
-    'GameStop launched digital Pokemon Power Packs in April 2026: repacked cards held in a PSA vault, $25 to $2,500 per pack, a 6% transaction fee, and a $29,000 Charizard hidden in one pack.',
+    'GameStop launched digital Pokemon Power Packs in April 2026: repacked cards held in a PSA vault, $25 to $2,500 per pack, a 6% transaction fee, and a',
   keywords: [
     'GameStop Pokemon Power Packs',
     'GameStop digital Pokemon cards',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'GameStop Pokemon Power Packs | Digital Cards, PSA Vault 2026',
     description:
-      'GameStop repacks Pokemon cards into $25-$2,500 Power Packs, stores them in a PSA digital vault, charges 6% on every trade, and hid a $29,000 Charizard somewhere in the system.',
+      'GameStop repacks Pokemon cards into $25-$2,500 Power Packs, stores them in a PSA digital vault, charges 6% on every trade, and hid a $29,000 Charizard',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GameStop hid a $29,000 Charizard in its new Pokemon Power Pack system',
+    title: 'GameStop hid a $29,000 Charizard in its new Pokemon',
     description: '$25 to $2,500 packs. PSA digital vault. 6% fees. Employees say $150 packs "flew off the cashwrap."',
     images: [OG_IMAGE],
   },

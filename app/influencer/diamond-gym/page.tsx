@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/influncer/Diamond Gym.PNG';
 
 export const metadata: Metadata = {
-  title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness Influencers Train',
+  title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness',
   description:
     'Diamond Gym in Maplewood, NJ has become one of the most talked-about training facilities in the US fitness influencer scene. Logan Paul, the Tren Twins,',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness Influencers Train',
+    title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness',
     description:
       'Diamond Gym in Maplewood, NJ: the private gym where Logan Paul, the Tren Twins, and a wave of fitness influencers have trained. Full profile on ObjectWire.',
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Diamond Gym, Maplewood NJ | Logan Paul, Tren Twins & Elite Influencers Train Here',
+    title: 'Diamond Gym, Maplewood NJ | Logan Paul, Tren Twins & Elite',
     description:
       'The New Jersey gym that became a destination for the biggest names in fitness content. Full profile on ObjectWire.',
   },

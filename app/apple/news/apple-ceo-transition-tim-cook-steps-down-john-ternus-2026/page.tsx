@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w
 
 export const metadata: Metadata = {
   title: 'Tim Cook Steps Down | Apple Names John Ternus CEO 2026',
-  description: 'Apple announced April 20, 2026 that Tim Cook will step down as CEO on September 1, handing the role to hardware chief John Ternus as John Giannandrea exits.',
+  description: 'Apple announced April 20, 2026 that Tim Cook will step down as CEO on September 1, handing the role to hardware chief John Ternus as John Giannandrea',
   keywords: [
     'Tim Cook steps down',
     'Apple CEO change 2026',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Tim Cook Steps Down | Apple Names John Ternus CEO September 2026',
-    description: 'Tim Cook becomes Executive Chairman. John Ternus takes the CEO seat. John Giannandrea exits after his April 15 vest. Apple\'s biggest leadership shift in a decade.',
+    title: 'Tim Cook Steps Down | Apple Names John Ternus CEO September',
+    description: 'Tim Cook becomes Executive Chairman. John Ternus takes the CEO seat. John Giannandrea exits after his April 15 vest. Apple\'s biggest leadership shift in',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

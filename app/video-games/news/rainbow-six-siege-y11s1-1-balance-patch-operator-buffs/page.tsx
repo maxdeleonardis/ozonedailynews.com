@@ -9,7 +9,7 @@ const SLUG = '/video-games/news/rainbow-six-siege-y11s1-1-balance-patch-operator
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Rainbow Six Siege Y11S1.1 Patch | Flores, Jäger, Rook, Nøkk Buffs',
+  title: 'Rainbow Six Siege Y11S1.1 Patch | Flores, Jäger, Rook, Nøkk',
   description:
     'Siege Y11S1.1 buffs Flores, Iana, Jäger, Nøkk, Rook, Wamai, Caveira M12, and Sens POF-9. Full breakdown of every operator and weapon change in the',
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Siege Y11S1.1 | Rook Gets +25 HP, Jäger Cooldown Drops, M12 Buffed',
+    title: 'Siege Y11S1.1 | Rook Gets +25 HP, Jäger Cooldown Drops, M12',
     description:
       'Full breakdown of every operator and weapon change in the Y11S1.1 mid-season balance patch for Rainbow Six Siege.',
   },

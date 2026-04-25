@@ -4,7 +4,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Mika Lafuente: Argentine-American Model & Lifestyle Influencer',
+  title: 'Mika Lafuente | Argentine-American Model & Lifestyle',
   description:
     'Full biography, career details, and social media presence of Mika Lafuente, Argentine-American model and popular lifestyle creator.',
   keywords: [

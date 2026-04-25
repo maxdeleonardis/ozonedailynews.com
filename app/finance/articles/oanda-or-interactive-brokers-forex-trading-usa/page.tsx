@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Institutional Comparison: OANDA vs Interactive Brokers (2025-2026)",
+  title: "Institutional Comparison | OANDA vs Interactive Brokers",
   description: "A professional deconstruction of the $7.5 trillion daily forex market. Comparing execution models, API accessibility, and regulatory hedging for US-based",
   keywords: [
     "OANDA vs Interactive Brokers 2026",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "foreign exchange risk management"
   ],
   openGraph: {
-    title: "Institutional Comparison: OANDA vs Interactive Brokers (2025-2026)",
+    title: "Institutional Comparison | OANDA vs Interactive Brokers",
     description: "Financial Intelligence: Comparing the two primary conduits for institutional-grade currency exposure in the US market.",
     type: "article",
     url: "https://www.objectwire.org/finance/articles/oanda-or-interactive-brokers-forex-trading-usa",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Institutional Comparison: OANDA vs Interactive Brokers (2025-2026)',
+    title: 'Institutional Comparison | OANDA vs Interactive Brokers',
     description: 'Financial Intelligence: Comparing the two primary conduits for institutional-grade currency exposure in the US market.',
   },
 };

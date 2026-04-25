@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/podcasts/all-in-podcast',
   },
+  openGraph: {
+    title: "All-In Podcast | Tech & Business Insights",
+    description: "Complete profile of the All-In Podcast hosted by the Besties: Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg. Tech, business, and",
+    type: 'article',
+    url: "https://www.objectwire.org/podcasts/all-in-podcast",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "All-In Podcast | Tech & Business Insights",
+    description: "Complete profile of the All-In Podcast hosted by the Besties: Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg. Tech, business, and",
+  },
 };
 
 export default function AllInPodcastPage() {

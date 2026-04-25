@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "God Squad Exempts All Gulf Drilling from ESA | First Ruling Since 1992",
+    title: "God Squad Exempts All Gulf Drilling from ESA | First Ruling",
     description:
       "Pete Hegseth invoked a never-before-used national security provision to force the God Squad's hand. The committee voted unanimously, putting the Rice's",
   },

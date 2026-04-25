@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/pawel-czerwinski-fpZZEV0uQwA-unsplash.jpg';
 
 export const metadata: Metadata = {
-  title: 'Intel and AMD CPU Prices Surge Up to 15% as Shortages Hit PC and Server Manufacturers',
+  title: 'Intel and AMD CPU Prices Surge Up to 15% as Shortages',
   description:
     'Intel and AMD CPU prices have risen 10–15% in Q1 2026 as a deepening supply shortage extends delivery lead times from two weeks to as long as six months,',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Intel and AMD CPU Prices Surge Up to 15% as Shortages Hit PC and Server Manufacturers',
+    title: 'Intel and AMD CPU Prices Surge Up to 15% as Shortages',
     description:
       'CPU prices are up 10–15% across Intel and AMD product lines as global supply meets only 65–75% of demand. Lead times have stretched from two weeks to',
     type: 'article',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Intel and AMD CPU Prices Up 15% | Lead Times Stretch to 6 Months',
+    title: 'Intel and AMD CPU Prices Up 15% | Lead Times Stretch to 6',
     description:
       'The semiconductor supply chain has a new bottleneck: CPUs. Intel and AMD processors are now harder to source than the memory chips that held up production',
     images: [IMAGE_URL],

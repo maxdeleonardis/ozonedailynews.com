@@ -12,6 +12,19 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/sidemen',
   },
   keywords: ['Sidemen', 'KSI', 'Miniminter', 'Zerkaa', 'TBJZL', 'Behzinga', 'Vikkstar123', 'W2S', 'UK YouTubers', 'Sidemen Charity Match', 'YouTube group'],
+  openGraph: {
+    title: "The Sidemen | British YouTube Entertainment Group",
+    description: "Comprehensive profile of The Sidemen, the UK",
+    type: 'article',
+    url: "https://www.objectwire.org/youtube/sidemen",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Sidemen | British YouTube Entertainment Group",
+    description: "Comprehensive profile of The Sidemen, the UK",
+  },
 };
 
 export default function SidemenWikiPage() {

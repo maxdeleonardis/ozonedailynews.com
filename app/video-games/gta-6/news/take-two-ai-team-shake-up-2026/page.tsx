@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'GTA 6 | Take-Two Shakes Up AI Team Despite CEO Hundreds of Pilots Pledge',
+    title: 'GTA 6 | Take-Two Shakes Up AI Team Despite CEO Hundreds of',
     description:
       'Take-Two restructures its AI division weeks after Zelnick told investors they were running "hundreds of pilots." What it means for GTA 6 NPC behavior, QA',
     url: `https://www.objectwire.org${SLUG}`,

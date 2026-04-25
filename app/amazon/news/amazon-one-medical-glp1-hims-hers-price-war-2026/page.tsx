@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w
 
 export const metadata: Metadata = {
   title: 'Amazon One Medical GLP-1 Plan | Hims & Hers Price War 2026',
-  description: 'Amazon One Medical launched a nationwide GLP-1 weight loss program on April 21, 2026, starting at $25/month insured. Hims & Hers stock fell 4-6% on the same-day delivery threat.',
+  description: 'Amazon One Medical launched a nationwide GLP-1 weight loss program on April 21, 2026, starting at $25/month insured. Hims & Hers stock fell 4-6% on the',
   keywords: [
     'Amazon One Medical GLP-1',
     'Amazon weight loss program 2026',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Amazon One Medical GLP-1 | The $149 Weight Loss Plan Hims & Hers Feared',
-    description: 'Amazon launched nationwide GLP-1 coverage April 21, 2026. Same-day delivery in 3,000 cities. Brand-name only. Hims & Hers fell 4-6% before the market closed.',
+    title: 'Amazon One Medical GLP-1 | The $149 Weight Loss Plan Hims',
+    description: 'Amazon launched nationwide GLP-1 coverage April 21, 2026. Same-day delivery in 3,000 cities. Brand-name only. Hims & Hers fell 4-6% before the market',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amazon launched a $149/month GLP-1 plan. HIMS dropped 4-6% the same day.',
+    title: 'Amazon launched a $149/month GLP-1 plan. HIMS dropped',
     description: 'Same-day delivery. Brand-name only. 50 states. Amazon just entered the one market Hims & Hers thought it owned.',
     images: [OG_IMAGE],
   },

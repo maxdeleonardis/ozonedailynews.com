@@ -6,12 +6,12 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NTSB Opens Investigation into Waymo Over School Bus Violations",
+  title: "NTSB Opens Investigation into Waymo Over School Bus",
   description: "National Transportation Safety Board launches federal investigation after Waymo robotaxis illegally passed stopped school buses more than 20 times in",
   keywords: ["NTSB", "Waymo", "school bus", "investigation", "autonomous vehicles", "safety", "Austin", "Atlanta", "robotaxi", "NHTSA"],
   authors: [{ name: "Jack S", url: "https://www.objectwire.org/author/jack-s" }],
   openGraph: {
-    title: "NTSB Opens Investigation into Waymo Over School Bus Violations",
+    title: "NTSB Opens Investigation into Waymo Over School Bus",
     description: "First federal NTSB probe into Waymo after 20+ incidents of robotaxis illegally passing stopped school buses.",
     type: "article",
     publishedTime: "2026-01-23T17:00:00Z",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NTSB Opens Investigation into Waymo Over School Bus Violations',
+    title: 'NTSB Opens Investigation into Waymo Over School Bus',
     description: 'First federal NTSB probe into Waymo after 20+ incidents of robotaxis illegally passing stopped school buses.',
   },
 };

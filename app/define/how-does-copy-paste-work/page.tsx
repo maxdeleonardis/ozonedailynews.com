@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "How Does Copy and Paste Work? A Technical Breakdown of Ctrl+C and Ctrl+V",
+  title: "How Does Copy and Paste Work? A Technical Breakdown of",
   description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory",
   keywords: [
     'how does copy paste work technically',
@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/define/how-does-copy-paste-work',
+  },
+  openGraph: {
+    title: "How Does Copy and Paste Work? A Technical Breakdown of",
+    description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory",
+    type: 'article',
+    url: "https://www.objectwire.org/define/how-does-copy-paste-work",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "How Does Copy and Paste Work? A Technical Breakdown of",
+    description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory",
   },
 };
 

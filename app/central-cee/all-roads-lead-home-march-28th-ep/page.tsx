@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Central Cee Drops Surprise EP All Roads Lead Home | West London Return',
+    title: 'Central Cee Drops Surprise EP All Roads Lead Home | West',
     description:
       'One year after Can\'t Rush Greatness, Central Cee releases a raw 7-track EP rooted in Shepherd\'s Bush. Features J Hus and A2ANTI, dropping March 27, 2026.',
     url: `https://www.objectwire.org${SLUG}`,

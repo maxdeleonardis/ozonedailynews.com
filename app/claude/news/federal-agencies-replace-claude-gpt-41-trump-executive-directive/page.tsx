@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Federal Agencies Evict Claude, Replace It With GPT-4.1 After Trump Executive Directive',
+    'Federal Agencies Evict Claude, Replace It With GPT-4.1',
   description:
     "The U.S. State Department's StateChat has swapped Claude Sonnet 4.5 for OpenAI GPT-4.1, the Senate has approved Microsoft Copilot, Google Gemini, and",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Federal Agencies Evict Claude, Replace With GPT-4.1 After Trump Directive',
+    title: 'Federal Agencies Evict Claude, Replace With GPT-4.1',
     description:
       "The State Department's StateChat has silently swapped Claude Sonnet 4.5 for GPT-4.1. The Senate has approved Microsoft, Google, and OpenAI, but not",
     type: 'article',

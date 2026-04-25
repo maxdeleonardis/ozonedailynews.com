@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/winter-olympics/usa/alysa-liu';
 
 export const metadata: Metadata = {
-  title: 'Alysa Liu | Olympic Gold Medalist, Figure Skater | Milano Cortina 2026',
+  title: 'Alysa Liu | Olympic Gold Medalist, Figure Skater | Milano',
   description:
     "Full biography of Alysa Liu, American figure skater and 2026 Olympic gold medalist. California-born Chinese-American skater who ended a 20-year U.S. medal",
   keywords: [

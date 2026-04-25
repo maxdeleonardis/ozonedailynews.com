@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://www.objectwire.org/images/claude/anthropic-coreweave-d
 
 export const metadata: Metadata = {
   title: 'Anthropic Signs Multiyear CoreWeave Data Center Deal',
-  description: 'Anthropic agreed to lease GPU computing capacity from CoreWeave in a multiyear deal, adding Nvidia chip access as revenue run rate surpasses $30 billion and client base doubles to 1,000+.',
+  description: 'Anthropic agreed to lease GPU computing capacity from CoreWeave in a multiyear deal, adding Nvidia chip access as revenue run rate surpasses $30 billion',
   keywords: [
     'Anthropic CoreWeave deal',
     'CoreWeave data center Anthropic',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Anthropic Signs Multiyear Deal to Rent CoreWeave Data Center Capacity',
-    description: 'Anthropic will lease Nvidia GPU capacity from CoreWeave in a multiyear agreement, adding to CoreWeave\'s $87.8 billion revenue backlog as Anthropic\'s run rate surpasses $30B.',
+    title: 'Anthropic Signs Multiyear Deal to Rent CoreWeave Data',
+    description: 'Anthropic will lease Nvidia GPU capacity from CoreWeave in a multiyear agreement, adding to CoreWeave\'s $87.8 billion revenue backlog as Anthropic\'s run',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

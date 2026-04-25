@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w
 export const metadata: Metadata = {
   title: 'White-Collar Jobs | 31 Months of Contraction, No Recession',
   description:
-    'White-collar payrolls have contracted for 31 consecutive months, the longest streak outside a formal recession in modern history, per Glassdoor economist Aaron Terrazas.',
+    'White-collar payrolls have contracted for 31 consecutive months, the longest streak outside a formal recession in modern history, per Glassdoor economist',
   keywords: [
     'white collar jobs decline 2026',
     'white collar payroll contraction 31 months',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'White-Collar Jobs | 31 Consecutive Months of Contraction',
     description:
-      'The longest white-collar payroll contraction streak outside a formal recession. Aaron Terrazas data, AI automation drivers, and what the headline jobs numbers miss.',
+      'The longest white-collar payroll contraction streak outside a formal recession. Aaron Terrazas data, AI automation drivers, and what the headline jobs',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'skeleton athlete profile',
   ],
   openGraph: {
-    title: 'Darryl Payne Jr. | First African American Man in U.S. Olympic Skeleton',
+    title: 'Darryl Payne Jr. | First African American Man in U.S.',
     description:
       'How a track athlete from Temple, Texas became a history-maker at the 2026 Winter Olympics, the first African American man ever to represent the United',
     type: 'article',

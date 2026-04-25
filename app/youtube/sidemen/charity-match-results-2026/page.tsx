@@ -11,8 +11,8 @@ const OG_IMAGE = 'https://www.objectwire.org/influncer/sdmn_charitymatch_26.webp
 const THUMBNAIL = '/influncer/sdmn_charitymatch_26.webp';
 
 export const metadata: Metadata = {
-  title: 'Sidemen Charity Match 2026 Results | 10-10 Draw, YouTube Allstars Win Shootout',
-  description: 'Sidemen Charity Match 2026 results: 10-10 draw at Wembley, YouTube Allstars win 4-1 on penalties, raising £6.2M. Jynxzi Man of the Match, Miniminter hat-trick, ItalianBach 90th-minute equalizer.',
+  title: 'Sidemen Charity Match 2026 Results | 10-10 Draw, YouTube',
+  description: 'Sidemen Charity Match 2026 results: 10-10 draw at Wembley, YouTube Allstars win 4-1 on penalties, raising £6.2M. Jynxzi Man of the Match, Miniminter',
   keywords: [
     'Sidemen Charity Match 2026 results',
     'Sidemen Charity Match score',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Sidemen Charity Match 2026 | 10-10 Draw, Allstars Win Shootout, £6.2M Raised',
+    title: 'Sidemen Charity Match 2026 | 10-10 Draw, Allstars Win',
     description: '20 goals, a penalty shootout, a magic trick on the referee, and £6.2M raised at a sold-out Wembley. Full results from Sidemen Charity Match 2026.',
     type: 'article',
     url: ARTICLE_URL,
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sidemen Charity Match 2026 | 10-10, YouTube Allstars win on pens, £6.2M raised',
-    description: '20 goals. 4-1 penalty shootout. Jynxzi MOTM. Miniminter hat-trick. ItalianBach 90th-minute equalizer. Max Fosh burned a yellow card in front of 90,000 fans.',
+    title: 'Sidemen Charity Match 2026 | 10-10, YouTube Allstars win on',
+    description: '20 goals. 4-1 penalty shootout. Jynxzi MOTM. Miniminter hat-trick. ItalianBach 90th-minute equalizer. Max Fosh burned a yellow card in front of 90,000',
     images: [`https://www.objectwire.org${THUMBNAIL}`],
   },
 };

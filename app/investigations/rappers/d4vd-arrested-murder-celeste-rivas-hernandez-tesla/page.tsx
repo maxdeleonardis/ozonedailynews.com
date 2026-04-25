@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'D4vd Arrested for Murder | Celeste Rivas Hernandez Body Found in Tesla',
-  description: 'Platinum-selling singer D4vd, born David Anthony Burke, was arrested on suspicion of murdering 14-year-old Celeste Rivas Hernandez after LAPD found her body in his impounded Tesla.',
+  title: 'D4vd Arrested for Murder | Celeste Rivas Hernandez Body',
+  description: 'Platinum-selling singer D4vd, born David Anthony Burke, was arrested on suspicion of murdering 14-year-old Celeste Rivas Hernandez after LAPD found her',
   keywords: [
     'D4vd arrested',
     'D4vd murder',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'D4vd Arrested on Suspicion of Murdering Celeste Rivas Hernandez',
-    description: 'LAPD arrested platinum-selling artist D4vd after finding 14-year-old Celeste Rivas Hernandez\'s body in his impounded Tesla seven months ago. He is held without bail.',
+    title: 'D4vd Arrested on Suspicion of Murdering Celeste Rivas',
+    description: 'LAPD arrested platinum-selling artist D4vd after finding 14-year-old Celeste Rivas Hernandez\'s body in his impounded Tesla seven months ago. He is held',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'D4vd arrested for murder of 14-year-old Celeste Rivas Hernandez',
+    title: 'D4vd arrested for murder of 14-year-old Celeste Rivas',
     description: 'Body found in trunk of singer\'s impounded Tesla seven months ago. D4vd held without bail. Defense lawyers say he "did not murder" the teen.',
   },
 };

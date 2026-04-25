@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Lenny Kravitz Revealed as Villain Bawma in 007 First Light Cinematic at IGN Fan Fest 2026',
+  title: 'Lenny Kravitz Revealed as Villain Bawma in 007 First',
   description:
     'IGN unveiled a new cinematic trailer for 007: First Light at Fan Fest 2026 spotlighting Lenny Kravitz as villain Bawma, a pirate king and black-market',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       'https://www.objectwire.org/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
   },
   openGraph: {
-    title: 'Lenny Kravitz as Villain Bawma in 007: First Light -- IGN Fan Fest 2026 Cinematic Trailer',
+    title: 'Lenny Kravitz as Villain Bawma in 007 | First Light -- IGN',
     description:
       'New cinematic trailer for IO Interactive\'s 007: First Light reveals Lenny Kravitz as pirate king Bawma. Multi-layered antagonist, crocodile scene, and',
     type: 'article',

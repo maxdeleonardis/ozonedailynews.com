@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'JetBlue Surveillance Pricing Lawsuit | Personal Data Used to Set Fares 2026',
-  description: 'JetBlue faces a federal class action lawsuit alleging it uses cookies, tracking pixels, and third-party data brokers to inflate ticket prices based on individual browsing behavior — a practice regulators call "surveillance pricing."',
+  title: 'JetBlue Surveillance Pricing Lawsuit | Personal Data Used',
+  description: 'JetBlue faces a federal class action lawsuit alleging it uses cookies, tracking pixels, and third-party data brokers to inflate ticket prices based on',
   keywords: [
     'JetBlue surveillance pricing lawsuit 2026',
     'JetBlue class action personal data fares',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'JetBlue Sued Over Surveillance Pricing | Personal Data Used to Set Ticket Fares',
-    description: 'A viral X post, a $230 single-day fare jump, and a deleted JetBlue reply have ignited a federal class action lawsuit and congressional scrutiny over whether airlines use your browsing history to charge you more.',
+    title: 'JetBlue Sued Over Surveillance Pricing | Personal Data Used',
+    description: 'A viral X post, a $230 single-day fare jump, and a deleted JetBlue reply have ignited a federal class action lawsuit and congressional scrutiny over',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

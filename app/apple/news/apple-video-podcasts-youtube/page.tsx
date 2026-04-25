@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/apple/news/apple-video-podcasts-youtube';
 
 export const metadata: Metadata = {
-  title: 'Apple Launches Full Video Podcasts to Challenge YouTube Dominance',
+  title: 'Apple Launches Full Video Podcasts to Challenge YouTube',
   description:
     'Apple is integrating a native video experience into Apple Podcasts this spring, blending audio and video in one seamless app. The move is a direct',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Apple Launches Full Video Podcasts to Challenge YouTube Industry Dominance',
+    title: 'Apple Launches Full Video Podcasts to Challenge YouTube',
     description:
       'Apple Podcasts is going full video this spring, a native watch-and-listen experience designed to pull creators and audiences away from YouTube and Spotify.',
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apple Launches Full Video Podcasts | A Direct Shot at YouTube',
+    title: 'Apple Launches Full Video Podcasts | A Direct Shot at',
     description:
       'Apple Podcasts is getting a native video experience this spring. Here\'s what it means for YouTube, Spotify, and the future of podcasting.',
   },

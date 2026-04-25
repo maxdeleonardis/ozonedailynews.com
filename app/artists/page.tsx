@@ -20,6 +20,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/artists',
   },
+  openGraph: {
+    title: "Top Artists in the United States | ObjectWire Music",
+    description: "Explore the top 7 artists dominating the US music scene right now. Featuring chart-toppers, streaming giants, and cultural icons shaping modern music.",
+    type: 'article',
+    url: "https://www.objectwire.org/artists",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Top Artists in the United States | ObjectWire Music",
+    description: "Explore the top 7 artists dominating the US music scene right now. Featuring chart-toppers, streaming giants, and cultural icons shaping modern music.",
+  },
 };
 
 export default function ArtistsPage() {

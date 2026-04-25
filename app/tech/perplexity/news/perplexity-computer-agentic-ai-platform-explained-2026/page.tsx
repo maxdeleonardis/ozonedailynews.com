@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Perplexity Computer | Agentic AI Platform, Pricing, How It Works 2026',
-  description: 'Perplexity Computer is an agentic AI platform that executes multi-step workflows across your entire software stack. Full explainer: multi-model orchestration, cloud vs Mac Mini, pricing, and the SaaSpocalypse context.',
+  title: 'Perplexity Computer | Agentic AI Platform, Pricing, How It',
+  description: 'Perplexity Computer is an agentic AI platform that executes multi-step workflows across your entire software stack. Full explainer: multi-model',
   keywords: [
     'Perplexity Computer',
     'Perplexity Computer 2026',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Perplexity Computer | Agentic AI Platform, Pricing, How It Works 2026',
-    description: 'Perplexity moved from search to autonomous digital worker. Multi-model orchestration, Comet browser, Mac Mini hardware option, and $200/mo pricing. The full explainer.',
+    title: 'Perplexity Computer | Agentic AI Platform, Pricing, How It',
+    description: 'Perplexity moved from search to autonomous digital worker. Multi-model orchestration, Comet browser, Mac Mini hardware option, and $200/mo pricing. The',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Perplexity Computer is not a search engine. It is a digital coworker.',
+    title: 'Perplexity Computer is not a search engine. It is a',
     description: 'Multi-model orchestration. Comet browser. Mac Mini local proxy. $200/mo. The full breakdown of what Perplexity Computer actually is.',
     images: [OG_IMAGE],
   },

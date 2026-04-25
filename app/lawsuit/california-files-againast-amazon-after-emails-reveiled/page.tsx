@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'California vs Amazon | Unsealed Emails Reveal Artificial Price Floor Scheme',
-  description: "Unsealed court emails from April 20, 2026 show Amazon pressuring Levi's and pet food brands to raise prices on rival sites. Trial begins January 19, 2027 in San Francisco Superior Court.",
+  title: 'California vs Amazon | Unsealed Emails Reveal Artificial',
+  description: "Unsealed court emails from April 20, 2026 show Amazon pressuring Levi's and pet food brands to raise prices on rival sites. Trial begins January 19, 2027",
   keywords: [
     'California Amazon lawsuit',
     'Amazon antitrust 2026',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'California vs Amazon | Unsealed Emails Show Price Floor Scheme',
-    description: "Unsealed emails show Amazon flagged Levi's 'styles of concern' when Walmart undercut prices — and Levi's raised Walmart's prices the next day. Trial set for January 2027.",
+    title: 'California vs Amazon | Unsealed Emails Show Price Floor',
+    description: "Unsealed emails show Amazon flagged Levi's 'styles of concern' when Walmart undercut prices — and Levi's raised Walmart's prices the next day. Trial set",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

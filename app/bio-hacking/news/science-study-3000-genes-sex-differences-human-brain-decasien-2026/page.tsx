@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Science Study | 3,000 Genes Show Sex Differences in Human Brain',
-  description: 'A 2026 Science journal study mapped 3,000 sex-biased genes across 6 cortical regions using snRNA-seq. Findings link to ADHD, Alzheimer\'s, depression, and schizophrenia risk.',
+  title: 'Science Study | 3,000 Genes Show Sex Differences in Human',
+  description: 'A 2026 Science journal study mapped 3,000 sex-biased genes across 6 cortical regions using snRNA-seq. Findings link to ADHD, Alzheimer\'s, depression, and',
   keywords: [
     'sex differences human brain study 2026',
     'Alex DeCasien brain study',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Science Study | 3,000 Genes Show Sex Differences in Human Brain',
+    title: 'Science Study | 3,000 Genes Show Sex Differences in Human',
     description: 'NIA neurogeneticist Alex DeCasien maps 3,000 sex-biased genes across 6 cortical regions. 133 core genes link to ADHD, Alzheimer\'s, depression risk.',
     type: 'article',
     url: ARTICLE_URL,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '3,000 genes show sex differences in the human brain, Science study finds',
+    title: '3,000 genes show sex differences in the human brain',
     description: '133 core genes consistent across all regions. 119 on autosomes, not sex chromosomes. Linked to ADHD, Alzheimer\'s, depression, schizophrenia.',
   },
 };

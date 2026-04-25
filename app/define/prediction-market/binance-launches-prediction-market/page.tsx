@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Binance Predict.fun | Yield-Bearing Prediction Markets Launch',
+    title: 'Binance Predict.fun | Yield-Bearing Prediction Markets',
     description:
       'Binance integrated Predict.fun on March 31, 2026. 200M+ users can now trade event contracts with yield on idle USDT collateral via Venus Protocol on BNB',
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Binance just launched prediction markets. 200M users. Yield-bearing collateral.',
+    title: 'Binance just launched prediction markets. 200M users.',
     description: 'Predict.fun is live in Binance Wallet. Your USDT earns interest via Venus Protocol while your bets stay open. Kalshi and Polymarket have a new rival.',
     images: [OG_IMAGE],
   },

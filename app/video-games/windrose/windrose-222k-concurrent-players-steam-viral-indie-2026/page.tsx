@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w
 
 export const metadata: Metadata = {
   title: 'Windrose Hits 222K Steam Players | Viral Indie Breakout 2026',
-  description: 'Windrose, the pirate survival game by Kraken Express, hit 222,134 concurrent players on Steam on April 19, 2026, surpassing Dune: Awakening and selling 1 million copies in six days.',
+  description: 'Windrose, the pirate survival game by Kraken Express, hit 222,134 concurrent players on Steam on April 19, 2026, surpassing Dune: Awakening and selling 1',
   keywords: [
     'Windrose game',
     'Windrose Steam concurrent players',

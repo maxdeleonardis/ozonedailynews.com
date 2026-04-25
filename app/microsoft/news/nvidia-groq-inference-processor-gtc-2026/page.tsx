@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nvidia Acquires Groq LPU for $20B | New Inference Chip at GTC 2026',
+    title: 'Nvidia Acquires Groq LPU for $20B | New Inference Chip at',
     description:
       'LPX platform targets 64-256 LPUs per rack. OpenAI commits 3GW. The biggest inference hardware shift since Nvidia bought Mellanox.',
   },

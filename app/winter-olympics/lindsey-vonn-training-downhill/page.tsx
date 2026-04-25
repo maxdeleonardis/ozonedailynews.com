@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Lindsey Vonn Posts Third-Fastest Training Time Before Olympic Downhill",
+  title: "Lindsey Vonn Posts Third-Fastest Training Time Before",
   description: "The 41-year-old American skiing legend posted the third-fastest time in Olympic downhill training just nine days after a crash, finishing 0.37 seconds",
   keywords: [
     "Lindsey Vonn",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Winter Olympics 2026",
   ],
   openGraph: {
-    title: "Lindsey Vonn Posts Third-Fastest Time in Olympic Downhill Training",
+    title: "Lindsey Vonn Posts Third-Fastest Time in Olympic",
     description: "41-year-old Vonn skis on torn ACL nine days after crash, posts impressive training time",
     type: "article",
     url: "https://www.objectwire.org/winter-olympics/lindsey-vonn-training-downhill",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lindsey Vonn Posts 3rd-Fastest Time in Olympic Training Despite Torn ACL",
+    title: "Lindsey Vonn Posts 3rd-Fastest Time in Olympic Training",
     description: "41-year-old skiing legend shows resilience 9 days after crash",
   },
   alternates: {

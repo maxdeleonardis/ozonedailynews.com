@@ -7,7 +7,7 @@ import { generateArticleMetadata } from '@/lib/seo-utils';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = generateArticleMetadata({
-  title: "GitHub: Complete Company Profile, History & Impact on Open Source Development 2026",
+  title: "GitHub | Company Profile, History & Open Source Impact",
   description: "Comprehensive overview of GitHub Inc., the world's largest code hosting platform with 100M+ developers. Explore GitHub's history, acquisition by Microsoft, products like Copilot, and impact on open source software development.",
   keywords: [
     "GitHub",

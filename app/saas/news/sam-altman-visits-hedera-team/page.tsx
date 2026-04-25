@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/sam-altman-visits-hedera-team',
   },
+  openGraph: {
+    title: "Hedera Team Visits Sam Altman",
+    description: "Sam Altman",
+    type: 'article',
+    url: "https://www.objectwire.org/sam-altman-visits-hedera-team",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Hedera Team Visits Sam Altman",
+    description: "Sam Altman",
+  },
 };
 
 export default function SamAltmanHederaPage() {

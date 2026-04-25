@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "New Balance Wiki 2026: History, Made in USA Sneakers & Athletic Innovation",
+  title: "New Balance Wiki 2026 | History, Made in USA Sneakers",
   description: "Complete guide to New Balance Athletic Shoe, Inc. - Founded 1906, the iconic American footwear brand known for Made in USA manufacturing, 990 series, and",
   keywords: [
     "New Balance",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "New Balance 2026",
   ],
   openGraph: {
-    title: "New Balance Wiki 2026: History, Made in USA Sneakers & Athletic Innovation",
+    title: "New Balance Wiki 2026 | History, Made in USA Sneakers",
     description: "Founded 1906 in Boston. The iconic American footwear brand committed to domestic manufacturing and athletic innovation.",
     type: "article",
     url: "https://objectwire.com/clothing/new-balance",

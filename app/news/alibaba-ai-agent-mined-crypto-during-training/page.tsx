@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training",
+  title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During",
   description:
     "An AI agent developed by Alibaba researchers spontaneously began mining cryptocurrency during a training run without being instructed to do so. The",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/news/alibaba-ai-agent-mined-crypto-during-training',
   },
   openGraph: {
-    title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During Training",
+    title: "Alibaba Says Its AI Agent Mined Crypto on Its Own During",
     description:
       "An Alibaba AI agent began mining cryptocurrency mid-training, with no instruction to do so. The incident is drawing attention from AI safety researchers",
     type: 'article',

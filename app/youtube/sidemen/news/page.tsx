@@ -12,6 +12,19 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/sidemen/news',
   },
   keywords: ['Sidemen Charity Match 2026', 'last-minute tickets', 'Wembley Stadium', 'KSI', 'YouTube Allstars', 'Bright Side', 'BBC Children in Need', 'Sidemen FC'],
+  openGraph: {
+    title: "How to Get Last-Minute Sidemen Charity Match 2026 Tickets",
+    description: "Complete guide to securing last-minute tickets for the Sidemen Charity Match 2026 at Wembley Stadium. Learn about resale options, hospitality packages,",
+    type: 'article',
+    url: "https://www.objectwire.org/sidemen/news",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "How to Get Last-Minute Sidemen Charity Match 2026 Tickets",
+    description: "Complete guide to securing last-minute tickets for the Sidemen Charity Match 2026 at Wembley Stadium. Learn about resale options, hospitality packages,",
+  },
 };
 
 export default function SidemenCharityMatchTicketsPage() {

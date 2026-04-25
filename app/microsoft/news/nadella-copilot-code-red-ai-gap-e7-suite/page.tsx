@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1768006273705-760cf15058e0?i
 
 export const metadata: Metadata = {
   title: 'Nadella Declares Copilot Code Red to Close AI Gap',
-  description: 'Microsoft CEO Satya Nadella launched an emergency initiative to overhaul Copilot, introducing the $99/month M365 E7 suite and Copilot Cowork built with Anthropic to close the gap with AI rivals.',
+  description: 'Microsoft CEO Satya Nadella launched an emergency initiative to overhaul Copilot, introducing the $99/month M365 E7 suite and Copilot Cowork built with',
   keywords: [
     'Microsoft Copilot code red',
     'Satya Nadella AI emergency',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Nadella Declares Copilot Code Red | M365 E7 at $99/Month, Anthropic Partnership',
-    description: 'Microsoft CEO launches emergency AI initiative. M365 E7 bundles Copilot + Agent 365 at $99/user/month. Copilot Cowork, built with Anthropic, orchestrates multi-step workflows.',
+    title: 'Nadella Declares Copilot Code Red | M365 E7 at $99/Month',
+    description: 'Microsoft CEO launches emergency AI initiative. M365 E7 bundles Copilot + Agent 365 at $99/user/month. Copilot Cowork, built with Anthropic, orchestrates',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

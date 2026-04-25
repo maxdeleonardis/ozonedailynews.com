@@ -9,7 +9,7 @@ const SLUG = '/video-games/dispatch-adhoc-studio';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1620075266917-2c5791f6737b?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Dispatch Xbox Release | AdHoc Studio Superhero Comedy Coming Summer 2026',
+  title: 'Dispatch Xbox Release | AdHoc Studio Superhero Comedy',
   description:
     'Dispatch, the superhero workplace comedy from AdHoc Studio, is coming to Xbox Series X|S, Xbox PC, and Xbox Cloud Gaming this summer. Aaron Paul stars.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Dispatch Xbox Release Date | Superhero Comedy Coming Summer 2026',
+    title: 'Dispatch Xbox Release Date | Superhero Comedy Coming Summer',
     description:
       'AdHoc Studio\'s hit superhero workplace comedy Dispatch heads to Xbox this summer. Aaron Paul voices protagonist Mecha Man. Xbox Play Anywhere supported.',
     url: `https://www.objectwire.org${SLUG}`,

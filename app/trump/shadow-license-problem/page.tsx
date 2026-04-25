@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'The Shadow License Problem: White House War Edits Steal from Hollywood and Gaming',
+  title: 'The Shadow License Problem | White House War Edits Steal',
   description:
     'The White House is splicing drone footage of real military strikes with Grand Theft Auto screens, Mortal Kombat callouts, and Tom Cruise clips, without',
   keywords: [

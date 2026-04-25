@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-drone-gimbal-placeholder.jpg';
 
 export const metadata: Metadata = {
-  title: 'DJI Ronin 4D | Full-Frame Cinema Camera System Specs and Review',
+  title: 'DJI Ronin 4D | Full-Frame Cinema Camera System Specs and',
   description:
     'Complete guide to the DJI Ronin 4D modular cinema camera. Full-frame sensor, 4-axis stabilization, LiDAR autofocus, ProRes RAW recording, and O3 Pro',
   keywords: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DJI Ronin 4D | Full-Frame Cinema Camera with 4-Axis Stabilization',
+    title: 'DJI Ronin 4D | Full-Frame Cinema Camera with 4-Axis',
     description:
       'Full specs for the DJI Ronin 4D, 4-axis stabilization, LiDAR autofocus, ProRes RAW recording, and O3 Pro wireless, in one modular cinema platform.',
   },

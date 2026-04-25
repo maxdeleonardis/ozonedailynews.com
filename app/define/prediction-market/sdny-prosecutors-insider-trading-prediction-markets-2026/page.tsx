@@ -9,7 +9,7 @@ const SLUG = '/define/prediction-market/sdny-prosecutors-insider-trading-predict
 const OG_IMAGE = 'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'SDNY Insider Trading Probe | Prediction Markets Investigation 2026',
+  title: 'SDNY Insider Trading Probe | Prediction Markets',
   description:
     'Federal prosecutors from the SDNY launched the first criminal probe into prediction market insider trading on March 30, 2026, focusing on $410K Maduro',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'SDNY Prosecutors Target Insider Trading in Prediction Markets',
+    title: 'SDNY Prosecutors Target Insider Trading in Prediction',
     description:
       'The SDNY Securities and Commodities Fraud Unit met with Polymarket representatives after a trader netted $410K on Maduro\'s capture hours before the',
     type: 'article',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SDNY is investigating prediction market insider trading. The Maduro $410K bet is the center of it.',
+    title: 'SDNY is investigating prediction market insider trading.',
     description:
       'Federal prosecutors met with Polymarket this week. Commodity fraud, wire fraud, and the STOCK Act are all on the table.',
   },

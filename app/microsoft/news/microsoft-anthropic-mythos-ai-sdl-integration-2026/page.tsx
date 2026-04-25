@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Microsoft Embeds Anthropic Mythos AI into SDL Security Framework',
-  description: 'Microsoft is integrating Anthropic\'s Claude Mythos Preview into its Security Development Lifecycle, adopting an AI Anthropic says is far ahead of rivals in cyber vulnerability detection.',
+  title: 'Microsoft Embeds Anthropic Mythos AI into SDL Security',
+  description: 'Microsoft is integrating Anthropic\'s Claude Mythos Preview into its Security Development Lifecycle, adopting an AI Anthropic says is far ahead of rivals',
   keywords: [
     'Microsoft Anthropic Mythos AI',
     'Anthropic Claude Mythos Preview',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Microsoft Embeds Anthropic Mythos AI into SDL Security Framework',
-    description: 'Anthropic says Mythos Preview is "far ahead of any other AI model in cyber capabilities." Microsoft is the first major tech company to integrate it into its software engineering process.',
+    title: 'Microsoft Embeds Anthropic Mythos AI into SDL Security',
+    description: 'Anthropic says Mythos Preview is "far ahead of any other AI model in cyber capabilities." Microsoft is the first major tech company to integrate it into',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

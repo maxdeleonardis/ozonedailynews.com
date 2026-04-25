@@ -12,7 +12,7 @@ const OG_IMAGE = '/influncer/usa/mr_beast.png';
 export const metadata: Metadata = {
   title: 'MrBeast | Jimmy Donaldson, YouTube, Age, Bio 2026',
   description:
-    'MrBeast (Jimmy Donaldson) is the most-subscribed solo YouTube creator, with 350M+ subscribers. Full biography, YouTube analytics, Beast Games, Feastables, and controversy.',
+    'MrBeast (Jimmy Donaldson) is the most-subscribed solo YouTube creator, with 350M+ subscribers. Full biography, YouTube analytics, Beast Games, Feastables,',
   keywords: [
     'MrBeast',
     'MrBeast YouTube',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'MrBeast | 350M Subscribers, Beast Games & Full Bio 2026',
     description:
-      'Jimmy Donaldson, known as MrBeast, is the most-subscribed solo creator on YouTube. Bio, YouTube analytics, Beast Games Season 1 controversy, and brand empire.',
+      'Jimmy Donaldson, known as MrBeast, is the most-subscribed solo creator on YouTube. Bio, YouTube analytics, Beast Games Season 1 controversy, and brand',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',

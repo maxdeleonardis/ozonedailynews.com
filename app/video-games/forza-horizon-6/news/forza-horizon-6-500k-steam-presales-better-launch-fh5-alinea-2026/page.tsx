@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://www.objectwire.org/entertainment/forza_horizon_6.PNG';
 
 export const metadata: Metadata = {
-  title: 'Forza Horizon 6 | 500K Steam Pre-Sales One Month Before Launch',
-  description: 'Alinea Analytics reports Forza Horizon 6 has pre-sold roughly 500,000 copies on Steam one month before its May 19, 2026 launch, with analysts projecting an even bigger opening than Forza Horizon 5.',
+  title: 'Forza Horizon 6 | 500K Steam Pre-Sales One Month Before',
+  description: 'Alinea Analytics reports Forza Horizon 6 has pre-sold roughly 500,000 copies on Steam one month before its May 19, 2026 launch, with analysts projecting',
   keywords: [
     'Forza Horizon 6 Steam pre-sales',
     'Forza Horizon 6 500000 pre-orders',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forza Horizon 6: 500K Steam Pre-Sales One Month Out. Better Launch Than FH5 Incoming.',
+    title: 'Forza Horizon 6 | 500K Steam Pre-Sales One Month Out.',
     description: 'Alinea Analytics data. Playground Games. May 19, 2026.',
     images: [OG_IMAGE],
   },

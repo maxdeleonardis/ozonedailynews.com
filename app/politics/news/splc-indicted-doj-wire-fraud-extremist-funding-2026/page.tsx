@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1758541213979-fe8c9996e197?w
 
 export const metadata: Metadata = {
   title: 'SPLC Indicted | DOJ Charges Wire Fraud, Extremist Funding',
-  description: 'The DOJ indicted the SPLC on April 21, 2026, alleging wire fraud, bank fraud, and money laundering. Prosecutors say the civil rights group funneled $3M to KKK and Aryan Nations leaders.',
+  description: 'The DOJ indicted the SPLC on April 21, 2026, alleging wire fraud, bank fraud, and money laundering. Prosecutors say the civil rights group funneled $3M to',
   keywords: [
     'SPLC indicted 2026',
     'Southern Poverty Law Center indictment',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'SPLC Indicted | DOJ Alleges $3M Funneled to KKK, Aryan Nations',
-    description: 'Federal prosecutors allege the Southern Poverty Law Center secretly paid extremist leaders it claimed to be fighting, using shell companies to hide the transactions.',
+    title: 'SPLC Indicted | DOJ Alleges $3M Funneled to KKK, Aryan',
+    description: 'Federal prosecutors allege the Southern Poverty Law Center secretly paid extremist leaders it claimed to be fighting, using shell companies to hide the',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SPLC Indicted | DOJ Says Group Paid $3M to the Extremists It Claimed to Fight',
+    title: 'SPLC Indicted | DOJ Says Group Paid $3M to the Extremists',
     description: 'Wire fraud, bank fraud, money laundering. Prosecutors allege shell companies hid payments to KKK and Aryan Nations leaders from 2014-2023.',
     images: [OG_IMAGE],
   },

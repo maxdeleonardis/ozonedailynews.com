@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1634097537825-b446635b2f7f?i
 
 export const metadata: Metadata = {
   title: 'Software Stocks Crater as Anthropic Gatekeeps Mythos',
-  description: 'The S&P 500 Software Index fell 2.6% after Anthropic restricted Claude Mythos to 40 defensive partners. Over $2 trillion in market cap has been erased from SaaS stocks in 2026.',
+  description: 'The S&P 500 Software Index fell 2.6% after Anthropic restricted Claude Mythos to 40 defensive partners. Over $2 trillion in market cap has been erased',
   keywords: [
     'software stocks crash Anthropic Mythos',
     'Claude Mythos model restricted',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Software Stocks Crater as Anthropic Gatekeeps Claude Mythos Model',
-    description: 'S&P 500 Software Index drops 2.6% after Anthropic restricts Mythos to 40 partners. Snowflake -11.8%, Zscaler -8.8%, Cloudflare -8.6%. Michael Burry targets Palantir.',
+    title: 'Software Stocks Crater as Anthropic Gatekeeps Claude',
+    description: 'S&P 500 Software Index drops 2.6% after Anthropic restricts Mythos to 40 partners. Snowflake -11.8%, Zscaler -8.8%, Cloudflare -8.6%. Michael Burry',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Software Stocks Crater | Anthropic Restricts Mythos to 40 Partners',
+    title: 'Software Stocks Crater | Anthropic Restricts Mythos to 40',
     description: 'Snowflake -11.8%, Zscaler -8.8%, Cloudflare -8.6%. $2T erased from SaaS in 2026. Michael Burry says Anthropic is eating Palantir alive.',
     images: [OG_IMAGE],
   },

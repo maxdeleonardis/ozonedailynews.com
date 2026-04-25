@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sanders & AOC Introduce Bill to Freeze AI Data Center Construction',
+    title: 'Sanders & AOC Introduce Bill to Freeze AI Data Center',
     description:
       'The AI Data Center Moratorium Act would halt all new AI infrastructure until Congress passes rules on electricity costs, water, labor, and safety, plus a',
     images: [IMAGE_URL],

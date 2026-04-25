@@ -6,10 +6,10 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at 2026 Winter Olympics',
+  title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at',
   description: 'Lindsey Vonn airlifted to hospital after devastating crash during downhill event at 2026 Winter Olympics. Emergency surgery performed on right knee.',
   openGraph: {
-    title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at 2026 Winter Olympics',
+    title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at',
     description: 'Lindsey Vonn airlifted to hospital after devastating crash during downhill event at 2026 Winter Olympics. Emergency surgery performed on right knee.',
     type: 'article',
     publishedTime: '2026-02-08T16:30:00Z',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at 2026 Winter Olympics',
+    title: 'Lindsey Vonn Undergoes Emergency Surgery After Crash at',
     description: 'Lindsey Vonn airlifted to hospital after devastating crash during downhill event at 2026 Winter Olympics. Emergency surgery performed on right knee.',
   },
   alternates: {

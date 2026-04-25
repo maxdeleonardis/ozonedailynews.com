@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1620633759441-b4db8637d1f3?w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Kalshi Suspends 3 Candidates | Political Insider Trading 2026',
-  description: 'Kalshi suspended three 2026 midterm candidates and imposed fines up to $6,000 for betting on their own primary races, the first enforcement of its kind in U.S. prediction market history.',
+  title: 'Kalshi Suspends 3 Candidates | Political Insider Trading',
+  description: 'Kalshi suspended three 2026 midterm candidates and imposed fines up to $6,000 for betting on their own primary races, the first enforcement of its kind in',
   keywords: [
     'Kalshi political insider trading 2026',
     'Kalshi suspends candidates',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Kalshi Suspends 3 Candidates | Political Insider Trading Enforcement',
+    title: 'Kalshi Suspends 3 Candidates | Political Insider Trading',
     description: 'Fines up to $6,000 and a five-year ban for candidates who wagered on their own 2026 primaries. Kalshi calls it political insider trading.',
     type: 'article',
     url: ARTICLE_URL,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kalshi Bans 3 Candidates for Betting on Themselves | First of Its Kind',
+    title: 'Kalshi Bans 3 Candidates for Betting on Themselves | First',
     description: 'Fines up to $6,000. Five-year platform bans. Kalshi just set the first insider trading precedent in U.S. political prediction markets.',
     images: [OG_IMAGE],
   },

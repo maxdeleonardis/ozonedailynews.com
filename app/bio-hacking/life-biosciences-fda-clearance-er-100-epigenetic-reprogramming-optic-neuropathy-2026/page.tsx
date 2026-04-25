@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Life Biosciences FDA Clearance: ER-100 Epigenetic Reprogramming Trial for Glaucoma & NAION, January 2026',
+    'Life Biosciences FDA Clearance | ER-100 Epigenetic',
   description:
     "The FDA cleared Life Biosciences' ER-100 IND application on January 28, 2026, the first human trial of partial epigenetic reprogramming using OSK Yamanaka",
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'FDA Clears First Human Trial of Partial Epigenetic Reprogramming, Life Biosciences ER-100',
+      'FDA Clears First Human Trial of Partial Epigenetic',
     description:
       "On January 28, 2026, the FDA cleared Life Biosciences' ER-100 IND, a Phase 1 trial of AAV2-delivered OSK Yamanaka factors for retinal rejuvenation in",
     type: 'article',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'FDA Clears ER-100: The First Human Trial of Partial Epigenetic Reprogramming',
+      'FDA Clears ER-100 | The First Human Trial of Partial',
     description:
       "Life Biosciences' ER-100, an AAV2 vector delivering OSK Yamanaka factors to retinal ganglion cells, received FDA IND clearance January 28, 2026. Phase 1",
     images: [IMAGE_URL],

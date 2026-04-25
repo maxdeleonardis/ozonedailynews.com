@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Circle Had 6 Hours to Freeze $285M Drift Hack Funds, Did Nothing',
+    title: 'Circle Had 6 Hours to Freeze $285M Drift Hack Funds, Did',
     description:
       'ZachXBT: Circle was "asleep" as the Drift attacker bridged stolen USDC from Solana to Ethereum via CCTP for hours during US business hours.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

@@ -10,7 +10,7 @@ import { getPopularLeadSlug } from '@/lib/popular-lead';
 import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Independent Investigative Journalism & Tech News',
+  title: 'ObjectWire | Independent Investigative Journalism & Tech',
   description:
     'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
   alternates: { canonical: 'https://www.objectwire.org' },

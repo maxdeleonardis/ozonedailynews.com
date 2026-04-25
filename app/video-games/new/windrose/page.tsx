@@ -9,7 +9,7 @@ const SLUG = '/video-games/news/windrose';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Windrose Hits 1M Steam Wishlists â€” Uzbek Pirate Survival Game Breaks Out',
+  title: 'Windrose Hits 1M Steam Wishlists â€” Uzbek Pirate',
   description:
     'Windrose Crew\'s debut pirate survival game from Uzbekistan surpassed 1 million Steam wishlists after a viral Steam Next Fest demo peaking at 22,396',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Windrose Hits 1M Wishlists â€” Uzbek Pirate Survival Indie Breaks Out',
+    title: 'Windrose Hits 1M Wishlists â€” Uzbek Pirate Survival',
     description:
       'A small studio from Uzbekistan captured gaming\'s spotlight. Windrose topped Steam Next Fest with 351K wishlists in one week, a 22K player demo peak, and',
     type: 'article',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Windrose Hits 1M Steam Wishlists â€” Uzbek Indie Pirate Game Goes Viral',
+    title: 'Windrose Hits 1M Steam Wishlists â€” Uzbek Indie Pirate',
     description:
       'From Tashkent to the top of Steam Next Fest. 1M wishlists, 22K concurrent demo players, 93% positive, and the #1 Next Fest game ahead of Marathon.',
   },

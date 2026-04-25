@@ -9,7 +9,7 @@ const SLUG = '/open-ai/news/symphony-open-source-autonomous-coding-agents';
 const IMAGE_URL = 'https://www.objectwire.org/open-ai.PNG';
 
 export const metadata: Metadata = {
-  title: 'OpenAI Open-Sources Symphony: An Autonomous Coding Agent Framework to Replace Prompt-Based Development',
+  title: 'OpenAI Open-Sources Symphony | An Autonomous Coding Agent',
   description: 'OpenAI released Symphony, an open-source autonomous coding agent framework built in Elixir under Apache 2.0, that monitors GitHub Issues and Linear,',
   keywords: [
     'OpenAI Symphony open source',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'OpenAI Open-Sources Symphony: Autonomous Coding Agents That Monitor Issues, Write Code, and Merge PRs',
+    title: 'OpenAI Open-Sources Symphony | Autonomous Coding Agents',
     description: 'Symphony uses Elixir and the BEAM runtime to spawn hundreds of parallel coding agents triggered by GitHub Issues and Linear tasks, no prompt required.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpenAI Open-Sources Symphony: AI Agents That Write, Test, and Merge Code',
+    title: 'OpenAI Open-Sources Symphony | AI Agents That Write, Test',
     description: 'Symphony replaces the typing phase entirely. Tasks marked Ready in GitHub Issues or Linear trigger autonomous agents that land the PR.',
   },
 };

@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'AI Industry Pours Millions Into Texas Races as 2026 Midterms Heat Up',
-  description: 'Meta, xAI, and tech executives have funneled millions into Texas state campaigns as lawmakers face constituent anger over data center expansion. Observers call 2026 the "AI midterms."',
+  title: 'AI Industry Pours Millions Into Texas Races as 2026',
+  description: 'Meta, xAI, and tech executives have funneled millions into Texas state campaigns as lawmakers face constituent anger over data center expansion. Observers',
   keywords: [
     'AI midterms 2026 Texas',
     'Meta Forge the Future PAC Texas',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'AI Industry Pours Millions Into Texas Races as 2026 Midterms Heat Up',
+    title: 'AI Industry Pours Millions Into Texas Races as 2026',
     description: 'Meta spent $1.3M on Texas primaries. Musk gave $500K to a GOP Senate fund. Governor Abbott holds a $105M war chest backed by tech executives.',
     type: 'article',
     url: ARTICLE_URL,

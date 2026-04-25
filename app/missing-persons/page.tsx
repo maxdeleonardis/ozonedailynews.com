@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/missing-persons',
   },
+  openGraph: {
+    title: "Missing Persons Investigations | The Objective Wire",
+    description: "As a licensed private detective agency in Austin, Texas, we handle a wide range of missing persons cases with discretion, persistence, and sensitivity.",
+    type: 'article',
+    url: "https://www.objectwire.org/missing-persons",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Missing Persons Investigations | The Objective Wire",
+    description: "As a licensed private detective agency in Austin, Texas, we handle a wide range of missing persons cases with discretion, persistence, and sensitivity.",
+  },
 };
 
 export default function MissingPersonsPage() {

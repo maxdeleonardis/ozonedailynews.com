@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1758549885116-c8bd6bc619e8?c
 
 export const metadata: Metadata = {
   title: 'TSMC ASML Record Earnings Q1 2026 | AI Chip Demand Soars',
-  description: 'TSMC posted record quarterly profit of $18.12B while ASML raised full-year guidance to €40B. Back-to-back beats confirm AI silicon demand is accelerating into 2027.',
+  description: 'TSMC posted record quarterly profit of $18.12B while ASML raised full-year guidance to €40B. Back-to-back beats confirm AI silicon demand is accelerating',
   keywords: [
     'TSMC earnings Q1 2026',
     'TSMC record profit 2026',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'TSMC & ASML Post Record Q1 2026 Results as AI Chip Demand Accelerates',
+    title: 'TSMC & ASML Post Record Q1 2026 Results as AI Chip',
     description: 'TSMC net income hit $18.12B (+58% YoY). ASML raised 2026 guidance to €40B. 3nm sold out through 2027. SK Hynix at all-time highs. Hardware is king.',
     type: 'article',
     url: ARTICLE_URL,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TSMC record $18.12B profit, ASML raises guidance | AI chip demand soars',
+    title: 'TSMC record $18.12B profit, ASML raises guidance | AI chip',
     description: 'Back-to-back earnings beats from the heart of the chip supply chain. 3nm sold out through 2027. SK Hynix at ATH. Software volatile, hardware is king.',
     images: [OG_IMAGE],
   },

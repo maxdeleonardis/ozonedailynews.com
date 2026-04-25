@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/entertainment/beastgames/season-2/news/tyler-lucas-wins-kalshi-priced-in';
 
 export const metadata: Metadata = {
-  title: 'Beast Games Season 2 Winner Tyler Lucas (167) Was Priced In on Kalshi Before the Finale Aired',
+  title: 'Beast Games Season 2 Winner Tyler Lucas (167) Was Priced',
   description:
     'Tyler Lucas, contestant 167, won Beast Games Season 2 and $5.1 million on February 25, 2026. On Kalshi, his implied win probability hit 83-94% before the',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Beast Games Season 2 Winner Tyler Lucas Was Priced In at 83-94% Before the Finale Aired',
+    title: 'Beast Games Season 2 Winner Tyler Lucas Was Priced In at',
     description:
       'Tyler Lucas won Beast Games Season 2 and $5.1M on February 25, 2026. Prediction markets had him as a near-certain winner days before broadcast. A MrBeast',
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Beast Games Season 2: Tyler Lucas Priced at 83-94% on Kalshi Before the Finale',
+    title: 'Beast Games Season 2 | Tyler Lucas Priced at 83-94% on',
     description:
       'Tyler Lucas (167) wins $5.1M. Kalshi had him at 83%, Polymarket at 89% the night before. Combined volume: $1.2M. One MrBeast editor is already sanctioned',
   },

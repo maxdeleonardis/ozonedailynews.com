@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/news/world-cup-travel-bans-trump-policy',
   },
+  openGraph: {
+    title: "World Cup Travel Bans: Trump",
+    description: "Citizens from multiple qualified nations face entry restrictions as Trump",
+    type: 'article',
+    url: "https://www.objectwire.org/news/world-cup-travel-bans-trump-policy",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "World Cup Travel Bans: Trump",
+    description: "Citizens from multiple qualified nations face entry restrictions as Trump",
+  },
 };
 
 export default function WorldCupTravelBansPage() {

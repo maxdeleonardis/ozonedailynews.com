@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    '87% of AI Agent Pull Requests Introduce Security Flaws, DryRun Security Report Finds',
+    '87% of AI Agent Pull Requests Introduce Security Flaws',
   description:
     'A new DryRun Security report tested Claude, Codex, and Gemini building real apps autonomously, 26 of 30 AI-generated pull requests introduced at least one',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: '87% of AI Agent Pull Requests Introduce Security Flaws | DryRun Security 2026',
+    title: '87% of AI Agent Pull Requests Introduce Security Flaws',
     description:
       'DryRun Security tested Claude, Codex, and Gemini building full apps autonomously. 26 of 30 PRs had at least one high-severity security flaw. Claude',
     type: 'article',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '87% of AI Agent Pull Requests Have High-Severity Security Flaws',
+    title: '87% of AI Agent Pull Requests Have High-Severity',
     description:
       'DryRun Security: Claude, Codex, Gemini tested on real apps. 26/30 PRs introduced a high-severity flaw. Claude worst for unresolved issues. Codex cleanest',
   },

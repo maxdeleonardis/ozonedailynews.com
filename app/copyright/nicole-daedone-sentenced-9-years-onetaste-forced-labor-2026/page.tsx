@@ -9,7 +9,7 @@ const SLUG = '/copyright/nicole-daedone-sentenced-9-years-onetaste-forced-labor-
 const OG_IMAGE = 'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Nicole Daedone Sentenced 9 Years | OneTaste Forced Labor Conviction 2026',
+  title: 'Nicole Daedone Sentenced 9 Years | OneTaste Forced Labor',
   description:
     'OneTaste co-founder Nicole Daedone was sentenced to 9 years in federal prison on March 30, 2026, for forced labor conspiracy. Judge Pamela Chen also',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Nicole Daedone Sentenced to 9 Years for OneTaste Forced Labor Conspiracy',
+    title: 'Nicole Daedone Sentenced to 9 Years for OneTaste Forced',
     description:
       'A federal judge sentenced OneTaste co-founder Nicole Daedone to 9 years and ordered $12M in forfeiture on March 30, 2026, closing a years-long forced',
     type: 'article',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OneTaste founder Nicole Daedone gets 9 years. Judge orders $12M forfeiture.',
+    title: 'OneTaste founder Nicole Daedone gets 9 years. Judge',
     description:
       'Federal prosecutors called OneTaste "a sophisticated labor mill." Daedone targeted trauma survivors, loaded them with six-figure debt, and forced them to',
   },

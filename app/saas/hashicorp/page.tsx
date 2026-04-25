@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/hashicorp',
   },
+  openGraph: {
+    title: "HashiCorp Vault | Identity-Based Secrets Management",
+    description: "Comprehensive guide to HashiCorp Vault, the leading open-source identity-based secrets management system. Learn how Vault securely stores API keys,",
+    type: 'article',
+    url: "https://www.objectwire.org/hashicorp",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "HashiCorp Vault | Identity-Based Secrets Management",
+    description: "Comprehensive guide to HashiCorp Vault, the leading open-source identity-based secrets management system. Learn how Vault securely stores API keys,",
+  },
 };
 
 export default function HashiCorpVaultPage() {

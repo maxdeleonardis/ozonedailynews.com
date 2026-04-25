@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales',
+  title: 'Top 10 Anime Games of 2026 | Best Seasonal Games & Battle',
   description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, Jujutsu Kaisen, and more. Complete',
   keywords: [
     'best anime games 2026',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/top-10-anime-games-2026',
   },
   openGraph: {
-    title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales',
+    title: 'Top 10 Anime Games of 2026 | Best Seasonal Games & Battle',
     description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, and more.',
     type: 'article',
     url: 'https://www.objectwire.org/video-games/top-10-anime-games-2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Top 10 Anime Games of 2026: Best Seasonal Games & Battle Royales',
+    title: 'Top 10 Anime Games of 2026 | Best Seasonal Games & Battle',
     description: 'Rankings of the most popular anime games with seasonal updates in 2026.',
   },
 };

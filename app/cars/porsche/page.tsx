@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w
 
 export const metadata: Metadata = {
   title: 'Porsche | Company Profile, Models, History, 2026',
-  description: 'Porsche company profile: Stuttgart heritage, the 911 legacy, Taycan EV leadership, 2026 model lineup, Le Mans motorsport history, financial performance, and the road to full electrification.',
+  description: 'Porsche company profile: Stuttgart heritage, the 911 legacy, Taycan EV leadership, 2026 model lineup, Le Mans motorsport history, financial performance,',
   keywords: [
     'Porsche',
     'Porsche company profile',

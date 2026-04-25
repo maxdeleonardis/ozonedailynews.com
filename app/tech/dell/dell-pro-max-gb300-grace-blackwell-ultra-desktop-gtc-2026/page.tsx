@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/tech/dell/dell-pro-max-gb300-grace-blackwell-ultra-desktop-gtc-2026';
 
 export const metadata: Metadata = {
-  title: "Dell Ships First Desktop with Nvidia GB300 Grace Blackwell Ultra for AI Agents",
+  title: "Dell Ships First Desktop with Nvidia GB300 Grace",
   description:
     "Dell Technologies announced at Nvidia GTC 2026 that it is the first OEM to ship a desktop powered by Nvidia's GB300 Grace Blackwell Ultra Desktop",
   keywords: [

@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w
 
 export const metadata: Metadata = {
   title: 'Meta Poaches 7 Thinking Machines Founders | Mira Murati 2026',
-  description: 'Meta recruited 7 founding members of Mira Murati\'s Thinking Machines Lab, including Andrew Tulloch at a reported $1.5B package. The talent raid follows a rejected $1B acquisition offer.',
+  description: 'Meta recruited 7 founding members of Mira Murati\'s Thinking Machines Lab, including Andrew Tulloch at a reported $1.5B package. The talent raid follows a',
   keywords: [
     'Meta Thinking Machines Lab founders',
     'Mira Murati Meta talent raid 2026',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Meta Poaches 7 Thinking Machines Founders | The $1.5B Talent Raid',
-    description: 'After Mira Murati rejected a $1B buyout from Zuckerberg, Meta began recruiting her founding team one by one. Seven are now at Meta. Andrew Tulloch\'s package is reportedly $1.5B over six years.',
+    title: 'Meta Poaches 7 Thinking Machines Founders | The $1.5B',
+    description: 'After Mira Murati rejected a $1B buyout from Zuckerberg, Meta began recruiting her founding team one by one. Seven are now at Meta. Andrew Tulloch\'s',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

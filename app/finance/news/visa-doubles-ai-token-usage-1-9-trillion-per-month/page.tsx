@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1653389527286-604ab2dd2471?i
 
 export const metadata: Metadata = {
   title: 'Visa Doubles AI Token Usage to 1.9 Trillion Per Month',
-  description: 'Visa consumed 1.9 trillion AI tokens in March 2026, doubling February. 89% of employees use AI tools regularly, with Anthropic Claude the most popular platform across the workforce.',
+  description: 'Visa consumed 1.9 trillion AI tokens in March 2026, doubling February. 89% of employees use AI tools regularly, with Anthropic Claude the most popular',
   keywords: [
     'Visa AI token usage 2026',
     'Visa 1.9 trillion tokens',

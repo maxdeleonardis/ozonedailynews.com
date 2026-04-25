@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "How Do Prediction Markets Work? Are They Cryptocurrency? | Complete Guide",
+  title: "How Do Prediction Markets Work? Are They Cryptocurrency?",
   description: "Complete technical breakdown of how prediction markets work, from order books to probability pricing. Plus: the relationship between prediction markets",
   keywords: [
     "how do prediction markets work explained",
@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/define/how-do-prediction-markets-work',
+  },
+  openGraph: {
+    title: "How Do Prediction Markets Work? Are They Cryptocurrency?",
+    description: "Complete technical breakdown of how prediction markets work, from order books to probability pricing. Plus: the relationship between prediction markets",
+    type: 'article',
+    url: "https://www.objectwire.org/define/how-do-prediction-markets-work",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "How Do Prediction Markets Work? Are They Cryptocurrency?",
+    description: "Complete technical breakdown of how prediction markets work, from order books to probability pricing. Plus: the relationship between prediction markets",
   },
 };
 

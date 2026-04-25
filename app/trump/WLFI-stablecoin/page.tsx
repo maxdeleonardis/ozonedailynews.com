@@ -10,7 +10,7 @@ const URL_PATH = '/trump/WLFI-stablecoin';
 const FULL_URL = `https://www.objectwire.org${URL_PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Binance Launches 135M Token Airdrop for USD1 Holders | WLFI Campaign',
+  title: 'Binance Launches 135M Token Airdrop for USD1 Holders | WLFI',
   description:
     'Binance on March 20, 2026 launched a four-week airdrop distributing 135 million World Liberty Financial (WLFI) tokens to users holding the USD1',
   keywords: [

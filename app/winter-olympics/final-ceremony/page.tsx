@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Winter Olympics 2026 Closing Ceremony: Everything You Need to Know',
+  title: 'Winter Olympics 2026 Closing Ceremony | Everything You Need',
   description:
     'The 2026 Milano Cortina Winter Olympics closing ceremony takes place February 22 at the Verona Arena. Date, time, performers, how to watch, the Olympic',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'how to watch closing ceremony',
   ],
   openGraph: {
-    title: 'Winter Olympics 2026 Closing Ceremony | Date, Time, Performers & How to Watch',
+    title: 'Winter Olympics 2026 Closing Ceremony | Date, Time',
     description:
       'Everything you need to know about the Milano Cortina 2026 closing ceremony at the Verona Arena on February 22, performers, flag handoff to 2030, medal',
     type: 'article',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Winter Olympics 2026 Closing Ceremony | Everything You Need to Know',
+    title: 'Winter Olympics 2026 Closing Ceremony | Everything You Need',
     description:
       'Feb 22 · Verona Arena · 2:30 PM ET · Roberto Bolle, Achille Lauro, Olympic flag to France. The full guide.',
   },

@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/podcasts/joe-rogan',
   },
+  openGraph: {
+    title: "The Joe Rogan Experience | Podcast Profile",
+    description: "Complete profile of The Joe Rogan Experience, the world",
+    type: 'article',
+    url: "https://www.objectwire.org/podcasts/joe-rogan",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Joe Rogan Experience | Podcast Profile",
+    description: "Complete profile of The Joe Rogan Experience, the world",
+  },
 };
 
 export default function JoeRoganPage() {

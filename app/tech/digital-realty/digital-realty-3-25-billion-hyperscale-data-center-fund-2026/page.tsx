@@ -9,7 +9,7 @@ const SLUG = '/tech/digital-realty/digital-realty-3-25-billion-hyperscale-data-c
 const OG_IMAGE = 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Digital Realty $3.25B Hyperscale Data Center Fund | Final Close 2026',
+  title: 'Digital Realty $3.25B Hyperscale Data Center Fund | Final',
   description:
     'Digital Realty closed its first U.S. hyperscale data center fund at $3.25 billion, backed by sovereign wealth funds, pensions, and endowments. The fund',
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Realty just closed a $3.25B hyperscale data center fund. Here\'s who backed it.',
+    title: 'Digital Realty just closed a $3.25B hyperscale data's who backed it.',
     description:
       'Sovereign wealth funds, public pensions, and endowments are betting on AI-driven data center demand across six Tier I U.S. metros.',
   },

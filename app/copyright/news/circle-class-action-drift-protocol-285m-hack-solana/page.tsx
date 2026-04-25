@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w
 
 export const metadata: Metadata = {
   title: 'Circle Class Action | Drift Protocol $285M Hack Solana',
-  description: 'Gibbs Mura filed a class action against Circle after $230M in stolen USDC from the $285M Drift Protocol exploit was bridged to Ethereum over eight hours without being frozen.',
+  description: 'Gibbs Mura filed a class action against Circle after $230M in stolen USDC from the $285M Drift Protocol exploit was bridged to Ethereum over eight hours',
   keywords: [
     'Drift Protocol hack 2026',
     'Drift Protocol exploit',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Circle Faces Class Action Over Drift Protocol $285M Hack',
-    description: 'Attackers drained $285M from Solana\'s largest perp DEX in 12 minutes. $230M in stolen USDC bridged to Ethereum via Circle\'s CCTP without intervention. Gibbs Mura sues.',
+    description: 'Attackers drained $285M from Solana\'s largest perp DEX in 12 minutes. $230M in stolen USDC bridged to Ethereum via Circle\'s CCTP without intervention.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Class action targets Circle over Drift Protocol $285M hack',
-    description: '$230M in stolen USDC bridged to Ethereum over 8 hours via Circle\'s own CCTP. Gibbs Mura alleges Circle failed to freeze funds. North Korean hackers suspected.',
+    description: '$230M in stolen USDC bridged to Ethereum over 8 hours via Circle\'s own CCTP. Gibbs Mura alleges Circle failed to freeze funds. North Korean hackers',
   },
 };
 

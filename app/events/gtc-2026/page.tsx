@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'GTC 2026 | Nvidia GPU Technology Conference: Jensen Huang Keynote, Vera Rubin, Intel Partnership',
+  title: 'GTC 2026 | Nvidia GPU Technology Conference: Jensen Huang',
   description:
     "Full coverage of Nvidia GTC 2026 in San Jose, CA, the world's premier AI conference. Jensen Huang's keynote on March 16, the Vera Rubin VR200 NVL72 GPU",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTC 2026 | Jensen Huang, Vera Rubin, Feynman & Intel × Nvidia',
+    title: 'GTC 2026 | Jensen Huang, Vera Rubin, Feynman & Intel ×',
     description:
       "GTC 2026 opens March 16 in San Jose. 30,000+ attendees. Jensen Huang keynote at SAP Center. Vera Rubin GPU, mystery Feynman chip, Agentic AI, and the",
   },

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Musk Confirms xAI Layoffs Amid Company Reorganization | Breaking News | Object Wire',
+  title: 'Musk Confirms xAI Layoffs Amid Company Reorganization',
   description: 'Elon Musk confirms layoffs at xAI as the artificial intelligence company undergoes restructuring. Details on the reorganization, affected departments, and',
   keywords: ['xAI', 'Elon Musk', 'layoffs', 'artificial intelligence', 'AI', 'tech layoffs', 'company reorganization', 'restructuring'],
   openGraph: {

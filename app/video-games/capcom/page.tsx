@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w
 
 export const metadata: Metadata = {
   title: 'Capcom | Golden Era, RE Engine, 2026 Profile',
-  description: 'Capcom company profile: 11 consecutive years of record profits, RE Engine dominance, Resident Evil Requiem, Monster Hunter Wilds, Pragmata, and the Street Fighter 6 esports empire in 2026.',
+  description: 'Capcom company profile: 11 consecutive years of record profits, RE Engine dominance, Resident Evil Requiem, Monster Hunter Wilds, Pragmata, and the Street',
   keywords: [
     'Capcom',
     'Capcom 2026',

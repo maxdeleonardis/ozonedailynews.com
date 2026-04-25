@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Mario Kart World 1.6.0 Brings Back Bob-omb Blast on Nintendo Switch 2',
+    title: 'Mario Kart World 1.6.0 Brings Back Bob-omb Blast on',
     description:
       'The first major Battle Mode update since launch adds Bob-omb Blast, hold-up-to-10 explosives, L Button throw control, Bullet Bill buffs, and dynamic',
     type: 'article',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mario Kart World 1.6.0 | Bob-omb Blast is back, hold 10 at once',
+    title: 'Mario Kart World 1.6.0 | Bob-omb Blast is back, hold 10 at',
     description:
       'Nintendo just dropped Version 1.6.0 for Mario Kart World. Bob-omb Blast returns, Bullet Bill got buffed, and invincibility now scales by weight class.',
   },

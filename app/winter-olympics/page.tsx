@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Winter Olympics 2026 Milano Cortina: Complete Coverage & Schedule",
+  title: "Winter Olympics 2026 Milano Cortina | Complete Coverage",
   description: "Complete coverage of the 2026 Winter Olympics in Milano Cortina, Italy. News, schedules, athletes, results, and analysis from February 6-22, 2026.",
   keywords: [
     "Winter Olympics 2026",

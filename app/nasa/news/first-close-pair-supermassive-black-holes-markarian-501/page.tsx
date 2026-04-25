@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'First Close Pair of Supermassive Black Holes Detected Nearing Merger',
-  description: 'Astronomers at the Max Planck Institute detected the first reliably imaged close pair of supermassive black holes in galaxy Markarian 501, with a potential merger in as few as 100 years.',
+  title: 'First Close Pair of Supermassive Black Holes Detected',
+  description: 'Astronomers at the Max Planck Institute detected the first reliably imaged close pair of supermassive black holes in galaxy Markarian 501, with a',
   keywords: [
     'supermassive black hole merger',
     'Markarian 501 black holes',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'First Close Pair of Supermassive Black Holes Detected Nearing Merger',
+    title: 'First Close Pair of Supermassive Black Holes Detected',
     description: 'Two supermassive black holes orbit each other in Markarian 501, each driving its own relativistic jet. They could merge in as few as 100 years.',
     type: 'article',
     url: ARTICLE_URL,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'First Close Pair of Supermassive Black Holes Found in Markarian 501',
+    title: 'First Close Pair of Supermassive Black Holes Found in',
     description: 'Two colossal black holes orbit tightly in one galaxy, each blasting its own jet. Merger could come within 100 years.',
   },
 };

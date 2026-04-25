@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Japan Just Pulled Rare Earths from 6,000 Meters Below the Pacific. The Deep-Sea Gold Rush Is Real.",
+    title: "Japan Just Pulled Rare Earths from 6,000 Meters Below",
     description:
       "The Chikyu's February 2 extraction wasn't a test. It was proof of concept for an industry that could break China's stranglehold on the minerals powering",
   },

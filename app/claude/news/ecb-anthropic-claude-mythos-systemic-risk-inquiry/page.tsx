@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1701434001217-16428abc6309?i
 
 export const metadata: Metadata = {
   title: 'ECB Mythos Inquiry | Anthropic Claude Systemic Risk Probe',
-  description: 'The European Central Bank has launched a systemic risk inquiry into Anthropic\'s Claude Mythos model, questioning Deutsche Bank, BNP Paribas, and Santander on legacy software vulnerabilities.',
+  description: 'The European Central Bank has launched a systemic risk inquiry into Anthropic\'s Claude Mythos model, questioning Deutsche Bank, BNP Paribas, and',
   keywords: [
     'ECB Anthropic Claude Mythos',
     'European Central Bank AI inquiry',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'ECB Launches Systemic Risk Inquiry Into Anthropic Claude Mythos',
-    description: 'The ECB is questioning Deutsche Bank, BNP Paribas, and Santander on their defenses against Claude Mythos, joining the US Treasury and Bank of England in a coordinated global regulatory response.',
+    title: 'ECB Launches Systemic Risk Inquiry Into Anthropic Claude',
+    description: 'The ECB is questioning Deutsche Bank, BNP Paribas, and Santander on their defenses against Claude Mythos, joining the US Treasury and Bank of England in a',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

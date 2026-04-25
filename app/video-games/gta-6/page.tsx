@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Grand Theft Auto VI | Release Date, Price, & Everything We Know",
+  title: "Grand Theft Auto VI | Release Date, Price, & Everything We",
   description:
     "Complete guide to Grand Theft Auto VI: confirmed November 19, 2026 release date, global pricing speculation including India ₹5,999–₹6,999 and US",
   keywords: [

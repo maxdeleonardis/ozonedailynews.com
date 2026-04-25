@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1658761492656-a088d80f65c5?i
 
 export const metadata: Metadata = {
   title: 'Trump Issues Warning to Iran Ahead of Pakistan Talks',
-  description: 'President Trump warned he would renew and intensify U.S. strikes on Iran if a deal is not reached soon. High-stakes negotiations in Pakistan face complications from Israel-Hezbollah conflict.',
+  description: 'President Trump warned he would renew and intensify U.S. strikes on Iran if a deal is not reached soon. High-stakes negotiations in Pakistan face',
   keywords: [
     'Trump Iran warning',
     'Trump Iran negotiations Pakistan',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Trump Issues Warning to Iran Ahead of High-Stakes Pakistan Talks',
+    title: 'Trump Issues Warning to Iran Ahead of High-Stakes',
     description: 'President Trump threatened to renew U.S. strikes on Iran if negotiations in Pakistan fail to produce a deal. Israel-Hezbollah tensions add uncertainty.',
     type: 'article',
     url: ARTICLE_URL,

@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Adobe Firefly AI Assistant vs Canva AI 2.0 | Agentic Design 2026',
-  description: 'Adobe and Canva launched rival agentic AI design systems within hours of each other in April 2026. Firefly AI Assistant orchestrates Creative Cloud, Canva AI 2.0 generates fully editable layered output and connects to Slack, Notion, and HubSpot.',
+  title: 'Adobe Firefly AI Assistant vs Canva AI 2.0 | Agentic Design',
+  description: 'Adobe and Canva launched rival agentic AI design systems within hours of each other in April 2026. Firefly AI Assistant orchestrates Creative Cloud, Canva',
   keywords: [
     'Adobe Firefly AI Assistant 2026',
     'Canva AI 2.0',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Adobe Firefly AI Assistant vs Canva AI 2.0 | Agentic Design 2026',
-    description: 'Adobe and Canva unveiled agentic AI design systems within hours of each other. Firefly AI Assistant runs 100+ skills across Creative Cloud. Canva AI 2.0 generates fully editable layered designs and connects to Slack, Notion, and Gmail.',
+    title: 'Adobe Firefly AI Assistant vs Canva AI 2.0 | Agentic Design',
+    description: 'Adobe and Canva unveiled agentic AI design systems within hours of each other. Firefly AI Assistant runs 100+ skills across Creative Cloud. Canva AI 2.0',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adobe and Canva Launched Rival AI Agents Within Hours of Each Other',
+    title: 'Adobe and Canva Launched Rival AI Agents Within Hours of',
     description: 'Adobe Firefly AI Assistant vs Canva AI 2.0: the agentic design race just went live.',
     images: [OG_IMAGE],
   },

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/xbox/project-moorcroft-cancelled-game-pass-demos-gdc-2026';
 
 export const metadata: Metadata = {
-  title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program Cancelled After Four Years",
+  title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program",
   description:
     "Microsoft has officially abandoned Project Moorcroft, the long-promised program that would have paid developers to create pre-release game demos for Xbox",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program Cancelled After Four Years",
+    title: "Xbox Confirms Project Moorcroft Is Dead | Demo Program",
     description:
       "Microsoft has abandoned Project Moorcroft, the program that would have paid developers to ship pre-release demos to Game Pass subscribers. Confirmed dead",
     type: 'article',

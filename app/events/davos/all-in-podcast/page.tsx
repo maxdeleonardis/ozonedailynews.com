@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "All-In Podcast at Davos 2026: Silicon Valley Meets Global Elite",
+  title: "All-In Podcast at Davos 2026 | Silicon Valley Meets Global",
   description: "How Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg brought the All-In Podcast to the World Economic Forum in Davos, including",
   keywords: [
     "All-In Podcast",

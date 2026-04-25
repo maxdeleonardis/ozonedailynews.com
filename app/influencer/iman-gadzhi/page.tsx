@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Iman Gadzhi | Digital Marketing Entrepreneur & Educator | OBJECTWIRE',
+  title: 'Iman Gadzhi | Digital Marketing Entrepreneur & Educator',
   description: 'Comprehensive profile of Iman Gadzhi, Russian-British entrepreneur, digital marketing educator, and founder of IAG Media and Educate. From teenage dropout',
   keywords: 'Iman Gadzhi, digital marketing, SMMA, social media marketing agency, IAG Media, Educate, entrepreneur, influencer',
   openGraph: {

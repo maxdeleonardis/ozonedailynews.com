@@ -9,7 +9,7 @@ const SLUG = '/technology/news/kaiser-permanente-ufcw-contract-ai-protections-20
 const OG_IMAGE = 'https://images.unsplash.com/photo-1676286168358-9b4ce60384d4?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Kaiser Permanente Workers Ratify Contract with AI Protections',
+  title: 'Kaiser Permanente Workers Ratify Contract with AI',
   description:
     'More than 4,000 Kaiser Permanente pharmacy and lab workers ratified a four-year UFCW contract with AI safeguards and up to 30% wage increases through',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Kaiser Permanente Workers Ratify Contract with AI Protections',
+    title: 'Kaiser Permanente Workers Ratify Contract with AI',
     description:
       'More than 4,000 Kaiser Permanente pharmacy and lab workers in Southern and Central California ratified a four-year UFCW contract that includes AI job',
     url: `https://www.objectwire.org${SLUG}`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kaiser Permanente Workers Ratify Contract with AI Protections',
+    title: 'Kaiser Permanente Workers Ratify Contract with AI',
     description:
       'More than 4,000 pharmacy and lab workers ratified a UFCW contract with AI safeguards and up to 30% wage increases through March 2030.',
     images: [OG_IMAGE],

@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/open-ai.PNG';
 export const metadata: Metadata = {
   title: 'NVIDIA, Google Cloud | Vera Rubin A5X, Agentic AI 2026',
   description:
-    'NVIDIA and Google Cloud announce Vera Rubin-powered A5X instances scaling to 960,000 GPUs, Gemini on Google Distributed Cloud, confidential Blackwell VMs, and agentic AI via Nemotron.',
+    'NVIDIA and Google Cloud announce Vera Rubin-powered A5X instances scaling to 960,000 GPUs, Gemini on Google Distributed Cloud, confidential Blackwell VMs,',
   keywords: [
     'NVIDIA Google Cloud collaboration 2026',
     'NVIDIA Vera Rubin A5X instances Google Cloud',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NVIDIA Vera Rubin A5X on Google Cloud scales to 960K GPUs. Gemini + Nemotron agentic AI live.',
+    title: 'NVIDIA Vera Rubin A5X on Google Cloud scales to 960K',
     description: 'Full breakdown of the Google Cloud Next 2026 NVIDIA announcements: A5X, Blackwell confidential VMs, GDC, and agentic AI.',
     images: [OG_IMAGE],
   },

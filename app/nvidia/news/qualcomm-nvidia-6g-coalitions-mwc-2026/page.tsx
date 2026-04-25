@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Qualcomm and Nvidia Launch Competing 6G Coalitions at MWC 2026 in Barcelona',
+    'Qualcomm and Nvidia Launch Competing 6G Coalitions at',
   description:
     'Qualcomm announced its 6G Forward Consortium with 47 companies at Mobile World Congress 2026 in Barcelona on March 1, while Nvidia unveiled the 6G AI',
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'Qualcomm vs. Nvidia: Two Rival 6G Coalitions Launch at MWC 2026 on the Same Day',
+      'Qualcomm vs. Nvidia | Two Rival 6G Coalitions Launch at MWC',
     description:
       'Qualcomm formed a 47-member 6G Forward Consortium and Nvidia countered with its 6G AI Infrastructure Alliance at Mobile World Congress 2026 in Barcelona',
     type: 'article',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Qualcomm and Nvidia Both Launched 6G Coalitions at MWC 2026 | Hours Apart',
+    title: 'Qualcomm and Nvidia Both Launched 6G Coalitions at MWC',
     description:
       "Qualcomm's 6G Forward Consortium (47 members) and Nvidia's 6G AI Infrastructure Alliance both debuted at MWC 2026 in Barcelona on March 1, targeting the",
   },

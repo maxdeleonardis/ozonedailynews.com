@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Most Important Stablecoins in the World 2026 | Complete Guide",
+  title: "The Most Important Stablecoins in the World 2026 | Complete",
   description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status,",
   keywords: [
     "most important stablecoins 2026 ranking",
@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/define/most-important-stablecoins-world-2026',
+  },
+  openGraph: {
+    title: "The Most Important Stablecoins in the World 2026 | Complete",
+    description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status,",
+    type: 'article',
+    url: "https://www.objectwire.org/define/most-important-stablecoins-world-2026",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Most Important Stablecoins in the World 2026 | Complete",
+    description: "Complete guide to the most important stablecoins in 2026, USDT, USDC, DAI, USDE, and PYUSD. Market cap rankings, backing mechanisms, regulatory status,",
   },
 };
 

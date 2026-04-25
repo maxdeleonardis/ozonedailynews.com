@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'ASML | EUV Lithography Monopoly, High-NA Machines, Chip Equipment',
+  title: 'ASML | EUV Lithography Monopoly, High-NA Machines, Chip',
   description: 'ASML holds a global monopoly on EUV lithography machines required for sub-7nm chips. Q1 2026 revenue €8.8B, raised full-year guidance to €36B-€40B.',
   keywords: [
     'ASML profile',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ASML company profile | The monopoly behind every advanced chip',
+    title: 'ASML company profile | The monopoly behind every advanced',
     description: 'Global monopoly on EUV. $200M-$400M per machine. Q1 2026 sales €8.8B. China revenue dropped to 19% under export controls.',
   },
 };

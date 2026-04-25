@@ -6,11 +6,11 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jordan Stolz Wins 500m Gold | The Milwaukee Missile Strikes Olympic Glory',
+  title: 'Jordan Stolz Wins 500m Gold | The Milwaukee Missile Strikes',
   description: 'Jordan Stolz claims speed skating 500m gold at Milan Cortina 2026 with an Olympic record 33.77 seconds. The Wisconsin native becomes the first American to',
   keywords: ['Jordan Stolz', 'speed skating', '500m gold', 'Winter Olympics 2026', 'Milan Cortina', 'Team USA', 'Olympic record', 'Milwaukee Missile', 'Wisconsin'],
   openGraph: {
-    title: 'Jordan Stolz Wins 500m Gold | Milwaukee Missile Strikes Olympic Glory',
+    title: 'Jordan Stolz Wins 500m Gold | Milwaukee Missile Strikes',
     description: 'Wisconsin\'s Jordan Stolz wins 500m speed skating gold with Olympic record at Milan Cortina 2026',
     type: 'article',
     publishedTime: '2026-02-14T22:00:00Z',

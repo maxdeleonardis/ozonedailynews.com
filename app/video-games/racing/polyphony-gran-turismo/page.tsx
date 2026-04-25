@@ -11,7 +11,7 @@ const IMAGE_URL = 'https://www.objectwire.org/entertainment/gran_turismo.PNG';
 
 export const metadata: Metadata = {
   title:
-    'Gran Turismo 7 Review & Polyphony Digital Now Hiring for Next Gran Turismo',
+    'Gran Turismo 7 Review & Polyphony Digital Now Hiring for',
   description:
     'Gran Turismo 7 remains the benchmark racing simulator on PlayStation, 2 million active players in December 2025. Polyphony Digital posted 18 job openings',
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Gran Turismo 7 Review | And Why Polyphony Digital Is Hiring for the Next One',
+    title: 'Gran Turismo 7 Review | And Why Polyphony Digital Is Hiring',
     description:
       'GT7 still sets the standard for sim racing. Polyphony Digital just posted 18 jobs for next-gen Gran Turismo development, and Kazunori Yamauchi wants',
     type: 'article',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gran Turismo 7 Review + Polyphony Digital Is Hiring for What Comes Next',
+    title: 'Gran Turismo 7 Review + Polyphony Digital Is Hiring for',
     description:
       '100M series sales. 2M GT7 active players. 18 new job openings. Kazunori Yamauchi is building the next lap.',
     images: [IMAGE_URL],

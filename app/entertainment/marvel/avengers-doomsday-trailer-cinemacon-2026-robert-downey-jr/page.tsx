@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Avengers Doomsday Trailer | CinemaCon 2026 Robert Downey Jr Doctor Doom',
-  description: 'Marvel debuted the full Avengers: Doomsday trailer at CinemaCon 2026. Robert Downey Jr as Doctor Doom, the X-Men/Avengers face-off, and where to watch the footage when it goes public.',
+  title: 'Avengers Doomsday Trailer | CinemaCon 2026 Robert Downey Jr',
+  description: 'Marvel debuted the full Avengers: Doomsday trailer at CinemaCon 2026. Robert Downey Jr as Doctor Doom, the X-Men/Avengers face-off, and where to watch the',
   keywords: [
     'Avengers Doomsday trailer',
     'Avengers Doomsday trailer CinemaCon',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Avengers Doomsday Full Trailer Debuted at CinemaCon 2026',
-    description: 'Robert Downey Jr speaks as Doctor Doom with a Latverian accent. Thor throws his hammer and Doom catches it. Gambit vs. Shang-Chi. Here is everything shown behind closed doors.',
+    description: 'Robert Downey Jr speaks as Doctor Doom with a Latverian accent. Thor throws his hammer and Doom catches it. Gambit vs. Shang-Chi. Here is everything shown',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

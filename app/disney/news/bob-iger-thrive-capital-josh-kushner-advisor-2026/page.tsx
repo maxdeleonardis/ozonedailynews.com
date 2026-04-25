@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Bob Iger Joins Thrive Capital | Josh Kushner $15B VC Firm 2026',
-  description: 'Bob Iger officially rejoins Thrive Capital as advisor on April 23, 2026, one month after handing Disney CEO reins to Josh D\'Amaro. Iger to mentor founders and guide investments in OpenAI-backed $15B VC firm.',
+  title: 'Bob Iger Joins Thrive Capital | Josh Kushner $15B VC Firm',
+  description: 'Bob Iger officially rejoins Thrive Capital as advisor on April 23, 2026, one month after handing Disney CEO reins to Josh D\'Amaro. Iger to mentor',
   keywords: [
     'Bob Iger Thrive Capital 2026',
     'Bob Iger after Disney',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bob Iger Is Back in VC — Joins Thrive Capital\'s $15B Firm',
+    title: 'Bob Iger Is Back in VC | Joins Thrive Capital\'s $15B Firm',
     description: 'One month after leaving Disney, Iger rejoins Josh Kushner\'s Thrive Capital to guide OpenAI, A24, and next-gen media bets.',
     images: [OG_IMAGE],
   },

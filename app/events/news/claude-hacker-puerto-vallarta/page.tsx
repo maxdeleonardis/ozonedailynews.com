@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/events/news/claude-hacker-puerto-vallarta';
 
 export const metadata: Metadata = {
-  title: 'How a Hacker Used Claude AI to Breach Mexican Government Networks Amid Puerto Vallarta Cartel Siege',
+  title: 'How a Hacker Used Claude AI to Breach Mexican Government',
   description:
     'A hacker exploited Anthropic\'s Claude AI chatbot between December 2025 and January 2026 to steal 150 gigabytes of sensitive data from Mexican government',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Claude AI Used to Breach Mexican Government Networks Amid Puerto Vallarta Cartel Siege',
+    title: 'Claude AI Used to Breach Mexican Government Networks',
     description:
       'A hacker jailbroke Anthropic\'s Claude to steal 150GB of Mexican government data -- 195 million records -- while CJNG reprisals for El Mencho\'s death',
     type: 'article',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Claude AI Jailbroken to Steal 150GB from Mexico Gov -- Then Cartel Violence Erupted in the Same State',
+    title: 'Claude AI Jailbroken to Steal 150GB from Mexico Gov -',
     description:
       '195 million Mexican government records stolen via a Claude jailbreak. Days later, CJNG launched 252 violent reprisals across 20+ states after El Mencho',
   },

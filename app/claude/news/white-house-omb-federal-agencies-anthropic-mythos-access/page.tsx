@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1658760523900-a05343c7eb38?i
 
 export const metadata: Metadata = {
   title: 'White House Clears Federal Agencies for Anthropic Mythos AI',
-  description: 'The White House OMB is establishing security protocols for federal agencies to use Claude Mythos Preview. Federal CIO Gregory Barbaccia informed Cabinet departments via memo reviewed by Bloomberg.',
+  description: 'The White House OMB is establishing security protocols for federal agencies to use Claude Mythos Preview. Federal CIO Gregory Barbaccia informed Cabinet',
   keywords: [
     'White House Anthropic Mythos federal agencies',
     'OMB Claude Mythos security protocols',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'White House OMB Clears Federal Agencies to Use Claude Mythos Preview',
-    description: 'Federal CIO Gregory Barbaccia informed Cabinet departments of OMB security protocols enabling Mythos access, even as officials weigh the model\'s cybersecurity risks and a Trump-Anthropic legal clash continues.',
+    title: 'White House OMB Clears Federal Agencies to Use Claude',
+    description: 'Federal CIO Gregory Barbaccia informed Cabinet departments of OMB security protocols enabling Mythos access, even as officials weigh the model\'s',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

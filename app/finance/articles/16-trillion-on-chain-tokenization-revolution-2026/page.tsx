@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "From Static Equity to Programmable Capital: The State of Tokenization in 2026",
+  title: "From Static Equity to Programmable Capital | The State of",
   description: "A foundational analysis of the $16 trillion shift to the 'Financial Internet.' This report deconstructs atomic settlement, liquidity multipliers, and how",
   keywords: [
     "tokenization 2026",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "digital market infrastructure"
   ],
   openGraph: {
-    title: "From Static Equity to Programmable Capital: The State of Tokenization in 2026",
+    title: "From Static Equity to Programmable Capital | The State of",
     description: "Institutional analysis: How the transition from information to value is unlocking $16 trillion in trapped liquidity.",
     type: "article",
     url: "https://www.objectwire.org/finance/articles/16-trillion-on-chain-tokenization-revolution-2026",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'From Static Equity to Programmable Capital: The State of Tokenization in 2026',
+    title: 'From Static Equity to Programmable Capital | The State of',
     description: 'Institutional analysis: How the transition from information to value is unlocking $16 trillion in trapped liquidity.',
   },
 };

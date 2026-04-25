@@ -9,7 +9,7 @@ const SLUG = '/video-games/star-wars/star-wars-zero-company';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1772303142584-c6897b8fa57c?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Star Wars Zero Company | Bit Reactor and Respawn Reveal Clone Wars Tactical RPG',
+  title: 'Star Wars Zero Company | Bit Reactor and Respawn Reveal',
   description:
     'Star Wars Zero Company is a Clone Wars-era tactical RPG from Bit Reactor and Respawn. Grid combat, permadeath, Mass Effect-style exploration. Holiday 2026.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Star Wars Zero Company | Bit Reactor and Respawn Tactical RPG Revealed',
+    title: 'Star Wars Zero Company | Bit Reactor and Respawn Tactical',
     description:
       'Star Wars Zero Company blends XCOM-style tactics with Mass Effect exploration and permadeath in a Clone Wars setting. Holiday 2026 on PC, PS5, Xbox Series',
     url: `https://www.objectwire.org${SLUG}`,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Star Wars Zero Company | Clone Wars Tactical RPG | Holiday 2026',
+    title: 'Star Wars Zero Company | Clone Wars Tactical RPG | Holiday',
     description:
       'Bit Reactor and Respawn\'s Star Wars Zero Company combines grid-based tactics, permadeath clone DNA, and Mass Effect-style hubs. Holiday 2026.',
     images: [`https://www.objectwire.org${SLUG}/og`],

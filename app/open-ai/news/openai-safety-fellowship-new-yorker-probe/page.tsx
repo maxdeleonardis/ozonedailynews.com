@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w
 
 export const metadata: Metadata = {
   title: 'OpenAI Launches Safety Fellowship After New Yorker Probe',
-  description: 'OpenAI announced a Safety Fellowship funding external researchers for independent AI safety work from September 2026 to February 2027, hours after a New Yorker investigation questioned its safety practices.',
+  description: 'OpenAI announced a Safety Fellowship funding external researchers for independent AI safety work from September 2026 to February 2027, hours after a New',
   keywords: [
     'OpenAI Safety Fellowship',
     'OpenAI safety program 2026',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpenAI Safety Fellowship Launches Hours After New Yorker Probe',
+    title: 'OpenAI Safety Fellowship Launches Hours After New Yorker',
     description: 'External researchers get stipends, API credits, and Berkeley workspace, but no access to internal systems. Applications open until May 3.',
   },
 };

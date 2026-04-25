@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "W2S (Harry Lewis) | FIFA Pack Opening Legend & Sidemen Wildcard",
+  title: "W2S (Harry Lewis) | FIFA Pack Opening Legend & Sidemen",
   description: "Complete profile of W2S (Harry Lewis/Wroetoshaw): 16M+ subscribers, legendary FIFA pack luck, chaotic energy, relationship with Katie Leach, and Sidemen",
   keywords: [
     "W2S",

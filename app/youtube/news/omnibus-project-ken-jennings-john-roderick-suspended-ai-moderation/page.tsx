@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YouTube AI Flagged a Podcast Episode Debunking Antisemitism as Hate Speech',
+    title: 'YouTube AI Flagged a Podcast Episode Debunking',
     description:
       "The Omnibus Project is suspended until June 6. YouTube's AI hit a 2019 debunking episode with a strike for \"promoting violence against protected",
   },

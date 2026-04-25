@@ -9,7 +9,7 @@ const SLUG = '/define/hetzner-cloud-vs-digitalocean';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Hetzner Cloud vs DigitalOcean 2026 | VPS Price, Specs, Bandwidth',
+  title: 'Hetzner Cloud vs DigitalOcean 2026 | VPS Price, Specs',
   description:
     'Hetzner Cloud vs DigitalOcean compared spec-for-spec in 2026: vCPU pricing, 20TB vs 1TB bandwidth, dedicated cores, and which VPS wins for Next.js,',
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Hetzner Cloud vs DigitalOcean 2026 | Full VPS Pricing, Bandwidth & Performance Breakdown',
+    title: 'Hetzner Cloud vs DigitalOcean 2026 | Full VPS Pricing',
     description:
       'Spec-for-spec VPS comparison: Hetzner includes 20TB bandwidth at half the price. DigitalOcean wins on managed services and developer tooling. Every tier',
     type: 'article',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hetzner vs DigitalOcean 2026 | 5-8x Price Gap on Equivalent Specs',
+    title: 'Hetzner vs DigitalOcean 2026 | 5-8x Price Gap on Equivalent',
     description:
       'Hetzner delivers 20TB bandwidth included and up to 8x lower compute cost. DigitalOcean wins on managed databases and App Platform. Full breakdown.',
   },

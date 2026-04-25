@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trump Appoints Zuckerberg, Jensen Huang, Ellison, Brin to AI Advisory Council',
+    title: 'Trump Appoints Zuckerberg, Jensen Huang, Ellison, Brin',
     description:
       '13 Silicon Valley heavyweights, including Meta, NVIDIA, Oracle, Google co-founder, AMD, and Dell, now formally advise the White House on AI policy,',
     images: [IMAGE_URL],

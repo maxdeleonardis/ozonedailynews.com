@@ -26,6 +26,19 @@ export const metadata: Metadata = {
     'extreme sports',
     'Krating Daeng',
   ],
+  openGraph: {
+    title: "Red Bull GmbH | Global Energy Drink Company & Sports Empire",
+    description: "Comprehensive profile of Red Bull GmbH, the Austrian energy drink giant. Explore the company history, products, sports empire including F1 teams and",
+    type: 'article',
+    url: 'https://www.objectwire.org',
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Red Bull GmbH | Global Energy Drink Company & Sports Empire",
+    description: "Comprehensive profile of Red Bull GmbH, the Austrian energy drink giant. Explore the company history, products, sports empire including F1 teams and",
+  },
 };
 
 export default function ArticlePageTestPage() {

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/earth/news/who-owns-the-ocean-floor';
 
 export const metadata: Metadata = {
-  title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights",
+  title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea",
   description:
     "No single country owns the deep ocean floor, but that hasn't stopped nations and corporations from racing to claim it. Here's how international law",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea Mining Rights",
+    title: "Who Owns the Ocean Floor? The Legal Battle Over Deep-Sea",
     description:
       "The deep ocean is technically nobody's, and everybody's. As the race to mine it intensifies, the international legal framework governing the seabed is",
     type: 'article',

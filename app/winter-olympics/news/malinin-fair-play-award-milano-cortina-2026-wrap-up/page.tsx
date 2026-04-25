@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/winter-olympics/news/malinin-fair-play-award-milano-cortina-2026-wrap-up';
 
 export const metadata: Metadata = {
-  title: 'Malinin Wins Milano Cortina 2026 Fair Play Award After Heartbreaking 8th-Place Finish',
+  title: 'Malinin Wins Milano Cortina 2026 Fair Play Award After',
   description: 'American figure skater Ilia Malinin received the Milano Cortina 2026 Fair Play Award for congratulating surprise gold medalist Mikhail Shaidorov after',
   keywords: [
     'Ilia Malinin Fair Play Award 2026',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Malinin Wins Fair Play Award After Heartbreaking Olympic Collapse',
+    title: 'Malinin Wins Fair Play Award After Heartbreaking Olympic',
     description: 'The Quad God fell from 1st to 8th, then embraced the surprise gold medalist. The IOC honored him with the Milano Cortina 2026 Fair Play Award.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,

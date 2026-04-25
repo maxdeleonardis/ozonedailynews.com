@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ChatGPT is now on CarPlay, beating Gemini and Claude to the dashboard',
+    title: 'ChatGPT is now on CarPlay, beating Gemini and Claude to',
     description:
       'iOS 26.4 opened CarPlay to AI chatbots on March 24. OpenAI shipped a voice-only CarPlay app days later. Gemini and Claude have no release date yet.',
   },

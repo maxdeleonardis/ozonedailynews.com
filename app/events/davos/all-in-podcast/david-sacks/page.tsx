@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "David Sacks: All-In Podcast Host, PayPal Mafia, and Enterprise Software Pioneer",
+  title: "David Sacks | All-In Podcast Host, PayPal Mafia, and",
   description: "Complete profile of David Sacks - All-In Podcast co-host, PayPal COO, Yammer founder, Craft Ventures GP. From PayPal Mafia to enterprise SaaS kingmaker",
   keywords: [
     "David Sacks",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/davos/all-in-podcast/david-sacks',
   },
   openGraph: {
-    title: "David Sacks Profile | PayPal Mafia Member & All-In Podcast Host",
+    title: "David Sacks Profile | PayPal Mafia Member & All-In Podcast",
     description: "Inside the career of David Sacks: PayPal COO, Yammer founder, Craft Ventures GP, and All-In Podcast co-host shaping tech policy debates.",
     type: "article",
     url: "https://www.objectwire.org/davos/all-in-podcast/david-sacks",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'David Sacks Profile | PayPal Mafia Member & All-In Podcast Host',
+    title: 'David Sacks Profile | PayPal Mafia Member & All-In Podcast',
     description: 'Inside the career of David Sacks: PayPal COO, Yammer founder, Craft Ventures GP, and All-In Podcast co-host shaping tech policy debates.',
   },
 };

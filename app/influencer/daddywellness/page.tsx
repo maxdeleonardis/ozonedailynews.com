@@ -8,7 +8,7 @@ const SLUG = '/influencer/daddywellness';
 const OG_IMAGE = '/influncer/daddy_wellness.jpg';
 
 export const metadata: Metadata = {
-  title: 'Daddy Wellness (Richie Lovelace) | Wellness Influencer Profile',
+  title: 'Daddy Wellness (Richie Lovelace) | Wellness Influencer',
   description:
     'Richie Lovelace, known online as Daddy Wellness, is a Miami-based wellness entrepreneur and content creator with over 2 million Instagram followers. He',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Daddy Wellness (Richie Lovelace) | 2M+ Follower Wellness Influencer',
+    title: 'Daddy Wellness (Richie Lovelace) | 2M+ Follower Wellness',
     description:
       'Profile of Richie Lovelace (Daddy Wellness), former growth equity professional turned Miami-based wellness creator, founder of Dialed University, and host',
     type: 'profile',

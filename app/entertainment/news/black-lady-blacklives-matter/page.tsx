@@ -6,10 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Black Lives Matter Lady GOING TO PRISON 2-20 Years | ObjectWire.org",
+  title: "Black Lives Matter Lady GOING TO PRISON 2-20 Years",
   description: "In December 2025, federal authorities indicted Tashella Sheri Amore Dickerson, 52, longtime executive director of Black Lives Matter chapter.",
   alternates: {
     canonical: 'https://www.objectwire.org/black-lady-blacklives-matter',
+  },
+  openGraph: {
+    title: "Black Lives Matter Lady GOING TO PRISON 2-20 Years",
+    description: "In December 2025, federal authorities indicted Tashella Sheri Amore Dickerson, 52, longtime executive director of Black Lives Matter chapter.",
+    type: 'article',
+    url: "https://www.objectwire.org/black-lady-blacklives-matter",
+    siteName: 'ObjectWire',
+    section: "Entertainment",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Black Lives Matter Lady GOING TO PRISON 2-20 Years",
+    description: "In December 2025, federal authorities indicted Tashella Sheri Amore Dickerson, 52, longtime executive director of Black Lives Matter chapter.",
   },
 };
 

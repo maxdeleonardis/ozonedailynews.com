@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'XRP | Full Profile: History, Ripple, SEC Lawsuit & 2026 Exploit',
+    title: 'XRP | Full Profile: History, Ripple, SEC Lawsuit & 2026',
     description:
       'Everything on XRP: the asset, the ledger, Ripple Labs, the SEC case, and the $80B exploit that never activated.',
   },

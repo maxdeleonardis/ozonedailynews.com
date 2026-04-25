@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Polyarc, Eidos-Montreal Hit by Layoffs | Gaming Crisis March 2026',
+  title: 'Polyarc, Eidos-Montreal Hit by Layoffs | Gaming Crisis',
   description:
     'Polyarc cut 35 of 52 employees after a major VR project lost funding. Eidos-Montreal laid off 124 as studio head David Anfossi departed after 19 years.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Polyarc, Eidos-Montreal Hit by Major Layoffs | Gaming Crisis March 2026',
+    title: 'Polyarc, Eidos-Montreal Hit by Major Layoffs | Gaming',
     description:
       'Polyarc cut 66% of staff after VR project funding collapsed. Eidos-Montreal axed 124, losing its 19-year studio head. Two more victims in gaming industry',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Polyarc Cuts 66% of Staff, Eidos-Montreal Axes 124 | Gaming Crisis',
+    title: 'Polyarc Cuts 66% of Staff, Eidos-Montreal Axes 124 | Gaming',
     description:
       'Polyarc: VR funding collapsed, 35 of 52 employees gone. Eidos-Montreal: 124 cut, studio head of 19 years out. Q1 2026 gaming layoffs show no sign of',
     images: [OG_IMAGE],

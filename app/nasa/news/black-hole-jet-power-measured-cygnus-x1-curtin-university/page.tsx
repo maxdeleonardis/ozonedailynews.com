@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Black Hole Jet Power Measured | Cygnus X-1 First Direct Measurement',
-  description: 'Astronomers made the first direct measurement of a black hole jet\'s instantaneous power, finding Cygnus X-1\'s jets carry energy equivalent to 10,000 suns and travel at half the speed of light.',
+  title: 'Black Hole Jet Power Measured | Cygnus X-1 First Direct',
+  description: 'Astronomers made the first direct measurement of a black hole jet\'s instantaneous power, finding Cygnus X-1\'s jets carry energy equivalent to 10,000',
   keywords: [
     'black hole jet power measured',
     'Cygnus X-1 black hole jets',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Black Hole Jet Power Measured for the First Time | Cygnus X-1',
-    description: 'A Curtin University-led team used 18 years of radio imaging to directly measure the jets of Cygnus X-1, finding they carry energy equal to 10,000 suns and travel at 150,000 km/s.',
+    title: 'Black Hole Jet Power Measured for the First Time | Cygnus',
+    description: 'A Curtin University-led team used 18 years of radio imaging to directly measure the jets of Cygnus X-1, finding they carry energy equal to 10,000 suns and',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

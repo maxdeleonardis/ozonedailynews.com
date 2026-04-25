@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Gaming Industry Sheds Jobs Across EA, Sony, Riot, and Ubisoft in February 2026',
+    'Gaming Industry Sheds Jobs Across EA, Sony, Riot, and',
   description:
     'Electronic Arts, Sony Interactive Entertainment, Riot Games, and Ubisoft all announced layoffs in February 2026. Bluepoint Games was closed with 70 cuts,',
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'EA, Sony, Riot, and Ubisoft All Cut Staff in February 2026, 2,374 Roles Affected Industry-Wide',
+      'EA, Sony, Riot, and Ubisoft All Cut Staff in February',
     description:
       'Bluepoint Games closed. Full Circle restructured after Skate launch. Riot shed ~160 roles across publishing and 2XKO. Ubisoft Toronto lost 40 with 200',
     type: 'article',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'Gaming Industry Layoffs: EA, Sony, Riot, Ubisoft Cut Jobs in February 2026',
+      'Gaming Industry Layoffs | EA, Sony, Riot, Ubisoft Cut Jobs',
     description:
       'Bluepoint closed (70). Full Circle restructured. Riot lost ~160 across publishing and 2XKO. Ubisoft Toronto shed 40 with 200 more targeted. 2,374 roles',
     images: [IMAGE_URL],

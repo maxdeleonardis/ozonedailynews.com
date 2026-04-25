@@ -9,7 +9,7 @@ const SLUG = '/technology/news/helium-crisis-semiconductor-iran-conflict-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Helium Crisis Hits Semiconductor Giants | Iran Conflict Supply Shock',
+  title: 'Helium Crisis Hits Semiconductor Giants | Iran Conflict',
   description:
     'The U.S.-Israel conflict with Iran has cut off roughly 33% of the world\'s helium supply from Qatar, sending the PHLX Semiconductor Index down 3% and',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Helium Crisis | Iran Conflict Cuts 33% of Global Chip Supply Input',
+    title: 'Helium Crisis | Iran Conflict Cuts 33% of Global Chip',
     description:
       'The PHLX Semiconductor Index fell 3% as investors realized Iran\'s conflict has physically cut off Qatar\'s helium — a non-substitutable input for every',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Iran conflict has a silent kill switch for chipmaking: helium',
+    title: 'The Iran conflict has a silent kill switch for chipmaking',
     description:
       '33% of the world\'s helium supply is cut off. Samsung, SK Hynix, and TSMC have 3–6 months of reserves. After that, fab shutdowns become a real scenario.',
   },

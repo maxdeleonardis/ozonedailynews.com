@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Alibaba Previews Qwen 3.6 | New Responses API & TypeScript SDK for Developers',
+    title: 'Alibaba Previews Qwen 3.6 | New Responses API & TypeScript',
     description:
       'Alibaba rolled out a Qwen 3.6 model preview, an OpenAI-compatible Responses API, a TypeScript SDK, and steady Qwen Code agent updates throughout March',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alibaba previews Qwen 3.6 with a new Responses API and TypeScript SDK',
+    title: 'Alibaba previews Qwen 3.6 with a new Responses API and',
     description:
       'Qwen 3.6 model preview, an OpenAI-compatible API, and a TypeScript SDK — all dropped in March 2026 as Alibaba pushes hard on developer adoption.',
   },

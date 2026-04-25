@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   title:       'Your Vault | ObjectWire',
   description: 'Your digital vault of interests, saved articles, reading history, and engagement on ObjectWire.',
   robots:      { index: false, follow: false },
+  openGraph: {
+    title: "Your Vault | ObjectWire",
+    description: "Your digital vault of interests, saved articles, reading history, and engagement on ObjectWire.",
+    type: 'article',
+    url: 'https://www.objectwire.org',
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Your Vault | ObjectWire",
+    description: "Your digital vault of interests, saved articles, reading history, and engagement on ObjectWire.",
+  },
 };
 
 export default function AccountPage() {

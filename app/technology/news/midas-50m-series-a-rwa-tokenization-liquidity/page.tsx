@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Midas $50M Series A | Instant Redemption for Tokenized Treasuries',
+    title: 'Midas $50M Series A | Instant Redemption for Tokenized',
     description:
       'Berlin-based Midas raises $50M from Franklin Templeton, Coinbase Ventures, and Anchorage Digital to solve the 24-hour settlement delay blocking',
     type: 'article',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Midas Raises $50M | Instant Redemption for Tokenized Treasuries',
+    title: 'Midas Raises $50M | Instant Redemption for Tokenized',
     description:
       'Franklin Templeton, Coinbase Ventures, Anchorage Digital in the round. Midas builds 24/7 stablecoin exits for on-chain Treasury yields. RWA market: $2.5B,',
     images: [OG_IMAGE],

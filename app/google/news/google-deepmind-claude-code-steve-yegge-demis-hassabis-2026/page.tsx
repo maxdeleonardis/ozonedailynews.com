@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'DeepMind Uses Claude Code | Steve Yegge vs Demis Hassabis 2026',
-  description: 'Steve Yegge claims Google DeepMind uses Anthropic Claude Code while 40,000 engineers are limited to Gemini. Demis Hassabis called it "completely false." Here is what the evidence shows.',
+  title: 'DeepMind Uses Claude Code | Steve Yegge vs Demis Hassabis',
+  description: 'Steve Yegge claims Google DeepMind uses Anthropic Claude Code while 40,000 engineers are limited to Gemini. Demis Hassabis called it "completely false."',
   keywords: [
     'Google DeepMind Claude Code',
     'Steve Yegge Google DeepMind',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'DeepMind Uses Claude Code | Steve Yegge vs Demis Hassabis',
-    description: 'A viral post from ex-Googler Steve Yegge alleges Google DeepMind quietly runs on Claude Code. DeepMind CEO Demis Hassabis called it nonsense. Google\'s own Strike Team tells a different story.',
+    description: 'A viral post from ex-Googler Steve Yegge alleges Google DeepMind quietly runs on Claude Code. DeepMind CEO Demis Hassabis called it nonsense. Google\'s',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

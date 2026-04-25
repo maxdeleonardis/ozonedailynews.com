@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up Foundation",
+  title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up",
   description: "OpenAI announces the hiring of Peter Steinberger, creator of OpenClaw robotics framework, and establishes the OpenAI Robotics Foundation to accelerate",
   keywords: [
     "OpenAI hires Peter Steinberger 2026",
@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/define/openai-hires-openclaw-creator-peter-steinberger-foundation',
+  },
+  openGraph: {
+    title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up",
+    description: "OpenAI announces the hiring of Peter Steinberger, creator of OpenClaw robotics framework, and establishes the OpenAI Robotics Foundation to accelerate",
+    type: 'article',
+    url: "https://www.objectwire.org/define/openai-hires-openclaw-creator-peter-steinberger-foundation",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "OpenAI Hires OpenClaw Creator Peter Steinberger, Sets Up",
+    description: "OpenAI announces the hiring of Peter Steinberger, creator of OpenClaw robotics framework, and establishes the OpenAI Robotics Foundation to accelerate",
   },
 };
 

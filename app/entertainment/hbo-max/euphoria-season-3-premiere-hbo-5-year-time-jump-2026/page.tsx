@@ -11,9 +11,9 @@ const OG_IMAGE =
   'https://images.unsplash.com/photo-1634157703702-3c124b455499?w=1200&q=80';
 
 export const metadata: Metadata = {
-  title: 'Euphoria Season 3 | HBO Premiere, Time Jump, Episode Guide 2026',
+  title: 'Euphoria Season 3 | HBO Premiere, Time Jump, Episode Guide',
   description:
-    'Euphoria Season 3 premiered April 12, 2026 on HBO and Max after a 4-year hiatus. A 5-year time jump moves Rue to Mexico, Cassie and Nate married, and Maddy to Hollywood. 8 episodes, finale May 31.',
+    'Euphoria Season 3 premiered April 12, 2026 on HBO and Max after a 4-year hiatus. A 5-year time jump moves Rue to Mexico, Cassie and Nate married, and',
   keywords: [
     'Euphoria Season 3 premiere 2026',
     'Euphoria Season 3 HBO release date',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Euphoria Season 3 | HBO Premiere After 4-Year Wait, 5-Year Time Jump',
+    title: 'Euphoria Season 3 | HBO Premiere After 4-Year Wait, 5-Year',
     description:
-      '19 million viewers for the April 12 premiere. Rue in Mexico, Cassie married to Nate, Maddy in Hollywood. 8 episodes ending May 31, 2026. Tributes to Angus Cloud and Eric Dane.',
+      '19 million viewers for the April 12 premiere. Rue in Mexico, Cassie married to Nate, Maddy in Hollywood. 8 episodes ending May 31, 2026. Tributes to Angus',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

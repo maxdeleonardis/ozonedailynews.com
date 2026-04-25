@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/cuba/news/cuban-border-guards-kill-four-florida-speedboat-cayo-falcones';
 
 export const metadata: Metadata = {
-  title: 'Cuban Border Guards Kill Four in Gunfight With Florida Speedboat Near Cayo Falcones',
+  title: 'Cuban Border Guards Kill Four in Gunfight With Florida',
   description:
     'Cuban border guard forces exchanged gunfire with a Florida-registered speedboat near Cayo Falcones on February 25, 2026, killing four and wounding six.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Cuban Border Guards Kill Four in Gunfight With Florida Speedboat Near Cayo Falcones',
+    title: 'Cuban Border Guards Kill Four in Gunfight With Florida',
     description:
       'A Florida-registered speedboat entered Cuban territorial waters near Cayo Falcones on February 25, 2026. What followed was a gunfight that killed four and',
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cuban Border Guards Kill Four in Gunfight With Florida Speedboat Off Cayo Falcones',
+    title: 'Cuban Border Guards Kill Four in Gunfight With Florida',
     description:
       'Florida-registered FL7726SH entered Cuban waters near Villa Clara on February 25. Cuban border guards report an exchange of fire: four dead, six wounded,',
   },

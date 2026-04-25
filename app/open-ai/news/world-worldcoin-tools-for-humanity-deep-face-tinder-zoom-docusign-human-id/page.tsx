@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'World ID Expands | Deep Face, Tinder Human Badge, Zoom, DocuSign',
-  description: 'Tools for Humanity launches World ID integrations with Tinder, Zoom, and DocuSign using Deep Face tech and the Orb iris scanner. 18M users. The digital human stamp.',
+  title: 'World ID Expands | Deep Face, Tinder Human Badge, Zoom',
+  description: 'Tools for Humanity launches World ID integrations with Tinder, Zoom, and DocuSign using Deep Face tech and the Orb iris scanner. 18M users. The digital',
   keywords: [
     'World ID 2026',
     'Worldcoin Deep Face',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'World ID Expands | Deep Face, Tinder, Zoom, DocuSign Human Verification',
-    description: '18 million iris scans. Deep Face tech on Zoom. Human Badge on Tinder. Bot-proof DocuSign signatures. World exits crypto and becomes mainstream security infrastructure.',
+    title: 'World ID Expands | Deep Face, Tinder, Zoom, DocuSign Human',
+    description: '18 million iris scans. Deep Face tech on Zoom. Human Badge on Tinder. Bot-proof DocuSign signatures. World exits crypto and becomes mainstream security',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'World ID goes mainstream | Tinder, Zoom, DocuSign integrations announced',
+    title: 'World ID goes mainstream | Tinder, Zoom, DocuSign',
     description: 'The Orb iris scanner becomes everyday security infrastructure. Deep Face prevents AI impersonation on video calls. 18M users already enrolled.',
   },
 };

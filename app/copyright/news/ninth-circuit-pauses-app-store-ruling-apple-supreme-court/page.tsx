@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Ninth Circuit Pauses App Store Ruling as Apple Heads to Supreme Court',
-  description: 'The Ninth Circuit granted Apple a stay on its App Store contempt ruling while the company prepares a Supreme Court petition, pausing enforcement of the injunction in the Epic Games antitrust case.',
+  title: 'Ninth Circuit Pauses App Store Ruling as Apple Heads to',
+  description: 'The Ninth Circuit granted Apple a stay on its App Store contempt ruling while the company prepares a Supreme Court petition, pausing enforcement of the',
   keywords: [
     'Apple Supreme Court App Store',
     'Ninth Circuit stay Apple Epic Games',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Ninth Circuit Pauses App Store Ruling as Apple Heads to Supreme Court',
+    title: 'Ninth Circuit Pauses App Store Ruling as Apple Heads to',
     description: 'Apple wins a stay on the App Store contempt ruling while it petitions the Supreme Court. Epic Games calls it a "delay tactic."',
     type: 'article',
     url: ARTICLE_URL,

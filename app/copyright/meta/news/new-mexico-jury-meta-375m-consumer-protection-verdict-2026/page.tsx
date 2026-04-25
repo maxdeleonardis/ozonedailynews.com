@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '$375M. One Day of Deliberation. New Mexico Jury Finds Meta Deceived Teens.',
+    title: '$375M. One Day of Deliberation. New Mexico Jury Finds',
     description:
       'The jury sided with New Mexico AG Raúl Torrez on both counts, false statements and "unconscionable" trade practices, in one of the first state verdict',
   },

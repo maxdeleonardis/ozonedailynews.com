@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Pragmata Hits 1 Million Units in 2 Days | Capcom New IP Record',
-  description: 'Capcom\'s Pragmata sold over one million copies in its first 48 hours, breaking the new IP curse. Multiplatform launch, Switch 2 momentum, and stock jumping 3.2% on April 20, 2026.',
+  title: 'Pragmata Hits 1 Million Units in 2 Days | Capcom New IP',
+  description: 'Capcom\'s Pragmata sold over one million copies in its first 48 hours, breaking the new IP curse. Multiplatform launch, Switch 2 momentum, and stock',
   keywords: [
     'Pragmata sales',
     'Pragmata one million units',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Pragmata Hits 1 Million Units in 48 Hours | Capcom New IP Record',
+    title: 'Pragmata Hits 1 Million Units in 48 Hours | Capcom New IP',
     description: 'Capcom\'s brand-new sci-fi IP cleared 1M units in two days. Switch 2 port praised as excellent. Capcom stock jumped 3.2%. The new IP curse is broken.',
     type: 'article',
     url: ARTICLE_URL,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pragmata: 1 Million Units in 48 Hours. Capcom Breaks the New IP Curse.',
+    title: 'Pragmata | 1 Million Units in 48 Hours. Capcom Breaks the',
     description: 'Multiplatform demo strategy, Switch 2 momentum, and an 86 Metacritic. The numbers are in.',
     images: [OG_IMAGE],
   },

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/google/news/iran-cyber-attacks-google-threat-intelligence-march-2026';
 
 export const metadata: Metadata = {
-  title: 'Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026',
+  title: 'Google Warns of Iran-Linked Cyber Attacks Targeting',
   description:
     'Google Threat Intelligence Group issued an alert March 2, 2026, warning that Iranian state-affiliated actors launched a coordinated cyber campaign',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Google Warns of Iran-Linked Cyber Attacks Targeting Global Infrastructure | March 2, 2026",
+    title: "Google Warns of Iran-Linked Cyber Attacks Targeting",
     description:
       "150+ hacktivist-claimed incidents in 72 hours. DDoS peaks at 1.2 Tbps. Google, Mandiant, Cloudflare, and Microsoft all issued alerts. No confirmed",
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Google: Iran-Linked Actors Hit Israel, Gulf States & Western Infrastructure | 150+ Incidents in 72 Hrs",
+    title: "Google: Iran-Linked Actors Hit Israel, Gulf States",
     description:
       "Google Threat Intelligence Group alert March 2, 2026: Iranian state-aligned hacktivists targeted energy, finance, aviation, and telecoms in coordinated",
   },

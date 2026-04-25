@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war',
   },
+  openGraph: {
+    title: "Alphabet or Nvidia: Here",
+    description: "Google",
+    type: 'article',
+    url: "https://www.objectwire.org/alphabet-or-nvidia-here-s-who-i-think-will-win-the-ai-chip-war",
+    siteName: 'ObjectWire',
+    section: "Tech",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Alphabet or Nvidia: Here",
+    description: "Google",
+  },
 };
 
 export default function AlphabetVsNvidiaAIChipPage() {

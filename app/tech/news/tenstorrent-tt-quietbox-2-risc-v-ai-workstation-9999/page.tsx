@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Tenstorrent Disrupts AI Workstation Market with $9,999 RISC-V "QuietBox 2"',
+    'Tenstorrent QuietBox 2 | $9,999 RISC-V AI Workstation',
   description:
     "Jim Keller's Tenstorrent unveiled the TT-QuietBox 2 on March 10, 2026, a $9,999 liquid-cooled RISC-V AI workstation capable of running 120B-parameter",
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tenstorrent QuietBox 2: $9,999 RISC-V Workstation Runs 120B-Param Models Locally',
+    title: 'Tenstorrent QuietBox 2 | $9,999 RISC-V Workstation Runs',
     description:
       "Jim Keller's Tenstorrent just shipped a liquid-cooled, fully open-source AI workstation for $9,999. No CUDA. No Nvidia. Teraflop inference. 120B",
   },

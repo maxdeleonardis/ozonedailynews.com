@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'MiniMax Launches MaxClaw Cloud Agent on February 25, Clawbot AI SaaS Follows February 28',
+    'MiniMax Launches MaxClaw Cloud Agent on February 25',
   description:
     'MiniMax released MaxClaw on February 25, 2026, a fully managed cloud deployment of the open-source OpenClaw agent framework running on the MiniMax-M2.5',
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'MiniMax MaxClaw and Clawbot AI Both Launch Cloud OpenClaw Agents in Three Days',
+      'MiniMax MaxClaw and Clawbot AI Both Launch Cloud',
     description:
       'MiniMax dropped MaxClaw on February 25, 2026, one-click cloud deployment for OpenClaw agents powered by a 229B MoE model. Clawbot AI followed with its own',
     type: 'article',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'MiniMax MaxClaw Launches Feb 25, Clawbot AI SaaS Follows Feb 28, Both Cloud OpenClaw Agents',
+      'MiniMax MaxClaw Launches Feb 25, Clawbot AI SaaS Follows',
     description:
       'Two cloud wrappers for OpenClaw in three days. MiniMax MaxClaw (Feb 25) uses a 229B MoE model. Clawbot AI SaaS (Feb 28) adds automatic model selection.',
     images: [IMAGE_URL],

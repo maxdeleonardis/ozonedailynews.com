@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Artemis II Launches | First Humans Beyond Earth Orbit Since 1972',
+    title: 'Artemis II Launches | First Humans Beyond Earth Orbit Since',
     description:
       'Four astronauts are headed to the Moon for the first time in 54 years. SLS lifted off April 1, 2026. Translunar injection burn tonight. Lunar flyby at',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Artemis II Is Off | Humans to the Moon for First Time Since 1972',
+    title: 'Artemis II Is Off | Humans to the Moon for First Time Since',
     description:
       'SLS lifted off April 1 at 6:35 p.m. EDT. Four astronauts, 10 days, 252,000 miles from Earth. Translunar injection burn tonight. The Moon is back.',
     images: [OG_IMAGE],

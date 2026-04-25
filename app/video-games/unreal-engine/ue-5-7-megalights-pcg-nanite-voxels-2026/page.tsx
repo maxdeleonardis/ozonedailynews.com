@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Unreal Engine 5.7 | MegaLights, PCG Production-Ready, Nanite Voxels 2026',
-  description: 'Unreal Engine 5.7 delivers MegaLights beta, production-ready PCG with 35% GPU gains, Nanite Voxels for foliage, and a built-in AI assistant. Current version 5.7.2. UE 5.8 preview expected Summer 2026.',
+  title: 'Unreal Engine 5.7 | MegaLights, PCG Production-Ready',
+  description: 'Unreal Engine 5.7 delivers MegaLights beta, production-ready PCG with 35% GPU gains, Nanite Voxels for foliage, and a built-in AI assistant. Current',
   keywords: [
     'Unreal Engine 5.7',
     'Unreal Engine 5.7 MegaLights',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Unreal Engine 5.7 | MegaLights, Nanite Voxels, PCG Production-Ready',
-    description: 'Epic Games UE 5.7: thousands of dynamic shadow-casting lights, 35% faster PCG via GPU compute, Nanite Voxels eliminating LOD popping in forests, and a context-aware in-editor AI assistant.',
+    title: 'Unreal Engine 5.7 | MegaLights, Nanite Voxels, PCG',
+    description: 'Epic Games UE 5.7: thousands of dynamic shadow-casting lights, 35% faster PCG via GPU compute, Nanite Voxels eliminating LOD popping in forests, and a',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Unreal Engine 5.7 | MegaLights, 35% Faster PCG, Nanite Voxels, AI Assistant',
+    title: 'Unreal Engine 5.7 | MegaLights, 35% Faster PCG, Nanite',
     description: '25% GPU gain, 60% faster lighting iteration, and the end of baked lighting for complex indoor scenes. UE 5.7.2 is out now.',
     images: [OG_IMAGE],
   },

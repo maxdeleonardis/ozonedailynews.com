@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://www.objectwire.org/images/crypto/coinbase-armstrong-network-states.jpg';
 
 export const metadata: Metadata = {
-  title: 'Coinbase Armstrong Vision | Network States, Everything Exchange',
-  description: 'Coinbase CEO Brian Armstrong outlined three strategic priorities: an everything exchange spanning equities and crypto, stablecoin payments at scale, and a self-custodial DeFi wallet.',
+  title: 'Coinbase Armstrong Vision | Network States, Everything',
+  description: 'Coinbase CEO Brian Armstrong outlined three strategic priorities: an everything exchange spanning equities and crypto, stablecoin payments at scale, and a',
   keywords: [
     'Brian Armstrong Coinbase',
     'Coinbase everything exchange',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Coinbase CEO Armstrong Outlines Vision for Crypto Network States',
-    description: 'Armstrong laid out three priorities: an everything exchange, stablecoin payments, and a self-custodial DeFi wallet, with a broader mission to unbundle money from the state.',
+    title: 'Coinbase CEO Armstrong Outlines Vision for Crypto',
+    description: 'Armstrong laid out three priorities: an everything exchange, stablecoin payments, and a self-custodial DeFi wallet, with a broader mission to unbundle',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armstrong Lays Out Coinbase Vision | Everything Exchange + Network States',
+    title: 'Armstrong Lays Out Coinbase Vision | Everything Exchange +',
     description: 'Three priorities: everything exchange (equities, crypto, prediction markets), stablecoin payments, self-custodial DeFi wallet.',
     images: [OG_IMAGE],
   },

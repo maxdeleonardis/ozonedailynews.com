@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Building 51% Edges: The Quantitative Guide to Prop Firms & Algorithmic Trading",
+  title: "Building 51% Edges | The Quantitative Guide to Prop Firms",
   description: "Stop trading on vibes. Learn how quants use Permutation Testing, Monte Carlo simulations, and Expected Value to turn 51% probabilities into a scalable",
   keywords: [
     "quant trading p-value",

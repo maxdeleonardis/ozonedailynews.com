@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'HUNTER×HUNTER NEN×SURVIVOR Launches February 18, 2026 on iOS and Android',
+  title: 'HUNTER×HUNTER NEN×SURVIVOR Launches February 18, 2026 on',
   description:
     'HUNTER×HUNTER NEN×SURVIVOR released globally on February 18, 2026 for iOS, Android, and Windows via Google Play Games. The free-to-play roguelike survivor',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/anime/hunter-hunter-nen-survivor',
   },
   openGraph: {
-    title: 'HUNTER×HUNTER NEN×SURVIVOR -- February 18, 2026 Global Launch on iOS and Android',
+    title: 'HUNTER×HUNTER NEN×SURVIVOR -- February 18, 2026 Global',
     description:
       'Free-to-play roguelike survivor game in the Hunter x Hunter universe. 1.5M pre-registrations, original anime voice cast, four-character Nen teams, and',
     type: 'article',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HUNTER×HUNTER NEN×SURVIVOR -- Roguelike Survivor Launches Feb 18, 2026',
+    title: 'HUNTER×HUNTER NEN×SURVIVOR -- Roguelike Survivor',
     description:
       'iOS, Android, and Windows via Google Play Games. 1.5M pre-registrations, Nen ability builds, original cast voice acting, and auto-battle mode.',
   },

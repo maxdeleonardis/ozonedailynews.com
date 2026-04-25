@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Supernova Genesis 2026 | Netflix Live, Arena Ciudad de Mexico April 26',
-  description: 'Supernova: Genesis 2026 takes place April 26 at Arena Ciudad de Mexico, live exclusively on Netflix. Full card: Alana Flores vs Samadis, Nando vs Abraham, Mario Bautista vs Aaron Mercury.',
+  title: 'Supernova Genesis 2026 | Netflix Live, Arena Ciudad de',
+  description: 'Supernova: Genesis 2026 takes place April 26 at Arena Ciudad de Mexico, live exclusively on Netflix. Full card: Alana Flores vs Samadis, Nando vs Abraham,',
   keywords: [
     'Supernova Genesis 2026',
     'Supernova Genesis boxeo influencers',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Supernova: Genesis 2026 | Netflix Live | Arena Ciudad de Mexico',
+    title: 'Supernova: Genesis 2026 | Netflix Live | Arena Ciudad de',
     description: 'The biggest influencer boxing event in Latin America. Supernova: Genesis 2026 goes live April 26 on Netflix from Arena Ciudad de Mexico.',
     type: 'article',
     url: ARTICLE_URL,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Supernova: Genesis 2026 | Netflix Live | April 26, Arena CDMX',
+    title: 'Supernova: Genesis 2026 | Netflix Live | April 26, Arena',
     description: 'Alana Flores, Mario Bautista, Nando and more fight live on Netflix from Arena Ciudad de Mexico this Sunday.',
     images: [OG_IMAGE],
   },

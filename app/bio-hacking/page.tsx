@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/bio-hacking';
 
 export const metadata: Metadata = {
-  title: "Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization",
+  title: "Bio-Hacking Hub | Human Enhancement, Longevity",
   description:
     "Complete coverage of the bio-hacking movement, from Bryan Johnson's Blueprint protocol to looksmaxxing, peptides, nootropics, and the extreme measures",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Bio-Hacking Hub: Human Enhancement, Longevity & Performance Optimization",
+    title: "Bio-Hacking Hub | Human Enhancement, Longevity",
     description:
       "From Bryan Johnson's $2M/year longevity protocol to the looksmaxxing movement pushing cosmetic surgery to extremes, comprehensive coverage of the",
     type: 'website',

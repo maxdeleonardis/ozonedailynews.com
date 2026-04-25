@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Apple Set to Announce at Least Five New Products March 2-4, 2026: MacBook, iPhone 17e, iPad, MacBook Air M5',
+    'Apple Set to Announce at Least Five New Products March',
   description:
     'Apple plans to unveil at least five new hardware products between March 2 and March 4, 2026, via press releases and hands-on Apple Experience events in',
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'Apple March 2-4, 2026: Five-Plus Products, No Keynote, MacBook, iPhone 17e, iPad, MacBook Air M5',
+      'Apple March 2-4, 2026 | Five-Plus Products, No Keynote',
     description:
       "Apple's Tim Cook confirmed a 'big week' starting March 2, five or more products dropped via press releases over three days, with hands-on Apple Experience",
     type: 'article',
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'Apple Drops Five-Plus Products March 2-4, 2026, MacBook, iPhone 17e, iPad Air M4, MacBook Air M5',
+      'Apple Drops Five-Plus Products March 2-4, 2026, MacBook',
     description:
       'No keynote. Just press releases, three days, and at least five new products, entry MacBook, iPhone 17e, iPad refreshes, and the full MacBook Air/Pro M5',
     images: [IMAGE_URL],

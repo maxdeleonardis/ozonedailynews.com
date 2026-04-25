@@ -36,6 +36,8 @@
     "audit:links:csv": "npx tsx --env-file=.env.local scripts/audit-internal-links.ts --csv",
     "fix:meta": "npx tsx scripts/fix-metadata.ts",
     "fix:meta:write": "npx tsx scripts/fix-metadata.ts --write",
+    "fix:titles": "npx tsx scripts/fix-metadata.ts --fix-titles",
+    "fix:titles:write": "npx tsx scripts/fix-metadata.ts --fix-titles --write",
     "audit": "npx tsx scripts/audit-registry.ts",
     "audit:fix": "npx tsx scripts/audit-registry.ts --fix",
     "audit:backfill": "npx tsx --env-file=.env.local scripts/audit-registry.ts --backfill",

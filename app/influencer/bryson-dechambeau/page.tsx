@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/influencer/bryson-dechambeau',
   },
   openGraph: {
-    title: 'Bryson DeChambeau | The Mad Scientist | 2× US Open Champion & LIV Golf Star',
+    title: 'Bryson DeChambeau | The Mad Scientist | 2× US Open Champion',
     description:
       'Full profile of Bryson DeChambeau: from NCAA phenom to 2× US Open champion and LIV Golf icon. Physics-based game, dramatic body transformation, and a',
     type: 'article',

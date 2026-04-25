@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Mikaela Testa | Age, Instagram, OnlyFans, Bio 2026',
   description:
-    'Mikaela Testa is an Australian influencer and content creator known for her Instagram and OnlyFans presence. Full biography, age, and social media profiles.',
+    'Mikaela Testa is an Australian influencer and content creator known for her Instagram and OnlyFans presence. Full biography, age, and social media',
   keywords: [
     'Mikaela Testa',
     'Mikaela Testa age',

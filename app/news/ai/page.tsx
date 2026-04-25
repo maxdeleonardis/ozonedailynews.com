@@ -9,7 +9,7 @@ const SLUG = '/news/ai';
 
 export const metadata: Metadata = {
   title:
-    'Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts to Copy Claude',
+    'Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts',
   description:
     'Anthropic alleged that DeepSeek, Moonshot AI, and MiniMax used roughly 24,000 fraudulent accounts to prompt Claude more than 16 million times in a',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts to Copy Claude',
+    title: 'Anthropic Says Chinese AI Labs Used 24,000 Fake Accounts',
     description:
       'DeepSeek, Moonshot AI, and MiniMax allegedly prompted Claude over 16 million times through 24,000 fraudulent accounts to siphon outputs for AI training,',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anthropic: Chinese AI Labs Ran 16M Prompts via 24,000 Fake Accounts to Clone Claude',
+    title: 'Anthropic | Chinese AI Labs Ran 16M Prompts via 24,000 Fake',
     description:
       'MiniMax: 13M+ prompts. Moonshot AI: 3.4M+. DeepSeek: 150,000. Anthropic calls it industrial-scale distillation. Full breakdown on ObjectWire.',
   },

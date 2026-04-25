@@ -6,11 +6,11 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4 2026",
+  title: "NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4",
   description:
     "NVIDIA posted record Q4 FY2026 revenue of $68.1 billion, up 73% year-over-year, driven by $62.3 billion in Data Center sales. Full-year revenue hit $215.9",
   openGraph: {
-    title: "NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4 2026",
+    title: "NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4",
     description:
       "Data Center revenue hit $62.3 billion. Non-GAAP EPS of $1.62 beat analyst estimates. Q1 FY2027 guidance set at $78.0 billion.",
     type: "article",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4 2026',
+    title: 'NVIDIA Reports Record $68.1 Billion Revenue in Fiscal Q4',
     description: 'Data Center revenue hit $62.3 billion. Non-GAAP EPS of $1.62 beat analyst estimates. Q1 FY2027 guidance set at $78.0 billion.',
   },
 };

@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/trump/japan-36-billion-us-energy-critical-minerals';
 
 export const metadata: Metadata = {
-  title: 'Japan Commits $36 Billion to US Energy & Critical Minerals Under Trump Trade Pact',
+  title: 'Japan Commits $36 Billion to US Energy & Critical',
   description:
     'Japan announced the first investments under its landmark US trade deal on February 17, 2026, committing $36 billion across three projects: a $33B natural',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Japan Commits $36 Billion to US Energy & Critical Minerals Under Trump Trade Pact',
+    title: 'Japan Commits $36 Billion to US Energy & Critical',
     description:
       'The first tranche of Japan\'s $550B US investment pledge: a record-breaking $33B Ohio gas plant, a Texas deepwater crude terminal, and a Georgia synthetic',
     type: 'article',

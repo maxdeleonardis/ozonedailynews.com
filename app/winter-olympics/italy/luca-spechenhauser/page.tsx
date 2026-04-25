@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Luca Spechenhauser Wins Short Track 1500m | Italy Strikes Gold on Home Ice',
+  title: 'Luca Spechenhauser Wins Short Track 1500m | Italy Strikes',
   description: 'Italian short track star Luca Spechenhauser wins the men\'s 1500m final at Milan Cortina 2026, delivering a home country gold medal in front of ecstatic',
   keywords: ['Luca Spechenhauser', 'short track', '1500m gold', 'Winter Olympics 2026', 'Milan Cortina', 'Italy', 'home gold', 'speed skating', 'Bormio'],
   openGraph: {

@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1772821290762-46430c512f11?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'White House Block and Find Out | Coinbase, CLARITY Act Stablecoin 2026',
+  title: 'White House Block and Find Out | Coinbase, CLARITY Act',
   description:
     'White House digital assets director Patrick Witt warned Coinbase that blocking the CLARITY Act stablecoin yield provision risks "far worse" rules under a',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     type: 'article',
-    title: 'White House Block and Find Out Warning to Coinbase | CLARITY Act Stablecoin 2026',
+    title: 'White House Block and Find Out Warning to Coinbase | CLARITY',
     description:
       "Patrick Witt, the White House's executive director for digital assets, warned Coinbase that blocking the CLARITY Act's stablecoin yield provision is a",
     url: ARTICLE_URL,

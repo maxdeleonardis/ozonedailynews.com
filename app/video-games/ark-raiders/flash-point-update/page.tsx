@@ -9,7 +9,7 @@ const SLUG = '/video-games/ark-raiders/flash-point-update';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Arc Raiders Flashpoint Update | New Enemies, Weapons, Map Conditions March 2026',
+  title: 'Arc Raiders Flashpoint Update | New Enemies, Weapons, Map',
   description:
     'Arc Raiders Flashpoint update launches Tuesday, March 31, 2026 at 1:30 AM PT across PC, PS5, and Xbox Series X|S. The free drop adds new enemies, weapons,',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Arc Raiders Flashpoint Update Launches Tuesday | New Enemies, Weapons, Map Conditions',
+    title: 'Arc Raiders Flashpoint Update Launches Tuesday | New',
     description:
       'Embark Studios rolls out the free Flashpoint update for Arc Raiders on March 31, 2026 at 1:30 AM PT. New threats, weapons, and map conditions arrive',
     type: 'article',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arc Raiders Flashpoint drops Tuesday at 1:30 AM PT. New enemies, weapons, and map conditions.',
+    title: 'Arc Raiders Flashpoint drops Tuesday at 1:30 AM PT. New',
     description:
       'Free update from Embark Studios hits PC, PS5, and Xbox Series X|S. Servers go down 1-3 hours before launch.',
   },

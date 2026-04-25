@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Ripple, Convera Partner on Stablecoin B2B Cross-Border Payments',
+  title: 'Ripple, Convera Partner on Stablecoin B2B Cross-Border',
   description:
     'Ripple and Convera announce a strategic partnership to settle B2B cross-border payments using a "stablecoin sandwich" model, compressing 3-5 day',
   keywords: [

@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1707167144619-a574a217136d?i
 
 export const metadata: Metadata = {
   title: 'Gucci Smart Glasses | Kering and Google Partner for 2027',
-  description: 'Kering CEO Luca de Meo confirmed Gucci smart glasses built with Google are coming in 2027, making Gucci the first major luxury house to enter AI-powered eyewear.',
+  description: 'Kering CEO Luca de Meo confirmed Gucci smart glasses built with Google are coming in 2027, making Gucci the first major luxury house to enter AI-powered',
   keywords: [
     'Gucci smart glasses',
     'Kering Google partnership',

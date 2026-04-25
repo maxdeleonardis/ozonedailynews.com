@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://www.objectwire.org/entertainment/forza_horizon_6.PNG';
 
 export const metadata: Metadata = {
-  title: 'Forza Horizon 6 | 511K Steam Pre-Sales, $30M Revenue Before Launch',
-  description: 'Forza Horizon 6 hits 511,000 Steam pre-sales and $30M gross revenue by April 15, 2026, one month before its May 19 launch. Alinea Analytics data shows 3.3M wishlists and a 2M day-one projection.',
+  title: 'Forza Horizon 6 | 511K Steam Pre-Sales, $30M Revenue Before',
+  description: 'Forza Horizon 6 hits 511,000 Steam pre-sales and $30M gross revenue by April 15, 2026, one month before its May 19 launch. Alinea Analytics data shows',
   keywords: [
     'Forza Horizon 6 Steam pre-sales',
     'Forza Horizon 6 511000 pre-orders',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Forza Horizon 6 | 511K Steam Pre-Sales & $30M Before May Launch',
-    description: 'Alinea Analytics: 511K Steam pre-sales, $30M gross revenue, 3.3M wishlists — one month before May 19 launch. Day-one 2M unit projection would be an all-time franchise record.',
+    title: 'Forza Horizon 6 | 511K Steam Pre-Sales & $30M Before May',
+    description: 'Alinea Analytics: 511K Steam pre-sales, $30M gross revenue, 3.3M wishlists — one month before May 19 launch. Day-one 2M unit projection would be an',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forza Horizon 6 hits 511K Steam pre-sales and $30M — one month out',
+    title: 'Forza Horizon 6 hits 511K Steam pre-sales and $30M | one',
     description: 'Alinea Analytics data shows a 2M day-one projection, 3.3M wishlists, and 22K peak daily sales on April 13. Japan setting is the clearest driver.',
     images: [OG_IMAGE],
   },

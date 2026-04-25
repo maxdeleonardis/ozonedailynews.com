@@ -10,7 +10,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion",
+    "AlphaFold Database Adds 1.7 Million Protein Complex",
   description:
     "The AlphaFold Protein Structure Database has added protein complex structures for the first time, with 1.7 million high-confidence homodimer predictions",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "AlphaFold Database Adds 1.7 Million Protein Complex Structures in Historic Expansion",
+      "AlphaFold Database Adds 1.7 Million Protein Complex",
     description:
       "A four-way collaboration between EMBL-EBI, Google DeepMind, NVIDIA, and Seoul National University has added 1.7 million homodimer predictions to the",
     type: "article",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "AlphaFold Database Adds 1.7 Million Protein Complex Structures",
+      "AlphaFold Database Adds 1.7 Million Protein Complex",
     description:
       "EMBL-EBI, Google DeepMind, NVIDIA & Seoul National University expand AlphaFold with 1.7M homodimer complex predictions, a first for the landmark",
   },

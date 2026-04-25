@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w
 
 export const metadata: Metadata = {
   title: 'Lead Bank | Visa USDC Solana Settlement Partner Profile',
-  description: 'Lead Bank, a Kansas City fintech institution led by CEO Jackie Reses, acts as Visa\'s acquiring partner and fiat-to-crypto gateway for USDC settlement on the Solana blockchain.',
+  description: 'Lead Bank, a Kansas City fintech institution led by CEO Jackie Reses, acts as Visa\'s acquiring partner and fiat-to-crypto gateway for USDC settlement on',
   keywords: [
     'Lead Bank Visa USDC',
     'Lead Bank Kansas City crypto',

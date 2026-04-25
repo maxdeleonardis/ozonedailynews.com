@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Italy Rejects Iran Replacement Proposal | 2026 World Cup Controversy',
-  description: 'Italy\'s government and Olympic officials slam as "shameful" a U.S. proposal by envoy Paolo Zampolli to replace Iran at the 2026 FIFA World Cup. Italy\'s sporting integrity vs. geopolitical crisis explained.',
+  title: 'Italy Rejects Iran Replacement Proposal | 2026 World Cup',
+  description: 'Italy\'s government and Olympic officials slam as "shameful" a U.S. proposal by envoy Paolo Zampolli to replace Iran at the 2026 FIFA World Cup. Italy\'s',
   keywords: [
     'Italy rejects Iran replacement World Cup 2026',
     'Italy World Cup 2026 controversy',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Italy Rejects "Shameful" Proposal to Replace Iran at 2026 World Cup',
-    description: 'Italy\'s government calls a U.S. backdoor entry proposal "shameful." With Iran\'s security status unresolved 50 days out, the 2026 World Cup faces its biggest geopolitical crisis yet.',
+    description: 'Italy\'s government calls a U.S. backdoor entry proposal "shameful." With Iran\'s security status unresolved 50 days out, the 2026 World Cup faces its',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

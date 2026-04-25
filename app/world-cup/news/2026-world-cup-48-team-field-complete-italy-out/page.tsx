@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: '2026 World Cup 48-Team Field Complete | Italy Out, Iraq and DR Congo In',
+    title: '2026 World Cup 48-Team Field Complete | Italy Out, Iraq and',
     description:
       'Iraq and DR Congo claimed the last two World Cup spots. Italy lost to Bosnia on penalties, becoming the first four-time champion to miss three straight',
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Italy Out. Iraq and DR Congo In. The 2026 World Cup Field is Set.',
+    title: 'Italy Out. Iraq and DR Congo In. The 2026 World Cup',
     description: 'All 48 nations confirmed for Canada, Mexico, and the USA. Italy miss a third straight World Cup.',
     images: [OG_IMAGE],
   },

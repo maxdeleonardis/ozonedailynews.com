@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Sidemen Inside Season 3: Netflix Spring 2026 Release Confirmed | Full Cast & Details",
+  title: "Sidemen Inside Season 3: Netflix Spring 2026 Release",
   description:
     "Inside UK Season 3 is confirmed for a spring 2026 Netflix premiere. Full 12-person cast revealed including Eddie Hall, AB, Saffron Barker, Chloe Ferry and",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: "https://www.objectwire.org/youtube/sidemen/inside-uk/season3",
   },
   openGraph: {
-    title: "Sidemen Inside Season 3: Netflix Spring 2026 | Full Cast Revealed",
+    title: "Sidemen Inside Season 3: Netflix Spring 2026 | Full Cast",
     description:
       "The Sidemen have completed filming on Inside Season 3. Netflix spring premiere confirmed, full 12-person cast announced on February 22, 2026.",
     type: "article",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sidemen Inside Season 3: Netflix Spring 2026 | Full Cast Revealed',
+    title: 'Sidemen Inside Season 3: Netflix Spring 2026 | Full Cast',
     description: 'The Sidemen have completed filming on Inside Season 3. Netflix spring premiere confirmed, full 12-person cast announced on February 22, 2026.',
   },
 };

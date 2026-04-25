@@ -9,7 +9,7 @@ const SLUG = '/meta/news/instagram-plus-subscription-test-philippines-japan-mexi
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Instagram Plus Subscription | Meta Live Test Philippines Japan Mexico 2026',
+  title: 'Instagram Plus Subscription | Meta Live Test Philippines',
   description:
     'Meta confirmed on March 30, 2026 that it is live-testing Instagram Plus in the Philippines, Japan, and Mexico. The premium tier unlocks Stealth Mode,',
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Instagram Plus is real. Meta just confirmed a live test in 3 countries.',
+    title: 'Instagram Plus is real. Meta just confirmed a live test',
     description:
       'Stealth Mode lets you view Stories anonymously. Story Extend pushes your post to 48 hours. Starts at $1.07/month. U.S. launch TBD.',
   },

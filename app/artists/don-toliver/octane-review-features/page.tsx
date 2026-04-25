@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/artists/don-toliver/octane-review-features';
 
 export const metadata: Metadata = {
-  title: 'OCTANE Album Review | Don Toliver ft. Ye, Travis Scott, Young Thug',
+  title: 'OCTANE Album Review | Don Toliver ft. Ye, Travis Scott',
   description:
     'In-depth review of Don Toliver\'s OCTANE album featuring Kanye West (Ye), Travis Scott, and Young Thug. Track-by-track analysis, production breakdown, and',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'OCTANE Album Review | Don Toliver ft. Ye, Travis Scott, Young Thug',
+    title: 'OCTANE Album Review | Don Toliver ft. Ye, Travis Scott',
     description:
       'Don Toliver delivers a solid 8/10 project with star-studded features from Ye, Travis Scott, and Young Thug.',
     url: `https://www.objectwire.org${SLUG}`,

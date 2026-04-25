@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Jensen Huang: AI Agents Will Boost Enterprise Software Value, Not Destroy It",
+    title: "Jensen Huang | AI Agents Will Boost Enterprise Software",
     description:
       'At a Goldman Sachs conference, Jensen Huang called the market sell-off in software stocks a misreading. He argues AI agents sit on top of ServiceNow,',
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Jensen Huang: Markets Got It Wrong on AI and Enterprise Software",
+    title: "Jensen Huang | Markets Got It Wrong on AI and Enterprise",
     description:
       "Nvidia's CEO says AI agents will act as intelligent users layered on top of ServiceNow, Snowflake, SAP, and Oracle -- not replace them. ServiceNow jumped",
   },

@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Jack Ryan Ghost War Trailer | John Krasinski Returns May 20 Prime Video',
-  description: 'John Krasinski returns as Jack Ryan in Ghost War, a feature film premiering May 20, 2026 on Prime Video. Official trailer debuted April 16, 2026. Sienna Miller joins as MI6 officer Emma Marlowe.',
+  title: 'Jack Ryan Ghost War Trailer | John Krasinski Returns May 20',
+  description: 'John Krasinski returns as Jack Ryan in Ghost War, a feature film premiering May 20, 2026 on Prime Video. Official trailer debuted April 16, 2026. Sienna',
   keywords: [
     'Jack Ryan Ghost War',
     'Jack Ryan Ghost War trailer',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Jack Ryan: Ghost War Trailer | John Krasinski Returns May 20 on Prime Video',
-    description: 'Prime Video drops the first trailer for Jack Ryan: Ghost War. John Krasinski, Wendell Pierce, and Michael Kelly return May 20, 2026, with Sienna Miller joining as MI6 agent Emma Marlowe.',
+    title: 'Jack Ryan: Ghost War Trailer | John Krasinski Returns May',
+    description: 'Prime Video drops the first trailer for Jack Ryan: Ghost War. John Krasinski, Wendell Pierce, and Michael Kelly return May 20, 2026, with Sienna Miller',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jack Ryan: Ghost War | Official Trailer | May 20 on Prime Video',
+    title: 'Jack Ryan: Ghost War | Official Trailer | May 20 on Prime',
     description: 'John Krasinski is back. Ghost War premieres May 20 on Prime Video, with Sienna Miller joining as MI6 officer Emma Marlowe.',
     images: [OG_IMAGE],
   },

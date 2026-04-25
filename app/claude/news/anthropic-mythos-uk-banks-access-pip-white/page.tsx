@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1568649704650-a6ab20e84311?i
 
 export const metadata: Metadata = {
   title: 'Anthropic Mythos UK Banks | Access Coming Next Week',
-  description: 'Anthropic is extending Claude Mythos Preview access to UK financial institutions as early as next week, confirmed by UK head Pip White on Bloomberg Television.',
+  description: 'Anthropic is extending Claude Mythos Preview access to UK financial institutions as early as next week, confirmed by UK head Pip White on Bloomberg',
   keywords: [
     'Anthropic Mythos UK banks',
     'Claude Mythos UK access',

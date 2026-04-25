@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1617802690658-1173a812650d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Project Hail Mary VR Game | Journey Among the Stars, Meta Quest 3',
+  title: 'Project Hail Mary VR Game | Journey Among the Stars, Meta',
   description: 'Amazon MGM and Maze Theory announce Project Hail Mary: Journey Among the Stars, a canon VR expansion for Meta Quest 3 with an original Andy Weir story.',
   keywords: [
     'Project Hail Mary VR game',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Project Hail Mary VR game announced | Canon story by Andy Weir',
+    title: 'Project Hail Mary VR game announced | Canon story by Andy',
     description: 'Mixed-reality experience for Meta Quest 3 and Pico. Original Andy Weir story. Your living room becomes the Hail Mary spacecraft.',
   },
 };

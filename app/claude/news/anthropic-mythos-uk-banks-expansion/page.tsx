@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1769411293428-b9208449b20b?i
 export const metadata: Metadata = {
   title: 'Anthropic Mythos UK Banks | Claude AI Expansion Timeline',
   description:
-    'Anthropic will give UK banks access to Claude Mythos Preview as early as next week. The Bank of England is briefing insurers, banks, and exchanges on cybersecurity risks.',
+    'Anthropic will give UK banks access to Claude Mythos Preview as early as next week. The Bank of England is briefing insurers, banks, and exchanges on',
   keywords: [
     'Anthropic Mythos UK',
     'Claude Mythos Preview',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Anthropic Mythos UK Banks | Claude AI Expansion Timeline',
     description:
-      'Anthropic extends Claude Mythos Preview access to UK financial institutions within days. Bank of England prepares cybersecurity briefings for major banks and insurers.',
+      'Anthropic extends Claude Mythos Preview access to UK financial institutions within days. Bank of England prepares cybersecurity briefings for major banks',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

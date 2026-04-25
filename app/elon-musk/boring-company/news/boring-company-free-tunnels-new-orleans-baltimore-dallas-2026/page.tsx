@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/boring_company.png';
 
 export const metadata: Metadata = {
-  title: "Boring Company to Build Free Tunnels in New Orleans, Baltimore, and Dallas",
+  title: "Boring Company to Build Free Tunnels in New Orleans",
   description:
     "The Boring Company has selected New Orleans, Baltimore, and Dallas to receive fully funded one-mile underground transit loops through its expanded Tunnel",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: "Boring Company to Build Free Tunnels in New Orleans, Baltimore, and Dallas",
+    title: "Boring Company to Build Free Tunnels in New Orleans",
     description:
       "The Boring Company tripled its Tunnel Vision Challenge commitment, selecting three cities, New Orleans, Baltimore, and Dallas, to receive fully funded",
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Boring Company Picks New Orleans, Baltimore, and Dallas for Free Tunnel Loops",
+    title: "Boring Company Picks New Orleans, Baltimore, and Dallas",
     description:
       "The Tunnel Vision Challenge had one winner, then The Boring Company tripled down. Three cities will now get a free one-mile underground transit loop.",
     images: [IMAGE_URL],

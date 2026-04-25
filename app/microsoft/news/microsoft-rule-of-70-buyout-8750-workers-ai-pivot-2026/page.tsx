@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w
 
 export const metadata: Metadata = {
   title: 'Microsoft Rule of 70 Buyout | 8,750 Workers in AI Pivot 2026',
-  description: 'Microsoft offers voluntary retirement buyouts to 8,750 U.S. workers using the "Rule of 70" formula — age plus tenure equals 70 — in its first-ever buyout program and largest AI workforce pivot to date.',
+  description: 'Microsoft offers voluntary retirement buyouts to 8,750 U.S. workers using the "Rule of 70" formula — age plus tenure equals 70 — in its first-ever buyout',
   keywords: [
     'Microsoft Rule of 70 buyout 2026',
     'Microsoft voluntary retirement 8750 workers',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Microsoft\'s First-Ever Buyout | "Rule of 70" Targets 8,750 Workers in AI Pivot',
-    description: 'Microsoft uses age-plus-tenure math to clear mid-career veterans and make room for AI-native engineers. $98B capex, Copilot expansion, and a new compensation structure all in one memo.',
+    description: 'Microsoft uses age-plus-tenure math to clear mid-career veterans and make room for AI-native engineers. $98B capex, Copilot expansion, and a new',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Microsoft "Rule of 70" Buyout Targets 8,750 Workers in AI Pivot',
-    description: 'Age + tenure = 70 or more? You\'re eligible to leave Microsoft with a check. The company\'s first-ever buyout is also its clearest signal that the AI era has arrived.',
+    description: 'Age + tenure = 70 or more? You\'re eligible to leave Microsoft with a check. The company\'s first-ever buyout is also its clearest signal that the AI era',
     images: [OG_IMAGE],
   },
 };

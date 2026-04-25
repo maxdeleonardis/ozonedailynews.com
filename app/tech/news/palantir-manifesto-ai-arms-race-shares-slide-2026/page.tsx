@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Palantir Manifesto | AI Arms Race Doctrine Triggers Backlash, Share Slide',
-  description: 'Palantir published a 22-point manifesto on April 18 calling for AI deterrence, German and Japanese remilitarization, and national service. Shares fell Monday amid protests and condemnation.',
+  title: 'Palantir Manifesto | AI Arms Race Doctrine Triggers',
+  description: 'Palantir published a 22-point manifesto on April 18 calling for AI deterrence, German and Japanese remilitarization, and national service. Shares fell',
   keywords: [
     'Palantir manifesto April 2026',
     'Palantir AI arms race doctrine',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Palantir Manifesto | AI Arms Race Doctrine, Backlash, Shares Slide',
+    title: 'Palantir Manifesto | AI Arms Race Doctrine, Backlash',
     description: 'Palantir\'s 22-point manifesto calls the atomic age over and the era of AI deterrence begun. Critics, protesters, and the market responded within 48 hours.',
     type: 'article',
     url: ARTICLE_URL,
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Palantir Published a 22-Point AI Arms Race Manifesto. Shares Fell Monday.',
-    description: 'The manifesto calls for AI deterrence, German remilitarization, and national service. Critics called it a comic book villain\'s ramblings. The market agreed.',
+    title: 'Palantir Published a 22-Point AI Arms Race Manifesto.',
+    description: 'The manifesto calls for AI deterrence, German remilitarization, and national service. Critics called it a comic book villain\'s ramblings. The market',
   },
 };
 

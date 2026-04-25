@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'San Diego FC Unbeaten Start | Defying the MLS Expansion Curse',
+    title: 'San Diego FC Unbeaten Start | Defying the MLS Expansion',
     description:
       '5 wins, 3 draws, 0 losses. San Diego FC have posted the best expansion-year start in MLS history through 8 matches.',
     type: 'article',

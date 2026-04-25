@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1657868203197-627e5ab86e19?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Crackdown Escalates',
+  title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Crackdown',
   description:
     'AI startup Ex-Human has sued Apple for withholding approximately $500,000 in earned revenue after removing its apps Botify AI and Photify AI. The lawsuit',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Crackdown Escalates',
+    title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Crackdown',
     description:
       'Ex-Human accuses Apple of removing Botify AI and Photify AI without clear justification and withholding $500K in earned revenue. Meanwhile Apple has',
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Apps Banned',
+    title: 'Ex-Human Sues Apple | $500K Withheld, Vibe Coding Apps',
     description:
       'Botify AI, Photify AI, Anything, Replit, and Vibecode all hit. Apple cites Guideline 2.5.2. Ex-Human says Apple withheld $500K and gave no concrete reason.',
     images: [OG_IMAGE],

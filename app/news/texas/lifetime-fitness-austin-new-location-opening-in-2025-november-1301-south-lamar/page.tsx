@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Lifetime Fitness Austin New Location Opening November 2025 | 1301 South Lamar",
+  title: "Lifetime Fitness Austin New Location Opening November",
   description: "Lifetime Fitness opens new Austin location at 1301 South Lamar in November 2025. Details on amenities, membership options, and what to expect from the",
   keywords: [
     "Lifetime Fitness Austin",

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Google Launches Agentic Vision for Gemini 3 Flash: AI That Actively Investigates Images",
+  title: "Google Launches Agentic Vision for Gemini 3 Flash | AI That",
   description: "Google unveils Agentic Vision for Gemini 3 Flash, transforming static image analysis into active, iterative investigation. Revolutionary AI feature",
   keywords: [
     "Google Agentic Vision",

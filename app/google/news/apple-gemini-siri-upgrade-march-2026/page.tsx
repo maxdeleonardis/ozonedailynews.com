@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/news/mac_mini.PNG';
 
 export const metadata: Metadata = {
-  title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
+  title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship",
   description:
     "Apple may yet deliver the first taste of its long-overdue Gemini-powered Siri overhaul before March ends, according to a 9to5Mac timeline analysis",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
+    title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship",
     description:
       "The window is razor-thin. According to a 9to5Mac timeline analysis, Apple could still deliver its Gemini-powered Siri overhaul before March ends \u2014 if",
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship in March",
+    title: "Apple\u2019s Gemini-Powered Siri Upgrade May Still Ship",
     description:
       "9to5Mac says Apple could still hit its March target for the Gemini-powered Siri overhaul \u2014 but only if a rapid succession of software releases lands",
     images: [IMAGE_URL],

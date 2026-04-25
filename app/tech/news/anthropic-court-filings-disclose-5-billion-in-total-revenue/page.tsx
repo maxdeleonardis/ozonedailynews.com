@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title:
-    'Anthropic Court Filings Disclose $5 Billion Total Revenue vs. $19 Billion Reported Run Rate',
+    'Anthropic Court Filings Disclose $5 Billion Total',
   description:
     'Court documents filed by Anthropic in its lawsuit against the U.S. Department of Defense reveal approximately $5 billion in total revenue since',
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'Anthropic Court Filing: $5 Billion Total Revenue Since 2023 vs. $19 Billion Run Rate',
+      'Anthropic Court Filing | $5 Billion Total Revenue Since',
     description:
       'CFO Krishna Rao\'s declaration in the DoD blacklisting lawsuit puts Anthropic\'s cumulative revenue since commercializing Claude at ~$5B. Industry reports',
     type: 'article',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anthropic Filed $5B Total Revenue in DoD Lawsuit. Industry Was Citing $19B Run Rate.',
+    title: 'Anthropic Filed $5B Total Revenue in DoD Lawsuit.',
     description:
       '$5B cumulative since 2023 vs. $19B annualized run rate. CFO declaration in federal lawsuit reveals the biggest public revenue data point yet for a private',
   },

@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Marathon Server Slam Steam Concurrent Players Drop Over 50% From 143,621 Peak',
+    'Marathon Server Slam Steam Concurrent Players Drop Over',
   description:
     "Bungie's Marathon Server Slam beta peaked at 143,621 concurrent players on Steam on February 26, 2026, before dropping over 50% by March 1 to a live count",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Marathon Server Slam: 143,621 Steam Peak on Day One, Then a 50%+ Drop Through March 1",
+      "Marathon Server Slam | 143,621 Steam Peak on Day One, Then",
     description:
       "Bungie's Marathon Server Slam hit 143,621 concurrent Steam players on February 26, 2026, then shed more than half by March 1. The open beta runs through",
     type: 'article',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Marathon Server Slam Peaked at 143,621 Steam Players, Then Lost Half in 24 Hours",
+      "Marathon Server Slam Peaked at 143,621 Steam Players",
     description:
       "Bungie's Marathon beta: 143,621 Steam peak on Feb 26, dropped to ~58,688 live by March 1. Full launch March 5. Here's the breakdown.",
     images: [IMAGE_URL],

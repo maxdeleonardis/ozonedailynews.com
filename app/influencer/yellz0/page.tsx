@@ -5,7 +5,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator',
+  title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content',
   description:
     'Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, model, and content creator known for lifestyle',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/influencer/yellz0',
   },
   openGraph: {
-    title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content Creator',
+    title: 'Yellz0 (Aniela Verbin) | TikTok Star, Model & Content',
     description:
       'Profile of Yellz0: real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, lifestyle model, and one of social media\'s most',
     type: 'article',

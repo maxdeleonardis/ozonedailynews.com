@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?i
 export const metadata: Metadata = {
   title: 'FIFA World Cup 2026 | Tree Planting in All 16 Host Cities',
   description:
-    'FIFA and the Arbor Day Foundation are planting 1 million trees through North American reforestation and 12,000+ community trees across all 16 World Cup 2026 host cities, announced on Earth Day 2026.',
+    'FIFA and the Arbor Day Foundation are planting 1 million trees through North American reforestation and 12,000+ community trees across all 16 World Cup',
   keywords: [
     'FIFA World Cup 2026 tree planting',
     'FIFA Arbor Day Foundation',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FIFA World Cup 2026 | Tree Planting in All 16 Host Cities',
     description:
-      'FIFA and the Arbor Day Foundation are targeting 1 million trees through reforestation and 12,000+ community plantings across all 16 host cities with 40+ days to the World Cup.',
+      'FIFA and the Arbor Day Foundation are targeting 1 million trees through reforestation and 12,000+ community plantings across all 16 host cities with 40+',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

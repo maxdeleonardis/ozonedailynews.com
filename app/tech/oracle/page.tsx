@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=12
 
 export const metadata: Metadata = {
   title: 'Oracle | Company Profile, Cloud, AI Strategy 2026',
-  description: 'Oracle Corporation profile: $57B revenue, OCI hyperscaler rivalry with AWS, 200+ AI data center deals, Larry Ellison\'s national security cloud push, and the $500B Stargate partnership in 2026.',
+  description: 'Oracle Corporation profile: $57B revenue, OCI hyperscaler rivalry with AWS, 200+ AI data center deals, Larry Ellison\'s national security cloud push, and',
   keywords: [
     'Oracle company profile',
     'Oracle Corporation 2026',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oracle built 200+ AI data center deals in 12 months. This is the full breakdown.',
+    title: 'Oracle built 200+ AI data center deals in 12 months.',
     description: 'OCI is outgrowing AWS in percentage terms. $57B revenue. $500B Stargate. Larry Ellison is not done.',
     images: [OG_IMAGE],
   },

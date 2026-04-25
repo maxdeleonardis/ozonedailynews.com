@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w
 
 export const metadata: Metadata = {
   title: 'Jefferies Upgrades Twilio to Buy, Betting on Voice AI Growth',
-  description: 'Jefferies upgraded Twilio from Hold to Buy with a $160 price target, arguing the company could capture 21 cents per voice AI call versus 3 cents on traditional calls through its ConversationRelay product.',
+  description: 'Jefferies upgraded Twilio from Hold to Buy with a $160 price target, arguing the company could capture 21 cents per voice AI call versus 3 cents on',
   keywords: [
     'Jefferies Twilio upgrade Buy',
     'Twilio voice AI 2026',

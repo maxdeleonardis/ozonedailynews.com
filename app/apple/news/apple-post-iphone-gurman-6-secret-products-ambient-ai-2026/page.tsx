@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Apple Post-iPhone Future | Gurman 6 Secret Products Ambient AI 2026',
-  description: 'Bloomberg\'s Mark Gurman reveals Apple\'s 6 secret product categories: AI AirPods with cameras, smart glasses, a wearable pendant, HomePad display, tabletop robot, and a privacy-first security camera.',
+  title: 'Apple Post-iPhone Future | Gurman 6 Secret Products Ambient',
+  description: 'Bloomberg\'s Mark Gurman reveals Apple\'s 6 secret product categories: AI AirPods with cameras, smart glasses, a wearable pendant, HomePad display,',
   keywords: [
     'Apple post-iPhone future 2026',
     'Mark Gurman Apple secret products',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'UBC Researchers Develop First Topical CRISPR-Based Gene Therapy for Skin Disorders',
+  title: 'UBC Researchers Develop First Topical CRISPR-Based Gene',
   description:
     'Researchers at the University of British Columbia and Berlin Institute of Health at Charité have developed the first CRISPR base-editing therapy delivered',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Berlin Institute of Health Charité',
   ],
   openGraph: {
-    title: 'UBC Develops First Topical CRISPR Gene Therapy for Skin | Applied Like a Cream',
+    title: 'UBC Develops First Topical CRISPR Gene Therapy for Skin',
     description:
       'UBC and Charité researchers used lipid nanoparticles to deliver a CRISPR base editor through skin, correcting ichthyosis mutations with no off-target',
     type: 'article',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'First Topical CRISPR Therapy for Skin | UBC & Charité Research',
+    title: 'First Topical CRISPR Therapy for Skin | UBC & Charité',
     description:
       'A CRISPR base editor in a lipid nanoparticle cream corrects ichthyosis mutations in human skin models. Here&apos;s what it means.',
   },

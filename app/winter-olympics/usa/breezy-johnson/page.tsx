@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Breezy Johnson | Team USA Downhill Gold Profile | Milan Cortina 2026 | Object Wire',
+  title: 'Breezy Johnson | Team USA Downhill Gold Profile | Milan',
   description: 'Profile of Breezy Johnson, who secured Team USA\'s first gold medal of Milan Cortina 2026 by winning the women\'s downhill on February 8, marking a',
   keywords: ['Breezy Johnson', 'alpine skiing', 'downhill', 'Team USA', 'Winter Olympics', 'Milan Cortina 2026', 'gold medal'],
   openGraph: {

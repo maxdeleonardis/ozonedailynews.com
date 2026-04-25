@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "NASA (National Aeronautics and Space Administration): Missions, Discoveries & Space Exploration",
+  title: "NASA (National Aeronautics and Space Administration) | Missi",
   description: "Comprehensive overview of NASA's missions, discoveries, and contributions to space exploration. From Artemis Moon missions to Europa ice measurements,",
   keywords: [
     "NASA",

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Team USA Wins Two Skiing Silvers at Milano Cortina Olympics | Breaking News | Object Wire',
+  title: 'Team USA Wins Two Skiing Silvers at Milano Cortina',
   description: 'American skiers delivered back-to-back podium finishes at Milano Cortina 2026. Alex Hall earned silver in men\'s freestyle slopestyle and Ben Ogden',
   keywords: ['Team USA', 'Winter Olympics', 'Milano Cortina', 'Alex Hall', 'Ben Ogden', 'freestyle slopestyle', 'cross-country skiing', 'silver medals', '50-year drought'],
   openGraph: {

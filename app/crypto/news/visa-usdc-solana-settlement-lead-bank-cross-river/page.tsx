@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Visa Settles Bank Transactions in USDC on Solana | Lead Bank, Cross River',
-  description: 'Visa is actively settling transactions in USDC on the Solana blockchain through Lead Bank and Cross River Bank, with over $3.5 billion in annualized stablecoin settlement volume globally.',
+  title: 'Visa Settles Bank Transactions in USDC on Solana | Lead',
+  description: 'Visa is actively settling transactions in USDC on the Solana blockchain through Lead Bank and Cross River Bank, with over $3.5 billion in annualized',
   keywords: [
     'Visa USDC Solana settlement',
     'Visa stablecoin settlement 2026',

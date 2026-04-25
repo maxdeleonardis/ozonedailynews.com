@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Seven Deadly Sins: Origin Open World Launches March 2026 on PS5 and Steam',
+  title: 'Seven Deadly Sins | Origin Open World Launches March 2026',
   description:
     'The Seven Deadly Sins: Origin launches March 16, 2026, on PS5 and Steam, followed by iOS, Android, and PC expansion on March 23. The free-to-play',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/anime/seven-deadly-sins-origin',
   },
   openGraph: {
-    title: 'Seven Deadly Sins: Origin Open World RPG -- March 16 on PS5 and Steam, March 23 Mobile',
+    title: 'Seven Deadly Sins | Origin Open World RPG -- March 16 on',
     description:
       'Free-to-play open-world action RPG in the Seven Deadly Sins universe. Unreal Engine 5, real-time tag combat, climbing, gliding, crafting, anime voice',
     type: 'article',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Seven Deadly Sins: Origin -- Open World RPG Coming March 2026',
+    title: 'Seven Deadly Sins | Origin -- Open World RPG Coming March',
     description:
       'PS5 and Steam on March 16. iOS, Android, and PC expanded access on March 23. Unreal Engine 5, Prince Tristan, real-time tag combat, and open-world',
   },

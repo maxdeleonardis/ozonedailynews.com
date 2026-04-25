@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'TSMC | Semiconductor Foundry Profile, 3nm Leadership, AI Chip Demand',
-  description: 'TSMC is the world\'s largest independent semiconductor foundry, manufacturing 3nm and 5nm chips for Apple, Nvidia, and AMD. Record $18.12B profit in Q1 2026.',
+  title: 'TSMC | Semiconductor Foundry Profile, 3nm Leadership, AI',
+  description: 'TSMC is the world\'s largest independent semiconductor foundry, manufacturing 3nm and 5nm chips for Apple, Nvidia, and AMD. Record $18.12B profit in Q1',
   keywords: [
     'TSMC profile',
     'TSMC semiconductor foundry',

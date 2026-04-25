@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Claude Pro $20 Plan | Claude Code Access Scare Explained 2026',
-  description: 'Anthropic briefly removed Claude Code from the $20 Pro plan on April 21, 2026, then reversed it. Here is what actually happened, why it happened, and what comes next for subscribers.',
+  title: 'Claude Pro $20 Plan | Claude Code Access Scare Explained',
+  description: 'Anthropic briefly removed Claude Code from the $20 Pro plan on April 21, 2026, then reversed it. Here is what actually happened, why it happened, and what',
   keywords: [
     'Claude Pro plan Claude Code',
     'Anthropic Claude Code removed',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Claude Pro $20 Plan | The Claude Code Removal Scare, Explained',
-    description: 'Anthropic\'s pricing docs briefly showed Claude Code removed from the $20 Pro plan. Then they reversed it. The "2% test" is a warning shot developers should not ignore.',
+    title: 'Claude Pro $20 Plan | The Claude Code Removal Scare',
+    description: 'Anthropic\'s pricing docs briefly showed Claude Code removed from the $20 Pro plan. Then they reversed it. The "2% test" is a warning shot developers',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anthropic tested removing Claude Code from the $20 Pro plan. Then reversed it.',
+    title: 'Anthropic tested removing Claude Code from the $20 Pro',
     description: 'The "2% new user test" that accidentally went public. What it means for every Claude Pro subscriber.',
     images: [OG_IMAGE],
   },

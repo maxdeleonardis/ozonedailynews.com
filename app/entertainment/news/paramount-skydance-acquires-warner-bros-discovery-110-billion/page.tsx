@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/entertainment/news/paramount-skydance-acquires-warner-bros-discovery-110-billion';
 
 export const metadata: Metadata = {
-  title: 'Paramount Skydance Agrees to Acquire Warner Bros. Discovery in $110 Billion Deal',
+  title: 'Paramount Skydance Agrees to Acquire Warner Bros.',
   description:
     'Paramount Skydance entered into a definitive agreement on February 27, 2026, to acquire Warner Bros. Discovery in an all-cash transaction valued at $110',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Paramount Skydance Agrees to Acquire Warner Bros. Discovery in $110 Billion Deal',
+    title: 'Paramount Skydance Agrees to Acquire Warner Bros.',
     description:
       'The all-cash deal at $31 per share represents a 42% premium and would create one of the largest media conglomerates in U.S. history, combining Paramount+,',
     type: 'article',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paramount Skydance Acquires Warner Bros. Discovery for $110 Billion',
+    title: 'Paramount Skydance Acquires Warner Bros. Discovery for',
     description:
       '$31/share all-cash deal. 42% premium. $79B in net debt. 210M streaming subscribers combined. The biggest media deal since the AT&T-Time Warner merger.',
   },

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Project Helix | Xbox-PC Hybrid Console Confirmed by Microsoft',
+    title: 'Project Helix | Xbox-PC Hybrid Console Confirmed by',
     description: 'AMD Magnus chipset, Steam compatibility, and native PC game support. Microsoft\'s next Xbox redefines the console.',
   },
 };

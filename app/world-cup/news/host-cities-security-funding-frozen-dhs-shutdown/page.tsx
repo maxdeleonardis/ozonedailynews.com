@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/world-cup/news/host-cities-security-funding-frozen-dhs-shutdown';
 
 export const metadata: Metadata = {
-  title: 'U.S. 2026 World Cup Host Cities Warn of Security Funding Crisis Due to DHS Partial Shutdown',
+  title: 'U.S. 2026 World Cup Host Cities Warn of Security Funding',
   description:
     'Security officials from all 11 U.S. host cities testified before Congress on February 25, 2026, that the DHS partial shutdown has frozen nearly $900',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'World Cup 2026: DHS Shutdown Freezes $900M in Host-City Security Grants With 107 Days to Kickoff',
+    title: 'World Cup 2026 | DHS Shutdown Freezes $900M in Host-City',
     description:
       'All 11 U.S. host cities testified before Congress that a DHS partial shutdown has frozen $625M in World Cup security grants and $500M in counter-drone',
     type: 'article',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DHS Shutdown Freezes $900M in World Cup Security Grants, 107 Days Before Kickoff',
+    title: 'DHS Shutdown Freezes $900M in World Cup Security Grants',
     description:
       'Eleven U.S. host cities told Congress: nearly $900M in security funding is frozen. Staffing, cybersecurity, and counter-drone programs are stalled. The',
   },

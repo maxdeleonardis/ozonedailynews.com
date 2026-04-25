@@ -12,7 +12,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Eledon Pharmaceuticals (ELDN): CD40L Pathway, Tegoprubart, Transplant & ALS Pipeline, February 2026',
+    'Eledon Pharmaceuticals (ELDN) | CD40L Pathway, Tegoprubart',
   description:
     "Eledon Pharmaceuticals (Nasdaq: ELDN) is a clinical-stage biotech targeting the CD40L pathway with tegoprubart, an IgG1 anti-CD40L antibody. Phase 2",
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      'Eledon Pharmaceuticals (ELDN): Tegoprubart, CD40L Pathway & the Push for One Transplant for Life',
+      'Eledon Pharmaceuticals (ELDN) | Tegoprubart, CD40L Pathway',
     description:
       "Phase 2 BESTOW kidney data, islet cell insulin independence, $57.5M raise, and Q2 2027 runway, a full overview of Eledon Pharmaceuticals' CD40L pipeline",
     type: 'article',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'Eledon Pharmaceuticals (ELDN): Anti-CD40L Antibody Keeps Transplanted Kidneys & Islets Alive Without Tacrolimus',
+      'Eledon Pharmaceuticals (ELDN) | Anti-CD40L Antibody Keeps',
     description:
       "Tegoprubart's Phase 2 kidney data and islet insulin-independence results signal a potential new era in transplant medicine. Full company overview,",
     images: [IMAGE_URL],

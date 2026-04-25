@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "2026 World Cup Boycott Controversy: ICE Immigration Policies Spark Calls for Cancellation",
+  title: "2026 World Cup Boycott Controversy | ICE Immigration",
   description: "UPDATED JAN 27 2026: Human rights groups demand World Cup cancellation or relocation citing ICE enforcement concerns, family separations, and fan safety",
   keywords: [
     "World Cup 2026 boycott",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ObjectWire Team" }],
   openGraph: {
-    title: "2026 World Cup Boycott Controversy Over ICE Immigration Policies",
+    title: "2026 World Cup Boycott Controversy Over ICE Immigration",
     description: "Human rights groups demand World Cup cancellation citing ICE enforcement concerns and family separations.",
     type: "article",
     url: "https://www.objectwire.org/world-cup/boycott-controversy",

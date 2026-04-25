@@ -9,7 +9,7 @@ const SLUG = '/video-games/anime/neverness-to-everness';
 const OG_IMAGE = '/video-games/neverness-to-everness.png';
 
 export const metadata: Metadata = {
-  title: 'Neverness to Everness | 30M Pre-Registrations, April 29 Launch',
+  title: 'Neverness to Everness | 30M Pre-Registrations, April 29',
   description:
     'Neverness to Everness tops 30 million pre-registrations ahead of its April 29, 2026 global launch. Free A-Class character Haniel unlocked for all players',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Neverness to Everness Tops 30M Pre-Registrations | Launches April 29, 2026',
+    title: 'Neverness to Everness Tops 30M Pre-Registrations | Launches',
     description:
       'Hotta Studio\'s open-world anime RPG hits 30M pre-registrations. Free A-Class character Haniel unlocked at launch. Global release April 29, 2026.',
     url: `https://www.objectwire.org${SLUG}`,

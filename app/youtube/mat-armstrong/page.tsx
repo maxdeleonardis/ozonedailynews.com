@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/youtube/mat-armstrong',
   },
   openGraph: {
-    title: 'Mat Armstrong | From Professional BMX Rider to 6.2M-Subscriber Automotive YouTube Creator',
+    title: 'Mat Armstrong | From Professional BMX Rider to',
     description:
       'Profile of Mat Armstrong (@MatArmstrongbmx), Leicester-born former pro BMX rider turned automotive content creator, with 870M+ total views specialising in',
     type: 'profile',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mat Armstrong | From Professional BMX Rider to 6.2M-Subscriber Automotive YouTube Creator',
+    title: 'Mat Armstrong | From Professional BMX Rider to',
     description: 'Profile of Mat Armstrong (@MatArmstrongbmx), Leicester-born former pro BMX rider turned automotive content creator, with 870M+ total views specialising in',
   },
 };

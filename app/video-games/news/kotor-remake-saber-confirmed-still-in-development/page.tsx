@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'KOTOR Remake Still in Development, Saber Confirms | 5 Years After Reveal',
+  title: 'KOTOR Remake Still in Development, Saber Confirms | 5 Years',
   description:
     'Saber Interactive CCO Tim Willits confirmed in 11 words that the Star Wars: Knights of the Old Republic remake is still in development, five years after',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.objectwire.org/video-games/news/kotor-remake-saber-confirmed-still-in-development' },
   openGraph: {
-    title: "KOTOR Remake Still Alive, Saber Says | 5 Years After Reveal, Still No Gameplay",
+    title: "KOTOR Remake Still Alive, Saber Says | 5 Years After",
     description:
       'Tim Willits offered exactly 11 words: "Yes, it is still in development. That\'s all I can say." Five years on, no screenshot, no footage, and a developer',
     type: 'article',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KOTOR Remake Is Still in Development | Saber Confirms, 5 Years On',
+    title: 'KOTOR Remake Is Still in Development | Saber Confirms, 5',
     description:
       '11 words from Saber\'s CCO Tim Willits keep the hope alive. But after half a decade with zero gameplay shown, the Star Wars community\'s patience is',
   },

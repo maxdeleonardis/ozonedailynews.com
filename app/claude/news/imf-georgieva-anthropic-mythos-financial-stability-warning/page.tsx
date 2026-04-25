@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://www.objectwire.org/images/claude/imf-georgieva-mythos-
 
 export const metadata: Metadata = {
   title: 'IMF Warns Anthropic Mythos Threatens Financial Stability',
-  description: 'IMF Managing Director Kristalina Georgieva warned that Anthropic\'s Claude Mythos Preview poses cybersecurity risks to the global financial system, calling for stronger AI guardrails on CBS Face the Nation.',
+  description: 'IMF Managing Director Kristalina Georgieva warned that Anthropic\'s Claude Mythos Preview poses cybersecurity risks to the global financial system,',
   keywords: [
     'IMF Anthropic Mythos',
     'Kristalina Georgieva AI warning',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'IMF Chief Warns Anthropic Mythos Model Threatens Financial Stability',
-    description: 'IMF Managing Director Georgieva said cybersecurity risks from Anthropic\'s Claude Mythos Preview have been "growing exponentially," calling for stronger financial safeguards.',
+    title: 'IMF Chief Warns Anthropic Mythos Model Threatens',
+    description: 'IMF Managing Director Georgieva said cybersecurity risks from Anthropic\'s Claude Mythos Preview have been "growing exponentially," calling for stronger',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IMF Chief Warns Anthropic Mythos Threatens Financial Stability',
+    title: 'IMF Chief Warns Anthropic Mythos Threatens Financial',
     description: 'Georgieva told CBS the risks from AI models like Mythos have been "growing exponentially." Called for guardrails to protect financial system.',
     images: [OG_IMAGE],
   },

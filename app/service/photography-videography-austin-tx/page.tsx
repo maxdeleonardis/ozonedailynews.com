@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/service/photography-videography-austin-tx',
   },
+  openGraph: {
+    title: "Photography & Videography Services Austin TX",
+    description: "Professional investigative photography and videography in Austin, Texas. Surveillance documentation, legal evidence, scene photography, witness",
+    type: 'article',
+    url: "https://www.objectwire.org/service/photography-videography-austin-tx",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Photography & Videography Services Austin TX",
+    description: "Professional investigative photography and videography in Austin, Texas. Surveillance documentation, legal evidence, scene photography, witness",
+  },
 };
 
 export default function PhotographyVideographyAustinPage() {

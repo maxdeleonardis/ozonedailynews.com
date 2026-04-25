@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Vikkstar123 (Vikram Barn) | Warzone Legend & Gaming Entrepreneur",
+  title: "Vikkstar123 (Vikram Barn) | Warzone Legend & Gaming",
   description: "Complete profile of Vikkstar123 (Vikram Barn): Warzone dominance, business ventures, Minecraft legacy, poker career, and entrepreneurial success. 7M+",
   keywords: [
     "Vikkstar123",

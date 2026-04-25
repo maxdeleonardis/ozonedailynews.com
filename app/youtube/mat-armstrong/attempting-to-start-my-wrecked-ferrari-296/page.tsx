@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/mat-armstrong-ferrari-296-gtb.jpg';
 
 export const metadata: Metadata = {
-  title: 'Mat Armstrong Ferrari 296 | Attempting to Start the Wrecked GTB',
+  title: 'Mat Armstrong Ferrari 296 | Attempting to Start the Wrecked',
   description:
     'Mat Armstrong bought a crash-damaged Ferrari 296 GTB, rebuilt it with a genuine Ferrari challenge kit, but cannot get it started. Ferrari refused to help',
   keywords: [

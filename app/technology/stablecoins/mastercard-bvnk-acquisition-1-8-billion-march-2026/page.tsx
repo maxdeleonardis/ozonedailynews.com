@@ -9,7 +9,7 @@ const SLUG = '/technology/stablecoins/mastercard-bvnk-acquisition-1-8-billion-ma
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Mastercard to Acquire BVNK for $1.8 Billion in Largest Digital Asset Bet Yet",
+  title: "Mastercard to Acquire BVNK for $1.8 Billion in Largest",
   description:
     "Mastercard announced a definitive agreement to acquire London-based stablecoin infrastructure provider BVNK for up to $1.8 billion on March 17, 2026,",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: FULL_URL,
   },
   openGraph: {
-    title: "Mastercard to Acquire Stablecoin Infrastructure Firm BVNK for Up to $1.8 Billion",
+    title: "Mastercard to Acquire Stablecoin Infrastructure Firm",
     description:
       "Mastercard will pay up to $1.8 billion for BVNK, a London-based stablecoin rails provider, more than doubling its last valuation of $750 million. The move",
     type: 'article',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mastercard to Buy BVNK for $1.8 Billion in Stablecoin Infrastructure Push",
+    title: "Mastercard to Buy BVNK for $1.8 Billion in Stablecoin",
     description:
       "Mastercard outmaneuvered Coinbase for BVNK, a stablecoin 'plumbing' provider that processed trillions in on-chain volume. Deal includes $300M in earnouts",
   },

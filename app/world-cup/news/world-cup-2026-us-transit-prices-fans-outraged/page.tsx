@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1544366981-43d8d59eeba9?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'World Cup 2026 Transit Prices | Fans Outraged by $100 Train Fares',
-  description: 'New Jersey Transit is reportedly charging over $100 for a round-trip to MetLife Stadium during World Cup 2026, a 900% surge from the standard $11 fare, drawing outrage from fans and US senators.',
+  title: 'World Cup 2026 Transit Prices | Fans Outraged by $100 Train',
+  description: 'New Jersey Transit is reportedly charging over $100 for a round-trip to MetLife Stadium during World Cup 2026, a 900% surge from the standard $11 fare,',
   keywords: [
     'World Cup 2026 transit prices',
     'New Jersey Transit World Cup fare',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'World Cup 2026 Transit Prices | Fans Outraged by $100 Train Fares',
-    description: 'NJ Transit plans to charge $100+ round-trip to MetLife Stadium during the World Cup final, a 900% surge from the standard $11 fare. US senators are now demanding FIFA subsidize costs.',
+    title: 'World Cup 2026 Transit Prices | Fans Outraged by $100 Train',
+    description: 'NJ Transit plans to charge $100+ round-trip to MetLife Stadium during the World Cup final, a 900% surge from the standard $11 fare. US senators are now',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

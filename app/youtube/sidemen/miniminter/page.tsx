@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Miniminter (Simon Minter) | FIFA Content Creator & Sidemen Daily Uploader",
+  title: "Miniminter (Simon Minter) | FIFA Content Creator & Sidemen",
   description: "Complete profile of Miniminter (Simon Minter): Sidemen founding member known for daily FIFA uploads, 10M+ subscribers, relationship with Talia Mar, and",
   keywords: [
     "Miniminter",

@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trump vs. FIFA on Iran | The World Cup 2026 Hosting Crisis Explained',
+    title: 'Trump vs. FIFA on Iran | The World Cup 2026 Hosting Crisis',
     description: "Iran qualified. Trump flagged them as a security risk. FIFA says it can't ban them. Here's where things stand.",
     images: [OG_IMAGE],
   },

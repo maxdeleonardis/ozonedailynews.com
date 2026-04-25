@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'San Jose Earthquakes 2026 | Defensive Resurgence and Timo Werner\'s Golden Boot Charge',
+    title: 'San Jose Earthquakes 2026 | Defensive Resurgence and Timo's Golden Boot Charge',
     description:
       '9 goals allowed in 8 matches. 7 goals from Timo Werner. The Quakes are relevant again in 2026.',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Timo Werner Leads MLS with 7 Goals as Quakes Defense Transforms',
+    title: 'Timo Werner Leads MLS with 7 Goals as Quakes Defense',
     description: 'San Jose allowed just 9 goals in 8 matches. Werner has 7. The Quakes are back.',
   },
 };

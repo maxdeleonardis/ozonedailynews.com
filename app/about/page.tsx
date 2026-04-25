@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/about',
   },
+  openGraph: {
+    title: "About ObjectWire",
+    description: "Learn about ObjectWire",
+    type: 'article',
+    url: "https://www.objectwire.org/about",
+    siteName: 'ObjectWire',
+    section: "About",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "About ObjectWire",
+    description: "Learn about ObjectWire",
+  },
 };
 
 export default function AboutPage() {

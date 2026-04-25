@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/trump/ice-arrest-sfo-airport.jpg';
 
 export const metadata: Metadata = {
-  title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins',
+  title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport',
   description:
     'ICE agents arrested a woman in the secure boarding area of San Francisco International Airport on Sunday night. Bystanders filmed the detention as it',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport Deployment Begins',
+    title: 'ICE Agents Arrest Woman at SFO as Nationwide Airport',
     description:
       'ICE arrested a woman in SFO\'s secure boarding area Sunday night. Bystanders filmed the detention. Officials say the arrest was unrelated to Trump\'s',
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ICE Arrests Woman at SFO | Nationwide Airport Deployment Underway',
+    title: 'ICE Arrests Woman at SFO | Nationwide Airport Deployment',
     description:
       'ICE agents detained a woman inside SFO\'s secure boarding area. Videos spread across social media. Officials: unrelated to Trump\'s airport ICE directive,',
     images: [IMAGE_URL],

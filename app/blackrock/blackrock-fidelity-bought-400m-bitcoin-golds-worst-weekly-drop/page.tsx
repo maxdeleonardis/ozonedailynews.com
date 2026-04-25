@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "BlackRock & Fidelity Bought $400M Bitcoin as Gold Had Its Worst Week in 40 Years",
+    title: "BlackRock & Fidelity Bought $400M Bitcoin as Gold Had",
     description:
       "Net bullish: $400M in, $250M out. Spot Bitcoin ETF week: +$93.1M net inflows. Bitcoin ~$68,500. Gold in freefall. Arkham Intelligence confirms the trades.",
     images: [IMAGE_URL],

@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'TerraPower Kemmerer Groundbreaking | First Advanced Nuclear Reactor USA 2026',
-  description: 'TerraPower breaks ground on nuclear components of its Natrium reactor in Kemmerer, Wyoming on April 22, 2026 — the first advanced non-light-water reactor to begin construction in the US in over 40 years.',
+  title: 'TerraPower Kemmerer Groundbreaking | First Advanced Nuclear',
+  description: 'TerraPower breaks ground on nuclear components of its Natrium reactor in Kemmerer, Wyoming on April 22, 2026 — the first advanced non-light-water reactor',
   keywords: [
     'TerraPower Kemmerer groundbreaking 2026',
     'Natrium reactor construction Wyoming',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'TerraPower Kemmerer Groundbreaking | America\'s First Advanced Nuclear Reactor',
-    description: 'Bill Gates\'s TerraPower breaks ground on nuclear components of the Natrium reactor in Wyoming — the first non-LWR construction permit in U.S. history, and a new chapter for clean baseload power.',
+    description: 'Bill Gates\'s TerraPower breaks ground on nuclear components of the Natrium reactor in Wyoming — the first non-LWR construction permit in U.S. history,',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

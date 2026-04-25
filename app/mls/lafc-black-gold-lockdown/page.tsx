@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1706675780107-7c43cc487928?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'LAFC Defense 2026 | Best in the West Without Sacrificing Attack',
+  title: 'LAFC Defense 2026 | Best in the West Without Sacrificing',
   description:
     'LAFC has conceded just 7 goals through 8 MLS matches in 2026, the fewest in the Western Conference, while still averaging 2.1 goals per game on offense.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'LAFC Defense 2026 | Best in the West Without Sacrificing Attack',
+    title: 'LAFC Defense 2026 | Best in the West Without Sacrificing',
     description:
       'Just 7 goals conceded in 8 matches. LAFC are running the tightest defense in the Western Conference while still averaging 2.1 goals per game.',
     type: 'article',

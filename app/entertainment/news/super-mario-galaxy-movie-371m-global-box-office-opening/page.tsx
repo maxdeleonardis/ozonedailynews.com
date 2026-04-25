@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Super Mario Galaxy Movie shatters records | $371M global opening',
+    title: 'Super Mario Galaxy Movie shatters records | $371M global',
     description: '$34.5M opening day. $371M global launch. Biggest animated opening of 2026. Tracking toward $1.2B.',
   },
 };

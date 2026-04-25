@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1643083348068-f81ae31d055a?i
 
 export const metadata: Metadata = {
   title: 'Amazon CEO Andy Jassy 2025 Pay Rises 30% to $2.1M',
-  description: 'Amazon CEO Andy Jassy earned $2.1 million in total compensation for 2025, a 30% increase driven by rising security costs. His unvested stock is worth $242 million.',
+  description: 'Amazon CEO Andy Jassy earned $2.1 million in total compensation for 2025, a 30% increase driven by rising security costs. His unvested stock is worth $242',
   keywords: [
     'how much does Amazon CEO Jassy make',
     'Andy Jassy salary 2025',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Amazon CEO Andy Jassy 2025 Pay Rises 30% to $2.1 Million',
-    description: 'Jassy\'s base salary stayed flat at $365K for the 4th year. Security and travel costs drove the increase. $242M in unvested stock. Amazon cutting 30,000 jobs.',
+    description: 'Jassy\'s base salary stayed flat at $365K for the 4th year. Security and travel costs drove the increase. $242M in unvested stock. Amazon cutting 30,000',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amazon CEO Jassy Pay Rises 30% to $2.1M | $242M Unvested Stock',
+    title: 'Amazon CEO Jassy Pay Rises 30% to $2.1M | $242M Unvested',
     description: 'Base salary flat at $365K for 4th year. Security costs drove the increase. Meanwhile, Amazon cuts 30,000 jobs and plans $200B AI capex for 2026.',
     images: [OG_IMAGE],
   },

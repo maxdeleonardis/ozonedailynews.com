@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Charles Schwab Prediction Markets | Rick Wurster Confirms Exploration',
-  description: 'Charles Schwab CEO Rick Wurster confirmed the $8.5 trillion brokerage is exploring prediction markets during its Q1 2026 earnings call, alongside its planned crypto trading launch.',
+  title: 'Charles Schwab Prediction Markets | Rick Wurster Confirms',
+  description: 'Charles Schwab CEO Rick Wurster confirmed the $8.5 trillion brokerage is exploring prediction markets during its Q1 2026 earnings call, alongside its',
   keywords: [
     'Charles Schwab prediction markets',
     'Charles Schwab prediction market 2026',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Charles Schwab Eyes Prediction Markets | $8.5T Brokerage Explores Event Contracts',
-    description: 'CEO Rick Wurster confirmed Schwab is evaluating prediction markets during Q1 2026 earnings. The move follows planned crypto trading and signals traditional finance convergence with alternative data markets.',
+    title: 'Charles Schwab Eyes Prediction Markets | $8.5T Brokerage',
+    description: 'CEO Rick Wurster confirmed Schwab is evaluating prediction markets during Q1 2026 earnings. The move follows planned crypto trading and signals',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

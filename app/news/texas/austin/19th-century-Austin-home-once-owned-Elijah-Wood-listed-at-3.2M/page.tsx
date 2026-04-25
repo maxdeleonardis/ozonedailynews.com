@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "19th Century Austin Home Once Owned by Elijah Wood Listed at $3.2M",
+  title: "19th Century Austin Home Once Owned by Elijah Wood",
   description:
     "A historic 1890s Austin home previously owned by Lord of the Rings star Elijah Wood hits the market at $3.2 million. Inside the property's storied history",
   keywords: [
@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "https://www.objectwire.org/austin/19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M",
+  },
+  openGraph: {
+    title: "19th Century Austin Home Once Owned by Elijah Wood",
+    description: "A historic 1890s Austin home previously owned by Lord of the Rings star Elijah Wood hits the market at $3.2 million. Inside the property",
+    type: 'article',
+    url: "https://www.objectwire.org/austin/19th-century-Austin-home-once-owned-Elijah-Wood-listed-at-3.2M",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "19th Century Austin Home Once Owned by Elijah Wood",
+    description: "A historic 1890s Austin home previously owned by Lord of the Rings star Elijah Wood hits the market at $3.2 million. Inside the property",
   },
 };
 

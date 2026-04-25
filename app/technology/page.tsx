@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/technology',
   },
+  openGraph: {
+    title: "Technology",
+    description: "Investigative reporting on AI, orbital computing, and emerging industrial technologies.",
+    type: 'article',
+    url: "https://www.objectwire.org/technology",
+    siteName: 'ObjectWire',
+    section: "Tech",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Technology",
+    description: "Investigative reporting on AI, orbital computing, and emerging industrial technologies.",
+  },
 };
 
 export default function TechnologyPage() {

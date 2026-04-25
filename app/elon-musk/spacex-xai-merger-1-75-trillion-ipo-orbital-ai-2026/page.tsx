@@ -9,7 +9,7 @@ const SLUG = '/elon-musk/spacex-xai-merger-1-75-trillion-ipo-orbital-ai-2026';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse | IPO Targets Summer 2026",
+  title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI",
   description:
     "SpaceX completed an all-stock acquisition of xAI on February 2, 2026, valued at $1.25 trillion. Elon Musk has declared SpaceX will surpass all AI rivals",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: FULL_URL,
   },
   openGraph: {
-    title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI Powerhouse",
+    title: "SpaceX-xAI Merger Sets Stage for $1.75 Trillion AI",
     description:
       "SpaceX absorbed xAI in a $1.25 trillion all-stock deal on February 2, 2026. Musk says SpaceX will surpass DeepMind and every other AI lab combined. A",
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "SpaceX-xAI Merger: $1.75T IPO, Orbital AI, and 9 of 11 Co-Founders Gone",
+    title: "SpaceX-xAI Merger | $1.75T IPO, Orbital AI, and 9 of 11",
     description:
       "After absorbing xAI in February 2026, Musk says SpaceX will 'far exceed everyone else combined' in AI. A $1.75T Nasdaq IPO is targeting summer 2026. But",
   },

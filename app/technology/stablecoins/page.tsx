@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/technology/stablecoins-druckenmiller-armstrong-global-payments-backbone-2026';
 
 export const metadata: Metadata = {
-  title: "Druckenmiller Says Stablecoins Will Be the Backbone of Global Payments | Armstrong Agrees",
+  title: "Druckenmiller Says Stablecoins Will Be the Backbone of",
   description:
     "Billionaire investor Stanley Druckenmiller told Morgan Stanley on January 30, 2026, that stablecoins will dominate global payment systems within 10–15",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Druckenmiller: Stablecoins Will Be the Backbone of Global Payments Within 15 Years",
+    title: "Druckenmiller | Stablecoins Will Be the Backbone of Global",
     description:
       "Stanley Druckenmiller told Morgan Stanley stablecoins will dominate global payments by 2036–2041. Stablecoin volume already surpassed Visa + Mastercard",
     type: 'article',

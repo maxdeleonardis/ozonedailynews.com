@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://www.objectwire.org/default/meta.png';
 
 export const metadata: Metadata = {
-  title: 'Meta Bay Area Layoffs 2026 | 200 Jobs Cut in Burlingame, Sunnyvale',
+  title: 'Meta Bay Area Layoffs 2026 | 200 Jobs Cut in Burlingame',
   description:
     'Meta is cutting nearly 200 workers at its Burlingame and Sunnyvale offices, effective late May 2026. The cuts extend a pattern of reductions as Meta',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Meta Cuts Nearly 200 Bay Area Jobs | Burlingame & Sunnyvale, May 2026',
+    title: 'Meta Cuts Nearly 200 Bay Area Jobs | Burlingame',
     description:
       'State WARN filings confirm Meta is eliminating nearly 200 roles in Burlingame and Sunnyvale by late May. The cuts follow 700+ January reductions and',
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meta is cutting ~200 Bay Area jobs. Burlingame + Sunnyvale, effective late May.',
+    title: 'Meta is cutting ~200 Bay Area jobs. Burlingame +',
     description: 'State WARN filings confirm the cuts. It follows 700 more in March, 168 in Washington state, and 1,000+ from Reality Labs in January.',
     images: [OG_IMAGE],
   },

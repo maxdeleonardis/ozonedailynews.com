@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w
 
 export const metadata: Metadata = {
   title: 'Porsche 911 GT3 S/C | First GT3 Convertible, 502 hp, $275K',
-  description: 'The 2026 Porsche 911 GT3 S/C is the first-ever production GT3 convertible. 502 hp, 9,000 RPM flat-six, manual-only, 3,322 lbs. Full specs, pricing, and what makes it historic.',
+  description: 'The 2026 Porsche 911 GT3 S/C is the first-ever production GT3 convertible. 502 hp, 9,000 RPM flat-six, manual-only, 3,322 lbs. Full specs, pricing, and',
   keywords: [
     'Porsche 911 GT3 SC',
     'Porsche 911 GT3 S/C 2026',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Porsche just built the first GT3 convertible — 502 hp, manual only, $275K',
+    title: 'Porsche just built the first GT3 convertible | 502 hp',
     description: '9,000 RPM flat-six. Magnesium center-lock wheels standard. PCCB brakes standard. Roof opens in 12 seconds. The 911 GT3 S/C is the real deal.',
     images: [OG_IMAGE],
   },

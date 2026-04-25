@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Rockefeller CRISPR Stem Cell Study | Living Drug Factory for HIV, Malaria',
-  description: 'Rockefeller University researchers used CRISPR to engineer hematopoietic stem cells into permanent antibody factories. One injection. Three diseases. Indefinite protection.',
+  title: 'Rockefeller CRISPR Stem Cell Study | Living Drug Factory',
+  description: 'Rockefeller University researchers used CRISPR to engineer hematopoietic stem cells into permanent antibody factories. One injection. Three diseases.',
   keywords: [
     'CRISPR stem cell therapy 2026',
     'programmable B cells',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Rockefeller CRISPR Study | One Injection to Fight HIV, Malaria, Influenza',
+    title: 'Rockefeller CRISPR Study | One Injection to Fight HIV',
     description: 'Engineered stem cells become permanent antibody factories. Only 7,000 edited cells needed. Proven against HIV-1, malaria, and lethal influenza in mice.',
     type: 'article',
     url: ARTICLE_URL,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CRISPR turns stem cells into living drug factories | Rockefeller study',
+    title: 'CRISPR turns stem cells into living drug factories | Rockefe',
     description: '7,000 edited cells. One vaccine trigger. Permanent protection against HIV, malaria, and influenza. Human trials next.',
   },
 };

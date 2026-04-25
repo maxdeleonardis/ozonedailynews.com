@@ -11,7 +11,7 @@ const IMAGE_URL = 'https://www.objectwire.org/entertainment/ksi%20buys%20club.PN
 
 export const metadata: Metadata = {
   title:
-    'KSI Becomes Co-Owner of Dagenham & Redbridge FC, Vows to Take Club to Premier League',
+    'KSI Becomes Co-Owner of Dagenham & Redbridge FC, Vows to',
   description:
     'KSI (JJ Olatunji) acquired a 20% stake in Dagenham & Redbridge FC on March 3, 2026, becoming co-owner of the National League South club. The Sidemen',
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'KSI Becomes Co-Owner of Dagenham & Redbridge FC | Vows Premier League Push',
+    title: 'KSI Becomes Co-Owner of Dagenham & Redbridge FC | Vows',
     description:
       'KSI acquired a 20% stake in Dagenham & Redbridge FC on March 3, 2026. The YouTube star vowed to take the sixth-tier club to the Premier League, calling it',
     type: 'article',

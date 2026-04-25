@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Fortnite Phineas and Ferb Cup | Win Buff Perry, Doofenshmirtz Free',
+    title: 'Fortnite Phineas and Ferb Cup | Win Buff Perry',
     description:
       'The Fortnite Phineas and Ferb Cup is live April 3. Earn enough points to claim Buff Perry the Platypus and Dr. Doofenshmirtz before the Item Shop drop on',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fortnite Phineas and Ferb Cup is live. Win Buff Perry + Doofenshmirtz free today.',
+    title: 'Fortnite Phineas and Ferb Cup is live. Win Buff Perry +',
     description: 'Hit the points threshold in today\'s cup and you skip the Item Shop paywall. Skins drop Saturday April 4 at 8 p.m. ET.',
     images: [OG_IMAGE],
   },

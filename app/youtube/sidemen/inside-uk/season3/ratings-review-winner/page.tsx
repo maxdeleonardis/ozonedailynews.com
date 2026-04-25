@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = '/entertainment/InsideS3.webp';
 
 export const metadata: Metadata = {
-  title: 'Sidemen Inside Season 3 Review | Winner, Ratings, Worth Watching',
+  title: 'Sidemen Inside Season 3 Review | Winner, Ratings, Worth',
   description:
     'Eddie Hall wins Sidemen Inside Season 3. IMDb rates the series 6.9/10, fans call it the best season yet. Full review, winner recap, and viewer reactions.',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Sidemen Inside Season 3 Review | Winner, Ratings, Worth Watching',
+    title: 'Sidemen Inside Season 3 Review | Winner, Ratings, Worth',
     description:
       'Eddie Hall wins Sidemen Inside Season 3. IMDb rates the series 6.9/10, fans call it the best season yet. Full review, winner recap, and viewer reactions.',
     url: `https://www.objectwire.org${SLUG}`,

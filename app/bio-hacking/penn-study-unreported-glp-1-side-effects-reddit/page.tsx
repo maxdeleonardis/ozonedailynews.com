@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1523299174285-a59d80640155?i
 
 export const metadata: Metadata = {
   title: 'Penn Study Finds Unreported GLP-1 Side Effects in Reddit',
-  description: 'University of Pennsylvania researchers used AI to analyze 410,000 Reddit posts and found underreported GLP-1 side effects including reproductive symptoms and temperature complaints.',
+  description: 'University of Pennsylvania researchers used AI to analyze 410,000 Reddit posts and found underreported GLP-1 side effects including reproductive symptoms',
   keywords: [
     'GLP-1 side effects Reddit study',
     'Penn GLP-1 Reddit research',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Penn Study Finds Unreported GLP-1 Side Effects in 410,000 Reddit Posts',
+    title: 'Penn Study Finds Unreported GLP-1 Side Effects in',
     description: 'AI analyzed 410K Reddit posts from 67K users. 43.5% reported side effects. Reproductive symptoms and temperature complaints emerged as underreported.',
     type: 'article',
     url: ARTICLE_URL,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Penn AI Study | GLP-1 Side Effects Hidden in 410K Reddit Posts',
+    title: 'Penn AI Study | GLP-1 Side Effects Hidden in 410K Reddit',
     description: '43.5% of users reported side effects. Reproductive symptoms and temperature complaints largely absent from clinical trials. Published in Nature Health.',
     images: [OG_IMAGE],
   },

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Coinbase Unlocks ATH, RAY, NCT & STRK for New York | A BitLicense Milestone',
+    title: 'Coinbase Unlocks ATH, RAY, NCT & STRK for New York | A',
     description:
       'Four tokens just cleared New York\'s strict NYDFS BitLicense review. Aethir, Raydium, PolySwarm, and Starknet are now live on Coinbase for all NY',
   },

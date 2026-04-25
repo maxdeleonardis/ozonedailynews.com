@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'biathlon dramatic comeback', 'Norway silver biathlon', 'Sweden biathlon bronze',
   ],
   openGraph: {
-    title: 'France Storms Back from a Minute Down to Win Biathlon Relay Gold at Milano Cortina 2026',
+    title: 'France Storms Back from a Minute Down to Win Biathlon',
     description: 'Emilien Perrot anchors a dramatic French comeback from nearly a minute behind Norway to claim men\'s relay gold, a historic moment for French Winter',
     type: 'article',
     publishedTime: '2026-02-18T14:00:00Z',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'France Wins Biathlon Relay Gold in Stunning Comeback | Milano Cortina 2026',
+    title: 'France Wins Biathlon Relay Gold in Stunning Comeback | Milan',
     description: 'Perrot anchors one of the most dramatic relay finishes in Winter Olympic history to bring France its biathlon gold.',
   },
   alternates: {

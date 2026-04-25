@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/influncer/tren_twins_wiki.PNG';
 
 export const metadata: Metadata = {
-  title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers',
+  title: 'Tren Twins | Christian & Michael Gaiera | Fitness',
   description:
     'Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness influencers, bodybuilders, and',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers & YoungLA Athletes',
+    title: 'Tren Twins | Christian & Michael Gaiera | Fitness',
     description:
       'Profile of the Tren Twins: viral fitness influencers, YoungLA brand athletes, and one of the most talked-about duos in gym culture.',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tren Twins | Christian & Michael Gaiera | Fitness Influencers',
+    title: 'Tren Twins | Christian & Michael Gaiera | Fitness',
     description:
       'Michigan-born identical twins, viral bodybuilders, YoungLA athletes. Full profile on ObjectWire.',
   },

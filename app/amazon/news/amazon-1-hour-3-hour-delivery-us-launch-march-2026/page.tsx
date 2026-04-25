@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/amazon/news/amazon-1-hour-3-hour-delivery-us-launch-march-2026';
 
 export const metadata: Metadata = {
-  title: "Amazon Launches 1-Hour and 3-Hour Delivery Across US Cities | March 17, 2026",
+  title: "Amazon Launches 1-Hour and 3-Hour Delivery Across US",
   description:
     "Amazon rolled out 1-hour and 3-hour delivery options for more than 90,000 products on March 17, 2026. Prime members pay $9.99 for 1-hour delivery and",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Amazon Launches 1-Hour and 3-Hour Delivery Options Across US Cities",
+    title: "Amazon Launches 1-Hour and 3-Hour Delivery Options",
     description:
       "Amazon rolled out 1-hour and 3-hour delivery for 90,000+ products on March 17, 2026. Prime members pay $9.99 for 1-hour, $4.99 for 3-hour. The service",
     type: 'article',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Amazon Launches 1-Hour Delivery Nationally | $9.99 for Prime, 90,000 Products",
+    title: "Amazon Launches 1-Hour Delivery Nationally | $9.99 for",
     description:
       "Amazon's 1-hour and 3-hour delivery is now live in hundreds of US metros. Prime: $9.99 / $4.99. Non-Prime: $19.99 / $14.99. Direct competition with",
     images: ['https://www.objectwire.org/entertainment/christian-wiediger-rymh7EZPqRs-unsplash.jpg'],

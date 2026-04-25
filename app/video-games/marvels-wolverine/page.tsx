@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/marvels-wolverine',
   },
+  openGraph: {
+    title: "Marvels Wolverine | PS5 Exclusive Game",
+    description: "Everything you need to know about Marvels Wolverine, the brutal single-player adventure by Insomniac Games. Release date, gameplay, and latest news.",
+    type: 'article',
+    url: "https://www.objectwire.org/marvels-wolverine",
+    siteName: 'ObjectWire',
+    section: "Gaming",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Marvels Wolverine | PS5 Exclusive Game",
+    description: "Everything you need to know about Marvels Wolverine, the brutal single-player adventure by Insomniac Games. Release date, gameplay, and latest news.",
+  },
 };
 
 export default function WolverineGamePage() {

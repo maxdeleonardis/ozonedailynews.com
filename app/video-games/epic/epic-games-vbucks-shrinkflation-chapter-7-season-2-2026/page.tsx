@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Fortnite V-Bucks Shrinkflation: Same Price, 20% Fewer Bucks | Effective March 19",
+    title: "Fortnite V-Bucks Shrinkflation: Same Price, 20% Fewer",
     description:
       "Epic Games cuts V-Bucks quantities by 20–25% across all bundles while keeping prices unchanged. The $8.99 pack drops from 1,000 to 800 V-Bucks.",
   },

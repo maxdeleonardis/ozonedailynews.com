@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/entertainment/beastgames/season-2',
   },
+  openGraph: {
+    title: "Beast Games Season 2 | Latest News & Updates",
+    description: "Everything you need to know about Beast Games Season 2. Latest news, casting updates, release date predictions, and what to expect from MrBeast",
+    type: 'article',
+    url: "https://www.objectwire.org/entertainment/beastgames/season-2",
+    siteName: 'ObjectWire',
+    section: "Entertainment",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Beast Games Season 2 | Latest News & Updates",
+    description: "Everything you need to know about Beast Games Season 2. Latest news, casting updates, release date predictions, and what to expect from MrBeast",
+  },
 };
 
 export default function BeastGamesSeason2Page() {

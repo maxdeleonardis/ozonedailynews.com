@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Elana Meyers Taylor Wins Monobob Gold at 41: Oldest Olympic Bobsled Champion in History',
+  title: 'Elana Meyers Taylor Wins Monobob Gold at 41 | Oldest',
   description: 'Elana Meyers Taylor, 41, made Olympic history at Milano Cortina 2026 by winning women\'s monobob gold, becoming the oldest Olympic bobsled champion ever',
   keywords: [
     'Elana Meyers Taylor', 'bobsled gold medal', 'monobob', 'Milano Cortina 2026',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Olympic history', 'most decorated female bobsledder',
   ],
   openGraph: {
-    title: 'Elana Meyers Taylor Makes History at 41: Oldest Olympic Bobsled Gold Medalist Ever',
+    title: 'Elana Meyers Taylor Makes History at 41 | Oldest Olympic',
     description: 'American legend wins women\'s monobob gold at Milano Cortina 2026, becoming the most decorated female bobsledder in Olympic history.',
     type: 'article',
     publishedTime: '2026-02-17T15:00:00Z',

@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/video-games/forza-horizon-6.jpg';
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 | Japan Map, Release Date, Developer',
   description:
-    'Forza Horizon 6 launches May 19, 2026 on Xbox Series X|S and PC, developed by Playground Games. Japan open world, 550+ cars, Toyota GR GT cover, day one on Game Pass.',
+    'Forza Horizon 6 launches May 19, 2026 on Xbox Series X|S and PC, developed by Playground Games. Japan open world, 550+ cars, Toyota GR GT cover, day one',
   keywords: [
     'Forza Horizon 6',
     'Forza Horizon 6 release date',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Forza Horizon 6 | Japan Map, Release Date & Developer Profile',
+    title: 'Forza Horizon 6 | Japan Map, Release Date & Developer',
     description:
       'Playground Games returns with Forza Horizon 6 on May 19, 2026. Japan open world 5x Edinburgh, 550+ cars, Toyota GR GT cover, day one Game Pass.',
     type: 'article',

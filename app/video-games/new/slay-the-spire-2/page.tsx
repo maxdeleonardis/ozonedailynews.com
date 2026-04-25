@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Slay the Spire 2 Shatters Records â€” 430K Peak, Steam Cart Crash, 97% Positive Reviews',
+    title: 'Slay the Spire 2 Shatters Records â€” 430K Peak, Steam',
     description:
       'Mega Crit\'s sequel hit 430,456 concurrent players within 24 hours, crashed the Steam store for 30 minutes, and set the all-time roguelike concurrent',
     type: 'article',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Slay the Spire 2 Hits 430K Concurrent â€” Crashes Steam, Sets Roguelike Record',
+    title: 'Slay the Spire 2 Hits 430K Concurrent â€” Crashes Steam',
     description:
       'The $24.99 sequel launched into Early Access on March 5, crashed Steam\'s cart system, and peaked at 430,456 concurrent players by day two.',
   },

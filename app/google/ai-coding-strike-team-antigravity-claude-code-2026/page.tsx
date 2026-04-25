@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Google AI Coding Strike Team | Antigravity vs Claude Code 2026',
-  description: 'Google DeepMind formed an internal strike team to fast-track AI coding models after Claude Code hit $2.5B ARR. Inside the Antigravity push, AlphaEvolve results, and the autonomous-agent race in 2026.',
+  title: 'Google AI Coding Strike Team | Antigravity vs Claude Code',
+  description: 'Google DeepMind formed an internal strike team to fast-track AI coding models after Claude Code hit $2.5B ARR. Inside the Antigravity push, AlphaEvolve',
   keywords: [
     'Google AI coding strike team',
     'Google Antigravity',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Google Forms AI Coding Strike Team | Antigravity vs Claude Code',
-    description: 'Google DeepMind assembled a strike team to chase Anthropic Claude Code after it surpassed $2.5B ARR. Full breakdown of Antigravity, AlphaEvolve, and the 2026 agentic coding race.',
+    title: 'Google Forms AI Coding Strike Team | Antigravity vs Claude',
+    description: 'Google DeepMind assembled a strike team to chase Anthropic Claude Code after it surpassed $2.5B ARR. Full breakdown of Antigravity, AlphaEvolve, and the',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

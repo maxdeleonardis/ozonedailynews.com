@@ -9,7 +9,7 @@ const SLUG = '/copyright/news/detroit-first-city-oppose-prediction-markets-coinb
 const OG_IMAGE = 'https://images.unsplash.com/photo-1723534042746-f6d1941e6808?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Detroit Becomes First U.S. City to Oppose Prediction Markets in Court',
+  title: 'Detroit Becomes First U.S. City to Oppose Prediction',
   description:
     'Detroit has been granted permission to file an amicus brief supporting Michigan against Coinbase, making it the first U.S. city to take a direct legal',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Detroit Becomes First U.S. City to Oppose Prediction Markets in Court',
+    title: 'Detroit Becomes First U.S. City to Oppose Prediction',
     description:
       'A federal judge granted Detroit permission to file an amicus brief backing Michigan in its lawsuit against Coinbase over prediction markets, marking the',
     url: `https://www.objectwire.org${SLUG}`,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Detroit Becomes First U.S. City to Oppose Prediction Markets in Court',
+    title: 'Detroit Becomes First U.S. City to Oppose Prediction',
     description:
       'Detroit has entered the Coinbase vs. Michigan prediction market lawsuit as an amicus, citing $200M+ in casino revenue and $11.9M in monthly municipal fees',
     images: [OG_IMAGE],

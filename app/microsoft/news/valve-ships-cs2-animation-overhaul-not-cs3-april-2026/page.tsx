@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Valve Ships CS2 Animation Overhaul | CS3 Rumor Was an April Fools Joke',
+    title: 'Valve Ships CS2 Animation Overhaul | CS3 Rumor Was an April',
     description:
       'Reports of Counter-Strike 3 on UE5 are false. Valve released a CS2 animation overhaul beta on April 1, 2026. The CS3 rumor referenced a "March 32nd"',
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'No, Valve Did Not Announce CS3. Here Is What Actually Happened.',
+    title: 'No, Valve Did Not Announce CS3. Here Is What Actually',
     description:
       'The CS3 on UE5 rumor was an April Fools joke. Valve actually shipped a CS2 animation overhaul beta on April 1, 2026.',
   },

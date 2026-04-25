@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/privacy-policy',
   },
+  openGraph: {
+    title: "Privacy Policy",
+    description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
+    type: 'article',
+    url: "https://www.objectwire.org/privacy-policy",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Privacy Policy",
+    description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
+  },
 };
 
 export default function PrivacyPolicyPage() {

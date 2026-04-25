@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'SoftBank Natural AI Phone | Brain Technologies Launches April 2026',
-  description: 'SoftBank launches the Natural AI Phone in Japan on April 24, built by California startup Brain Technologies. The device replaces apps with autonomous AI agents running on Android 15.',
+  title: 'SoftBank Natural AI Phone | Brain Technologies Launches',
+  description: 'SoftBank launches the Natural AI Phone in Japan on April 24, built by California startup Brain Technologies. The device replaces apps with autonomous AI',
   keywords: [
     'SoftBank Natural AI Phone',
     'Brain Technologies AI phone',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'SoftBank Natural AI Phone | Brain Technologies Replaces Apps With AI Agents',
-    description: 'SoftBank is launching a California-built AI phone in Japan at ¥1/month. It books restaurants, messages friends, and manages tasks without opening a single app.',
+    title: 'SoftBank Natural AI Phone | Brain Technologies Replaces',
+    description: 'SoftBank is launching a California-built AI phone in Japan at ¥1/month. It books restaurants, messages friends, and manages tasks without opening a single',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SoftBank launches AI phone that kills apps — built by a California startup',
+    title: 'SoftBank launches AI phone that kills apps | built by a',
     description: '¥1/month. No app grid. Android 15 AI agent handles Gmail, Amazon, YouTube autonomously. Japan first, US next.',
   },
 };

@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   title: 'Saved Articles | ObjectWire',
   description: 'Your bookmarked articles on ObjectWire.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title: "Saved Articles | ObjectWire",
+    description: "Your bookmarked articles on ObjectWire.",
+    type: 'article',
+    url: 'https://www.objectwire.org',
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Saved Articles | ObjectWire",
+    description: "Your bookmarked articles on ObjectWire.",
+  },
 };
 
 export default function SavedPage() {

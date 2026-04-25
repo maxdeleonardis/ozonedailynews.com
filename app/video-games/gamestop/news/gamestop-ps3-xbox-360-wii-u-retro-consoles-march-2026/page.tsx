@@ -9,7 +9,7 @@ const SLUG = '/video-games/gamestop/news/gamestop-ps3-xbox-360-wii-u-retro-conso
 const FULL_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro Consoles | March 16, 2026",
+  title: "GameStop Classifies PS3, Xbox 360, and Wii U as Retro",
   description:
     "GameStop officially designated the PlayStation 3, Xbox 360, and Nintendo Wii U as 'retro consoles' on March 16, 2026, citing component cables, the lack of",
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro Consoles",
+    title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro",
     description:
       "GameStop's retro classification criteria: component cables, no Fortnite, and a Bush-era launch. Two out of three ain't bad, the Wii U launched under Obama",
   },

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Dollar Surges, Euro Slumps | 178K Jobs, Safe-Haven Demand April 2026',
+    title: 'Dollar Surges, Euro Slumps | 178K Jobs, Safe-Haven Demand',
     description:
       'A triple signal, 178,000 new jobs, 202K jobless claims, 52.7 manufacturing PMI, sent the dollar to a 2026 high. EUR/USD fell to $1.1540 as Europe absorbs',
     type: 'article',

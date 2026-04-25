@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WordPress.com Now Lets AI Agents Write and Publish Your Website',
+    title: 'WordPress.com Now Lets AI Agents Write and Publish Your',
     description:
       'Automattic added 19 MCP write operations to WordPress.com. Claude, ChatGPT, and Cursor can now draft blog posts, build landing pages, and fix alt text',
     images: [IMAGE_URL],

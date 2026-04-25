@@ -9,7 +9,7 @@ const SLUG = '/finance/private-credit-redemption-crisis-blackstone-blackrock-blu
 const OG_IMAGE = 'https://images.unsplash.com/photo-1468254095679-bbcba94a7066?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
+  title: 'Over $4.6B in Investor Capital Trapped in Private Credit',
   description:
     'The $1.8 trillion private credit market is under pressure. February losses at BCRED and Ares, $13B in Q1 redemption requests, and withdrawal caps at',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
+    title: 'Over $4.6B in Investor Capital Trapped in Private Credit',
     description:
       'Blackstone, BlackRock, Blue Owl, and Ares all faced outsized redemption pressure in Q1 2026. More than $13B in withdrawal requests hit private credit',
     url: `https://www.objectwire.org${SLUG}`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Over $4.6B in Investor Capital Trapped in Private Credit Funds',
+    title: 'Over $4.6B in Investor Capital Trapped in Private Credit',
     description:
       'Blackstone BCRED posted its first monthly loss since 2022. BlackRock capped redemptions. Blue Owl eliminated quarterly windows entirely. Over $13B in Q1',
     images: [OG_IMAGE],

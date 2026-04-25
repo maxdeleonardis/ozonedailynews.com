@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Netflix Q1 2026 | TikTok Feed, Ben Affleck AI Deal, Reed Hastings Exit',
-  description: 'Netflix Q1 2026: $12.25B revenue, $5.28B net income, $2.8B WBD termination fee. Ben Affleck AI acquisition, TikTok-style vertical feed, Reed Hastings stepping down.',
+  title: 'Netflix Q1 2026 | TikTok Feed, Ben Affleck AI Deal, Reed',
+  description: 'Netflix Q1 2026: $12.25B revenue, $5.28B net income, $2.8B WBD termination fee. Ben Affleck AI acquisition, TikTok-style vertical feed, Reed Hastings',
   keywords: [
     'Netflix Q1 2026 earnings',
     'Netflix TikTok vertical feed',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Netflix Q1 2026 | $5.28B Profit, TikTok Feed, Ben Affleck AI Acquisition',
-    description: '$12.25B revenue (+16.2% YoY). $2.8B WBD termination fee windfall. Ben Affleck\'s InterPositive acquired for $600M. Reed Hastings exits board after 29 years.',
+    title: 'Netflix Q1 2026 | $5.28B Profit, TikTok Feed, Ben Affleck',
+    description: '$12.25B revenue (+16.2% YoY). $2.8B WBD termination fee windfall. Ben Affleck\'s InterPositive acquired for $600M. Reed Hastings exits board after 29',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Netflix Q1 2026 | $5.28B profit, TikTok feed, Reed Hastings exits',
+    title: 'Netflix Q1 2026 | $5.28B profit, TikTok feed, Reed Hastings',
     description: '$2.8B WBD termination fee. Ben Affleck AI deal at $600M. TikTok-style vertical feed live end of April. 325M paid members.',
   },
 };

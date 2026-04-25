@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Chainlink, Anchorage Launch Blockchain Leadership Fund PAC for 2026 Midterms',
+    title: 'Chainlink, Anchorage Launch Blockchain Leadership Fund',
     description:
       'A new bipartisan hybrid PAC backed by Chainlink Labs and Anchorage Digital is targeting the CLARITY Act and GENIUS Act ahead of November 2026, as the',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chainlink, Anchorage launch crypto PAC 7 months before midterms',
+    title: 'Chainlink, Anchorage launch crypto PAC 7 months before',
     description:
       'The Blockchain Leadership Fund is a new bipartisan hybrid PAC backed by Chainlink Labs and Anchorage Digital, targeting the CLARITY Act and GENIUS Act in',
   },

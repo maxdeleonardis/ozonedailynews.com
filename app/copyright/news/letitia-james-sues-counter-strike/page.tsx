@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/copyright/news/letitia-james-sues-counter-strike';
 
 export const metadata: Metadata = {
-  title: "NY AG Letitia James Sues Valve Over Counter-Strike Loot Boxes -- Gabe Newell Responds 'GL HF'",
+  title: "NY AG Letitia James Sues Valve | CS2 Loot Box Lawsuit",
   description:
     "New York Attorney General Letitia James has filed a lawsuit against Valve Corporation, alleging that Counter-Strike 2 loot boxes constitute illegal",
   keywords: [

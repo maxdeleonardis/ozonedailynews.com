@@ -31,8 +31,9 @@ import path from 'path';
 // CONFIG
 // ─────────────────────────────────────────────────────────────────────────────
 
-const WRITE_MODE = process.argv.includes('--write');
-const VERBOSE    = process.argv.includes('--verbose');
+const WRITE_MODE  = process.argv.includes('--write');
+const VERBOSE     = process.argv.includes('--verbose');
+const FIX_TITLES  = process.argv.includes('--fix-titles');
 
 const LIMIT = (() => {
   const idx = process.argv.indexOf('--limit');
@@ -303,6 +304,90 @@ function fixDescriptionLength(metaBlock: string, changes: string[]): string {
 }
 
 /**
+ * Fix 4b: Strip "| ObjectWire.org" and "| Object Wire" brand suffix variants
+ * that were not caught by the original fixBrandSuffix (only matched exact "| ObjectWire").
+ */
+function fixBrandSuffixVariant(metaBlock: string, changes: string[]): string {
+  return metaBlock.replace(
+    /(^\s*title:\s*)(["'])([^"'\n]+)\2/gm,
+    (_match, prefix, quote, value) => {
+      const cleaned = value
+        .replace(/\s*\|\s*ObjectWire\.org\s*$/i, '')
+        .replace(/\s*\|\s*Object\s+Wire\s*$/i, '')
+        .trim();
+      if (cleaned === value) return _match;
+      changes.push(`BRAND VARIANT: stripped → "${cleaned}"`);
+      return `${prefix}${quote}${cleaned}${quote}`;
+    },
+  );
+}
+
+/**
+ * Fix 4c: Shorten titles that exceed 60 chars. Only applied when --fix-titles flag is set.
+ *
+ * Strategy:
+ *   1. If title has " | " — trim the after-pipe text to fit total ≤ 60.
+ *   2. If title has ": " but no " | " — convert ":" to " | ", then apply (1).
+ *   3. Otherwise — trim at last word boundary ≤ 57 chars.
+ */
+
+/** Always-word-boundary trim (unlike trimAtWord which hard-cuts when last boundary < 75%). */
+function trimTitle(text: string, maxLen: number): string {
+  if (text.length <= maxLen) return text;
+  const cut  = text.slice(0, maxLen);
+  const last = cut.lastIndexOf(' ');
+  const trimmed = last > 0 ? cut.slice(0, last) : cut;
+  // Strip trailing hanging punctuation (& , | : -)
+  return trimmed.replace(/\s*[&|:,\-]\s*$/, '').trim();
+}
+
+function fixTitleLength(metaBlock: string, changes: string[]): string {
+  return metaBlock.replace(
+    /(^\s*title:\s*)(["'])([^"'\n]+)\2/gm,
+    (_match, prefix, quote, value) => {
+      if (value.length <= 60) return _match;
+
+      let shortened: string;
+
+      if (value.includes(' | ')) {
+        const pipeIdx = value.indexOf(' | ');
+        const before  = value.slice(0, pipeIdx);
+        const after   = value.slice(pipeIdx + 3);
+        if (before.length > 57) {
+          shortened = trimTitle(before, 57);
+        } else {
+          const remaining = 60 - before.length - 3; // 3 = " | "
+          shortened = remaining >= 5
+            ? before + ' | ' + trimTitle(after, remaining)
+            : trimTitle(before, 57);
+        }
+      } else if (value.includes(': ')) {
+        const colonIdx = value.indexOf(': ');
+        const before   = value.slice(0, colonIdx);
+        const after    = value.slice(colonIdx + 2);
+        if (before.length > 57) {
+          shortened = trimTitle(before, 57);
+        } else {
+          const remaining = 60 - before.length - 3;
+          shortened = remaining >= 5
+            ? before + ' | ' + trimTitle(after, remaining)
+            : trimTitle(before, 57);
+        }
+      } else {
+        shortened = trimTitle(value, 57);
+      }
+
+      // Strip any trailing separator artifacts and sanity-check
+      shortened = shortened.replace(/\s*[|:,&]\s*$/, '').trim();
+      if (shortened.length < 10 || shortened === value) return _match;
+
+      changes.push(`TITLE LENGTH: ${value.length}→${shortened.length} chars  "${shortened}"`);
+      return `${prefix}${quote}${shortened}${quote}`;
+    },
+  );
+}
+
+/**
  * Fix 5: Add twitter card block when missing but openGraph block exists.
  * Derives twitter title + description from the openGraph block.
  */
@@ -405,11 +490,13 @@ function processFile(filePath: string): FixResult {
 
   // Apply fixes in order
   metaBlock = fixBrandSuffix(metaBlock, changes);
+  metaBlock = fixBrandSuffixVariant(metaBlock, changes);
   metaBlock = fixDashSeparator(metaBlock, changes);
   metaBlock = fixEmDash(metaBlock, changes);
   metaBlock = fixDescriptionLength(metaBlock, changes);
   metaBlock = fixMissingTwitter(metaBlock, changes);
   metaBlock = fixMissingCanonical(metaBlock, filePath, changes);
+  if (FIX_TITLES) metaBlock = fixTitleLength(metaBlock, changes);
 
   const newContent = beforeMeta + metaBlock + afterMeta;
   return { file: relFile, changes, newContent, hadChanges: changes.length > 0 };
@@ -432,7 +519,8 @@ function run() {
   console.log(`${C.dim}Scanning ${toProcess.length} of ${pages.length} pages...${C.reset}\n`);
 
   const fixCounts: Record<string, number> = {
-    BRAND: 0, SEPARATOR: 0, DASH: 0, DESC: 0, TWITTER: 0, CANONICAL: 0,
+    BRAND: 0, 'BRAND VARIANT': 0, SEPARATOR: 0, DASH: 0, DESC: 0,
+    TWITTER: 0, CANONICAL: 0, 'TITLE LENGTH': 0,
   };
 
   let filesFixed   = 0;
@@ -478,12 +566,14 @@ function run() {
   console.log(`  Total fixes     : ${C.green}${totalChanges}${C.reset}\n`);
 
   const typeRows: [string, number, string][] = [
-    ['BRAND suffix removed',      fixCounts.BRAND     ?? 0, C.yellow],
-    ['SEPARATOR fixed (" - "→"|")',fixCounts.SEPARATOR ?? 0, C.red],
-    ['DASH replaced (—/– → "|")', fixCounts.DASH      ?? 0, C.red],
-    ['DESC trimmed (>155)',        fixCounts.DESC      ?? 0, C.blue],
-    ['TWITTER card added',         fixCounts.TWITTER   ?? 0, C.green],
-    ['CANONICAL added',            fixCounts.CANONICAL ?? 0, C.cyan],
+    ['BRAND suffix removed',       fixCounts['BRAND']         ?? 0, C.yellow],
+    ['BRAND variant removed',      fixCounts['BRAND VARIANT'] ?? 0, C.yellow],
+    ['TITLE shortened (>60)',       fixCounts['TITLE LENGTH']  ?? 0, C.red   ],
+    ['SEPARATOR fixed (" - "→"|")' ,fixCounts['SEPARATOR']    ?? 0, C.red   ],
+    ['DASH replaced (—/– → "|")' , fixCounts['DASH']          ?? 0, C.red   ],
+    ['DESC trimmed (>155)',         fixCounts['DESC']          ?? 0, C.blue  ],
+    ['TWITTER card added',          fixCounts['TWITTER']       ?? 0, C.green ],
+    ['CANONICAL added',             fixCounts['CANONICAL']     ?? 0, C.cyan  ],
   ];
 
   for (const [label, count, color] of typeRows) {

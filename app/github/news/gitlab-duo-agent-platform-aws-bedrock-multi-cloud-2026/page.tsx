@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'GitLab Duo Agent Platform | AWS Bedrock Multi-Cloud 2026',
   description:
-    'GitLab extends its Duo Agent Platform to AWS Bedrock on April 21, 2026, one week after a Google Cloud Vertex AI deal. GitLab Credits replace per-seat pricing at $1 per credit.',
+    'GitLab extends its Duo Agent Platform to AWS Bedrock on April 21, 2026, one week after a Google Cloud Vertex AI deal. GitLab Credits replace per-seat',
   keywords: [
     'GitLab Duo Agent Platform AWS Bedrock 2026',
     'GitLab multi-cloud DevSecOps strategy',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'GitLab Duo Agents Now Run on AWS Bedrock | Multi-Cloud DevSecOps 2026',
+    title: 'GitLab Duo Agents Now Run on AWS Bedrock | Multi-Cloud',
     description:
-      'Seven days after Google Cloud, GitLab brings Duo Agents to AWS Bedrock. GitLab Credits replace per-seat pricing. Enterprise inference never leaves the customer VPC.',
+      'Seven days after Google Cloud, GitLab brings Duo Agents to AWS Bedrock. GitLab Credits replace per-seat pricing. Enterprise inference never leaves the',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GitLab Hits AWS Bedrock, One Week After Google Cloud, $1 Per AI Credit',
+    title: 'GitLab Hits AWS Bedrock, One Week After Google Cloud, $1',
     description:
       'GitLab Duo Agents now run inside customer AWS accounts. No new contracts, no per-seat fees. If you have AWS budget, you already have GitLab AI budget.',
     images: [OG_IMAGE],

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Stefano Domenicali | CEO of Formula 1: Career, Tenure & Legacy',
+  title: 'Stefano Domenicali | CEO of Formula 1: Career, Tenure',
   description:
     'Stefano Domenicali is the President and CEO of Formula One Group since January 2021. Formerly Ferrari Team Principal (2008–2014) and Lamborghini CEO, he',
   alternates: {

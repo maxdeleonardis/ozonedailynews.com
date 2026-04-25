@@ -9,7 +9,7 @@ const SLUG = '/define/prediction-market/democrats-warn-government-insider-tradin
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Government Insider Trading | Democrats Target Prediction Markets 2026',
+  title: 'Government Insider Trading | Democrats Target Prediction',
   description:
     '40+ Democratic senators led by Warren and Warner sent an urgent CFTC letter on March 29, 2026, demanding ethics guidance to stop federal employees from',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Democrats Warn of Government Insider Trading on Prediction Markets',
+    title: 'Democrats Warn of Government Insider Trading on',
     description:
       '40+ senators demanded CFTC and OGE action after suspicious Polymarket trades preceded Maduro capture, Leavitt speech timing, and Iran-Israel strike',
     type: 'article',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Someone made $400K on Polymarket hours before Maduro was captured. Congress wants answers.',
+    title: 'Someone made $400K on Polymarket hours before Maduro was',
     description:
       'Warren and 40+ Democrats sent an urgent CFTC letter demanding a crackdown on federal employees betting on outcomes they secretly influence.',
   },

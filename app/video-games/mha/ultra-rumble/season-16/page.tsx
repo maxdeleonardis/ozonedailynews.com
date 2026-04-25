@@ -9,7 +9,7 @@ const SLUG = '/video-games/mha/ultra-rumble/season-16';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'My Hero Ultra Rumble Season 16: Star and Stripe & 2.5 Anniversary',
+  title: 'My Hero Ultra Rumble Season 16 | Star and Stripe & 2.5',
   description:
     'My Hero Ultra Rumble Season 16 launched March 25, 2026, introducing Star and Stripe as the first American hero, celebrating the 2.5-year anniversary with',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'My Hero Ultra Rumble Season 16: Star and Stripe Arrives for the 2.5 Anniversary',
+    title: 'My Hero Ultra Rumble Season 16 | Star and Stripe Arrives',
     description:
       "Season 16 goes Plus Ultra, America's No.1 hero Star and Stripe joins the roster with her New Order Quirk, free weekly 10-draws run through May 27, and",
     type: 'article',

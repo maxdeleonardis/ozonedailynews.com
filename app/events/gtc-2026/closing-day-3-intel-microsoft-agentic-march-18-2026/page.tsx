@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/events/gtc-2026/closing-day-3-intel-microsoft-agentic-march-18-2026';
 
 export const metadata: Metadata = {
-  title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up",
+  title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic",
   description:
     "As GTC 2026 enters its final stretch, Intel and NVIDIA debut their joint Sovereign AI rack, the OpenClaw Agentic program dominates Day 3, and Thursday's",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic Explosion | Day 3 Wrap-Up",
+    title: "Closing Out GTC 2026: Intel, Microsoft & the Agentic",
     description:
       "Intel and NVIDIA showcase a joint Sovereign AI rack, OpenClaw workshops flood the floor, and Thursday's short expo window marks the end of the most",
     type: 'article',

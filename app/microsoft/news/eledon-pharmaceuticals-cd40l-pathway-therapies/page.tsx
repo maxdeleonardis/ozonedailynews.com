@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/eledon-pharmaceuticals-cd40l-pathway-therapies';
 
 export const metadata: Metadata = {
-  title: 'Eledon Pharmaceuticals Overview: Clinical-Stage Biotech Focused on CD40L Pathway Therapies',
+  title: 'Eledon Pharmaceuticals Overview | Clinical-Stage Biotech',
   description:
     'Eledon Pharmaceuticals (ELDN) develops tegoprubart, an anti-CD40L antibody for transplant rejection. Phase 2 BESTOW kidney data, islet cell transplant',
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Eledon Pharmaceuticals: Clinical-Stage Biotech Focused on CD40L Pathway Therapies',
+    title: 'Eledon Pharmaceuticals | Clinical-Stage Biotech Focused on',
     description: 'Tegoprubart targets transplant rejection via CD40L pathway. Phase 2 kidney data, islet trials, and $57.5M offering.',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,

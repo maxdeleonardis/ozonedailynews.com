@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1547149617-609fafa00a6b?w=12
 
 export const metadata: Metadata = {
   title: 'Street Fighter Movie 2026 | Full Trailer, Cast, Release Date',
-  description: "The Street Fighter live-action reboot debuted its first full trailer at CinemaCon on April 16, 2026. October 16 release, directed by Kitao Sakurai, starring Andrew Koji, Noah Centineo, and Cody Rhodes.",
+  description: "The Street Fighter live-action reboot debuted its first full trailer at CinemaCon on April 16, 2026. October 16 release, directed by Kitao Sakurai,",
   keywords: [
     'Street Fighter movie 2026',
     'Street Fighter live action reboot',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Street Fighter Movie 2026 | World Warrior Trailer Drops at CinemaCon',
-    description: 'The gritty 1993-set Street Fighter reboot has arrived. Cody Rhodes as Guile. Roman Reigns as Akuma. Jason Momoa as Blanka. October 16, 2026. Full cast and plot breakdown.',
+    title: 'Street Fighter Movie 2026 | World Warrior Trailer Drops at',
+    description: 'The gritty 1993-set Street Fighter reboot has arrived. Cody Rhodes as Guile. Roman Reigns as Akuma. Jason Momoa as Blanka. October 16, 2026. Full cast and',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Street Fighter 2026: Cody Rhodes as Guile. Roman Reigns as Akuma. Jason Momoa as Blanka.',
+    title: 'Street Fighter 2026 | Cody Rhodes as Guile. Roman Reigns as',
     description: 'The World Warrior trailer just dropped at CinemaCon. October 16 release. Full cast and plot inside.',
     images: [OG_IMAGE],
   },

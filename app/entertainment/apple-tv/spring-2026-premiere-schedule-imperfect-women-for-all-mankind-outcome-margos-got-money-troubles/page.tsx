@@ -11,7 +11,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/apple/apple-tv-spring-2026-slate.jpg';
 
 export const metadata: Metadata = {
-  title: 'Apple TV+ Spring 2026 Lineup: Imperfect Women, For All Mankind S5, Outcome & More',
+  title: 'Apple TV+ Spring 2026 Lineup | Imperfect Women, For All',
   description:
     "Apple TV+ launches its biggest spring slate yet with five high-profile premieres across five weeks, from March 18 to April 15. Headlined by the SXSW",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     'Jon Hamm Apple TV+',
   ],
   openGraph: {
-    title: 'Apple TV+ Spring 2026: Five-Week Premiere Blitz From March 18 to April 15',
+    title: 'Apple TV+ Spring 2026 | Five-Week Premiere Blitz From March',
     description:
       "Apple TV+ kicks off a five-week spring slate with Imperfect Women (March 18), For All Mankind S5 (March 27), Your Friends & Neighbors S2 (April 3),",
     url: FULL_URL,

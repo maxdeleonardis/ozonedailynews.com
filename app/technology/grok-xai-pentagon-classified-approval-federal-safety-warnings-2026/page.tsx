@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "GSA: Grok Failed Federal Safety Standards. NSA: Unique Vulnerabilities. Pentagon: Approved.",
+      "GSA | Grok Failed Federal Safety Standards. NSA: Unique",
     description:
       "Multiple federal agencies flagged xAI's Grok chatbot as unsafe before the Pentagon authorized it for classified use in February 2026. The WSJ reported the",
     type: 'article',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "The GSA Said Grok Failed Safety Standards. The NSA Found Unique Vulnerabilities. The Pentagon Approved It.",
+    title: "The GSA Said Grok Failed Safety Standards. The NSA Found",
     description:
       "Federal agencies documented Grok's risks for over a year before the Pentagon cleared it for classified use in February 2026. The WSJ reported it all on",
     images: [IMAGE_URL],

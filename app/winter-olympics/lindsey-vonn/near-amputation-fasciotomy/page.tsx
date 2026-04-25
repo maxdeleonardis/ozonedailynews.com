@@ -9,7 +9,7 @@ const SLUG = '/winter-olympics/lindsey-vonn/near-amputation-fasciotomy';
 
 export const metadata: Metadata = {
   title:
-    "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash",
+    "Lindsey Vonn Reveals She Nearly Lost Her Leg to",
   description:
     'Lindsey Vonn revealed on Monday that she came dangerously close to having her left leg amputated following her crash at the 2026 Winter Olympics. An',
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Lindsey Vonn Reveals She Nearly Lost Her Leg to Amputation After Olympic Crash",
+    title: "Lindsey Vonn Reveals She Nearly Lost Her Leg to",
     description:
       "Vonn disclosed on Monday that she came within hours of having her left leg amputated. An emergency fasciotomy, performed on the mountain by team surgeon",
     type: 'article',

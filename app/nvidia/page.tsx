@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Nvidia Corporation: AI Computing, Graphics Processing & Data Center Technology",
+  title: "Nvidia Corporation | AI Computing, Graphics Processing",
   description: "Comprehensive overview of Nvidia Corporation, world leader in graphics processing units (GPUs), artificial intelligence computing, data centers, and",
   keywords: [
     "Nvidia",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/nvidia',
   },
   openGraph: {
-    title: "Nvidia Corporation: AI Computing & Graphics Processing Leader",
+    title: "Nvidia Corporation | AI Computing & Graphics Processing",
     description: "Complete guide to Nvidia, covering GPU technology, AI computing platforms, market dominance, and data center solutions.",
     type: "article",
     url: "https://www.objectwire.org/nvidia",

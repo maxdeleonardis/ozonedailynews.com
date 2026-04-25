@@ -12,7 +12,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Unreal Engine Expands Beyond Gaming Into Film, Automotive, and Architecture, 2026 Adoption Trends',
+    'Unreal Engine Expands Beyond Gaming Into Film',
   description:
     "Unreal Engine powers more than 28% of PC games released in 2024 and has expanded to 4,826 verified companies across film, automotive, architecture, and",
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Unreal Engine in 2026: 28% of PC Games, 35+ Car Dashboards, 500+ Film Projects",
+      "Unreal Engine in 2026 | 28% of PC Games, 35+ Car",
     description:
       "Epic Games' Unreal Engine has grown from a 1998 shooter engine to the backbone of real-time 3D across gaming, film, automotive HMIs, and architectural",
     type: 'article',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Unreal Engine Is Now in Car Dashboards, Film Sets, and Architecture, Not Just Games",
+      "Unreal Engine Is Now in Car Dashboards, Film Sets, and",
     description:
       "28% of PC games. 35+ car HMIs. 500+ film/TV projects. 4,826 companies across industries. Epic's Unreal Engine expansion by the numbers, 2026.",
     images: [IMAGE_URL],

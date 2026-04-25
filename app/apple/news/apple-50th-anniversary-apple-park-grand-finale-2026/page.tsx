@@ -9,7 +9,7 @@ const SLUG = '/apple/news/apple-50th-anniversary-apple-park-grand-finale-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Apple 50th Anniversary | Grand Finale at Apple Park April 2026',
+  title: 'Apple 50th Anniversary | Grand Finale at Apple Park April',
   description:
     'Apple turns 50 on April 1, 2026, closing a week of global celebrations with a private grand finale at Apple Park. Mark Gurman reports a "British Invasion"',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: 'Apple Turns 50 | Grand Finale at Apple Park Caps a Week of Global Celebrations',
+    title: 'Apple Turns 50 | Grand Finale at Apple Park Caps a Week of',
     description:
       'From a Los Altos garage to a $3.6T company with 2.5B active devices, Apple marks 50 years with a private Apple Park event headlined by a "British',
     type: 'article',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apple turns 50 Wednesday. The grand finale at Apple Park has a mystery headliner.',
+    title: 'Apple turns 50 Wednesday. The grand finale at Apple Park',
     description:
       'Gurman says it\'s someone from the "British Invasion" who Steve Jobs "would\'ve been ecstatic" about. The Visitor Center closes early Tuesday. All signs',
   },

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Mikaela Shiffrin | Olympic Alpine Skier Profile | Milan Cortina 2026 | Object Wire',
+  title: 'Mikaela Shiffrin | Olympic Alpine Skier Profile | Milan',
   description: 'Complete profile of Mikaela Shiffrin, the most decorated alpine skier in World Cup history, competing at Milan Cortina 2026. Career highlights,',
   keywords: ['Mikaela Shiffrin', 'alpine skiing', 'Winter Olympics', 'Milan Cortina 2026', 'Team USA', 'slalom', 'giant slalom', 'World Cup'],
   openGraph: {

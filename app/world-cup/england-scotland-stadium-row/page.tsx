@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/world-cup/england-scotland-stadium-row',
   },
+  openGraph: {
+    title: "England and Scotland World Cup Stadium Row",
+    description: "Home nations face potential last-minute venue changes as £6 million dispute threatens FIFA World Cup 2026 preparations.",
+    type: 'article',
+    url: "https://www.objectwire.org/world-cup/england-scotland-stadium-row",
+    siteName: 'ObjectWire',
+    section: "Sports",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "England and Scotland World Cup Stadium Row",
+    description: "Home nations face potential last-minute venue changes as £6 million dispute threatens FIFA World Cup 2026 preparations.",
+  },
 };
 
 export default function EnglandScotlandStadiumRowPage() {

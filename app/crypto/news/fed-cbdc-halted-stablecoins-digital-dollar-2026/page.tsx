@@ -9,7 +9,7 @@ const SLUG = '/crypto/news/fed-cbdc-halted-stablecoins-digital-dollar-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1771736007142-e1348a02f006?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework',
+  title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as',
   description:
     'The Federal Reserve has confirmed it will not pursue a central bank digital currency, instead backing stablecoins and tokenized bank deposits as the U.S.',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as Digital Dollar Framework',
+    title: 'Fed Confirms CBDC Work Halted | Backs Stablecoins as',
     description:
       'The Federal Reserve has confirmed it will not pursue a CBDC, throwing its weight behind stablecoins and tokenized bank deposits as the preferred digital',
     url: `https://www.objectwire.org${SLUG}`,

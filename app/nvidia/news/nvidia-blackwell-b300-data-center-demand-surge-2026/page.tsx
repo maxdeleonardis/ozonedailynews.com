@@ -10,7 +10,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/nvidia/nvidia-blackwell-b300-datacenter.jpg';
 
 export const metadata: Metadata = {
-  title: "NVIDIA\u2019s Blackwell B300 Demand Has \u2018Completely Broken\u2019 Data Center Planning Models",
+  title: "NVIDIA\u2019s Blackwell B300 Demand Has \u2018Completely",
   description:
     "Hyperscalers are ordering NVIDIA\u2019s Blackwell B300 GPUs at a pace that has left data center operators scrambling. Lead times have stretched to 52",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: FULL_URL },
   openGraph: {
-    title: "NVIDIA\u2019s Blackwell B300 Demand Has \u2018Completely Broken\u2019 Data Center Planning Models",
+    title: "NVIDIA\u2019s Blackwell B300 Demand Has \u2018Completely",
     description:
       "52-week lead times. Colocation sold out through 2027. Power grids overwhelmed. The Blackwell B300 GPU demand spike is the biggest infrastructure shock the",
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "NVIDIA B300 Demand Has \u2018Broken\u2019 Data Center Planning Models",
+    title: "NVIDIA B300 Demand Has \u2018Broken\u2019 Data Center",
     description:
       "52-week lead times, colocation sold out through 2027, power grids maxed. The Blackwell B300 wave is rewriting how the world builds compute infrastructure.",
   },

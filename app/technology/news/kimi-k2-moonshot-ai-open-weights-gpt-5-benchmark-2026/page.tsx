@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Kimi K2.6 | Moonshot AI Open-Weights Model Beats GPT-5.4',
   description:
-    'Moonshot AI releases Kimi K2.6, a 1-trillion parameter open-weights model that outscores GPT-5.4 and Claude Opus 4.6 on SWE-Bench Pro, BrowseComp, and Humanity\'s Last Exam. API priced at $0.95 per million tokens.',
+    'Moonshot AI releases Kimi K2.6, a 1-trillion parameter open-weights model that outscores GPT-5.4 and Claude Opus 4.6 on SWE-Bench Pro, BrowseComp, and',
   keywords: [
     'Kimi K2.6 Moonshot AI open weights 2026',
     'Kimi K2.6 vs GPT-5.4 benchmark',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Kimi K2.6 | Moonshot AI\'s Open-Weights Model Beats GPT-5.4 on Every Agentic Benchmark',
     description:
-      '54.0% on Humanity\'s Last Exam, 58.6% on SWE-Bench Pro, 86.3% on BrowseComp. Moonshot AI\'s 1T-parameter open-weights model is free to download and costs $0.95 per million tokens via API.',
+      '54.0% on Humanity\'s Last Exam, 58.6% on SWE-Bench Pro, 86.3% on BrowseComp. Moonshot AI\'s 1T-parameter open-weights model is free to download and costs',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

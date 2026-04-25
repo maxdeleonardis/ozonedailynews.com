@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "The Largest Prediction Markets in the United States 2026 | Complete Guide",
+  title: "The Largest Prediction Markets in the United States 2026",
   description: "Comprehensive ranking of the largest prediction markets in the US for 2026, from Polymarket and Kalshi to PredictIt and Augur. Market size, trading",
   keywords: [
     "largest prediction markets United States 2026",
@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/define/largest-prediction-markets-united-states-2026',
+  },
+  openGraph: {
+    title: "The Largest Prediction Markets in the United States 2026",
+    description: "Comprehensive ranking of the largest prediction markets in the US for 2026, from Polymarket and Kalshi to PredictIt and Augur. Market size, trading",
+    type: 'article',
+    url: "https://www.objectwire.org/define/largest-prediction-markets-united-states-2026",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Largest Prediction Markets in the United States 2026",
+    description: "Comprehensive ranking of the largest prediction markets in the US for 2026, from Polymarket and Kalshi to PredictIt and Augur. Market size, trading",
   },
 };
 

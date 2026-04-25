@@ -6,10 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Non-Degree Studies at UT Austin 2026: Complete Guide | ObjectWire.org",
+  title: "Non-Degree Studies at UT Austin 2026: Complete Guide",
   description: "Designed for high school graduates, working adults, the unemployed, and even current UT students seeking extras. Complete guide to non-degree studies at",
   alternates: {
     canonical: 'https://www.objectwire.org/non-degree-studies-at-university-of-texas-austin',
+  },
+  openGraph: {
+    title: "Non-Degree Studies at UT Austin 2026: Complete Guide",
+    description: "Designed for high school graduates, working adults, the unemployed, and even current UT students seeking extras. Complete guide to non-degree studies at",
+    type: 'article',
+    url: "https://www.objectwire.org/non-degree-studies-at-university-of-texas-austin",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Non-Degree Studies at UT Austin 2026: Complete Guide",
+    description: "Designed for high school graduates, working adults, the unemployed, and even current UT students seeking extras. Complete guide to non-degree studies at",
   },
 };
 

@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/youtube/sidemen/arthur-tv',
   },
+  openGraph: {
+    title: "ArthurTV | YouTube Content Creator & Sidemen Collaborator",
+    description: "Complete profile of ArthurTV (Arthur Frederick), British YouTube content creator known for collaborations with the Sidemen and his charismatic personality.",
+    type: 'article',
+    url: "https://www.objectwire.org/youtube/sidemen/arthur-tv",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "ArthurTV | YouTube Content Creator & Sidemen Collaborator",
+    description: "Complete profile of ArthurTV (Arthur Frederick), British YouTube content creator known for collaborations with the Sidemen and his charismatic personality.",
+  },
 };
 
 export default function ArthurTVPage() {

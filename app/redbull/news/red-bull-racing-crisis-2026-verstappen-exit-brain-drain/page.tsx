@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Red Bull Racing Crisis 2026 | Verstappen Exit, Brain Drain, RB22 Disaster',
-  description: 'Red Bull Racing sits 6th in the 2026 Constructors Standings with 16 points. Adrian Newey, Christian Horner, and Helmut Marko gone. Lambiase leaving for McLaren. Verstappen eyeing exit clause.',
+  title: 'Red Bull Racing Crisis 2026 | Verstappen Exit, Brain Drain',
+  description: 'Red Bull Racing sits 6th in the 2026 Constructors Standings with 16 points. Adrian Newey, Christian Horner, and Helmut Marko gone. Lambiase leaving for',
   keywords: [
     'Red Bull Racing 2026',
     'Red Bull crisis 2026',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Red Bull Racing in Freefall | 6th in Constructors, Verstappen Exit Looms',
+    title: 'Red Bull Racing in Freefall | 6th in Constructors',
     description: 'Brain drain, a "disaster" RB22, and a star driver eyeing the exit. Red Bull Racing faces a triple crisis in 2026 with only 16 points after three rounds.',
     type: 'article',
     url: ARTICLE_URL,
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Red Bull Racing triple crisis | 6th in standings, Verstappen may leave',
-    description: 'Newey gone. Horner gone. Marko gone. Lambiase leaving for McLaren. RB22 called a "disaster." Verstappen reportedly has a summer exit clause. 16 points after 3 rounds.',
+    title: 'Red Bull Racing triple crisis | 6th in standings',
+    description: 'Newey gone. Horner gone. Marko gone. Lambiase leaving for McLaren. RB22 called a "disaster." Verstappen reportedly has a summer exit clause. 16 points',
   },
 };
 

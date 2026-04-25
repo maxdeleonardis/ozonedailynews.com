@@ -3,7 +3,7 @@
 **Status:** Active
 **Owner:** Editorial / Engineering
 **Created:** April 24, 2026
-**Last Updated:** April 24, 2026 (M8 shipped, M10 audit + cluster fixes landed)
+**Last Updated:** April 25, 2026 (M2 production verified ✅ — critical uppercase URL bug discovered)
 **Trigger:** Major impressions drop in Google Search Console two days ago (April 22, 2026).
 **Goal:** Stop the bleed, restore canonical hygiene, and harden the SEO pipeline so this class of regression cannot recur.
 
@@ -14,9 +14,9 @@
 | Phase | Milestone | Status | Notes |
 |---|---|---|---|
 | 0 | Hotfix in working copy | ✅ Done | layout canonical removed, `public/robots.txt` deleted |
-| 1 | M1 Deploy hotfix | 🔄 Committed (`847fd21`), **NOT pushed** | User must say "push" to deploy |
-| 1 | M2 Verify production | ⏳ Pending push | |
-| 1 | M3 GSC reindex | ⏳ Pending push | Manual user task |
+| 1 | M1 Deploy hotfix | ✅ Done | All 4 commits pushed → Railway deploying (`847fd21`…`9c15099`) |
+| 1 | M2 Verify production | ✅ Done (Apr 25) | robots 122 lines, news-sitemap 37 URLs (3-day), canonical = 1 per page ✅ |
+| 1 | M3 GSC reindex | ⏳ Ready (manual) | Submit sitemap + Request Indexing on top 10 traffic articles |
 | 2 | M4 Canonical guardrail | ✅ Done | `scripts/validate-canonicals.ts` + prebuild |
 | 2 | M5 Sitemap orphan report | ✅ Done | `wiki:status` extended; all 437 articles registry-covered |
 | 2 | M6 public/ regression test | ✅ Done | `scripts/validate-public.ts` + prebuild |
@@ -29,15 +29,84 @@
 | 3 | M13 CWV review | ⏳ Not started | |
 | 3 | M14 Admin SEO dashboard | ⏳ Not started | |
 | 4 | M15-M18 | ⏳ Not started | |
+| **🚨** | **M19 Uppercase URL cleanup** | **🔴 NEW — critical** | **6 paths with capital letters — see Critical Issues section** |
 
-### Recent commits (unpushed on `main`)
+### Recent commits — **all pushed to Railway** (April 24, 2026)
 
 | SHA | Description |
 |---|---|
 | `847fd21` | Dynamic OG, PWA manifest, DB url field fixes (M1 hotfix payload) |
 | `eb6904b` | M10 audit script + first gap CSV (`Docs/seo-reports/internal-links-gap.csv`) + npm scripts |
 | `9dc5354` | M10 cluster fix: GTA 6 hub, GTA 6 news, Pokémon Pokopia internal links |
-| (this commit) | M8 news sitemap window 2→3 + plan doc update |
+| `9c15099` | M8 news sitemap window 2→3 + plan doc update |
+
+---
+
+## 🚨 Critical Issues Discovered (April 25, 2026)
+
+### Issue #1 | Uppercase characters in URL paths (CRITICAL)
+
+**6 article routes use capital letters in their directory names**, which violates the lowercase-only slug rule (`copilot-instructions.md`) and creates real SEO risk:
+
+- Linux/Railway is case-sensitive — `/trump/WLFI-stablecoin` and `/trump/wlfi-stablecoin` are different URLs to the server.
+- Google indexes them as separate pages, splitting authority.
+- Internal links inconsistent in case will 404 on production but work locally on Windows.
+- Sitemap and JSON-LD canonicals reference the uppercase form, locking the bad URL into Google's index.
+
+**Affected paths (git-confirmed, case-sensitive):**
+
+| Filesystem path | Table | DB slug |
+|---|---|---|
+| `app/finance/articles/NVIDIA-q4-ending-Feb-25/page.tsx` | **ORPHAN** (no DB row, no registry) | needs deletion or proper publish |
+| `app/nvidia/news/JensenHuang-AI-Agent-Will-Boost-Enterprise-Software-Value/page.tsx` | `articles` | `nvidia-news-JensenHuang-AI-Agent-Will-Boost-Enterprise-Software-Value` |
+| `app/social/tiktok/Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC/page.tsx` | `articles` | `social-tiktok-Announcement-from-the-new-TikTok-USDS-Joint-Venture-LLC` |
+| `app/trump/WLFI-stablecoin/page.tsx` | `article_pages` | `trump-WLFI-stablecoin` |
+| `app/video-games/Digital-Foundry/page.tsx` | **ORPHAN** (no DB row, no registry) | needs deletion or proper publish |
+| `app/video-games/game-of-the-year-2026-Clair-Obscur/page.tsx` | `articles` | `video-games-game-of-the-year-2026-Clair-Obscur` |
+
+### Issue #2 | Internal link backlog unchanged
+
+`npm run audit:links` (April 25) confirms the 298 failing articles unchanged from yesterday. Nothing has regressed, nothing improved. M10b is still the biggest leverage item.
+
+### Issue #3 | Production health = GREEN ✅
+
+Confirmed live (Googlebot UA, April 25):
+- `https://www.objectwire.org/robots.txt` → 122 lines (dynamic ✅, not the deleted static)
+- `https://www.objectwire.org/sitemap.xml` → 700 URLs ✅
+- `https://www.objectwire.org/news-sitemap.xml` → 37 URLs in 3-day window ✅ (M8 working)
+- `/entertainment/news/fortnite-moves-into-movies` canonical = self ✅, count = 1 ✅
+- `/influencer/ari-kytsya` canonical count = 1 ✅
+- `/crypto/news/anchorage-usat-expands-to-celo-network` canonical count = 1 ✅
+- Homepage canonical = `https://www.objectwire.org`, count = 1 ✅
+
+The April 22 impressions cliff is now stopped. M3 (GSC reindex) is the user-side action needed to accelerate recovery.
+
+---
+
+## M19 — Uppercase URL Cleanup (NEW, CRITICAL)
+
+**Goal:** Move all 6 uppercase routes to lowercase canonical paths with 301 redirects from the old paths.
+
+**Why critical:**
+- SEO duplicate-URL risk (case-sensitive Linux production).
+- Violates `copilot-instructions.md` slug rule.
+- Could be silently splitting GSC impressions across two URL forms.
+
+**Approach (per article):**
+1. `git mv -f app/Old-Path app/old-path-temp && git mv app/old-path-temp app/old-path` (two-step rename for case-only changes on Windows).
+2. Update Supabase row: `slug` and `url` to lowercase via `scripts/rename-uppercase-routes.ts`.
+3. Update `content_registry` row.
+4. Add `middleware.ts` redirect map: `/Old-Path` → `/old-path` (308 permanent).
+5. Run `wiki:sync` to verify no orphans.
+6. After deploy, GSC URL Inspection on the new lowercase URL.
+
+**Acceptance:**
+- `git ls-files app/ | grep '[A-Z]'` returns zero results (or only intentional capitals like `README.md`).
+- All 6 old URLs return 308 to lowercase equivalent.
+- All 6 new URLs return 200 with canonical = self in lowercase.
+- New audit script `scripts/validate-lowercase-urls.ts` wired into `prebuild`.
+
+**Estimated effort:** 1 session (script writes itself, the renames + redirects are mechanical).
 
 ---
 

@@ -11,7 +11,7 @@ const IMAGE_URL =
   'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'BlackRock Invests $57M in IQM Quantum Computers Ahead of U.S. Listing',
+  title: 'BlackRock Invests $57M in IQM Quantum Computers Ahead of',
   description:
     'BlackRock has committed a €50 million ($57.6M) financing package to Finnish quantum computing company IQM Quantum Computers, bolstering its balance sheet',
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'BlackRock Invests $57M in IQM Quantum Ahead of Historic U.S. Listing',
+    title: 'BlackRock Invests $57M in IQM Quantum Ahead of Historic',
     description:
       'A €50M BlackRock financing package lands five weeks after IQM announced a SPAC merger with RAAQ at a $1.8B pre-money valuation. The deal would make IQM',
     type: 'article',

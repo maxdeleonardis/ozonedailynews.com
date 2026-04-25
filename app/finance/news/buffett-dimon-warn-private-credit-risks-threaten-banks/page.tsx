@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w
 
 export const metadata: Metadata = {
   title: 'Buffett, Dimon Warn Private Credit Risks Threaten Banks',
-  description: 'Warren Buffett and Jamie Dimon warned that the $1.8 trillion private credit market poses systemic risks to the banking system, citing opacity, leverage, and liquidity mismatches in the sector.',
+  description: 'Warren Buffett and Jamie Dimon warned that the $1.8 trillion private credit market poses systemic risks to the banking system, citing opacity, leverage,',
   keywords: [
     'Warren Buffett private credit warning',
     'Jamie Dimon private credit 2026',

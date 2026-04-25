@@ -13,7 +13,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Michael Dell $750M Gift | UT Austin AI-Native Hospital 2026',
   description:
-    'Michael and Susan Dell donate $750 million to UT Austin on April 21, 2026, funding the first AI-native hospital in the United States and a 300-acre campus in Northwest Austin. Groundbreaking expected Fall 2026.',
+    'Michael and Susan Dell donate $750 million to UT Austin on April 21, 2026, funding the first AI-native hospital in the United States and a 300-acre campus',
   keywords: [
     'Michael Dell $750 million UT Austin donation 2026',
     'UT Dell Medical Center AI hospital Austin',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Michael Dell Donates $750M to UT Austin | First AI-Native Hospital in America',
+    title: 'Michael Dell Donates $750M to UT Austin | First AI-Native',
     description:
-      'The Dells become UT Austin\'s first billion-dollar donors. A 300-acre AI-native medical campus breaks ground Fall 2026, opens 2030, and launches a $10B decade-long fundraising campaign.',
+      'The Dells become UT Austin\'s first billion-dollar donors. A 300-acre AI-native medical campus breaks ground Fall 2026, opens 2030, and launches a $10B',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

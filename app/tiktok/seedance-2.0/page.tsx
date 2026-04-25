@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:
-    "Seedance 2.0 Global Launch Delayed Amid Hollywood Copyright Backlash",
+    "Seedance 2.0 Global Launch Delayed Amid Hollywood",
   description:
     "ByteDance's Seedance 2.0 AI video model launched in China on February 12, 2026, but its global API rollout, originally set for February 24, has been",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: "https://www.objectwire.org/tiktok/seedance-2.0",
   },
   openGraph: {
-    title: "Seedance 2.0 Global Launch Blocked by Hollywood Copyright Backlash",
+    title: "Seedance 2.0 Global Launch Blocked by Hollywood",
     description:
       "ByteDance's cinematic AI video model was set for global release February 24, 2026. Then the cease-and-desist letters arrived.",
     type: "article",

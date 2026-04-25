@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Bond App Launch | AI Memories, No Feed, No Ads, Post-Feed Social',
-  description: 'Bond, a new social app from Google DeepMind, Meta, and OpenAI veterans, launched out of stealth with no ads, no followers, and an AI that turns private memories into life recommendations.',
+  title: 'Bond App Launch | AI Memories, No Feed, No Ads, Post-Feed',
+  description: 'Bond, a new social app from Google DeepMind, Meta, and OpenAI veterans, launched out of stealth with no ads, no followers, and an AI that turns private',
   keywords: [
     'Bond app launch 2026',
     'Bond social media app no ads',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Bond App Launch | AI Memories, No Feed & No Ads Post-Feed Social',
-    description: 'Bond wants you to use it less. Built by ex-DeepMind, Meta, OpenAI, and TikTok engineers, the app replaces infinite scroll with private AI-powered memories and a $5M seed round.',
+    title: 'Bond App Launch | AI Memories, No Feed & No Ads Post-Feed',
+    description: 'Bond wants you to use it less. Built by ex-DeepMind, Meta, OpenAI, and TikTok engineers, the app replaces infinite scroll with private AI-powered memories',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bond App Launched | A Social Network That Tells You to Get Off Your Phone',
-    description: 'No feed. No ads. No follower counts. Bond uses AI memories from Gemini, OpenAI, and Anthropic to recommend real-life actions. Built by ex-DeepMind and Meta engineers.',
+    title: 'Bond App Launched | A Social Network That Tells You to Get',
+    description: 'No feed. No ads. No follower counts. Bond uses AI memories from Gemini, OpenAI, and Anthropic to recommend real-life actions. Built by ex-DeepMind and',
   },
 };
 

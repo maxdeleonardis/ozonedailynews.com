@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube',
   },
+  openGraph: {
+    title: "SteveWillDoIt Kicked Off Logan Paul",
+    description: "Breaking news: SteveWillDoIt was removed from Logan Paul",
+    type: 'article',
+    url: "https://www.objectwire.org/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube",
+    siteName: 'ObjectWire',
+    section: "Influencer",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "SteveWillDoIt Kicked Off Logan Paul",
+    description: "Breaking news: SteveWillDoIt was removed from Logan Paul",
+  },
 };
 
 export default function SteveWillDoItPodcastPage() {

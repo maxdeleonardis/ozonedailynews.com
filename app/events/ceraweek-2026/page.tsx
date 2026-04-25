@@ -9,7 +9,7 @@ const SLUG = '/events/ceraweek-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1765263857986-271b4923632d?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds',
+  title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite',
   description:
     'More than 300 clean energy startups at CERAWeek 2026 in Houston showcased AI-integrated battery storage, low-emission fuels, and grid tech as the sector',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite Trump Headwinds',
+    title: 'CERAWeek 2026 | Clean Energy Startups Pivot to AI Despite',
     description:
       'More than 300 clean energy startups descended on Houston for CERAWeek 2026, signaling the sector is adapting to the rollback of renewable energy',
     url: `https://www.objectwire.org${SLUG}`,

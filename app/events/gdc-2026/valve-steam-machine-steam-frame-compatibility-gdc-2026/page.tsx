@@ -9,7 +9,7 @@ const SLUG = 'valve-steam-machine-steam-frame-compatibility-gdc-2026';
 const ARTICLE_URL = `https://www.objectwire.org/events/gdc-2026/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026',
+  title: 'Valve Outlines Steam Machine & Steam Frame Compatibility',
   description: 'Valve presented compatibility requirements and development timelines for the Steam Machine desktop and Steam Frame VR headset at GDC 2026, both remain on',
   keywords: [
     'Valve', 'Steam Machine', 'Steam Frame', 'GDC 2026', 'SteamOS', 'Steam Deck Verified',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'game developers conference 2026', 'VR headset', 'Snapdragon 8 Gen 3',
   ],
   openGraph: {
-    title: 'Valve Outlines Steam Machine & Steam Frame Compatibility Standards at GDC 2026',
+    title: 'Valve Outlines Steam Machine & Steam Frame Compatibility',
     description: 'Valve confirmed 2026 launch targets for Steam Machine and Steam Frame VR at GDC, publishing Verified certification requirements and blaming RAM shortages',
     type: 'article',
     publishedTime: '2026-03-11T18:00:00Z',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valve at GDC 2026: Steam Machine & Steam Frame Compatibility Standards Revealed',
+    title: 'Valve at GDC 2026 | Steam Machine & Steam Frame',
     description: 'Valve confirmed 2026 hardware targets, published Verified requirements, and blamed RAM shortages for delays at a GDC session attended by 450 developers.',
   },
   alternates: { canonical: ARTICLE_URL },

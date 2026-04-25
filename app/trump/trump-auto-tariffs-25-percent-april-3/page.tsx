@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/trump/trump-auto-tariffs-april.jpg';
 
 export const metadata: Metadata = {
-  title: 'Trump 25% Auto Tariff Order | Global Carmakers Brace for April 3',
+  title: 'Trump 25% Auto Tariff Order | Global Carmakers Brace for',
   description:
     'President Trump signed an executive order imposing 25% tariffs on all imported automobiles and auto parts, effective April 3. Analysts project a $3,000 to',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Trump 25% Auto Tariff Order | Global Carmakers Face April 3 Shock',
+    title: 'Trump 25% Auto Tariff Order | Global Carmakers Face April 3',
     description:
       'A 25% tariff on every imported car and auto part hits April 3. Toyota, BMW, Stellantis and Hyundai are scrambling. Ford and GM see a short window to gain,',
     type: 'article',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Alphabet Raises $32B in 24 Hours with Rare 100-Year Bond | Breaking News | Object Wire',
+  title: 'Alphabet Raises $32B in 24 Hours with Rare 100-Year Bond',
   description: 'Alphabet Inc. raised nearly $32 billion in less than 24 hours through a historic multi-currency bond sale, including an ultra-rare 100-year sterling bond,',
   keywords: ['Alphabet', 'Google', 'bond sale', '100-year bond', 'century bond', 'corporate debt', 'Motorola', 'sterling bond', 'investment grade', 'tech financing', '$32 billion'],
   openGraph: {

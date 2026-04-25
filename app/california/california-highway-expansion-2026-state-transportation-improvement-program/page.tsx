@@ -10,7 +10,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/earth/pexels-george-desipris-726478.jpg';
 
 export const metadata: Metadata = {
-  title: 'California Approves Highway Expansion as Record Heat Wave Grips the West',
+  title: 'California Approves Highway Expansion as Record Heat',
   description:
     'As California endured its hottest March days ever recorded, the California Transportation Commission voted on March 19\u201320 to adopt the 2026 State',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: FULL_URL,
   },
   openGraph: {
-    title: 'California Approves Highway Expansion as Record Heat Wave Grips the West',
+    title: 'California Approves Highway Expansion as Record Heat',
     description:
       'The California Transportation Commission adopted the 2026 STIP on March 19\u201320, approving highway expansion projects even as the state recorded its',
     type: 'article',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'California Approves Highway Expansion Amid Record March Heat Wave',
+    title: 'California Approves Highway Expansion Amid Record March',
     description:
       'The California Transportation Commission greenlighted new highway projects on March 19\u201320 \u2014 the same week the state broke all-time March',
     images: [IMAGE_URL],

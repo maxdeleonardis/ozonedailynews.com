@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "MrBeast Announces Beast Games Season 2 Casting: Everything You Need to Know",
+  title: "MrBeast Announces Beast Games Season 2 Casting | Everything",
   description:
     "MrBeast has officially opened casting for Beast Games Season 2. Here's how to apply, what to expect, and why this season could be even bigger.",
   keywords: [
@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.objectwire.org/influencer/mrbeast-launches-beast-games-season-2-casting',
+  },
+  openGraph: {
+    title: "MrBeast Announces Beast Games Season 2 Casting | Everything",
+    description: "MrBeast has officially opened casting for Beast Games Season 2. Here",
+    type: 'article',
+    url: "https://www.objectwire.org/influencer/mrbeast-launches-beast-games-season-2-casting",
+    siteName: 'ObjectWire',
+    section: "Influencer",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "MrBeast Announces Beast Games Season 2 Casting | Everything",
+    description: "MrBeast has officially opened casting for Beast Games Season 2. Here",
   },
 };
 

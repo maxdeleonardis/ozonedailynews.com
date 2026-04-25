@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/mha/ultra-rumble/season-15/strike-overhaul';
 
 export const metadata: Metadata = {
-  title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 My Hero Ultra Rumble',
+  title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 My',
   description:
     'Bandai Namco drops the Overhaul "Blighted Precipice" Quick Skill in My Hero Ultra Rumble Season 15 on February 18, 2026. Full stats, quirk skills, tuning',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/mha/ultra-rumble/season-15/strike-overhaul',
   },
   openGraph: {
-    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 Ultra Rumble',
+    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15',
     description:
       'Bandai Namco drops the Overhaul "Blighted Precipice" Quick Skill variant in My Hero Ultra Rumble Season 15. Full stats, quirk breakdown, and roll guide.',
     type: 'article',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15 Ultra Rumble',
+    title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15',
     description:
       'Full breakdown of the new Overhaul Quick Skill variant released February 18, 2026 in My Hero Ultra Rumble Season 15.',
   },

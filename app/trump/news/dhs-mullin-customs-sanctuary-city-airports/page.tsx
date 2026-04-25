@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://www.objectwire.org/images/trump/dhs-mullin-customs-sanctuary.jpg';
 
 export const metadata: Metadata = {
-  title: 'DHS Mullin Threatens Customs Pullout | Sanctuary City Airports',
-  description: 'DHS Secretary Markwayne Mullin told Fox News the Trump administration may withdraw CBP officers from sanctuary city airports, grounding international flights at major U.S. hubs.',
+  title: 'DHS Mullin Threatens Customs Pullout | Sanctuary City',
+  description: 'DHS Secretary Markwayne Mullin told Fox News the Trump administration may withdraw CBP officers from sanctuary city airports, grounding international',
   keywords: [
     'Markwayne Mullin',
     'DHS sanctuary city airports',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'DHS Mullin Threatens Customs Pullout From Sanctuary City Airports',
-    description: 'Homeland Security Secretary Markwayne Mullin said the Trump administration could withdraw CBP officers from sanctuary city airports, effectively grounding international flights at hubs like JFK, LAX, and O\'Hare.',
+    title: 'DHS Mullin Threatens Customs Pullout From Sanctuary City',
+    description: 'Homeland Security Secretary Markwayne Mullin said the Trump administration could withdraw CBP officers from sanctuary city airports, effectively grounding',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DHS Mullin Threatens to Pull Customs From Sanctuary City Airports',
-    description: 'Mullin told Fox News the administration may remove CBP from airports in sanctuary cities, potentially grounding international flights at JFK, LAX, SFO, and O\'Hare.',
+    title: 'DHS Mullin Threatens to Pull Customs From Sanctuary City',
+    description: 'Mullin told Fox News the administration may remove CBP from airports in sanctuary cities, potentially grounding international flights at JFK, LAX, SFO,',
     images: [OG_IMAGE],
   },
 };

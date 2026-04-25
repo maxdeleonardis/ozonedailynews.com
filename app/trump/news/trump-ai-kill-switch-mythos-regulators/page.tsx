@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1742413628280-8bfae633391b?i
 export const metadata: Metadata = {
   title: 'Trump AI Kill Switch | Mythos Model Alarms Global Regulators',
   description:
-    'Trump backs AI kill switch as Anthropic Mythos triggers emergency meetings at Treasury, the Fed, Bank of England, and regulators across three continents. Full breakdown.',
+    'Trump backs AI kill switch as Anthropic Mythos triggers emergency meetings at Treasury, the Fed, Bank of England, and regulators across three continents.',
   keywords: [
     'Trump AI kill switch',
     'Anthropic Mythos regulators',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Trump Backs AI Kill Switch | Claude Mythos Alarms Global Regulators',
+    title: 'Trump Backs AI Kill Switch | Claude Mythos Alarms Global',
     description:
-      'Treasury, the Fed, Bank of England, and the EU scramble after Anthropic Mythos raises unprecedented cyber risk concerns. Trump supports government safeguards including a kill switch.',
+      'Treasury, the Fed, Bank of England, and the EU scramble after Anthropic Mythos raises unprecedented cyber risk concerns. Trump supports government',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trump Backs AI Kill Switch as Mythos Alarms Regulators Worldwide',
+    title: 'Trump Backs AI Kill Switch as Mythos Alarms Regulators',
     description:
       'Bessent, Powell, and bank CEOs met April 8. UK calls Mythos "substantially more capable at cyber offence than any model we have assessed."',
     images: [OG_IMAGE],

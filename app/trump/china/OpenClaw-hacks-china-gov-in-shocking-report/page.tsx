@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "CYBER ALERT: China Warns Agencies to Limit OpenClaw AI Over Critical Security Flaws",
+  title: "CYBER ALERT | China Warns Agencies to Limit OpenClaw AI",
   description:
     "China's Ministry of Industry and Information Technology and the National Administration of State Secrets Protection issued an urgent directive on March 3,",
   keywords: [

@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/open-ai/first-ai-insurance-apps',
   },
+  openGraph: {
+    title: "OpenAI Authorizes First Insurance Apps in ChatGPT",
+    description: "Spanish insurer Tuio and US platform Insurify launch regulated insurance tools within ChatGPT, marking a shift to AI commerce.",
+    type: 'article',
+    url: "https://www.objectwire.org/open-ai/first-ai-insurance-apps",
+    siteName: 'ObjectWire',
+    section: "Tech",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "OpenAI Authorizes First Insurance Apps in ChatGPT",
+    description: "Spanish insurer Tuio and US platform Insurify launch regulated insurance tools within ChatGPT, marking a shift to AI commerce.",
+  },
 };
 
 export default function OpenAIInsurancePage() {

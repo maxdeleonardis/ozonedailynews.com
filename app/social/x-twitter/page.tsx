@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "X (Twitter) Wiki 2026: History, Elon Musk Acquisition & 550M Users",
+  title: "X (Twitter) Wiki 2026 | History, Elon Musk Acquisition",
   description: "Complete profile of X (formerly Twitter) - founded 2006, acquired by Elon Musk for $44B in 2022. Now rebranded as X with 550 million monthly users.",
   keywords: [
     "X",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "X (Twitter) Wiki 2026: History, Elon Musk Acquisition & 550M Users",
+    title: "X (Twitter) Wiki 2026 | History, Elon Musk Acquisition",
     description: "Complete profile of X, the platform formerly known as Twitter.",
   },
   alternates: {

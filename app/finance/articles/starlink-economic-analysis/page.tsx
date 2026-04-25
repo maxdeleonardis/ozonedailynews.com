@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine",
+  title: "Macro-Economic Architectural Analysis | Starlink’s",
   description: "As of 2026, Starlink has transitioned into a cash-flow-positive juggernaut, leveraging SpaceX to rewrite the financial rules of the telecommunications",
   keywords: [
     "Starlink economics 2026",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Elon Musk Mars funding"
   ],
   openGraph: {
-    title: "Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine",
+    title: "Macro-Economic Architectural Analysis | Starlink’s",
     description: "Financial Intelligence: Starlink's transition from capital-heavy experimental phase to a cash-flow-positive juggernaut.",
     type: "article",
     url: "https://www.objectwire.org/finance/articles/starlink-economic-analysis",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   authors: [{ name: "ObjectWire Financial Desk" }],
   twitter: {
     card: 'summary_large_image',
-    title: 'Macro-Economic Architectural Analysis: Starlink’s High-Velocity Wealth Engine',
+    title: 'Macro-Economic Architectural Analysis | Starlink’s',
     description: 'Financial Intelligence: Starlink',
   },
 };

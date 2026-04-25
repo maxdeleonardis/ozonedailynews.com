@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/austin/waymo-city-council-bufords-ambulance-obstruction-2026';
 
 export const metadata: Metadata = {
-  title: "Austin City Council Summons Waymo After Robotaxi Blocked Ambulance at Buford's Shooting",
+  title: "Austin Council Summons Waymo | Robotaxi Blocked Ambulance",
   description:
     "Austin City Council has formally invited Waymo to a joint Public Safety and Mobility committee hearing on April 29, 2026, after a driverless taxi",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Austin City Council Summons Waymo After Robotaxi Blocked Ambulance at Buford's Shooting",
+    title: "Austin Council Summons Waymo | Robotaxi Blocked Ambulance",
     description:
       "A Waymo robotaxi became stuck perpendicular across West 6th Street just as an ambulance raced to the March 1 mass shooting at Buford's Backyard Beer",
     type: 'article',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Austin City Council Summons Waymo After Robotaxi Blocked Ambulance at Buford's Shooting",
+    title: "Austin Council Summons Waymo | Robotaxi Blocked Ambulance",
     description:
       "Waymo will face a joint Austin City Council committee on April 29 after a driverless taxi blocked an ambulance during the Buford's Backyard Beer Garden",
   },

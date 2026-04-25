@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/earth/why-cobalt-is-the-new-oil';
 
 export const metadata: Metadata = {
-  title: "Why Cobalt Is the New Oil: The Battery Metal Crunch Reshaping Global Power",
+  title: "Why Cobalt Is the New Oil | The Battery Metal Crunch",
   description:
     "Cobalt is the essential ingredient in every EV battery, and nearly 70% of it comes from a single conflict-torn country. As demand explodes and ethics",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `https://www.objectwire.org${SLUG}`,
   },
   openGraph: {
-    title: "Why Cobalt Is the New Oil: The Battery Metal Crunch Reshaping Global Power",
+    title: "Why Cobalt Is the New Oil | The Battery Metal Crunch",
     description:
       "Nearly 70% of the world's cobalt comes from mines in the DRC, many linked to child labor and environmental destruction. The deep sea offers an",
     type: 'article',

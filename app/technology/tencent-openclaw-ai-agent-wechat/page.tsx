@@ -11,7 +11,7 @@ const IMAGE_URL =
   'https://www.objectwire.org/default/Tencent%20embeds%20OpenClaw%20.png';
 
 export const metadata: Metadata = {
-  title: 'Tencent Embeds OpenClaw AI Agent into WeChat for Over a Billion Users',
+  title: 'Tencent Embeds OpenClaw AI Agent into WeChat for Over a',
   description:
     'Tencent has integrated its OpenClaw AI agent directly into WeChat, giving more than 1.3 billion users access to a conversational AI without any new',
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Tencent Embeds OpenClaw AI Agent into WeChat for Over a Billion Users',
+    title: 'Tencent Embeds OpenClaw AI Agent into WeChat for Over a',
     description:
       'Tencent has integrated OpenClaw, its proprietary AI agent, directly into WeChat, giving 1.3 billion users AI access with no download required. The move',
     type: 'article',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tencent Embeds OpenClaw AI Agent into WeChat | 1.3 Billion Users',
+    title: 'Tencent Embeds OpenClaw AI Agent into WeChat | 1.3 Billion',
     description:
       "OpenClaw is now inside WeChat. No download. No sign-up. Just AI for 1.3 billion users \u2014 and a new front in China's AI distribution race.",
     images: [IMAGE_URL],

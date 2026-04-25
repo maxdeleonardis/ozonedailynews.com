@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=12
 export const metadata: Metadata = {
   title: 'Cluster Bakugo Season 16 | My Hero Ultra Rumble Skill Set',
   description:
-    'Cluster Bakugo arrives in My Hero Ultra Rumble Season 16 as a Technical Class overhaul. Full skill breakdown, meta tier list, team synergies, and gacha pull guide for April 2026.',
+    'Cluster Bakugo arrives in My Hero Ultra Rumble Season 16 as a Technical Class overhaul. Full skill breakdown, meta tier list, team synergies, and gacha',
   keywords: [
     'Cluster Bakugo My Hero Ultra Rumble',
     'My Hero Ultra Rumble Season 16 Cluster Bakugo',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Cluster Bakugo Season 16 | My Hero Ultra Rumble Skill Set Review',
+    title: 'Cluster Bakugo Season 16 | My Hero Ultra Rumble Skill Set',
     description:
       'Season 16 brings Bakugo\'s Cluster super move to My Hero Ultra Rumble. Technical Class overhaul, S-Tier stun-lock potential, and a 1% drop rate gacha trap.',
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cluster Bakugo is Here | S-Tier or Overhyped? Season 16 MHUR Review',
+    title: 'Cluster Bakugo is Here | S-Tier or Overhyped? Season 16',
     description: '1% drop rate, Strafe Panzer repositioning, and stun-lock combos. Full breakdown of Cluster Bakugo in My Hero Ultra Rumble Season 16.',
   },
 };

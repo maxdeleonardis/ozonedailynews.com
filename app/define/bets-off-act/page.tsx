@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "BETS OFF Act Explained: What It Is, What It Bans, and Who It Targets",
+  title: "BETS OFF Act Explained | What It Is, What It Bans, and Who",
   description:
     "Senator Chris Murphy and Representative Greg Casar introduced the BETS OFF Act on March 17, 2026, to ban CFTC-regulated prediction markets from listing",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/define/bets-off-act',
   },
   openGraph: {
-    title: "BETS OFF Act Explained: The Democratic Bill to Ban Prediction Markets on Government Actions",
+    title: "BETS OFF Act Explained | The Democratic Bill to Ban",
     description:
       "The BETS OFF Act, introduced March 17, 2026, would prohibit CFTC-regulated platforms from listing contracts tied to government actions, terrorism, war,",
     type: 'article',

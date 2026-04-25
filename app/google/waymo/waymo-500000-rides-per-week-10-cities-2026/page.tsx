@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Waymo: 500,000 Rides/Week, 4M Autonomous Miles/Week, Target 1M Rides/Week by End of 2026',
+    title: 'Waymo | 500,000 Rides/Week, 4M Autonomous Miles/Week',
     description:
       'Waymo co-CEO Dmitri Dolgov shared the latest scale figures in a podcast with Stripe co-founder John Collison on March 24, 2026.',
     images: [IMAGE_URL],

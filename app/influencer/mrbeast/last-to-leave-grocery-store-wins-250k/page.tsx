@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://www.objectwire.org/influncer/usa/mr_beast.png';
 export const metadata: Metadata = {
   title: 'MrBeast Grocery Store | $250K, Part 2 Cliffhanger',
   description:
-    'MrBeast locks random shoppers in a grocery store for $250,000. Coca-Cola FIFA World Cup 2026 Easter egg, surprise brand lineup, and a shocking Part 2 cliffhanger ending.',
+    'MrBeast locks random shoppers in a grocery store for $250,000. Coca-Cola FIFA World Cup 2026 Easter egg, surprise brand lineup, and a shocking Part 2',
   keywords: [
     'MrBeast grocery store challenge',
     'Last to Leave Grocery Store wins 250000',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MrBeast locked random shoppers in a grocery store for $250K, then ended on a cliffhanger',
+    title: 'MrBeast locked random shoppers in a grocery store for',
     description: 'Coca-Cola World Cup 2026 Easter egg, $40-off BEAST promo code, and no winner crowned. Part 2 is coming.',
     images: [OG_IMAGE],
   },

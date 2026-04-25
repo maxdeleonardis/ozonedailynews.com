@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'home crowd gold', 'Italian Winter Olympics',
   ],
   openGraph: {
-    title: 'Italy Stuns World-Record USA Team in Speedskating Team Pursuit for Olympic Gold',
+    title: 'Italy Stuns World-Record USA Team in Speedskating Team',
     description: 'Host nation Italy shocks the defending world-record-holding Americans in men\'s team pursuit speedskating, first Italian gold in the event since Turin',
     type: 'article',
     publishedTime: '2026-02-10T19:00:00Z',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Italy Stuns USA for Speedskating Team Pursuit Gold at Milano Cortina 2026',
+    title: 'Italy Stuns USA for Speedskating Team Pursuit Gold at',
     description: 'Host nation pulls off one of the biggest upsets of the Games, defeating the world-record-holding USA squad.',
   },
   alternates: {

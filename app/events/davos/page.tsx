@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Davos 2026: World Economic Forum Annual Meeting | Key Highlights and Outcomes",
+  title: "Davos 2026: World Economic Forum Annual Meeting | Key",
   description: "Complete coverage of the 2026 World Economic Forum in Davos, Switzerland. AI governance, climate action, global economic outlook, and tech industry",
   keywords: [
     "Davos 2026",

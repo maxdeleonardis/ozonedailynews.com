@@ -6,11 +6,11 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Team USA Wins Five Medals Across Five Sports at Milan Cortina | Breaking News | Object Wire',
+  title: 'Team USA Wins Five Medals Across Five Sports at Milan',
   description: 'Team USA made history at the Milan Cortina Winter Olympics, winning five medals across five different sports in a single day for the first time ever. The',
   keywords: ['Team USA', 'Winter Olympics', 'Milano Cortina', 'five medals', 'curling', 'mixed doubles', 'cross-country skiing', 'Cory Thiesse', 'Korey Dropkin', 'Sweden'],
   openGraph: {
-    title: 'Team USA Wins Five Medals Across Five Sports at Milan Cortina',
+    title: 'Team USA Wins Five Medals Across Five Sports at Milan',
     description: 'Historic day sees Team USA win five medals across five different sports for the first time ever at Winter Olympics.',
     type: 'article',
     publishedTime: '2026-02-11T16:30:00Z',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Team USA Wins Five Medals Across Five Sports at Milan Cortina',
+    title: 'Team USA Wins Five Medals Across Five Sports at Milan',
     description: 'Historic day sees Team USA win five medals across five different sports for the first time ever at Winter Olympics.',
   },
   alternates: {

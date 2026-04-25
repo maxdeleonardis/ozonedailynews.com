@@ -12,7 +12,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Crimson Desert Delivers Native 4K 60fps With Ray Tracing on Ultra Settings, Digital Foundry Tech Preview February 2026',
+    'Crimson Desert Delivers Native 4K 60fps With Ray Tracing',
   description:
     "Digital Foundry's February 27, 2026 tech preview confirmed Crimson Desert's BlackSpace Engine achieves native 4K at 60fps on ultra settings with full ray",
   keywords: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Crimson Desert: Native 4K / 60fps / RT on Ultra, No Upscaling Required, Digital Foundry Confirms",
+      "Crimson Desert | Native 4K / 60fps / RT on Ultra, No",
     description:
       "Pearl Abyss's custom BlackSpace Engine hit native 4K at 60fps on ultra settings with full ray tracing on an AMD RX 7900 XTX, no upscaling applied. Digital",
     type: 'article',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Crimson Desert Hits Native 4K / 60fps / Full RT on Ultra, Digital Foundry Feb 27, 2026",
+      "Crimson Desert Hits Native 4K / 60fps / Full RT on",
     description:
       "BlackSpace Engine: native 4K, 60fps, ultra, ray tracing, no upscaling on RX 7900 XTX. FSR Redstone + DLSS 4 at launch March 19, 2026.",
     images: [IMAGE_URL],

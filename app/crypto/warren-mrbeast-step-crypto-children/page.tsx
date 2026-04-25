@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/crypto/warren-mrbeast-step-crypto-children.jpg';
 
 export const metadata: Metadata = {
-  title: 'Warren Presses MrBeast on Crypto Plans for Children Through Step App',
+  title: 'Warren Presses MrBeast on Crypto Plans for Children',
   description:
     "Senator Elizabeth Warren sent a letter to YouTube star Jimmy Donaldson, MrBeast, on Monday demanding details about Beast Industries' plans to introduce",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: "Warren Presses MrBeast on Crypto Plans for Children Through Step App",
+    title: "Warren Presses MrBeast on Crypto Plans for Children",
     description:
       "Senator Elizabeth Warren, ranking Democrat on the Senate Banking Committee, sent MrBeast a letter demanding details on Beast Industries' plans to roll out",
     type: 'article',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Warren Presses MrBeast on Crypto Plans for Children Through Step App",
+    title: "Warren Presses MrBeast on Crypto Plans for Children",
     description:
       "Sen. Warren sent a letter to Jimmy Donaldson (MrBeast) demanding answers about Beast Industries' crypto plans for minors through the Step teen banking app.",
     images: [IMAGE_URL],

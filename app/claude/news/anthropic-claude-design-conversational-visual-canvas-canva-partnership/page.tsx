@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1776090893591-90f5ea3fa523?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200&q=80';
 
 export const metadata: Metadata = {
-  title: 'Claude Design | Anthropic Launches Conversational Visual Canvas',
-  description: 'Anthropic launches Claude Design, a conversational visual canvas with Canva integration, led by Mike Krieger and Ben Mann. Available in Research Preview for paid tiers.',
+  title: 'Claude Design | Anthropic Launches Conversational Visual',
+  description: 'Anthropic launches Claude Design, a conversational visual canvas with Canva integration, led by Mike Krieger and Ben Mann. Available in Research Preview',
   keywords: [
     'Claude Design',
     'Anthropic Claude Design',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Claude Design | Anthropic Launches Conversational Visual Canvas',
+    title: 'Claude Design | Anthropic Launches Conversational Visual',
     description: 'Conversational visual canvas with Canva integration. Led by Krieger and Mann. Exports PDF, PPTX, HTML/React. Research Preview for paid tiers.',
     type: 'article',
     url: ARTICLE_URL,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Claude Design launched | Conversational visual canvas with Canva integration',
+    title: 'Claude Design launched | Conversational visual canvas with',
     description: 'Anthropic Labs ships Claude Design. Conversational UI, auto design systems, multi-format export. Wix and Figma valuations drop on the news.',
     images: [OG_IMAGE],
   },

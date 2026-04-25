@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'NVIDIA Earth Day 2026 | 5 AI Initiatives Protecting the Planet',
-  description: 'NVIDIA Earth Day 2026 spotlights five AI initiatives: Earth-2 climate digital twin, orangutan bioacoustic monitoring, AMP recycling robots, ocean plastic detection, and wildfire prediction.',
+  title: 'NVIDIA Earth Day 2026 | 5 AI Initiatives Protecting the',
+  description: 'NVIDIA Earth Day 2026 spotlights five AI initiatives: Earth-2 climate digital twin, orangutan bioacoustic monitoring, AMP recycling robots, ocean plastic',
   keywords: [
     'NVIDIA Earth Day 2026',
     'NVIDIA Earth-2 climate AI',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'NVIDIA Earth Day 2026 | 5 AI Initiatives Protecting the Planet',
+    title: 'NVIDIA Earth Day 2026 | 5 AI Initiatives Protecting the',
     description: 'From kilometer-scale storm forecasts to orangutan bioacoustics and recycling robots, NVIDIA is deploying Physical AI across 5 major environmental fronts.',
     type: 'article',
     url: ARTICLE_URL,

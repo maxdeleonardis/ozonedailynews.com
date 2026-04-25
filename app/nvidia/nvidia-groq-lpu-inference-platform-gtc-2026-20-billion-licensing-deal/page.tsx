@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Nvidia Plans Groq-Integrated Inference Processor Unveil at GTC 2026 Following $20 Billion Licensing Deal',
+    'Nvidia Plans Groq-Integrated Inference Processor Unveil',
   description:
     "Nvidia will introduce a new AI inference processor platform at GTC 2026 in San Jose, built on Groq's Language Processing Unit architecture under a $20",
   keywords: [

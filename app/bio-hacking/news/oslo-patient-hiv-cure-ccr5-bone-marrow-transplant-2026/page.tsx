@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Oslo Patient HIV Cure | CCR5 Mutation Bone Marrow Transplant 2026',
-  description: 'A 63-year-old Norwegian man becomes roughly the tenth person cured of HIV after a bone marrow transplant from his brother, who carried two copies of the rare CCR5Δ32 mutation.',
+  title: 'Oslo Patient HIV Cure | CCR5 Mutation Bone Marrow',
+  description: 'A 63-year-old Norwegian man becomes roughly the tenth person cured of HIV after a bone marrow transplant from his brother, who carried two copies of the',
   keywords: [
     'Oslo patient HIV cure',
     'Oslo patient HIV cured 2026',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Oslo Patient Becomes ~10th Person Cured of HIV via CCR5 Mutation',
-    description: 'A familial bone marrow match carrying the CCR5Δ32 mutation cured a 63-year-old Norwegian man of HIV. Five years post-transplant, no replicating virus found.',
+    title: 'Oslo Patient Becomes ~10th Person Cured of HIV via CCR5',
+    description: 'A familial bone marrow match carrying the CCR5Δ32 mutation cured a 63-year-old Norwegian man of HIV. Five years post-transplant, no replicating virus',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

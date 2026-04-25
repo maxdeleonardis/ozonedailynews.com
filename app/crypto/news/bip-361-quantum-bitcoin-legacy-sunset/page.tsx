@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635840418908-772c54d7931f?i
 export const metadata: Metadata = {
   title: 'BIP-361 Quantum Bitcoin | Legacy Signature Sunset Explained',
   description:
-    'BIP-361 proposes freezing 34% of Bitcoin supply, including Satoshi Nakamoto coins, to protect against quantum computing attacks. Full breakdown of the three-phase migration.',
+    'BIP-361 proposes freezing 34% of Bitcoin supply, including Satoshi Nakamoto coins, to protect against quantum computing attacks. Full breakdown of the',
   keywords: [
     'BIP-361',
     'BIP-361 Bitcoin',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BIP-361 Would Freeze 34% of Bitcoin Supply Against Quantum Threat',
+    title: 'BIP-361 Would Freeze 34% of Bitcoin Supply Against',
     description:
       'Jameson Lopp proposes three-phase quantum migration. Satoshi Nakamoto coins at risk of permanent lockout.',
   },

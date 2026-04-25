@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Donkey Kong Bananza | GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine",
+  title: "Donkey Kong Bananza | GDC 2026 Tech Reveal: 347M Voxels",
   description:
     "Nintendo's GDC 2026 session revealed Donkey Kong Bananza's 347,070,464 individually destructible voxels per level, dynamic resolution system, and restore",
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Donkey Kong Bananza: 347,070,464 Destructible Voxels Per Level | GDC 2026",
+    title: "Donkey Kong Bananza: 347,070,464 Destructible Voxels Per",
     description:
       "Each level has 347M individually destructible voxels. Tech originated in Mario Odyssey snow drifts. Moved from Switch 1 to Switch 2 because the old",
   },

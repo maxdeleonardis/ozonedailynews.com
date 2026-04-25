@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = '/default/xAI_company_history_profile.png';
 
 export const metadata: Metadata = {
-  title: "Baltimore Files First Municipal Lawsuit Against xAI Over Grok Deepfakes",
+  title: "Baltimore Files First Municipal Lawsuit Against xAI Over",
   description:
     "Baltimore has become the first major U.S. city to sue xAI Corp. and X Corp., alleging Grok's nonconsensual deepfake imagery generation violated local",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: "Baltimore Files First Municipal Lawsuit Against xAI Over Grok Deepfakes",
+    title: "Baltimore Files First Municipal Lawsuit Against xAI Over",
     description:
       "Baltimore sued xAI Corp. and X Corp. on March 24, 2026, becoming the first U.S. city to use its Consumer Protection Ordinance against an AI company,",
     type: 'article',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Baltimore Sues xAI Over Grok Deepfakes | First Municipal AI Lawsuit in U.S.",
+    title: "Baltimore Sues xAI Over Grok Deepfakes | First Municipal AI",
     description:
       "3 million nonconsensual explicit images in 11 days. Baltimore is now suing xAI and X Corp., calling Grok a 'dangerously defective' product that violated",
     images: [IMAGE_URL],

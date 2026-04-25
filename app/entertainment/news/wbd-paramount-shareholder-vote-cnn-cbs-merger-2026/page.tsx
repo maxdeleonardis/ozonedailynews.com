@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'WBD Paramount Shareholder Vote | CNN, CBS, $110B Merger Analysis',
-  description: 'Warner Bros Discovery shareholders vote April 23 on a $110B Paramount Skydance merger that would merge CNN and CBS News, create a $50B debt load, and reshape American media.',
+  title: 'WBD Paramount Shareholder Vote | CNN, CBS, $110B Merger',
+  description: 'Warner Bros Discovery shareholders vote April 23 on a $110B Paramount Skydance merger that would merge CNN and CBS News, create a $50B debt load, and',
   keywords: [
     'Warner Bros Discovery Paramount merger 2026',
     'WBD shareholder vote April 2026',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'WBD Paramount Shareholder Vote | CNN + CBS Merger, $110B Media Shakeup',
-    description: 'Shareholders vote today on a deal that would put CNN and CBS News under one roof, pile $50B in debt onto the combined entity, and cut up to 7,000 jobs. Here is what is at stake.',
+    title: 'WBD Paramount Shareholder Vote | CNN + CBS Merger, $110B',
+    description: 'Shareholders vote today on a deal that would put CNN and CBS News under one roof, pile $50B in debt onto the combined entity, and cut up to 7,000 jobs.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

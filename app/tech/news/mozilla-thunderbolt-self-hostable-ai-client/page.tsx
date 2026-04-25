@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1652111865960-15f4a46a7688?i
 
 export const metadata: Metadata = {
   title: 'Mozilla Thunderbolt | Self-Hostable Open-Source AI Client',
-  description: 'MZLA Technologies unveiled Thunderbolt, an open-source AI client for organizations that want to run AI workloads on their own infrastructure without routing data through cloud providers.',
+  description: 'MZLA Technologies unveiled Thunderbolt, an open-source AI client for organizations that want to run AI workloads on their own infrastructure without',
   keywords: [
     'Mozilla Thunderbolt AI client',
     'MZLA Technologies Thunderbolt',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Mozilla Unveils Thunderbolt | Self-Hostable Open-Source AI Client',
-    description: 'MZLA Technologies, the Mozilla subsidiary behind Thunderbird, launched Thunderbolt for organizations that want AI without sending data to third-party cloud providers.',
+    title: 'Mozilla Unveils Thunderbolt | Self-Hostable Open-Source AI',
+    description: 'MZLA Technologies, the Mozilla subsidiary behind Thunderbird, launched Thunderbolt for organizations that want AI without sending data to third-party',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

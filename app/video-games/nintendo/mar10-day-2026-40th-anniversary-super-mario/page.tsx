@@ -10,7 +10,7 @@ const FULL_URL = `https://www.objectwire.org${SLUG}`;
 const IMAGE_URL = 'https://www.objectwire.org/winter-olympics/Mario_by_Shigehisa_Nakaue.png';
 
 export const metadata: Metadata = {
-  title: 'Nintendo MAR10 Day 2026: 40th Anniversary Super Mario Deals, Switch 2 Sales & Galaxy Movie Details',
+  title: 'Nintendo MAR10 Day 2026 | 40th Anniversary Super Mario',
   description:
     'Nintendo launches its MAR10 Day 2026 celebration with Switch 2 discounts, Virtual Boy classics on Nintendo Switch Online, the Talking Flower toy, and a',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'Nintendo March deals eShop 2026',
   ],
   openGraph: {
-    title: 'Nintendo MAR10 Day 2026: 40th Anniversary Deals, Virtual Boy Returns & Galaxy Movie Countdown',
+    title: 'Nintendo MAR10 Day 2026 | 40th Anniversary Deals, Virtual',
     description:
       `Nintendo's biggest MAR10 Day ever, Switch 2 discounts, Virtual Boy classics hitting Switch Online, and The Super Mario Galaxy Movie arriving April 1.`,
     url: FULL_URL,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nintendo MAR10 Day 2026: Switch 2 Deals, Virtual Boy & the Galaxy Movie Countdown',
+    title: 'Nintendo MAR10 Day 2026 | Switch 2 Deals, Virtual Boy & the',
     description:
       `Everything dropping for MAR10 Day 2026, the first-ever Switch 2 sale, Virtual Boy on Switch Online, and Brie Larson as Rosalina.`,
     images: [IMAGE_URL],

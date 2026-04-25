@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/meta-platforms-may-ditch-nvidia-for-googles-parent-company-tpus-custom-compute-chips-for-ai',
   },
+  openGraph: {
+    title: "Meta Platforms May Ditch NVIDIA for Google",
+    description: "Meta explores switching from NVIDIA GPUs to Google Tensor Processing Units (TPUs) for AI workloads, potentially reshaping the AI chip market and reducing",
+    type: 'article',
+    url: "https://www.objectwire.org/meta-platforms-may-ditch-nvidia-for-googles-parent-company-tpus-custom-compute-chips-for-ai",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Meta Platforms May Ditch NVIDIA for Google",
+    description: "Meta explores switching from NVIDIA GPUs to Google Tensor Processing Units (TPUs) for AI workloads, potentially reshaping the AI chip market and reducing",
+  },
 };
 
 export default function MetaDitchingNVIDIAPage() {

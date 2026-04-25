@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/sxsw',
   },
+  openGraph: {
+    title: "SXSW 2026 | South by Southwest Austin Coverage",
+    description: "Complete coverage of SXSW 2026 in Austin, Texas. Festival dates, speakers, performers, tech showcases, film premieres, and everything you need to know",
+    type: 'article',
+    url: "https://www.objectwire.org/sxsw",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "SXSW 2026 | South by Southwest Austin Coverage",
+    description: "Complete coverage of SXSW 2026 in Austin, Texas. Festival dates, speakers, performers, tech showcases, film premieres, and everything you need to know",
+  },
 };
 
 export default function SXSWPage() {

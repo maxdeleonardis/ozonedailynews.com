@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/video-games/mythmatch',
   },
   openGraph: {
-    title: 'Mythmatch | Complete Guide: Gameplay, Story, Developer & Pricing',
+    title: 'Mythmatch | Complete Guide: Gameplay, Story, Developer',
     description:
       'Team Artichoke\'s Mythmatch launched March 13, 2026 on Steam. Play as Artemis rejected by "Olympus Inc." and help the women of Ithaca rebuild through a',
     type: 'article',

@@ -9,7 +9,7 @@ const SLUG = '/video-games/new/crimson-desert/console-footage-pushback';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Crimson Desert Dev Pushes Back on Claims of Hiding Console Footage',
+  title: 'Crimson Desert Dev Pushes Back on Claims of Hiding',
   description:
     'Pearl Abyss responds to fan accusations that the studio is deliberately hiding PS5 and Xbox Series X|S footage of Crimson Desert ahead of its March 19,',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Crimson Desert Dev Pushes Back on Claims of Hiding Console Footage',
+    title: 'Crimson Desert Dev Pushes Back on Claims of Hiding',
     description:
       'With March 19 two weeks away, Pearl Abyss addresses growing fan frustration over the absence of PS5 and Xbox gameplay footage for Crimson Desert.',
     type: 'article',

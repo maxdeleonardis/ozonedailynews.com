@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'TerraPower | Bill Gates Nuclear Company, Natrium Reactor 2026',
-  description: 'TerraPower is Bill Gates\'s nuclear reactor company building the Natrium sodium-cooled fast reactor in Kemmerer, Wyoming. Full company profile: history, technology, funding, and 2026 construction milestone.',
+  title: 'TerraPower | Bill Gates Nuclear Company, Natrium Reactor',
+  description: 'TerraPower is Bill Gates\'s nuclear reactor company building the Natrium sodium-cooled fast reactor in Kemmerer, Wyoming. Full company profile: history,',
   keywords: [
     'TerraPower nuclear company',
     'TerraPower Bill Gates',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'TerraPower | Bill Gates Nuclear Company & Natrium Reactor Profile',
+    title: 'TerraPower | Bill Gates Nuclear Company & Natrium Reactor',
     description: 'Full profile of TerraPower: Bill Gates\'s nuclear company building America\'s first advanced sodium-cooled reactor in Kemmerer, Wyoming.',
     type: 'article',
     url: ARTICLE_URL,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TerraPower | Bill Gates Nuclear Company, Natrium Reactor 2026',
+    title: 'TerraPower | Bill Gates Nuclear Company, Natrium Reactor',
     description: 'Full profile of TerraPower: the Bill Gates nuclear company breaking ground on America\'s first advanced reactor in Wyoming.',
     images: [OG_IMAGE],
   },

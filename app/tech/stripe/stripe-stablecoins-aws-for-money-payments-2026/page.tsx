@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Stripe Stablecoins | AWS for Money Strategy, Bridge, Tempo 2026',
-  description: 'Stripe is embedding stablecoins across its payments stack after acquiring Bridge for $1.1B and launching the Tempo blockchain. Inside the AWS for money vision, Machine Payments Protocol, and $2T payments ambition.',
+  title: 'Stripe Stablecoins | AWS for Money Strategy, Bridge, Tempo',
+  description: 'Stripe is embedding stablecoins across its payments stack after acquiring Bridge for $1.1B and launching the Tempo blockchain. Inside the AWS for money',
   keywords: [
     'Stripe stablecoins 2026',
     'Stripe AWS for money',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Stripe Stablecoins | AWS for Money Strategy, Bridge & Tempo 2026',
-    description: 'Stripe acquired Bridge for $1.1B, launched the Tempo L1 blockchain with Paradigm, and is rolling out stablecoin checkout across 5M+ merchants. The full breakdown of the AWS for money play.',
+    title: 'Stripe Stablecoins | AWS for Money Strategy, Bridge & Tempo',
+    description: 'Stripe acquired Bridge for $1.1B, launched the Tempo L1 blockchain with Paradigm, and is rolling out stablecoin checkout across 5M+ merchants. The full',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

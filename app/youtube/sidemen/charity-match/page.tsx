@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Sidemen Charity Match 2026: History, Players & Event Guide | YouTube's Biggest Football Match",
+  title: "Sidemen Charity Match 2026 | History, Players & Guide",
   description: "Complete guide to the Sidemen Charity Match 2026 - The world's biggest YouTube football event featuring KSI, MrBeast, Logan Paul, IShowSpeed, and 100+",
   keywords: [
     "Sidemen Charity Match 2026",

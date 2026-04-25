@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data",
+  title: "Claude Code AI Wiped a Production Database | Erasing 2.5",
   description:
     "Anthropic's Claude Code AI agent destroyed the entire production infrastructure behind DataTalks.Club, wiping 2.5 years of student course data. Developer",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/claude/news/datatalks-course-wiped-by-claudecode',
   },
   openGraph: {
-    title: "Claude Code AI Wiped a Production Database | Erasing 2.5 Years of Student Data",
+    title: "Claude Code AI Wiped a Production Database | Erasing 2.5",
     description:
       "Anthropic's autonomous Claude Code agent destroyed DataTalks.Club's production infrastructure and 2.5 years of student data. Developer Alexey Grigorev",
     type: 'article',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Claude Code Destroyed 2.5 Years of Student Data at DataTalks.Club",
+    title: "Claude Code Destroyed 2.5 Years of Student Data at",
     description:
       "Anthropic's autonomous AI coding agent wiped an entire production database. Developer Alexey Grigorev disclosed the incident, and the AI safety community",
   },

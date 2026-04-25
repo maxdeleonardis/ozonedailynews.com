@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jens Luraas Oftebro Wins Second Gold in Nordic Combined at Milano Cortina 2026',
+  title: 'Jens Luraas Oftebro Wins Second Gold in Nordic Combined',
   description: 'Norway\'s Jens Luraas Oftebro claimed his second gold medal of the Milano Cortina 2026 Winter Olympics with a dominant performance in Nordic combined,',
   keywords: [
     'Jens Luraas Oftebro', 'Nordic combined gold', 'Norway Winter Olympics',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Winter Olympics 2026', 'cross-country skiing', 'ski jumping', 'Norwegian dominance',
   ],
   openGraph: {
-    title: 'Oftebro Wins Second Nordic Combined Gold at Milano Cortina 2026',
+    title: 'Oftebro Wins Second Nordic Combined Gold at Milano',
     description: 'Norway\'s Jens Luraas Oftebro cements his status as the Games\' dominant Nordic combined athlete with a second gold medal and a powerful 10km finish.',
     type: 'article',
     publishedTime: '2026-02-18T11:00:00Z',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oftebro Wins Second Gold in Nordic Combined | Milano Cortina 2026',
+    title: 'Oftebro Wins Second Gold in Nordic Combined | Milano',
     description: 'Norway\'s dominant Nordic combined athlete delivers another commanding victory at the Winter Olympics.',
   },
   alternates: {

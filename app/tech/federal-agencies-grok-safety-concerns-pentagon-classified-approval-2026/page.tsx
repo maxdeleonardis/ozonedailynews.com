@@ -13,7 +13,7 @@ const IMAGE_URL =
 
 export const metadata: Metadata = {
   title:
-    'Federal Agencies Raised Grok Safety and Reliability Concerns Before Pentagon Classified Approval, February 2026',
+    'Federal Agencies Raised Grok Safety and Reliability',
   description:
     "Multiple U.S. federal agencies flagged xAI's Grok chatbot as unsafe for federal deployment before the Pentagon authorized its use in classified military",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Federal Agencies Flagged Grok as Unsafe. The Pentagon Approved It Anyway.",
+      "Federal Agencies Flagged Grok as Unsafe. The Pentagon",
     description:
       "GSA called Grok-4 non-compliant with federal safety standards. The NSA identified unique security vulnerabilities. White House Chief of Staff Susie Wiles",
     type: 'article',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      'GSA Said Grok Failed Federal Safety Standards. NSA Found Unique Vulnerabilities. Pentagon Approved It.',
+      'GSA Said Grok Failed Federal Safety Standards. NSA Found',
     description:
       'Internal reviews from the GSA, NSA, and CDAO all flagged Grok before Pentagon classified approval in February 2026. The Wall Street Journal reported the',
     images: [IMAGE_URL],

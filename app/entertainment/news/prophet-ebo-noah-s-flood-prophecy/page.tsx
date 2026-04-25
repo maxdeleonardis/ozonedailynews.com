@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.objectwire.org/prophet-ebo-noah-s-flood-prophecy',
   },
+  openGraph: {
+    title: "Prophet Ebo Noah",
+    description: "Ebo Noah first shared his claims in videos posted starting in August 2025, stating God revealed relentless rain would begin on Christmas Day.",
+    type: 'article',
+    url: "https://www.objectwire.org/prophet-ebo-noah-s-flood-prophecy",
+    siteName: 'ObjectWire',
+    section: "Entertainment",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Prophet Ebo Noah",
+    description: "Ebo Noah first shared his claims in videos posted starting in August 2025, stating God revealed relentless rain would begin on Christmas Day.",
+  },
 };
 
 export default function ProphetEboNoahPage() {

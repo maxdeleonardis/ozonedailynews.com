@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title:
-      "Kalshi Traders Report Losses on Khamenei Market, CEO Pledges Refunds",
+      "Kalshi Traders Report Losses on Khamenei Market, CEO",
     description:
       "Kalshi settled 'Khamenei Out as Supreme Leader?' at last pre-death price. CEO refunded fees, but 'Yes' holders report net losses. Polymarket paid Yes;",
     images: [IMAGE_URL],

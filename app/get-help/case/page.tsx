@@ -6,10 +6,23 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Contact Us | The Objective Wire | ObjectWire.org",
+  title: "Contact Us | The Objective Wire",
   description: "Contact Object Wire for inquiries, tips, or story submissions. Get in touch with our team today.",
   alternates: {
     canonical: 'https://www.objectwire.org/case',
+  },
+  openGraph: {
+    title: "Contact Us | The Objective Wire",
+    description: "Contact Object Wire for inquiries, tips, or story submissions. Get in touch with our team today.",
+    type: 'article',
+    url: "https://www.objectwire.org/case",
+    siteName: 'ObjectWire',
+    section: "News",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Contact Us | The Objective Wire",
+    description: "Contact Object Wire for inquiries, tips, or story submissions. Get in touch with our team today.",
   },
 };
 

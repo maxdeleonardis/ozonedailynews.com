@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://www.objectwire.org/influncer/sidemne_charity_match_26.png';
 
 export const metadata: Metadata = {
-  title: 'Sidemen Charity Match 2026 Lineup | Max Fosh, WillNE Confirmed',
-  description: 'The full Sidemen Charity Match 2026 lineup is confirmed. Max Fosh and WillNE join the YouTube All-Stars squad after contentious dropouts including Logan Paul, IShowSpeed, and MrBeast.',
+  title: 'Sidemen Charity Match 2026 Lineup | Max Fosh, WillNE',
+  description: 'The full Sidemen Charity Match 2026 lineup is confirmed. Max Fosh and WillNE join the YouTube All-Stars squad after contentious dropouts including Logan',
   keywords: [
     'Sidemen Charity Match 2026 lineup',
     'Sidemen Charity Match 2026',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Sidemen Charity Match 2026 Lineup | Max Fosh, WillNE Confirmed After Dropouts',
-    description: 'Full squads revealed: KSI, xQc, Angry Ginge, Max Fosh, and WillNE headline the 2026 Sidemen Charity Match. Logan Paul, IShowSpeed, and MrBeast will not feature.',
+    title: 'Sidemen Charity Match 2026 Lineup | Max Fosh, WillNE',
+    description: 'Full squads revealed: KSI, xQc, Angry Ginge, Max Fosh, and WillNE headline the 2026 Sidemen Charity Match. Logan Paul, IShowSpeed, and MrBeast will not',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

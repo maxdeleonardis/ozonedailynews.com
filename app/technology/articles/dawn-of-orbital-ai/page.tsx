@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'The Dawn of the Orbital AI Era: SpaceX and xAI Move the Cloud to the Stars',
+  title: 'The Dawn of the Orbital AI Era | SpaceX and xAI Move the',
   description: 'Analysis of the SpaceX and xAI merger and the transition toward orbital computing, solving terrestrial bottlenecks in power, land, and cooling.',
   keywords: [
     'SpaceX',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.objectwire.org/technology/articles/dawn-of-orbital-ai',
   },
   openGraph: {
-    title: 'The Dawn of the Orbital AI Era: Moving the Cloud to the Stars',
+    title: 'The Dawn of the Orbital AI Era | Moving the Cloud to the',
     description: 'The $1.25 trillion union of SpaceX and xAI is not merely a corporate restructuring; it is the launchpad for a planetary-scale computer.',
     type: 'article',
     url: 'https://www.objectwire.org/technology/articles/dawn-of-orbital-ai',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Dawn of the Orbital AI Era: Moving the Cloud to the Stars',
+    title: 'The Dawn of the Orbital AI Era | Moving the Cloud to the',
     description: 'The $1.25 trillion union of SpaceX and xAI is not merely a corporate restructuring; it is the launchpad for a planetary-scale computer.',
   },
 };

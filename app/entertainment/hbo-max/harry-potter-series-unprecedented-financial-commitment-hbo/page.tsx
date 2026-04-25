@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1481788915-eb25b47f81e3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'HBO Harry Potter Series | Unprecedented Financial Commitment, $2B-$5B Budget',
-  description: 'HBO head Sarah Aubrey calls the Harry Potter TV series an unprecedented financial commitment. 7 seasons, 7 novels, filming underway at Leavesden. Premiere early 2027.',
+  title: 'HBO Harry Potter Series | Unprecedented Financial',
+  description: 'HBO head Sarah Aubrey calls the Harry Potter TV series an unprecedented financial commitment. 7 seasons, 7 novels, filming underway at Leavesden. Premiere',
   keywords: [
     'HBO Harry Potter series',
     'Harry Potter HBO Max 2027',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HBO Harry Potter series is an unprecedented financial commitment',
+    title: 'HBO Harry Potter series is an unprecedented financial',
     description: '$2B-$5B estimated. 7 novels, 7 seasons. John Lithgow as Dumbledore. Diagon Alley built as a permanent set. Premieres early 2027.',
   },
 };

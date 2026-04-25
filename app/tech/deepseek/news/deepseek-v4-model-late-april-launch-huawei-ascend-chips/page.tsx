@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1711721399281-02806b65d91b?i
 
 export const metadata: Metadata = {
   title: 'DeepSeek V4 Model to Launch Late April on Huawei Chips',
-  description: 'DeepSeek founder Liang Wenfeng confirmed the V4 AI model will arrive in late April 2026, running on Huawei Ascend processors after months of delays and a deliberate pivot away from Nvidia silicon.',
+  description: 'DeepSeek founder Liang Wenfeng confirmed the V4 AI model will arrive in late April 2026, running on Huawei Ascend processors after months of delays and a',
   keywords: [
     'DeepSeek V4 launch date',
     'DeepSeek V4 model April 2026',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'DeepSeek Founder Says V4 Model Launches Late April on Huawei Chips',
-    description: 'After months of missed deadlines, Liang Wenfeng confirmed V4 arrives late April. DeepSeek rewrote its model stack for Huawei Ascend, deliberately withholding access from Nvidia and AMD.',
+    title: 'DeepSeek Founder Says V4 Model Launches Late April on',
+    description: 'After months of missed deadlines, Liang Wenfeng confirmed V4 arrives late April. DeepSeek rewrote its model stack for Huawei Ascend, deliberately',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DeepSeek V4 Launches Late April | Built on Huawei, Not Nvidia',
-    description: 'Liang Wenfeng confirms late April for V4. DeepSeek rewrote its stack for Huawei Ascend. Alibaba, ByteDance, Tencent ordered hundreds of thousands of 950PR chips.',
+    title: 'DeepSeek V4 Launches Late April | Built on Huawei, Not',
+    description: 'Liang Wenfeng confirms late April for V4. DeepSeek rewrote its stack for Huawei Ascend. Alibaba, ByteDance, Tencent ordered hundreds of thousands of 950PR',
     images: [OG_IMAGE],
   },
 };

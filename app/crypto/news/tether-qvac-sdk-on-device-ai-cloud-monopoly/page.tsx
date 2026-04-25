@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1562408590-e32931084e23?ixli
 
 export const metadata: Metadata = {
   title: 'Tether Unveils QVAC SDK to Challenge AI Cloud Monopoly',
-  description: 'Tether launched the QVAC SDK, a toolkit enabling AI models to run entirely on-device without internet. CEO Paolo Ardoino calls centralized AI infrastructure a dead end.',
+  description: 'Tether launched the QVAC SDK, a toolkit enabling AI models to run entirely on-device without internet. CEO Paolo Ardoino calls centralized AI',
   keywords: [
     'Tether QVAC SDK',
     'Tether AI on-device',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Tether Unveils QVAC SDK to Challenge AI Cloud Monopoly',
-    description: 'The $120B stablecoin giant launched a toolkit for on-device AI. QVAC runs models locally on iOS, Android, Windows, macOS, and Linux without an internet connection.',
+    description: 'The $120B stablecoin giant launched a toolkit for on-device AI. QVAC runs models locally on iOS, Android, Windows, macOS, and Linux without an internet',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

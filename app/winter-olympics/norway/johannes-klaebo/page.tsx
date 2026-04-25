@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Johannes Høsflot Klæbo | Norwegian Cross-Country Legend | Milan Cortina 2026 | Object Wire',
+  title: 'Johannes Høsflot Klæbo | Norwegian Cross-Country Legend',
   description: 'Profile of Johannes Høsflot Klæbo, the Norwegian cross-country skiing legend competing as a gold medal favorite in six events while chasing history to',
   keywords: ['Johannes Klæbo', 'cross-country skiing', 'Norway', 'Winter Olympics', 'Milan Cortina 2026', 'Olympic records'],
   openGraph: {

@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Apple to Manufacture Mac Mini in Houston, TX at Foxconn Facility',
+  title: 'Apple to Manufacture Mac Mini in Houston, TX at Foxconn',
   description:
     'Apple will begin assembling the Mac Mini at a Foxconn facility in Houston, Texas in the second half of 2026, the first time the compact desktop has been',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Apple to Begin Manufacturing Mac Mini in Houston, TX at Foxconn Facility',
+    title: 'Apple to Begin Manufacturing Mac Mini in Houston, TX at',
     description:
       'Apple plans to assemble the Mac Mini at a Foxconn-operated facility in Houston, Texas, in H2 2026, making it only the second Mac desktop line to be built',
     publishedTime: '2026-02-23T12:00:00Z',

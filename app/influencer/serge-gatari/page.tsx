@@ -6,7 +6,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Serge Gatari | AI Expert & Digital Marketing Educator | OBJECTWIRE',
+  title: 'Serge Gatari | AI Expert & Digital Marketing Educator',
   description: 'Profile of Serge Gatari, AI automation expert, digital marketing educator, and founder of ClientAcquisition.io. Known for AI agent training programs and',
   keywords: 'Serge Gatari, AI automation, AI agents, ClientAcquisition.io, digital marketing, AI expert, online courses',
   openGraph: {

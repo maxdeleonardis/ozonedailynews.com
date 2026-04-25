@@ -11,7 +11,7 @@ const IMAGE_URL = 'https://www.objectwire.org/news/cursor.PNG';
 
 export const metadata: Metadata = {
   title:
-    'Cursor Hits $2 Billion ARR, Anysphere Doubles Revenue in Three Months',
+    'Cursor Hits $2 Billion ARR, Anysphere Doubles Revenue in',
   description:
     'Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026, doubling the $1 billion ARR milestone announced in November 2025,',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in Three Months',
+    title: 'Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in',
     description:
       'From $1 billion to $2 billion ARR in roughly 90 days. Anysphere\'s Cursor sets one of the fastest recurring revenue acceleration rates in SaaS history.',
     type: 'article',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cursor Hits $2 Billion ARR in February 2026 | Doubling Revenue in Three Months',
+    title: 'Cursor Hits $2 Billion ARR in February 2026 | Doubling',
     description:
       'Anysphere\'s Cursor crossed $2 billion ARR in late February 2026, up from $1 billion in November 2025, roughly 90 days of growth.',
     images: [IMAGE_URL],

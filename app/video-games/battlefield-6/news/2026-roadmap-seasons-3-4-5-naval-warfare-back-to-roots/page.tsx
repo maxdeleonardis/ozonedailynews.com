@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Battlefield 6 2026 Roadmap | Seasons 3-5, Naval Warfare, Server Browser',
-  description: 'EA and DICE release the official Battlefield 6 2026 roadmap: Season 3 brings Golmud Railway and Grand Bazaar remakes, Season 4 adds naval combat and Wake Island, Season 5 delivers three holiday maps.',
+  title: 'Battlefield 6 2026 Roadmap | Seasons 3-5, Naval Warfare',
+  description: 'EA and DICE release the official Battlefield 6 2026 roadmap: Season 3 brings Golmud Railway and Grand Bazaar remakes, Season 4 adds naval combat and Wake',
   keywords: [
     'Battlefield 6 2026 roadmap',
     'Battlefield 6 Season 3',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Battlefield 6 2026 Roadmap | Naval Combat, Wake Island, Server Browser Return',
-    description: 'Official DICE roadmap: Season 3 classic map remakes, Season 4 aircraft carriers and Wake Island, Season 5 three holiday maps. Server browser and proximity chat also confirmed.',
+    title: 'Battlefield 6 2026 Roadmap | Naval Combat, Wake Island',
+    description: 'Official DICE roadmap: Season 3 classic map remakes, Season 4 aircraft carriers and Wake Island, Season 5 three holiday maps. Server browser and proximity',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Battlefield 6 2026 Roadmap | Wake Island, Naval Combat, Server Browser Confirmed',
+    title: 'Battlefield 6 2026 Roadmap | Wake Island, Naval Combat',
     description: '3 seasons, 7 maps, aircraft carriers, ranked play, proximity chat, and server browser — DICE spent a year listening.',
     images: [OG_IMAGE],
   },

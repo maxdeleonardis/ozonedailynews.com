@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Greenland Fulcrum and the ',
+    title: 'The Greenland Fulcrum and the',
     description: 'Financial Intelligence / Geopolitical Strategy: Analyzing the Arctic Defense Alignment and its multi-layered interception CapEx.',
   },
 };

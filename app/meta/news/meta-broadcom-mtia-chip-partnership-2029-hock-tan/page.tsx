@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1678957949479-b1e876bee3f1?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Meta Broadcom MTIA Chip Deal | $2.3B, 2nm Silicon, Extended to 2029',
-  description: 'Meta and Broadcom extend their custom AI chip partnership to 2029, covering four MTIA chip generations, $2.3B in 2025 payments, a 1-gigawatt compute commitment, and a 2nm MTIA 500 breakthrough. Hock Tan steps off Meta board.',
+  title: 'Meta Broadcom MTIA Chip Deal | $2.3B, 2nm Silicon, Extended',
+  description: 'Meta and Broadcom extend their custom AI chip partnership to 2029, covering four MTIA chip generations, $2.3B in 2025 payments, a 1-gigawatt compute',
   keywords: [
     'Meta Broadcom partnership 2029',
     'Meta MTIA chip Broadcom',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Meta & Broadcom | $2.3B Custom AI Chip Deal Extended to 2029, 2nm MTIA 500 Confirmed',
-    description: 'Four MTIA chip generations. 1 gigawatt compute commitment. $115B-$135B capex. Hock Tan exits Meta board. The full scope of the most ambitious custom silicon roadmap outside of Apple.',
+    title: 'Meta & Broadcom | $2.3B Custom AI Chip Deal Extended to',
+    description: 'Four MTIA chip generations. 1 gigawatt compute commitment. $115B-$135B capex. Hock Tan exits Meta board. The full scope of the most ambitious custom',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meta paid Broadcom $2.3B in 2025. Now they are locked in to 2029 and a 2nm chip.',
+    title: 'Meta paid Broadcom $2.3B in 2025. Now they are locked in',
     description: 'Four MTIA generations. 1 gigawatt compute. 25x performance jump. Hock Tan exits Meta board into dedicated advisory role.',
     images: [OG_IMAGE],
   },

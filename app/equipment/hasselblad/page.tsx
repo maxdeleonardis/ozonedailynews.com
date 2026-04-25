@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-camera-placeholder.jpg';
 
 export const metadata: Metadata = {
-  title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Camera Review',
+  title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Camera',
   description:
     'Complete guide to the Hasselblad 907X and CFV 100C medium-format digital system. 100MP BSI sensor, 15 stops dynamic range, 1TB built-in storage, PDAF, and',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Modular Camera',
+    title: 'Hasselblad 907X + CFV 100C | 100MP Medium-Format Modular',
     description:
       'The Hasselblad 907X and CFV 100C combine a 100MP BSI sensor, 15 stops of dynamic range, 1TB built-in SSD, and V-system compatibility into a compact',
     type: 'article',

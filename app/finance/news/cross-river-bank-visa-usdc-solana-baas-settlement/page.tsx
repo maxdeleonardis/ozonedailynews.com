@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Cross River Bank | Visa USDC Solana Settlement Infrastructure',
-  description: 'Cross River Bank, the BaaS engine behind Affirm and Stripe, serves as Visa\'s settlement rail and compliance layer for USDC transactions on the Solana blockchain.',
+  title: 'Cross River Bank | Visa USDC Solana Settlement',
+  description: 'Cross River Bank, the BaaS engine behind Affirm and Stripe, serves as Visa\'s settlement rail and compliance layer for USDC transactions on the Solana',
   keywords: [
     'Cross River Bank Visa USDC',
     'Cross River Bank Solana settlement',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Cross River Bank | Visa\'s Settlement Rail for USDC on Solana',
-    description: 'Fort Lee, NJ-based Cross River Bank, the fintech infrastructure engine behind Affirm and Stripe, manages the settlement rail and compliance layer for Visa\'s USDC operations on Solana.',
+    description: 'Fort Lee, NJ-based Cross River Bank, the fintech infrastructure engine behind Affirm and Stripe, manages the settlement rail and compliance layer for',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

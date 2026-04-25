@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'American bobsled history',
   ],
   openGraph: {
-    title: 'Elana Meyers Taylor | The Most Decorated Female Bobsledder in Olympic History',
+    title: 'Elana Meyers Taylor | The Most Decorated Female Bobsledder',
     description:
       'How a college softball player from Georgia became a five-time Olympian, a gold medalist at 41, and the greatest female bobsled pilot in the history of the',
     type: 'article',

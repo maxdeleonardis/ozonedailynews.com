@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Cross River Bank | BaaS Infrastructure, Visa USDC Settlement Partner',
-  description: 'Cross River Bank is the fintech infrastructure engine behind Affirm, Stripe, and now Visa\'s USDC settlement on Solana. The Fort Lee, NJ bank processes billions in ACH and digital asset volume.',
+  title: 'Cross River Bank | BaaS Infrastructure, Visa USDC',
+  description: 'Cross River Bank is the fintech infrastructure engine behind Affirm, Stripe, and now Visa\'s USDC settlement on Solana. The Fort Lee, NJ bank processes',
   keywords: [
     'Cross River Bank',
     'Cross River Bank Visa USDC',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Cross River Bank | BaaS Fintech Engine and Visa USDC Settlement Partner',
-    description: 'Cross River Bank powers Affirm, Stripe, and now Visa\'s USDC Solana settlement. The Fort Lee BaaS bank manages the creation-redemption cycle at $3.5B+ annualized stablecoin volume.',
+    title: 'Cross River Bank | BaaS Fintech Engine and Visa USDC',
+    description: 'Cross River Bank powers Affirm, Stripe, and now Visa\'s USDC Solana settlement. The Fort Lee BaaS bank manages the creation-redemption cycle at $3.5B+',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

@@ -7,8 +7,8 @@ const SLUG = '/finance/lead-bank-crypto-infrastructure';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Lead Bank | Crypto Infrastructure, Visa USDC Settlement Partner',
-  description: 'Lead Bank is a Kansas City-based fintech bank led by CEO Jackie Reses that serves as Visa\'s USDC settlement partner on Solana, bridging legacy banking and decentralized finance.',
+  title: 'Lead Bank | Crypto Infrastructure, Visa USDC Settlement',
+  description: 'Lead Bank is a Kansas City-based fintech bank led by CEO Jackie Reses that serves as Visa\'s USDC settlement partner on Solana, bridging legacy banking',
   keywords: [
     'Lead Bank crypto',
     'Lead Bank Visa USDC',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Lead Bank | Crypto-Native Fintech and Visa USDC Settlement Partner',
-    description: 'Under CEO Jackie Reses, Lead Bank pivoted from a Kansas City community bank into a crypto-native fintech hub and one of only two US banks settling VisaNet obligations in USDC on Solana.',
+    title: 'Lead Bank | Crypto-Native Fintech and Visa USDC Settlement',
+    description: 'Under CEO Jackie Reses, Lead Bank pivoted from a Kansas City community bank into a crypto-native fintech hub and one of only two US banks settling VisaNet',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lead Bank | The crypto-native US bank settling Visa transactions in USDC',
+    title: 'Lead Bank | The crypto-native US bank settling Visa',
     description: 'Jackie Reses-led Kansas City bank is one of two institutions settling VisaNet obligations in USDC on Solana. Here\'s how they got there.',
   },
 };

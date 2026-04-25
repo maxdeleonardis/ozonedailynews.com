@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1768213022263-0414dc145dfd?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {
-  title: 'EU Age Verification App | Meta, Google Verdicts Reshape Tech Liability',
-  description: 'The EU launched an age-verification app after back-to-back jury verdicts held Meta liable for $375M and found both Meta and Google responsible for addictive platform design harming minors.',
+  title: 'EU Age Verification App | Meta, Google Verdicts Reshape',
+  description: 'The EU launched an age-verification app after back-to-back jury verdicts held Meta liable for $375M and found both Meta and Google responsible for',
   keywords: [
     'EU age verification app',
     'Meta Google verdict 2026',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'EU Age Verification App | After $375M Meta Verdict, Platform Liability Shifts',
-    description: 'Back-to-back jury verdicts in New Mexico ($375M) and Los Angeles ($6M) held Meta and Google liable for addictive design. The EU responded with a new age-verification app.',
+    title: 'EU Age Verification App | After $375M Meta Verdict',
+    description: 'Back-to-back jury verdicts in New Mexico ($375M) and Los Angeles ($6M) held Meta and Google liable for addictive design. The EU responded with a new',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

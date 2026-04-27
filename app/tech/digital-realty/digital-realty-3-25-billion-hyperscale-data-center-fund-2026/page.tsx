@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Realty just closed a $3.25B hyperscale data's who backed it.',
+    title: "Digital Realty just closed a $3.25B hyperscale data’s who backed it.",
     description:
       'Sovereign wealth funds, public pensions, and endowments are betting on AI-driven data center demand across six Tier I U.S. metros.',
   },

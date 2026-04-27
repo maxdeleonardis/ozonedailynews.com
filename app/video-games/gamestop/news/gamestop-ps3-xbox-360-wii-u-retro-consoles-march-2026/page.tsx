@@ -41,11 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-<<<<<<< HEAD
     title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro",
-=======
-    title: "GameStop Designates PS3, Xbox 360, and Wii U as Retro Consoles | ObjectWire",
->>>>>>> ad5215c (fix: resolve all build errors for 18 new articles)
     description:
       "GameStop's retro classification criteria: component cables, no Fortnite, and a Bush-era launch. Two out of three ain't bad, the Wii U launched under Obama in 2012.",
   },

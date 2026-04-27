@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PlayStation Is Locking Voice Chat Behind Age's What Changes.',
+    title: "PlayStation Is Locking Voice Chat Behind Age’s What Changes.",
     description: 'UK, Australia, EU, and the US are all forcing Sony\'s hand. Full breakdown of the PSN age gate rolling out from June 2026.',
     images: [OG_IMAGE],
   },

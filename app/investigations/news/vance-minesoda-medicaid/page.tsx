@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vance Freezes $259M in Minnesota Medicaid | First Shot in's Fraud War',
+    title: "Vance Freezes $259M in Minnesota Medicaid | First Shot in’s Fraud War",
     description:
       '$243.8M in unsupported claims, $15.4M tied to unverified immigration status. CMS hits Minnesota with its largest quarterly deferral since 2017.',
   },

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valve Ships CS2 Animation Overhaul, CS3 Rumors Are April' Jokes',
+    title: "Valve Ships CS2 Animation Overhaul, CS3 Rumors Are April Fools Jokes",
     description:
       'The "CS3 on Unreal Engine 5" story is fake. What Valve actually shipped on April 1 is a major CS2 animation system beta.',
     images: [`https://www.objectwire.org${OG_IMAGE}`],

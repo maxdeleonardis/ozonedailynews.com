@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Samsung Labor Crisis | 40,000 Workers Could Shut Down the's AI Chip Supply',
+    title: "Samsung Labor Crisis | 40,000 Workers Could Shut Down the AI Chip Supply",
     description: 'An 18-day strike threat at Pyeongtaek would cost $676M/day and delay NVIDIA AI servers for months. The biggest labor standoff in semiconductor history.',
     images: [OG_IMAGE],
   },

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'San Jose Earthquakes 2026 | Defensive Resurgence and Timo's Golden Boot Charge',
+    title: "San Jose Earthquakes 2026 | Defensive Resurgence and Timo's Golden Boot Charge",
     description:
       '9 goals allowed in 8 matches. 7 goals from Timo Werner. The Quakes are relevant again in 2026.',
     type: 'article',

@@ -702,9 +702,12 @@ async function main() {
 
   row.slug = slug;
   // Always ensure url is set — fallback to route derived from file path
-  // (jack_articles uses article_url instead of url)
-  if (table !== 'jack_articles' && !row.url) row.url = route;
-  console.log(`  Title     : ${c.bold(String(row.title || '(empty — check metadata)'))}`);
+  // jack_articles uses article_url; creator_articles and alysa_articles use schema_article_url — no url column
+  const tablesWithUrlColumn = ['articles', 'article_pages'];
+  if (tablesWithUrlColumn.includes(table) && !row.url) row.url = route;
+  // Display title: creator/alysa tables store it as schema_title, others as title
+  const displayTitle = String(row.title || row.schema_title || '(empty — check metadata)');
+  console.log(`  Title     : ${c.bold(displayTitle)}`);
 
   // ── Step 3: Validate thumbnail ────────────────────────────────────────────
   const thumbSrc = (row.thumbnail_src ?? (row.thumbnail as Record<string,string>)?.src ?? row.hero_image_src ?? (row.hero_image as Record<string,string>)?.src) as string | undefined;

@@ -61,7 +61,7 @@ export default function PalantirGaiaZodiacFrontendPage() {
       topicTag="technology"
       publishDate="April 28, 2026"
       readTime="7 min read"
-      author={{ name: 'ObjectWire Tech Desk', slug: 'objectwire-tech-desk' }}
+      author={{ name: 'ObjectWire Tech Desk', authorSlug: 'objectwire-tech-desk' }}
       tags={['Palantir', 'Three.js', 'Gaia', 'Frontend Engineering', 'DOD', 'WebGL']}
       thumbnail={{ src: OG_IMAGE, alt: 'Palantir 3D Gaia geospatial globe rendering' }}
       slug="tech-palantir-3d-frontend-gaia-zodiac"

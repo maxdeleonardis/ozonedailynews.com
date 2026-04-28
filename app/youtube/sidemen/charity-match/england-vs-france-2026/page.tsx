@@ -61,7 +61,7 @@ export default function SidemenEnglandVsFrance2026Page() {
       topicTag="entertainment"
       publishDate="April 28, 2026"
       readTime="5 min read"
-      author={{ name: 'ObjectWire Entertainment Desk', slug: 'objectwire-entertainment-desk' }}
+      author={{ name: 'ObjectWire Entertainment Desk', authorSlug: 'objectwire-entertainment-desk' }}
       tags={['Sidemen', 'KSI', 'Creator Football', 'Eleven All-Stars', 'AmineMaTue', 'Charity Match']}
       thumbnail={{ src: '/influncer/sdmn_charitymatch_26.webp', alt: 'Sidemen charity match 2026' }}
       slug="youtube-sidemen-charity-match-england-vs-france-2026"

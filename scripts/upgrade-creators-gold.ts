@@ -40,8 +40,14 @@ interface SocialLink {
   handle: string;
   /** Full URL */
   url: string;
-  /** Optional follower count display, e.g. "5.0M" */
+  /** Optional follower count display, e.g. "5.0M". Only set when publicly confirmed. */
   followers?: string;
+}
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 interface InfoboxRow {
@@ -59,7 +65,7 @@ interface CreatorData {
   // Demographics
   bornDate?: string;            // human-readable, e.g. "September 1, 2000"
   bornYear?: string;            // e.g. "2000"
-  age?: string;                 // age as of 2026
+  age?: string;                 // age as of 2026 — omit if unconfirmed
   birthplace?: string;
   nationality: string;
   basedIn: string;
@@ -72,6 +78,9 @@ interface CreatorData {
   email?: string;
   // Platforms
   socials: SocialLink[];
+  // Gallery — extra images beyond the hero (2+ only)
+  gallery?: GalleryImage[];
+  galleryHeading?: string;
   // Story
   oneLineSummary: string;       // used for hero_description
   whoIs: string;                // "Who is X?" answer paragraph
@@ -96,15 +105,37 @@ const ILink = (href: string, text: string) =>
   `<a href="${href}" class="text-blue-600 hover:text-blue-800 underline">${text}</a>`;
 
 function statsBlock(c: CreatorData): string {
-  // Top-of-article stat trio: primary platform, secondary platform, age
-  const primary = c.socials[0];
-  const secondary = c.socials[1] ?? c.socials[0];
-  const ageStat = c.age ? `${c.age}` : c.bornYear ?? '—';
-  return `<div class="grid grid-cols-3 gap-3 my-6">
-    <CreatorStat value="${primary.followers ?? '—'}" label="${primary.platform} Followers" />
-    <CreatorStat value="${secondary.followers ?? '—'}" label="${secondary.platform} Followers" />
-    <CreatorStat value="${ageStat}" label="${c.age ? 'Age (2026)' : 'Born'}" />
-  </div>`;
+  // Only include stats that have confirmed data — never emit a "—" stat
+  const stats: { value: string; label: string }[] = [];
+  for (const s of c.socials) {
+    if (s.followers) stats.push({ value: s.followers, label: `${s.platform} Followers` });
+  }
+  if (c.age) stats.push({ value: c.age, label: 'Age (2026)' });
+  else if (c.bornYear) stats.push({ value: c.bornYear, label: 'Born' });
+  // Only render the block when we have at least 2 confirmed stats
+  if (stats.length < 2) return '';
+  // Cap at 3
+  const shown = stats.slice(0, 3);
+  const cols = shown.length === 2 ? 2 : 3;
+  return `<div class="grid grid-cols-${cols} gap-3 my-6">
+  ${shown.map((s) => `  <CreatorStat value="${s.value}" label="${s.label}" />`).join('\n')}
+</div>`;
+}
+
+function galleryBlock(c: CreatorData): string {
+  if (!c.gallery || c.gallery.length < 2) return '';
+  const imagesJson = c.gallery
+    .map(
+      (img) =>
+        `{ src: '${img.src}', alt: '${img.alt}'${img.caption ? `, caption: '${img.caption}'` : ''} }`,
+    )
+    .join(',\n    ');
+  return `<CreatorImageGallery
+  heading="${c.galleryHeading ?? `${c.fullName} Photo Gallery`}"
+  images={[
+    ${imagesJson}
+  ]}
+/>`;
 }
 
 function linksDirectory(c: CreatorData): string {
@@ -140,19 +171,21 @@ function socialList(c: CreatorData): string {
 
 function buildContentHtml(c: CreatorData): string {
   const fullName = c.fullName;
+  const stats = statsBlock(c);
+  const gallery = galleryBlock(c);
   return `<CreatorSection heading="Who Is ${fullName}? | Quick Bio">
   <p>${c.whoIs}</p>
   <p>${c.oneLineSummary}</p>
 </CreatorSection>
 
-${statsBlock(c)}
+${stats}
 
 <CreatorSection heading="How Old Is ${fullName}? | Age and Birthday">
   <p>${
     c.bornDate
-      ? `${fullName} was born on <strong>${c.bornDate}</strong>${c.birthplace ? ` in ${c.birthplace}` : ''}, which makes ${fullName} ${c.age ?? '—'} years old as of April 2026.`
+      ? `${fullName} was born on <strong>${c.bornDate}</strong>${c.birthplace ? ` in ${c.birthplace}` : ''}, which makes ${fullName} ${c.age ?? ''} years old as of April 2026.`
       : c.bornYear
-        ? `${fullName} was born in <strong>${c.bornYear}</strong>${c.birthplace ? ` in ${c.birthplace}` : ''}, putting ${fullName} at approximately ${c.age ?? '—'} years old in 2026.`
+        ? `${fullName} was born in <strong>${c.bornYear}</strong>${c.birthplace ? ` in ${c.birthplace}` : ''}, putting ${fullName} at approximately ${c.age ?? ''} years old in 2026.`
         : `${fullName}'s exact birthdate is not publicly confirmed. Public-facing biographies and verified social accounts do not list a date of birth.`
   }</p>
 </CreatorSection>
@@ -175,6 +208,8 @@ ${statsBlock(c)}
   ${c.yearsActive ? `<p>Years active: <strong>${c.yearsActive}</strong>.</p>` : ''}
   ${c.agency ? `<p>Representation: <strong>${c.agency}</strong>.</p>` : ''}
 </CreatorSection>
+
+${gallery}
 
 <CreatorSection heading="When Did ${fullName} Get Famous? | Career Timeline">
   <p>${c.whenStarted}</p>
@@ -271,6 +306,13 @@ const CREATORS: CreatorData[] = [
       { platform: 'Instagram', icon: '📸', handle: '@abbyberner', url: 'https://www.instagram.com/abbyberner', followers: '1M+' },
       { platform: 'YouTube', icon: '▶️', handle: '@abbyberner', url: 'https://www.youtube.com/@abbyberner' },
     ],
+    gallery: [
+      { src: '/influncer/usa/abby_berner.png',  alt: 'Abby Berner fitness creator portrait', caption: 'Fitness model and TikTok creator' },
+      { src: '/influncer/usa/abby_berner2.png', alt: 'Abby Berner workout photo', caption: 'Gym lifestyle content' },
+      { src: '/influncer/usa/abby_berner3.png', alt: 'Abby Berner lifestyle shoot', caption: 'Lifestyle and fashion content' },
+      { src: '/influncer/usa/abby_berner4.png', alt: 'Abby Berner model shot', caption: 'Brand campaign content' },
+    ],
+    galleryHeading: 'Abby Berner Photo Gallery | Fitness, Fashion and Lifestyle',
     oneLineSummary:
       'Abby Berner is a US-based fitness creator and model known for her tattooed aesthetic and high-energy gym lifestyle content, with over 5 million TikTok followers and 1M+ on Instagram.',
     whoIs:
@@ -419,6 +461,12 @@ const CREATORS: CreatorData[] = [
       { platform: 'Instagram', icon: '📸', handle: '@colleen.333', url: 'https://www.instagram.com/colleen.333' },
       { platform: 'TikTok', icon: '🎵', handle: '@colleen.333', url: 'https://www.tiktok.com/@colleen.333' },
     ],
+    gallery: [
+      { src: '/influncer/usa/collen333.png',  alt: 'Colleen Sheehan fashion content', caption: 'Boston-based model and fashion creator' },
+      { src: '/influncer/usa/collen3332.png', alt: 'Colleen Sheehan lifestyle photo', caption: 'Festival and event content' },
+      { src: '/influncer/usa/collen3333.png', alt: 'Colleen Sheehan model shoot', caption: 'Fashion and cosplay creator' },
+    ],
+    galleryHeading: 'Colleen Sheehan Photo Gallery | Fashion, Cosplay and Lifestyle',
     oneLineSummary:
       'Colleen Sheehan, known online as colleen.333, is a Boston-based model and fashion creator known for cosplay, festival looks, and high-fashion lifestyle content on Instagram and TikTok.',
     whoIs:
@@ -483,6 +531,12 @@ const CREATORS: CreatorData[] = [
       { platform: 'TikTok', icon: '🎵', handle: '@meganmariiee', url: 'https://www.tiktok.com/@meganmariiee' },
       { platform: 'Reddit', icon: '👽', handle: 'u/meganmariiee', url: 'https://www.reddit.com/user/meganmariiee' },
     ],
+    gallery: [
+      { src: '/influncer/usa/meganmarie.png',  alt: 'Megan Marie creator portrait', caption: 'US adult content creator and model' },
+      { src: '/influncer/usa/meganmarie2.png', alt: 'Megan Marie lifestyle photo', caption: 'Social media content' },
+      { src: '/influncer/usa/meganmarie3.png', alt: 'Megan Marie model shoot', caption: 'Multi-platform creator' },
+    ],
+    galleryHeading: 'Megan Marie Photo Gallery',
     oneLineSummary:
       'Megan Marie (meganmariiee, also known as megmariiee) is a US-based adult content creator and social media personality with a multi-platform presence on Instagram, TikTok, and Reddit.',
     whoIs:

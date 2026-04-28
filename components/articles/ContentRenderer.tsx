@@ -84,7 +84,7 @@ const COMPONENTS: Record<string, ComponentDef> = {
   },
   Timeline: {
     render: (props) => (
-      <Timeline events={(props.events as Array<{ time: string; title: string; description?: string }>) ?? []} />
+      <Timeline events={Array.isArray(props.events) ? (props.events as Array<{ time: string; title: string; description?: string }>) : []} />
     ),
     selfClosing: true,
   },

@@ -564,11 +564,12 @@ export function Timeline({
 }: {
   events: Array<{ time: string; title: string; description?: string }>;
 }) {
+  const safeEvents = Array.isArray(events) ? events : [];
   return (
     <div className="my-8 relative">
       <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500" />
       <div className="space-y-6">
-        {events.map((event, index) => (
+        {safeEvents.map((event, index) => (
           <div key={index} className="relative pl-12">
             <div className="absolute left-2 w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-4 border-white shadow" />
             <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-300 transition-colors">

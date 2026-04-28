@@ -150,6 +150,14 @@ export interface CreatorArticleProps {
   tiktokEmbed?: boolean;
   /** Display tags shown in the article footer (FiledUnder). Defaults to schema.keywords slice. */
   tags?: string[];
+  /** Other creator profile cards shown below the Article Info sidebar card. */
+  relatedCreators?: Array<{
+    name: string;
+    subtitle: string;
+    imageSrc: string;
+    imageAlt: string;
+    href: string;
+  }>;
   children: React.ReactNode;
 }
 
@@ -227,6 +235,7 @@ export function CreatorArticle({
   sidebar,
   tiktokEmbed = false,
   tags,
+  relatedCreators,
   children,
 }: CreatorArticleProps) {
   const gradient =
@@ -549,6 +558,39 @@ export function CreatorArticle({
                     </div>
                   </div>
                 </div>
+
+                {/* Related Creator Profiles */}
+                {relatedCreators && relatedCreators.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <div className="px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                      <h3 className="font-bold text-gray-600 text-xs uppercase tracking-wider">More Creator Profiles</h3>
+                    </div>
+                    <ul className="divide-y divide-gray-100">
+                      {relatedCreators.map((c) => (
+                        <li key={c.href}>
+                          <Link
+                            href={c.href}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group"
+                          >
+                            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-gray-200 shrink-0">
+                              <Image
+                                src={c.imageSrc}
+                                alt={c.imageAlt}
+                                fill
+                                className="object-cover"
+                                sizes="40px"
+                              />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-bold text-gray-900 truncate group-hover:text-blue-600">{c.name}</p>
+                              <p className="text-xs text-gray-400 truncate">{c.subtitle}</p>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               </div>
             </aside>

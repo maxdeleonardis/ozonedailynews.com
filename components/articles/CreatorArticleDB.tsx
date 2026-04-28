@@ -36,6 +36,31 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
 
   if (!row) notFound();
 
+  // Fetch up to 5 other published creator profiles for the sidebar
+  const { data: relatedRows } = await supabase
+    .from('creator_articles')
+    .select('hero_name, hero_subtitle, sidebar_infobox_image_src, sidebar_infobox_image_alt, schema_article_url, slug')
+    .eq('status', 'published')
+    .neq('slug', slug)
+    .limit(5);
+
+  const relatedCreators = (relatedRows ?? []).map((r) => {
+    // Derive the page path from schema_article_url or slug
+    let href = '/influencer';
+    if (r.schema_article_url) {
+      try { href = new URL(r.schema_article_url).pathname; } catch { href = `/${r.slug}`; }
+    } else {
+      href = `/${r.slug}`;
+    }
+    return {
+      name:      r.hero_name ?? r.slug,
+      subtitle:  r.hero_subtitle ?? 'Creator Profile',
+      imageSrc:  r.sidebar_infobox_image_src ?? '',
+      imageAlt:  r.sidebar_infobox_image_alt ?? r.hero_name ?? '',
+      href,
+    };
+  }).filter((c) => c.imageSrc);
+
   return (
     <CreatorArticle
       schema={{
@@ -79,6 +104,7 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
       }}
       tiktokEmbed={row.tiktok_embed ?? false}
       tags={row.schema_keywords?.length ? row.schema_keywords : undefined}
+      relatedCreators={relatedCreators.length > 0 ? relatedCreators : undefined}
     >
       <ContentRenderer html={row.content_html ?? ''} />
     </CreatorArticle>

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getAllArticles, getCreatorArticles, getJackArticles } from '@/lib/article-service';
+
+export const dynamic = 'force-dynamic';
 import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/engagement/EngagementBar';

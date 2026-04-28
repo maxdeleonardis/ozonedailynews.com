@@ -12,20 +12,20 @@ import { getPopularLeadSlug } from '@/lib/popular-lead';
 import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Independent Investigative Journalism & Tech',
+  title: 'Object Wire News | Independent Investigative Journalism & Tech',
   description:
-    'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
+    'Object Wire News delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
   alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
-    title: 'ObjectWire | Independent Investigative Journalism',
+    title: 'Object Wire News | Independent Investigative Journalism',
     description: 'Independent news source delivering verified investigative journalism and technology coverage.',
     url: 'https://www.objectwire.org',
-    siteName: 'ObjectWire',
+    siteName: 'Object Wire News',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire | Independent Investigative Journalism',
+    title: 'Object Wire News | Independent Investigative Journalism',
     description: 'Independent news source delivering verified investigative journalism and technology coverage.',
   },
 };

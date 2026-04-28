@@ -44,7 +44,7 @@ export function NewsArticleSchema({
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
-      "name": "ObjectWire",
+      "name": "Object Wire News",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.objectwire.org/objectwire-logo.png",
@@ -67,7 +67,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.objectwire.org" },
+    "copyrightHolder": { "@type": "Organization", "name": "Object Wire News", "url": "https://www.objectwire.org" },
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": ["h1", "article"]
@@ -87,8 +87,8 @@ export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
-    "name": "ObjectWire",
-    "alternateName": "ObjectWire News Network",
+    "name": "Object Wire News",
+    "alternateName": "Object Wire News Network",
     "url": "https://www.objectwire.org",
     "logo": {
       "@type": "ImageObject",
@@ -96,12 +96,12 @@ export function OrganizationSchema() {
       "width": 600,
       "height": 60
     },
-    "description": "ObjectWire delivers verified, source-cited intelligence on business, technology, and policy.",
+    "description": "Object Wire News delivers verified, source-cited intelligence on business, technology, and policy.",
     "foundingDate": "2024",
     "founders": [
       {
         "@type": "Person",
-        "name": "ObjectWire Editorial Team"
+        "name": "Object Wire News Editorial Team"
       }
     ],
     "sameAs": [

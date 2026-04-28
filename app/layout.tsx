@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: ["news", "intelligence", "journalism", "business news", "technology news", "verified news", "fact-checked reporting"],
-  authors: [{ name: "ObjectWire Editorial Team" }],
+  authors: [{ name: "Object Wire News Editorial Team" }],
   creator: SITE_CONFIG.name,
   publisher: `${SITE_CONFIG.name} News Network`,
   formatDetection: {
@@ -163,7 +163,7 @@ export default async function RootLayout({
               <div className="container mx-auto px-4 py-2 md:py-5 text-center">
                 <Link href="/" className="inline-block group">
                   <div className="text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif">
-                    OBJECTWIRE
+                    OBJECT WIRE NEWS
                   </div>
                   <div className="flex items-center justify-center gap-4 mt-1.5">
                     <div className="h-px w-10 md:w-28 bg-black" />
@@ -250,7 +250,7 @@ export default async function RootLayout({
             {/* Bottom bar */}
             <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <span>© 2026 ObjectWire.</span>
+                <span>© 2026 Object Wire News.</span>
                 <span className="hidden sm:inline">All rights reserved.</span>
                 <span className="text-gray-300 dark:text-gray-600">·</span>
                 <span className="text-xs">Verified reporting. Primary sources only.</span>

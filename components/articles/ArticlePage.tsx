@@ -72,6 +72,8 @@ export interface ArticlePageProps {
     href: string;
     label: string;
   };
+  /** Breadcrumb trail — takes precedence over backLink. Stored in article_pages.breadcrumbs JSONB. */
+  breadcrumbs?: Array<{ href: string; label: string }>;
   /** Article slug (unique DB key, e.g. "daddywellness") — drives likes, saves, view history, and comments. */
   slug?: string;
   /** Canonical URL path (e.g. "/influencer/daddywellness") — used for view-history records. */
@@ -434,6 +436,7 @@ export function ArticlePage({
   children,
   relatedLinks,
   backLink,
+  breadcrumbs,
   slug,
   url,
 }: ArticlePageProps) {
@@ -456,6 +459,7 @@ export function ArticlePage({
         category={category}
         lastUpdated={lastUpdated}
         backLink={backLink}
+        breadcrumbs={breadcrumbs}
       />
 
       {/* Article Content */}

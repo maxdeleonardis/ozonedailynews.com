@@ -44,6 +44,7 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
       tableOfContents={row.table_of_contents ?? undefined}
       relatedLinks={row.related_links ?? undefined}
       backLink={row.back_link ?? undefined}
+      breadcrumbs={Array.isArray(row.breadcrumbs) && row.breadcrumbs.length > 0 ? row.breadcrumbs : undefined}
       slug={slug}
       url={row.url ?? `/${slug}`}
     >

@@ -15,9 +15,32 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { NewsArticle } from './NewsArticle';
 import { ContentRenderer } from './ContentRenderer';
+import type { BreadcrumbItem } from '@/components/nav/Breadcrumb';
 
 interface NewsArticleDBProps {
   slug: string;
+}
+
+/** Derive a 3-4 level breadcrumb trail from the article canonical URL path.
+ *  e.g. /entertainment/news/fortnite-moves-into-movies
+ *  → Home > Entertainment > News > {title}
+ */
+function deriveBreadcrumbs(urlPath: string | null | undefined, title: string): BreadcrumbItem[] {
+  if (!urlPath) return [];
+  const segments = urlPath.replace(/^\//, '').split('/').filter(Boolean);
+  if (segments.length < 2) return []; // only add breadcrumbs when 2+ path levels deep
+
+  const crumbs: BreadcrumbItem[] = [{ name: 'Home', item: '/' }];
+  let cumulativePath = '';
+  for (let i = 0; i < segments.length - 1; i++) {
+    cumulativePath += '/' + segments[i];
+    const label = segments[i]
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+    crumbs.push({ name: label, item: cumulativePath });
+  }
+  crumbs.push({ name: title, item: urlPath });
+  return crumbs;
 }
 
 export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
@@ -76,6 +99,8 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
       exclusive={row.exclusive ?? undefined}
       slug={slug}
       url={row.url ?? undefined}
+      breadcrumbs={deriveBreadcrumbs(row.url, row.title)}
+      faqItems={Array.isArray(row.faq_items) && row.faq_items.length > 0 ? row.faq_items : undefined}
     >
       <ContentRenderer html={row.content_html ?? ''} />
     </NewsArticle>

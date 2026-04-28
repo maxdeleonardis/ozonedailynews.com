@@ -5,6 +5,10 @@ import RelatedArticles from '@/components/discovery/RelatedArticles';
 import ArticleFooter from '@/components/articles/ArticleFooter';
 import { HubBacklink } from '@/components/HubBacklink';
 import ArticleTOC from '@/components/articles/ArticleTOC';
+import { Breadcrumb } from '@/components/nav/Breadcrumb';
+import type { BreadcrumbItem } from '@/components/nav/Breadcrumb';
+import FAQAccordion, { FAQSchema } from '@/components/FAQAccordion';
+import type { FAQItem } from '@/components/FAQAccordion';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -59,6 +63,10 @@ export interface NewsArticleProps {
   slug?: string;
   /** Canonical URL path (e.g. "/news/my-article") — used to record view history. */
   url?: string;
+  /** Breadcrumb trail rendered above the article header + JSON-LD BreadcrumbList schema. */
+  breadcrumbs?: BreadcrumbItem[];
+  /** FAQ items rendered at the bottom of the article body + FAQPage JSON-LD schema. */
+  faqItems?: FAQItem[];
 }
 
 // =============================================================================
@@ -683,6 +691,8 @@ export function NewsArticle({
   exclusive,
   slug,
   url,
+  breadcrumbs,
+  faqItems,
 }: NewsArticleProps) {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
@@ -697,6 +707,13 @@ export function NewsArticle({
           tags={tags}
         />
       )}
+      {/* Breadcrumbs */}
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 pt-4">
+          <Breadcrumb items={breadcrumbs} />
+        </div>
+      )}
+
       {/* Header */}
       <NewsHeader
         title={title}
@@ -769,6 +786,14 @@ export function NewsArticle({
           </aside>
 
         </div>
+
+        {/* FAQ Section */}
+        {faqItems && faqItems.length > 0 && (
+          <div className="mt-12 max-w-3xl">
+            <FAQSchema items={faqItems} />
+            <FAQAccordion items={faqItems} heading="Frequently Asked Questions" color="blue" />
+          </div>
+        )}
 
         {/* Engagement stack — Tags, ReactionBar, Comments, Author, Newsletter.
             Rendered OUTSIDE the sticky flex so both rails unstick before comments. */}

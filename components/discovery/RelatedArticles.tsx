@@ -1,59 +1,85 @@
-'use client';
+﻿'use client';
 
 /**
- * RelatedArticles — Client Component
+ * RelatedArticles â€” Client Component
  *
  * Personalized sidebar. Pulls candidates from all three article tables
- * (`articles`, `jack_articles`, `creator_articles`) and ranks each by:
+ * (`articles`, `jack_articles`, `creator_articles`) and ranks each by a
+ * multi-signal score:
  *
- *   score = currentTagOverlap × 5
- *         + decayedHistoryTagOverlap   (exp decay, 7-day half-life)
- *         + decayedHistoryCategoryHit  (same idea, smaller weight)
- *         + sameCategoryAsCurrent × 2
- *         + small recency bonus (newer first)
+ *   score = directTagOverlap     Ã— 5   (tags shared with current article)
+ *         + historyTagScore      Ã— 2   (quality-weighted tag affinity from history)
+ *         + historyCategoryScore Ã— 1   (quality-weighted category affinity)
+ *         + sameCategoryBonus    Ã— 2   (matches current article's category)
+ *         + recencyBonus               (newer articles get a small lift)
  *
- * Reading history comes from `localStorage.ow_reading_history` written by
- * `ArticleViewTracker` for every visitor (anon + signed-in).
+ * History weighting (per entry):
+ *   weight = ageDecay Ã— readQuality Ã— sessionBoost
+ *
+ *   ageDecay     = 0.5 ^ (ageDays / 7)          â€” 7-day half-life
+ *   readQuality  = (0.3 + 0.7 Ã— scrollDepth)    â€” deep reads count more
+ *                Ã— clamp(1 + log1p(dwellSecs/60), 1, 2.5)
+ *                                                â€” longer dwell = stronger signal
+ *   sessionBoost = ageDays < 0.021 ? 3 : 1      â€” last 30 min gets Ã—3
+ *
+ * After scoring, diversity injection ensures at least one result from
+ * a different category if all top results share the same category.
+ *
+ * Reason labels ("For you" / "Similar") reflect which signal dominated.
  */
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+// â”€â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
 interface ArticleRow {
-  slug: string;
-  title: string;
-  category: string;
-  publish_date: string;
+  slug:          string;
+  title:         string;
+  category:      string;
+  publish_date:  string;
+  published_at?: string;
   thumbnail_src?: string;
-  tags?: string[];
-  url?: string;
-  _publishedMs?: number;
-  _score?: number;
+  tags?:         string[];
+  url?:          string;
+}
+
+interface ScoredArticle extends ArticleRow {
+  _score:       number;
+  _publishedMs: number;
+  _reason:      'similar' | 'foryou' | 'discovery';
 }
 
 interface Props {
   currentSlug: string;
-  category: string;
-  tags?: string[];
+  category:    string;
+  tags?:       string[];
 }
 
 interface HistoryEntry {
-  slug: string;
-  title?: string;
-  url?: string;
-  image?: string;
-  category?: string;
-  tags?: string[];
-  ts?: number;
+  slug:         string;
+  title?:       string;
+  url?:         string;
+  image?:       string;
+  category?:    string;
+  tags?:        string[];
+  ts?:          number;
+  scrollDepth?: number;  // 0â€“1 written by ArticleViewTracker
+  dwellMs?:     number;  // visible dwell in ms
 }
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+// â”€â”€â”€ Constants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+const SUPABASE_URL  = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_ANON = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const HISTORY_KEY = 'ow_reading_history';
-const MAX_RESULTS = 8;
-const PER_TABLE_LIMIT = 30;
+const HISTORY_KEY   = 'ow_reading_history';
+const MAX_RESULTS   = 8;
+const PER_TABLE     = 30;
 const HALF_LIFE_DAYS = 7;
-const DAY_MS = 24 * 60 * 60 * 1000;
+const DAY_MS         = 24 * 60 * 60 * 1000;
+const SESSION_WINDOW = 0.021; // 30 min in days
+
+// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function getHistory(): HistoryEntry[] {
   try {
@@ -67,17 +93,34 @@ function getHistory(): HistoryEntry[] {
 }
 
 /**
- * Build a recency-weighted tag/category interest map from history.
- * Newer reads contribute more. Tags from older reads decay exponentially.
+ * Build a quality-weighted tag/category interest map from reading history.
+ *
+ * Weight per entry = ageDecay Ã— readQuality Ã— sessionBoost
+ *   readQuality = (0.3 + 0.7 Ã— scrollDepth) Ã— clamp(1 + log1p(dwellSecs/60), 1, 2.5)
+ *   sessionBoost = 3Ã— if read within last 30 minutes
  */
 function buildInterestProfile(history: HistoryEntry[]) {
-  const tagWeights = new Map<string, number>();
+  const tagWeights      = new Map<string, number>();
   const categoryWeights = new Map<string, number>();
   const now = Date.now();
 
   for (const entry of history) {
-    const ageDays = entry.ts ? (now - entry.ts) / DAY_MS : 7;
-    const weight = Math.pow(0.5, ageDays / HALF_LIFE_DAYS); // exp decay
+    const ageDays    = entry.ts ? (now - entry.ts) / DAY_MS : 7;
+    const ageDecay   = Math.pow(0.5, ageDays / HALF_LIFE_DAYS);
+
+    // Read quality: scroll depth signal
+    const scrollDepth = entry.scrollDepth ?? 0.5; // default 0.5 for legacy entries
+    const scrollFactor = 0.3 + 0.7 * scrollDepth;
+
+    // Read quality: dwell time signal â€” log curve so 5 min â‰ˆ 1.8Ã—, 10 min â‰ˆ 2.4Ã—
+    const dwellSecs  = entry.dwellMs ? entry.dwellMs / 1000 : 60;
+    const dwellBoost = Math.min(2.5, 1 + Math.log1p(dwellSecs / 60));
+
+    // Session boost: very recent reads are strong intent signals
+    const sessionBoost = ageDays < SESSION_WINDOW ? 3 : 1;
+
+    const weight = ageDecay * scrollFactor * dwellBoost * sessionBoost;
+
     for (const t of entry.tags ?? []) {
       tagWeights.set(t, (tagWeights.get(t) ?? 0) + weight);
     }
@@ -91,25 +134,22 @@ function buildInterestProfile(history: HistoryEntry[]) {
 
 async function fetchTable(
   table: 'articles' | 'jack_articles' | 'creator_articles',
-  selectCols: string,
+  cols:  string,
 ): Promise<ArticleRow[]> {
   const params = new URLSearchParams({
-    select: selectCols,
-    order: 'published_at.desc',
-    limit: String(PER_TABLE_LIMIT),
+    select: cols,
+    order:  'published_at.desc',
+    limit:  String(PER_TABLE),
   });
-  // jack_articles has no `status` column — only filter the others
-  if (table !== 'jack_articles') {
-    params.set('status', 'eq.published');
-  }
+  if (table !== 'jack_articles') params.set('status', 'eq.published');
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params.toString()}`, {
-      headers: {
-        apikey: SUPABASE_ANON,
-        Authorization: `Bearer ${SUPABASE_ANON}`,
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/${table}?${params.toString()}`,
+      {
+        headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` },
+        cache: 'no-store',
       },
-      cache: 'no-store',
-    });
+    );
     if (!res.ok) return [];
     return await res.json();
   } catch {
@@ -117,9 +157,11 @@ async function fetchTable(
   }
 }
 
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
 export default function RelatedArticles({ currentSlug, category, tags = [] }: Props) {
-  const [articles, setArticles] = useState<ArticleRow[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [articles, setArticles] = useState<ScoredArticle[]>([]);
+  const [loading,  setLoading]  = useState(true);
 
   useEffect(() => {
     async function load() {
@@ -127,75 +169,94 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
       const { tagWeights, categoryWeights } = buildInterestProfile(history);
       const currentTagSet = new Set(tags);
 
-      // Pull candidates from all three article tables in parallel.
-      // Each table exposes the same column names we need.
       const [news, jack, creators] = await Promise.all([
-        fetchTable('articles',         'slug,title,category,publish_date,thumbnail_src,tags,url,published_at'),
-        fetchTable('jack_articles',    'slug,title,category,publish_date,thumbnail_src,tags,url,published_at'),
-        fetchTable('creator_articles', 'slug,title,category,publish_date,thumbnail_src,tags,url,published_at'),
+        fetchTable('articles',         'slug,title,category,publish_date,published_at,thumbnail_src,tags,url'),
+        fetchTable('jack_articles',    'slug,title,category,publish_date,published_at,thumbnail_src,tags,url'),
+        fetchTable('creator_articles', 'slug,title,category,publish_date,published_at,thumbnail_src,tags,url'),
       ]);
 
-      const merged = [...news, ...jack, ...creators]
-        .filter((r) => r.slug !== currentSlug && r.url);
+      const rawMerged = [...news, ...jack, ...creators].filter(
+        (r) => r.slug !== currentSlug && r.url,
+      );
 
-      // Deduplicate by slug (jack/creator shouldn't collide with articles, but be safe)
+      // Deduplicate by slug
       const seen = new Set<string>();
-      const unique = merged.filter((r) => {
+      const unique = rawMerged.filter((r) => {
         if (seen.has(r.slug)) return false;
         seen.add(r.slug);
         return true;
       });
 
-      // Score each candidate
       const nowMs = Date.now();
-      const scored = unique.map((r) => {
-        const rowTags = r.tags ?? [];
-        const publishedMs = (r as ArticleRow & { published_at?: string }).published_at
-          ? new Date((r as ArticleRow & { published_at?: string }).published_at!).getTime()
-          : 0;
 
-        // 1. Direct tag overlap with current article (strongest signal)
+      const scored: ScoredArticle[] = unique.map((r) => {
+        const rowTags    = r.tags ?? [];
+        const publishedMs = r.published_at ? new Date(r.published_at).getTime() : 0;
+
+        // Signal 1: direct tag overlap with current article (strongest)
         const directOverlap = rowTags.filter((t) => currentTagSet.has(t)).length;
 
-        // 2. History tag affinity (decayed)
+        // Signal 2: history tag affinity (quality-weighted)
         let historyTagScore = 0;
-        for (const t of rowTags) {
-          historyTagScore += tagWeights.get(t) ?? 0;
-        }
+        for (const t of rowTags) historyTagScore += tagWeights.get(t) ?? 0;
 
-        // 3. History category affinity (decayed)
-        const historyCategoryScore = categoryWeights.get(r.category) ?? 0;
+        // Signal 3: history category affinity (quality-weighted)
+        const historyCatScore = categoryWeights.get(r.category) ?? 0;
 
-        // 4. Same category as current article
+        // Signal 4: same category as current article
         const sameCategory = r.category === category ? 1 : 0;
 
-        // 5. Recency bonus — newer published articles get a tiny lift
-        const ageDays = publishedMs ? (nowMs - publishedMs) / DAY_MS : 30;
+        // Signal 5: recency bonus (max 0.5, fades over 30 days)
+        const ageDays    = publishedMs ? (nowMs - publishedMs) / DAY_MS : 30;
         const recencyBonus = Math.max(0, 1 - ageDays / 30) * 0.5;
 
         const score =
-          directOverlap * 5 +
-          historyTagScore * 2 +
-          historyCategoryScore * 1 +
-          sameCategory * 2 +
+          directOverlap     * 5 +
+          historyTagScore   * 2 +
+          historyCatScore   * 1 +
+          sameCategory      * 2 +
           recencyBonus;
 
-        return { ...r, _score: score, _publishedMs: publishedMs };
+        // Reason: which signal dominated?
+        const personalScore = historyTagScore * 2 + historyCatScore;
+        const similarScore  = directOverlap * 5 + sameCategory * 2;
+        const reason: ScoredArticle['_reason'] =
+          personalScore > similarScore ? 'foryou' : 'similar';
+
+        return { ...r, _score: score, _publishedMs: publishedMs, _reason: reason };
       });
 
-      // Sort by score, then recency
+      // Sort by score desc, then recency
       scored.sort((a, b) => {
-        if ((b._score ?? 0) !== (a._score ?? 0)) return (b._score ?? 0) - (a._score ?? 0);
-        return (b._publishedMs ?? 0) - (a._publishedMs ?? 0);
+        const sd = b._score - a._score;
+        return sd !== 0 ? sd : b._publishedMs - a._publishedMs;
       });
 
-      setArticles(scored.slice(0, MAX_RESULTS));
+      // â”€â”€ Diversity injection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      // If the top MAX_RESULTS are all from the same category, swap the last
+      // slot with the best article from a different category.
+      const topN = scored.slice(0, MAX_RESULTS);
+      const topCategory = topN[0]?.category;
+      const allSameCategory = topN.length >= 3 && topN.every((a) => a.category === topCategory);
+
+      if (allSameCategory) {
+        const topSlugs = new Set(topN.map((a) => a.slug));
+        const diverse = scored.find(
+          (a) => a.category !== topCategory && !topSlugs.has(a.slug),
+        );
+        if (diverse) {
+          topN[MAX_RESULTS - 1] = { ...diverse, _reason: 'discovery' };
+        }
+      }
+
+      setArticles(topN);
       setLoading(false);
     }
 
     load();
   }, [currentSlug, category, tags]);
 
+  // â”€â”€ Loading skeleton â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (loading) {
     return (
       <aside className="space-y-3">
@@ -222,10 +283,7 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
       <ul className="space-y-4">
         {articles.map((a) => (
           <li key={a.slug}>
-            <Link
-              href={a.url ?? `/${a.slug}`}
-              className="group block"
-            >
+            <Link href={a.url ?? `/${a.slug}`} className="group block">
               {a.thumbnail_src && (
                 <div className="w-full aspect-video overflow-hidden rounded mb-1.5">
                   <img
@@ -235,9 +293,21 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
                   />
                 </div>
               )}
-              <span className="text-[9px] font-bold uppercase tracking-wider text-red-600">
-                {a.category}
-              </span>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-red-600">
+                  {a.category}
+                </span>
+                {a._reason === 'foryou' && (
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-violet-500">
+                    Â· For you
+                  </span>
+                )}
+                {a._reason === 'discovery' && (
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-emerald-500">
+                    Â· Discover
+                  </span>
+                )}
+              </div>
               <p className="text-xs font-semibold text-gray-900 leading-snug group-hover:underline mt-0.5">
                 {a.title}
               </p>
@@ -249,3 +319,4 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
     </aside>
   );
 }
+

@@ -9,6 +9,7 @@ import { Breadcrumb } from '@/components/nav/Breadcrumb';
 import type { BreadcrumbItem } from '@/components/nav/Breadcrumb';
 import FAQAccordion, { FAQSchema } from '@/components/FAQAccordion';
 import type { FAQItem } from '@/components/FAQAccordion';
+import { MoreFromHub, type MoreFromHubItem } from '@/components/discovery/MoreFromHub';
 
 // =============================================================================
 // NEWS ARTICLE COMPONENT - Flashy, engaging article layout
@@ -67,6 +68,11 @@ export interface NewsArticleProps {
   breadcrumbs?: BreadcrumbItem[];
   /** FAQ items rendered at the bottom of the article body + FAQPage JSON-LD schema. */
   faqItems?: FAQItem[];
+  /** Server-rendered "More from this Hub" related articles strip — important for SEO crawlability. */
+  moreFromHub?: MoreFromHubItem[];
+  /** Optional hub label + href for the MoreFromHub heading. */
+  moreFromHubLabel?: string;
+  moreFromHubHref?: string;
 }
 
 // =============================================================================
@@ -694,6 +700,9 @@ export function NewsArticle({
   url,
   breadcrumbs,
   faqItems,
+  moreFromHub,
+  moreFromHubLabel,
+  moreFromHubHref,
 }: NewsArticleProps) {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
@@ -794,6 +803,15 @@ export function NewsArticle({
             <FAQSchema items={faqItems} />
             <FAQAccordion items={faqItems} heading="Frequently Asked Questions" color="blue" />
           </div>
+        )}
+
+        {/* Server-rendered MoreFromHub — crawlable by Google for SEO interlinking. */}
+        {moreFromHub && moreFromHub.length > 0 && (
+          <MoreFromHub
+            items={moreFromHub}
+            hubLabel={moreFromHubLabel ?? category}
+            hubHref={moreFromHubHref}
+          />
         )}
 
         {/* Engagement stack — Tags, ReactionBar, Comments, Author, Newsletter.

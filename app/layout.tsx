@@ -201,11 +201,23 @@ export default async function RootLayout({
 
             </div>
 
+            {/* Ownership & funding disclosure */}
+            <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8">
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl">
+                <span className="font-semibold text-gray-700 dark:text-gray-300">Ownership and funding:</span>{' '}
+                ObjectWire is an independent, self-funded nonprofit newsroom. We accept no advertising, no
+                sponsored content, and no political donations. Read our{' '}
+                <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">about page</Link>,{' '}
+                <Link href="/editorial-standards" className="text-blue-600 hover:text-blue-800 underline">editorial standards</Link>, and{' '}
+                <Link href="/corrections" className="text-blue-600 hover:text-blue-800 underline">corrections policy</Link>.
+              </p>
+            </div>
+
             {/* Bottom bar */}
-            <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="border-t border-gray-100 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <span>© 2026 ObjectWire News.</span>
-                <span className="hidden sm:inline">All rights reserved.</span>
+                <span>© 2026 ObjectWire.</span>
+                <span className="hidden sm:inline">Self-funded nonprofit newsroom.</span>
                 <span className="text-gray-300 dark:text-gray-600">·</span>
                 <span className="text-xs">Verified reporting. Primary sources only.</span>
               </div>
@@ -237,6 +249,20 @@ export default async function RootLayout({
                 send_page_view: false,
                 cookie_flags: 'SameSite=Lax;Secure'
               });
+            `,
+          }}
+        />
+        {/* Microsoft Clarity — heatmaps, session recordings, Bing Webmaster integration */}
+        <Script
+          id="microsoft-clarity-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "wjhv8feuku");
             `,
           }}
         />

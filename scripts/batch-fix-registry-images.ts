@@ -32,29 +32,51 @@ const CATEGORY_QUERIES: Record<string, string> = {
   Services: 'business professional',
 };
 
-// Extract a better search query from the title
-function titleToQuery(title: string, category: string): string {
-  // Use category default + first 2-3 meaningful words from title
+// Common proper nouns and brand names that Unsplash won't have photos for.
+// When a title is dominated by these, fall back to the category query instead.
+const BRAND_WORDS = new Set([
+  'anthropic', 'openai', 'perplexity', 'pokémon', 'pokopia', 'tenstorrent',
+  'outersloth', 'sidemen', 'bungie', 'marathon', 'cursor', 'crowdstrike',
+  'redbull', 'fortnite', 'youtube', 'tiktok', 'instagram', 'snapchat',
+  'discord', 'twitch', 'valkyrae', 'pokimane', 'jackarticle', 'objectwire',
+]);
+
+// Extract a search query from the title, with category-only fallback.
+// Returns [primaryQuery, fallbackQuery] so the caller can try both.
+function titleToQueries(title: string, category: string): [string, string] {
   const base = CATEGORY_QUERIES[category] || category.toLowerCase();
+
   const words = title
-    .replace(/[|—–\-:]/g, ' ')
+    .replace(/[|—–\-:$'"]/g, ' ')
     .replace(/ObjectWire/gi, '')
     .split(/\s+/)
-    .filter((w) => w.length > 3)
+    .filter((w) => w.length > 3 && !BRAND_WORDS.has(w.toLowerCase()))
     .slice(0, 3)
     .join(' ');
-  return words || base;
+
+  return [words || base, base];
 }
 
-async function searchUnsplash(query: string): Promise<string | null> {
-  const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape&client_id=${UNSPLASH_KEY}`;
+interface UnsplashResult {
+  imageUrl: string;
+  description: string;
+}
+
+async function searchUnsplash(query: string): Promise<UnsplashResult | null> {
+  const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=3&orientation=landscape&client_id=${UNSPLASH_KEY}`;
   try {
     const res = await fetch(url);
     if (!res.ok) return null;
     const data = await res.json();
     if (data.results && data.results.length > 0) {
-      const photo = data.results[0];
-      return `https://images.unsplash.com/photo-${photo.id}?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy`;
+      // Pick the photo with the best description, falling back to first result
+      const photo = data.results.find((p: Record<string, unknown>) => p.alt_description) || data.results[0];
+      // Use the raw CDN URL with size params — more reliable than constructing from ID
+      const rawUrl: string = (photo.urls as Record<string, string>).raw;
+      return {
+        imageUrl: `${rawUrl}&w=1200&h=675&fit=crop&crop=entropy&q=85&fm=jpg`,
+        description: String((photo.alt_description as string) || (photo.description as string) || ''),
+      };
     }
     return null;
   } catch {
@@ -63,13 +85,18 @@ async function searchUnsplash(query: string): Promise<string | null> {
 }
 
 async function main() {
+  // Optional limit via env: BATCH_LIMIT=50 npx tsx ...
+  // Defaults to 500 (all practical sites). Unsplash demo: 50 req/hr — script
+  // sleeps 1.2 s between requests, so 500 entries takes ~10 min.
+  const limit = process.env.BATCH_LIMIT ? Number(process.env.BATCH_LIMIT) : 500;
+
   // Get entries missing images, sorted by priority
   const { data: missing, error } = await supabase
     .from('content_registry')
     .select('slug, title, category, priority')
     .or('image_url.is.null,image_url.eq.')
     .order('priority', { ascending: false })
-    .limit(50);
+    .limit(limit);
 
   if (error) { console.error(error); return; }
   if (!missing || missing.length === 0) {
@@ -83,20 +110,31 @@ async function main() {
   let failed = 0;
 
   for (const entry of missing) {
-    const query = titleToQuery(entry.title, entry.category);
+    const [primaryQuery, fallbackQuery] = titleToQueries(entry.title, entry.category);
     console.log(`[${entry.priority}] ${entry.slug}`);
-    console.log(`  Query: "${query}"`);
+    console.log(`  Query: "${primaryQuery}"`);
 
-    const imageUrl = await searchUnsplash(query);
+    let result = await searchUnsplash(primaryQuery);
 
-    if (imageUrl) {
+    // Retry with category-only query if title-derived query returns nothing
+    if (!result && primaryQuery !== fallbackQuery) {
+      console.log(`  Retry: "${fallbackQuery}"`);
+      result = await searchUnsplash(fallbackQuery);
+    }
+
+    if (result) {
+      // Use the Unsplash alt_description if available, otherwise fall back to title
+      const altText = result.description
+        ? `${result.description} — ${entry.title.replace(/\s*\|\s*ObjectWire/g, '')}`
+        : entry.title.replace(/\s*\|\s*ObjectWire/g, '');
+
       const { error: updateErr } = await supabase
         .from('content_registry')
         .update({
-          image_url: imageUrl,
-          image_width: 1200,
+          image_url:    result.imageUrl,
+          image_width:  1200,
           image_height: 675,
-          image_alt: entry.title.replace(/\s*\|\s*ObjectWire/g, ''),
+          image_alt:    altText.slice(0, 255),
         })
         .eq('slug', entry.slug);
 
@@ -104,7 +142,7 @@ async function main() {
         console.log(`  ❌ Update failed: ${updateErr.message}`);
         failed++;
       } else {
-        console.log(`  ✅ Updated`);
+        console.log(`  ✅ ${result.imageUrl.slice(0, 72)}…`);
         updated++;
       }
     } else {

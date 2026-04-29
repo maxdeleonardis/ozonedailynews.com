@@ -118,11 +118,17 @@ export async function generateArticleMetadata(
     `Read the full article on ObjectWire.`;
 
   // ── Resolve image ────────────────────────────────────────────────
-  const imageUrl =
+  const resolvedImageUrl =
     r.hero_image_src ||
     (r.hero_image && typeof r.hero_image === 'object' ? r.hero_image.src : null) ||
     r.thumbnail_src ||
     null;
+
+  // When no article-specific image exists, fall back to the dynamic OG card
+  // generator at /api/og which renders a branded card with title, category,
+  // and a pre-populated Unsplash background (if the batch-fix script has run).
+  const ogFallback = `https://www.objectwire.org/api/og?slug=${encodeURIComponent(canonicalPath)}`;
+  const imageUrl = resolvedImageUrl || ogFallback;
 
   const imageAlt =
     r.hero_image_alt ||
@@ -164,18 +170,14 @@ export async function generateArticleMetadata(
       description: metaDescription,
       url: canonicalUrl,
       siteName: 'ObjectWire',
-      ...(imageUrl
-        ? {
-            images: [
-              {
-                url: imageUrl,
-                width: 1200,
-                height: 675,
-                alt: imageAlt,
-              },
-            ],
-          }
-        : {}),
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
       ...(section ? { section } : {}),
@@ -185,7 +187,7 @@ export async function generateArticleMetadata(
       card: 'summary_large_image',
       title: metaTitle,
       description: metaDescription,
-      ...(imageUrl ? { images: [imageUrl] } : {}),
+      images: [imageUrl],
     },
   };
 

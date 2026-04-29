@@ -117,6 +117,12 @@ export async function generateArticleMetadata(
     r.description ||
     `Read the full article on ObjectWire.`;
 
+  // ── Resolve URL ──────────────────────────────────────────────────
+  const canonicalPath = r.url || r.article_url || `/${slug.replace(/-/g, '/')}`;
+  const canonicalUrl = canonicalPath.startsWith('http')
+    ? canonicalPath
+    : `https://www.objectwire.org${canonicalPath}`;
+
   // ── Resolve image ────────────────────────────────────────────────
   const resolvedImageUrl =
     r.hero_image_src ||
@@ -135,12 +141,6 @@ export async function generateArticleMetadata(
     (r.hero_image && typeof r.hero_image === 'object' ? r.hero_image.alt : null) ||
     r.title ||
     '';
-
-  // ── Resolve URL ──────────────────────────────────────────────────
-  const canonicalPath = r.url || r.article_url || `/${slug.replace(/-/g, '/')}`;
-  const canonicalUrl = canonicalPath.startsWith('http')
-    ? canonicalPath
-    : `https://www.objectwire.org${canonicalPath}`;
 
   // ── Resolve category / section ───────────────────────────────────
   const section = r.category || r.category_label || r.section || undefined;

@@ -15,8 +15,8 @@
 // =============================================================================
 
 // ─── Feature flag ────────────────────────────────────────────────────────────
-// Supabase anonymous sign-ins are enabled — guests get a real anon session.
-const ANONYMOUS_COMMENTS = false;
+// Enabled: guests can comment with just a display name. No account required.
+const ANONYMOUS_COMMENTS = true;
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createBrowserClient } from '@/lib/supabase/client';
@@ -124,8 +124,8 @@ function SignInGate({
         <DiscordIcon className="w-5 h-5 text-[#5865F2]" />
       </div>
       <h3 className="text-sm font-bold text-gray-900 mb-1">Join the discussion</h3>
-      <p className="text-xs text-gray-500 mb-1">Sign in to ObjectWire to leave a comment.</p>
-      <p className="text-xs text-gray-400 mb-5">Your comment appears live in our Discord server.</p>
+      <p className="text-xs text-gray-500 mb-1">Sign in for a verified badge, or scroll down to comment as a guest.</p>
+      <p className="text-xs text-gray-400 mb-5">Every comment appears live in our Discord server.</p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
         {/* Discord — preferred */}
@@ -138,19 +138,27 @@ function SignInGate({
           {discordLoading ? 'Connecting…' : 'Sign in with Discord'}
         </button>
 
-        {/* Google / OWire account */}
+        {/* Google account */}
         <button
           onClick={onGoogle}
           disabled={googleLoading}
           className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-lg border border-gray-300 transition-colors disabled:opacity-60 w-full sm:w-auto justify-center shadow-sm"
         >
           <GoogleIcon className="w-4 h-4" />
-          {googleLoading ? 'Connecting…' : 'Sign in with OWire'}
+          {googleLoading ? 'Connecting…' : 'Sign in with Google'}
         </button>
       </div>
       <p className="text-xs text-gray-400 mt-4">
-        New to ObjectWire?{' '}
-        <a href="/login" className="text-[#5865F2] hover:underline font-medium">Create a free account →</a>
+        No account?{' '}
+        <button
+          onClick={() => {
+            // Scroll past this gate to the guest comment form below
+            document.getElementById('discord-guest-form')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="text-[#5865F2] hover:underline font-medium"
+        >
+          Comment as guest ↓
+        </button>
       </p>
     </div>
   );
@@ -405,6 +413,22 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         )}
       </div>
 
+      {/* Discord live-sync nudge — shown above the comment form/gate */}
+      <div className="flex items-center justify-between gap-3 rounded-lg bg-[#5865F2]/5 border border-[#5865F2]/15 px-4 py-2.5 mb-5">
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2] shrink-0" />
+          <span>Comments post live to the <strong className="font-semibold text-gray-800">ObjectWire Discord</strong> server.</span>
+        </div>
+        <a
+          href="https://discord.gg/wBsgkU4uAf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 text-xs font-semibold text-[#5865F2] hover:text-[#4752C4] hover:underline whitespace-nowrap"
+        >
+          Join server →
+        </a>
+      </div>
+
       {/* Sign-in gate or comment form */}
       {authLoading ? (
         <div className="h-24 rounded-xl bg-gray-100 animate-pulse mb-8" />
@@ -418,7 +442,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         />
       ) : (
         /* ── Comment form (logged in OR anon mode) ── */
-        <form onSubmit={handleSubmit} className="mb-8">
+        <form id="discord-guest-form" onSubmit={handleSubmit} className="mb-8">
           <div className="flex gap-3">
             <div className="shrink-0 pt-0.5">
               <Image src={posterAvatar} alt={posterName} width={36} height={36} className="rounded-full" unoptimized />

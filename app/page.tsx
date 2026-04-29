@@ -284,24 +284,28 @@ export default async function HomePage() {
   }
   merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
+  // Exclude non-editorial categories from the homepage feed
+  const HOMEPAGE_EXCLUDED_CATEGORIES = new Set(['services', 'service']);
+  const filtered = merged.filter((a) => !HOMEPAGE_EXCLUDED_CATEGORIES.has(a.category.toLowerCase()));
+
   // GA4: promote most-read article to lead slot
   let popularLeadSlug: string | null = null;
   try { popularLeadSlug = await getPopularLeadSlug(); } catch { /* graceful fallback */ }
 
   let isMostRead = false;
   if (popularLeadSlug) {
-    const popularIdx = merged.findIndex((a) => a.href === popularLeadSlug);
+    const popularIdx = filtered.findIndex((a) => a.href === popularLeadSlug);
     if (popularIdx > 0) {
       // Move it to front without mutating original sort
-      const [popular] = merged.splice(popularIdx, 1);
-      merged.unshift(popular);
+      const [popular] = filtered.splice(popularIdx, 1);
+      filtered.unshift(popular);
       isMostRead = true;
     } else if (popularIdx === 0) {
       isMostRead = true;
     }
   }
 
-  const [lead, second, third, ...rest] = merged;
+  const [lead, second, third, ...rest] = filtered;
     const moreStories      = rest.slice(0, 120);  // 4-col × 3-row grid with 10 pages
     const headlineArticles = rest.slice(120, 160); // overflow headline list
   const editionDate = new Date().toLocaleDateString('en-US', {

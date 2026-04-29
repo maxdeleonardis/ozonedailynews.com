@@ -402,7 +402,7 @@ export function CreatorArticle({
           <div className="grid lg:grid-cols-3 gap-10">
 
             {/* ── Article Body ───────────────────────────────────── */}
-            <article className="lg:col-span-2 space-y-12">
+            <article className="lg:col-span-2 space-y-12 font-sans text-gray-800">
               <ArticleViewTracker
                 slug={articleSlug}
                 title={schema.title}
@@ -754,11 +754,11 @@ export interface CreatorSectionProps {
 export function CreatorSection({ heading, children, prose = true }: CreatorSectionProps) {
   return (
     <section>
-      <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-900 pb-2">
+      <h2 className="text-2xl font-black text-gray-900 mb-5 border-b-2 border-gray-900 pb-2 tracking-tight">
         {heading}
       </h2>
       {prose ? (
-        <div className="prose prose-lg max-w-none">{children}</div>
+        <div className="prose prose-lg max-w-none font-sans [&_p]:text-gray-700 [&_p]:leading-[1.82] [&_li]:text-gray-700 [&_li]:leading-[1.82] [&_strong]:text-gray-900 [&_strong]:font-semibold">{children}</div>
       ) : (
         children
       )}
@@ -879,7 +879,7 @@ export interface CreatorQuoteProps {
 export function CreatorQuote({ quote, attribution, role }: CreatorQuoteProps) {
   return (
     <blockquote className="not-prose my-8 pl-5 border-l-4 border-gray-900">
-      <p className="text-xl font-semibold text-gray-900 leading-relaxed italic">
+      <p className="text-2xl font-bold text-gray-900 leading-snug italic font-sans">
         &ldquo;{quote}&rdquo;
       </p>
       {attribution && (

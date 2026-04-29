@@ -50,10 +50,34 @@ const PARAMS_TO_STRIP = [
 
 // Redirect rules removed to prevent redirect loops
 
+// Countries to block — ISO 3166-1 alpha-2 codes
+// Checked against: cf-ipcountry (Cloudflare), x-vercel-ip-country (Vercel),
+// x-country (Railway / generic proxy)
+const BLOCKED_COUNTRIES = new Set(['CN']);
+
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
-  
+
+  // ==========================================================================
+  // GEO BLOCK — check before anything else so bots never hit app logic
+  // ==========================================================================
+  const countryCode =
+    request.headers.get('cf-ipcountry') ??
+    request.headers.get('x-vercel-ip-country') ??
+    request.headers.get('x-country') ??
+    null;
+
+  if (countryCode && BLOCKED_COUNTRIES.has(countryCode.toUpperCase())) {
+    return new NextResponse(
+      '<!DOCTYPE html><html lang="en"><head><title>Access Restricted</title></head><body><h1>Access Restricted</h1><p>This content is not available in your region.</p></body></html>',
+      {
+        status: 451, // 451 Unavailable For Legal Reasons — correct HTTP code for geo-blocks
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      }
+    );
+  }
+
   // Skip static files and API routes
   if (
     pathname.startsWith('/_next') ||

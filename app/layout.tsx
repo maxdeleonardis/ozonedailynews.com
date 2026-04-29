@@ -4,16 +4,13 @@ import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { OrganizationSchema, WebSiteSchema } from "@/components/articles/NewsArticleSchema";
 import AuthProvider from "@/components/auth/AuthProvider";
-import MobileNav from "@/components/nav/MobileNav";
 import TopStripSearch from "@/components/nav/TopStripSearch";
-import NavUserButton from "@/components/nav/NavUserButton";
-import NavBreakingTicker from "@/components/nav/NavBreakingTicker";
+import MainNav from "@/components/nav/MainNav";
 import NewsletterSignupInline from "@/components/newsletter/NewsletterSignupInline";
 import FooterAuthorSlot from "@/components/authors/FooterAuthorSlot";
 import { FooterAuthorProvider } from "@/lib/footer-author-context";
 import TopStrip from "@/components/nav/TopStrip";
 import ThemeProvider from "@/components/ThemeProvider";
-import { getBreakingHeadlines } from "@/lib/article-service";
 import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -131,7 +128,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const breakingHeadlines = await getBreakingHeadlines();
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
@@ -147,15 +143,12 @@ export default async function RootLayout({
           <ThemeProvider>
             <FooterAuthorProvider>
             {/* ── Newspaper Masthead ─────────────────────────────────────── */}
-            <header className="border-b-4 border-black bg-white sticky sm:relative top-0 z-40">
+            <header className="border-b-4 border-black bg-white sticky sm:relative top-0 z-40 overflow-visible">
 
               {/* Top info strip */}
               <div className="border-b border-gray-300 bg-gray-50">
                 <div className="container mx-auto px-4 py-1 flex items-center justify-between">
-                  <span className="hidden sm:block text-xs font-mono text-gray-500">
-                    {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                  </span>
-                  <TopStripSearch />
+                  <TopStripSearch dateString={new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} />
                 </div>
               </div>
 
@@ -163,7 +156,7 @@ export default async function RootLayout({
               <div className="container mx-auto px-4 py-2 md:py-5 text-center">
                 <Link href="/" className="inline-block group">
                   <div className="text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif">
-                    OBJECTWIRE NEWS
+                    OBJECTWIRE
                   </div>
                   <div className="flex items-center justify-center gap-4 mt-1.5">
                     <div className="h-px w-10 md:w-28 bg-black" />
@@ -175,47 +168,8 @@ export default async function RootLayout({
                 </Link>
               </div>
 
-              {/* Section nav bar */}
-              <div className="border-t-2 border-black">
-                <div className="container mx-auto px-4">
-                  <nav className="flex items-center divide-x divide-black">
-                    {/* Home icon */}
-                    <Link
-                      href="/"
-                      aria-label="Home"
-                      className="px-3 md:px-4 py-2.5 hover:bg-black hover:text-white transition-colors shrink-0 flex items-center"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
-                        <path d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7Z" />
-                      </svg>
-                    </Link>
-                    {/* Left: News */}
-                    <Link
-                      href="/news"
-                      className="px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0"
-                    >
-                      News
-                    </Link>
-
-                    {/* Centre: Breaking ticker */}
-                    <NavBreakingTicker headlines={breakingHeadlines} />
-
-                    {/* Right: Index + user */}
-                    <div className="flex items-center divide-x divide-black ml-auto">
-                      <Link href="/site-index" className="hidden sm:block px-3 md:px-4 py-2.5 text-[10px] font-black tracking-[.12em] uppercase whitespace-nowrap hover:bg-black hover:text-white transition-colors shrink-0">
-                        Index
-                      </Link>
-                      <div className="hidden sm:block">
-                        <NavUserButton />
-                      </div>
-                      {/* Mobile hamburger */}
-                      <div className="md:hidden shrink-0">
-                        <MobileNav />
-                      </div>
-                    </div>
-                  </nav>
-                </div>
-              </div>
+              {/* Section nav bar — hub dropdowns */}
+              <MainNav />
             </header>
 
             <main style={{ marginLeft: '10px', marginRight: '10px' }}>{children}</main>

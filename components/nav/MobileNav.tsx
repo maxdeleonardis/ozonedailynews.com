@@ -4,13 +4,144 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-const NAV_LINKS = [
-  { href: '/news', label: 'News' },
-  { href: '/finance', label: 'Finance' },
-  { href: '/tech', label: 'Tech' },
-  { href: '/service', label: 'Services' },
-  { href: '/entertainment', label: 'Entertainment' },
-  { href: '/winter-olympics', label: 'Winter Olympics' },
+type NavItem = { label: string; href: string };
+type NavHub = { label: string; href: string; items: NavItem[] };
+
+const NAV_HUBS: NavHub[] = [
+  {
+    label: 'News', href: '/news',
+    items: [
+      { label: 'All News', href: '/news' },
+      { label: 'World', href: '/news/world' },
+      { label: 'AI & Science', href: '/news/ai' },
+      { label: 'Canada', href: '/news/canada' },
+      { label: 'Iran', href: '/news/iran' },
+      { label: 'Layoffs', href: '/news/layoffs' },
+      { label: 'Texas', href: '/news/texas' },
+      { label: 'New York', href: '/news/newyork' },
+    ],
+  },
+  {
+    label: 'Tech', href: '/tech',
+    items: [
+      { label: 'All Tech', href: '/tech' },
+      { label: 'OpenAI', href: '/open-ai' },
+      { label: 'Google', href: '/google' },
+      { label: 'Nvidia', href: '/nvidia' },
+      { label: 'DeepSeek', href: '/tech/deepseek' },
+      { label: 'Cloudflare', href: '/cloudflare' },
+      { label: 'Stripe', href: '/tech/stripe' },
+      { label: 'Oracle', href: '/tech/oracle' },
+      { label: 'Perplexity', href: '/tech/perplexity' },
+      { label: 'Palantir', href: '/tech/palantir-3d-frontend-gaia-zodiac' },
+      { label: 'TSMC', href: '/tech/tsmc-semiconductor-foundry-profile' },
+      { label: 'Dell', href: '/tech/dell' },
+      { label: 'Square', href: '/tech/square' },
+    ],
+  },
+  {
+    label: 'Finance', href: '/finance',
+    items: [
+      { label: 'All Finance', href: '/finance' },
+      { label: 'Finance News', href: '/finance/news' },
+      { label: 'BlackRock', href: '/blackrock' },
+      { label: 'Cross River Bank', href: '/finance/cross-river-bank-baas-visa-usdc' },
+      { label: 'Lead Bank', href: '/finance/lead-bank-crypto-infrastructure' },
+      { label: 'Private Credit', href: '/finance/private-credit-redemption-crisis-blackstone-blackrock-blue-owl-2026' },
+    ],
+  },
+  {
+    label: 'Gaming', href: '/video-games',
+    items: [
+      { label: 'All Games', href: '/video-games' },
+      { label: 'GTA 6', href: '/video-games/gta-6' },
+      { label: 'Nintendo Switch 2', href: '/video-games/switch2' },
+      { label: 'Nintendo', href: '/video-games/nintendo' },
+      { label: 'Pokemon', href: '/video-games/pokemon' },
+      { label: "Marvel's Wolverine", href: '/video-games/marvels-wolverine' },
+      { label: 'Battlefield 6', href: '/video-games/battlefield-6' },
+      { label: 'Mario Kart', href: '/video-games/mario-kart' },
+      { label: 'Forza Horizon 6', href: '/video-games/forza-horizon-6' },
+      { label: 'Resident Evil', href: '/video-games/resident-evil-requiem' },
+      { label: 'Epic Games', href: '/video-games/epic' },
+      { label: 'Ubisoft', href: '/video-games/ubisoft' },
+      { label: 'Valve / Steam', href: '/video-games/valve-corporation' },
+      { label: 'Capcom', href: '/video-games/capcom' },
+      { label: 'Star Wars Games', href: '/video-games/star-wars' },
+    ],
+  },
+  {
+    label: 'Entertainment', href: '/entertainment',
+    items: [
+      { label: 'All Entertainment', href: '/entertainment' },
+      { label: 'Netflix', href: '/entertainment/netflix' },
+      { label: 'Marvel', href: '/entertainment/marvel' },
+      { label: 'HBO Max', href: '/entertainment/hbo-max' },
+      { label: 'Hulu', href: '/entertainment/hulu' },
+      { label: 'Movies', href: '/entertainment/movies' },
+      { label: 'Apple TV+', href: '/entertainment/apple-tv' },
+      { label: 'Beast Games', href: '/entertainment/beastgames' },
+      { label: 'James Cameron', href: '/entertainment/james-cameron' },
+      { label: 'Survivor', href: '/entertainment/survivor' },
+      { label: 'Disney', href: '/disney' },
+    ],
+  },
+  {
+    label: 'Politics', href: '/trump',
+    items: [
+      { label: 'Trump', href: '/trump' },
+      { label: 'Elon Musk', href: '/elon-musk' },
+      { label: 'SpaceX', href: '/elon-musk/spacex' },
+      { label: 'xAI', href: '/elon-musk/xai' },
+      { label: 'Boring Company', href: '/elon-musk/boring-company' },
+      { label: 'Politics News', href: '/politics/news' },
+    ],
+  },
+  {
+    label: 'Crypto', href: '/crypto',
+    items: [
+      { label: 'All Crypto', href: '/crypto' },
+      { label: 'Crypto News', href: '/crypto/news' },
+      { label: 'Coinbase', href: '/crypto/coinbase' },
+      { label: 'XRP', href: '/crypto/xrp' },
+      { label: 'USDC', href: '/crypto/usdc' },
+      { label: 'HBAR', href: '/crypto/hbar' },
+      { label: 'Trump Crypto', href: '/crypto/trump' },
+    ],
+  },
+  {
+    label: 'Sports', href: '/winter-olympics',
+    items: [
+      { label: 'Winter Olympics', href: '/winter-olympics' },
+      { label: 'USA', href: '/winter-olympics/usa' },
+      { label: 'Norway', href: '/winter-olympics/norway' },
+      { label: 'Italy', href: '/winter-olympics/italy' },
+      { label: 'France', href: '/winter-olympics/france' },
+      { label: 'Lindsey Vonn', href: '/winter-olympics/lindsey-vonn' },
+      { label: 'Mikaela Shiffrin', href: '/winter-olympics/mikaela-shiffrin' },
+      { label: 'Formula 1', href: '/formula-1' },
+      { label: 'World Cup 2026', href: '/world-cup' },
+      { label: 'MLS', href: '/mls' },
+    ],
+  },
+  {
+    label: 'Influencer', href: '/influencer',
+    items: [
+      { label: 'All Influencers', href: '/influencer' },
+      { label: 'MrBeast', href: '/influencer/mrbeast' },
+      { label: 'Iman Gadzhi', href: '/influencer/iman-gadzhi' },
+      { label: 'Lean Beef Patty', href: '/influencer/lean-beef-patty' },
+      { label: 'Ari Kytsya', href: '/influencer/ari-kytsya' },
+      { label: 'Abby Berner', href: '/influencer/abby-berner' },
+      { label: 'Tren Twins', href: '/influencer/tren-twins' },
+      { label: 'Colleen Sheehan', href: '/influencer/colleen-sheehan' },
+      { label: 'TikTok', href: '/tiktok' },
+      { label: 'YouTube', href: '/youtube' },
+    ],
+  },
+];
+
+const FOOTER_LINKS = [
   { href: '/editorial-standards', label: 'Editorial Standards' },
   { href: '/about', label: 'About' },
   { href: '/get-help/contact', label: 'Contact' },
@@ -19,6 +150,7 @@ const NAV_LINKS = [
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [openHub, setOpenHub] = useState<string | null>(null);
   const pathname = usePathname();
   const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
@@ -175,31 +307,67 @@ export default function MobileNav() {
         {/* Divider */}
         <div className="h-px bg-gray-200 mx-4" />
 
-        {/* Navigation Links */}
+        {/* Navigation Links — accordion by hub */}
         <nav className="px-4 py-3">
-          <ul className="space-y-0">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
-              return (
-                <li key={link.href}>
+          {NAV_HUBS.map((hub) => {
+            const isHubActive = pathname.startsWith(hub.href);
+            const isHubOpen = openHub === hub.label;
+            return (
+              <div key={hub.label} className="border-b border-gray-100 last:border-0">
+                {/* Hub row */}
+                <div className="flex items-center justify-between">
                   <Link
-                    href={link.href}
+                    href={hub.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center justify-between py-3.5 border-b border-gray-100 text-[15px] transition-colors ${
-                      isActive
-                        ? 'font-bold text-black'
-                        : 'text-gray-700 hover:text-black'
-                    }`}
+                    className={`flex-1 py-3.5 text-[15px] transition-colors ${isHubActive ? 'font-bold text-black' : 'text-gray-700 hover:text-black'}`}
                   >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                    )}
+                    {hub.label}
                   </Link>
-                </li>
-              );
-            })}
-          </ul>
+                  <button
+                    onClick={() => setOpenHub(isHubOpen ? null : hub.label)}
+                    className="p-2 text-gray-400 hover:text-black"
+                    aria-label={isHubOpen ? `Collapse ${hub.label}` : `Expand ${hub.label}`}
+                  >
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${isHubOpen ? 'rotate-180' : ''}`}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+                {/* Sub-items */}
+                {isHubOpen && (
+                  <div className="pb-2 pl-3">
+                    {hub.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="block py-2 text-[13px] text-gray-500 hover:text-black transition-colors border-b border-gray-50 last:border-0"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {/* Footer links */}
+          <div className="mt-4 pt-4 border-t border-gray-200 space-y-0">
+            {FOOTER_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block py-3 border-b border-gray-100 last:border-0 text-[13px] text-gray-500 hover:text-black transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
         {/* Bottom section */}

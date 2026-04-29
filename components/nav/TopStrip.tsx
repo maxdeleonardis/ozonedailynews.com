@@ -4,66 +4,195 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ThemeToggle from '@/components/ThemeToggle';
 
+interface Suggestion {
+  title: string;
+  url: string;
+  category: string;
+}
+
 export default function TopStrip({ dateString }: { dateString: string }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  // Focus input when search opens
   useEffect(() => {
     if (searchOpen) inputRef.current?.focus();
   }, [searchOpen]);
 
+  // Close on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && searchOpen) closeSearch();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [searchOpen]);
+
+  // Close suggestions on click outside
+  useEffect(() => {
+    const onMouse = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setSuggestions([]);
+        setActiveSuggestion(-1);
+      }
+    };
+    document.addEventListener('mousedown', onMouse);
+    return () => document.removeEventListener('mousedown', onMouse);
+  }, []);
+
+  // Debounced suggestions fetch
+  useEffect(() => {
+    if (!query.trim() || query.trim().length < 2) {
+      setSuggestions([]);
+      setActiveSuggestion(-1);
+      return;
+    }
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search-suggestions?q=${encodeURIComponent(query.trim())}`);
+        const data = await res.json();
+        setSuggestions(data.suggestions ?? []);
+        setActiveSuggestion(-1);
+      } catch {
+        setSuggestions([]);
+      }
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  function closeSearch() {
+    setSearchOpen(false);
+    setQuery('');
+    setSuggestions([]);
+    setActiveSuggestion(-1);
+  }
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    if (activeSuggestion >= 0 && suggestions[activeSuggestion]) {
+      router.push(suggestions[activeSuggestion].url);
+      closeSearch();
+      return;
+    }
     if (query.trim()) {
       router.push(`/search?q=${encodeURIComponent(query.trim())}`);
-      setSearchOpen(false);
-      setQuery('');
+      closeSearch();
     }
   };
 
-  return (
-    <div className="border-b border-gray-300 bg-gray-50">
-      <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
-        <span className="text-xs font-mono text-gray-500">{dateString}</span>
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!suggestions.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveSuggestion(i => Math.min(i + 1, suggestions.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveSuggestion(i => Math.max(i - 1, -1));
+    }
+  };
 
-        <div className="flex items-center gap-3">
+  const handleSuggestionClick = (url: string) => {
+    router.push(url);
+    closeSearch();
+  };
+
+  return (
+    <div className={`border-b border-gray-300 bg-gray-50 transition-all duration-200`}>
+      <div className={`container mx-auto px-4 flex items-center justify-between transition-all duration-200 ${searchOpen ? 'py-3' : 'py-1.5'}`}>
+
+        {/* ── Left: date + search ─────────────────────────────── */}
+        <div className="flex items-center gap-2">
+          <span className={`text-xs font-mono text-gray-500 transition-opacity duration-150 ${searchOpen ? 'hidden' : ''}`}>
+            {dateString}
+          </span>
+
           {searchOpen ? (
-            <form onSubmit={handleSearch} className="flex items-center gap-2">
-              <input
-                ref={inputRef}
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search ObjectWire…"
-                className="text-xs font-mono border-b border-black bg-transparent outline-none w-48 py-0.5 placeholder-gray-400 text-gray-900"
-              />
-              <button type="submit" aria-label="Submit search" className="text-gray-500 hover:text-black transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                onClick={() => { setSearchOpen(false); setQuery(''); }}
-                aria-label="Close search"
-                className="text-gray-400 hover:text-black transition-colors text-xs font-mono"
-              >
-                ✕
-              </button>
-            </form>
+            <div ref={wrapperRef} className="relative">
+              <form onSubmit={handleSearch} className="flex items-center gap-2">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Search ObjectWire…"
+                  className="text-sm font-mono border-b-2 border-black bg-transparent outline-none w-56 sm:w-80 py-1 placeholder-gray-400 text-gray-900 transition-all duration-200"
+                  autoComplete="off"
+                />
+                <button type="submit" aria-label="Submit search" className="text-gray-500 hover:text-black transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  aria-label="Close search"
+                  className="text-gray-400 hover:text-black transition-colors text-xs font-mono leading-none"
+                >
+                  ✕
+                </button>
+              </form>
+
+              {/* Suggestions dropdown */}
+              {suggestions.length > 0 && (
+                <div className="absolute top-full left-0 mt-2 w-72 sm:w-80 bg-white border border-gray-200 rounded-xl shadow-xl z-[200] overflow-hidden">
+                  {suggestions.map((s, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onMouseDown={(e) => { e.preventDefault(); handleSuggestionClick(s.url); }}
+                      onMouseEnter={() => setActiveSuggestion(i)}
+                      className={`w-full text-left px-4 py-3 flex items-center gap-3 border-b border-gray-100 last:border-0 transition-colors ${
+                        activeSuggestion === i ? 'bg-gray-50' : 'hover:bg-gray-50'
+                      }`}
+                    >
+                      {/* Search icon per row */}
+                      <svg className="w-3.5 h-3.5 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                      </svg>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-gray-900 truncate leading-tight">{s.title}</p>
+                        <p className="text-[10px] text-gray-400 mt-0.5 uppercase tracking-wider font-mono">{s.category}</p>
+                      </div>
+                      <svg className="w-3 h-3 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  ))}
+                  {/* See all results footer */}
+                  <button
+                    type="button"
+                    onMouseDown={(e) => { e.preventDefault(); if (query.trim()) { router.push(`/search?q=${encodeURIComponent(query.trim())}`); closeSearch(); } }}
+                    className="w-full text-left px-4 py-2.5 text-xs text-blue-600 hover:bg-blue-50 transition-colors font-semibold border-t border-gray-100"
+                  >
+                    See all results for &ldquo;{query}&rdquo; →
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
+            <button
+              onClick={() => setSearchOpen(true)}
+              aria-label="Open search"
+              className="text-gray-400 hover:text-black transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* ── Right: Discord, Est., theme, Independent ────────── */}
+        <div className="flex items-center gap-3">
+          {!searchOpen && (
             <>
-              <button
-                onClick={() => setSearchOpen(true)}
-                aria-label="Open search"
-                className="text-gray-400 hover:text-black transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                </svg>
-              </button>
               {/* Discord CTA — always visible in top strip */}
               <a
                 href="https://discord.gg/wBsgkU4uAf"

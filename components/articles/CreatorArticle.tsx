@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
-import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
+import { ProfilePageSchema } from '@/components/articles/ProfilePageSchema';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 import ArticleFooter from '@/components/articles/ArticleFooter';
 import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
@@ -246,16 +246,17 @@ export function CreatorArticle({
 
   return (
     <>
-      <NewsArticleSchema
-        title={schema.title}
+      <ProfilePageSchema
+        personName={hero.name}
+        pageTitle={schema.title}
         description={schema.description}
-        author={schema.author}
-        authorUrl={schema.authorUrl}
+        pageUrl={schema.articleUrl}
+        imageUrl={schema.imageUrl}
         publishedTime={schema.publishedTime}
         modifiedTime={schema.modifiedTime}
-        articleUrl={schema.articleUrl}
-        imageUrl={schema.imageUrl}
-        section={schema.section}
+        sameAs={sidebar.infobox.rows
+          .map((r) => (typeof r.href === 'string' ? r.href : ''))
+          .filter(Boolean)}
         keywords={schema.keywords}
       />
 
@@ -402,7 +403,7 @@ export function CreatorArticle({
           <div className="grid lg:grid-cols-3 gap-10">
 
             {/* ── Article Body ───────────────────────────────────── */}
-            <article className="lg:col-span-2 space-y-12 font-sans text-gray-800">
+            <article className="lg:col-span-2 space-y-12">
               <ArticleViewTracker
                 slug={articleSlug}
                 title={schema.title}
@@ -754,11 +755,11 @@ export interface CreatorSectionProps {
 export function CreatorSection({ heading, children, prose = true }: CreatorSectionProps) {
   return (
     <section>
-      <h2 className="text-2xl font-black text-gray-900 mb-5 border-b-2 border-gray-900 pb-2 tracking-tight">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-900 pb-2">
         {heading}
       </h2>
       {prose ? (
-        <div className="prose prose-lg max-w-none font-sans [&_p]:text-gray-700 [&_p]:leading-[1.82] [&_li]:text-gray-700 [&_li]:leading-[1.82] [&_strong]:text-gray-900 [&_strong]:font-semibold">{children}</div>
+        <div className="prose prose-lg max-w-none">{children}</div>
       ) : (
         children
       )}
@@ -879,7 +880,7 @@ export interface CreatorQuoteProps {
 export function CreatorQuote({ quote, attribution, role }: CreatorQuoteProps) {
   return (
     <blockquote className="not-prose my-8 pl-5 border-l-4 border-gray-900">
-      <p className="text-2xl font-bold text-gray-900 leading-snug italic font-sans">
+      <p className="text-xl font-semibold text-gray-900 leading-relaxed italic">
         &ldquo;{quote}&rdquo;
       </p>
       {attribution && (

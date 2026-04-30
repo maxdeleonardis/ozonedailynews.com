@@ -2,6 +2,85 @@
 
 ---
 
+## Session Log — April 29, 2026
+
+### Transparency and Trust Overhaul
+
+**Problem identified:** ObjectWire lacked visible editorial policies, named author credentials, ownership disclosure, and funding transparency — all factors that reduce credibility and hurt Google's E-E-A-T scoring on news sites.
+
+**Changes made:**
+
+#### Author pages — real headshots replacing initials
+All three author pages converted from placeholder initials to real photos using `next/image`:
+- `/authors/jack-sterling` — `public/influncer/author/jack_sterling.jpg`
+- `/authors/jack-brennan` — `public/influncer/author/jack_brennen.JPG`
+- `/authors/conan-boyle` — `public/influncer/author/conan_doyle.jpg`
+
+Meta titles simplified from SEO-stuffed pipe-separated strings to plain human names:
+- `Jack Sterling, ObjectWire Reporter`
+- `Jack Brennan, ObjectWire Investigations Reporter`
+- `Conan Boyle, ObjectWire Science Writer`
+
+OG/Twitter card images now include author headshot URLs so social previews show faces.
+
+#### Footer — sitewide ownership disclosure
+`app/layout.tsx` footer updated:
+- Added a visible "Ownership and funding" paragraph on every page disclosing: self-funded nonprofit, no advertising, no sponsored content, no political donations, with links to about / editorial-standards / corrections.
+- Bottom bar updated from "© 2026 ObjectWire News. All rights reserved." to "© 2026 ObjectWire. Self-funded nonprofit newsroom."
+
+#### OrganizationSchema — JSON-LD updated
+`components/articles/NewsArticleSchema.tsx` `OrganizationSchema`:
+- Added `additionalType: "https://schema.org/NGO"`
+- Added `nonprofitStatus: "Nonprofit501c3"`
+- Added `funder` object with self-funded disclosure
+- Added `diversityPolicy`
+- Updated `description` to lead with "independent, self-funded nonprofit newsroom"
+
+Ships on every page in the site's `<head>`.
+
+---
+
+### Static Page Migration (Supabase → Codebase)
+
+**Problem identified:** `about`, `editorial-standards`, and `corrections` were all `force-dynamic` Supabase fetches. Googlebot received no content on the first byte. Content lived in a database table (`wiki_articles`) that was invisible to crawlers.
+
+**Strategy:** Pages that are purely evergreen and don't change based on user state should be `force-static` codebase pages, prerendered at build time.
+
+**Pages migrated:**
+
+#### `/about` — `app/about/page.tsx`
+- `force-static`, no Supabase
+- Full ownership and funding disclosure (self-funded, nonprofit, no ads/sponsorships/affiliates/political donations)
+- Lists all 3 authors with profile links
+- Explains editorial accountability rules
+- Contact info: `editorial@objectwire.org`
+- Datestamped April 29, 2026
+
+#### `/editorial-standards` — `app/editorial-standards/page.tsx`
+- `force-static`, no Supabase
+- 10 numbered standards: accuracy over speed, primary sources only, attribution, news vs analysis, conflicts of interest, AI use in newsroom, corrections, right of reply, source protection, diversity of coverage
+- Explicitly states AI is not used to write published copy
+- Contact: `editorial@objectwire.org`
+
+#### `/corrections` — `app/corrections/page.tsx`
+- `force-static`, no Supabase
+- Defines what gets corrected, how a correction looks on the page (original text preserved, timestamped), what is NOT a correction (routine updates), how to report an error, right of reply, removals/unpublishing policy
+- Contact: `corrections@objectwire.org`
+
+**Why this matters for SEO:**
+- `force-static` pages are prerendered HTML — Googlebot gets full content instantly
+- `force-dynamic` on evergreen pages prevents proper caching and hurts TTFB
+- Real, substantive content in page source (not a `<WikiArticle>` shell) signals quality to crawlers
+- E-E-A-T scoring for YMYL/news: Google's Quality Rater Guidelines specifically look for ownership, funding, named authors, and correction policies
+
+**Orphaned rows:** `wiki_articles` rows for `about`, `editorial-standards`, `corrections` still exist in Supabase. Nothing reads them. No action needed — they do not affect SEO or crawling.
+
+**Policy going forward:** What is already in Supabase stays in Supabase. Only future evergreen pages that would otherwise be `force-dynamic` purely for content (not personalization) are candidates for codebase migration. No mass migration.
+
+---
+
+---
+
 ## Female Influencer / YouTuber Article Targets
 
 ### Tier 1 — High Search Volume, Strong SEO
@@ -15,35 +94,21 @@
 | **Emma Chamberlain** | YouTube evolution, Chamberlain Coffee, Met Gala | 400K+ |
 | **Valkyrae (Rachel Hofstetter)** | 100 Thieves co-owner, YouTube Gaming, RLYRAE brand | 300K+ |
 
-### Tier 2 — Good Traffic, Less Competitive
-
-| Creator | Angle |
-|---|---|
-| **Addison Rae** | Acting career, "He's All That", music pivot 2026 |
-| **QTCinderella** | Twitch streamer, The Streamer Awards host |
-| **Loserfruit (Kathleen Belsten)** | Has a Fortnite Icon skin — high SEO crossover with Fortnite |
-| **Brooke Monk** | TikTok couple content, 20M+ following |
-| **Liza Koshy** | YouTube comeback arc |
-| **Hannah Stocking** | Comedy, Vine-to-YouTube-to-TikTok arc |
-| **Ironmouse** | VTuber, VShojo president, Crohn's disease advocacy |
-
-### Recommended First Article
-**Valkyrae** — hits gaming + influencer + business ownership angles simultaneously. Cross-links to `/influencer`, `/video-games`, and streaming articles. High authority, lower competition than Charli or Pokimane.
-
----
 
 ## Fortnite Article Targets (2026)
 
 ### Chapter 6 Season 2 — "Lawless" (Active Season)
 
-| Topic | Search Angle |
-|---|---|
-| **Chapter 6 Season 2 map changes** | Japanese/yakuza aesthetic, Shogun POI, cherry blossoms |
-| **Season 2 Battle Pass breakdown** | All skins, secret styles, bonus rewards |
-| **New weapons tier list** | Katanas, SMGs, LMGs added this season |
-| **Ranked mode changes S2** | New ranked system, lobbies rebalance |
+| Topic | Search Angle | Status |
+|---|---|---|
+| **Chapter 6 Season 2 map changes** | Japanese/yakuza aesthetic, Shogun POI, cherry blossoms | **LIVE** — `app/video-games/fortnite/chapter-6-season-2-map-changes/` |
+| **Season 2 Battle Pass breakdown** | All skins, secret styles, bonus rewards | **LIVE** — `app/video-games/fortnite/chapter-6-season-2-battle-pass/` |
+| **New weapons tier list** | Katanas, SMGs, LMGs added this season | **LIVE** — `app/video-games/fortnite/chapter-6-season-2-weapons-tier-list/` |
+| **Ranked mode changes S2** | New ranked system, lobbies rebalance | Not started |
 
-### Creator Collaborations (Recent)
+**Hub:** `app/video-games/fortnite/page.tsx` — **LIVE**
+
+### Creator Collaborations (Next)
 
 | Collab | Notes |
 |---|---|
@@ -53,7 +118,7 @@
 | **Fortnite Festival Season** | Current music lineup, how to unlock songs |
 | **FNCS 2026 Spring** | Competitive scene, prize pool, bracket results |
 
-### "Moves Into Movies" Cluster (extend the gold standard article at `/entertainment/news/fortnite-moves-into-movies`)
+### "Moves Into Movies" Cluster (extend `/entertainment/news/fortnite-moves-into-movies`)
 
 | Article | Angle |
 |---|---|
@@ -123,20 +188,21 @@ The `NewsArticleSchema` component reads `imageUrl`, `imageWidth`, `imageHeight` 
 
 ## GTA 6 Cluster — `/video-games/gta-6` (5M+/mo)
 
-**Hub:** `/video-games/gta-6` — must link to every sub-article below. Every sub-article must link back to the hub.
+**Hub:** `app/video-games/gta-6/page.tsx` — **LIVE** (migrated to codebase, force-static)
 
-### High-Priority Sub-Articles
+### Sub-Articles
 
-| Article | Slug | Angle |
+| Article | Path | Status |
 |---|---|---|
-| **GTA 6 release date** | `gta-6-release-date` | Official window, delay history, platform availability |
-| **GTA 6 trailer breakdown** | `gta-6-trailer-2-breakdown` | Every confirmed detail from Trailer 2 |
-| **GTA 6 map size** | `gta-6-map-size-vice-city` | Leaked footage comparisons, Leonida state details |
-| **GTA 6 characters** | `gta-6-characters-jason-lucia` | Jason and Lucia, confirmed cast, voice actors |
-| **GTA 6 price** | `gta-6-price-standard-edition` | $70 vs $80, editions, pre-order bonuses |
-| **GTA 6 PC release** | `gta-6-pc-release-date` | Console-first window, PC delay history from GTA 5 |
-| **GTA 6 multiplayer** | `gta-6-multiplayer-online` | What we know about GTA Online successor |
-| **GTA Online 2026 updates** | `gta-online-2026-updates` | Still-active GTA Online — seasonal content, DLCs |
+| **GTA 6 Trailer 2 breakdown** | `app/video-games/gta-6/gta-6-trailer-2-breakdown/` | **LIVE** |
+| **Take-Two AI team shake-up 2026** | `app/video-games/gta-6/news/take-two-ai-team-shake-up-2026/` | **LIVE** |
+| **GTA 6 release date** | `gta-6-release-date` | Not started |
+| **GTA 6 map size** | `gta-6-map-size-vice-city` | Not started |
+| **GTA 6 characters** | `gta-6-characters-jason-lucia` | Not started |
+| **GTA 6 price** | `gta-6-price-standard-edition` | Not started |
+| **GTA 6 PC release** | `gta-6-pc-release-date` | Not started |
+| **GTA 6 multiplayer** | `gta-6-multiplayer-online` | Not started |
+| **GTA Online 2026 updates** | `gta-online-2026-updates` | Not started |
 
 ### Cluster Rules
 - Every article: `category: 'Gaming'`, `tags` must include `'GTA 6'`, `'Rockstar Games'`
@@ -145,25 +211,27 @@ The `NewsArticleSchema` component reads `imageUrl`, `imageWidth`, `imageHeight` 
 
 ---
 
-## Nintendo Switch 2 Cluster — `/video-games/switch2` (2M+/mo)
+## Nintendo Switch 2 Cluster — `/video-games/switch2`
 
-**Hub:** `/video-games/switch2`
+> **Note:** Switch 2 launched June 5, **2025** (not 2026). The original hub and launch/pre-order articles were deleted April 29, 2026 after containing inaccurate dates. Do not rebuild those pages without verifying current facts.
 
-### High-Priority Sub-Articles
+**Hub:** `app/video-games/switch2/` — exists but stripped back
 
-| Article | Slug | Angle |
+### Sub-Articles Currently Live
+
+| Article | Path | Notes |
 |---|---|---|
-| **Switch 2 release date** | `nintendo-switch-2-release-date` | June 5, 2026 confirmed launch, pre-order dates |
-| **Switch 2 price** | `nintendo-switch-2-price` | $449.99, bundle options, Joy-Con pricing |
-| **Switch 2 games lineup** | `nintendo-switch-2-launch-games` | Mario Kart World, Donkey Kong Bananza, third-party |
-| **Switch 2 vs Switch specs** | `nintendo-switch-2-vs-switch-specs` | 4K docked, 1080p handheld, DLSS, larger screen |
-| **Switch 2 GameChat** | `nintendo-switch-2-gamechat` | New social feature, camera attachment, use cases |
-| **Switch 2 backwards compatibility** | `nintendo-switch-2-backwards-compatible` | Which Switch 1 games work, upgrade pricing |
-| **Mario Kart World** | `mario-kart-world-switch-2` | Launch title, open-world racing, 24-player |
+| **Pokemon Pokopia (Switch 2)** | `app/video-games/switch2/pokemon-pokopia/` | LIVE |
+| **Super Mario Wonder Switch 2 edition** | `app/video-games/switch2/super-mario-wonder-switch2-edition-bellabel-park/` | LIVE |
 
-### Cluster Rules
-- `category: 'Gaming'`, tags include `'Nintendo Switch 2'`, `'Nintendo'`
-- Link to `/video-games` hub and `/video-games/switch2` from every sub-article
+### Deleted (inaccurate — do not recreate without fact-checking)
+- `nintendo-switch-2-launch-games` — had wrong launch year
+- `nintendo-switch-2-pre-order-guide` — had wrong launch year
+
+### Future targets (verify facts first)
+- Switch 2 game reviews as they release
+- Switch 2 accessory guides
+- Nintendo Direct recaps
 
 ---
 
@@ -293,14 +361,17 @@ The `NewsArticleSchema` component reads `imageUrl`, `imageWidth`, `imageHeight` 
 
 ## Content Velocity Targets — April/May 2026
 
-These are time-sensitive and should be published within the next 2–4 weeks to capture current search demand.
+These are time-sensitive. Publish within the next 2–4 weeks to capture current search demand.
 
-| Article | Priority | Why Now |
-|---|---|---|
-| Nintendo Switch 2 pre-order guide | URGENT | Launch June 5 — search spiking now |
-| Switch 2 launch games full list | URGENT | Most-searched Switch 2 query |
-| GPT-5 features and release date | HIGH | Expected announcement Q2 2026 |
-| GTA 6 trailer 2 breakdown | HIGH | Perennial evergreen, always ranking |
-| World Cup 2026 schedule | HIGH | 6 weeks out — search starting to climb |
-| Netflix Q2 2026 earnings recap | MEDIUM | Publish within 24h of earnings release |
-| Nvidia RTX 5090 review | MEDIUM | Hardware cycle, affiliate potential |
+| Article | Priority | Status | Why Now |
+|---|---|---|---|
+| GTA 6 trailer 2 breakdown | HIGH | **LIVE** | Perennial evergreen |
+| Fortnite C6S2 map changes | HIGH | **LIVE** | Active season |
+| Fortnite C6S2 battle pass | HIGH | **LIVE** | Active season |
+| Fortnite C6S2 weapons tier list | HIGH | **LIVE** | Active season |
+| ~~Nintendo Switch 2 pre-order guide~~ | ~~URGENT~~ | **DELETED** (wrong year) | — |
+| ~~Switch 2 launch games full list~~ | ~~URGENT~~ | **DELETED** (wrong year) | — |
+| GPT-5 features and release date | HIGH | Not started | Expected announcement Q2 2026 |
+| World Cup 2026 schedule | HIGH | Not started | June start — search climbing |
+| Netflix Q2 2026 earnings recap | MEDIUM | Not started | Publish within 24h of earnings |
+| Nvidia RTX 5090 review | MEDIUM | Not started | Hardware cycle |

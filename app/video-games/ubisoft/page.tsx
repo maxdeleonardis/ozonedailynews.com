@@ -5,13 +5,13 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
-const SLUG = 'video-games-ubisoft';
+const SLUG = '/video-games/ubisoft';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
   title: 'Ubisoft | Company Profile, Creative Houses, 2026 Reset',
-  description: 'Ubisoft company profile: the French gaming giant behind Assassin\'s Creed, Far Cry, and Rainbow Six. 2026 Creative Houses restructure, Tencent investment,',
+  description: 'Ubisoft company profile: the French gaming giant behind Assassin\'s Creed, Far Cry, and Rainbow Six. 2026 Creative Houses restructure, Tencent investment, and 2026 game roadmap.',
   keywords: [
     'Ubisoft',
     'Ubisoft company profile',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'article',
     title: 'Ubisoft | Company Profile, Creative Houses & 2026 Reset',
-    description: 'Full profile of Ubisoft: five Creative Houses, Tencent\'s €1.16B investment, AC Shadows launch, 2026 game roadmap, and the organizational reset reshaping',
+    description: 'Full profile of Ubisoft: five Creative Houses, Tencent\'s €1.16B investment, AC Shadows launch, 2026 game roadmap, and the organizational reset reshaping the company.',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Ubisoft French gaming company 2026 profile' }],

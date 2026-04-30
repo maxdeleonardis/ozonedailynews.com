@@ -11,7 +11,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w
 
 export const metadata: Metadata = {
   title: 'Pragmata Hits 1 Million Units in 2 Days | Capcom New IP',
-  description: 'Capcom\'s Pragmata sold over one million copies in its first 48 hours, breaking the new IP curse. Multiplatform launch, Switch 2 momentum, and stock',
+  description: 'Capcom\'s Pragmata sold over one million copies in its first 48 hours, breaking the new IP curse. Switch 2 port praised, Capcom stock jumped 3.2% at launch.',
   keywords: [
     'Pragmata sales',
     'Pragmata one million units',

@@ -1,27 +1,30 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { AuthorArticlesServer } from '@/components/authors/AuthorArticlesServer';
 import AuthorSchema from '@/components/authors/AuthorSchema';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jack Brennan | Investigations Reporter',
+  title: 'Jack Brennan, ObjectWire Investigations Reporter',
   description:
-    'Jack Brennan is ObjectWire\'s investigations reporter covering federal environmental policy, national security law, regulatory agencies, and the Trump',
+    "Jack Brennan is an investigations reporter at ObjectWire covering federal environmental policy, national security law, and regulatory agencies.",
   alternates: { canonical: 'https://www.objectwire.org/authors/jack-brennan' },
   openGraph: {
-    title: 'Jack Brennan | Investigations Reporter',
-    description: 'Investigations reporter covering environmental law, national security, federal regulatory agencies, and the Trump administration at ObjectWire.',
+    title: 'Jack Brennan, ObjectWire Investigations Reporter',
+    description: 'Investigations reporter at ObjectWire covering environmental law, national security, and federal regulatory agencies.',
     url: 'https://www.objectwire.org/authors/jack-brennan',
     siteName: 'ObjectWire',
     type: 'profile',
+    images: [{ url: 'https://www.objectwire.org/influncer/author/jack_brennen.JPG', width: 800, height: 800, alt: 'Jack Brennan, ObjectWire investigations reporter' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Jack Brennan | Investigations',
-    description: 'ObjectWire investigations reporter. Federal environmental law, national security, regulatory agencies.',
+    title: 'Jack Brennan, ObjectWire Investigations',
+    description: 'Investigations reporter at ObjectWire. Environmental law, national security, regulatory agencies.',
+    images: ['https://www.objectwire.org/influncer/author/jack_brennen.JPG'],
   },
 };
 
@@ -63,8 +66,15 @@ export default function JackBrennanAuthorPage() {
 
           <div className="flex flex-col md:flex-row md:items-end gap-8">
             {/* Avatar */}
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shrink-0">
-              <span className="text-black font-black text-2xl tracking-tight">JB</span>
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
+              <Image
+                src="/influncer/author/jack_brennen.JPG"
+                alt="Jack Brennan, ObjectWire investigations reporter"
+                fill
+                sizes="(min-width: 768px) 96px, 80px"
+                className="object-cover"
+                priority
+              />
             </div>
             {/* Identity */}
             <div className="flex-1">

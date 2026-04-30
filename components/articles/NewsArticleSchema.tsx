@@ -87,6 +87,7 @@ export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
+    "additionalType": "https://schema.org/NGO",
     "name": "ObjectWire News",
     "alternateName": "ObjectWire News Network",
     "url": "https://www.objectwire.org",
@@ -96,7 +97,7 @@ export function OrganizationSchema() {
       "width": 600,
       "height": 60
     },
-    "description": "ObjectWire News delivers verified, source-cited intelligence on business, technology, and policy.",
+    "description": "ObjectWire is an independent, self-funded nonprofit newsroom delivering verified, source-cited reporting on business, technology, and policy.",
     "foundingDate": "2024",
     "founders": [
       {
@@ -117,8 +118,15 @@ export function OrganizationSchema() {
     "ethicsPolicy": "https://www.objectwire.org/editorial-standards",
     "correctionsPolicy": "https://www.objectwire.org/corrections",
     "verificationFactCheckingPolicy": "https://www.objectwire.org/editorial-standards",
+    "diversityPolicy": "https://www.objectwire.org/editorial-standards",
     "masthead": "https://www.objectwire.org/team",
-    "ownershipFundingInfo": "https://www.objectwire.org/about"
+    "ownershipFundingInfo": "https://www.objectwire.org/about",
+    "nonprofitStatus": "Nonprofit501c3",
+    "funder": {
+      "@type": "Organization",
+      "name": "ObjectWire News (self-funded)",
+      "description": "Self-funded by the ObjectWire editorial team. No advertising, sponsored content, or political donations accepted."
+    }
   };
 
   return (

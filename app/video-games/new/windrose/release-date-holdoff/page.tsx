@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
   description:
-    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident the build meets its quality bar, despite crossing 1',
+    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident in build quality, despite crossing 1 million Steam wishlists. Quality over hype.',
   keywords: [
     'Windrose release date',
     'Windrose Crew update',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
     description:
-      'Windrose Crew prioritizes quality over hype â€” no release date despite 1M wishlists and a viral Next Fest demo.',
+      'Windrose Crew prioritizes quality over hype, no release date despite 1M wishlists and a viral Next Fest demo.',
   },
 };
 

@@ -1,27 +1,30 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { AuthorArticlesServer } from '@/components/authors/AuthorArticlesServer';
 import AuthorSchema from '@/components/authors/AuthorSchema';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Jack Sterling | Journalist & Reporter',
+  title: 'Jack Sterling, ObjectWire Reporter',
   description:
-    'Jack Sterling is a journalist and reporter at ObjectWire covering breaking news, federal investigations, Congress, politics, and AI policy. Published',
+    'Jack Sterling is a reporter at ObjectWire covering Congress, federal investigations, and AI policy. Reach him through ObjectWire editorial contact.',
   alternates: { canonical: 'https://www.objectwire.org/authors/jack-sterling' },
   openGraph: {
-    title: 'Jack Sterling | Journalist at ObjectWire',
-    description: 'Breaking news, investigations, Congress, and AI policy reporting at ObjectWire.',
+    title: 'Jack Sterling, ObjectWire Reporter',
+    description: 'Reporter at ObjectWire covering Congress, federal investigations, and AI policy.',
     url: 'https://www.objectwire.org/authors/jack-sterling',
     siteName: 'ObjectWire',
     type: 'profile',
+    images: [{ url: 'https://www.objectwire.org/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, ObjectWire reporter' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Jack Sterling | Journalist',
-    description: 'ObjectWire journalist. Breaking news, investigations, Congress, AI policy.',
+    title: 'Jack Sterling, ObjectWire Reporter',
+    description: 'Reporter at ObjectWire. Congress, federal investigations, AI policy.',
+    images: ['https://www.objectwire.org/influncer/author/jack_sterling.jpg'],
   },
 };
 
@@ -62,8 +65,15 @@ export default function JackSterlingAuthorPage() {
 
           <div className="flex flex-col md:flex-row md:items-end gap-8">
             {/* Avatar */}
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shrink-0">
-              <span className="text-black font-black text-2xl tracking-tight">JS</span>
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
+              <Image
+                src="/influncer/author/jack_sterling.jpg"
+                alt="Jack Sterling, ObjectWire reporter"
+                fill
+                sizes="(min-width: 768px) 96px, 80px"
+                className="object-cover"
+                priority
+              />
             </div>
             {/* Identity */}
             <div className="flex-1">

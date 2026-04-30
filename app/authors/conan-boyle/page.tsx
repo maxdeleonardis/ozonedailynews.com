@@ -1,27 +1,30 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { AuthorArticlesServer } from '@/components/authors/AuthorArticlesServer';
 import AuthorSchema from '@/components/authors/AuthorSchema';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Conan Boyle | Science & Technology Writer',
+  title: 'Conan Boyle, ObjectWire Science Writer',
   description:
-    'Conan Boyle is the founding writer of ObjectWire based in Austin, Texas. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI',
+    'Conan Boyle is a founding writer at ObjectWire in Austin, Texas, covering biotechnology, medical research, AI hardware, and emerging technology.',
   alternates: { canonical: 'https://www.objectwire.org/authors/conan-boyle' },
   openGraph: {
-    title: 'Conan Boyle | ObjectWire Founding Writer',
-    description: 'Science & technology journalist covering biotech, CRISPR, medical breakthroughs, AI hardware, and emerging tech. Founding writer at ObjectWire.',
+    title: 'Conan Boyle, ObjectWire Science Writer',
+    description: 'Founding writer at ObjectWire covering biotech, medical research, AI hardware, and emerging technology.',
     url: 'https://www.objectwire.org/authors/conan-boyle',
     siteName: 'ObjectWire',
     type: 'profile',
+    images: [{ url: 'https://www.objectwire.org/influncer/author/conan_doyle.jpg', width: 800, height: 800, alt: 'Conan Boyle, ObjectWire science and technology writer' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Conan Boyle | Science & Technology Writer',
-    description: 'Founding writer at ObjectWire. NCSU journalism. Biotech, CRISPR, AI hardware & gaming.',
+    title: 'Conan Boyle, ObjectWire Science Writer',
+    description: 'Founding writer at ObjectWire. Biotech, medical research, AI hardware.',
+    images: ['https://www.objectwire.org/influncer/author/conan_doyle.jpg'],
   },
 };
 
@@ -64,8 +67,15 @@ export default function ConanBoyleAuthorPage() {
 
           <div className="flex flex-col md:flex-row md:items-end gap-8">
             {/* Avatar */}
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shrink-0">
-              <span className="text-gray-900 font-black text-2xl tracking-tight">CB</span>
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
+              <Image
+                src="/influncer/author/conan_doyle.jpg"
+                alt="Conan Boyle, ObjectWire founding writer"
+                fill
+                sizes="(min-width: 768px) 96px, 80px"
+                className="object-cover"
+                priority
+              />
             </div>
             {/* Identity */}
             <div className="flex-1">

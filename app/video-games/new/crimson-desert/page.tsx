@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Crimson Desert Hits 3 Million Wishlists Before March 19',
   description:
-    'Pearl Abyss\'s open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026',
+    'Pearl Abyss\'s open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026 launch. The map is twice the size of Skyrim.',
   keywords: [
     'Crimson Desert wishlists',
     'Crimson Desert release date',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Crimson Desert Hits 3M Wishlists â€” Pearl Abyss RPG',
+    title: 'Crimson Desert Hits 3M Wishlists | Pearl Abyss Open-World RPG',
     description:
       '3 million wishlists across PC, PS5, Xbox, and Mac. A map twice Skyrim\'s size. Pearl Abyss pivots from MMO to single-player action RPG ahead of March 19',
     type: 'article',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crimson Desert â€” 3M Wishlists Before March 19 Launch',
+    title: 'Crimson Desert | 3M Wishlists Before March 19 Launch',
     description:
       'Pearl Abyss\'s single-player pivot rivals Elden Ring and Starfield in pre-launch wishlists. Open world twice Skyrim\'s size. Launches March 19.',
   },

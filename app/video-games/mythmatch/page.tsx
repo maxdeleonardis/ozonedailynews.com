@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Mythmatch | Gameplay, Story, Developer & Pricing',
   description:
-    "Complete guide to Mythmatch, the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis cast down by",
+    "Complete guide to Mythmatch, the narrative merge-puzzle RPG from Team Artichoke. Released March 13, 2026 on Steam and macOS. Play as Artemis across six Greek myth puzzle worlds.",
   keywords: [
     'Mythmatch',
     'Mythmatch game',

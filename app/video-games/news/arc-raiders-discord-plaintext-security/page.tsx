@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Arc Raiders Logged Discord DMs and Tokens in Plaintext',
   description:
-    'Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and authentication tokens to plaintext files when Discord',
+    'Security researcher Timothy Meadows disclosed that Arc Raiders logged private Discord DMs and auth tokens to local plaintext files when Discord was linked in-game. Embark Studios deployed an emergency hotfix the same day.',
   keywords: [
     'Arc Raiders security',
     'Arc Raiders Discord DMs',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arc Raiders Logged Discord DMs in Plaintext â€” Hotfix',
+    title: 'Arc Raiders Logged Discord DMs in Plaintext | Emergency Hotfix',
     description:
       'Private Discord messages and auth tokens stored unencrypted on player PCs. Embark Studios responds with emergency patch.',
   },

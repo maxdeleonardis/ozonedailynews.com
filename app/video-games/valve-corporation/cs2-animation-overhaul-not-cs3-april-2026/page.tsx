@@ -11,7 +11,7 @@ const OG_IMAGE = '/influncer/valve-ceo-Gabe-Newell.PNG';
 export const metadata: Metadata = {
   title: 'Valve Ships CS2 Animation Overhaul | Not CS3',
   description:
-    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false,',
+    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false, confirmed directly by Valve.',
   keywords: [
     'CS2 animation update',
     'Counter-Strike 2 animation overhaul',

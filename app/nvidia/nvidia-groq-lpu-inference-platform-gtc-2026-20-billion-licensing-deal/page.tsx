@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG =
   '/nvidia/nvidia-groq-lpu-inference-platform-gtc-2026-20-billion-licensing-deal';

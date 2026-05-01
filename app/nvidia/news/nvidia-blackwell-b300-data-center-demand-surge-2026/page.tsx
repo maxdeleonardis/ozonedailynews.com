@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/nvidia/news/nvidia-blackwell-b300-data-center-demand-surge-2026';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;

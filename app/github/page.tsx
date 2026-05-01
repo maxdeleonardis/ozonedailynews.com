@@ -4,7 +4,7 @@ import { generateArticleMetadata } from '@/lib/seo-utils';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = generateArticleMetadata({
   title: "GitHub | Company Profile, History & Open Source Impact",

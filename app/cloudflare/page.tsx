@@ -3,7 +3,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: 'Cloudflare | CDN, Zero Trust, DDoS & Internet Security',

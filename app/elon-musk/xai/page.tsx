@@ -3,7 +3,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/elon-musk/xai';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

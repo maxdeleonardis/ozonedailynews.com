@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/copyright/news/ex-human-files-lawsuit-against-apple';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

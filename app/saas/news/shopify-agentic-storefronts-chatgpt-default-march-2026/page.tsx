@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/saas/news/shopify-agentic-storefronts-chatgpt-default-march-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

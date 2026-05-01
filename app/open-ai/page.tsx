@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/open-ai';
 

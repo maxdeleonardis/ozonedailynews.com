@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/california/california-tech-layoffs-2026-ai-restructuring-26000-job-cuts';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;

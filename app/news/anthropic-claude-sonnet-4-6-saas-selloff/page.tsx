@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/news/anthropic-claude-sonnet-4-6-saas-selloff';
 

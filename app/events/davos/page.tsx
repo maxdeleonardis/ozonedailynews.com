@@ -3,7 +3,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 export const metadata: Metadata = {
   title: "Davos 2026: World Economic Forum Annual Meeting | Key",

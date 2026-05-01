@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/shopify/news/shopify-tinker-app-100-ai-creative-tools-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1736605804642-b66ad75b1c9c?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';

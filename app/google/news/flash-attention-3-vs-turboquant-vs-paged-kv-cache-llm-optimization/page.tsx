@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/google/news/flash-attention-3-vs-turboquant-vs-paged-kv-cache-llm-optimization';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

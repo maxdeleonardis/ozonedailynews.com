@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/microsoft/news/life-biosciences-fda-clearance-epigenetic-reprogramming-er-100';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=675&fit=crop';

@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+
 
 const SLUG = '/tech/news/87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

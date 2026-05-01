@@ -10,24 +10,44 @@
  * Used by the thin page.tsx files that replace the old static pages.
  */
 
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
+
+const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'wiki_articles');
+
+function loadStaticRow(slug: string): Record<string, unknown> | null {
+  try {
+    const safeSlug = slug.replace(/\//g, '__');
+    const fp = path.join(STATIC_DIR, `${safeSlug}.json`);
+    if (!fs.existsSync(fp)) return null;
+    return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
 
 interface WikiArticleProps {
   slug: string;
 }
 
 export async function WikiArticle({ slug }: WikiArticleProps) {
-  const supabase = await createClient();
-
-  const { data: article } = await supabase
-    .from('wiki_articles')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-
-  if (!article) notFound();
+  // Try static file first, fallback to Supabase
+  let articleRaw: Record<string, unknown> | null = loadStaticRow(slug);
+  if (!articleRaw) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('wiki_articles')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+    articleRaw = data ?? null;
+  }
+  if (!articleRaw) notFound();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const article = articleRaw as any;
 
   // Find the raw HTML block
   const htmlBlock = Array.isArray(article.content)

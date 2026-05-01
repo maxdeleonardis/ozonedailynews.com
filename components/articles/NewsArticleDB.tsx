@@ -11,11 +11,54 @@
  *   }
  */
 
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { NewsArticle } from './NewsArticle';
 import { ContentRenderer } from './ContentRenderer';
 import type { BreadcrumbItem } from '@/components/nav/Breadcrumb';
+
+// ---------------------------------------------------------------------------
+// Static-first data helpers
+// ---------------------------------------------------------------------------
+const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'articles');
+
+function loadStaticRow(slug: string): Record<string, unknown> | null {
+  try {
+    const safeSlug = slug.replace(/\//g, '__');
+    const filePath = path.join(STATIC_DIR, `${safeSlug}.json`);
+    if (!fs.existsSync(filePath)) return null;
+    return JSON.parse(fs.readFileSync(filePath, 'utf8')) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+type IndexEntry = {
+  slug: string;
+  title: string;
+  url: string | null;
+  category: string | null;
+  publish_date: string | null;
+  published_at: string | null;
+  thumbnail_src: string | null;
+  status: string | null;
+};
+
+let _articlesIndex: IndexEntry[] | null = null;
+function getArticlesIndex(): IndexEntry[] {
+  if (_articlesIndex) return _articlesIndex;
+  try {
+    const indexPath = path.join(STATIC_DIR, '_index.json');
+    if (fs.existsSync(indexPath)) {
+      _articlesIndex = JSON.parse(fs.readFileSync(indexPath, 'utf8')) as IndexEntry[];
+    }
+  } catch {
+    _articlesIndex = [];
+  }
+  return _articlesIndex ?? [];
+}
 
 interface NewsArticleDBProps {
   slug: string;
@@ -44,19 +87,32 @@ function deriveBreadcrumbs(urlPath: string | null | undefined, title: string): B
 }
 
 export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
-  const supabase = await createClient();
+  // ---------------------------------------------------------------------------
+  // 1. Try static JSON file first (no Supabase call needed)
+  // ---------------------------------------------------------------------------
+  let row: Record<string, unknown> | null = loadStaticRow(slug);
 
-  const { data: row } = await supabase
-    .from('articles')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  // ---------------------------------------------------------------------------
+  // 2. Fallback to Supabase if static file not found
+  // ---------------------------------------------------------------------------
+  if (!row) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+    row = data ?? null;
+  }
 
   if (!row) notFound();
 
-  // Fetch up to 6 sibling articles in the same category for server-rendered
-  // interlinking (MoreFromHub). Falls back to URL-prefix sibling matching when
-  // category is empty/generic. This is what makes orphan articles crawlable.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const r = row as any;
+
+  // ---------------------------------------------------------------------------
+  // 3. Build "More from Hub" from static index (no Supabase call)
+  // ---------------------------------------------------------------------------
   const moreFromHubItems: Array<{
     slug: string;
     title: string;
@@ -66,17 +122,15 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
     thumbnail?: string;
   }> = [];
 
-  // Strategy 1: same category
-  const { data: catSiblings } = await supabase
-    .from('articles')
-    .select('slug, title, url, publish_date, category, thumbnail_src')
-    .eq('status', 'published')
-    .eq('category', row.category)
-    .neq('slug', slug)
-    .order('published_at', { ascending: false })
-    .limit(8);
+  const index = getArticlesIndex();
 
-  for (const a of catSiblings ?? []) {
+  // Strategy 1: same category
+  const catSiblings = index
+    .filter((a) => a.category === r.category && a.slug !== slug && a.url && a.title && a.status === 'published')
+    .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
+    .slice(0, 8);
+
+  for (const a of catSiblings) {
     if (!a.url || !a.title) continue;
     moreFromHubItems.push({
       slug: a.slug,
@@ -89,22 +143,25 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
     if (moreFromHubItems.length >= 6) break;
   }
 
-  // Strategy 2 (fallback): if not enough siblings, fill with URL-prefix matches
-  if (moreFromHubItems.length < 6 && row.url) {
-    const segments = row.url.split('/').filter(Boolean);
-    const hubPrefix = segments.length > 0 ? `/${segments[0]}/%` : null;
+  // Strategy 2 (fallback): URL-prefix matches
+  if (moreFromHubItems.length < 6 && r.url) {
+    const segments = (r.url as string).split('/').filter(Boolean);
+    const hubPrefix = segments.length > 0 ? `/${segments[0]}/` : null;
     if (hubPrefix) {
       const seen = new Set(moreFromHubItems.map((i) => i.slug));
-      const { data: prefixSiblings } = await supabase
-        .from('articles')
-        .select('slug, title, url, publish_date, category, thumbnail_src')
-        .eq('status', 'published')
-        .like('url', hubPrefix)
-        .neq('slug', slug)
-        .order('published_at', { ascending: false })
-        .limit(12);
-      for (const a of prefixSiblings ?? []) {
-        if (!a.url || !a.title || seen.has(a.slug)) continue;
+      const prefixSiblings = index.filter(
+        (a) =>
+          a.url?.startsWith(hubPrefix) &&
+          a.slug !== slug &&
+          !seen.has(a.slug) &&
+          a.url &&
+          a.title &&
+          a.status === 'published',
+      )
+        .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
+        .slice(0, 12);
+      for (const a of prefixSiblings) {
+        if (!a.url || !a.title) continue;
         moreFromHubItems.push({
           slug: a.slug,
           title: a.title,
@@ -121,8 +178,8 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
   // Determine MoreFromHub label + href from URL prefix
   let moreFromHubLabel: string | undefined;
   let moreFromHubHref: string | undefined;
-  if (row.url) {
-    const firstSegment = row.url.split('/').filter(Boolean)[0];
+  if (r.url) {
+    const firstSegment = (r.url as string).split('/').filter(Boolean)[0];
     if (firstSegment && !firstSegment.startsWith('news')) {
       moreFromHubLabel = firstSegment
         .replace(/-/g, ' ')
@@ -131,58 +188,58 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
     }
   }
 
-  const author = row.author_name
+  const author = r.author_name
     ? {
-        name: row.author_name as string,
-        role: row.author_role ?? undefined,
-        avatar: row.author_avatar ?? undefined,
-        twitter: row.author_twitter ?? undefined,
-        authorSlug: row.author_slug ?? undefined,
-        bio: row.author_bio ?? undefined,
+        name: r.author_name as string,
+        role: r.author_role ?? undefined,
+        avatar: r.author_avatar ?? undefined,
+        twitter: r.author_twitter ?? undefined,
+        authorSlug: r.author_slug ?? undefined,
+        bio: r.author_bio ?? undefined,
       }
     : undefined;
 
-  const heroImage = row.hero_image_src
+  const heroImage = r.hero_image_src
     ? {
-        src: row.hero_image_src as string,
-        alt: (row.hero_image_alt as string) ?? '',
-        caption: row.hero_image_caption ?? undefined,
-        credit: row.hero_image_credit ?? undefined,
+        src: r.hero_image_src as string,
+        alt: (r.hero_image_alt as string) ?? '',
+        caption: r.hero_image_caption ?? undefined,
+        credit: r.hero_image_credit ?? undefined,
       }
     : undefined;
 
-  const thumbnail = row.thumbnail_src
+  const thumbnail = r.thumbnail_src
     ? {
-        src: row.thumbnail_src as string,
-        alt: (row.thumbnail_alt as string) ?? '',
+        src: r.thumbnail_src as string,
+        alt: (r.thumbnail_alt as string) ?? '',
       }
     : undefined;
 
   return (
     <NewsArticle
-      title={row.title}
-      subtitle={row.subtitle ?? undefined}
-      category={row.category}
-      categoryColor={row.category_color ?? undefined}
-      topicTag={row.topic_tag ?? undefined}
-      publishDate={row.publish_date ?? ''}
-      readTime={row.read_time ?? undefined}
+      title={r.title}
+      subtitle={r.subtitle ?? undefined}
+      category={r.category}
+      categoryColor={r.category_color ?? undefined}
+      topicTag={r.topic_tag ?? undefined}
+      publishDate={r.publish_date ?? ''}
+      readTime={r.read_time ?? undefined}
       author={author}
       heroImage={heroImage}
       thumbnail={thumbnail}
-      tags={row.tags ?? undefined}
-      trending={row.trending ?? undefined}
-      breaking={row.breaking ?? undefined}
-      exclusive={row.exclusive ?? undefined}
+      tags={r.tags ?? undefined}
+      trending={r.trending ?? undefined}
+      breaking={r.breaking ?? undefined}
+      exclusive={r.exclusive ?? undefined}
       slug={slug}
-      url={row.url ?? undefined}
-      breadcrumbs={deriveBreadcrumbs(row.url, row.title)}
-      faqItems={Array.isArray(row.faq_items) && row.faq_items.length > 0 ? row.faq_items : undefined}
+      url={r.url ?? undefined}
+      breadcrumbs={deriveBreadcrumbs(r.url, r.title)}
+      faqItems={Array.isArray(r.faq_items) && r.faq_items.length > 0 ? r.faq_items : undefined}
       moreFromHub={moreFromHubItems.length > 0 ? moreFromHubItems : undefined}
       moreFromHubLabel={moreFromHubLabel}
       moreFromHubHref={moreFromHubHref}
     >
-      <ContentRenderer html={row.content_html ?? ''} />
+      <ContentRenderer html={r.content_html ?? ''} />
     </NewsArticle>
   );
 }

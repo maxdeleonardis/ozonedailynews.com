@@ -1,0 +1,91 @@
+{
+  "id": "262718f3-b4b4-491d-aadb-afd519018dee",
+  "slug": "tech-oracle",
+  "title": "Oracle | Company Profile, Cloud, AI Strategy 2026",
+  "subtitle": "Database giant turned hyperscaler, Stargate co-founder, and the AI cloud infrastructure layer governments trust",
+  "category": "Tech",
+  "last_updated": "April 23, 2026",
+  "info_box": null,
+  "table_of_contents": [
+    {
+      "id": "overview",
+      "label": "What Oracle Is in 2026",
+      "level": 1
+    },
+    {
+      "id": "oci",
+      "label": "OCI | The Hyperscaler Challenger",
+      "level": 1
+    },
+    {
+      "id": "stargate",
+      "label": "Stargate | The $500B Bet",
+      "level": 1
+    },
+    {
+      "id": "ai-deals",
+      "label": "200+ AI Data Center Deals",
+      "level": 1
+    },
+    {
+      "id": "database",
+      "label": "The Database Moat",
+      "level": 1
+    },
+    {
+      "id": "health",
+      "label": "Oracle Health | Cerner Rebuild",
+      "level": 1
+    },
+    {
+      "id": "financials",
+      "label": "Financials | Revenue Breakdown",
+      "level": 1
+    },
+    {
+      "id": "ellison",
+      "label": "Larry Ellison | The Strategy",
+      "level": 1
+    },
+    {
+      "id": "competitors",
+      "label": "Competitors",
+      "level": 1
+    }
+  ],
+  "content_html": "<section id=\"overview\">\n        <h2>\n          What Oracle Is in 2026\n        </h2>\n        <p>\n          Oracle Corporation is a 48-year-old enterprise software company that most of the technology\n          industry spent a decade underestimating. Founded in 1977 by Larry Ellison, Bob Miner, and Ed Oates,\n          Oracle built the relational database that became the backbone of global enterprise computing.\n          It then spent 20 years watching cloud-native competitors like \n          <Link href=\"/google\">Google</Link>, \n          <Link href=\"/microsoft\">Microsoft Azure</Link>,\n          and AWS eat into its data center business.\n        </p>\n        <p>\n          In 2026 Oracle is no longer playing defense. Oracle Cloud Infrastructure (OCI) is the\n          fastest-growing major hyperscaler by percentage revenue growth. Oracle is one of three\n          founding partners in the \n          <Link href=\"/open-ai/news/openai-aws-pentagon-classified-ai-deal-march-2026\">\n            $500 billion Stargate AI infrastructure consortium\n          </Link>.\n          The company signed more than 200 AI data center contracts in a 12-month window. And Larry\n          Ellison is personally pitching heads of state on Oracle Cloud as the only infrastructure\n          trustworthy enough to run national security AI.\n        </p>\n        <p>\n          Oracle reported $57.1 billion in FY2025 revenue, a 6% year-over-year increase, with cloud\n          services and license support accounting for $40.5 billion of that total. The cloud\n          infrastructure segment (OCI) grew at 52% year-over-year in its most recent quarter,\n          significantly outpacing AWS (17%), Azure (29%), and Google Cloud (28%) on a relative\n          growth basis.\n        </p>\n      </section>\n\n      \n      <section id=\"oci\">\n        <h2>\n          OCI | The Hyperscaler Challenger\n        </h2>\n        <p>\n          Oracle Cloud Infrastructure launched its second generation in 2018, built from scratch with\n          a network architecture designed for the kind of low-latency, high-bandwidth GPU workloads\n          that AI training demands. While AWS and Azure optimized for general-purpose cloud compute,\n          Oracle engineered OCI around bare-metal GPU clusters with non-blocking RDMA fabric, giving\n          it a measurable performance and price advantage for AI training jobs.\n        </p>\n        <p>\n          OCI is priced approximately 50% lower than equivalent AWS and Azure compute for comparable\n          GPU instances. This cost differential has been a primary driver of Oracle winning workloads\n          from AI labs, government agencies, and enterprises running large language model training and\n          inference at scale.\n        </p>\n\n        <PrismTable\n          accent=\"blue\"\n          headers={['OCI Capability', 'Details']}\n          rows={[\n            [<><span>GPU Clusters</span><span>Bare-metal RDMA fabric</span></>, 'Up to 65,536 H100/H200 GPUs in a single cluster, non-blocking network'],\n            [<><span>Pricing</span><span>vs. AWS equivalent</span></>, '~50% lower cost per GPU-hour on comparable bare-metal configurations'],\n            [<><span>Cloud Regions</span><span>Global footprint 2026</span></>, '100+ cloud regions across 23 countries, most of any hyperscaler'],\n            [<><span>Latency</span><span>Network architecture</span></>, 'Sub-2 microsecond RDMA latency within cluster, critical for distributed training'],\n            [<><span>Sovereign Cloud</span><span>Government deployments</span></>, 'Dedicated sovereign cloud regions for EU GDPR, US DoD IL5, and national govts'],\n          ]}\n          caption=\"OCI technical differentiators vs. AWS and Azure, April 2026\"\n        />\n\n        <p>\n          Oracle's cloud region count, now exceeding 100, is the highest of any hyperscaler. The\n          strategy is deliberate: governments and regulated industries that cannot send data across\n          borders are a massive addressable market that AWS and Azure struggled to serve at scale.\n          Oracle built dedicated sovereign cloud regions in the EU, Japan, Saudi Arabia, UAE, and\n          multiple US federal classified environments.\n        </p>\n      </section>\n\n      \n      <section id=\"stargate\">\n        <h2>\n          Stargate | The $500B National AI Infrastructure Bet\n        </h2>\n        <p>\n          In January 2026, Oracle joined \n          <Link href=\"/open-ai\">OpenAI</Link> \n          and SoftBank to announce Stargate, a joint venture to deploy $500 billion in AI\n          infrastructure across the United States over four years. Oracle contributes cloud\n          infrastructure and data center operations. OpenAI anchors the AI workloads.\n          SoftBank provides capital and coordination.\n        </p>\n        <p>\n          The first tranche — $100 billion in immediate deployments — began construction in Texas.\n          Oracle is building and operating the physical data centers, drawing on its existing OCI\n          architecture. Larry Ellison framed the project in national security terms during the\n          White House announcement, describing it as critical infrastructure equivalent to the\n          interstate highway system.\n        </p>\n        <p>\n          Stargate gives Oracle something it never had before: a direct long-term contractual\n          relationship with the most important AI lab in the world and a US government mandate\n          to be part of the national AI infrastructure stack.\n        </p>\n      </section>\n\n      \n      <section id=\"ai-deals\">\n        <h2>\n          200+ AI Data Center Deals | The Pipeline No One Expected\n        </h2>\n        <p>\n          Oracle disclosed in its FY2025 earnings calls that its remaining performance obligation\n          (RPO) — essentially contracted future revenue — exceeded $130 billion, a figure that\n          stunned analysts and confirmed that Oracle's AI data center pipeline was among the largest\n          in the industry. The company signed more than 200 AI data center contracts in the 12\n          months ending mid-2025, with contract sizes ranging from hundreds of millions to multiple\n          billions of dollars.\n        </p>\n        <p>\n          The customers span AI startups, pharmaceutical companies running drug discovery workloads,\n          national governments, and Fortune 500 enterprises migrating legacy Oracle Database\n          workloads to OCI. The stickiness of Oracle's existing database customer base gives OCI\n          an advantage AWS and Azure cannot easily replicate: tens of thousands of companies already\n          running Oracle databases have a natural on-ramp to OCI.\n        </p>\n      </section>\n\n      \n      <section id=\"database\">\n        <h2>\n          The Database Moat | 47 Years of Enterprise Lock-In\n        </h2>\n        <p>\n          Oracle Database remains the dominant enterprise relational database for mission-critical\n          workloads. Oracle holds an estimated 30%+ of the total database management system market\n          by revenue, with its highest concentration in financial services, healthcare, government,\n          and telecommunications — sectors where data integrity, ACID compliance, and support SLAs\n          are non-negotiable.\n        </p>\n        <p>\n          Autonomous Database, Oracle's cloud-native database product, removes the need for a DBA\n          by automatically patching, tuning, and scaling. It runs on OCI and represents Oracle's\n          strategy to migrate its 400,000+ database customers from on-premises licenses to\n          cloud subscriptions. The Autonomous Database had a 40%+ revenue growth rate in the most\n          recent fiscal year.\n        </p>\n        <p>\n          Oracle's database moat is reinforced by switching costs that are among the highest in\n          enterprise software. A large bank running 50TB of Oracle Database with custom PL/SQL\n          procedures, Oracle Forms applications, and 20 years of stored procedures faces a\n          multi-year, nine-figure migration project to move to PostgreSQL or another alternative.\n          This lock-in has funded Oracle's cloud buildout.\n        </p>\n      </section>\n\n      \n      <section id=\"health\">\n        <h2>\n          Oracle Health | The Cerner Rebuild\n        </h2>\n        <p>\n          Oracle acquired Cerner, the electronic health records (EHR) company, for $28.3 billion in\n          June 2022, the largest acquisition in Oracle's history. The strategic rationale was clear:\n          Cerner's EHR systems run in approximately 25% of US hospitals, giving Oracle a dataset of\n          unparalleled scale for clinical AI and a direct line into the $4 trillion US healthcare\n          market.\n        </p>\n        <p>\n          The integration has been turbulent. Oracle rebranded Cerner to Oracle Health, initiated\n          a large-scale migration of hospitals from Cerner's on-premises infrastructure to OCI, and\n          faced significant pushback from hospital IT departments over pace and contract terms. The\n          US Department of Veterans Affairs — Oracle Health's largest single customer — issued\n          multiple warnings about implementation delays in the first two years post-acquisition.\n        </p>\n        <p>\n          By 2026, Oracle Health has stabilized. The VA relationship is recovering. Oracle is\n          positioning its clinical AI models — trained on de-identified data from Cerner's hospital\n          network — as a differentiator against competitors like Epic. The health cloud division\n          contributes an estimated $5-6 billion annually to Oracle's total revenue.\n        </p>\n      </section>\n\n      \n      <section id=\"financials\">\n        <h2>\n          Financials | Revenue Breakdown 2025\n        </h2>\n\n        <PrismTable\n          accent=\"purple\"\n          headers={['Revenue Segment', 'FY2025 Performance']}\n          rows={[\n            [<><span>Cloud Services</span><span>IaaS + SaaS subscriptions</span></>, '$23.4B, +24% YoY — fastest-growing segment'],\n            [<><span>License Support</span><span>On-premises maintenance</span></>, '$17.1B, +6% YoY — the cash cow funding cloud buildout'],\n            [<><span>Cloud License</span><span>New perpetual + term licenses</span></>, '$5.8B, -3% YoY — declining as subscription mix grows'],\n            [<><span>Hardware</span><span>Exadata, engineered systems</span></>, '$2.9B, -5% YoY — mature segment, declining gradually'],\n            [<><span>Services</span><span>Consulting, implementation</span></>, '$5.2B, +2% YoY — steady, lower margin'],\n            [<><span>Total Revenue</span><span>FY2025 (ended May 31, 2025)</span></>, '$57.1B, +6% YoY'],\n            [<><span>Operating Income</span><span>Non-GAAP</span></>, '$21.7B, non-GAAP operating margin ~38%'],\n            [<><span>RPO (Backlog)</span><span>Remaining performance obligation</span></>, '$130B+ — largest in company history'],\n          ]}\n          caption=\"Oracle FY2025 revenue breakdown by segment. FY ends May 31.\"\n        />\n      </section>\n\n      \n      <section id=\"ellison\">\n        <h2>\n          Larry Ellison | The Strategy Behind the Pivot\n        </h2>\n        <p>\n          Larry Ellison, 80, has been Oracle's founder, chairman, and CTO since stepping down as\n          CEO in 2014 — a role he gave to Safra Catz. He has become the public face of Oracle's\n          AI and national security push with a conviction and urgency that surprised even longtime\n          Oracle watchers.\n        </p>\n        <p>\n          Ellison's thesis is specific: AI will be the most important technology in human history,\n          the data required to train and run AI systems cannot be trusted to foreign-controlled\n          infrastructure, and Oracle's combination of sovereign cloud regions, database depth, and\n          healthcare data makes it uniquely positioned to be the infrastructure provider for\n          governments and regulated industries that will never put sensitive workloads on AWS\n          or Azure.\n        </p>\n        <p>\n          He has personally met with heads of state in Saudi Arabia, Japan, the UAE, the UK, and\n          India to pitch Oracle Cloud as national infrastructure. Multiple sovereign AI initiatives\n          in those countries have contracted OCI. Ellison's personal involvement at the head-of-state\n          level is a distribution channel no other hyperscaler replicates.\n        </p>\n        <p>\n          Ellison also holds a significant personal stake in Oracle — approximately 40% of shares\n          outstanding — aligning his net worth directly with OCI's execution. His net worth crossed\n          $200 billion in 2025, briefly making him the world's wealthiest person.\n        </p>\n      </section>\n\n      \n      <section id=\"competitors\">\n        <h2>\n          Competitors | Where Oracle Wins and Loses\n        </h2>\n\n        <PrismTable\n          accent=\"orange\"\n          headers={['Competitor', 'Competitive Dynamic']}\n          rows={[\n            [<><span>Amazon Web Services</span><span>AWS</span></>, 'Market leader by revenue. OCI undercuts on GPU pricing by ~50%. AWS wins on breadth of services, developer ecosystem, and brand recognition.'],\n            [<><span>Microsoft Azure</span><span>+ OpenAI partnership</span></>, 'Oracle competes directly on AI infrastructure. Ironically, OpenAI uses both Azure (primarily) and OCI (Stargate expansion). Azure leads on enterprise Microsoft integration.'],\n            [<><span>Google Cloud</span><span>GCP</span></>, 'Oracle and GCP signed a partnership in 2023 allowing Autonomous DB to run on GCP. Cooperation and competition coexist. GCP wins on data analytics, BigQuery.'],\n            [<><span>SAP</span><span>ERP</span></>, 'Direct ERP competitor. SAP leads in manufacturing/supply chain ERP. Oracle Fusion leads in financial services and HCM. Both are migrating customers to cloud subscriptions.'],\n            [<><span>Epic Systems</span><span>Healthcare EHR</span></>, 'Oracle Health (Cerner) vs. Epic is the primary EHR battleground. Epic leads by market share in large academic medical centers. Oracle Health targets mid-size hospitals and government.'],\n            [<><span>PostgreSQL / MySQL</span><span>Open source databases</span></>, 'Long-term threat to Oracle Database licensing. Oracle responds with Autonomous DB pricing, migration tools, and the argument that open source support costs exceed Oracle license costs at scale.'],\n          ]}\n          caption=\"Oracle competitive positioning across cloud, ERP, database, and healthcare, 2026\"\n        />\n\n        <p>\n          Oracle's competitive moat is unusual in the technology industry: it is simultaneously\n          one of the most hated vendors in enterprise software (for aggressive license audits and\n          lock-in practices) and one of the most indispensable. The companies that run Oracle\n          systems tend to run them for decades.\n        </p>\n        <p>\n          In 2026 the question is whether Oracle can translate its database incumbency and OCI's\n          cost advantage into hyperscaler-scale revenue growth before AWS and Azure close the\n          GPU pricing gap. The $130 billion RPO suggests the AI data center pipeline is real.\n          Whether OCI can execute at the build pace required to deliver it is the defining\n          challenge for the next three years.\n        </p>\n      </section>",
+  "related_links": [
+    {
+      "href": "/tech/tsmc-semiconductor-foundry-profile",
+      "label": "TSMC | Semiconductor Foundry Profile"
+    },
+    {
+      "href": "/tech/asml-euv-lithography-profile",
+      "label": "ASML | EUV Lithography Profile"
+    },
+    {
+      "href": "/nvidia",
+      "label": "Nvidia | Company Profile"
+    },
+    {
+      "href": "/microsoft",
+      "label": "Microsoft | Company Profile"
+    },
+    {
+      "href": "/google",
+      "label": "Google | Company Profile"
+    },
+    {
+      "href": "/open-ai",
+      "label": "OpenAI | Company Profile"
+    }
+  ],
+  "back_link": {
+    "href": "/tech",
+    "label": "Tech"
+  },
+  "created_at": "2026-04-23T22:25:56.69484+00:00",
+  "updated_at": "2026-04-23T22:25:56.69484+00:00",
+  "view_count": 0,
+  "url": "/tech/oracle"
+}

@@ -14,25 +14,44 @@
  *   }
  */
 
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ArticlePage, TableOfContents } from './ArticlePage';
 import { ContentRenderer } from './ContentRenderer';
+
+const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'article_pages');
+
+function loadStaticRow(slug: string): Record<string, unknown> | null {
+  try {
+    const safeSlug = slug.replace(/\//g, '__');
+    const fp = path.join(STATIC_DIR, `${safeSlug}.json`);
+    if (!fs.existsSync(fp)) return null;
+    return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
 
 interface ArticlePageDBProps {
   slug: string;
 }
 
 export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
-  const supabase = await createClient();
-
-  const { data: row } = await supabase
-    .from('article_pages')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-
-  if (!row) notFound();
+  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
+  if (!rowRaw) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('article_pages')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+    rowRaw = data ?? null;
+  }
+  if (!rowRaw) notFound();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const row = rowRaw as any;
 
   return (
     <ArticlePage

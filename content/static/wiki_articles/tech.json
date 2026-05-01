@@ -1,0 +1,26 @@
+{
+  "id": "bdc1bfe3-1300-493f-93fe-3694c7eadb06",
+  "slug": "tech",
+  "title": "Tech | ObjectWire",
+  "subtitle": "",
+  "content": [
+    {
+      "id": "html-body",
+      "type": "html",
+      "content": "<div class=\"grid grid-cols-1 lg:grid-cols-12 gap-8\">\r\n            <div class=\"lg:col-span-8\">\r\n                <div class=\"flex items-center gap-3 mb-12\">\r\n                    <div class=\"h-6 w-1.5 bg-blue-600\"></div>\r\n                    <h1 class=\"text-sm font-black uppercase tracking-[0.3em] text-gray-900\">\r\n                        Tech Intelligence Archive\r\n                    </h1>\r\n                </div>\r\n                <div class=\"bg-white p-8 rounded-lg border border-gray-200\">\r\n                  <p class=\"text-gray-600\">Tech articles will be displayed here.</p>\r\n                </div>\r\n            </div>\r\n            \r\n            <div class=\"lg:col-span-4\">\r\n                <div class=\"sticky top-4 space-y-6\">\r\n                  <TechSidebar />\r\n                </div>\r\n            </div>\r\n        </div>"
+    }
+  ],
+  "category": "General",
+  "topic_tag": null,
+  "tags": [],
+  "author_name": "Austin Web Services",
+  "author_role": null,
+  "author_slug": null,
+  "author_avatar": null,
+  "breaking": false,
+  "published_at": null,
+  "created_at": "2026-03-08T03:59:36.290024+00:00",
+  "updated_at": "2026-03-13T16:27:12.946281+00:00",
+  "read_time": null,
+  "view_count": 0
+}

@@ -1,0 +1,165 @@
+{
+  "id": "9a8a101e-5045-4bf2-89cb-5d76c2f34553",
+  "slug": "cloudflare",
+  "title": "Cloudflare, Inc.",
+  "subtitle": "American internet infrastructure company providing CDN, cybersecurity, DDoS mitigation, and edge computing services globally",
+  "category": "Technology Company",
+  "last_updated": "March 2026",
+  "info_box": {
+    "image": {
+      "alt": "Cloudflare logo",
+      "src": "/default/cloudflare/cloudflare.PNG",
+      "caption": "Cloudflare, Inc."
+    },
+    "title": "Cloudflare, Inc.",
+    "sections": [
+      {
+        "items": [
+          {
+            "label": "Founded",
+            "value": "July 26, 2009"
+          },
+          {
+            "label": "Headquarters",
+            "value": "San Francisco, California, U.S."
+          },
+          {
+            "label": "Type",
+            "value": "Public company"
+          },
+          {
+            "label": "Stock exchange",
+            "value": "New York Stock Exchange"
+          },
+          {
+            "label": "Ticker symbol",
+            "value": "NET"
+          },
+          {
+            "label": "IPO date",
+            "value": "September 13, 2019"
+          }
+        ],
+        "heading": "Company"
+      },
+      {
+        "list": [
+          "Matthew Prince",
+          "Lee Holloway",
+          "Michelle Zatlyn"
+        ],
+        "heading": "Founders"
+      },
+      {
+        "items": [
+          {
+            "label": "CEO",
+            "value": "Matthew Prince"
+          },
+          {
+            "label": "President",
+            "value": "Michelle Zatlyn"
+          },
+          {
+            "label": "CTO",
+            "value": "Dane Knecht"
+          }
+        ],
+        "heading": "Leadership"
+      },
+      {
+        "items": [
+          {
+            "label": "Revenue",
+            "value": "$2.168 billion"
+          },
+          {
+            "label": "GAAP gross margin",
+            "value": "75%"
+          },
+          {
+            "label": "Revenue CAGR (2020–2025)",
+            "value": "~38%"
+          },
+          {
+            "label": "Employees",
+            "value": "5,156"
+          }
+        ],
+        "heading": "Financials (FY 2025)"
+      },
+      {
+        "items": [
+          {
+            "label": "Network cities",
+            "value": "330+ cities in 125+ countries"
+          },
+          {
+            "label": "Websites protected",
+            "value": "21.3% of all internet websites"
+          },
+          {
+            "label": "Cyber threats blocked/day",
+            "value": "215 billion"
+          },
+          {
+            "label": "Paying customers",
+            "value": "332,000+"
+          },
+          {
+            "label": "Fortune 500 customers",
+            "value": "38%"
+          }
+        ],
+        "heading": "Scale (Early 2026)"
+      },
+      {
+        "href": "https://www.cloudflare.com",
+        "text": "cloudflare.com",
+        "heading": "Website"
+      }
+    ]
+  },
+  "table_of_contents": [],
+  "content_html": "<section id=\"overview\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Overview</h2>\r\n        <p>\r\n          <strong>Cloudflare, Inc.</strong> is an American technology company headquartered in San\r\n          Francisco, California. It provides a global cloud platform offering \r\n          <strong>content delivery network (CDN) services</strong>, cybersecurity solutions, DDoS\r\n          mitigation, domain registration, and developer tools. The company's services function\r\n          primarily as a reverse proxy between website visitors and a customer's origin server,\r\n          improving performance and protecting against malicious traffic.\r\n        </p>\r\n        <p>\r\n          As of early 2026, Cloudflare protects approximately <strong>21.3% of all websites on the\r\n          internet</strong> according to W3Techs data, making it one of the most ubiquitous pieces of\r\n          internet infrastructure globally. The company operates in <strong>330+ cities across 125+\r\n          countries</strong> — including mainland China — and blocks an average of \r\n          <strong>215 billion cyber threats per day</strong>. Cloudflare trades on the New York Stock\r\n          Exchange under the ticker symbol <strong>NET</strong>.\r\n        </p>\r\n      </section>\r\n\r\n      <section id=\"history\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">History</h2>\r\n        <p>\r\n          Cloudflare was founded on <strong>July 26, 2009</strong>, by \r\n          <strong>Matthew Prince</strong>, <strong>Lee Holloway</strong>, and \r\n          <strong>Michelle Zatlyn</strong>. The idea originated in 2004 when Prince and Holloway\r\n          began working on a project called Project Honey Pot — a distributed system designed to\r\n          trace the source of email spam. The insights gained from that work laid the technical\r\n          groundwork for what would become Cloudflare's core business of tracking and\r\n          neutralizing malicious internet traffic at scale.\r\n        </p>\r\n        <p>\r\n          The company officially launched its services at <strong>TechCrunch Disrupt</strong> in\r\n          September 2010, where it was named a finalist for the top startup award. The launch\r\n          attracted immediate attention from the web community for offering enterprise-grade DDoS\r\n          protection and performance optimization to websites of any size — including a free tier\r\n          that made its tools accessible to independent publishers and small organizations.\r\n        </p>\r\n        <p>\r\n          Cloudflare went public on the <strong>New York Stock Exchange on September 13, 2019</strong>,\r\n          raising approximately $525 million in its IPO at a price of $15 per share. The company\r\n          has since grown into one of the largest internet infrastructure providers in the world,\r\n          expanding through organic product development and targeted acquisitions including\r\n          Area 1 Security (email security, acquired 2022) and Replicate (AI infrastructure).\r\n        </p>\r\n      </section>\r\n\r\n      <section id=\"products\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Products and Services</h2>\r\n        <p>\r\n          Cloudflare's platform spans security, performance, networking, and developer tools —\r\n          all delivered through its globally distributed edge network rather than from centralized\r\n          data centers owned by the customer.\r\n        </p>\r\n\r\n        <h3 class=\"text-lg font-semibold mt-6 mb-3\">Security Solutions</h3>\r\n        <p>\r\n          Cloudflare's security portfolio is its largest and most widely known product area.\r\n          It includes a \r\n          <strong>Web Application Firewall (WAF)</strong>, volumetric and application-layer \r\n          <strong>DDoS mitigation</strong>, bot management, API security, and \r\n          <strong>SSL/TLS encryption</strong>. The company also offers a suite of \r\n          <strong>Zero Trust security products</strong> — including Cloudflare Zero Trust Network\r\n          Access (ZTNA) and Secure Web Gateway (SWG) — designed to replace traditional\r\n          corporate VPN architectures. These products operate under the Cloudflare One brand\r\n          and are targeted at enterprises seeking to secure remote and hybrid workforces.\r\n        </p>\r\n\r\n        <h3 class=\"text-lg font-semibold mt-6 mb-3\">Performance and Delivery</h3>\r\n        <p>\r\n          Cloudflare's <strong>content delivery network</strong> caches and serves web\r\n          content from the edge node closest to the requesting user, reducing latency and\r\n          load on origin servers. The company also provides <strong>load balancing</strong>,\r\n          global <strong>DNS services</strong> — including the public <strong>1.1.1.1 resolver</strong>,\r\n          which does not log user query data — video streaming infrastructure, and web\r\n          optimization tooling including automatic image compression and minification.\r\n        </p>\r\n\r\n        <h3 class=\"text-lg font-semibold mt-6 mb-3\">Network Services</h3>\r\n        <p>\r\n          For enterprise and service provider customers, Cloudflare offers \r\n          <strong>Magic WAN</strong> (SD-WAN replacement), <strong>Magic Transit</strong>\r\n          (network-layer DDoS protection for on-premise and data center infrastructure), and \r\n          <strong>Spectrum</strong> (TCP/UDP application proxy for non-HTTP traffic). These\r\n          products are targeted at organizations seeking to eliminate traditional\r\n          hardware-based network perimeters in favor of software-defined, cloud-native\r\n          connectivity.\r\n        </p>\r\n\r\n        <h3 class=\"text-lg font-semibold mt-6 mb-3\">Developer Platform</h3>\r\n        <p>\r\n          <strong>Cloudflare Workers</strong> is the company's serverless and edge computing\r\n          platform, allowing developers to deploy JavaScript, TypeScript, Python, and WebAssembly\r\n          code that runs directly on Cloudflare's edge network — geographically close to\r\n          users rather than in a single centralized region. Workers has been extended to support\r\n          AI inference workloads, allowing developers to run models at the edge without managing\r\n          GPU infrastructure. Other developer tools include Cloudflare Pages (static site hosting),\r\n          R2 (object storage compatible with the S3 API), D1 (edge SQL database), and KV\r\n          (distributed key-value storage).\r\n        </p>\r\n\r\n        <h3 class=\"text-lg font-semibold mt-6 mb-3\">Domain Services</h3>\r\n        <p>\r\n          Cloudflare is an <strong>ICANN-accredited domain registrar</strong>. Unlike most\r\n          registrars, it offers domain registration at cost — without markup — to its customers,\r\n          positioning domain services as a retention tool for its broader platform rather than\r\n          a standalone revenue source.\r\n        </p>\r\n      </section>\r\n\r\n      <section id=\"network\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Global Network</h2>\r\n        <p>\r\n          Cloudflare's edge network is among the largest in the world by number of\r\n          interconnection points. As of early 2026, the network spans \r\n          <strong>330+ cities in 125+ countries</strong>, including locations in mainland\r\n          China that operate under a separate compliance framework than Cloudflare's\r\n          global infrastructure.\r\n        </p>\r\n        <p>\r\n          The company's network capacity is a key competitive differentiator. Cloudflare\r\n          peers directly with thousands of internet service providers and major networks,\r\n          allowing traffic from customer websites to be served with minimal hops from the\r\n          network edge. The company's anycast routing architecture means that any request\r\n          from a user is automatically directed to the nearest available Cloudflare node,\r\n          regardless of where the customer's origin server is physically located.\r\n        </p>\r\n        <p>\r\n          This infrastructure also underlies Cloudflare's ability to absorb and neutralize\r\n          distributed denial-of-service attacks at scale. By routing attack traffic through\r\n          its global network rather than allowing it to reach customer origin servers,\r\n          Cloudflare can mitigate volumetric attacks that would overwhelm any individual\r\n          customer's infrastructure. The company reports blocking an average of \r\n          <strong>215 billion cyber threats per day</strong> as of early 2026.\r\n        </p>\r\n      </section>\r\n\r\n      <section id=\"financials\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Financials and Operations</h2>\r\n        <p>\r\n          Cloudflare reported <strong>$2.168 billion in revenue for fiscal year 2025</strong>,\r\n          reflecting continued strong growth in its enterprise customer base and expansion of\r\n          its Zero Trust and developer platform products. The company's \r\n          <strong>GAAP gross margin reached 75%</strong> in FY 2025, consistent with a\r\n          software-delivered infrastructure model where incremental costs are largely those\r\n          of network capacity rather than physical hardware per customer.\r\n        </p>\r\n\r\n        <DataTable\r\n          headers={['Metric', 'Value (FY 2025 / Early 2026)']}\r\n          rows={[\r\n            ['Annual Revenue', '$2.168 billion'],\r\n            ['GAAP Gross Margin', '75%'],\r\n            ['Revenue CAGR (FY 2020–2025)', '~38%'],\r\n            ['Total Employees', '5,156 (end of 2025)'],\r\n            ['Paying Customers', '332,000+ (Q4 2025)'],\r\n            ['Fortune 500 Customers', '38% of Fortune 500'],\r\n            ['Websites Protected', '~21.3% of all internet websites'],\r\n            ['Network Presence', '330+ cities, 125+ countries'],\r\n            ['Daily Threats Blocked', '215 billion'],\r\n          ]}\r\n        />\r\n\r\n        <p>\r\n          Revenue has grown at a compound annual growth rate of over <strong>38%</strong> from FY\r\n          2020 to FY 2025. The company had <strong>332,000+ paying customers</strong> as of Q4\r\n          2025, with <strong>38% of the Fortune 500</strong> among its enterprise clients. Cloudflare\r\n          had <strong>5,156 employees</strong> at the end of 2025 and is headquartered in San\r\n          Francisco, with offices in Austin, London, Singapore, and other global locations.\r\n        </p>\r\n      </section>\r\n\r\n      <section id=\"leadership\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Leadership</h2>\r\n        <p>\r\n          Cloudflare's executive team has remained stable since its founding, with both\r\n          co-founders still in operating leadership roles — an unusual continuity for a company\r\n          of Cloudflare's scale and public market tenure.\r\n        </p>\r\n        <ul class=\"space-y-3 mt-3\">\r\n          <li>\r\n            <strong>Matthew Prince</strong> — Co-founder, Co-Chairman, and CEO. Prince\r\n            co-created Project Honey Pot in 2004 alongside Lee Holloway, which led directly\r\n            to founding Cloudflare. He has led the company from founding through IPO and its\r\n            growth into a multi-billion-dollar public infrastructure company.\r\n          </li>\r\n          <li>\r\n            <strong>Michelle Zatlyn</strong> — Co-founder, Co-Chair, and President. Zatlyn\r\n            oversees the company's go-to-market, customer success, and business\r\n            development functions. She joined Prince and Holloway as a co-founder after\r\n            meeting Prince at Harvard Business School.\r\n          </li>\r\n          <li>\r\n            <strong>Dane Knecht</strong> — Chief Technology Officer. Knecht leads Cloudflare's\r\n            technical strategy and product architecture, including the evolution of the\r\n            Workers platform and AI infrastructure capabilities.\r\n          </li>\r\n        </ul>\r\n      </section>\r\n\r\n      <section id=\"mission\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Mission and Impact</h2>\r\n        <p>\r\n          Cloudflare's stated mission is <em>&quot;to help build a better Internet.&quot;</em> \r\n          The company positions itself as a connectivity cloud provider that makes websites,\r\n          applications, AI agents, and networks faster and more secure, while reducing the\r\n          complexity of managing traditional network hardware.\r\n        </p>\r\n\r\n        <Quote\r\n          text=\"We want to be the network that helps build a better Internet — where anyone, anywhere, can publish and access information freely and securely.\"\r\n          author=\"Matthew Prince\"\r\n          context=\"Cloudflare co-founder and CEO\"\r\n        />\r\n\r\n        <p>\r\n          A consistent thread through the company's product decisions is accessibility:\r\n          the <strong>1.1.1.1 DNS resolver</strong> (free, privacy-respecting, does not log\r\n          user queries), the <strong>free tier</strong> for CDN and DDoS protection (which\r\n          enables small publishers and NGOs to access enterprise-grade protection), and the\r\n          ongoing public commitment to not profiting from the sale of DNS data. These choices\r\n          have positioned Cloudflare as a politically significant actor in discussions about\r\n          internet governance, censorship, and infrastructure neutrality.\r\n        </p>\r\n        <p>\r\n          The company has expanded through acquisitions while continuing to invest heavily in\r\n          organic product development. Key acquisitions include <strong>Area 1 Security</strong>\r\n          (cloud email security, 2022) and <strong>Replicate</strong> (AI model infrastructure),\r\n          and the company continues to integrate artificial intelligence capabilities into its\r\n          security and performance tools — including Workers AI for on-edge model inference.\r\n        </p>\r\n      </section>\r\n\r\n      <ExternalLinks\r\n        links={[\r\n          { href: 'https://www.cloudflare.com', label: 'Cloudflare Official Website' },\r\n          { href: 'https://blog.cloudflare.com', label: 'The Cloudflare Blog' },\r\n          { href: 'https://developers.cloudflare.com', label: 'Cloudflare Developer Docs' },\r\n          { href: 'https://1.1.1.1', label: '1.1.1.1 — Cloudflare Public DNS Resolver' },\r\n          { href: 'https://investors.cloudflare.com', label: 'Cloudflare Investor Relations' },\r\n        ]}\r\n      />",
+  "related_links": [
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "description": "ObjectWire technology coverage"
+    },
+    {
+      "href": "/tech",
+      "label": "Tech Desk",
+      "description": "Latest tech news"
+    },
+    {
+      "href": "/nvidia",
+      "label": "Nvidia",
+      "description": "AI accelerator and GPU leader"
+    },
+    {
+      "href": "/google",
+      "label": "Google",
+      "description": "Search, cloud, and AI"
+    },
+    {
+      "href": "/microsoft",
+      "label": "Microsoft",
+      "description": "Enterprise software and Azure cloud"
+    },
+    {
+      "href": "/amazon",
+      "label": "Amazon",
+      "description": "AWS and e-commerce"
+    }
+  ],
+  "back_link": {
+    "href": "/technology",
+    "label": "Technology"
+  },
+  "created_at": "2026-03-26T01:52:30.74683+00:00",
+  "updated_at": "2026-03-26T01:52:30.74683+00:00",
+  "view_count": 0,
+  "url": "/cloudflare"
+}

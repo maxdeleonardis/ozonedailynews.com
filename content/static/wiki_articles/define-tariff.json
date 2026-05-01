@@ -1,0 +1,32 @@
+{
+  "id": "5ff99531-3862-474a-b458-dbe34b4250ea",
+  "slug": "define-tariff",
+  "title": "What Is a Tariff? | Definition, Types & 2026 Examples",
+  "subtitle": "Tariff",
+  "content": [
+    {
+      "type": "html",
+      "content": "<div class=\"prose prose-lg max-w-none\">\n\n<h2>Definition</h2>\n<p>A tariff is a tax imposed by a government on goods imported from (or, less commonly, exported to) another country. Tariffs increase the price of foreign products, making domestically produced alternatives more competitive. They are one of the oldest tools of trade policy and remain central to international economic relations in 2026.</p>\n\n<h2>How Tariffs Work</h2>\n<p>When a company imports goods into the United States, it must pay the applicable tariff rate to U.S. Customs and Border Protection before the goods clear customs. The importer, not the foreign manufacturer, pays the tariff. Importers typically pass this cost to consumers through higher retail prices.</p>\n\n<p>For example, if the U.S. imposes a 25% tariff on imported steel and a shipment is valued at $1 million, the importer pays $250,000 in tariff duties on top of the purchase price.</p>\n\n<h2>Types of Tariffs</h2>\n<ul>\n<li><strong>Ad valorem tariff</strong> - A percentage of the imported good's value (e.g., 10% on all imported electronics)</li>\n<li><strong>Specific tariff</strong> - A fixed dollar amount per unit (e.g., $0.50 per kilogram of imported sugar)</li>\n<li><strong>Compound tariff</strong> - Combines both ad valorem and specific rates</li>\n<li><strong>Protective tariff</strong> - Designed to shield domestic industries from foreign competition</li>\n<li><strong>Revenue tariff</strong> - Primarily intended to generate government income</li>\n<li><strong>Retaliatory tariff</strong> - Imposed in response to another country's trade restrictions</li>\n<li><strong>Reciprocal tariff</strong> - Set to match the tariff rate another country charges on U.S. exports</li>\n</ul>\n\n<h2>US Tariff Policy in 2026</h2>\n<p>The United States has significantly expanded its use of tariffs since 2025. The current administration has imposed broad tariffs on imports from China (ranging from 60-145%), a baseline 10% tariff on most other imports, and sector-specific tariffs on steel (25%), aluminum (25%), and automobiles (25%). These represent the most aggressive U.S. tariff regime since the Smoot-Hawley Tariff Act of 1930.</p>\n\n<h2>Economic Effects</h2>\n<p>Economists broadly agree that tariffs raise consumer prices, reduce trade volumes, and can trigger retaliatory tariffs from trading partners. Supporters argue tariffs protect domestic jobs, reduce trade deficits, and strengthen national security by preserving critical manufacturing capacity. Critics counter that tariffs function as a regressive tax on consumers and disrupt global supply chains.</p>\n\n<table>\n<thead><tr><th>Effect</th><th>Description</th></tr></thead>\n<tbody>\n<tr><td>Consumer prices</td><td>Rise as importers pass tariff costs to buyers</td></tr>\n<tr><td>Domestic production</td><td>May increase if tariffs make local goods cheaper</td></tr>\n<tr><td>Government revenue</td><td>Tariff payments flow to the federal treasury</td></tr>\n<tr><td>Trade volume</td><td>Typically declines as tariffs reduce imports</td></tr>\n<tr><td>Retaliation risk</td><td>Trading partners often impose counter-tariffs</td></tr>\n</tbody>\n</table>\n\n<h2>Tariff vs. Quota vs. Sanction</h2>\n<p>A tariff taxes imports but still allows them. A quota caps the quantity of goods that can be imported. A sanction bans trade with specific countries or entities entirely. All three are tools of trade policy but operate through different mechanisms.</p>\n\n</div>"
+    }
+  ],
+  "category": "Definitions",
+  "topic_tag": "finance",
+  "tags": [
+    "Tariff",
+    "Trade Policy",
+    "US Tariffs",
+    "Import Tax",
+    "Trade War",
+    "Economics"
+  ],
+  "author_name": null,
+  "author_role": null,
+  "author_slug": null,
+  "author_avatar": null,
+  "breaking": false,
+  "published_at": "2026-04-03T12:00:00+00:00",
+  "created_at": "2026-04-07T02:06:14.716351+00:00",
+  "updated_at": "2026-04-07T02:06:14.716351+00:00",
+  "read_time": "6 min read",
+  "view_count": 0
+}

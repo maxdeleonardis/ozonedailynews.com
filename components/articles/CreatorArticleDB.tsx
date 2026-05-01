@@ -15,51 +15,90 @@
  *   }
  */
 
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import CreatorArticle from './CreatorArticle';
 import { ContentRenderer } from './ContentRenderer';
+
+const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'creator_articles');
+
+function loadStaticRow(slug: string): Record<string, unknown> | null {
+  try {
+    const safeSlug = slug.replace(/\//g, '__');
+    const fp = path.join(STATIC_DIR, `${safeSlug}.json`);
+    if (!fs.existsSync(fp)) return null;
+    return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+type CreatorIndexEntry = {
+  slug: string;
+  hero_name?: string;
+  hero_subtitle?: string;
+  sidebar_infobox_image_src?: string;
+  sidebar_infobox_image_alt?: string;
+  schema_article_url?: string;
+  status?: string;
+};
+
+let _creatorIndex: CreatorIndexEntry[] | null = null;
+function getCreatorIndex(): CreatorIndexEntry[] {
+  if (_creatorIndex) return _creatorIndex;
+  try {
+    const indexPath = path.join(STATIC_DIR, '_index.json');
+    if (fs.existsSync(indexPath)) {
+      _creatorIndex = JSON.parse(fs.readFileSync(indexPath, 'utf8')) as CreatorIndexEntry[];
+    }
+  } catch {
+    _creatorIndex = [];
+  }
+  return _creatorIndex ?? [];
+}
 
 interface CreatorArticleDBProps {
   slug: string;
 }
 
 export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
-  const supabase = await createClient();
+  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
+  if (!rowRaw) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('creator_articles')
+      .select('*')
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single();
+    rowRaw = data ?? null;
+  }
+  if (!rowRaw) notFound();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const row = rowRaw as any;
 
-  const { data: row } = await supabase
-    .from('creator_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-
-  if (!row) notFound();
-
-  // Fetch up to 5 other published creator profiles for the sidebar
-  const { data: relatedRows } = await supabase
-    .from('creator_articles')
-    .select('hero_name, hero_subtitle, sidebar_infobox_image_src, sidebar_infobox_image_alt, schema_article_url, slug')
-    .eq('status', 'published')
-    .neq('slug', slug)
-    .limit(5);
-
-  const relatedCreators = (relatedRows ?? []).map((r) => {
-    // Derive the page path from schema_article_url or slug
-    let href = '/influencer';
-    if (r.schema_article_url) {
-      try { href = new URL(r.schema_article_url).pathname; } catch { href = `/${r.slug}`; }
-    } else {
-      href = `/${r.slug}`;
-    }
-    return {
-      name:      r.hero_name ?? r.slug,
-      subtitle:  r.hero_subtitle ?? 'Creator Profile',
-      imageSrc:  r.sidebar_infobox_image_src ?? '',
-      imageAlt:  r.sidebar_infobox_image_alt ?? r.hero_name ?? '',
-      href,
-    };
-  }).filter((c) => c.imageSrc);
+  // Build related creators from static index
+  const relatedCreators = getCreatorIndex()
+    .filter((c) => c.slug !== slug && c.status === 'published' && c.sidebar_infobox_image_src)
+    .slice(0, 5)
+    .map((r) => {
+      let href = '/influencer';
+      if (r.schema_article_url) {
+        try { href = new URL(r.schema_article_url).pathname; } catch { href = `/${r.slug}`; }
+      } else {
+        href = `/${r.slug}`;
+      }
+      return {
+        name:     r.hero_name ?? r.slug,
+        subtitle: r.hero_subtitle ?? 'Creator Profile',
+        imageSrc: r.sidebar_infobox_image_src ?? '',
+        imageAlt: r.sidebar_infobox_image_alt ?? r.hero_name ?? '',
+        href,
+      };
+    })
+    .filter((c) => c.imageSrc);
 
   return (
     <CreatorArticle

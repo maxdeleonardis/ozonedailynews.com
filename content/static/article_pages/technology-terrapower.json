@@ -1,0 +1,62 @@
+{
+  "id": "e0bfda83-54f1-43d8-950a-59efc1c56732",
+  "slug": "technology-terrapower",
+  "title": "TerraPower | Bill Gates Nuclear Company, Natrium Reactor 2026",
+  "subtitle": "Bill Gates",
+  "category": "Technology",
+  "last_updated": "April 2026",
+  "info_box": null,
+  "table_of_contents": [
+    {
+      "id": "overview",
+      "label": "What Is TerraPower"
+    },
+    {
+      "id": "natrium",
+      "label": "The Natrium Reactor"
+    },
+    {
+      "id": "kemmerer",
+      "label": "Kemmerer, Wyoming"
+    },
+    {
+      "id": "history",
+      "label": "Company History"
+    },
+    {
+      "id": "funding",
+      "label": "Funding & Partnerships"
+    },
+    {
+      "id": "regulatory",
+      "label": "NRC Permit & Regulatory Milestones"
+    },
+    {
+      "id": "strategy",
+      "label": "Strategic Significance"
+    }
+  ],
+  "content_html": "<div>\n\n        <h2 id=\"overview\">What Is TerraPower | Bill Gates's Nuclear Innovation Company</h2>\n        <p>\n          <strong>TerraPower, LLC</strong> is an American nuclear reactor design and engineering company\n          headquartered in Bellevue, Washington. Founded in 2006 by \n          <a href=\"https://www.terrapower.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n            Bill Gates\n          </a>\n          , the company is developing a new class of advanced nuclear reactors intended to be safer, cheaper, and\n          more flexible than the light-water reactor (LWR) designs that have powered the United States for sixty\n          years. Gates serves as chairman; Chris Levesque is President and CEO; Nathan Myhrvold serves as Vice Chairman.\n        </p>\n        <p>\n          TerraPower's core mission is to demonstrate that nuclear power can be commercially viable in the 21st\n          century, not as a legacy technology but as a modern, flexible, and grid-compatible clean energy source.\n          The company's flagship project, the <strong>Natrium</strong> reactor, broke ground on its nuclear\n          components in Kemmerer, Wyoming in April 2026 — the first utility-scale advanced reactor to reach\n          construction in the United States in over four decades.\n        </p>\n\n        <h2 id=\"natrium\">The Natrium Reactor | How Sodium-Cooled Fast Reactor Technology Works</h2>\n        <p>\n          The <strong>Natrium</strong> reactor is a <strong>sodium-cooled fast reactor (SFR)</strong>, a Generation\n          IV nuclear design that uses liquid sodium metal as a coolant instead of pressurized water. This\n          fundamental difference produces several significant technical advantages over conventional nuclear plants:\n        </p>\n        <ul>\n          <li>\n            <strong>Lower operating pressure:</strong> Sodium coolant operates at near-atmospheric pressure,\n            eliminating the high-pressure containment requirements that make traditional reactors expensive and\n            complex to build.\n          </li>\n          <li>\n            <strong>Higher operating temperature:</strong> The higher thermal efficiency allows the plant to\n            generate more electricity per unit of fuel.\n          </li>\n          <li>\n            <strong>Passive safety:</strong> The Natrium design is engineered to shut down safely without active\n            operator intervention or external power, a key improvement over older reactor architectures.\n          </li>\n          <li>\n            <strong>Fuel flexibility:</strong> Fast neutron reactors can use spent nuclear fuel as fuel, reducing\n            the long-lived radioactive waste problem associated with traditional reactors.\n          </li>\n        </ul>\n        <p>\n          The Kemmerer plant will produce <strong>345 megawatts (MW)</strong> of steady-state electricity. Its\n          most distinctive feature is an integrated <strong>molten salt thermal storage system</strong> — effectively\n          a large heat battery — that allows the plant to boost output to <strong>500 MW for up to five and a\n          half hours</strong> during peak demand periods. This \"dispatchable\" capability makes Natrium uniquely\n          compatible with renewable-heavy grids where wind and solar output fluctuates.\n        </p>\n\n        <h2 id=\"kemmerer\">Kemmerer, Wyoming | Why This Coal Town Was Chosen for America's Nuclear Future</h2>\n        <p>\n          TerraPower selected Kemmerer, Wyoming as the site for its first commercial demonstration reactor in\n          November 2021 after evaluating four Wyoming locations — Gillette, Kemmerer, Glenrock, and Rock Springs —\n          all of which were affected by the closure of coal-fired power plants.\n        </p>\n        <p>\n          The logic was deliberate. Kemmerer is home to the retiring <strong>Naughton Power Plant</strong>, a\n          coal facility operated by PacifiCorp (a subsidiary of Warren Buffett's Berkshire Hathaway Energy). By\n          building the Natrium plant on the same site, TerraPower can reuse existing grid transmission\n          infrastructure, dramatically reducing construction costs, and transition Kemmerer's coal workforce\n          directly into nuclear operations jobs. The project is designed to be a community economic replacement,\n          not just an energy replacement.\n        </p>\n        <p>\n          Construction of the site's <strong>Sodium Test and Fill Facility</strong> began in June 2024. Nuclear\n          island construction — the core reactor components — began in April 2026 following the NRC permit issuance.\n          Target completion is <strong>2030</strong>.\n        </p>\n\n        <h2 id=\"history\">Company History | From Travelling Wave Reactor to Natrium</h2>\n        <p>\n          TerraPower was founded in 2006 around the concept of the <strong>Travelling Wave Reactor (TWR)</strong>,\n          a design that could theoretically run on depleted uranium for decades without refueling. In September\n          2015, the company signed an agreement with China's state-owned China National Nuclear Corporation to\n          build a 600 MWe TWR prototype at Xiapu in Fujian province. That partnership was abandoned in January\n          2019 after the Trump administration imposed technology transfer restrictions that made the collaboration\n          legally impossible.\n        </p>\n        <p>\n          The China setback forced TerraPower to pivot to its current Natrium design, which is smaller, more\n          commercially deployable, and based on U.S.-developed fast reactor technology. In October 2020, the\n          company was selected by the U.S. Department of Energy as a recipient under the \n          <strong>Advanced Reactor Demonstration Program (ARDP)</strong>, securing a matching grant of between\n          $400 million and $4 billion over five to seven years.\n        </p>\n        <p>\n          In March 2026, TerraPower also notified the British Office for Nuclear Regulation of its intent to\n          enter the <strong>Generic Design Assessment</strong> process for the Natrium reactor in the UK, signaling\n          the company's ambitions to export the design internationally.\n        </p>\n\n        <h2 id=\"funding\">Funding, Partnerships, and the $4 Billion Project Stack</h2>\n        <p>\n          The Kemmerer project is structured as a public-private partnership with a total estimated cost of\n          approximately <strong>$4 billion</strong>:\n        </p>\n        <ul>\n          <li>\n            <strong>U.S. Department of Energy (ARDP):</strong> Matching grant covering approximately half the\n            project cost — up to $2 billion.\n          </li>\n          <li>\n            <strong>Bill Gates:</strong> Personal commitment of approximately \n            <strong>$1 billion</strong> in direct investment.\n          </li>\n          <li>\n            <strong>PacifiCorp / Rocky Mountain Power:</strong> Warren Buffett's Berkshire Hathaway Energy\n            subsidiary is the offtake partner, providing site infrastructure and a long-term power purchase\n            commitment.\n          </li>\n        </ul>\n        <p>\n          The partnership between Gates and Buffett — two of the most recognizable names in global investing —\n          gives the project unusual commercial credibility for a first-of-a-kind reactor technology.\n        </p>\n\n        <h2 id=\"regulatory\">NRC Construction Permit | A Historic Regulatory Milestone for Advanced Nuclear</h2>\n        <p>\n          The <strong>Nuclear Regulatory Commission</strong> issued the construction permit for Kemmerer Unit 1\n          on <strong>March 4, 2026</strong>. It was the first NRC construction permit issued for a \n          <strong>non-light-water reactor</strong> in U.S. history — a regulatory milestone that took decades of\n          advocacy from the advanced nuclear community to achieve.\n        </p>\n        <p>\n          Notably, the NRC completed its safety review in approximately <strong>18 months</strong>, nearly a year\n          ahead of the original schedule. The accelerated review is seen as evidence that the NRC's \n          <strong>Part 53</strong> modern licensing framework — designed specifically for advanced reactor\n          technologies — is functioning as intended. In October 2025, the project completed its final\n          Environmental Impact Statement, finding no significant adverse environmental impacts.\n        </p>\n\n        <h2 id=\"strategy\">Why TerraPower Matters for the U.S. Energy Grid and Climate Strategy</h2>\n        <p>\n          TerraPower's Kemmerer plant is not simply a single power station. It is designed to be a \n          <strong>commercial blueprint</strong> — a proof point that advanced nuclear can be permitted, financed,\n          and built in the United States in a reasonable timeframe and at a manageable cost. If the project\n          delivers on its 2030 target, it opens the door to a fleet of Natrium plants across retiring coal\n          communities nationwide.\n        </p>\n        <p>\n          The Natrium's molten salt storage capability makes it particularly valuable in the context of the\n          U.S. grid's rapid expansion of wind and solar. Unlike baseload coal or gas plants that run at constant\n          output, Natrium can flex its power delivery to fill gaps when renewable generation drops — providing\n          the \"firm\" clean power that the grid increasingly needs but currently lacks at scale.\n        </p>\n        <p>\n          For Bill Gates, TerraPower represents the application of the same conviction that drove his climate\n          philanthropy: that solving climate change requires <em>technological breakthroughs</em>, not just\n          incremental deployment of existing tools. With a shovel in the ground in \n          <Link href=\"/technology/terrapower/natrium-kemmerer-groundbreaking-wyoming-2026\">\n            Kemmerer as of April 2026\n          </Link>\n          , that conviction is now being tested in the real world.\n        </p>\n\n      </div>",
+  "related_links": [
+    {
+      "href": "/technology/terrapower/natrium-kemmerer-groundbreaking-wyoming-2026",
+      "label": "TerraPower Breaks Ground in Kemmerer — April 2026"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology Hub"
+    },
+    {
+      "href": "/nasa",
+      "label": "NASA & Advanced Science"
+    }
+  ],
+  "back_link": {
+    "href": "/technology",
+    "label": "Technology"
+  },
+  "created_at": "2026-04-23T23:01:28.859743+00:00",
+  "updated_at": "2026-04-23T23:01:28.859743+00:00",
+  "view_count": 0,
+  "url": "/technology/terrapower"
+}

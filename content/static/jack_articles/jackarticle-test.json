@@ -1,0 +1,84 @@
+{
+  "id": "8eb2c10e-3fc8-4ac5-b1bd-7758919c7026",
+  "slug": "jackarticle-test",
+  "layout": "news",
+  "title": "Pipeline Test — JackArticle Component",
+  "subtitle": "This article verifies that the commit-deploy pipeline correctly extracts content from a full JSX JackArticle page and upserts it to the jack_articles Supabase table.",
+  "subject": null,
+  "description": "End-to-end pipeline verification for the JackArticle component path in the commit-deploy automation.",
+  "category_label": "Technology",
+  "categories": [
+    {
+      "color": "blue",
+      "label": "Technology"
+    },
+    {
+      "color": "green",
+      "label": "Pipeline"
+    }
+  ],
+  "publish_date": "March 21, 2026",
+  "publish_date_iso": "2026-03-21T00:00:00+00:00",
+  "modified_date_iso": "2026-03-21T00:00:00+00:00",
+  "read_time": "2 min read",
+  "hero_image": null,
+  "breadcrumbs": [],
+  "author": {
+    "url": "https://www.objectwire.org/team",
+    "name": "ObjectWire Engineering",
+    "department": "Platform Infrastructure"
+  },
+  "content_html": "<aside style=\"background:#f9fafb;border-left:4px solid #111;padding:1.5rem;margin:2rem 0\"><h3 style=\"font-weight:900;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem\">PIPELINE VERIFICATION CHECKLIST</h3><ul style=\"list-style:none;padding:0;margin:0;font-size:0.875rem;line-height:1.75\"></ul></aside>' },\r\n  { label: 'Extraction method', value: 'findOpenTagEnd + extractStrProp + extractExprProp' },\r\n  { label: 'Body conversion',   value: 'jsxToHtml(convertSubComponents(bodyJsx))' },\r\n]}\r\n        />\r\n\r\n        <section><h2 style=\"font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-left:4px solid #111;padding-left:0.75rem;margin-bottom:1.5rem\">What This Test Verifies</h2>\r\n          <p>\r\n            This page is a minimal <strong>JackArticle</strong> component test for the\r\n            ObjectWire commit-deploy automation pipeline. When \r\n            <code>npm run wiki:migrate</code> is run, this page should be detected as a \r\n            <code>JackArticle</code> type and all props — including <code>categories</code>, \r\n            <code>timeline</code>, <code>relatedArticles</code>, and the body JSX — should be\r\n            extracted and upserted to the <code>jack_articles</code> Supabase table with slug \r\n            <code>jackarticle-test</code>.\r\n          </p>\r\n        </section>\r\n\r\n        <div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;background:#f9fafb;border:1px solid #e5e7eb;padding:1.5rem;margin:2rem 0\"><div style=\"text-align:center\"><p style=\"font-size:2rem;font-weight:900;margin:0\">3</p><p style=\"font-size:0.75rem;color:#6b7280;margin:0\">Tables covered (articles, jack_articles, article_pages)</p></div><div style=\"text-align:center\"><p style=\"font-size:2rem;font-weight:900;margin:0\">1</p><p style=\"font-size:0.75rem;color:#6b7280;margin:0\">Command to publish (npm run pipeline:local)</p></div><div style=\"text-align:center\"><p style=\"font-size:2rem;font-weight:900;margin:0\">0</p><p style=\"font-size:0.75rem;color:#6b7280;margin:0\">Manual SQL seed migrations needed</p></div><div style=\"text-align:center\"><p style=\"font-size:2rem;font-weight:900;margin:0\">∞</p><p style=\"font-size:0.75rem;color:#6b7280;margin:0\">Articles you can write without touching SQL</p></div></div>\r\n\r\n        <section><h2 style=\"font-size:1.125rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;border-left:4px solid #111;padding-left:0.75rem;margin-bottom:1.5rem\">Expected Pipeline Behaviour</h2>\r\n          <p>\r\n            After a successful migration run, <code>npm run wiki:trim</code> should replace this\r\n            full JSX file with a lean <strong>JackArticleDB</strong> stub. The page will continue\r\n            rendering identically — content served dynamically from Supabase rather than from\r\n            static JSX in the repository.\r\n          </p>\r\n        </section>\r\n\r\n        <div style=\"border-left:12px solid #111;padding:1rem 1.5rem;margin:2rem 0;background:#f9fafb\"><strong style=\"font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em\">SUCCESS CRITERIA</strong><br/>\r\n          <ul>\r\n            <li>Supabase <code>jack_articles</code> table contains a row with slug <code>jackarticle-test</code></li>\r\n            <li><code>title</code>, <code>categories</code>, <code>content_html</code> are populated correctly</li>\r\n            <li>This <code>page.tsx</code> is trimmed to a <code>JackArticleDB</code> stub after <code>wiki:trim</code></li>\r\n            <li>Page renders correctly from the DB in production</li>\r\n          </ul>\r\n        </div>",
+  "related_articles": [
+    {
+      "href": "/newsarticle/test",
+      "title": "Pipeline Test — NewsArticle Component",
+      "category": "Pipeline Test",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "href": "/articlepage/test",
+      "title": "Pipeline Test — ArticlePage Component",
+      "category": "Pipeline Test",
+      "categoryColor": "text-green-600"
+    }
+  ],
+  "timeline": [],
+  "documents": [],
+  "show_newsletter": false,
+  "newsletter_title": null,
+  "newsletter_description": null,
+  "sources": [],
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "footer_tagline": "If this page renders from the DB, the pipeline works.",
+  "footer_links": [
+    {
+      "href": "/tech",
+      "label": "Technology Desk"
+    },
+    {
+      "href": "/newsarticle/test",
+      "label": "NewsArticle Test"
+    },
+    {
+      "href": "/articlepage/test",
+      "label": "ArticlePage Test"
+    }
+  ],
+  "accent_color": "blue",
+  "article_url": "/jackarticle/test",
+  "section": "Technology",
+  "keywords": [
+    "pipeline test",
+    "jackarticle",
+    "jack_articles",
+    "supabase",
+    "automation"
+  ],
+  "uuid": null,
+  "version": null,
+  "created_at": "2026-03-22T01:12:22.766591+00:00",
+  "updated_at": "2026-04-24T22:51:15.868047+00:00",
+  "view_count": 0
+}

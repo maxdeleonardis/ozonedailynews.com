@@ -1,0 +1,167 @@
+{
+  "id": "e9fd884b-c33f-43ab-bafb-8f1594a61de9",
+  "slug": "cars-porsche",
+  "title": "Porsche | Company Profile, Models, History, 2026",
+  "subtitle": "Stuttgart",
+  "category": "Cars",
+  "last_updated": "April 21, 2026",
+  "info_box": {
+    "image": {
+      "alt": "Porsche 911 sports car",
+      "src": "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=400&h=400&fit=crop"
+    },
+    "title": "Porsche AG",
+    "sections": [
+      {
+        "items": [
+          {
+            "label": "Founded",
+            "value": "1931, Stuttgart, Germany"
+          },
+          {
+            "label": "Founder",
+            "value": "Ferdinand Porsche"
+          },
+          {
+            "label": "Headquarters",
+            "value": "Stuttgart-Zuffenhausen, Germany"
+          },
+          {
+            "label": "CEO",
+            "value": "Oliver Blume"
+          },
+          {
+            "label": "Employees",
+            "value": "~40,000 worldwide"
+          },
+          {
+            "label": "Parent Company",
+            "value": "Volkswagen Group"
+          },
+          {
+            "label": "Stock",
+            "value": "XETR: P911"
+          }
+        ],
+        "heading": "Company Profile"
+      },
+      {
+        "items": [
+          {
+            "label": "Icon",
+            "value": "911 (992 generation)"
+          },
+          {
+            "label": "EV Sedan",
+            "value": "Taycan"
+          },
+          {
+            "label": "EV SUV",
+            "value": "Macan (electric)"
+          },
+          {
+            "label": "SUV",
+            "value": "Cayenne"
+          },
+          {
+            "label": "Sports Car",
+            "value": "718 Cayman / Boxster"
+          },
+          {
+            "label": "Hypercar",
+            "value": "918 Spyder (legacy)"
+          }
+        ],
+        "heading": "Flagship Models"
+      },
+      {
+        "items": [
+          {
+            "label": "Revenue",
+            "value": "~€40.1 billion"
+          },
+          {
+            "label": "Operating Profit",
+            "value": "~€5.2 billion"
+          },
+          {
+            "label": "Deliveries",
+            "value": "~310,718 vehicles"
+          },
+          {
+            "label": "Top Market",
+            "value": "China (historically), USA (growing)"
+          }
+        ],
+        "heading": "FY 2025 Financials"
+      },
+      {
+        "items": [
+          {
+            "label": "Official Site",
+            "value": "porsche.com"
+          },
+          {
+            "label": "Investor Relations",
+            "value": "porsche-ag.com/ir"
+          },
+          {
+            "label": "Porsche Motorsport",
+            "value": "porsche-motorsport.com"
+          }
+        ],
+        "heading": "Links"
+      }
+    ]
+  },
+  "table_of_contents": [
+    {
+      "id": "overview",
+      "label": "Company Overview"
+    },
+    {
+      "id": "history",
+      "label": "History"
+    },
+    {
+      "id": "models",
+      "label": "2026 Model Lineup"
+    },
+    {
+      "id": "ev-strategy",
+      "label": "EV Strategy"
+    },
+    {
+      "id": "motorsport",
+      "label": "Motorsport"
+    },
+    {
+      "id": "financials",
+      "label": "Financial Performance"
+    },
+    {
+      "id": "bottom-line",
+      "label": "Bottom Line"
+    }
+  ],
+  "content_html": "<section id=\"overview\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche Company Overview | Stuttgart to the World</h2>\n        <p>\n          Porsche AG is a German automobile manufacturer headquartered in <strong>Stuttgart-Zuffenhausen, Germany</strong>, founded in 1931 by <strong>Ferdinand Porsche</strong>. The company is majority-owned by the Volkswagen Group but operates with significant brand autonomy, and its own holding company, Porsche SE, holds a controlling stake in Volkswagen. This circular ownership structure makes Porsche one of the most unusual governance arrangements in global automotive.\n        </p>\n        <p>\n          As of 2026, Porsche is one of the most profitable car companies per unit sold in the world. It produces roughly 300,000 vehicles per year, a fraction of what mass-market manufacturers sell, yet consistently generates operating margins that rival or exceed those of brands shipping ten times the volume. The company's identity is built on a narrow but fanatically loyal product philosophy: every Porsche, from the entry-level Macan SUV to the 911 Turbo S, is engineered to drive better than the segment demands.\n        </p>\n\n        <table>\n          <thead>\n            <tr>\n              <th>Metric</th>\n              <th>Value</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>Founded</td>\n              <td>1931, Stuttgart, Germany</td>\n            </tr>\n            <tr>\n              <td>Founder</td>\n              <td>Ferdinand Porsche</td>\n            </tr>\n            <tr>\n              <td>CEO</td>\n              <td>Oliver Blume (also CEO of Volkswagen Group)</td>\n            </tr>\n            <tr>\n              <td>Headquarters</td>\n              <td>Stuttgart-Zuffenhausen, Germany</td>\n            </tr>\n            <tr>\n              <td>Global Employees</td>\n              <td>~40,000</td>\n            </tr>\n            <tr>\n              <td>Annual Deliveries</td>\n              <td>~310,718 (FY 2025)</td>\n            </tr>\n            <tr>\n              <td>Parent Company</td>\n              <td>Volkswagen Group (majority)</td>\n            </tr>\n            <tr>\n              <td>IPO</td>\n              <td>September 29, 2022 (XETR: P911) — one of the largest European IPOs on record</td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n\n      \n      <section id=\"history\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche History | Ferdinand to Ferry to the Modern Era</h2>\n        <p>\n          Ferdinand Porsche founded his engineering consultancy in Stuttgart in 1931, initially designing vehicles for other manufacturers, including the original Volkswagen Beetle, which was his concept. The first car to bear the Porsche name was the <strong>356</strong>, produced in 1948 by Ferdinand's son, <strong>Ferry Porsche</strong>, in a converted sawmill in Gmünd, Austria. It was lightweight, rear-engined, and built from available Volkswagen parts. It was also immediately faster than almost everything else on the road.\n        </p>\n        <p>\n          The <strong>Porsche 911</strong>, introduced in 1963 and designed by Ferdinand \"Butzi\" Porsche (Ferry's son), became the brand's defining vehicle and one of the most continuously produced sports car platforms in automotive history. The 911's rear-engine, air-cooled layout was technically unconventional and remained so for decades, creating a driving dynamic that Porsche engineers refined rather than replaced across nine successive generations.\n        </p>\n        <p>\n          The <strong>928</strong>, <strong>944</strong>, and <strong>968</strong> of the 1970s and 1980s attempted to diversify the lineup toward front-engine, water-cooled grand tourers, with mixed commercial success. The 911 survived every attempt to replace it and emerged from the 1990s as the undisputed core of the brand.\n        </p>\n        <p>\n          The <strong>Boxster</strong> (1996) and <strong>Cayenne</strong> (2002) were transformational in different ways. The Boxster revived the company's financial health after a difficult early 1990s period. The Cayenne, a luxury SUV that purists initially decried, became Porsche's bestselling model and effectively subsidized the continued development of every sports car in the range. Without the Cayenne's volume, there would likely be no 911 GT3, no 718 Spyder, and no hypercar program.\n        </p>\n\n        <Quote author=\"Ferry Porsche\" context=\"On the original 356, 1948\">\n          In the beginning I looked around and could not find quite the car I dreamed of. So I decided to build it myself.\n        </Quote>\n      </section>\n\n      \n      <section id=\"models\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche 2026 Model Lineup | 911, Taycan, Macan, Cayenne</h2>\n        <p>\n          Porsche's 2026 lineup spans five vehicle families, each anchoring a distinct segment while sharing the engineering DNA and brand identity that justifies the premium price positioning.\n        </p>\n\n        <table>\n          <thead>\n            <tr>\n              <th>Model</th>\n              <th>Segment</th>\n              <th>Powertrain</th>\n              <th>Starting Price (USD, approx.)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td><strong>911 (992.2)</strong></td>\n              <td>Sports Car</td>\n              <td>Rear-engine flat-six, petrol (hybrid option on Carrera)</td>\n              <td>~$115,000</td>\n            </tr>\n            <tr>\n              <td><strong>718 Cayman / Boxster</strong></td>\n              <td>Mid-Engine Sports Car</td>\n              <td>Transitioning to full EV (718 EV platform)</td>\n              <td>~$75,000</td>\n            </tr>\n            <tr>\n              <td><strong>Taycan</strong></td>\n              <td>Electric Sedan / Sport Turismo</td>\n              <td>Dual-motor electric, 800V architecture</td>\n              <td>~$95,000</td>\n            </tr>\n            <tr>\n              <td><strong>Macan (EV)</strong></td>\n              <td>Compact SUV</td>\n              <td>Full electric (PPE platform, shared with Audi Q6 e-tron)</td>\n              <td>~$74,000</td>\n            </tr>\n            <tr>\n              <td><strong>Cayenne</strong></td>\n              <td>Luxury SUV</td>\n              <td>Petrol, hybrid, PHEV; V8 and V6 options</td>\n              <td>~$90,000</td>\n            </tr>\n            <tr>\n              <td><strong>Panamera</strong></td>\n              <td>Executive Sedan</td>\n              <td>Petrol, PHEV, e-hybrid</td>\n              <td>~$100,000</td>\n            </tr>\n          </tbody>\n        </table>\n\n        <h3>The 911 | 992.2 Generation (2024 Refresh)</h3>\n        <p>\n          The 992.2 update, introduced for the 2025 model year and carrying through 2026, added mild hybrid technology to the base Carrera variants for the first time in the 911's history, alongside revised styling and updated infotainment. The T-Hybrid system adds a small electric motor integrated into the exhaust-driven turbocharger, providing torque fill rather than pure electric range. The GT variants (GT3, GT3 RS, GT2 RS) remain fully petrol, a decision Porsche has confirmed will continue for the foreseeable future.\n        </p>\n\n        <h3>Taycan | The EV Flagship</h3>\n        <p>\n          The Taycan, launched in 2019 and substantially updated with the 2024 second generation, represents Porsche's most significant engineering investment of the past decade. Its 800-volt electrical architecture enables charging speeds of up to 270 kW, allowing a 10-80% charge in approximately 18 minutes under optimal conditions. The Taycan Turbo GT, introduced in 2024, produces 1,092 horsepower in Weissach Package spec, making it the fastest-accelerating production Porsche ever built to that point.\n        </p>\n      </section>\n\n      \n      <section id=\"ev-strategy\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche EV Strategy | 80% Electric by 2030, With a Flat-Six Exception</h2>\n        <p>\n          Porsche's electrification strategy is one of the most closely watched in the premium automotive segment, because it involves an explicit tension between the brand's future and its most iconic product.\n        </p>\n        <p>\n          The company has publicly targeted <strong>80% of new deliveries to be fully electric by 2030</strong>. The Taycan and the fully electric Macan are already on sale. The 718 Cayman and Boxster will transition to a full EV platform in the 2025-2026 cycle. The Cayenne E-Hybrid is outselling the pure petrol Cayenne variants in several European markets.\n        </p>\n        <p>\n          The <strong>911 is the explicit exception</strong>. Porsche has confirmed that the 911 will not go fully electric in the near term, citing both the technical constraints of fitting the required battery mass into the rear-engine platform and the brand covenant with customers who purchase a 911 specifically for its flat-six soundtrack and rear-biased weight distribution. The T-Hybrid mild hybrid system is the current compromise.\n        </p>\n        <p>\n          Porsche is also investing in <strong>eFuels (synthetic fuels)</strong> as a parallel pathway to decarbonize the existing fleet of 911s in customer hands worldwide, partnering with HIF Global on a Chilean eFuels pilot plant. The eFuels program is partly regulatory insurance and partly a genuine attempt to preserve the combustion engine experience within a net-zero framework.\n        </p>\n\n        <table>\n          <thead>\n            <tr>\n              <th>Model</th>\n              <th>Electrification Status</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>Taycan</td>\n              <td>Full BEV (2019, second gen 2024)</td>\n            </tr>\n            <tr>\n              <td>Macan</td>\n              <td>Full BEV (2024, replaces petrol Macan)</td>\n            </tr>\n            <tr>\n              <td>718 Cayman / Boxster</td>\n              <td>Transitioning to full BEV (2025-2026)</td>\n            </tr>\n            <tr>\n              <td>Cayenne</td>\n              <td>PHEV available, petrol continues</td>\n            </tr>\n            <tr>\n              <td>Panamera</td>\n              <td>E-Hybrid available, petrol continues</td>\n            </tr>\n            <tr>\n              <td>911</td>\n              <td>T-Hybrid (mild hybrid) only, no full BEV planned</td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n\n      \n      <section id=\"motorsport\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche Motorsport | Le Mans, Formula E, and the 963</h2>\n        <p>\n          Motorsport is not peripheral to Porsche's identity. It is constitutive of it. The company has won the <strong>24 Hours of Le Mans</strong> more times than any other manufacturer, with 19 overall victories between 1970 and 2023. The Le Mans record is the single most repeated fact in Porsche's marketing, because it is also the most important technical proof point: every safety system, aerodynamic principle, and drivetrain efficiency gain that appears in a production Porsche traces some lineage to the prototype program.\n        </p>\n\n        <h3>The 963 LMDh Prototype</h3>\n        <p>\n          Porsche returned to top-level endurance racing in 2023 with the <strong>963 LMDh prototype</strong>, competing in both the FIA World Endurance Championship (WEC) and IMSA SportsCar Championship. The 963 uses a hybrid powertrain combining a twin-turbocharged V8 with a Bosch-supplied hybrid system, producing approximately 680 horsepower total. The car is a joint development with Multimatic, who supply the chassis.\n        </p>\n        <p>\n          The 2025 WEC season saw Porsche secure consistent podium finishes across the hypercar class, competing against Toyota, Ferrari, BMW, and Lamborghini in one of the most competitive eras in endurance racing history. The 2026 season is ongoing as of this writing.\n        </p>\n\n        <h3>Formula E</h3>\n        <p>\n          Porsche entered Formula E in Season 7 (2020-21) and has maintained a factory team presence through the Gen3 era. The Formula E program serves as the primary engineering development platform for Porsche's high-performance EV powertrain knowledge, with learnings feeding directly into the Taycan's 800V architecture.\n        </p>\n\n        <h3>Customer Motorsport</h3>\n        <p>\n          Porsche's customer racing infrastructure is one of the most developed in the industry. The <strong>Porsche Carrera Cup</strong> series operates across Europe, Asia-Pacific, and North America. The <strong>Porsche GT3 Cup</strong> vehicle is the world's most widely raced one-make competition car. The <strong>Porsche Club of America</strong> regularly runs autocross, track day, and hill climb events drawing tens of thousands of owner-participants annually.\n        </p>\n\n        <Quote author=\"Mark Webber\" context=\"Porsche Motorsport Ambassador, 2025 WEC Season Launch\">\n          What makes Porsche special in motorsport is that the same people who build the road cars care deeply about the race cars. There's no wall between those teams. The knowledge travels both ways.\n        </Quote>\n      </section>\n\n      \n      <section id=\"financials\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche Financials | Premium Margins, IPO Legacy, China Headwinds</h2>\n        <p>\n          Porsche AG completed its <strong>IPO on September 29, 2022</strong>, listing on the Frankfurt Stock Exchange under the ticker <strong>P911</strong>. The offering raised approximately €19.5 billion, making it one of the largest IPOs in European history. The Volkswagen Group retains a majority stake, while Porsche SE (the family holding company of the Porsche and Piëch families) holds the second-largest position.\n        </p>\n        <p>\n          Porsche's financial model is built on premium pricing and volume discipline. Unlike mass-market manufacturers, Porsche does not compete on unit volume. Its operating margins, historically in the 17-19% range for adjusted EBIT, are among the highest in the automotive sector globally, exceeded only by Ferrari in the traditional OEM segment.\n        </p>\n\n        <table>\n          <thead>\n            <tr>\n              <th>Financial Metric</th>\n              <th>FY 2025 (reported / estimated)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>Revenue</td>\n              <td>~€40.1 billion</td>\n            </tr>\n            <tr>\n              <td>Adjusted EBIT</td>\n              <td>~€5.2 billion</td>\n            </tr>\n            <tr>\n              <td>Adjusted EBIT Margin</td>\n              <td>~13% (down from 18%+ in peak years, due to China weakness)</td>\n            </tr>\n            <tr>\n              <td>Global Deliveries</td>\n              <td>~310,718 vehicles</td>\n            </tr>\n            <tr>\n              <td>Top Delivery Market</td>\n              <td>United States (surpassing China in 2024 for first time since 2015)</td>\n            </tr>\n            <tr>\n              <td>Stock (XETR: P911)</td>\n              <td>Trading below IPO price as of early 2026, reflecting VW Group concerns</td>\n            </tr>\n          </tbody>\n        </table>\n\n        <p>\n          The key headwind for Porsche's financial performance in 2024-2026 has been <strong>China</strong>. The Chinese luxury car market, which was Porsche's largest single market for nearly a decade, has contracted sharply due to the rise of domestic premium EV brands (BYD, Nio, Li Auto), economic uncertainty, and shifting consumer sentiment away from Western luxury goods. Porsche's China deliveries fell significantly in 2024 and 2025, forcing the company to rely more heavily on US, German, and UK market growth to offset the volume decline.\n        </p>\n      </section>\n\n      \n      <section id=\"bottom-line\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Porsche 2026 | Bottom Line</h2>\n        <p>\n          Porsche's position in 2026 is that of a brand navigating a structural transition without losing the identity that made the transition possible. The Taycan has proven that Porsche can build a world-class electric vehicle that people genuinely want to drive, not just own for environmental signaling. The Macan EV has validated the PPE platform. The 718 EV transition, still in progress, will determine whether Porsche's mid-engine sports car heritage survives in electric form.\n        </p>\n        <p>\n          The 911 remains the emotional center of gravity. As long as it exists in recognizable form, with a flat-six behind the rear axle and a manual gearbox as an option, Porsche's brand covenant with its core customers is intact. The T-Hybrid is a concession to regulation, not a capitulation of philosophy.\n        </p>\n        <p>\n          The financial headwinds from China are real but not existential. Porsche's margin structure gives it room to absorb volume declines that would be catastrophic for a mass-market brand. The US market strength is a genuine counterweight. And the Le Mans program continues to do what it has always done: remind the world that Porsche builds cars that win.\n        </p>\n      </section>\n\n      \n      <ExternalLinks\n        links={[\n          { label: 'Porsche Official Website', href: 'https://www.porsche.com' },\n          { label: 'Porsche Investor Relations', href: 'https://www.porsche-ag.com/en/investors.html' },\n          { label: 'Porsche Motorsport', href: 'https://www.porsche.com/international/aboutporsche/motorsport/' },\n          { label: 'Porsche eFuels Program', href: 'https://www.porsche.com/international/aboutporsche/e-fuels/' },\n          { label: 'Porsche Taycan Overview', href: 'https://www.porsche.com/international/models/taycan/' },\n          { label: 'FIA WEC Hypercar Class', href: 'https://www.fiawec.com' },\n        ]}\n      />",
+  "related_links": [
+    {
+      "href": "/cars/ferrari",
+      "label": "Ferrari Company Profile"
+    },
+    {
+      "href": "/cars",
+      "label": "Cars Hub"
+    },
+    {
+      "href": "/formula-1",
+      "label": "Formula 1 Hub"
+    }
+  ],
+  "back_link": null,
+  "created_at": "2026-04-20T23:02:56.058931+00:00",
+  "updated_at": "2026-04-20T23:02:56.058931+00:00",
+  "view_count": 0,
+  "url": "/cars/porsche"
+}

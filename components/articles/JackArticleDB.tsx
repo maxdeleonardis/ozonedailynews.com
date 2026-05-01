@@ -15,25 +15,45 @@
  *   }
  */
 
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import JackArticle from './JackArticle';
 import { ContentRenderer } from './ContentRenderer';
+
+const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
+
+function loadStaticRow(slug: string): Record<string, unknown> | null {
+  try {
+    const safeSlug = slug.replace(/\//g, '__');
+    const fp = path.join(STATIC_DIR, `${safeSlug}.json`);
+    if (!fs.existsSync(fp)) return null;
+    return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
 
 interface JackArticleDBProps {
   slug: string;
 }
 
 export async function JackArticleDB({ slug }: JackArticleDBProps) {
-  const supabase = await createClient();
-
-  const { data: row } = await supabase
-    .from('jack_articles')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-
-  if (!row) notFound();
+  // Try static file first, fallback to Supabase
+  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
+  if (!rowRaw) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('jack_articles')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+    rowRaw = data ?? null;
+  }
+  if (!rowRaw) notFound();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const row = rowRaw as any;
 
   return (
     <JackArticle

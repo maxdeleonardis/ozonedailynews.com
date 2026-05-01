@@ -80,13 +80,14 @@ interface Props {
 
 const PREDEFINED_CATEGORIES = [
   'All',
-  'Finance',
-  'Influencer',
-  'Politics',
   'Tech',
-  'Science',
+  'AI',
   'Gaming',
-  'Crypto'
+  'Anime',
+  'Crypto',
+  'Finance',
+  'Science',
+  'Investigations',
 ];
 
 export function MoreStoriesSection({ articles }: Props) {
@@ -257,10 +258,10 @@ export function MoreStoriesSection({ articles }: Props) {
             <button
               onClick={() => {
                 setCurrentPage(p => p + 1);
+                scrollToTop();
               }}
               className="px-3 py-1.5 text-xs font-black uppercase text-blue-600 hover:text-blue-800 transition-colors"
-            >  scrollToTop();
-              
+            >
               Next →
             </button>
           ) : (

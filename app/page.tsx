@@ -10,21 +10,21 @@ import { getPopularLeadSlug } from '@/lib/popular-lead';
 import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Independent Investigative Journalism & Tech News',
+  title: 'ObjectWire | Tech, AI & Investigative News 2026',
   description:
-    'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
+    'ObjectWire covers tech, AI, gaming, finance, and investigative news. Every article is source-cited, fact-checked, and written with depth. No aggregation, no filler.',
   alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
-    title: 'ObjectWire | Independent Investigative Journalism',
-    description: 'Independent news source delivering verified investigative journalism and technology coverage.',
+    title: 'ObjectWire | Tech, AI & Investigative News 2026',
+    description: 'Verified tech, AI, gaming, finance, and investigative news. Source-cited, fact-checked, written with depth.',
     url: 'https://www.objectwire.org',
     siteName: 'ObjectWire',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire | Independent Investigative Journalism',
-    description: 'Independent news source delivering verified investigative journalism and technology coverage.',
+    title: 'ObjectWire | Tech, AI & Investigative News 2026',
+    description: 'Verified tech, AI, gaming, finance, and investigative news. No aggregation, no filler.',
   },
 };
 
@@ -131,16 +131,17 @@ function timeAgo(dateStr: string): string {
 // ── Section navigation beats ──────────────────────────────────────────────────
 
 const BEATS = [
-  { label: 'News',         href: '/news',            icon: '📰' },
-  { label: 'Tech',         href: '/tech',             icon: '💻' },
-  { label: 'Finance',      href: '/finance',          icon: '💰' },
-  { label: 'Video Games',  href: '/video-games',      icon: '🎮' },
-  { label: 'Entertainment',href: '/entertainment',    icon: '🎬' },
-  { label: 'Olympics',     href: '/winter-olympics',  icon: '🏅' },
-  { label: 'World Cup',    href: '/world-cup',        icon: '⚽' },
-  { label: 'Formula 1',    href: '/formula-1',        icon: '🏎️' },
-  { label: 'Investigations',href: '/investigations',  icon: '🔬' },
-  { label: 'Crypto',       href: '/crypto',           icon: '₿'  },
+  { label: 'Tech',          href: '/tech',             icon: '💻' },
+  { label: 'AI',            href: '/open-ai',          icon: '🤖' },
+  { label: 'Nvidia',        href: '/nvidia',           icon: '⚡' },
+  { label: 'Google',        href: '/google',           icon: '🔍' },
+  { label: 'Video Games',   href: '/video-games',      icon: '🎮' },
+  { label: 'Anime',         href: '/anime',            icon: '🎌' },
+  { label: 'Crypto',        href: '/crypto',           icon: '₿'  },
+  { label: 'Finance',       href: '/finance',          icon: '💰' },
+  { label: 'Science',       href: '/nasa',             icon: '🔬' },
+  { label: 'Microsoft',     href: '/microsoft',        icon: '🪟' },
+  { label: 'Investigations',href: '/investigations',   icon: '🗂️' },
 ];
 
 // ── Reusable sub-components ───────────────────────────────────────────────────
@@ -275,8 +276,8 @@ export default async function HomePage() {
   }
 
   const [lead, second, third, ...rest] = merged;
-    const moreStories      = rest.slice(0, 120);  // 4-col × 3-row grid with 10 pages
-    const headlineArticles = rest.slice(120, 160); // overflow headline list
+  const moreStories      = rest.slice(0, 48);   // 4-col × 4-row grid (12/page × 4 pages)
+  const headlineArticles = rest.slice(48, 90);   // compact headline overflow list
   const editionDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   });
@@ -471,8 +472,8 @@ export default async function HomePage() {
         <section className="border-t-2 border-b-2 border-black py-6 text-center mt-4">
           <p className="text-[9px] tracking-[.4em] uppercase font-black text-gray-500 mb-2">About ObjectWire</p>
           <p className="text-gray-600 max-w-xl mx-auto text-sm leading-relaxed mb-4">
-            Independent investigative journalism, technology news, finance analysis, and verified reporting.
-            Every article is source-cited, fact-checked, and written with depth and accuracy.
+            ObjectWire is a focused, verified news platform covering tech, AI, gaming, finance, and culture.
+            Every article is source-cited, fact-checked, and written for depth, not clicks. No aggregation, no filler.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5 text-[10px] tracking-widest uppercase font-bold text-gray-500">
             {[

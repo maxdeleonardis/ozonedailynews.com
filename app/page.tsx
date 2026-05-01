@@ -235,7 +235,11 @@ export default async function HomePage() {
   ]);
 
   // Slug prefixes whose pages were deleted — exclude from homepage
-  const EXCLUDED_PREFIXES = ['/cars/', '/influencer/', '/creator/', '/formula-1/'];
+  const EXCLUDED_PREFIXES = [
+    '/cars/', '/influencer/', '/creator/', '/formula-1/',
+    '/service', '/austin-private-detective-agency',
+    '/winter-olympics/', '/world-cup/', '/mls/',
+  ];
 
   // Content registry: exclude section/hub pages (< 2 path segments)
   // and dynamic route patterns like /profile/[username]

@@ -39,7 +39,7 @@ const HUB_SLUGS = new Set([
   '/bio-hacking', '/earth', '/ngos', '/cars', '/clothing', '/events',
   '/bank-of-america', '/austin-private-detective-agency', '/missing-persons',
   '/investigations', '/college', '/define', '/authors', '/politics',
-  '/amazon', '/tiktok', '/trump', '/cuba',
+  '/amazon', '/tiktok', '/trump', '/cuba', '/anime', '/science',
 ]);
 
 const HUB_CATEGORIES = new Set(['Meta', 'Support', 'Services', 'Legal']);
@@ -139,8 +139,112 @@ export default async function SiteIndexPage() {
             Site Index
           </h1>
           <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-            Browse {articles.length} articles across {categories.length} categories and {allTags.length} topics.
+            Browse {articles.length} articles across {categories.length} categories and {allTags.length} topics. Auto-generated from the ObjectWire content registry, the same source feeding every search engine signal below.
           </p>
+
+          {/* Automatic SEO System panel */}
+          <div className="mt-8 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-5 sm:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 ring-1 ring-inset ring-emerald-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Live
+              </span>
+              <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                Automatic SEO System
+              </h2>
+            </div>
+            <p className="text-sm text-gray-600 mb-5 max-w-3xl leading-relaxed">
+              Every published article is registered in Supabase, then automatically syndicated to Google through four live endpoints. No manual sitemap edits, no static files, no orphan URLs.
+            </p>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-5">
+              <div className="rounded-lg bg-white border border-gray-200 p-3 sm:p-4">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums">{contentRegistry.length}</div>
+                <div className="text-xs text-gray-500 mt-1">Registry entries</div>
+              </div>
+              <div className="rounded-lg bg-white border border-gray-200 p-3 sm:p-4">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums">{articles.length}</div>
+                <div className="text-xs text-gray-500 mt-1">Indexed articles</div>
+              </div>
+              <div className="rounded-lg bg-white border border-gray-200 p-3 sm:p-4">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums">{categories.length}</div>
+                <div className="text-xs text-gray-500 mt-1">Categories</div>
+              </div>
+              <div className="rounded-lg bg-white border border-gray-200 p-3 sm:p-4">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums">{allTags.length}</div>
+                <div className="text-xs text-gray-500 mt-1">Topic tags</div>
+              </div>
+            </div>
+
+            {/* Live endpoints */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              <a
+                href="/sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 sm:px-4 py-2.5 sm:py-3 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-700">sitemap.xml</div>
+                  <div className="text-xs text-gray-500 truncate">All indexable URLs, regenerated daily</div>
+                </div>
+                <span className="text-xs text-blue-600 font-medium flex-shrink-0 ml-3">Open ↗</span>
+              </a>
+              <a
+                href="/news-sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 sm:px-4 py-2.5 sm:py-3 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-700">news-sitemap.xml</div>
+                  <div className="text-xs text-gray-500 truncate">Last 48 hours, Google News &amp; Top Stories</div>
+                </div>
+                <span className="text-xs text-blue-600 font-medium flex-shrink-0 ml-3">Open ↗</span>
+              </a>
+              <a
+                href="/robots.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 sm:px-4 py-2.5 sm:py-3 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-700">robots.txt</div>
+                  <div className="text-xs text-gray-500 truncate">Crawl directives, dynamic from app/robots.ts</div>
+                </div>
+                <span className="text-xs text-blue-600 font-medium flex-shrink-0 ml-3">Open ↗</span>
+              </a>
+              <a
+                href="/feeds"
+                className="group flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 sm:px-4 py-2.5 sm:py-3 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-gray-900 group-hover:text-blue-700">RSS &amp; JSON feeds</div>
+                  <div className="text-xs text-gray-500 truncate">Per-category syndication endpoints</div>
+                </div>
+                <span className="text-xs text-blue-600 font-medium flex-shrink-0 ml-3">Browse →</span>
+              </a>
+            </div>
+
+            {/* Pipeline diagram */}
+            <div className="mt-5 pt-5 border-t border-gray-200">
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                Publishing pipeline
+              </div>
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 font-medium text-purple-700 ring-1 ring-inset ring-purple-200">page.tsx</span>
+                <span className="text-gray-400">→</span>
+                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 font-medium text-blue-700 ring-1 ring-inset ring-blue-200">wiki:publish</span>
+                <span className="text-gray-400">→</span>
+                <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 font-medium text-emerald-700 ring-1 ring-inset ring-emerald-200">Supabase registry</span>
+                <span className="text-gray-400">→</span>
+                <span className="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 font-medium text-amber-700 ring-1 ring-inset ring-amber-200">JSON-LD + sitemap + RSS</span>
+                <span className="text-gray-400">→</span>
+                <span className="inline-flex items-center rounded-md bg-rose-50 px-2 py-1 font-medium text-rose-700 ring-1 ring-inset ring-rose-200">Google index</span>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 

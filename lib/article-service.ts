@@ -1,8 +1,28 @@
+import fs from 'fs';
+import path from 'path';
 import { createClient } from '@/lib/supabase/server';
 
 // =============================================================================
-// TYPES
+// LOCAL-FIRST article-service
+// Reads from content/static/{table}/*.json files first.
+// Supabase is a fallback only.
 // =============================================================================
+
+const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
+
+function readStaticDir<T>(table: string): T[] {
+  try {
+    const dir = path.join(STATIC_BASE, table);
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.json'))
+      .map(f => {
+        try { return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as T; }
+        catch { return null; }
+      })
+      .filter((x): x is T => x !== null);
+  } catch { return []; }
+}
 
 /**
  * Lightweight article shape returned by list queries.
@@ -89,8 +109,37 @@ function resolveUrl(row: { url?: string | null; slug: string }): string {
 
 /**
  * All articles (published + draft). Used by homepage and admin.
+ * LOCAL-FIRST: reads from content/static/articles/*.json
  */
 export async function getAllArticles(): Promise<ArticleFull[]> {
+  // 1. Local static files
+  const local = readStaticDir<Record<string, unknown>>('articles');
+  if (local.length > 0) {
+    return local.map(row => ({
+      id: String(row.id ?? row.slug ?? ''),
+      title: String(row.title ?? ''),
+      slug: String(row.slug ?? ''),
+      url: resolveUrl({ url: row.url as string | null, slug: String(row.slug ?? '') }),
+      content: row.content,
+      publishedAt: String(row.published_at || row.created_at || ''),
+      published_at: String(row.published_at || ''),
+      category: String(row.category ?? 'News'),
+      status: String(row.status ?? 'published'),
+      author: String(row.author_name ?? 'ObjectWire'),
+      author_name: String(row.author_name ?? 'ObjectWire'),
+      author_slug: row.author_slug ? String(row.author_slug) : undefined,
+      excerpt: row.excerpt ? String(row.excerpt) : undefined,
+      imageUrl: String(row.image_url || row.hero_image_src || row.thumbnail_src || ''),
+      image_alt: String(row.image_alt || row.hero_image_alt || row.thumbnail_alt || ''),
+      tags: Array.isArray(row.tags) ? row.tags as string[] : [],
+      featured: Boolean(row.featured),
+      trending: Boolean(row.trending),
+      breaking: Boolean(row.breaking),
+      exclusive: Boolean(row.exclusive),
+    } as ArticleFull));
+  }
+
+  // 2. Supabase fallback
   try {
     const supabase = await createClient();
     const { data, error } = await supabase
@@ -206,9 +255,43 @@ export async function getCreatorArticles(): Promise<ArticleFull[]> {
 
 /**
  * Fetch published jack_articles (premium research, investigations).
- * jack_articles has no `status` column — every row is treated as published.
+ * LOCAL-FIRST: reads from content/static/jack_articles/*.json
  */
 export async function getJackArticles(): Promise<ArticleFull[]> {
+  // 1. Local static files
+  const local = readStaticDir<Record<string, unknown>>('jack_articles');
+  if (local.length > 0) {
+    return local.map(row => {
+      const authorObj = row.author as Record<string, unknown> | null;
+      const heroObj = row.hero_image as Record<string, unknown> | null;
+      let url: string;
+      const articleUrl = row.article_url ? String(row.article_url) : '';
+      if (articleUrl) {
+        try { url = new URL(articleUrl).pathname; } catch { url = articleUrl.startsWith('/') ? articleUrl : `/${articleUrl}`; }
+      } else {
+        url = `/${String(row.slug ?? '')}`;
+      }
+      return {
+        id: String(row.slug ?? ''),
+        title: String(row.title ?? ''),
+        slug: String(row.slug ?? ''),
+        url,
+        publishedAt: String(row.publish_date || ''),
+        published_at: String(row.publish_date || ''),
+        category: String(row.section ?? row.category ?? 'Research'),
+        status: 'published' as const,
+        author_name: authorObj?.name ? String(authorObj.name) : 'Jack Sterling',
+        author: authorObj?.name ? String(authorObj.name) : 'Jack Sterling',
+        excerpt: String(row.subtitle ?? row.description ?? ''),
+        imageUrl: heroObj?.src ? String(heroObj.src) : undefined,
+        image_alt: heroObj?.alt ? String(heroObj.alt) : undefined,
+        tags: Array.isArray(row.keywords) ? row.keywords as string[] : [],
+        featured: false, trending: false, breaking: false, exclusive: false,
+      } as ArticleFull;
+    });
+  }
+
+  // 2. Supabase fallback
   try {
     const supabase = await createClient();
     const { data, error } = await supabase
@@ -227,24 +310,15 @@ export async function getJackArticles(): Promise<ArticleFull[]> {
         url = `/${row.slug}`;
       }
       return {
-        id: row.slug,
-        title: row.title,
-        slug: row.slug,
-        url,
-        publishedAt: row.publish_date,
-        published_at: row.publish_date,
-        category: row.section ?? 'Research',
-        status: 'published' as const,
+        id: row.slug, title: row.title, slug: row.slug, url,
+        publishedAt: row.publish_date, published_at: row.publish_date,
+        category: row.section ?? 'Research', status: 'published' as const,
         author_name: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
         author: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
         excerpt: row.subtitle ?? row.description ?? undefined,
         imageUrl: heroObj?.src ? String(heroObj.src) : undefined,
         image_alt: heroObj?.alt ? String(heroObj.alt) : undefined,
-        tags: row.keywords ?? [],
-        featured: false,
-        trending: false,
-        breaking: false,
-        exclusive: false,
+        tags: row.keywords ?? [], featured: false, trending: false, breaking: false, exclusive: false,
       } as any;
     });
   } catch { return []; }

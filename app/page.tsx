@@ -206,8 +206,10 @@ export default async function HomePage() {
     const all = await getAllArticles();
     blogArticles = all
       .filter((p: ArticleFull) => p.status === 'published')
+      .filter((p: ArticleFull) => !EXCLUDED_CATEGORIES.has(p.category ?? ''))
       .map((p: ArticleFull) => fromBlog(p, contentRegistry))
-      .filter((a: Article | null): a is Article => a !== null);
+      .filter((a: Article | null): a is Article => a !== null)
+      .filter((a: Article) => !EXCLUDED_PREFIXES.some((pfx) => a.href.startsWith(pfx)));
   } catch {
     // Supabase unavailable — static registry still shows
   }
@@ -223,10 +225,28 @@ export default async function HomePage() {
     // JackArticles unavailable — no-op
   }
 
+  // Categories whose pages no longer exist on this site — exclude from homepage
+  const EXCLUDED_CATEGORIES = new Set([
+    'Automotive', 'automotive', 'Cars', 'cars',
+    'Influencer', 'influencer', 'Creator', 'creator',
+    'Sports', 'sports',
+    'Politics', 'politics',
+    'Lifestyle', 'lifestyle',
+  ]);
+
+  // Slug prefixes whose pages were deleted — exclude from homepage
+  const EXCLUDED_PREFIXES = ['/cars/', '/influencer/', '/creator/', '/formula-1/'];
+
   // Content registry: exclude section/hub pages (< 2 path segments)
   // and dynamic route patterns like /profile/[username]
   const registryArticles = contentRegistry
-    .filter((e) => e.slug.split('/').filter(Boolean).length >= 2 && !e.slug.includes('['))
+    .filter((e) => {
+      if (e.slug.split('/').filter(Boolean).length < 2) return false;
+      if (e.slug.includes('[')) return false;
+      if (EXCLUDED_CATEGORIES.has(e.category)) return false;
+      if (EXCLUDED_PREFIXES.some((p) => e.slug.startsWith(p))) return false;
+      return true;
+    })
     .map(fromRegistry);
 
   // Merge & deduplicate by href — when both sources have the same article,

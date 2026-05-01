@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getAllArticles, getCreatorArticles, getJackArticles } from '@/lib/article-service';
-
-export const dynamic = 'force-dynamic';
+import { getAllArticles, getJackArticles } from '@/lib/article-service';
 import type { ArticleFull } from '@/lib/article-service';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import EngagementBar from '@/components/engagement/EngagementBar';
@@ -12,20 +10,20 @@ import { getPopularLeadSlug } from '@/lib/popular-lead';
 import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire News | Independent Investigative Journalism & Tech',
+  title: 'ObjectWire | Independent Investigative Journalism & Tech News',
   description:
-    'ObjectWire News delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
+    'ObjectWire delivers independent investigative journalism, technology news, finance analysis, and verified reporting. Trusted source for in-depth coverage',
   alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
-    title: 'ObjectWire News | Independent Investigative Journalism',
+    title: 'ObjectWire | Independent Investigative Journalism',
     description: 'Independent news source delivering verified investigative journalism and technology coverage.',
     url: 'https://www.objectwire.org',
-    siteName: 'ObjectWire News',
+    siteName: 'ObjectWire',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire News | Independent Investigative Journalism',
+    title: 'ObjectWire | Independent Investigative Journalism',
     description: 'Independent news source delivering verified investigative journalism and technology coverage.',
   },
 };
@@ -213,31 +211,6 @@ export default async function HomePage() {
     // Supabase unavailable — static registry still shows
   }
 
-  // Load creator articles (influencer bios, athlete profiles)
-  try {
-    const creators = await getCreatorArticles();
-    const creatorArticles = creators.map((p) => {
-      const href = p.url;
-      return {
-        id: p.slug,
-        title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
-        excerpt: p.excerpt ?? undefined,
-        href,
-        publishDate: p.published_at ?? p.publishedAt ?? '',
-        category: p.category ?? 'Entertainment',
-        author: p.author_name ?? 'ObjectWire',
-        imageUrl: p.imageUrl ?? undefined,
-        imageAlt: p.image_alt ?? undefined,
-        breaking: false,
-        featured: false,
-        exclusive: false,
-      } as Article;
-    });
-    blogArticles.push(...creatorArticles);
-  } catch {
-    // Creator articles unavailable — no-op
-  }
-
   // Load jack articles (premium research, investigations)
   try {
     const jacks = await getJackArticles();
@@ -284,28 +257,24 @@ export default async function HomePage() {
   }
   merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
-  // Exclude non-editorial categories from the homepage feed
-  const HOMEPAGE_EXCLUDED_CATEGORIES = new Set(['services', 'service']);
-  const filtered = merged.filter((a) => !HOMEPAGE_EXCLUDED_CATEGORIES.has(a.category.toLowerCase()));
-
   // GA4: promote most-read article to lead slot
   let popularLeadSlug: string | null = null;
   try { popularLeadSlug = await getPopularLeadSlug(); } catch { /* graceful fallback */ }
 
   let isMostRead = false;
   if (popularLeadSlug) {
-    const popularIdx = filtered.findIndex((a) => a.href === popularLeadSlug);
+    const popularIdx = merged.findIndex((a) => a.href === popularLeadSlug);
     if (popularIdx > 0) {
       // Move it to front without mutating original sort
-      const [popular] = filtered.splice(popularIdx, 1);
-      filtered.unshift(popular);
+      const [popular] = merged.splice(popularIdx, 1);
+      merged.unshift(popular);
       isMostRead = true;
     } else if (popularIdx === 0) {
       isMostRead = true;
     }
   }
 
-  const [lead, second, third, ...rest] = filtered;
+  const [lead, second, third, ...rest] = merged;
     const moreStories      = rest.slice(0, 120);  // 4-col × 3-row grid with 10 pages
     const headlineArticles = rest.slice(120, 160); // overflow headline list
   const editionDate = new Date().toLocaleDateString('en-US', {

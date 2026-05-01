@@ -55,3 +55,9 @@ supabase/functions/.vscode
 # Google service account credential files — NEVER commit these
 *-[a-f0-9]*.json
 objectwireorg-76d014b98819.json
+
+# Screenshots and screen recordings — never commit to repo
+public/Screenshot*.png
+public/Screen\ Recording*.mov
+public/Screen\ Recording*.mp4
+*.mov

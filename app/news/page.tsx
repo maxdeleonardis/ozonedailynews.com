@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { scanAllContent, filterByDateRange, groupByCategory, getUrgentArticles } from '@/lib/content-scanner';
 import { getAllEntries } from '@/lib/registry-service';
-import { getAllArticles, getJackArticles, getCreatorArticles } from '@/lib/article-service';
+import { getAllArticles, getJackArticles } from '@/lib/article-service';
 import { compareDescending, getRelativeTime } from '@/lib/date-utils';
 import { getPopularSlugs } from '@/lib/popular-lead';
 import NewsLibrary, { type LibraryArticle, type LibraryCategory } from '@/components/discovery/NewsLibrary';
@@ -60,12 +60,11 @@ export default async function NewsPage() {
   // Build image lookup from Supabase article tables
   const imageMap = new Map<string, string>();
   try {
-    const [blogArticles, jackArticles, creatorArticles] = await Promise.all([
+    const [blogArticles, jackArticles] = await Promise.all([
       getAllArticles(),
       getJackArticles(),
-      getCreatorArticles(),
     ]);
-    for (const a of [...blogArticles, ...jackArticles, ...creatorArticles]) {
+    for (const a of [...blogArticles, ...jackArticles]) {
       const img = a.imageUrl || a.thumbnail_url;
       if (img && a.slug) imageMap.set(a.slug, img);
     }

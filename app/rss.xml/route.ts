@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
-// RSS 2.0 feed — all article types (NewsArticle, JackArticle, CreatorArticle, ArticlePage).
+// RSS 2.0 feed — all article types (NewsArticle, JackArticle, ArticlePage).
 // Data sourced from Supabase content_registry (auto-synced on every build via prebuild script).
 // Cap at 200 most recent entries to keep feed size reasonable for readers.
 const RSS_LIMIT = 200;

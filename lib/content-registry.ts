@@ -55,23 +55,6 @@ export const contentRegistry: ContentEntry[] = [
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {
-    slug: "/youtube/sidemen/charity-match-results-2026",
-    title: "Sidemen Charity Match 2026 | 10-10 Draw, YouTube Allstars Win Penalty Shootout, £6,218,875 Raised",
-    description: "A sold-out Wembley Stadium witnessed 20 goals, the most in the event's history, before YouTube Allstars won 4-1 on penalties to claim back-to-back victories. Jynxzi was Man of the Match. Miniminter scored a hat-trick.",
-    publishDate: "April 19, 2026",
-    modifiedDate: "2026-04-19",
-    category: "Entertainment",
-    tags: ["Sidemen Charity Match 2026 results","Sidemen Charity Match score","YouTube Allstars vs Sidemen FC 2026","Sidemen Charity Match Wembley 2026","Jynxzi Man of the Match"],
-    author: "ObjectWire Entertainment Desk",
-    priority: 0.7,
-    changeFrequency: "weekly",
-    imageUrl: "https://www.objectwire.org/influncer/sdmn_charitymatch_26.webp",
-    imageWidth: 1200,
-    imageHeight: 675,
-    imageAlt: "Sidemen Charity Match 2026 Wembley Stadium YouTube Allstars win penalty shootout",
-  },
-  // --- Auto-added by wiki:publish 2026-04-19 ---
-  {
     slug: "/meta/news/meta-broadcom-mtia-chip-partnership-2029-hock-tan",
     title: "Meta and Broadcom Extend Custom AI Chip Partnership to 2029 | $2.3B Paid, 2nm MTIA 500 Confirmed",
     description: "The deal covers four MTIA chip generations, a one-gigawatt compute deployment, and a first-of-its-kind 2-nanometer custom AI accelerator. Broadcom CEO Hock Tan will leave Meta's board and move to a dedicated advisory role.",
@@ -86,23 +69,6 @@ export const contentRegistry: ContentEntry[] = [
     imageWidth: 1200,
     imageHeight: 675,
     imageAlt: "Meta Broadcom MTIA chip partnership 2029 Hock Tan 2nm AI accelerator",
-  },
-  // --- Auto-added by wiki:publish 2026-04-19 ---
-  {
-    slug: "/influencer/alanforze/supernova-genesis-2026-netflix-arena-ciudad-de-mexico",
-    title: "Supernova: Genesis 2026 | Netflix Live, Arena Ciudad de Mexico, April 26",
-    description: "Mexico's biggest influencer boxing card streams live and exclusively on Netflix this Sunday, featuring Alana Flores, Mario Bautista, Nando, and more",
-    publishDate: "April 19, 2026",
-    modifiedDate: "2026-04-19",
-    category: "Entertainment",
-    tags: ["Supernova Genesis 2026","Supernova Genesis boxeo influencers","Alana Flores boxeo","Alana Flores vs Samadis","Mario Bautista vs Aaron Mercury"],
-    author: "ObjectWire Entertainment Desk",
-    priority: 0.7,
-    changeFrequency: "weekly",
-    imageUrl: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop",
-    imageWidth: 1200,
-    imageHeight: 675,
-    imageAlt: "Supernova Genesis 2026 influencer boxing Netflix Arena Ciudad de Mexico",
   },
   // --- Auto-added by wiki:publish 2026-04-19 ---
   {

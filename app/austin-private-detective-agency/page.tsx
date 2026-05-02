@@ -97,15 +97,15 @@ export default function AustinPrivateDetectivePage() {
         { id: 'contact', label: 'Contact' },
       ]}
       relatedLinks={[
-        { href: '/service', label: 'All Services', description: 'full list of investigative and media services' },
-        { href: '/service/surveillance', label: 'Surveillance', description: 'covert surveillance cases' },
-        { href: '/service/infidelity', label: 'Infidelity Investigations', description: 'cheating spouse cases' },
-        { href: '/missing-persons', label: 'Missing Persons', description: 'locate missing adults and runaways' },
-        { href: '/service/background-check-investigations-austin-tx', label: 'Background Checks', description: 'criminal, employment, and identity' },
-        { href: '/service/skip-tracing-austin-tx', label: 'Skip Tracing', description: 'locate people and debtors' },
-        { href: '/service/child-custody-investigations-austin-tx', label: 'Child Custody Investigations', description: 'family court evidence' },
-        { href: '/service/workers-compensation-investigations-austin-tx', label: 'Workers Comp Investigations', description: 'fraud surveillance' },
-        { href: '/service/corporate-investigations-austin-tx', label: 'Corporate Investigations', description: 'misconduct, fraud, and due diligence' },
+        { href: '/austin-private-detective-agency', label: 'All Services', description: 'full list of investigative and media services' },
+        { href: '/austin-private-detective-agency', label: 'Surveillance', description: 'covert surveillance cases' },
+        { href: '/austin-private-detective-agency', label: 'Infidelity Investigations', description: 'cheating spouse cases' },
+        { href: '/austin-private-detective-agency', label: 'Missing Persons', description: 'locate missing adults and runaways' },
+        { href: '/austin-private-detective-agency', label: 'Background Checks', description: 'criminal, employment, and identity' },
+        { href: '/austin-private-detective-agency', label: 'Skip Tracing', description: 'locate people and debtors' },
+        { href: '/austin-private-detective-agency', label: 'Child Custody Investigations', description: 'family court evidence' },
+        { href: '/austin-private-detective-agency', label: 'Workers Comp Investigations', description: 'fraud surveillance' },
+        { href: '/austin-private-detective-agency', label: 'Corporate Investigations', description: 'misconduct, fraud, and due diligence' },
       ]}
     >
       <Section id="about" title="About the Agency">
@@ -120,7 +120,7 @@ export default function AustinPrivateDetectivePage() {
           know the city, the courts, and the specific requirements that make evidence admissible in Travis
           County Family Court and Texas civil proceedings. For a full overview of available services, see
           the{' '}
-          <Link href="/service" className="text-blue-600 hover:text-blue-800 underline">
+          <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
             services hub
           </Link>
           .
@@ -135,55 +135,55 @@ export default function AustinPrivateDetectivePage() {
         </p>
         <ul>
           <li>
-            <Link href="/service/surveillance" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Surveillance
             </Link>{' '}
             — covert photo and video documentation for domestic, legal, and corporate cases
           </li>
           <li>
-            <Link href="/service/infidelity" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Infidelity investigations
             </Link>{' '}
             — cheating spouse and domestic partner cases with timestamped evidence
           </li>
           <li>
-            <Link href="/missing-persons" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Missing persons
             </Link>{' '}
             — locate missing adults, runaways, and estranged family members
           </li>
           <li>
-            <Link href="/service/background-check-investigations-austin-tx" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Background check investigations
             </Link>{' '}
             — criminal history, employment verification, identity research
           </li>
           <li>
-            <Link href="/service/skip-tracing-austin-tx" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Skip tracing
             </Link>{' '}
             — locate debtors, witnesses, defendants, and estranged contacts
           </li>
           <li>
-            <Link href="/service/child-custody-investigations-austin-tx" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Child custody investigations
             </Link>{' '}
             — parental surveillance and verification for family court
           </li>
           <li>
-            <Link href="/service/workers-compensation-investigations-austin-tx" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Workers compensation fraud
             </Link>{' '}
             — claimant surveillance for insurers and defense attorneys
           </li>
           <li>
-            <Link href="/service/corporate-investigations-austin-tx" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Corporate investigations
             </Link>{' '}
             — employee misconduct, IP theft, fraud, and due diligence
           </li>
           <li>
-            <Link href="/service/fact-finding-and-evidence-collection" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
               Fact-finding and evidence collection
             </Link>{' '}
             — witness interviews, scene documentation, case research
@@ -250,7 +250,7 @@ export default function AustinPrivateDetectivePage() {
             contact and consultation page
           </Link>
           . Initial consultations are free. For a full listing of services and pricing context, see the{' '}
-          <Link href="/service" className="text-blue-600 hover:text-blue-800 underline">
+          <Link href="/austin-private-detective-agency" className="text-blue-600 hover:text-blue-800 underline">
             services hub
           </Link>
           .

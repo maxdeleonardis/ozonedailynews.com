@@ -22,6 +22,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
+import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,7 +77,45 @@ function resolve(segments: string[]): ResolvedArticle | null {
 }
 
 // ---------------------------------------------------------------------------
-// generateMetadata
+// Supabase fallback — find which table has this slug when no static file exists
+// ---------------------------------------------------------------------------
+async function resolveFromSupabase(dashSlug: string): Promise<{ table: Table } | null> {
+  const supabase = await createClient();
+
+  // Check articles table
+  const { data: article } = await supabase
+    .from('articles')
+    .select('slug')
+    .eq('slug', dashSlug)
+    .maybeSingle();
+  if (article) return { table: 'articles' };
+
+  // Check jack_articles table
+  const { data: jack } = await supabase
+    .from('jack_articles')
+    .select('slug')
+    .eq('slug', dashSlug)
+    .maybeSingle();
+  if (jack) return { table: 'jack_articles' };
+
+  // Check creator_articles table
+  const { data: creator } = await supabase
+    .from('creator_articles')
+    .select('slug')
+    .eq('slug', dashSlug)
+    .maybeSingle();
+  if (creator) return { table: 'creator_articles' };
+
+  // Check article_pages table
+  const { data: page } = await supabase
+    .from('article_pages')
+    .select('slug')
+    .eq('slug', dashSlug)
+    .maybeSingle();
+  if (page) return { table: 'article_pages' };
+
+  return null;
+}
 // ---------------------------------------------------------------------------
 export async function generateMetadata({
   params,
@@ -121,25 +160,30 @@ export default async function CatchAllArticlePage({
   params: Promise<{ path: string[] }>;
 }) {
   const { path: segments } = await params;
+  const dashSlug = segments.join('-');
+
+  // 1. Try static files first
   const resolved = resolve(segments);
 
-  if (!resolved) notFound();
-
-  const { table, componentSlug } = resolved;
-
-  if (table === 'articles') {
-    return <NewsArticleDB slug={componentSlug} />;
-  }
-  if (table === 'jack_articles') {
-    return <JackArticleDB slug={componentSlug} />;
-  }
-  if (table === 'article_pages') {
+  if (resolved) {
+    const { table, componentSlug } = resolved;
+    if (table === 'articles')       return <NewsArticleDB slug={componentSlug} />;
+    if (table === 'jack_articles')  return <JackArticleDB slug={componentSlug} />;
+    if (table === 'article_pages')  return <ArticlePageDB slug={componentSlug} />;
+    if (table === 'creator_articles') return <CreatorArticleDB slug={componentSlug} />;
+    // wiki_articles
     return <ArticlePageDB slug={componentSlug} />;
   }
-  if (table === 'creator_articles') {
-    return <CreatorArticleDB slug={componentSlug} />;
-  }
 
-  // wiki_articles — ArticlePageDB also handles these via its static lookup
-  return <ArticlePageDB slug={componentSlug} />;
+  // 2. No static file — query Supabase to find the right table
+  const sbResolved = await resolveFromSupabase(dashSlug);
+  if (!sbResolved) notFound();
+
+  const { table: sbTable } = sbResolved;
+  if (sbTable === 'articles')        return <NewsArticleDB slug={dashSlug} />;
+  if (sbTable === 'jack_articles')   return <JackArticleDB slug={dashSlug} />;
+  if (sbTable === 'creator_articles') return <CreatorArticleDB slug={dashSlug} />;
+  if (sbTable === 'article_pages')   return <ArticlePageDB slug={dashSlug} />;
+
+  notFound();
 }

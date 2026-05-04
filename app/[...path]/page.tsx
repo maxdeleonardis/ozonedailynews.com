@@ -24,7 +24,9 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 import { createClient } from '@/lib/supabase/server';
 
-export const dynamic = 'force-dynamic';
+// ISR: cache each article page for 1 hour — dramatically reduces Supabase
+// calls from Googlebot crawls. Pages are regenerated on-demand after the TTL.
+export const revalidate = 3600;
 
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 
@@ -77,42 +79,23 @@ function resolve(segments: string[]): ResolvedArticle | null {
 }
 
 // ---------------------------------------------------------------------------
-// Supabase fallback — find which table has this slug when no static file exists
+// Supabase fallback — find which table has this slug when no static file exists.
+// All 4 table probes run IN PARALLEL (1 round trip, not 4 sequential).
 // ---------------------------------------------------------------------------
 async function resolveFromSupabase(dashSlug: string): Promise<{ table: Table } | null> {
   const supabase = await createClient();
 
-  // Check articles table
-  const { data: article } = await supabase
-    .from('articles')
-    .select('slug')
-    .eq('slug', dashSlug)
-    .maybeSingle();
-  if (article) return { table: 'articles' };
+  const [article, jack, creator, page] = await Promise.all([
+    supabase.from('articles').select('slug').eq('slug', dashSlug).maybeSingle(),
+    supabase.from('jack_articles').select('slug').eq('slug', dashSlug).maybeSingle(),
+    supabase.from('creator_articles').select('slug').eq('slug', dashSlug).maybeSingle(),
+    supabase.from('article_pages').select('slug').eq('slug', dashSlug).maybeSingle(),
+  ]);
 
-  // Check jack_articles table
-  const { data: jack } = await supabase
-    .from('jack_articles')
-    .select('slug')
-    .eq('slug', dashSlug)
-    .maybeSingle();
-  if (jack) return { table: 'jack_articles' };
-
-  // Check creator_articles table
-  const { data: creator } = await supabase
-    .from('creator_articles')
-    .select('slug')
-    .eq('slug', dashSlug)
-    .maybeSingle();
-  if (creator) return { table: 'creator_articles' };
-
-  // Check article_pages table
-  const { data: page } = await supabase
-    .from('article_pages')
-    .select('slug')
-    .eq('slug', dashSlug)
-    .maybeSingle();
-  if (page) return { table: 'article_pages' };
+  if (article.data) return { table: 'articles' };
+  if (jack.data)    return { table: 'jack_articles' };
+  if (creator.data) return { table: 'creator_articles' };
+  if (page.data)    return { table: 'article_pages' };
 
   return null;
 }

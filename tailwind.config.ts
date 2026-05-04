@@ -29,7 +29,19 @@ const config: Config & { safelist?: any[] } = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // scrollbar-hide utility used in PopularCarousel rail
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function ({ addUtilities }: any) {
+      addUtilities({
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
+        },
+      });
+    },
+  ],
   safelist: [
     // Safelist for classes used in wiki page HTML stored in Supabase.
     // After static pages are replaced with thin loaders, Tailwind can no longer

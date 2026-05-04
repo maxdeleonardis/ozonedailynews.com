@@ -8,6 +8,7 @@ import EngagementBar from '@/components/engagement/EngagementBar';
 import HeadlineList from '@/components/discovery/HeadlineList';
 import { getPopularLeadSlug } from '@/lib/popular-lead';
 import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
+import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
   title: 'ObjectWire | Tech, AI & Investigative News 2026',
@@ -300,6 +301,7 @@ export default async function HomePage() {
   }
 
   const [lead, second, third, ...rest] = merged;
+  const popularArticles = [lead, ...rest.slice(0, 9)].filter(Boolean); // featured + 9 for carousel
   const moreStories      = rest.slice(0, 48);   // 4-col × 4-row grid (12/page × 4 pages)
   const headlineArticles = rest.slice(48, 90);   // compact headline overflow list
   const editionDate = new Date().toLocaleDateString('en-US', {
@@ -448,6 +450,13 @@ export default async function HomePage() {
               </div>
             </div>
           </section>
+        )}
+
+        {/* ── POPULAR NOW CAROUSEL ─────────────────────────────────────── */}
+        {popularArticles.length > 1 && (
+          <div className="border-b border-gray-200 py-6 mb-2">
+            <PopularCarousel articles={popularArticles} />
+          </div>
         )}
 
         {/* ── MORE STORIES (news-library style grid with category filter) ── */}

@@ -1,6 +1,41 @@
-# Content Topics — April 2026
+# Content Topics — Main Branch
+
+**Branch:** `main` | **Site:** `objectwire.org` | **Last updated:** May 4, 2026
 
 ---
+
+## What This Branch Covers
+
+ObjectWire main branch publishes verified news and analysis across these verticals. Every article uses `NewsArticleDB` (standard news) or `JackArticleDB` (premium research/investigations). No creator profiles, no influencer content — those live in `creator_articles` and are out of scope here.
+
+| Vertical | Hub | Primary Keywords |
+|---|---|---|
+| **Tech / AI** | `/tech`, `/open-ai`, `/google`, `/apple`, `/nvidia`, `/microsoft`, `/claude`, `/cursor` | OpenAI, Gemini, iPhone, RTX, Copilot |
+| **Gaming** | `/video-games`, `/video-games/gta-6`, `/video-games/fortnite`, `/video-games/switch2` | GTA 6, Fortnite, Nintendo Switch 2 |
+| **Finance** | `/finance` | Markets, earnings, economic policy |
+| **Crypto** | `/crypto` | Bitcoin, Ethereum, stablecoins, regulation |
+| **Entertainment** | `/entertainment`, `/disney`, `/netflix` | Streaming, box office, studio deals |
+| **Politics** | `/trump`, `/politics` | US policy, executive orders, elections |
+| **Science** | `/nasa`, `/bio-hacking`, `/earth` | Space, climate, health research |
+| **World News** | `/news`, `/world-cup`, `/winter-olympics` | Global events, sports, seasonal |
+| **Sports** | `/formula-1`, `/mls`, `/redbull`, `/world-cup` | F1, World Cup, Olympics |
+| **Investigations** | `/investigations` | Jack Sterling long-form, sourced reporting |
+| **Business** | `/elon-musk`, `/amazon`, `/meta`, `/shopify`, `/saas` | Big tech, enterprise, startups |
+
+---
+
+## Article Types on This Branch
+
+| Component | Table | Use For |
+|---|---|---|
+| `NewsArticleDB` | `articles` | Breaking news, gaming, tech, features |
+| `JackArticleDB` | `jack_articles` | Research reports, premium long-form, investigations |
+
+`ArticlePageDB` (wiki/evergreen) and `CreatorArticleDB` (influencer) exist in the codebase but are **not part of active main branch content sessions**.
+
+---
+
+
 
 ## Session Log — April 29, 2026
 
@@ -83,16 +118,11 @@ Ships on every page in the site's `<head>`.
 
 ## Female Influencer / YouTuber Article Targets
 
-### Tier 1 — High Search Volume, Strong SEO
+> ⚠️ **NOT for this branch.** Creator and influencer profiles use `CreatorArticleDB` and `creator_articles` Supabase table. They are managed separately. Do not plan, assign, or write creator profiles as part of main branch content sessions.
+>
+> Main branch covers: **News, Tech, AI, Gaming, Finance, Crypto, Entertainment, Politics, Science, World, Sports.**
 
-| Creator | Angle | Est. Monthly Search |
-|---|---|---|
-| **SSSniperWolf (Alia Shelesh)** | Gaming reactions, YouTube controversy, 35M subs | 800K+ |
-| **Pokimane (Imane Anys)** | Retired from Twitch 2024, new projects, net worth | 600K+ |
-| **Alix Earle** | TikTok rise, "GRWM girl", brand deals, dating life | 500K+ |
-| **Charli D'Amelio** | Post-TikTok era, dance career, family show | 900K+ |
-| **Emma Chamberlain** | YouTube evolution, Chamberlain Coffee, Met Gala | 400K+ |
-| **Valkyrae (Rachel Hofstetter)** | 100 Thieves co-owner, YouTube Gaming, RLYRAE brand | 300K+ |
+---
 
 
 ## Fortnite Article Targets (2026)

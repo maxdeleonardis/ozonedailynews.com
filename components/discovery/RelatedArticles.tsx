@@ -22,8 +22,8 @@
  *                                                â€” longer dwell = stronger signal
  *   sessionBoost = ageDays < 0.021 ? 3 : 1      â€” last 30 min gets Ã—3
  *
- * After scoring, diversity injection ensures at least one result from
- * a different category if all top results share the same category.
+ * After scoring, diversity injection always guarantees at least 2 results from
+ * a different category, regardless of reading streak length.
  *
  * Reason labels ("For you" / "Similar") reflect which signal dominated.
  */
@@ -48,6 +48,7 @@ interface ScoredArticle extends ArticleRow {
   _score:       number;
   _publishedMs: number;
   _reason:      'similar' | 'foryou' | 'discovery' | 'streak';
+  _trending:    boolean;
 }
 
 /** Persisted preference profile — rebuilt from history and cached with a TTL. */
@@ -90,11 +91,14 @@ const SUPABASE_ANON  = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const HISTORY_KEY    = 'ow_reading_history';
 const PREFS_KEY      = 'ow_user_prefs';
 const MAX_RESULTS    = 8;
-const PER_TABLE      = 40;   // fetch more candidates so preference-scoring has room to work
+// How many "discovery" (different-category) slots to guarantee in final results
+const DISCOVERY_SLOTS  = 2;
+const PER_TABLE      = 50;   // fetch more candidates so preference-scoring has room to work
 const HALF_LIFE_DAYS = 7;
 const DAY_MS         = 24 * 60 * 60 * 1000;
 const SESSION_WINDOW = 0.021; // 30 min in days
 const PREFS_TTL_MS   = 30 * 60 * 1000; // rebuild prefs every 30 min
+const TRENDING_DAYS  = 7;    // articles published within this window get a "Trending" badge
 
 // â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
@@ -360,7 +364,9 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
           histScore > simScore               ? 'foryou'  :
                                                'similar';
 
-        return { ...r, _score: score, _publishedMs: publishedMs, _reason: reason };
+        const _trending = publishedMs > 0 && (nowMs - publishedMs) / DAY_MS <= TRENDING_DAYS;
+
+        return { ...r, _score: score, _publishedMs: publishedMs, _reason: reason, _trending };
       });
 
       // Sort by score desc, then recency
@@ -372,17 +378,26 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
       // â”€â”€ Diversity injection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // If the top MAX_RESULTS are all from the same category, swap the last
       // slot with the best article from a different category.
+      // Always guarantee DISCOVERY_SLOTS articles from a different category so
+      // readers on a streak still see content from other topic areas.
       const topN = scored.slice(0, MAX_RESULTS);
-      const topCategory = topN[0]?.category;
-      const allSameCategory = topN.length >= 3 && topN.every((a) => a.category === topCategory);
+      const topSlugs = new Set(topN.map((a) => a.slug));
+      const dominantCategory = topN[0]?.category;
 
-      if (allSameCategory) {
-        const topSlugs = new Set(topN.map((a) => a.slug));
-        const diverse = scored.find(
-          (a) => a.category !== topCategory && !topSlugs.has(a.slug),
-        );
-        if (diverse) {
-          topN[MAX_RESULTS - 1] = { ...diverse, _reason: 'discovery' };
+      const discoveryPool = scored.filter(
+        (a) => a.category !== dominantCategory && !topSlugs.has(a.slug),
+      );
+
+      // Count how many different categories are already represented
+      const existingCategories = new Set(topN.map((a) => a.category));
+      const diversityNeeded = Math.max(0, DISCOVERY_SLOTS - (existingCategories.size - 1));
+
+      for (let i = 0; i < diversityNeeded && discoveryPool.length > 0; i++) {
+        const pick = discoveryPool.shift()!;
+        const replaceIdx = MAX_RESULTS - 1 - i;
+        if (replaceIdx > 0) {
+          topN[replaceIdx] = { ...pick, _reason: 'discovery' };
+          topSlugs.add(pick.slug);
         }
       }
 
@@ -413,10 +428,22 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
 
   if (!articles.length) return null;
 
+  // Dynamic header: reflect what's actually showing
+  const dominantCat = articles[0]?.category ?? category;
+  const streakActive = articles.some((a) => a._reason === 'streak');
+  const forYouActive = articles.some((a) => a._reason === 'foryou');
+  const sidebarLabel = streakActive
+    ? `More ${dominantCat}`
+    : forYouActive
+    ? 'For You'
+    : hasPersonalization
+    ? `More in ${dominantCat}`
+    : 'Related';
+
   return (
     <aside>
       <h3 className="text-[10px] font-black uppercase tracking-[.15em] text-gray-400 border-b border-gray-200 pb-2 mb-4">
-        {hasPersonalization ? 'For You' : 'Related'}
+        {sidebarLabel}
       </h3>
       <ul className="space-y-4">
         {articles.map((a) => (
@@ -431,23 +458,28 @@ export default function RelatedArticles({ currentSlug, category, tags = [] }: Pr
                   />
                 </div>
               )}
-              <div className="flex items-center gap-1.5 mt-0.5">
+              <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                 <span className="text-[9px] font-bold uppercase tracking-wider text-red-600">
                   {a.category}
                 </span>
-                {a._reason === 'foryou' && (
+                {a._trending && a._reason !== 'discovery' && (
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-sky-500">
+                    · Trending
+                  </span>
+                )}
+                {a._reason === 'foryou' && !a._trending && (
                   <span className="text-[8px] font-bold uppercase tracking-wider text-violet-500">
                     · For you
                   </span>
                 )}
                 {a._reason === 'streak' && (
                   <span className="text-[8px] font-bold uppercase tracking-wider text-amber-500">
-                    · On a streak
+                    · Keep reading
                   </span>
                 )}
                 {a._reason === 'discovery' && (
                   <span className="text-[8px] font-bold uppercase tracking-wider text-emerald-500">
-                    · Discover
+                    · Explore
                   </span>
                 )}
               </div>

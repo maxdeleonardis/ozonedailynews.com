@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Private Detective Agency Austin Texas | Licensed PI Services",

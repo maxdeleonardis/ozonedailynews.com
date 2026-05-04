@@ -1,6 +1,6 @@
 ﻿import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/site-config';
-import { createClient } from '@/lib/supabase/server';
+import { getAllEntries } from '@/lib/registry-service';
 
 // Regenerate daily — but dates come from content-registry, not filesystem
 export const revalidate = 86400;
@@ -52,23 +52,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // All registered static content — from Supabase content_registry (auto-synced on build)
+  // All registered static content — from local registry JSON (no Supabase needed)
   let registryEntries: MetadataRoute.Sitemap = [];
   try {
-    const supabase = await createClient();
-    const { data: regRows } = await supabase
-      .from('content_registry')
-      .select('slug, modified_date, change_frequency, priority');
-    registryEntries = (regRows || [])
+    const entries = await getAllEntries();
+    registryEntries = entries
       .filter((entry) => isIndexable(entry.slug))
       .map((entry) => ({
         url: `${baseUrl}${entry.slug}`,
-        lastModified: new Date(entry.modified_date),
-        changeFrequency: entry.change_frequency as MetadataRoute.Sitemap[number]['changeFrequency'],
-        priority: Number(entry.priority),
+        lastModified: new Date(entry.modifiedDate),
+        changeFrequency: entry.changeFrequency as MetadataRoute.Sitemap[number]['changeFrequency'],
+        priority: entry.priority,
       }));
   } catch {
-    // Supabase unavailable — sitemap will include homepage only
+    // Registry unavailable — sitemap will include homepage only
   }
 
   const all = [...staticEntries, ...registryEntries];

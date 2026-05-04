@@ -59,7 +59,7 @@ export const redirects: R[] = [
   { source: '/research',       destination: '/news',         permanent: true },
   { source: '/objectwire',     destination: '/news',         permanent: true },
   { source: '/missing-persons', destination: '/news',        permanent: true },
-  { source: '/rocket-league',  destination: '/news',         permanent: true },
+
   { source: '/bank-of-america', destination: '/news',        permanent: true },
   { source: '/contactus',      destination: '/',             permanent: true },
   { source: '/mha',            destination: '/video-games',  permanent: true },

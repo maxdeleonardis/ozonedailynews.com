@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: "ObjectWire",
   url: "https://www.objectwire.org",
   description: "Breaking news, technology, and digital culture",
-  tagline: "Breaking news, technology, and digital culture",
+  tagline: "Tech, Gaming, Crypto & Culture News 2026",
   locale: "en_US",
   author: "ObjectWire Team",
   email: "contact@objectwire.org",

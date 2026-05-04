@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Technology News 2026 | AI, Chips & Innovation',

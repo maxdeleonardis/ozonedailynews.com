@@ -113,6 +113,7 @@ export default function GTA6Page() {
         { href: '/video-games/gta-6', label: 'GTA 6 Trailer 2 Breakdown', description: 'Every detail confirmed in the second official trailer' },
         { href: '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay', label: 'GTA 6 Pre-Orders', description: 'PlayStation Store title IDs signal imminent launch window' },
         { href: '/video-games/gta-6/news/take-two-ai-team-shake-up-2026', label: 'Take-Two AI Team Restructure', description: 'Hundreds of AI pilots pledged ahead of GTA 6 launch' },
+        { href: '/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay', label: 'GTA 5 Crunch Overtime Pay', description: 'Former Rockstar developers say they were never compensated for 100-hour crunch weeks' },
         { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on ObjectWire' },
       ]}
       backLink={{ href: '/video-games', label: 'Video Games' }}
@@ -301,6 +302,11 @@ export default function GTA6Page() {
           . Pre-order and platform-holder news is covered in the{' '}
           <Link href="/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay" className="text-blue-600 hover:text-blue-800 underline">
             GTA 6 pre-orders story
+          </Link>
+          . An investigation into the labor conditions behind GTA 5's development, and why developers
+          say they were never paid overtime for the crunch that built a $8 billion franchise, is available in{' '}
+          <Link href="/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay" className="text-blue-600 hover:text-blue-800 underline">
+            Rockstar GTA 5 Crunch | Developers Were Never Paid Overtime
           </Link>
           . All gaming coverage is indexed on the{' '}
           <Link href="/video-games" className="text-blue-600 hover:text-blue-800 underline">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getAllEntries, type ContentEntry } from '@/lib/registry-service';
 import { SiteIndexTree } from './SiteIndexTree';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Site Index',

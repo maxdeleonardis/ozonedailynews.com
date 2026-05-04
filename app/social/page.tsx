@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllEntries } from '@/lib/registry-service';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Social Media News 2026 | Instagram, TikTok & X',

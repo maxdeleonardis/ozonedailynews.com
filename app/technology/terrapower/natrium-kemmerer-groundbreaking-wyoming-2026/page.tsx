@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/technology/terrapower/natrium-kemmerer-groundbreaking-wyoming-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish

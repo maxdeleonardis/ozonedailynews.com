@@ -11,21 +11,33 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Tech, AI & Investigative News 2026',
+  title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
   description:
-    'ObjectWire covers tech, AI, gaming, finance, and investigative news. Every article is source-cited, fact-checked, and written with depth. No aggregation, no filler.',
+    'ObjectWire is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
+  keywords: [
+    'tech news 2026',
+    'gaming news',
+    'crypto news',
+    'entertainment news',
+    'esports news',
+    'culture news',
+    'investigative journalism',
+    'ObjectWire',
+  ],
   alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
-    title: 'ObjectWire | Tech, AI & Investigative News 2026',
-    description: 'Verified tech, AI, gaming, finance, and investigative news. Source-cited, fact-checked, written with depth.',
+    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    description:
+      'Verified news across tech, gaming, crypto, entertainment, esports, and culture. Source-cited, fact-checked, written with depth.',
     url: 'https://www.objectwire.org',
     siteName: 'ObjectWire',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire | Tech, AI & Investigative News 2026',
-    description: 'Verified tech, AI, gaming, finance, and investigative news. No aggregation, no filler.',
+    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    description:
+      'Tech, gaming, crypto, esports, and culture. Verified news, no aggregation, no filler.',
   },
 };
 

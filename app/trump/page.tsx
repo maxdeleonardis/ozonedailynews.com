@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 import { SEOWrapper } from '@/components/SEOWrapper';
-import { scanAllContent } from '@/lib/content-scanner';
+import { getAllEntries } from '@/lib/registry-service';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/trump';
 
@@ -91,9 +91,9 @@ const FEATURED = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default async function TrumpHubPage() {
-  const allArticles = await scanAllContent();
+  const allEntries = await getAllEntries();
 
-  const politicsArticles = allArticles.filter(
+  const politicsArticles = allEntries.filter(
     (a) =>
       a.slug.startsWith('/trump/') ||
       a.category.toLowerCase() === 'politics',
@@ -281,7 +281,7 @@ export default async function TrumpHubPage() {
                   href={article.slug}
                   title={article.title}
                   badge="NEWS"
-                  meta={article.date}
+                  meta={article.publishDate}
                 />
               ))}
             </div>

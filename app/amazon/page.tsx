@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllEntries } from '@/lib/registry-service';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Amazon News 2026 | AWS, Robotics & AI',

@@ -21,6 +21,7 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import JackArticle from './JackArticle';
 import { ContentRenderer } from './ContentRenderer';
+import { SisterSiteCallout } from '@/components/ui/SisterSiteLink';
 
 const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
 
@@ -90,6 +91,14 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       uuid={row.uuid ?? undefined}
       version={row.version ?? undefined}
     >
+      {row.owire_link && (
+        <SisterSiteCallout
+          heading={row.owire_link.heading ?? 'More on owire.org'}
+          description={row.owire_link.description ?? ''}
+          href={row.owire_link.href}
+          ctaLabel={row.owire_link.cta ?? 'Read on owire.org →'}
+        />
+      )}
       <ContentRenderer html={row.content_html ?? ''} />
     </JackArticle>
   );

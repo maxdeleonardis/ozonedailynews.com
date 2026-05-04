@@ -22,7 +22,16 @@
   "modified_date_iso": "2026-03-21T00:00:00+00:00",
   "read_time": "2 min read",
   "hero_image": null,
-  "breadcrumbs": [],
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/jackarticle",
+      "label": "Jackarticle"
+    }
+  ],
   "author": {
     "url": "https://www.objectwire.org/team",
     "name": "ObjectWire Engineering",
@@ -32,15 +41,27 @@
   "related_articles": [
     {
       "href": "/newsarticle/test",
-      "title": "Pipeline Test — NewsArticle Component",
-      "category": "Pipeline Test",
-      "categoryColor": "text-blue-600"
+      "category": "Technology",
+      "categoryColor": "blue",
+      "title": "NewsArticle Component | Pipeline Verification"
     },
     {
-      "href": "/articlepage/test",
-      "title": "Pipeline Test — ArticlePage Component",
-      "category": "Pipeline Test",
-      "categoryColor": "text-green-600"
+      "href": "/technology/news/kaiser-permanente-ufcw-contract-ai-protections-2026",
+      "category": "Technology",
+      "categoryColor": "blue",
+      "title": "Kaiser Permanente Workers Ratify Contract with AI Protections"
+    },
+    {
+      "href": "/news/china-bars-manus-cofounders-meta-acquisition-review-2026",
+      "category": "Technology",
+      "categoryColor": "blue",
+      "title": "China Bars Manus Co-Founders From Leaving Country Amid Meta Deal Review"
+    },
+    {
+      "href": "/technology/sanders-aoc-ai-data-center-moratorium-act-march-2026",
+      "category": "Technology",
+      "categoryColor": "blue",
+      "title": "Sanders and AOC Unveil \"AI Data Center Moratorium Act\" to Pause Infrastructure Boom"
     }
   ],
   "timeline": [],
@@ -54,16 +75,16 @@
   "footer_tagline": "If this page renders from the DB, the pipeline works.",
   "footer_links": [
     {
-      "href": "/tech",
-      "label": "Technology Desk"
+      "href": "/editorial-standards",
+      "label": "Editorial Standards"
     },
     {
-      "href": "/newsarticle/test",
-      "label": "NewsArticle Test"
+      "href": "/corrections",
+      "label": "Corrections Policy"
     },
     {
-      "href": "/articlepage/test",
-      "label": "ArticlePage Test"
+      "href": "/about",
+      "label": "About ObjectWire"
     }
   ],
   "accent_color": "blue",

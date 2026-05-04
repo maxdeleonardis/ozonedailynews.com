@@ -301,7 +301,7 @@ export default async function HomePage() {
   }
 
   const [lead, second, third, ...rest] = merged;
-  const popularArticles = [lead, ...rest.slice(0, 9)].filter(Boolean); // featured + 9 for carousel
+  const popularArticles  = [lead, second, third, ...rest].filter(Boolean).slice(0, 10);
   const moreStories      = rest.slice(0, 48);   // 4-col × 4-row grid (12/page × 4 pages)
   const headlineArticles = rest.slice(48, 90);   // compact headline overflow list
   const editionDate = new Date().toLocaleDateString('en-US', {
@@ -323,139 +323,10 @@ export default async function HomePage() {
           </div>
         )}
 
-        {/* ── FEATURED: 1 HERO + 2 SECONDARY ──────────────────────────── */}
-        {lead && (
-          <section className="border-b-2 border-black pb-8 mb-0">
-            <div className="grid lg:grid-cols-2 gap-6">
-
-              {/* Hero — left, large */}
-              <div>
-                <Link href={lead.href} className="group block">
-                  {lead.imageUrl ? (
-                    <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-4">
-                      <Image
-                        src={lead.imageUrl}
-                        alt={lead.imageAlt ?? lead.title}
-                        fill
-                        priority
-                        className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                      {isMostRead && (
-                        <div className="absolute top-3 left-3">
-                          <span className="inline-flex items-center gap-1.5 text-[9px] font-black px-2.5 py-1 tracking-[.2em] uppercase bg-black text-white">
-                            <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-1.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"/></svg>
-                            Most Read
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="w-full aspect-[16/9] bg-gray-100 mb-4 flex items-center justify-center">
-                      <span className="text-gray-300 text-5xl font-black tracking-tighter">OW</span>
-                    </div>
-                  )}
-                  <CatLabel category={lead.category} breaking={lead.breaking} />
-                  <h2 className="font-serif text-2xl md:text-4xl font-black leading-tight mt-3 mb-3 group-hover:underline decoration-2">
-                    {lead.title}
-                  </h2>
-                  {lead.exclusive && (
-                    <span className="inline-block text-[9px] font-black px-2 py-0.5 tracking-widest uppercase border border-black text-black mb-2">
-                      EXCLUSIVE
-                    </span>
-                  )}
-                  {lead.excerpt && (
-                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
-                      {lead.excerpt}
-                    </p>
-                  )}
-                  <p className="text-[11px] text-gray-500 font-mono">
-                    <span className="font-semibold text-black">{lead.author}</span>
-                    {' · '}{timeAgo(lead.publishDate)}
-                  </p>
-                </Link>
-                <div className="mt-3 pt-3 border-t border-gray-100">
-                  <EngagementBar
-                    slug={lead.href}
-                    title={lead.title}
-                    url={lead.href}
-                    image={lead.imageUrl}
-                    category={lead.category}
-                  />
-                </div>
-              </div>
-
-              {/* Right column — 2 stacked secondary cards */}
-              <div className="flex flex-col gap-6">
-                {second && (
-                  <Link href={second.href} className="group flex flex-col flex-1 border border-gray-200 hover:border-black hover:shadow-md transition-all rounded-sm overflow-hidden">
-                    {second.imageUrl && (
-                      <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
-                        <Image
-                          src={second.imageUrl}
-                          alt={second.imageAlt ?? second.title}
-                          fill
-                          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, 25vw"
-                        />
-                      </div>
-                    )}
-                    <div className="p-4 flex-1 flex flex-col">
-                      <CatLabel category={second.category} breaking={second.breaking} />
-                      <h3 className="font-serif text-lg font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
-                        {second.title}
-                      </h3>
-                      {second.excerpt && (
-                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 mb-2">
-                          {second.excerpt}
-                        </p>
-                      )}
-                      <p className="text-[10px] text-gray-500 font-mono mt-auto pt-2 border-t border-gray-100">
-                        <span className="font-semibold text-black">{second.author}</span>
-                        {' · '}{timeAgo(second.publishDate)}
-                      </p>
-                    </div>
-                  </Link>
-                )}
-                {third && (
-                  <Link href={third.href} className="group flex flex-col flex-1 border border-gray-200 hover:border-black hover:shadow-md transition-all rounded-sm overflow-hidden">
-                    {third.imageUrl && (
-                      <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 shrink-0">
-                        <Image
-                          src={third.imageUrl}
-                          alt={third.imageAlt ?? third.title}
-                          fill
-                          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, 25vw"
-                        />
-                      </div>
-                    )}
-                    <div className="p-4 flex-1 flex flex-col">
-                      <CatLabel category={third.category} breaking={third.breaking} />
-                      <h3 className="font-serif text-lg font-black leading-tight mt-2 mb-2 group-hover:underline decoration-2">
-                        {third.title}
-                      </h3>
-                      {third.excerpt && (
-                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 mb-2">
-                          {third.excerpt}
-                        </p>
-                      )}
-                      <p className="text-[10px] text-gray-500 font-mono mt-auto pt-2 border-t border-gray-100">
-                        <span className="font-semibold text-black">{third.author}</span>
-                        {' · '}{timeAgo(third.publishDate)}
-                      </p>
-                    </div>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ── POPULAR NOW CAROUSEL ─────────────────────────────────────── */}
-        {popularArticles.length > 1 && (
-          <div className="border-b border-gray-200 py-6 mb-2">
-            <PopularCarousel articles={popularArticles} />
+        {/* ── TOP STORIES CAROUSEL (replaces static hero) ─────────────── */}
+        {popularArticles.length > 0 && (
+          <div className="mb-6">
+            <PopularCarousel articles={popularArticles} isMostRead={isMostRead} />
           </div>
         )}
 

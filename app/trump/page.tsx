@@ -177,7 +177,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Energy Policy"
             />
             <Hub.Card
-              href="/trump/space-force-building-golden-dome"
+              href="/trump"
               title="Space Force Builds Golden Dome | Missile Defense Shield"
               description="The Trump administration directs Space Force to develop the 'Golden Dome,' a comprehensive missile defense architecture modeled on Israel's Iron Dome."
               badge="DEFENSE"
@@ -193,7 +193,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Tax Policy"
             />
             <Hub.Card
-              href="/trump/musk-pay-tsa-workers-shutdown"
+              href="/trump"
               title="Musk Pay Dispute | TSA Workers, Shutdown Threat"
               description="DOGE-linked payroll changes create uncertainty for TSA workers as a threatened government shutdown places federal employee pay in limbo."
               badge="DOGE"
@@ -215,7 +215,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Immigration"
             />
             <Hub.Card
-              href="/trump/trump-ice-agents-drop-masks-airports"
+              href="/trump"
               title="ICE Agents Drop Masks at Airports | Enforcement Escalation"
               description="ICE enforcement agents operating at U.S. airports no longer conceal their identity, part of a visible escalation in immigration enforcement operations."
               badge="ENFORCEMENT"
@@ -223,7 +223,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Immigration"
             />
             <Hub.Card
-              href="/trump/shadow-license-problem"
+              href="/trump"
               title="The Shadow License Problem | Undocumented Driver IDs"
               description="Investigation into the 'shadow license' phenomenon: undocumented immigrants holding valid state driver's licenses that complicate federal enforcement."
               badge="INVESTIGATION"
@@ -253,7 +253,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Trade"
             />
             <Hub.Card
-              href="/trump/trump-totalenergies-928m-offshore-wind-exit"
+              href="/trump"
               title="TotalEnergies $928M Offshore Wind Exit | Trump Energy Policy"
               description="French energy giant TotalEnergies writes down $928 million in U.S. offshore wind assets and exits projects, citing Trump administration regulatory reversals."
               badge="ENERGY"
@@ -261,7 +261,7 @@ export default async function TrumpHubPage() {
               meta="2026 · Energy"
             />
             <Hub.Card
-              href="/trump/china"
+              href="/trump"
               title="Trump vs. China | Trade War Escalation"
               description="Full coverage of the expanding U.S.-China trade war: tariffs, retaliation measures, tech export controls, and supply chain decoupling."
               badge="TRADE WAR"

@@ -185,7 +185,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     Google
                   </Link>
                   <Link 
-                    href="/apple-google-gemini-partnership"
+                    href="/apple"
                     className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition-colors"
                   >
                     AI & Technology

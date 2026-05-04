@@ -12,7 +12,7 @@ export default function TechStatsBar() {
             LATEST:
           </span>
           <Link 
-            href="/claude-sonnet-4-5-release" 
+            href="/claude" 
             className="text-[11px] font-sans font-medium text-gray-900 hover:text-blue-600 transition-colors tracking-wide"
           >
             Claude 4.5 Benchmarks released ahead of schedule

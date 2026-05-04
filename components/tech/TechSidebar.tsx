@@ -78,7 +78,7 @@ export default function TechSidebar() {
           Strategic analysis delivered weekly. No noise.
         </p>
         <Link 
-          href="/newsletter" 
+          href="/news" 
           className="inline-block font-mono text-[10px] uppercase tracking-widest text-black border-b border-black hover:opacity-60 transition-opacity pb-0.5"
         >
           Subscribe →

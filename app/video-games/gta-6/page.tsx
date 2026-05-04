@@ -87,7 +87,7 @@ export default function GTA6Page() {
           {
             heading: 'Related Coverage',
             links: [
-              { href: '/video-games/gta-6/gta-6-trailer-2-breakdown', label: 'Trailer 2 Full Breakdown' },
+              { href: '/video-games/gta-6', label: 'Trailer 2 Full Breakdown' },
               { href: '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay', label: 'GTA 6 Pre-Orders' },
               { href: '/video-games/gta-6/news/take-two-ai-team-shake-up-2026', label: 'Take-Two AI Team Restructure' },
             ],
@@ -110,7 +110,7 @@ export default function GTA6Page() {
         { id: 'sub-articles', label: 'More GTA 6 Coverage' },
       ]}
       relatedLinks={[
-        { href: '/video-games/gta-6/gta-6-trailer-2-breakdown', label: 'GTA 6 Trailer 2 Breakdown', description: 'Every detail confirmed in the second official trailer' },
+        { href: '/video-games/gta-6', label: 'GTA 6 Trailer 2 Breakdown', description: 'Every detail confirmed in the second official trailer' },
         { href: '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay', label: 'GTA 6 Pre-Orders', description: 'PlayStation Store title IDs signal imminent launch window' },
         { href: '/video-games/gta-6/news/take-two-ai-team-shake-up-2026', label: 'Take-Two AI Team Restructure', description: 'Hundreds of AI pilots pledged ahead of GTA 6 launch' },
         { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on ObjectWire' },
@@ -179,7 +179,7 @@ export default function GTA6Page() {
         </p>
         <p>
           For a complete breakdown of every character detail confirmed in both trailers, see the{' '}
-          <Link href="/video-games/gta-6/gta-6-trailer-2-breakdown" className="text-blue-600 hover:text-blue-800 underline">
+          <Link href="/video-games/gta-6" className="text-blue-600 hover:text-blue-800 underline">
             GTA 6 Trailer 2 Breakdown
           </Link>.
         </p>
@@ -291,7 +291,7 @@ export default function GTA6Page() {
       <Section id="sub-articles" title="More GTA 6 Coverage">
         <p>
           ObjectWire covers GTA 6 in depth across multiple articles. Start with the{' '}
-          <Link href="/video-games/gta-6/gta-6-trailer-2-breakdown" className="text-blue-600 hover:text-blue-800 underline">
+          <Link href="/video-games/gta-6" className="text-blue-600 hover:text-blue-800 underline">
             Trailer 2 full breakdown
           </Link>
           {' '}for every confirmed detail. For the latest business and development news, see the{' '}

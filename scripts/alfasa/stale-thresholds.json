@@ -1,0 +1,18 @@
+{
+  "news": 7,
+  "politics": 7,
+  "crypto": 7,
+  "sports": 7,
+  "world": 7,
+  "finance": 14,
+  "gaming": 14,
+  "entertainment": 14,
+  "tech": 21,
+  "science": 21,
+  "culture": 30,
+  "hub": 30,
+  "wiki": 90,
+  "creator": 60,
+  "service": 180,
+  "default": 30
+}

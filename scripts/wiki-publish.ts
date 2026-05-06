@@ -27,6 +27,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { createClient } from '@supabase/supabase-js';
 import * as dotenv from 'dotenv';
+import { runSentinel, printSentinelReport, type SentinelInput } from './alfasa-sentinel';
+import { logPublishSession } from './alfasa-session-log';
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
@@ -49,6 +51,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // ── CLI ───────────────────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 const isDryRun = args.includes('--dry-run');
+const skipSentinel = args.includes('--skip-sentinel');
 const fileArg = (() => {
   const i = args.indexOf('--file');
   return i !== -1 ? args[i + 1] : null;
@@ -709,6 +712,59 @@ async function main() {
   const displayTitle = String(row.title || row.schema_title || '(empty — check metadata)');
   console.log(`  Title     : ${c.bold(displayTitle)}`);
 
+  // ── Alfasa Sentinel — E-E-A-T quality gate ────────────────────────────────
+  // Runs BEFORE any writes. Blocks publish on hard failures. Warns on soft issues.
+  // Bypass only with --skip-sentinel (logged to session file).
+  const sentinelInput: SentinelInput = {
+    filePath,
+    title:          String(row.title   ?? row.schema_title ?? ''),
+    subtitle:       String(row.subtitle ?? row.hero_subtitle ?? row.description ?? ''),
+    author_name:    String(
+      row.author_name ??
+      (row.author && typeof row.author === 'object' ? (row.author as Record<string,string>).name : null) ??
+      row.schema_author ?? ''
+    ),
+    author_slug:    String(
+      row.author_slug ??
+      (row.author && typeof row.author === 'object' ? (row.author as Record<string,string>).slug : null) ??
+      ''
+    ),
+    published_at:   String(row.published_at ?? row.publish_date_iso ?? row.schema_published_time ?? ''),
+    content_html:   String(row.content_html ?? ''),
+    tags:           Array.isArray(row.tags) ? row.tags as string[] : undefined,
+    thumbnail_src:  String(
+      row.thumbnail_src ??
+      (row.thumbnail && typeof row.thumbnail === 'object' ? (row.thumbnail as Record<string,string>).src : null) ??
+      row.hero_image_src ??
+      (row.hero_image && typeof row.hero_image === 'object' ? (row.hero_image as Record<string,string>).src : null) ??
+      ''
+    ) || undefined,
+    category:       String(row.category ?? row.category_label ?? row.schema_section ?? ''),
+    url:            String(row.url ?? row.article_url ?? row.schema_article_url ?? route),
+    metaTitle:      extractMetaProp(source, 'title') ?? undefined,
+    metaDescription:extractMetaProp(source, 'description') ?? undefined,
+    canonicalUrl:   (() => {
+      const m = source.match(/canonical:\s*[`'"]([^`'"]+)[`'"]/);
+      return m ? m[1] : undefined;
+    })(),
+  };
+
+  let sentinelPassed = false;
+  let sentinelResult: ReturnType<typeof runSentinel> = { score: 0, grade: 'F', warnings: [], blocks: [], pass: false, wordCount: 0, h2Count: 0, internalLinkCount: 0, externalLinkCount: 0 };
+
+  if (skipSentinel) {
+    console.log(c.yellow('\n  ⚠️  --skip-sentinel flag detected. E-E-A-T gate bypassed.'));
+    console.log(c.yellow('     This will be logged. Use only for emergency publishes.\n'));
+    sentinelPassed = false; // logged as skipped
+  } else {
+    sentinelResult = runSentinel(sentinelInput);
+    printSentinelReport(sentinelResult, displayTitle);
+    if (!sentinelResult.pass) {
+      process.exit(1);
+    }
+    sentinelPassed = true;
+  }
+
   // ── Step 3: Validate thumbnail ────────────────────────────────────────────
   const thumbSrc = (row.thumbnail_src ?? (row.thumbnail as Record<string,string>)?.src ?? row.hero_image_src ?? (row.hero_image as Record<string,string>)?.src) as string | undefined;
   if (thumbSrc) {
@@ -852,6 +908,22 @@ async function main() {
   console.log(c.gray(`     Table   : ${table}`));
   console.log(c.gray(`     Route   : ${route}`));
   console.log(c.gray(`\n  Next: git add -A && git commit -m "feat: publish ${route}"\n`));
+
+  // ── Alfasa session log ────────────────────────────────────────────────────
+  logPublishSession({
+    date:           new Date().toISOString(),
+    slug,
+    url:            route,
+    component,
+    wordCount:      sentinelResult.wordCount,
+    author:         sentinelInput.author_name || 'unknown',
+    category:       sentinelInput.category || 'unknown',
+    eeaScore:       sentinelResult.score,
+    eeaGrade:       sentinelResult.grade,
+    sentinelPassed,
+    skippedSentinel: skipSentinel,
+    warnings:       sentinelResult.warnings.length,
+  });
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

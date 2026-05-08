@@ -1,0 +1,8 @@
+# Nixpacks build configuration for Railway
+# Prevent Railway from trying to persist .next/cache to remote store.
+# The .next/cache directory grows to 500MB+ with 300+ static pages and causes
+# the post-build "copy /root/.cache" step to hang indefinitely.
+
+[phases.build]
+cmds = ["npm run build"]
+cacheDirectories = []

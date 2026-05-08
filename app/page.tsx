@@ -288,7 +288,12 @@ export default async function HomePage() {
       }
     }
   }
-  merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+  // Push articles with missing/invalid publishDate to the bottom before sorting
+  merged.sort((a, b) => {
+    const ta = a.publishDate ? new Date(a.publishDate).getTime() : 0;
+    const tb = b.publishDate ? new Date(b.publishDate).getTime() : 0;
+    return tb - ta;
+  });
 
   // GA4: promote most-read article to lead slot
   let popularLeadSlug: string | null = null;

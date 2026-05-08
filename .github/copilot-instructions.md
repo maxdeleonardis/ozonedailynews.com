@@ -78,7 +78,7 @@ Slug: `entertainment-news-fortnite-moves-into-movies` | Store: `content/static/a
 6. **Content depth** — specific named figures (153 productions, 65% GDC stat, 44% YoY ICVFX growth), data tables, H2 headings with numbers and `|` separators, internal links to hub pages.
 7. **Internal linking** — minimum 4 internal links per article. Must include: hub backlink, 2 cluster sibling links, 1 author page link. All links blue and underlined (see Interlinking Rules section).
 
-### `page.tsx` stub pattern (after `wiki:publish`)
+### `page.tsx` stub pattern
 
 ```tsx
 import type { Metadata } from 'next';
@@ -119,7 +119,7 @@ export default function YourPage() {
 
 ### Required `articles` static JSON fields
 
-Every `NewsArticle` article must have ALL of these populated before `wiki:publish`:
+Every `NewsArticle` article must have ALL of these populated before publishing:
 
 | Field | Rule |
 |---|---|
@@ -161,7 +161,7 @@ Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Store: `content/sta
 8. **Content depth** — specific named figures, percentages, dates. No vague claims.
 9. **Internal linking** — minimum 5 internal links per JackArticle. Link to cluster hub, 2-3 related sub-articles, and 1 author page. External source links open in `_blank` with `rel="noopener noreferrer"`. All links blue and underlined.
 
-### `page.tsx` stub pattern (after `wiki:publish`)
+### `page.tsx` stub pattern
 
 ```tsx
 import type { Metadata } from 'next';
@@ -170,7 +170,7 @@ import { JackArticleDB } from '@/components/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/your/path/here';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // REQUIRED — wiki:publish removes this, add it back manually
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://www.objectwire.org/your-image.png';
 
 export const metadata: Metadata = {
@@ -199,16 +199,6 @@ export default function YourPage() {
 }
 ```
 
-### CRITICAL | Post-`wiki:publish` ARTICLE_URL fix
-
-`wiki:publish` **always removes** the `const ARTICLE_URL = ...` line from the stub but leaves `ARTICLE_URL` references in `metadata.alternates.canonical` and `metadata.openGraph.url`. **After every `wiki:publish` on a JackArticle, manually re-add:**
-
-```ts
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-```
-
-Place it immediately after the `const SLUG = ...` line. This applies to NewsArticle stubs too when they use `ARTICLE_URL`.
-
 ---
 
 ## Gold Standard CreatorArticle | `/influencer/ari-kytsya`
@@ -232,7 +222,7 @@ Slug: `influencer-ari-kytsya` | Store: `content/static/creator_articles/` | Comp
 10. **Article Info sidebar card** — below the infobox, a styled card shows Published, Updated, Author, Category in the same row style as the infobox.
 11. **Internal linking** — minimum 3 internal links per CreatorArticle. Social handle links in the infobox rows must use `<a href>` with `target="_blank" rel="noopener noreferrer"`. Body links to related profiles and hub pages must be blue and underlined.
 
-### `page.tsx` stub pattern (after `wiki:publish`)
+### `page.tsx` stub pattern
 
 ```tsx
 import type { Metadata } from 'next';
@@ -345,35 +335,24 @@ export default function InfluencerYourCreatorPage() {
 
 ## Publishing Workflows
 
-**Workflow A — `wiki:publish` (default for ALL new article pages):**
+**All article content is stored on-prem as static JSON files in `content/static/`.** Do not write to Supabase for new articles. Supabase is used as a read fallback only for older or very large articles once they are pruned from the static store.
 
-Write the full `page.tsx` with real JSX content inside the correct component (`<ArticlePage>`, `<NewsArticle>`, `<JackArticle>`, `<CreatorArticle>`), then run:
-```bash
-npm run wiki:publish -- --file app/your/path/page.tsx
-```
-The script auto-detects the component, writes the extracted content to `content/static/{type}/{slug}.json`, updates `_index.json`, adds a `content_registry` entry, pings the Google Search Console Indexing API, and trims the file to a stub. One command does everything. No Supabase write.
+**Standard workflow for all new article pages:**
 
-**Workflow B — content file → static JSON (for `articles` type only, news format):**
-```bash
-cp content/articles/_template.ts content/articles/[category]/your-slug.ts
-# fill fields and content_html
-npm run content:dry-run
-npm run content:publish
-```
+1. Write the `page.tsx` stub with full `metadata` and the correct `*DB` component pointing at the slug.
+2. Write the static JSON content file directly at `content/static/{type}/{slug}.json`.
+3. Update `content/static/{type}/_index.json` to include the new entry.
+4. Add a `content_registry` entry (run `npm run wiki:sync` or add manually).
 
-**Workflow C — `/admin/editor` UI** — use only for quick edits or non-developer contributors.
+**`wiki:publish` is paused** — do not use it. Write stubs and static JSON manually using the gold standard patterns above.
 
-**Workflow D — bulk sync (use with caution):**
-```bash
-npm run wiki:sync      # syncs all pages to content/static/ + updates registry
-npm run wiki:status    # diagnostic: shows sync state across filesystem and registry
-```
+**Admin editor UI** (`/admin/editor`) — use only for quick edits or non-developer contributors.
 
 ### Critical rules
-- **Never write a DB stub manually.** Always run `wiki:publish` on the full content file first.
-- **Never use `<ArticlePageDB>` (or any `*DB` component) in a full content file.** The `*DB` variants are only for stubs after the script has run.
-- Slug is derived automatically from the file path. Do not set it manually in the file.
-- **After every `wiki:publish`, check the stub for `ARTICLE_URL` references.** The trimmer removes the `const` but leaves usages. Re-add `const ARTICLE_URL = \`https://www.objectwire.org${SLUG}\`` after the SLUG line.
+- **Never use `<ArticlePageDB>` (or any `*DB` component) with a slug that has no matching static JSON file.** The page will 404.
+- Slug must match the full route path joined with dashes, no leading slash, all lowercase. The `page.tsx` slug prop and the static JSON filename must be identical.
+- Every new page must have a `content_registry` entry. Missing entry = invisible to Google (no sitemap, no JSON-LD, no Top Stories).
+- Do not write Supabase rows for new articles. Static JSON is the source of truth.
 
 ---
 

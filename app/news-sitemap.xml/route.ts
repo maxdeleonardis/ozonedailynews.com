@@ -1,18 +1,34 @@
+import fs from 'fs';
+import path from 'path';
 import { SITE_CONFIG } from '@/lib/site-config';
-import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
 // Google News Sitemap Protocol: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
 //
-// Source: articles table queried directly — articles appear in Google News within minutes
-// of being pushed to Supabase, not at the next deploy.
+// Source: on-prem static JSON files in content/static/{articles,jack_articles}/
 // force-dynamic is intentional here: Google News requires freshness.
 
 // How many days back to include in the Google News sitemap.
 // Google News allows up to 2 days. We use 3 for late-pickup of stories published
 // just before midnight UTC. Reduce to 2 if Google flags the sitemap.
 const NEWS_WINDOW_DAYS = 3;
+
+const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
+
+function readStaticArticles(table: string): Record<string, unknown>[] {
+  try {
+    const dir = path.join(STATIC_BASE, table);
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.json') && f !== '_index.json')
+      .map(f => {
+        try { return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); }
+        catch { return null; }
+      })
+      .filter(Boolean);
+  } catch { return []; }
+}
 
 export async function GET() {
   const baseUrl = SITE_CONFIG.url;
@@ -21,28 +37,32 @@ export async function GET() {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - NEWS_WINDOW_DAYS);
 
-    const supabase = await createClient();
+    // Read from on-prem static files — no Supabase dependency
+    const articleRows = [
+      ...readStaticArticles('articles'),
+      ...readStaticArticles('jack_articles'),
+    ];
 
-    // Query articles table directly — new articles appear immediately after publish,
-    // no deploy required. content_registry is NOT used here.
-    const { data: articleRows } = await supabase
-      .from('articles')
-      .select('url, title, published_at, tags, category')
-      .eq('status', 'published')
-      .gte('published_at', cutoff.toISOString())
-      .order('published_at', { ascending: false })
-      .limit(1000);
-
-    const allArticles = (articleRows || [])
-      .filter(row => row.url && row.title && row.published_at)
-      .map(row => ({
-        loc: row.url.startsWith('http') ? row.url : `${baseUrl}${row.url}`,
-        title: row.title as string,
-        publicationDate: new Date(row.published_at).toISOString(),
-        keywords: Array.isArray(row.tags)
-          ? row.tags.join(', ')
-          : (row.category || ''),
-      }));
+    const allArticles = articleRows
+      .filter(row => {
+        if (!row.url && !row.article_url) return false;
+        if (!row.title) return false;
+        const pubAt = String(row.published_at || '');
+        if (!pubAt) return false;
+        return new Date(pubAt) >= cutoff;
+      })
+      .map(row => {
+        const rawUrl = String(row.url || row.article_url || '');
+        return {
+          loc: rawUrl.startsWith('http') ? rawUrl : `${baseUrl}${rawUrl}`,
+          title: String(row.title),
+          publicationDate: new Date(String(row.published_at)).toISOString(),
+          keywords: Array.isArray(row.tags)
+            ? (row.tags as string[]).join(', ')
+            : String(row.category || ''),
+        };
+      })
+      .sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime());
     
     // Generate Google News Sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

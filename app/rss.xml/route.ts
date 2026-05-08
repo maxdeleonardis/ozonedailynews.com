@@ -1,10 +1,10 @@
 import { SITE_CONFIG } from '@/lib/site-config';
-import { createClient } from '@/lib/supabase/server';
+import { getAllEntries } from '@/lib/registry-service';
 
 export const dynamic = 'force-dynamic';
 
 // RSS 2.0 feed — all article types or filtered by ?category=
-// Data sourced from content/static/content_registry.json (local-first) via Supabase mirror.
+// Data sourced from content/static/content_registry.json (on-prem, no Supabase).
 // Cap at 200 most recent entries to keep feed size reasonable.
 const RSS_LIMIT = 200;
 
@@ -15,32 +15,39 @@ export async function GET(request: Request) {
   const baseUrl = SITE_CONFIG.url;
 
   try {
-    const supabase = await createClient();
+    // Read from on-prem content registry — no Supabase dependency
+    let entries = await getAllEntries();
 
-    let query = supabase
-      .from('content_registry')
-      .select('slug, title, description, publish_date, category, tags, author, image_url')
-      .order('publish_date', { ascending: false })
-      .limit(RSS_LIMIT);
-
-    if (categoryFilter) {
-      query = query.ilike('category', categoryFilter);
-    }
-
-    const { data: rows, error } = await query;
-
-    if (error) {
-      console.error('RSS: Supabase query failed:', error.message);
-      return new Response('Error generating RSS feed', { status: 500 });
-    }
-
-    const articles = (rows || []).filter(row => {
-      const parts = row.slug.split('/').filter(Boolean);
+    // Filter to real articles (2+ path segments, non-empty description)
+    entries = entries.filter(e => {
+      const parts = e.slug.split('/').filter(Boolean);
       if (parts.length < 2) return false;
-      if ((row.description || '').length < 60) return false;
-      if ((row.title || '').startsWith('›')) return false;
+      if ((e.description || '').length < 60) return false;
+      if ((e.title || '').startsWith('›')) return false;
+      if (e.slug.includes('[')) return false;
       return true;
     });
+
+    if (categoryFilter) {
+      entries = entries.filter(e => (e.category || '').toLowerCase() === categoryFilter);
+    }
+
+    // Sort by publishDate descending, take top RSS_LIMIT
+    entries = entries
+      .filter(e => e.publishDate)
+      .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+      .slice(0, RSS_LIMIT);
+
+    const rows = entries.map(e => ({
+      slug:        e.slug,
+      title:       e.title,
+      description: e.description,
+      publish_date: e.publishDate,
+      category:    e.category,
+      tags:        e.tags,
+      author:      e.author,
+      image_url:   e.imageUrl,
+    }));
 
     const feedTitle = categoryFilter
       ? `${SITE_CONFIG.name} - ${categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)}`
@@ -63,7 +70,7 @@ export async function GET(request: Request) {
       <url>${baseUrl}/favicon.ico</url>
       <title>${escapeXml(SITE_CONFIG.name)}</title>
       <link>${baseUrl}</link>
-    </image>${articles.map(row => {
+    </image>${rows.map(row => {
       const slug = row.slug.startsWith('/') ? row.slug.substring(1) : row.slug;
       const pubDate = new Date(row.publish_date).toUTCString();
       const author = row.author || 'ObjectWire Editorial Team';

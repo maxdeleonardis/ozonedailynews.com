@@ -12496,5 +12496,90 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly"
+  },
+  {
+    "slug": "/claude/news/spacex-anthropic-compute-infrastructure-api-throughput",
+    "title": "SpaceX Anthropic Partnership | Claude API TPM Limits Up",
+    "description": "Anthropic-SpaceX deal boosts Claude Code rate limits and Tier 4-5 API token quotas. Starlink LEO cuts latency for remote teams, May 2026.",
+    "publish_date": "2026-05-07",
+    "modified_date": "2026-05-07",
+    "category": "Claude",
+    "tags": [
+      "Claude"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook",
+    "title": "Claude for Microsoft Apps | Excel, Word, PowerPoint GA",
+    "description": "Claude for Excel, PowerPoint, and Word are now generally available. Claude for Outlook is in public beta. Context carries across all four apps.",
+    "publish_date": "2026-05-07",
+    "modified_date": "2026-05-07",
+    "category": "Technology",
+    "tags": [
+      "Microsoft",
+      "Big Tech",
+      "News",
+      "Claude Microsoft Apps Excel Powerpoint Word Outlook"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/tech/meta/instagram-drops-encrypted-dms",
+    "title": "Instagram Ends Encrypted DMs | Meta Reversal May 2026",
+    "description": "Meta ends end-to-end encryption for Instagram direct messages on May 8, 2026. What changed, who is affected, and what users should do before the cutoff.",
+    "publish_date": "2026-05-07",
+    "modified_date": "2026-05-07",
+    "category": "Technology",
+    "tags": [
+      "Technology",
+      "Meta",
+      "Instagram Drops Encrypted Dms"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/gta-6/take-two-earnings-looming-before-preorders",
+    "title": "Take-Two Earnings Before GTA VI Preorders | Nov 2026",
+    "description": "Take-Two raises $6.7B bookings outlook ahead of GTA VI on November 19, 2026. $1B pre-orders forecast, $80 price debated, 12,900 staff on final polish.",
+    "publish_date": "2026-05-07",
+    "modified_date": "2026-05-07",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Gta 6",
+      "Take Two Earnings Looming Before Preorders"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/mha/ultra-rumble/season-16/cluster-bakugo-shop",
+    "title": "Cluster Bakugo Shop Duration | MHUR Season 16 End Date",
+    "description": "Cluster Bakugo is in the My Hero Ultra Rumble shop until May 27, 2026 at 12:59 JST when Season 16 ends. Full breakdown of the shop window and what you get.",
+    "publish_date": "2026-05-06",
+    "modified_date": "2026-05-06",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Mha",
+      "Ultra Rumble",
+      "Season 16",
+      "Cluster Bakugo Shop"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

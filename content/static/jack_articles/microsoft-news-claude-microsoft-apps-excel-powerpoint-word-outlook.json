@@ -1,0 +1,65 @@
+{
+  "slug": "microsoft-news-claude-microsoft-apps-excel-powerpoint-word-outlook",
+  "title": "Claude for Microsoft Apps | Excel, Word, PowerPoint GA",
+  "subtitle": "Anthropic's Claude reaches general availability in Excel, Word, and PowerPoint on May 7, 2026, with Outlook entering public beta the same day",
+  "description": "Claude for Excel, PowerPoint, and Word are now generally available. Claude for Outlook is in public beta. Full conversation context carries across all four apps.",
+  "category_label": "Tech",
+  "categories": [
+    { "label": "Tech", "color": "blue" },
+    { "label": "AI", "color": "blue" }
+  ],
+  "publish_date": "May 7, 2026",
+  "publish_date_iso": "2026-05-07T12:00:00Z",
+  "modified_date_iso": "2026-05-07T12:00:00Z",
+  "read_time": "3 min read",
+  "accent_color": "blue",
+  "section": "Tech",
+  "article_url": "/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook",
+  "layout": "news",
+  "keywords": [
+    "Claude for Microsoft",
+    "Claude for Excel",
+    "Claude for PowerPoint",
+    "Claude for Word",
+    "Claude for Outlook beta",
+    "Anthropic Microsoft integration",
+    "Claude Microsoft 365",
+    "Claude AI productivity",
+    "Anthropic Claude GA May 2026",
+    "Claude context across apps",
+    "Microsoft AI assistant 2026",
+    "Claude generally available"
+  ],
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/microsoft", "label": "Microsoft" },
+    { "href": "/microsoft/news", "label": "News" },
+    { "href": "/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook", "label": "Claude for Microsoft Apps" }
+  ],
+  "author": {
+    "name": "Conan Doyle",
+    "slug": "conan-doyle",
+    "department": "Technology Desk",
+    "url": "https://www.objectwire.org/authors/conan-doyle"
+  },
+  "related_articles": [
+    { "href": "/microsoft", "category": "Tech", "categoryColor": "blue", "title": "Microsoft News Hub" },
+    { "href": "/open-ai", "category": "Tech", "categoryColor": "blue", "title": "OpenAI News Hub" },
+    { "href": "/apple", "category": "Tech", "categoryColor": "blue", "title": "Apple News Hub" },
+    { "href": "/google", "category": "Tech", "categoryColor": "blue", "title": "Google News Hub" }
+  ],
+  "timeline": [
+    { "date": "2025", "description": "Anthropic and Microsoft announce an AI integration partnership for Microsoft 365." },
+    { "date": "Late 2025", "description": "Claude rolls out in limited preview across select Microsoft apps for enterprise testers." },
+    { "date": "May 7, 2026", "description": "Claude for Excel, PowerPoint, and Word reach general availability. Claude for Outlook enters public beta.", "highlight": true }
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "url": "https://twitter.com/claudeai/status/2052445786651168849",
+      "title": "Claude (@claudeai) on X, May 7, 2026",
+      "description": "Official Anthropic announcement confirming GA status and Outlook public beta."
+    }
+  ],
+  "content_html": "<JackSection number={1} title=\"What Is Now Generally Available\" accentColor=\"blue\">\n<p>Anthropic confirmed on May 7, 2026 that <strong>Claude for Excel, PowerPoint, and Word are now generally available</strong> to Microsoft 365 users. The three-app GA launch ends a multi-month integration period that began with a limited enterprise preview in late 2025.</p>\n<p>Outlook, the fourth app in the rollout, moves to public beta on the same date. All Microsoft 365 subscribers can opt in to the Outlook beta immediately. General availability for Outlook is expected within weeks, consistent with Anthropic's standard beta-to-GA timeline.</p>\n<JackStats title=\"GA Launch | By the Numbers\" accentColor=\"blue\" stats={[{\"value\":\"3\",\"label\":\"Apps now generally available\"},{\"value\":\"1\",\"label\":\"App in public beta (Outlook)\"},{\"value\":\"4\",\"label\":\"Total Microsoft 365 apps with Claude\"}]} />\n</JackSection>\n<JackSection number={2} title=\"Full Context Across All Four Apps\" accentColor=\"blue\">\n<p>The standout feature confirmed by Anthropic is <strong>cross-app context persistence</strong>. As Claude moves between Excel, PowerPoint, Word, and Outlook, it retains the full history of your conversation. A data model built in Excel, a presentation drafted in PowerPoint, a memo written in Word, and a follow-up email in Outlook can all draw on the same thread without the user re-explaining anything.</p>\n<JackCallout label=\"What This Means:\" accentColor=\"blue\">Claude carries full conversation context across Microsoft apps, so the work you do in Excel travels with you into Word, PowerPoint, and Outlook without any manual handoff.</JackCallout>\n<p>This context portability is the primary differentiator from Microsoft's own Copilot assistant, which operates largely within individual app sessions. Claude's cross-app memory mirrors the behavior Anthropic has established in its standalone web and API products. For more on the broader AI assistant competition, see the <a href=\"/open-ai\" class=\"text-blue-600 hover:text-blue-800 underline\">OpenAI news hub</a> and the <a href=\"/microsoft\" class=\"text-blue-600 hover:text-blue-800 underline\">Microsoft coverage hub</a>.</p>\n</JackSection>\n<JackSection number={3} title=\"Official Announcement | Claude on X\" accentColor=\"blue\">\n<TweetEmbed tweetId=\"2052445786651168849\" handle=\"claudeai\" />\n<JackQuote quote=\"Claude for Excel, PowerPoint, and Word are now generally available, and Claude for Outlook is in public beta. As Claude moves between your Microsoft apps, it carries the full context of your conversation.\" author=\"Claude (@claudeai)\" title=\"X, May 7, 2026\" accentColor=\"blue\" />\n</JackSection>\n<JackSection number={4} title=\"Practical Impact for Microsoft 365 Users\" accentColor=\"blue\">\n<p>For Word, Claude handles drafting, summarizing long documents, and rewriting passages in a different tone. In Excel, it generates formulas, interprets data, and builds pivot table logic from natural language prompts. PowerPoint users get slide drafting, speaker notes generation, and layout suggestions. Outlook's beta adds email drafting and thread summarization.</p>\n<p>The Outlook beta is available today to all Microsoft 365 subscribers. No separate signup is required. Coverage of this launch and related AI integrations continues in the <a href=\"/microsoft\" class=\"text-blue-600 hover:text-blue-800 underline\">Microsoft news hub</a>. Additional context on Anthropic's product roadmap is available on the <a href=\"/open-ai\" class=\"text-blue-600 hover:text-blue-800 underline\">OpenAI hub</a>.</p>\n</JackSection>"
+}

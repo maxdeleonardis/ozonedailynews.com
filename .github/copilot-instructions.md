@@ -6,7 +6,7 @@ These rules apply to **every** GitHub Copilot request in this workspace.
 
 ## What ObjectWire Is
 
-ObjectWire is a verified news platform built on Next.js 15, React 19, Supabase (PostgreSQL), and Tailwind CSS. The editorial mission is accuracy over speed, primary sources only, and transparent corrections. It is not a blog, aggregator, or opinion site. Every article must be verifiable, sourced, and written for real search intent.
+ObjectWire is a verified news platform built on Next.js 15, React 19, and Tailwind CSS. Article content is stored as on-prem static JSON files in `content/static/`. The editorial mission is accuracy over speed, primary sources only, and transparent corrections. It is not a blog, aggregator, or opinion site. Every article must be verifiable, sourced, and written for real search intent.
 
 Production: Railway → `objectwire.org` | Repo: `Autolab350/Objectwire-Frontend`
 
@@ -14,7 +14,7 @@ Production: Railway → `objectwire.org` | Repo: `Autolab350/Objectwire-Frontend
 
 ## OStandard — Always Enforced
 
-Whenever writing or editing any article, component, Supabase record, or editorial copy, follow the full OStandard spec defined in `.github/skills/ostandard/SKILL.md`.
+Whenever writing or editing any article, component, static JSON record, or editorial copy, follow the full OStandard spec defined in `.github/skills/ostandard/SKILL.md`.
 
 ### Core rules (quick reference):
 
@@ -41,25 +41,23 @@ Never use `—`. Replace every instance with these substitutions:
 | Prose break | `It launched — and immediately crashed` | `It launched, and immediately crashed` |
 | Quote/attribution footer | `— Jack Sterling` | `, Jack Sterling` |
 | OG/Twitter description | `New feature — here's what changed` | `New feature, here is what changed` |
-| Supabase subtitle/description | `Record sales — 5M in 48h` | `Record sales, 5M in 48 hours` |
+| Article subtitle/description | `Record sales — 5M in 48h` | `Record sales, 5M in 48 hours` |
 
 ---
 
 ## Article Component Routing
 
-Every article belongs to exactly one Supabase table. Use the correct component or you will query the wrong table:
+Every article belongs to exactly one static JSON store. Use the correct component or you will read the wrong file:
 
-| Component | Supabase Table | Use For |
+| Component | Static JSON Store | Use For |
 |---|---|---|
-| `NewsArticleDB` | `articles` | News, breaking, gaming, tech, features, analysis |
-| `JackArticleDB` | `jack_articles` | Research reports, investigations, premium long-form |
-| `ArticlePageDB` | `article_pages` | Profiles, wiki-style, evergreen reference guides |
-| `CreatorArticleDB` | `creator_articles` | Creator profiles, influencer features, athlete bios |
-| `AlysaArticleDB` | `alysa_articles` | Winter Olympics / athlete-specific legacy profiles |
+| `NewsArticleDB` | `content/static/articles/` | News, breaking, gaming, tech, features, analysis |
+| `JackArticleDB` | `content/static/jack_articles/` | Research reports, investigations, premium long-form |
+| `ArticlePageDB` | `content/static/article_pages/` | Profiles, wiki-style, evergreen reference guides |
+| `CreatorArticleDB` | `content/static/creator_articles/` | Creator profiles, influencer features, athlete bios |
+| `AlysaArticleDB` | `content/static/alysa_articles/` | Winter Olympics / athlete-specific legacy profiles |
 
-**`jack_articles` has no `status` column.** Never query `status` from it.
-
-All fetching is server-side. Zero client-side Supabase calls in page components. Every `page.tsx` must export `dynamic = 'force-dynamic'`.
+All fetching is server-side. Every `page.tsx` must export `dynamic = 'force-dynamic'`.
 
 ---
 
@@ -68,13 +66,13 @@ All fetching is server-side. Zero client-side Supabase calls in page components.
 **This is the reference article all new `NewsArticle` pages must match.**
 
 Live: `https://www.objectwire.org/entertainment/news/fortnite-moves-into-movies`
-Slug: `entertainment-news-fortnite-moves-into-movies` | Table: `articles` | Component: `NewsArticleDB`
+Slug: `entertainment-news-fortnite-moves-into-movies` | Store: `content/static/articles/` | Component: `NewsArticleDB`
 
 ### Why it is the standard
 
 1. **Layout** — 80/20 grid: main article body left (80%), `RelatedArticles` sticky sidebar right (20%)
 2. **Related Articles sidebar** — auto-populated by `RelatedArticles` (client component). Queries `articles` by category, cross-ranks with the user's `localStorage` reading history tags. No manual curation needed. It just works.
-3. **Animated thumbnail** — when there is no hero image, a `thumbnail_src` set in Supabase renders inside the gradient header with the "genie float" animation (golden flare sweep, subtle bob). This is the preferred header style for news/tech/gaming articles.
+3. **Animated thumbnail** — when there is no hero image, a `thumbnail_src` set in the static JSON renders inside the gradient header with the "genie float" animation (golden flare sweep, subtle bob). This is the preferred header style for news/tech/gaming articles.
 4. **Full engagement stack** — every article gets: `ReactionBar` (like/share/save), `DiscordComments`, `NewsletterSignupInline`, `ArticleViewTracker`, `TagsSection`, and an author card footer. These are automatic. Do not remove them.
 5. **Metadata quality** — 18 targeted keywords, full `openGraph` block with `publishedTime` + `section`, `twitter` card, canonical URL.
 6. **Content depth** — specific named figures (153 productions, 65% GDC stat, 44% YoY ICVFX growth), data tables, H2 headings with numbers and `|` separators, internal links to hub pages.
@@ -119,7 +117,7 @@ export default function YourPage() {
 }
 ```
 
-### Required `articles` Supabase fields
+### Required `articles` static JSON fields
 
 Every `NewsArticle` article must have ALL of these populated before `wiki:publish`:
 
@@ -149,7 +147,7 @@ Every `NewsArticle` article must have ALL of these populated before `wiki:publis
 **This is the reference article all new `JackArticle` pages must match.**
 
 Live: `https://www.objectwire.org/crypto/news/anchorage-usat-expands-to-celo-network`
-Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Table: `jack_articles` | Component: `JackArticleDB`
+Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Store: `content/static/jack_articles/` | Component: `JackArticleDB`
 
 ### Why it is the standard
 
@@ -218,7 +216,7 @@ Place it immediately after the `const SLUG = ...` line. This applies to NewsArti
 **This is the reference article all new `CreatorArticle` pages must match.**
 
 Live: `https://www.objectwire.org/influencer/ari-kytsya`
-Slug: `influencer-ari-kytsya` | Table: `creator_articles` | Component: `CreatorArticleDB`
+Slug: `influencer-ari-kytsya` | Store: `content/static/creator_articles/` | Component: `CreatorArticleDB`
 
 ### Why it is the standard
 
@@ -286,7 +284,7 @@ export default function InfluencerYourCreatorPage() {
 }
 ```
 
-### Required `creator_articles` Supabase fields
+### Required `creator_articles` static JSON fields
 
 | Field | Rule |
 |---|---|
@@ -341,7 +339,7 @@ export default function InfluencerYourCreatorPage() {
 - `app/california/my-article/page.tsx` → slug: `california-my-article`
 - `app/trump/foo/page.tsx` → slug: `trump-foo`
 - Slugs match the full path joined with dashes, no leading slash, all lowercase.
-- The slug in `page.tsx` and the slug in the Supabase row must be identical.
+- The slug in `page.tsx` and the slug in the static JSON filename must be identical.
 
 ---
 
@@ -353,9 +351,9 @@ Write the full `page.tsx` with real JSX content inside the correct component (`<
 ```bash
 npm run wiki:publish -- --file app/your/path/page.tsx
 ```
-The script auto-detects the component, upserts to the correct Supabase table, adds a `content_registry` entry, and trims the file to a stub. One command does everything.
+The script auto-detects the component, writes the extracted content to `content/static/{type}/{slug}.json`, updates `_index.json`, adds a `content_registry` entry, pings the Google Search Console Indexing API, and trims the file to a stub. One command does everything. No Supabase write.
 
-**Workflow B — content file → Supabase (for `articles` table only, news format):**
+**Workflow B — content file → static JSON (for `articles` type only, news format):**
 ```bash
 cp content/articles/_template.ts content/articles/[category]/your-slug.ts
 # fill fields and content_html
@@ -367,8 +365,8 @@ npm run content:publish
 
 **Workflow D — bulk sync (use with caution):**
 ```bash
-npm run wiki:sync      # upserts all pages + deletes orphan Supabase rows
-npm run wiki:status    # diagnostic: shows sync state across filesystem, registry, Supabase
+npm run wiki:sync      # syncs all pages to content/static/ + updates registry
+npm run wiki:status    # diagnostic: shows sync state across filesystem and registry
 ```
 
 ### Critical rules
@@ -499,7 +497,7 @@ Never:
 - Use bare `<a href>` with no class inside JSX or `content_html`
 - Omit `target="_blank" rel="noopener noreferrer"` on external links
 
-### Links inside `content_html` (raw HTML stored in Supabase)
+### Links inside `content_html` (raw HTML stored in static JSON)
 
 Use `class=` (not `className=`) in raw HTML strings. Embed the Tailwind classes directly:
 
@@ -535,9 +533,9 @@ The `prose` Tailwind class applies default link colors but they are overridden b
 ## General Code Standards
 
 - TypeScript strict mode is on — no `any` types without justification.
-- All Supabase queries go through `lib/blog-service.ts` or `lib/supabase/`.
+- All static JSON reads go through the `loadStaticRow()` helpers in each `*DB` component.
 - Server components fetch data; client components handle interaction only.
-- Never hardcode Supabase URLs or keys — use env vars (`NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`).
+- Never hardcode Supabase URLs or keys — use env vars (`NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) only for legacy read fallbacks.
 - Tailwind only — no inline `style={{}}` unless absolutely necessary.
 - File names: kebab-case for pages/routes, PascalCase for components.
 - `content_html` bodies must be wrapped in `<div class="prose prose-lg max-w-none">`.
@@ -554,7 +552,7 @@ Never render internal or external links as unstyled black text. Every hyperlink 
 
 This applies in all contexts:
 - JSX in `.tsx` files
-- Raw HTML strings in `content_html` Supabase fields (use `class=` not `className=` in raw HTML)
+- Raw HTML strings in `content_html` static JSON fields (use `class=` not `className=` in raw HTML)
 - `<CreatorSection>`, `<JackSection>`, `<WikiArticle>` body content
 - Infobox `sidebar_infobox_rows` (social handle hrefs)
 - Source citations and footnotes
@@ -584,10 +582,10 @@ Raw `<table>` is acceptable only inside `<JackSection>` sub-components within Ja
 
 ### Homepage Article Pipeline
 
-The homepage (`app/page.tsx`) sources articles from three Supabase tables via `lib/article-service.ts`:
-- `articles` — via `getAllArticles()`
-- `creator_articles` — via `getCreatorArticles()`
-- `jack_articles` — via `getJackArticles()` (added April 2, 2026)
+The homepage (`app/page.tsx`) sources articles from three static JSON stores via `lib/article-service.ts`:
+- `content/static/articles/` — via `getAllArticles()`
+- `content/static/creator_articles/` — via `getCreatorArticles()`
+- `content/static/jack_articles/` — via `getJackArticles()` (added April 2, 2026)
 
 All three are merged and sorted by `publishDate` before display. JackArticles appear on the homepage as long as their `article_url` field is populated with the canonical path.
 

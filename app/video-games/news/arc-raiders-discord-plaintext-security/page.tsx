@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically â€” content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/news/arc-raiders-discord-plaintext-security';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

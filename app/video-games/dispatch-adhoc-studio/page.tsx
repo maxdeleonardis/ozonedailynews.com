@@ -3,7 +3,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/dispatch-adhoc-studio';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1620075266917-2c5791f6737b?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';

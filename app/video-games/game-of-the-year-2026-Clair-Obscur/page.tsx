@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/game-of-the-year-2026-Clair-Obscur';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

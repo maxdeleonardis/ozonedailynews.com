@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/mario-kart/version-1-6-0-bob-omb-blast';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&h=675&fit=crop';

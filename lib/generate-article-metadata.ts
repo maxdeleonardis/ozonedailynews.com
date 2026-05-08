@@ -29,6 +29,10 @@ const META_SELECT_BASE = [
   'slug',
   'category',
   'tags',
+  'og_image_url',
+  'og_image_width',
+  'og_image_height',
+  'og_image_alt',
   'hero_image_src',
   'hero_image_alt',
   'thumbnail_src',
@@ -60,6 +64,10 @@ interface MetaRow {
   tags?: string[];
   meta_title?: string | null;
   meta_description?: string | null;
+  og_image_url?: string | null;
+  og_image_width?: number | null;
+  og_image_height?: number | null;
+  og_image_alt?: string | null;
   hero_image_src?: string | null;
   hero_image_alt?: string | null;
   thumbnail_src?: string | null;
@@ -124,7 +132,10 @@ export async function generateArticleMetadata(
     : `https://www.objectwire.org${canonicalPath}`;
 
   // ── Resolve image ────────────────────────────────────────────────
+  // og_image_url takes explicit priority (set by editor for Discover/Top Stories eligibility).
+  // Falls through hero_image_src → thumbnail_src → dynamic OG card.
   const resolvedImageUrl =
+    r.og_image_url ||
     r.hero_image_src ||
     (r.hero_image && typeof r.hero_image === 'object' ? r.hero_image.src : null) ||
     r.thumbnail_src ||
@@ -136,7 +147,13 @@ export async function generateArticleMetadata(
   const ogFallback = `https://www.objectwire.org/api/og?slug=${encodeURIComponent(canonicalPath)}`;
   const imageUrl = resolvedImageUrl || ogFallback;
 
+  // Image dimensions: use explicit DB values if set (required for Google Top Stories),
+  // otherwise default to 1200×675 (16:9, Google's preferred aspect ratio).
+  const imageWidth = r.og_image_width ?? 1200;
+  const imageHeight = r.og_image_height ?? 675;
+
   const imageAlt =
+    r.og_image_alt ||
     r.hero_image_alt ||
     (r.hero_image && typeof r.hero_image === 'object' ? r.hero_image.alt : null) ||
     r.title ||
@@ -173,8 +190,8 @@ export async function generateArticleMetadata(
       images: [
         {
           url: imageUrl,
-          width: 1200,
-          height: 630,
+          width: imageWidth,
+          height: imageHeight,
           alt: imageAlt,
         },
       ],

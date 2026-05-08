@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/dragon-ball/xenoverse-3-new-world-toriyama-age-1000-2027';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish

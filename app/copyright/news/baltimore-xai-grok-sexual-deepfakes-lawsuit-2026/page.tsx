@@ -3,7 +3,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/copyright/news/baltimore-xai-grok-sexual-deepfakes-lawsuit-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

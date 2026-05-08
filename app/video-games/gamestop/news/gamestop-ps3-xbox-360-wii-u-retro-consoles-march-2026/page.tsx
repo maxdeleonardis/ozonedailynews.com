@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/gamestop/news/gamestop-ps3-xbox-360-wii-u-retro-consoles-march-2026';
 const FULL_URL = `https://www.objectwire.org${SLUG}`;

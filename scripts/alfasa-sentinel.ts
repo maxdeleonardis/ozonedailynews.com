@@ -57,6 +57,7 @@ const MIN_TAGS = 4;
 const KNOWN_AUTHORS: string[] = [
   'michael-cripe',
   'jack-sterling',
+  'conan-doyle',
   'objectwire-investigative-desk',
   'objectwire-influencer-desk',
   'objectwire-editorial',
@@ -109,6 +110,8 @@ export interface SentinelInput {
   content_html?: string;
   tags?: string[];
   thumbnail_src?: string;
+  og_image_width?: number;
+  og_image_height?: number;
   category?: string;
   url?: string;
   // From metadata block
@@ -161,7 +164,10 @@ function countWords(html: string): number {
 }
 
 function countH2(html: string): number {
-  return (html.match(/<h2[\s>]/gi) || []).length;
+  // Count literal <h2> tags AND JackSection components (which render as <h2> at runtime)
+  const h2Tags = (html.match(/<h2[\s>]/gi) || []).length;
+  const jackSections = (html.match(/<JackSection[\s>]/g) || []).length;
+  return h2Tags + jackSections;
 }
 
 function countInternalLinks(html: string): number {
@@ -385,6 +391,15 @@ export function runSentinel(input: SentinelInput): SentinelResult {
       level: 'WARN',
       message: 'No thumbnail_src. Articles without images are ineligible for Google Top Stories.',
       fix: 'Add a thumbnail_src URL (hosted image, min 1200x675px) or a thumbnail_src path.',
+    });
+  }
+
+  if (input.thumbnail_src && (!input.og_image_width || !input.og_image_height)) {
+    warnings.push({
+      code: 'W9',
+      level: 'WARN',
+      message: 'og_image_width / og_image_height not set. Google requires explicit dimensions for Discover and Top Stories eligibility.',
+      fix: 'Set og_image_width=1200 and og_image_height=675 in the Supabase articles row (or run the add-og-image-columns.sql migration).',
     });
   }
 

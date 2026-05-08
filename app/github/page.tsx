@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 import { generateArticleMetadata } from '@/lib/seo-utils';
 
+export const revalidate = 3600;
+
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
 

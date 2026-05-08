@@ -111,7 +111,11 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
   const r = row as any;
 
   // ---------------------------------------------------------------------------
-  // 3. Build "More from Hub" from static index (no Supabase call)
+  // 3. Build "More from Hub" — static index if present, otherwise Supabase
+  //    Priority order:
+  //      A) URL-path siblings (share 2+ path segments) — most topically relevant
+  //      B) Tag-overlapping articles in same category
+  //      C) Same-category recency fallback
   // ---------------------------------------------------------------------------
   const moreFromHubItems: Array<{
     slug: string;
@@ -123,45 +127,128 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
   }> = [];
 
   const index = getArticlesIndex();
+  const articleTags: string[] = Array.isArray(r.tags) ? r.tags : [];
+  const articleUrl: string = typeof r.url === 'string' ? r.url : '';
 
-  // Strategy 1: same category
-  const catSiblings = index
-    .filter((a) => a.category === r.category && a.slug !== slug && a.url && a.title && a.status === 'published')
-    .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
-    .slice(0, 8);
+  // Derive URL-path hub prefix (first 2 non-trivial segments, e.g. /video-games/mha/)
+  const urlSegments = articleUrl.replace(/^\//, '').split('/').filter(Boolean);
+  const deepHubPrefix = urlSegments.length >= 2 ? `/${urlSegments[0]}/${urlSegments[1]}/` : null;
+  const shallowHubPrefix = urlSegments.length >= 1 ? `/${urlSegments[0]}/` : null;
 
-  for (const a of catSiblings) {
-    if (!a.url || !a.title) continue;
-    moreFromHubItems.push({
-      slug: a.slug,
-      title: a.title,
-      url: a.url,
-      publishDate: a.publish_date ?? undefined,
-      category: a.category ?? undefined,
-      thumbnail: a.thumbnail_src ?? undefined,
+  if (index.length > 0) {
+    // ── Static index path ────────────────────────────────────────────────────
+    type ScoredEntry = IndexEntry & { _score: number };
+
+    const candidates = index.filter(
+      (a) => a.slug !== slug && a.url && a.title && a.status === 'published',
+    );
+
+    const scored: ScoredEntry[] = candidates.map((a) => {
+      let score = 0;
+      // URL-path proximity: deep match scores highest
+      if (deepHubPrefix && a.url?.startsWith(deepHubPrefix)) score += 10;
+      else if (shallowHubPrefix && a.url?.startsWith(shallowHubPrefix)) score += 5;
+      // Same category
+      if (a.category === r.category) score += 3;
+      // Recency bonus (articles from last 30 days)
+      if (a.published_at) {
+        const ageDays = (Date.now() - new Date(a.published_at).getTime()) / 86400000;
+        score += Math.max(0, 1 - ageDays / 30) * 2;
+      }
+      return { ...a, _score: score };
     });
-    if (moreFromHubItems.length >= 6) break;
-  }
 
-  // Strategy 2 (fallback): URL-prefix matches
-  if (moreFromHubItems.length < 6 && r.url) {
-    const segments = (r.url as string).split('/').filter(Boolean);
-    const hubPrefix = segments.length > 0 ? `/${segments[0]}/` : null;
-    if (hubPrefix) {
-      const seen = new Set(moreFromHubItems.map((i) => i.slug));
-      const prefixSiblings = index.filter(
-        (a) =>
-          a.url?.startsWith(hubPrefix) &&
-          a.slug !== slug &&
-          !seen.has(a.slug) &&
-          a.url &&
-          a.title &&
-          a.status === 'published',
-      )
-        .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
-        .slice(0, 12);
-      for (const a of prefixSiblings) {
+    scored.sort((a, b) => {
+      const sd = b._score - a._score;
+      return sd !== 0 ? sd : (b.published_at ?? '').localeCompare(a.published_at ?? '');
+    });
+
+    for (const a of scored.slice(0, 12)) {
+      if (!a.url || !a.title) continue;
+      moreFromHubItems.push({
+        slug: a.slug,
+        title: a.title,
+        url: a.url,
+        publishDate: a.publish_date ?? undefined,
+        category: a.category ?? undefined,
+        thumbnail: a.thumbnail_src ?? undefined,
+      });
+      if (moreFromHubItems.length >= 6) break;
+    }
+  } else {
+    // ── Supabase fallback ────────────────────────────────────────────────────
+    // When static index is unavailable, query Supabase in two passes:
+    //   Pass A: URL-path prefix match (deep hub siblings) sorted by recency
+    //   Pass B: tag overlap within same category, filling remaining slots
+    const supabase = await createClient();
+    const SELECT_COLS = 'slug,title,url,publish_date,published_at,category,thumbnail_src';
+
+    // Pass A: deep hub URL-prefix siblings
+    if (deepHubPrefix) {
+      const { data: pathSiblings } = await supabase
+        .from('articles')
+        .select(SELECT_COLS)
+        .neq('slug', slug)
+        .eq('status', 'published')
+        .like('url', `${deepHubPrefix}%`)
+        .order('published_at', { ascending: false })
+        .limit(8);
+
+      for (const a of pathSiblings ?? []) {
         if (!a.url || !a.title) continue;
+        moreFromHubItems.push({
+          slug: a.slug,
+          title: a.title,
+          url: a.url,
+          publishDate: a.publish_date ?? undefined,
+          category: a.category ?? undefined,
+          thumbnail: a.thumbnail_src ?? undefined,
+        });
+        if (moreFromHubItems.length >= 6) break;
+      }
+    }
+
+    // Pass B: tag-overlap siblings in same category (fills remaining slots)
+    if (moreFromHubItems.length < 6 && articleTags.length > 0) {
+      const seenSlugs = new Set(moreFromHubItems.map((i) => i.slug));
+      const { data: tagSiblings } = await supabase
+        .from('articles')
+        .select(SELECT_COLS)
+        .neq('slug', slug)
+        .eq('status', 'published')
+        .eq('category', r.category)
+        .contains('tags', articleTags.slice(0, 3)) // overlap on up to 3 primary tags
+        .order('published_at', { ascending: false })
+        .limit(12);
+
+      for (const a of tagSiblings ?? []) {
+        if (!a.url || !a.title || seenSlugs.has(a.slug)) continue;
+        moreFromHubItems.push({
+          slug: a.slug,
+          title: a.title,
+          url: a.url,
+          publishDate: a.publish_date ?? undefined,
+          category: a.category ?? undefined,
+          thumbnail: a.thumbnail_src ?? undefined,
+        });
+        if (moreFromHubItems.length >= 6) break;
+      }
+    }
+
+    // Pass C: plain same-category recency fallback if still short
+    if (moreFromHubItems.length < 6) {
+      const seenSlugs = new Set(moreFromHubItems.map((i) => i.slug));
+      const { data: catFallback } = await supabase
+        .from('articles')
+        .select(SELECT_COLS)
+        .neq('slug', slug)
+        .eq('status', 'published')
+        .eq('category', r.category)
+        .order('published_at', { ascending: false })
+        .limit(12);
+
+      for (const a of catFallback ?? []) {
+        if (!a.url || !a.title || seenSlugs.has(a.slug)) continue;
         moreFromHubItems.push({
           slug: a.slug,
           title: a.title,

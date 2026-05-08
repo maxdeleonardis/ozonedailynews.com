@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/video-games/forza-horizon-6/news/pre-launch-511k-steam-presales-alinea-analytics-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

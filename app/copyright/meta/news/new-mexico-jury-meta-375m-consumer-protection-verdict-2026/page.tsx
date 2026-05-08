@@ -3,7 +3,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const SLUG = '/copyright/meta/news/new-mexico-jury-meta-375m-consumer-protection-verdict-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

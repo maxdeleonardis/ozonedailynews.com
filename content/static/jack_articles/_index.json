@@ -1,5 +1,17 @@
 [
   {
+    "slug": "claude-news-spacex-anthropic-compute-infrastructure-api-throughput",
+    "title": "SpaceX Anthropic Partnership | Claude API TPM Limits Up",
+    "url": "/claude/news/spacex-anthropic-compute-infrastructure-api-throughput",
+    "category": ""
+  },
+  {
+    "slug": "microsoft-news-claude-microsoft-apps-excel-powerpoint-word-outlook",
+    "title": "Claude for Microsoft Apps | Excel, Word, PowerPoint GA",
+    "url": "/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook",
+    "category": "Tech"
+  },
+  {
     "slug": "tech-deepseek-news-deepseek-v4-funding-round-tencent-alibaba",
     "title": "DeepSeek V4 | $20B Valuation, Tencent Funding Talks",
     "url": null,

@@ -3,7 +3,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
 // Run 'npm run wiki:migrate' to update content in Supabase.
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "MY HERO ACADEMIA: All's Justice Review 2026 - Final War Arc 3v3 Fighting Game",

@@ -65,7 +65,8 @@ export const redirects: R[] = [
   { source: '/mha',            destination: '/video-games',  permanent: true },
   { source: '/james-cameron',  destination: '/entertainment',permanent: true },
 
-  // Tag pages — no individual tag pages exist
+  // Tag pages — removed, redirect everything to /news
+  { source: '/tags',           destination: '/news', permanent: true },
   { source: '/tags/:path*',    destination: '/news', permanent: true },
 
   // Service pages — detective agency

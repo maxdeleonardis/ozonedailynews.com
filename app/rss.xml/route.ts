@@ -3,22 +3,31 @@ import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
-// RSS 2.0 feed — all article types (NewsArticle, JackArticle, ArticlePage).
-// Data sourced from Supabase content_registry (auto-synced on every build via prebuild script).
-// Cap at 200 most recent entries to keep feed size reasonable for readers.
+// RSS 2.0 feed — all article types or filtered by ?category=
+// Data sourced from content/static/content_registry.json (local-first) via Supabase mirror.
+// Cap at 200 most recent entries to keep feed size reasonable.
 const RSS_LIMIT = 200;
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const categoryFilter = searchParams.get('category')?.toLowerCase() ?? null;
+
   const baseUrl = SITE_CONFIG.url;
 
   try {
     const supabase = await createClient();
 
-    const { data: rows, error } = await supabase
+    let query = supabase
       .from('content_registry')
       .select('slug, title, description, publish_date, category, tags, author, image_url')
       .order('publish_date', { ascending: false })
       .limit(RSS_LIMIT);
+
+    if (categoryFilter) {
+      query = query.ilike('category', categoryFilter);
+    }
+
+    const { data: rows, error } = await query;
 
     if (error) {
       console.error('RSS: Supabase query failed:', error.message);
@@ -26,7 +35,6 @@ export async function GET() {
     }
 
     const articles = (rows || []).filter(row => {
-      // Exclude hub/meta pages — only real articles
       const parts = row.slug.split('/').filter(Boolean);
       if (parts.length < 2) return false;
       if ((row.description || '').length < 60) return false;
@@ -34,15 +42,23 @@ export async function GET() {
       return true;
     });
 
+    const feedTitle = categoryFilter
+      ? `${SITE_CONFIG.name} - ${categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)}`
+      : `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`;
+
+    const selfUrl = categoryFilter
+      ? `${baseUrl}/rss.xml?category=${encodeURIComponent(categoryFilter)}`
+      : `${baseUrl}/rss.xml`;
+
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>${escapeXml(SITE_CONFIG.name)} - ${escapeXml(SITE_CONFIG.tagline)}</title>
+    <title>${escapeXml(feedTitle)}</title>
     <link>${baseUrl}</link>
     <description>${escapeXml(SITE_CONFIG.description)}</description>
     <language>${SITE_CONFIG.locale.replace('_', '-').toLowerCase()}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${selfUrl}" rel="self" type="application/rss+xml"/>
     <image>
       <url>${baseUrl}/favicon.ico</url>
       <title>${escapeXml(SITE_CONFIG.name)}</title>

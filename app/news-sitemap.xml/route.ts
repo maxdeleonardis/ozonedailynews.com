@@ -4,17 +4,14 @@ import { createClient } from '@/lib/supabase/server';
 export const dynamic = 'force-dynamic';
 
 // Google News Sitemap Protocol: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
-// Articles are sourced automatically from the content registry (lib/content-registry.ts).
-// To appear here, an entry needs:
-//   - publishDate within the sliding window (NEWS_WINDOW_DAYS — default 3 for discovery latency)
-//   - tags[] used as news keywords
-// The registry is auto-synced before every build via the `prebuild` npm script.
+//
+// Source: articles table queried directly — articles appear in Google News within minutes
+// of being pushed to Supabase, not at the next deploy.
+// force-dynamic is intentional here: Google News requires freshness.
 
 // How many days back to include in the Google News sitemap.
-// Google News crawls articles published within the last 2 days for News Search inclusion;
-// the protocol allows up to 2 days, but Google tolerates a slightly wider window for discovery.
-// We use 3 to capture late-pickup of stories published just before midnight UTC and to
-// improve recovery from indexing latency. Reduce to 2 if Google flags the sitemap.
+// Google News allows up to 2 days. We use 3 for late-pickup of stories published
+// just before midnight UTC. Reduce to 2 if Google flags the sitemap.
 const NEWS_WINDOW_DAYS = 3;
 
 export async function GET() {
@@ -24,32 +21,28 @@ export async function GET() {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - NEWS_WINDOW_DAYS);
 
-    // Pull recent articles from Supabase content_registry table.
-    // Auto-synced on every build via the prebuild script (sync-registry.ts).
     const supabase = await createClient();
-    const cutoffStr = cutoff.toISOString().split('T')[0]; // "YYYY-MM-DD"
-    const { data: registryRows } = await supabase
-      .from('content_registry')
-      .select('slug, title, publish_date, tags, category')
-      .gte('publish_date', cutoffStr)
-      .order('publish_date', { ascending: false });
 
-    const registryArticles = (registryRows || []).map(row => ({
-      loc: `${baseUrl}${row.slug}`,
-      title: row.title,
-      // publish_date is timestamptz — already a full ISO string from Supabase
-      publicationDate: new Date(row.publish_date).toISOString(),
-      keywords: Array.isArray(row.tags) ? row.tags.join(', ') : (row.category || ''),
-    }));
+    // Query articles table directly — new articles appear immediately after publish,
+    // no deploy required. content_registry is NOT used here.
+    const { data: articleRows } = await supabase
+      .from('articles')
+      .select('url, title, published_at, tags, category')
+      .eq('status', 'published')
+      .gte('published_at', cutoff.toISOString())
+      .order('published_at', { ascending: false })
+      .limit(1000);
 
-    // All news articles come from the content_registry (auto-synced on build).
-    // No separate CMS/blog query needed.
-    const allArticles = [...registryArticles];
-    
-    // Sort by publication date (most recent first)
-    allArticles.sort((a, b) => 
-      new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime()
-    );
+    const allArticles = (articleRows || [])
+      .filter(row => row.url && row.title && row.published_at)
+      .map(row => ({
+        loc: row.url.startsWith('http') ? row.url : `${baseUrl}${row.url}`,
+        title: row.title as string,
+        publicationDate: new Date(row.published_at).toISOString(),
+        keywords: Array.isArray(row.tags)
+          ? row.tags.join(', ')
+          : (row.category || ''),
+      }));
     
     // Generate Google News Sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

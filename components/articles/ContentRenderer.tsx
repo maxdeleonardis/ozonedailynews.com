@@ -51,6 +51,10 @@ import {
   CreatorImageGallery,
 } from '@/components/articles/CreatorArticle';
 import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorGalleryImage } from '@/components/articles/CreatorArticle';
+import { TweetEmbed } from '@/components/articles/TweetEmbed';
+import FAQAccordion from '@/components/FAQAccordion';
+import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
+import type { SourceItem, InternalLinkItem } from '@/components/articles/SourcesInterlink';
 
 // ── Known component registry ────────────────────────────────────────────────
 
@@ -315,9 +319,38 @@ const COMPONENTS: Record<string, ComponentDef> = {
     ),
     selfClosing: true,
   },
+  TweetEmbed: {
+    render: (props) => (
+      <TweetEmbed
+        tweetId={(props.tweetId as string) ?? ''}
+        handle={props.handle as string | undefined}
+        mediaMaxWidth={props.mediaMaxWidth as number | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  FAQAccordion: {
+    render: (props) => (
+      <FAQAccordion
+        items={(props.items as Array<{ question: string; answer: string }>) ?? []}
+        heading={props.heading as string | undefined}
+        color={props.color as 'blue' | 'purple' | 'green' | 'orange' | 'red' | 'gray' | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  SourcesInterlink: {
+    render: (props) => (
+      <SourcesInterlink
+        sources={(props.sources as SourceItem[] | undefined) ?? []}
+        internalLinks={(props.internalLinks as InternalLinkItem[] | undefined) ?? []}
+        heading={props.heading as string | undefined}
+        accentColor={props.accentColor as 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'gray' | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
 };
-
-// Component names pattern for splitting
 const COMPONENT_NAMES = Object.keys(COMPONENTS).join('|');
 
 // ── JSX prop parser ─────────────────────────────────────────────────────────

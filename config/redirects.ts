@@ -29,6 +29,13 @@ export const redirects: R[] = [
   },
 
   // ==========================================================================
+  // YOUTUBE SECTION MIGRATION — moved to owire.org
+  // Date: May 11, 2026
+  // ==========================================================================
+  { source: '/youtube',        destination: 'https://owire.org/youtube',        permanent: true },
+  { source: '/youtube/:path*', destination: 'https://owire.org/youtube/:path*', permanent: true },
+
+  // ==========================================================================
   // SIDEMEN CONTENT MIGRATION — /sidemen → /youtube/sidemen
   // Date: February 7, 2026
   // ==========================================================================

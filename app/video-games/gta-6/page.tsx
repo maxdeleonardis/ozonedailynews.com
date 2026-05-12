@@ -110,6 +110,7 @@ export default function GTA6Page() {
         { id: 'sub-articles', label: 'More GTA 6 Coverage' },
       ]}
       relatedLinks={[
+        { href: '/video-games/gta-6/release-date', label: 'GTA 6 Release Date | Everything Confirmed', description: 'Full deep-dive: release window, characters, map, price, PC timeline, and online mode' },
         { href: '/video-games/gta-6', label: 'GTA 6 Trailer 2 Breakdown', description: 'Every detail confirmed in the second official trailer' },
         { href: '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay', label: 'GTA 6 Pre-Orders', description: 'PlayStation Store title IDs signal imminent launch window' },
         { href: '/video-games/gta-6/news/take-two-ai-team-shake-up-2026', label: 'Take-Two AI Team Restructure', description: 'Hundreds of AI pilots pledged ahead of GTA 6 launch' },

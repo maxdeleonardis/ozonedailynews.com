@@ -1,6 +1,9 @@
 // NewsArticle Schema Component for Google News, Perplexity, and MSN
 // Add this to your article pages for proper indexing
 // IMPORTANT: All URLs must use https://www.objectwire.org (canonical www domain)
+//
+// Google Top Stories image requirement: minimum 1200x675 (16:9 ratio).
+// 1200x630 fails the Top Stories eligibility check.
 
 export interface ArticleSchemaProps {
   title: string;
@@ -10,9 +13,12 @@ export interface ArticleSchemaProps {
   publishedTime: string;
   modifiedTime?: string;
   imageUrl?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   articleUrl: string;
   section?: string;
   keywords?: string[];
+  wordCount?: number;
 }
 
 export function NewsArticleSchema({
@@ -23,9 +29,12 @@ export function NewsArticleSchema({
   publishedTime,
   modifiedTime,
   imageUrl,
+  imageWidth = 1200,
+  imageHeight = 675,
   articleUrl,
   section = "Technology",
   keywords = [],
+  wordCount,
 }: ArticleSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
@@ -33,10 +42,18 @@ export function NewsArticleSchema({
     "headline": title,
     "description": description,
     "image": imageUrl
-      ? [{ "@type": "ImageObject", "url": imageUrl, "width": 1200, "height": 630 }]
+      ? [{
+          "@type": "ImageObject",
+          "url": imageUrl,
+          // Google Top Stories requires minimum 1200x675 (16:9).
+          // Never use 1200x630 — it fails the eligibility check silently.
+          "width": imageWidth,
+          "height": imageHeight,
+        }]
       : undefined,
     "datePublished": publishedTime,
     "dateModified": modifiedTime || publishedTime,
+    ...(wordCount ? { "wordCount": wordCount } : {}),
     "author": {
       "@type": "Person",
       "name": author,
@@ -44,7 +61,7 @@ export function NewsArticleSchema({
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
-      "name": "ObjectWire News",
+      "name": "ObjectWire",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.objectwire.org/objectwire-logo.png",
@@ -67,10 +84,18 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire News", "url": "https://www.objectwire.org" },
+    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.objectwire.org" },
+    // speakable — voice assistants (Google Assistant, Siri) and AI systems read these selectors.
+    // Using specific selectors targets the actual answer content, not nav/footer noise.
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": ["h1", "article"]
+      "cssSelector": [
+        "h1",
+        ".direct-answer",
+        ".key-takeaways",
+        "article p:first-of-type",
+        ".article-body p:first-of-type"
+      ]
     }
   };
 
@@ -121,10 +146,9 @@ export function OrganizationSchema() {
     "diversityPolicy": "https://www.objectwire.org/editorial-standards",
     "masthead": "https://www.objectwire.org/team",
     "ownershipFundingInfo": "https://www.objectwire.org/about",
-    "nonprofitStatus": "Nonprofit501c3",
     "funder": {
       "@type": "Organization",
-      "name": "ObjectWire News (self-funded)",
+      "name": "ObjectWire (self-funded)",
       "description": "Self-funded by the ObjectWire editorial team. No advertising, sponsored content, or political donations accepted."
     }
   };

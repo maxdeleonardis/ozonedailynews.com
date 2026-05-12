@@ -62,10 +62,6 @@ export default function robots(): MetadataRoute.Robots {
           '/test/*',
           '/tmp/',
           '/temp/',
-          
-          // RSS/XML endpoints (indexed separately)
-          '/rss.xml/',
-          '/news-sitemap.xml/',
         ],
       },
       
@@ -126,6 +122,16 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'ChatGPT-User',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/(admin)/',
+        ],
+      },
+      // OAI-SearchBot — ChatGPT real-time web search (distinct from GPTBot training crawler)
+      {
+        userAgent: 'OAI-SearchBot',
         allow: '/',
         disallow: [
           '/api/',

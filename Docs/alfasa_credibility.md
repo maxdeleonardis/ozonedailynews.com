@@ -15,12 +15,15 @@
 | Corrections policy | ✅ Live | Trust signal. Required for Google News. |
 | Author bylines | ✅ Improving | E-E-A-T. External credential links needed. |
 | HTTPS + canonical URLs | ✅ Live | Technical baseline. |
-| Structured data (NewsArticle JSON-LD) | ✅ Live | Required for Google Top Stories and News. |
-| Google News inclusion | ❌ Not verified | Primary traffic target. |
-| Bing News inclusion | ❌ Not verified | Never ranked — zero presence. |
-| Apple News partnership | ❌ Not applied | Significant referral traffic potential. |
-| Perplexity citations | ❌ Unknown | AI search presence — growing fast. |
-| Press association membership | ❌ None | High-trust credibility signal. |
+| Structured data (NewsArticle JSON-LD) | ✅ Fixed May 12 | Image dimensions corrected to 1200x675 (Top Stories). False 501c3 claim removed. Speakable selectors improved. |
+| RSS feed (Apple News / Bing News compliant) | ✅ Fixed May 12 | Content-Type: application/rss+xml. content:encoded added. enclosure length fixed. media:thumbnail added. dc:creator added. |
+| IndexNow (Bing / Yandex / Seznam / Naver / Mojeek) | ✅ Live May 11 | Auto-pings on every wiki:publish. Key file at public/6dd15fab126c81cbdfdbc317d560ae72.txt |
+| validate:news script | ✅ Live May 12 | 31/31 automated checks passing. Run: npm run validate:news |
+| Google News inclusion | ❌ Pending submission | Technical requirements all met. Submit /news-sitemap.xml in Google Search Console. |
+| Bing News inclusion | ❌ Pending application | Verify at bing.com/webmasters first, then apply at bing.com/news/publisher |
+| Apple News partnership | ❌ Pending application | RSS feed now compliant. Apply at news.apple.com/publisher with /rss.xml |
+| Perplexity citations | ⚙️ Infrastructure live | GEO components built (DirectAnswer, KeyTakeaways, CitationBlock). Apply to top articles. |
+| Press association membership | ❌ None | ONA ($100), SPJ ($75/author). Apply immediately. |
 | ICANN WHOIS transparency | ❓ Check status | Required for some news verification programs. |
 
 ---
@@ -295,15 +298,17 @@ Run the feed through the W3C validator and fix any errors before submitting to B
 
 | Platform | Submission URL | Status | Date Submitted | Date Approved |
 |---|---|---|---|---|
-| Bing Webmaster Tools | bing.com/webmasters | ❌ Pending | | |
-| Bing News Publisher | bing.com/news/publisher | ❌ Pending | | |
+| Bing Webmaster Tools | bing.com/webmasters | ❌ Pending — do first | | |
+| Bing News Publisher | bing.com/news/publisher | ❌ Pending — after BWT | | |
 | Apple News Publisher | news.apple.com/publisher | ❌ Pending | | |
 | Online News Association | journalists.org/membership | ❌ Pending | | |
 | Society of Professional Journalists | spj.org/join.asp | ❌ Pending | | |
 | Texas Press Association | texaspress.com | ❌ Pending | | |
 | LION Publishers | lionpublishers.com | ❌ Pending | | |
 | Google News Initiative | newsinitiative.withgoogle.com | ❌ Pending | | |
-| W3C Feed Validator | validator.w3.org/feed | ❌ Pending | | |
+| W3C Feed Validator | validator.w3.org/feed | ❌ Pending — validate /rss.xml first | | |
+| Google Search Console news sitemap | search.google.com/search-console | ❌ Pending | | |
+| **IndexNow** | api.indexnow.org | ✅ **Live May 11** — auto-pings on every publish | 2026-05-11 | Active |
 
 ---
 

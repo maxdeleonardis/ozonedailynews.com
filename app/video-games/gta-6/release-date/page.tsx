@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JackArticleDB } from '@/components/JackArticleDB';
+import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 export const revalidate = 3600;
 

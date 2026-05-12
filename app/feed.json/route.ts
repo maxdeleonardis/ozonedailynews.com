@@ -1,58 +1,63 @@
 import { SITE_CONFIG } from '@/lib/site-config';
-import { createClient } from '@/lib/supabase/server';
+import { loadRegistry } from '@/lib/feed-utils';
 
 export const dynamic = 'force-dynamic';
 
 // JSON Feed 1.1 — https://www.jsonfeed.org/version/1.1/
 // Preferred by AI systems (Perplexity, ChatGPT Search, Claude) over RSS/Atom.
+// Data sourced ON-PREM from content/static/content_registry.json — no Supabase.
 export async function GET() {
   const baseUrl = SITE_CONFIG.url;
 
-  try {
-    const supabase = await createClient();
+  const allRows = loadRegistry();
 
-    // Pull from content_registry (canonical source, auto-synced on build)
-    const { data: entries } = await supabase
-      .from('content_registry')
-      .select('slug, title, description, publish_date, modified_date, category, tags, author, image_url')
-      .order('publish_date', { ascending: false })
-      .limit(100);
+  const sorted = [...allRows]
+    .sort((a, b) => {
+      const dateA = a.published_at || a.publish_date || '';
+      const dateB = b.published_at || b.publish_date || '';
+      return new Date(dateB).getTime() - new Date(dateA).getTime();
+    })
+    .slice(0, 100);
 
-    const items = (entries || []).map((entry) => {
+  const items = sorted
+    .filter(entry => {
+      const parts = entry.slug.split('/').filter(Boolean);
+      if (parts.length < 2) return false;
+      if ((entry.description || '').length < 60) return false;
+      return true;
+    })
+    .map(entry => {
       const item: Record<string, unknown> = {
         id: `${baseUrl}${entry.slug}`,
         url: `${baseUrl}${entry.slug}`,
         title: entry.title || '',
         content_text: entry.description || '',
-        date_published: entry.publish_date ? new Date(entry.publish_date).toISOString() : undefined,
-        date_modified: entry.modified_date ? new Date(entry.modified_date).toISOString() : undefined,
+        date_published: entry.published_at
+          ? new Date(entry.published_at).toISOString()
+          : entry.publish_date
+          ? new Date(entry.publish_date).toISOString()
+          : undefined,
         authors: [{ name: entry.author || 'ObjectWire Editorial Team' }],
         tags: Array.isArray(entry.tags) ? entry.tags : [],
       };
-      if (entry.image_url) {
-        item.image = entry.image_url;
-      }
+      if (entry.image_url) item.image = entry.image_url;
       return item;
     });
 
-    const feed = {
-      version: 'https://jsonfeed.org/version/1.1',
-      title: SITE_CONFIG.name,
-      home_page_url: baseUrl,
-      feed_url: `${baseUrl}/feed.json`,
-      description: SITE_CONFIG.description,
-      language: 'en',
-      items,
-    };
+  const feed = {
+    version: 'https://jsonfeed.org/version/1.1',
+    title: SITE_CONFIG.name,
+    home_page_url: baseUrl,
+    feed_url: `${baseUrl}/feed.json`,
+    description: SITE_CONFIG.description,
+    language: 'en',
+    items,
+  };
 
-    return new Response(JSON.stringify(feed, null, 2), {
-      headers: {
-        'Content-Type': 'application/feed+json; charset=utf-8',
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
-      },
-    });
-  } catch (error) {
-    console.error('Error generating JSON feed:', error);
-    return new Response(JSON.stringify({ error: 'Feed generation failed' }), { status: 500 });
-  }
+  return new Response(JSON.stringify(feed, null, 2), {
+    headers: {
+      'Content-Type': 'application/feed+json; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+    },
+  });
 }

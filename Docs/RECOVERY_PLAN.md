@@ -1,9 +1,67 @@
 # ObjectWire | HCU Recovery Plan
 
-**Created:** May 5, 2026  
-**Status:** Executing  
-**Target:** Partial recovery at Aug/Sep 2026 core update. Full recovery by Mar 2027.  
+**Created:** May 5, 2026
+**Last Updated:** May 12, 2026
+**Status:** Executing — Infrastructure complete. Content writing phase started.
+**Target:** Partial recovery at Aug/Sep 2026 core update. Full recovery by Mar 2027.
 **Owner:** ObjectWire Editorial + Engineering
+
+---
+
+## Progress Snapshot — May 12, 2026
+
+### Infrastructure (Engineering Layer) — ✅ Complete
+
+| System | Status | Notes |
+|---|---|---|
+| Alfasa Sentinel (E-E-A-T gate) | ✅ Live | 8 hard blocks, 9 E-E-A-T warnings, 3 GEO warnings. Runs on every wiki:publish |
+| Alfasa Session Log | ✅ Live | Tracks every publish with E-E-A-T grade at `.alfasa/session_log.json` |
+| Alfasa Suggest (session briefer) | ✅ Live | `npm run alfasa` — stale pages, content gaps, OStandard reminders |
+| validate:eeat | ✅ Live | Prebuild metadata scanner — catches missing canonicals, em dashes, short descriptions |
+| validate:geo | ✅ Live | 10-signal GEO coverage report across all article pages |
+| validate:news | ✅ Live | **31/31 passing** — full Google News / Bing News / Apple News pre-submission check |
+| GEO components | ✅ Live | `DirectAnswer`, `KeyTakeaways`, `CitationBlock`, `GEOArticleWrapper` — barrel export at `@/components/geo` |
+| llms.txt route | ✅ Live | `/llms.txt` — LLM-readable site manifest for ChatGPT, Perplexity, Claude, Copilot |
+| IndexNow | ✅ Live | Auto-pings Bing, Yandex, Seznam, Naver, Mojeek on every wiki:publish. Key at `public/6dd15fab126c81cbdfdbc317d560ae72.txt` |
+| RSS feed (Apple News / Bing News compliant) | ✅ Fixed May 12 | `application/rss+xml`, `content:encoded`, `media:thumbnail`, `dc:creator`, `enclosure length` all correct |
+| NewsArticle schema | ✅ Fixed May 12 | Image 1200x675 (was 630), speakable upgraded, false 501c3 claim removed, wordCount added |
+
+### Content Inventory — May 12, 2026
+
+| Metric | Value |
+|---|---|
+| Total registry entries | 652 |
+| Static JSON articles (`content/static/articles/`) | 63 |
+| Static JSON jack_articles | 21 |
+| Static JSON creator_articles | 17 |
+| Average E-E-A-T score (last 10 publishes) | 74/100 (B) |
+| Articles published in May 2026 | **0** — last publish was May 7 (session log), registry newest is March 31 |
+| Articles with image_url | 195 / 652 (30%) |
+| Articles with ISO `published_at` | **0 / 652** — critical Top Stories gap |
+| Articles with image dimensions in registry | 25 / 652 |
+
+### Critical Gaps Identified (May 12 audit)
+
+1. **`published_at` ISO field is missing from ALL 652 registry entries** — this means Google Top Stories cannot verify freshness from structured data. Every new article from this point must have `published_at` in the static JSON and registry.
+2. **70% of articles have no `image_url`** — no image = ineligible for Top Stories carousel and Google Discover.
+3. **No articles published since March 31, 2026 appear in the static registry** — the May publishes are in the session log but not synced to `content_registry.json`. Run `npm run registry:write` after every publish.
+4. **Content gaps on all 10 priority pillars** — GTA 6 (9 articles, need hub depth), Nintendo Switch 2 (11), OpenAI (0 sub-articles), Winter Olympics (18 but no fresh content since March).
+
+### Manual Steps Still Pending
+
+| Priority | Action | URL | Est. Time |
+|---|---|---|---|
+| 🔴 DO NOW | Deploy IndexNow key file | commit + Railway push | 15 min |
+| 🔴 DO NOW | Bing Webmaster Tools — verify site | bing.com/webmasters | 30 min |
+| 🔴 DO NOW | Submit both sitemaps in BWT | /sitemap.xml + /news-sitemap.xml | 10 min |
+| 🔴 DO NOW | W3C Feed Validator | validator.w3.org/feed | 15 min |
+| 🟡 THIS WEEK | Bing News Publisher Portal — apply | bing.com/news/publisher | 1 hr |
+| 🟡 THIS WEEK | Apple News Publisher — apply | news.apple.com/publisher | 1 hr |
+| 🟡 THIS WEEK | Google Search Console — submit news sitemap | GSC → Sitemaps | 10 min |
+| 🟡 THIS WEEK | ONA membership | journalists.org/membership | 30 min |
+| 🟡 THIS WEEK | SPJ membership (Michael Cripe + Jack Sterling) | spj.org/join.asp | 30 min |
+| 🟡 THIS WEEK | WHOIS transparency check | whois.domaintools.com/objectwire.org | 15 min |
+| 🟠 BEFORE JUNE | First IndexNow bulk ping (after deploy) | npm run indexnow:bulk | 5 min |
 
 ---
 

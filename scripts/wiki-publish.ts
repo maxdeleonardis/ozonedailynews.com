@@ -2,14 +2,13 @@
  * wiki-publish.ts
  *
  * Unified publish pipeline for ALL article component types.
- * Content is stored ON-PREM as local JSON files — no Supabase dependency.
  *
- * Supported components → static JSON dirs:
- *   <JackArticle>     → content/static/jack_articles/
- *   <NewsArticle>     → content/static/articles/
- *   <ArticlePage>     → content/static/article_pages/
- *   <CreatorArticle>  → content/static/creator_articles/
- *   <AlysaArticle>    → content/static/alysa_articles/
+ * Supported components → Supabase tables:
+ *   <JackArticle>     → jack_articles
+ *   <NewsArticle>     → articles
+ *   <ArticlePage>     → article_pages
+ *   <CreatorArticle>  → creator_articles
+ *   <AlysaArticle>    → alysa_articles
  *
  * Usage:
  *   npm run wiki:publish -- --file app/trump/my-article/page.tsx
@@ -17,126 +16,38 @@
  *
  * Pipeline order (CRITICAL — do not reorder):
  *   1. Parse & validate (no writes yet)
- *   2. Run Alfasa Sentinel E-E-A-T quality gate
- *   3. Validate thumbnail exists on disk
- *   4. Write row to local static JSON file (on-prem storage)
- *   5. Add/update content-registry entry
- *   6. Trim file to stub
- *   7. Ping Google Search Console Indexing API
+ *   2. Validate thumbnail exists on disk
+ *   3. Upsert to correct Supabase table
+ *   4. Add/update content-registry entry
+ *   5. Trim file to stub
+ *   6. Verify Supabase row + print confirmation
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as https from 'https';
+import { createClient } from '@supabase/supabase-js';
 import * as dotenv from 'dotenv';
 import { runSentinel, printSentinelReport, type SentinelInput } from './alfasa-sentinel';
 import { logPublishSession } from './alfasa-session-log';
+import { pingIndexNow } from './indexnow-ping';
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const SUPABASE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ??
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const APP_DIR = path.resolve(process.cwd(), 'app');
-const STATIC_ROOT = path.resolve(process.cwd(), 'content', 'static');
 
-// Google Search Console Indexing API (optional — only pings if key is present)
-const GSC_SERVICE_ACCOUNT_KEY = process.env.GOOGLE_INDEXING_API_KEY ?? '';
-
-// ── On-prem static JSON store ─────────────────────────────────────────────────
-// Maps component type → subfolder under content/static/
-const STATIC_DIR_MAP: Record<string, string> = {
-  JackArticle:    'jack_articles',
-  NewsArticle:    'articles',
-  ArticlePage:    'article_pages',
-  CreatorArticle: 'creator_articles',
-  AlysaArticle:   'alysa_articles',
-};
-
-/**
- * Write a row to the on-prem static JSON store.
- * File name: <slug>.json inside the correct subfolder.
- * Also updates _index.json in that folder.
- */
-function writeStaticRow(component: string, slug: string, row: Record<string, unknown>): string {
-  const dirName = STATIC_DIR_MAP[component] ?? 'articles';
-  const dir = path.join(STATIC_ROOT, dirName);
-  fs.mkdirSync(dir, { recursive: true });
-
-  const filePath = path.join(dir, `${slug}.json`);
-  fs.writeFileSync(filePath, JSON.stringify(row, null, 2), 'utf-8');
-
-  // Update _index.json — lightweight list used by DB components for sidebar suggestions
-  const indexPath = path.join(dir, '_index.json');
-  let index: Array<{ slug: string; title: string; url?: string; category?: string }> = [];
-  if (fs.existsSync(indexPath)) {
-    try { index = JSON.parse(fs.readFileSync(indexPath, 'utf-8')); } catch { /* reset */ }
-  }
-  const existing = index.findIndex(e => e.slug === slug);
-  const entry = {
-    slug,
-    title: String(row.title ?? row.schema_title ?? ''),
-    url:   String(row.article_url ?? row.url ?? row.schema_article_url ?? ''),
-    category: String(row.category ?? row.category_label ?? row.schema_section ?? ''),
-  };
-  if (existing >= 0) index[existing] = entry;
-  else index.unshift(entry);
-  fs.writeFileSync(indexPath, JSON.stringify(index, null, 2), 'utf-8');
-
-  return filePath;
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('❌  Missing Supabase env vars in .env.local');
+  process.exit(1);
+}
+if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  console.warn('⚠️  No SUPABASE_SERVICE_ROLE_KEY — using anon key. RLS may block writes.');
 }
 
-/**
- * Verify the static JSON file exists and is valid JSON.
- */
-function verifyStaticRow(component: string, slug: string): boolean {
-  const dirName = STATIC_DIR_MAP[component] ?? 'articles';
-  const fp = path.join(STATIC_ROOT, dirName, `${slug}.json`);
-  if (!fs.existsSync(fp)) return false;
-  try { JSON.parse(fs.readFileSync(fp, 'utf-8')); return true; } catch { return false; }
-}
-
-/**
- * Ping the Google Search Console URL Inspection / Indexing API.
- * Uses the simple HTTP Indexing API (requires a service account with delegated access).
- * If no key is configured this step is skipped gracefully.
- */
-async function pingSearchConsole(url: string): Promise<void> {
-  if (!GSC_SERVICE_ACCOUNT_KEY) {
-    console.log(c.gray('     GSC ping skipped — GOOGLE_INDEXING_API_KEY not set in .env.local'));
-    return;
-  }
-
-  const body = JSON.stringify({ url, type: 'URL_UPDATED' });
-  return new Promise((resolve) => {
-    const req = https.request(
-      'https://indexing.googleapis.com/v3/urlNotifications:publish',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GSC_SERVICE_ACCOUNT_KEY}`,
-          'Content-Length': Buffer.byteLength(body),
-        },
-      },
-      (res) => {
-        let data = '';
-        res.on('data', chunk => (data += chunk));
-        res.on('end', () => {
-          if (res.statusCode === 200) {
-            console.log(c.green(`     ✅ GSC notified — URL submitted for indexing`));
-          } else {
-            console.log(c.yellow(`     ⚠️  GSC ping returned HTTP ${res.statusCode}: ${data.slice(0, 120)}`));
-          }
-          resolve();
-        });
-      }
-    );
-    req.on('error', (e) => {
-      console.log(c.yellow(`     ⚠️  GSC ping failed: ${e.message}`));
-      resolve();
-    });
-    req.write(body);
-    req.end();
-  });
-}
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ── CLI ───────────────────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -338,9 +249,6 @@ function extractJackContent(source: string): Record<string, unknown> {
   const sources = extractJSXPropValue(source, 'sources');
   if (Array.isArray(sources)) row.sources = sources;
 
-  const tags = extractJSXPropValue(source, 'tags');
-  if (Array.isArray(tags)) row.tags = tags;
-
   const relatedArticles = extractJSXPropValue(source, 'relatedArticles');
   if (Array.isArray(relatedArticles)) row.related_articles = relatedArticles;
 
@@ -439,8 +347,7 @@ function extractNewsContent(source: string): Record<string, unknown> {
     row.hero_image_alt = heroBlock[2];
   }
 
-  // (?!\w) ensures we match <NewsArticle (whitespace) but NOT <NewsArticleSchema or other variants
-  const bodyMatch = source.match(/<NewsArticle(?!\w)[\s\S]*?>\s*([\s\S]*?)\s*<\/NewsArticle>/);
+  const bodyMatch = source.match(/<NewsArticle[\s\S]*?>\s*([\s\S]*?)\s*<\/NewsArticle>/);
   row.content_html = bodyMatch ? jsxToHtml(bodyMatch[1]) : '';
 
   return row;
@@ -722,8 +629,8 @@ function buildStub(
   return `import type { Metadata } from 'next';
 ${imports[component]}
 
-// Page renders dynamically — content served from on-prem static JSON.
-// Run 'npm run wiki:publish -- --file <path>' to update the on-prem static JSON.
+// Page renders dynamically — content fetched from Supabase at request time.
+// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
 export const dynamic = 'force-dynamic';
 
 ${slugConst}
@@ -761,26 +668,31 @@ async function main() {
 
   // ── Step 1: Detect component type ────────────────────────────────────────
   let component: 'JackArticle' | 'NewsArticle' | 'ArticlePage' | 'CreatorArticle' | 'AlysaArticle';
+  let table: string;
 
   if (source.includes('<JackArticle')) {
     component = 'JackArticle';
+    table = 'jack_articles';
   } else if (source.includes('<NewsArticle') || source.includes('NewsArticleSchema')) {
     component = 'NewsArticle';
+    table = 'articles';
   } else if (source.includes('<ArticlePage')) {
     component = 'ArticlePage';
+    table = 'article_pages';
   } else if (source.includes('<AlysaArticle')) {
     component = 'AlysaArticle';
+    table = 'alysa_articles';
   } else if (source.includes('<CreatorArticle')) {
     component = 'CreatorArticle';
+    table = 'creator_articles';
   } else {
     console.error(c.red('❌  Could not detect component type.'));
     console.error(c.gray('   Expected one of: JackArticle, NewsArticle, ArticlePage, CreatorArticle, AlysaArticle'));
     process.exit(1);
   }
 
-  const staticDir = STATIC_DIR_MAP[component];
   console.log(`  Component : ${c.cyan(component)}`);
-  console.log(`  Storage   : ${c.cyan(`content/static/${staticDir}/`)}`);
+  console.log(`  Table     : ${c.cyan(table)}`);
   console.log(`  Slug      : ${c.cyan(slug)}`);
   console.log(`  Route     : ${c.cyan(route)}\n`);
 
@@ -793,9 +705,10 @@ async function main() {
   else                                  row = extractPageContent(source);
 
   row.slug = slug;
-  // Ensure url is set for article types that use a url column
-  const typesWithUrlColumn = ['NewsArticle', 'ArticlePage'];
-  if (typesWithUrlColumn.includes(component) && !row.url) row.url = route;
+  // Always ensure url is set — fallback to route derived from file path
+  // jack_articles uses article_url; creator_articles and alysa_articles use schema_article_url — no url column
+  const tablesWithUrlColumn = ['articles', 'article_pages'];
+  if (tablesWithUrlColumn.includes(table) && !row.url) row.url = route;
   // Display title: creator/alysa tables store it as schema_title, others as title
   const displayTitle = String(row.title || row.schema_title || '(empty — check metadata)');
   console.log(`  Title     : ${c.bold(displayTitle)}`);
@@ -832,13 +745,8 @@ async function main() {
     metaTitle:      extractMetaProp(source, 'title') ?? undefined,
     metaDescription:extractMetaProp(source, 'description') ?? undefined,
     canonicalUrl:   (() => {
-      // Try literal value: canonical: 'https://...' or canonical: `https://...`
-      const litM = source.match(/canonical:\s*[`'"]([^`'"]+)[`'"]/);
-      if (litM) return litM[1];
-      // Fall back to SLUG const
-      const slugM = source.match(/const\s+SLUG\s*=\s*['"`]([^'"`]+)['"`]/);
-      if (slugM) return `https://www.objectwire.org${slugM[1]}`;
-      return undefined;
+      const m = source.match(/canonical:\s*[`'"]([^`'"]+)[`'"]/);
+      return m ? m[1] : undefined;
     })(),
   };
 
@@ -881,27 +789,25 @@ async function main() {
 
   if (isDryRun) {
     console.log(c.yellow('\n  [DRY RUN] — no writes performed.'));
-    console.log(c.gray('  Row to write (on-prem JSON):'));
+    console.log(c.gray('  Row to upsert:'));
     console.log(JSON.stringify(row, null, 4).split('\n').map(l => '    ' + l).join('\n'));
     return;
   }
 
-  // ── Step 4: Write to on-prem static JSON ─────────────────────────────────
-  console.log(`\n  ${c.bold('Step 3/5')} Writing to on-prem static JSON (${STATIC_DIR_MAP[component]})...`);
-  const bakPath = filePath + '.bak';
-  fs.copyFileSync(filePath, bakPath);
-  try {
-    const writtenPath = writeStaticRow(component, slug, row);
-    const relWritten = path.relative(process.cwd(), writtenPath);
-    console.log(c.green(`     ✅ Static JSON written: ${relWritten}`));
-  } catch (writeErr) {
-    console.error(c.red(`\n❌  Failed to write static JSON: ${(writeErr as Error).message}`));
-    fs.unlinkSync(bakPath);
+  // ── Step 4: Upsert to Supabase ────────────────────────────────────────────
+  console.log(`\n  ${c.bold('Step 3/5')} Upserting to Supabase (${table})...`);
+  const { error: upsertErr } = await supabase
+    .from(table)
+    .upsert(row, { onConflict: 'slug' });
+
+  if (upsertErr) {
+    console.error(c.red(`\n❌  Supabase upsert failed: ${upsertErr.message}`));
     process.exit(1);
   }
+  console.log(c.green('     ✅ Supabase row upserted.'));
 
   // ── Step 5: Update content-registry ──────────────────────────────────────
-  console.log(`\n  ${c.bold('Step 4/6')} Updating content-registry...`);
+  console.log(`\n  ${c.bold('Step 4/5')} Updating content-registry...`);
   const registryPath = path.resolve(process.cwd(), 'lib/content-registry.ts');
   const registrySource = fs.readFileSync(registryPath, 'utf-8');
 
@@ -972,29 +878,35 @@ async function main() {
   }
 
   // ── Step 6: Trim file to stub ─────────────────────────────────────────────
-  console.log(`\n  ${c.bold('Step 5/6')} Trimming file to stub...`);
+  console.log(`\n  ${c.bold('Step 5/5')} Trimming file to stub...`);
+  const bakPath = filePath + '.bak';
+  fs.copyFileSync(filePath, bakPath);
 
   const stub = buildStub(source, slug, component);
   fs.writeFileSync(filePath, stub, 'utf-8');
   console.log(c.green(`     ✅ Stub written.`));
 
-  // Clean up backup
-  fs.unlinkSync(bakPath);
+  // ── Step 7: Verify Supabase ───────────────────────────────────────────────
+  const { data: verify } = await supabase
+    .from(table)
+    .select('slug')
+    .eq('slug', slug)
+    .single();
 
-  // ── Step 7: Verify static JSON on disk ───────────────────────────────────
-  if (!verifyStaticRow(component, slug)) {
-    console.error(c.red('\n❌  Verification failed — static JSON file missing or corrupt after write.'));
+  if (!verify) {
+    console.error(c.red('\n❌  Verification failed — row not found in Supabase after upsert.'));
+    console.log(c.yellow('   Restoring original file from backup...'));
+    fs.copyFileSync(bakPath, filePath);
+    fs.unlinkSync(bakPath);
     process.exit(1);
   }
 
-  // ── Step 8: Ping Google Search Console Indexing API ──────────────────────
-  console.log(`\n  ${c.bold('Step 6/6')} Pinging Google Search Console...`);
-  const canonicalUrl = `https://www.objectwire.org${route}`;
-  await pingSearchConsole(canonicalUrl);
+  // Clean up backup
+  fs.unlinkSync(bakPath);
 
-  console.log(c.green(`\n  ✅  Published successfully! (on-prem)`));
+  console.log(c.green(`\n  ✅  Published successfully!`));
   console.log(c.gray(`     Slug    : ${slug}`));
-  console.log(c.gray(`     Storage : content/static/${STATIC_DIR_MAP[component]}/${slug}.json`));
+  console.log(c.gray(`     Table   : ${table}`));
   console.log(c.gray(`     Route   : ${route}`));
   console.log(c.gray(`\n  Next: git add -A && git commit -m "feat: publish ${route}"\n`));
 
@@ -1013,6 +925,18 @@ async function main() {
     skippedSentinel: skipSentinel,
     warnings:       sentinelResult.warnings.length,
   });
+
+  // ── IndexNow — instantly notify Bing, Yandex, Seznam, Naver, Mojeek ──────
+  if (!isDryRun && process.env.INDEXNOW_KEY) {
+    const fullUrl = `https://www.objectwire.org${route}`;
+    console.log(c.gray(`  📡  Pinging IndexNow for ${fullUrl}...`));
+    await pingIndexNow([fullUrl]).catch(err => {
+      // Non-fatal — log but don't fail the publish
+      console.warn(c.yellow(`  ⚠️  IndexNow ping failed (non-fatal): ${err?.message ?? err}`));
+    });
+  } else if (!isDryRun && !process.env.INDEXNOW_KEY) {
+    console.log(c.gray(`  ℹ️  IndexNow: INDEXNOW_KEY not set — skipping ping. Run npm run indexnow:setup to configure.`));
+  }
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

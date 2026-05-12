@@ -57,7 +57,6 @@ const MIN_TAGS = 4;
 const KNOWN_AUTHORS: string[] = [
   'michael-cripe',
   'jack-sterling',
-  'conan-doyle',
   'objectwire-investigative-desk',
   'objectwire-influencer-desk',
   'objectwire-editorial',
@@ -110,8 +109,6 @@ export interface SentinelInput {
   content_html?: string;
   tags?: string[];
   thumbnail_src?: string;
-  og_image_width?: number;
-  og_image_height?: number;
   category?: string;
   url?: string;
   // From metadata block
@@ -164,10 +161,7 @@ function countWords(html: string): number {
 }
 
 function countH2(html: string): number {
-  // Count literal <h2> tags AND JackSection components (which render as <h2> at runtime)
-  const h2Tags = (html.match(/<h2[\s>]/gi) || []).length;
-  const jackSections = (html.match(/<JackSection[\s>]/g) || []).length;
-  return h2Tags + jackSections;
+  return (html.match(/<h2[\s>]/gi) || []).length;
 }
 
 function countInternalLinks(html: string): number {
@@ -394,15 +388,6 @@ export function runSentinel(input: SentinelInput): SentinelResult {
     });
   }
 
-  if (input.thumbnail_src && (!input.og_image_width || !input.og_image_height)) {
-    warnings.push({
-      code: 'W9',
-      level: 'WARN',
-      message: 'og_image_width / og_image_height not set. Google requires explicit dimensions for Discover and Top Stories eligibility.',
-      fix: 'Set og_image_width=1200 and og_image_height=675 in the Supabase articles row (or run the add-og-image-columns.sql migration).',
-    });
-  }
-
   if (h2Count < 2 && h2Count > 0) {
     warnings.push({
       code: 'W6',
@@ -439,6 +424,43 @@ export function runSentinel(input: SentinelInput): SentinelResult {
       level: 'WARN',
       message: `author_slug "${input.author_slug}" is not in the known authors list.`,
       fix: `Create /authors/${input.author_slug}/page.tsx and add "${input.author_slug}" to KNOWN_AUTHORS in alfasa-sentinel.ts.`,
+    });
+  }
+
+  // ── GEO WARNINGS (Generative Engine Optimization) ─────────────────────────
+  // These do not block publish but lower the chance of being cited by
+  // ChatGPT, Perplexity, Copilot, and Claude.
+
+  const hasDirectAnswer = html.includes('DirectAnswer') || html.includes('direct-answer') ||
+    html.includes('Quick Answer') || html.includes('data-speakable');
+  if (!hasDirectAnswer && wordCount > 200) {
+    warnings.push({
+      code: 'GEO1',
+      level: 'WARN',
+      message: 'No DirectAnswer block detected. AI systems prefer articles that answer the core question in the first 2-3 sentences.',
+      fix: 'Add <DirectAnswer answer="..." /> as the first element in the article body.',
+    });
+  }
+
+  const hasKeyTakeaways = html.includes('KeyTakeaways') || html.includes('key-takeaways') ||
+    html.includes('Key Takeaways') || html.includes('TLDR') || html.includes('TL;DR');
+  if (!hasKeyTakeaways && wordCount > 400) {
+    warnings.push({
+      code: 'GEO2',
+      level: 'WARN',
+      message: 'No KeyTakeaways block detected. Bullet-point summaries are the most commonly extracted element by AI citation systems.',
+      fix: 'Add <KeyTakeaways items={["...", "...", "..."]} /> after the opening paragraph.',
+    });
+  }
+
+  const hasCitationBlock = html.includes('CitationBlock') || html.includes('citation-block') ||
+    html.includes('FAQAccordion') || html.includes('FAQSchema');
+  if (!hasCitationBlock && wordCount > 600) {
+    warnings.push({
+      code: 'GEO3',
+      level: 'WARN',
+      message: 'No CitationBlock or FAQAccordion detected. Structured answer units dramatically increase AI citation frequency.',
+      fix: 'Add at least one <CitationBlock> for a key claim, or a <FAQAccordion> at the end of the article.',
     });
   }
 

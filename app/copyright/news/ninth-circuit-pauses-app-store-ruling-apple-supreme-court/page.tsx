@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
-    authors: ['Jack Brennan'],
+    authors: ['Tina Boyle'],
     publishedTime: '2026-04-08T21:00:00Z',
     modifiedTime: '2026-04-08T21:00:00Z',
     section: 'Tech',

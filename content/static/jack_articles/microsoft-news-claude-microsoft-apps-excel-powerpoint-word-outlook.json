@@ -37,10 +37,10 @@
     { "href": "/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook", "label": "Claude for Microsoft Apps" }
   ],
   "author": {
-    "name": "Conan Doyle",
-    "slug": "conan-doyle",
+    "name": "Max DeLeonardis",
+    "slug": "max-deleonardis",
     "department": "Technology Desk",
-    "url": "https://www.objectwire.org/authors/conan-doyle"
+    "url": "https://www.objectwire.org/authors/max-deleonardis"
   },
   "related_articles": [
     { "href": "/microsoft", "category": "Tech", "categoryColor": "blue", "title": "Microsoft News Hub" },

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArticlePage, Section, TableOfContents } from '@/components/articles/ArticlePage';
+import TopicMedia from '@/components/articles/TopicMedia';
+import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -96,6 +98,7 @@ export default function FortniteHubPage() {
         { id: 'weapons', label: 'Weapons | Katana, SMGs, LMGs' },
         { id: 'ranked', label: 'Ranked Mode Updates' },
         { id: 'guides', label: 'All Season 2 Guides' },
+        { id: 'sources', label: 'Sources & Further Reading' },
       ]}
       relatedLinks={[
         { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Chapter 6 Season 2 Map Changes', description: 'Shogun POI, cherry blossoms, and every new named location' },
@@ -112,6 +115,7 @@ export default function FortniteHubPage() {
         { id: 'weapons', label: 'Weapons | Katana, SMGs, LMGs' },
         { id: 'ranked', label: 'Ranked Mode Updates' },
         { id: 'guides', label: 'All Season 2 Guides' },
+        { id: 'sources', label: 'Sources & Further Reading' },
       ]} />
 
       <Section id="overview" title="Fortnite Chapter 6 Season 2 | Lawless Overview">
@@ -136,6 +140,7 @@ export default function FortniteHubPage() {
             video games hub
           </Link>.
         </p>
+        <TopicMedia topic="fortnite" variant="video" />
       </Section>
 
       <Section id="map" title="Map | Shogun POI, Cherry Blossoms, and New Named Locations">
@@ -242,6 +247,43 @@ export default function FortniteHubPage() {
             {' '}— Full S-to-D ranking of the current loot pool including Katana, SMGs, and LMGs
           </li>
         </ul>
+      </Section>
+
+      <Section id="sources" title="Sources & Further Reading">
+        <SourcesInterlink
+          accentColor="orange"
+          sources={[
+            {
+              number: 1,
+              url: 'https://www.fortnite.com/',
+              title: 'Fortnite | Official Site',
+              author: 'Epic Games',
+              description: 'Official Fortnite patch notes, news, and Chapter 6 Season 2 updates.',
+            },
+            {
+              number: 2,
+              url: 'https://www.epicgames.com/fortnite/en-US/news',
+              title: 'Epic Games Fortnite News | Chapter 6 Season 2 Patch Notes',
+              author: 'Epic Games',
+              description: 'All official Season 2 patch notes, balance changes, and event announcements.',
+            },
+            {
+              number: 3,
+              url: 'https://www.epicgames.com/site/en-US/news/fortnite-chapter-6-season-2',
+              title: 'Fortnite Chapter 6 Season 2 | Epic Games Official Announcement',
+              author: 'Epic Games',
+              description: 'Official Chapter 6 Season 2 reveal with map, Battle Pass, and new mechanics details.',
+            },
+          ]}
+          internalLinks={[
+            { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Chapter 6 Season 2 Map Changes', description: 'Every new named location, Shogun POI, and rotation paths' },
+            { href: '/video-games/fortnite/chapter-6-season-2-battle-pass', label: 'Chapter 6 Season 2 Battle Pass', description: 'All skins, secret styles, and bonus rewards tier by tier' },
+            { href: '/video-games/fortnite/chapter-6-season-2-weapons-tier-list', label: 'Season 2 Weapons Tier List', description: 'Full S-to-D ranking of every weapon in the current loot pool' },
+            { href: '/entertainment/news/fortnite-moves-into-movies', label: 'Fortnite Moves Into Movies', description: 'How Epic is building Fortnite into a full entertainment IP' },
+            { href: '/video-games/epic', label: 'Epic Games Hub', description: 'All Epic Games news and coverage on ObjectWire' },
+            { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news, guides, and analysis' },
+          ]}
+        />
       </Section>
     </ArticlePage>
   );

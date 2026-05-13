@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
+import TopicMedia from '@/components/articles/TopicMedia';
 
 // Inline article — no Supabase sync. Content lives in the codebase.
 export const revalidate = 3600;
@@ -102,6 +103,8 @@ export default function GTA6Trailer2BreakdownPage() {
             GTA 6 complete guide
           </Link>.
         </p>
+
+        <TopicMedia topic="gta-6" mediaId="gta6-trailer-2" variant="video" />
 
         <h2 id="protagonists">Dual Protagonists | Jason and Lucia</h2>
 

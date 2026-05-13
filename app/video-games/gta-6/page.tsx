@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArticlePage, Section, TableOfContents } from '@/components/articles/ArticlePage';
+import TopicMedia from '@/components/articles/TopicMedia';
 
 // Migrated to codebase — no Supabase fetch. Rendered at build time.
 export const dynamic = 'force-static';
@@ -101,6 +102,7 @@ export default function GTA6Page() {
         ],
       }}
       tableOfContents={[
+        { id: 'trailers', label: 'Official Trailers | Trailer 1 and Trailer 2' },
         { id: 'release-date', label: 'Release Date | November 19, 2026' },
         { id: 'characters', label: 'Characters | Jason and Lucia' },
         { id: 'map', label: 'Map | State of Leonida' },
@@ -120,6 +122,7 @@ export default function GTA6Page() {
       backLink={{ href: '/video-games', label: 'Video Games' }}
     >
       <TableOfContents items={[
+        { id: 'trailers', label: 'Official Trailers | Trailer 1 and Trailer 2' },
         { id: 'release-date', label: 'Release Date | November 19, 2026' },
         { id: 'characters', label: 'Characters | Jason and Lucia' },
         { id: 'map', label: 'Map | State of Leonida' },
@@ -128,6 +131,16 @@ export default function GTA6Page() {
         { id: 'multiplayer', label: 'Multiplayer | GTA Online Successor' },
         { id: 'sub-articles', label: 'More GTA 6 Coverage' },
       ]} />
+
+      <Section id="trailers" title="Official Trailers | GTA 6 Trailer 1 and Trailer 2">
+        <p>
+          Rockstar Games has released two official GTA 6 trailers. Trailer 1 (December 5, 2023) became
+          the most-viewed gaming trailer in YouTube history at the time of release. Trailer 2 (May 6, 2025)
+          confirmed the release date, named both protagonists, and showed extended footage of the State
+          of Leonida. Use the player below to watch both.
+        </p>
+        <TopicMedia topic="gta-6" variant="gallery" />
+      </Section>
 
       <Section id="release-date" title="Release Date | November 19, 2026 Confirmed for PS5 and Xbox">
         <p>

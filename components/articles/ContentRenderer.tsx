@@ -55,6 +55,7 @@ import { TweetEmbed } from '@/components/articles/TweetEmbed';
 import FAQAccordion from '@/components/FAQAccordion';
 import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 import type { SourceItem, InternalLinkItem } from '@/components/articles/SourcesInterlink';
+import { TopicMediaClientBridge } from '@/components/articles/TopicMediaClientBridge';
 
 // ── Known component registry ────────────────────────────────────────────────
 
@@ -346,6 +347,18 @@ const COMPONENTS: Record<string, ComponentDef> = {
         internalLinks={(props.internalLinks as InternalLinkItem[] | undefined) ?? []}
         heading={props.heading as string | undefined}
         accentColor={props.accentColor as 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'gray' | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  // ── TopicMedia — centralized media registry component ─────────────────────
+  TopicMedia: {
+    render: (props) => (
+      <TopicMediaClientBridge
+        topic={(props.topic as string) ?? ''}
+        variant={(props.variant as 'both' | 'video' | 'thumbnail' | 'gallery') ?? 'both'}
+        mediaId={props.mediaId as string | undefined}
+        caption={props.caption as string | undefined}
       />
     ),
     selfClosing: true,

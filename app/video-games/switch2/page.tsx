@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
+import TopicMedia from '@/components/articles/TopicMedia';
+import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 
 // Inline hub — no Supabase sync. Content lives in the codebase.
 export const revalidate = 3600;
@@ -98,6 +100,8 @@ export default function Switch2HubPage() {
           April 2, 2025 confirmed the hardware specifications, launch lineup, pricing, and the new GameChat social
           feature. The June 5 global release is simultaneous across North America, Europe, Japan, and Australia.
         </p>
+
+        <TopicMedia topic="nintendo-switch-2" variant="gallery" />
 
         <h2 id="switch2-specs">Switch 2 Specs | What Is Actually Different</h2>
 
@@ -237,6 +241,44 @@ export default function Switch2HubPage() {
             Switch 2 launch games article
           </Link>.
         </p>
+
+        <SourcesInterlink
+          heading="Sources & Further Reading"
+          accentColor="blue"
+          sources={[
+            {
+              number: 1,
+              url: 'https://www.nintendo.com/us/gaming-systems/nintendo-switch/nintendo-switch-2/',
+              title: 'Nintendo Switch 2 | Official Product Page',
+              author: 'Nintendo',
+              description: 'Official specs, pricing, accessories, and pre-order details from Nintendo.',
+            },
+            {
+              number: 2,
+              url: 'https://www.youtube.com/watch?v=sljMJCJFSFw',
+              title: 'Nintendo Switch 2 Direct | April 2, 2025',
+              author: 'Nintendo',
+              date: 'April 2, 2025',
+              description: 'Full Direct presentation confirming launch date, price, GameChat, and launch lineup.',
+            },
+            {
+              number: 3,
+              url: 'https://store.nintendo.com/',
+              title: 'Nintendo Official Store | Switch 2 Pre-Orders',
+              author: 'Nintendo',
+              description: 'Official store listing for Switch 2 console, Mario Kart World bundle, and accessories.',
+            },
+          ]}
+          internalLinks={[
+            { href: '/video-games/switch2/nintendo-switch-2-pre-order-guide', label: 'Nintendo Switch 2 Pre-Order Guide', description: 'Where to buy, bundle options, and accessory pricing' },
+            { href: '/video-games/switch2/nintendo-switch-2-launch-games', label: 'Switch 2 Launch Games', description: 'Full list of games confirmed for June 5, 2026' },
+            { href: '/video-games/switch2/pokemon-pokopia', label: 'Pokemon Pokopia | Review Scores', description: 'Highest-rated Pokemon game ever, launching on Switch 2' },
+            { href: '/video-games/switch2/super-mario-wonder-switch2-edition-bellabel-park', label: 'Super Mario Wonder Switch 2 Edition', description: 'Bellabel Park and Switch 2 exclusive content breakdown' },
+            { href: '/video-games/switch2/switch-2-vs-steam-deck-oled-2026', label: 'Switch 2 vs Steam Deck OLED 2026', description: 'Full hardware and game library comparison' },
+            { href: '/video-games/nintendo', label: 'Nintendo Hub', description: 'All Nintendo coverage on ObjectWire' },
+            { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news, guides, and analysis' },
+          ]}
+        />
 
       </div>
     </NewsArticle>

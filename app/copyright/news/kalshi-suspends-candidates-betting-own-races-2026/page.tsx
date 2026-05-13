@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
-    authors: ['Conan Doyle'],
+    authors: ['Max DeLeonardis'],
     publishedTime: '2026-04-22T14:00:00Z',
     modifiedTime: '2026-04-22T14:00:00Z',
     section: 'Politics',

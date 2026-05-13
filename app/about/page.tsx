@@ -118,14 +118,14 @@ export default function AboutPage() {
               , Reporter (Congress, federal investigations, AI policy)
             </li>
             <li>
-              <Link href="/authors/jack-brennan" className="text-blue-600 hover:text-blue-800 underline">
-                Jack Brennan
+              <Link href="/authors/tina-boyle" className="text-blue-600 hover:text-blue-800 underline">
+                Tina Boyle
               </Link>
               , Investigations Reporter (environmental law, national security, regulatory agencies)
             </li>
             <li>
-              <Link href="/authors/conan-boyle" className="text-blue-600 hover:text-blue-800 underline">
-                Conan Boyle
+              <Link href="/authors/max-deleonardis" className="text-blue-600 hover:text-blue-800 underline">
+                Max DeLeonardis
               </Link>
               , Science and Technology Writer (biotech, medical research, AI hardware)
             </li>

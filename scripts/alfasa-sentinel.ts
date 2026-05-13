@@ -1,7 +1,7 @@
-/**
+﻿/**
  * alfasa-sentinel.ts
  *
- * The Alfasa Sentinel — E-E-A-T quality gate for the wiki:publish pipeline.
+ * The Alfasa Sentinel â€” E-E-A-T quality gate for the wiki:publish pipeline.
  *
  * Runs BEFORE any Supabase write. If a hard block is triggered, publish is
  * aborted with a detailed report. Warnings are printed but do not block.
@@ -44,7 +44,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-// ── Configuration ─────────────────────────────────────────────────────────────
+// â”€â”€ Configuration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const MIN_WORD_COUNT = 300;   // Hard block below this
 const IDEAL_WORD_COUNT = 600; // Warning below this
@@ -53,7 +53,7 @@ const MAX_DESC_LENGTH = 155;
 const MAX_TITLE_LENGTH = 60;
 const MIN_TAGS = 4;
 
-// Known author slugs — add new authors here when their /authors/[slug] page is created
+// Known author slugs â€” add new authors here when their /authors/[slug] page is created
 const KNOWN_AUTHORS: string[] = [
   'michael-cripe',
   'jack-sterling',
@@ -63,7 +63,7 @@ const KNOWN_AUTHORS: string[] = [
   'alysa-rose',
 ];
 
-// Banned AI boilerplate phrases — content containing these is flagged
+// Banned AI boilerplate phrases â€” content containing these is flagged
 // These are the most common signals Google's HCU classifier penalizes
 const BANNED_PHRASES: string[] = [
   'it is worth noting',
@@ -89,15 +89,15 @@ const BANNED_PHRASES: string[] = [
   'groundbreaking research',
   'it\'s worth mentioning',
   'it should be noted',
-  'leverage',         // only flagged in non-finance contexts — soft check
+  'leverage',         // only flagged in non-finance contexts â€” soft check
 ];
 
-// YMYL categories — these trigger stricter W8 (source citation) warnings
+// YMYL categories â€” these trigger stricter W8 (source citation) warnings
 const YMYL_CATEGORIES = [
   'News', 'Politics', 'Finance', 'Crypto', 'Science', 'World', 'Copyright',
 ];
 
-// ── Types ────────────────────────────────────────────────────────────────────
+// â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export interface SentinelInput {
   // Core article fields (from wiki-publish parsed payload)
@@ -138,7 +138,7 @@ export interface SentinelResult {
   externalLinkCount: number;
 }
 
-// ── ANSI helpers ─────────────────────────────────────────────────────────────
+// â”€â”€ ANSI helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const c = {
   red:    (s: string) => `\x1b[31m${s}\x1b[0m`,
@@ -150,7 +150,7 @@ const c = {
   blue:   (s: string) => `\x1b[34m${s}\x1b[0m`,
 };
 
-// ── Utilities ────────────────────────────────────────────────────────────────
+// â”€â”€ Utilities â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -175,7 +175,7 @@ function countExternalLinks(html: string): number {
 }
 
 function detectEmDash(text: string): boolean {
-  return /—|–/.test(text);
+  return /â€”|â€“/.test(text);
 }
 
 function detectBannedPhrases(html: string): string[] {
@@ -198,7 +198,7 @@ function scoreColor(grade: string): (s: string) => string {
   return c.red;
 }
 
-// ── E-E-A-T Score Calculator ─────────────────────────────────────────────────
+// â”€â”€ E-E-A-T Score Calculator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Max 100 points. Each signal adds points.
 
 function calcEEATScore(input: SentinelInput, stats: {
@@ -246,7 +246,7 @@ function calcEEATScore(input: SentinelInput, stats: {
   return Math.min(100, score);
 }
 
-// ── Main Sentinel Function ────────────────────────────────────────────────────
+// â”€â”€ Main Sentinel Function â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function runSentinel(input: SentinelInput): SentinelResult {
   const blocks: SentinelIssue[] = [];
@@ -259,7 +259,7 @@ export function runSentinel(input: SentinelInput): SentinelResult {
   const externalLinkCount = countExternalLinks(html);
   const bannedFound = detectBannedPhrases(html);
 
-  // ── HARD BLOCKS ────────────────────────────────────────────────────────────
+  // â”€â”€ HARD BLOCKS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   if (!input.author_name || !input.author_slug) {
     blocks.push({
@@ -293,8 +293,8 @@ export function runSentinel(input: SentinelInput): SentinelResult {
     blocks.push({
       code: 'H4',
       level: 'BLOCK',
-      message: 'Em dash (—) or en dash (–) detected in title, subtitle, or metadata title.',
-      fix: 'Replace — with | in headings, or rewrite the phrase. See OStandard em dash substitution table.',
+      message: 'Em dash (â€”) or en dash (â€“) detected in title, subtitle, or metadata title.',
+      fix: 'Replace â€” with | in headings, or rewrite the phrase. See OStandard em dash substitution table.',
     });
   }
 
@@ -334,7 +334,7 @@ export function runSentinel(input: SentinelInput): SentinelResult {
     });
   }
 
-  // ── WARNINGS ───────────────────────────────────────────────────────────────
+  // â”€â”€ WARNINGS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   if (wordCount < IDEAL_WORD_COUNT && wordCount >= MIN_WORD_COUNT) {
     warnings.push({
@@ -427,7 +427,7 @@ export function runSentinel(input: SentinelInput): SentinelResult {
     });
   }
 
-  // ── GEO WARNINGS (Generative Engine Optimization) ─────────────────────────
+  // â”€â”€ GEO WARNINGS (Generative Engine Optimization) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // These do not block publish but lower the chance of being cited by
   // ChatGPT, Perplexity, Copilot, and Claude.
 
@@ -464,7 +464,7 @@ export function runSentinel(input: SentinelInput): SentinelResult {
     });
   }
 
-  // ── E-E-A-T SCORE ─────────────────────────────────────────────────────────
+  // â”€â”€ E-E-A-T SCORE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   const score = calcEEATScore(input, {
     wordCount,
@@ -490,14 +490,14 @@ export function runSentinel(input: SentinelInput): SentinelResult {
   };
 }
 
-// ── Print Report ──────────────────────────────────────────────────────────────
+// â”€â”€ Print Report â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function printSentinelReport(result: SentinelResult, articleTitle?: string): void {
   const gradeStr = result.grade;
   const gradeColorFn = scoreColor(gradeStr);
 
   console.log('');
-  console.log(c.bold('━━━ ALFASA SENTINEL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
+  console.log(c.bold('â”â”â” ALFASA SENTINEL â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”'));
   if (articleTitle) {
     console.log(c.gray(`    Article: ${articleTitle}`));
   }
@@ -513,13 +513,13 @@ export function printSentinelReport(result: SentinelResult, articleTitle?: strin
   console.log('');
 
   // E-E-A-T Score
-  const bar = '█'.repeat(Math.round(result.score / 5)) + '░'.repeat(20 - Math.round(result.score / 5));
+  const bar = 'â–ˆ'.repeat(Math.round(result.score / 5)) + 'â–‘'.repeat(20 - Math.round(result.score / 5));
   console.log(`    E-E-A-T Score: ${gradeColorFn(c.bold(`${result.score}/100  [${gradeStr}]`))}  ${gradeColorFn(bar)}`);
   console.log('');
 
   // Blocks
   if (result.blocks.length > 0) {
-    console.log(c.red(c.bold(`    ✗ ${result.blocks.length} HARD BLOCK${result.blocks.length > 1 ? 'S' : ''} — publish aborted`)));
+    console.log(c.red(c.bold(`    âœ— ${result.blocks.length} HARD BLOCK${result.blocks.length > 1 ? 'S' : ''} â€” publish aborted`)));
     result.blocks.forEach(b => {
       console.log('');
       console.log(c.red(`      [${b.code}] ${b.message}`));
@@ -530,7 +530,7 @@ export function printSentinelReport(result: SentinelResult, articleTitle?: strin
 
   // Warnings
   if (result.warnings.length > 0) {
-    console.log(c.yellow(c.bold(`    ⚠  ${result.warnings.length} WARNING${result.warnings.length > 1 ? 'S' : ''}`)));
+    console.log(c.yellow(c.bold(`    âš   ${result.warnings.length} WARNING${result.warnings.length > 1 ? 'S' : ''}`)));
     result.warnings.forEach(w => {
       console.log('');
       console.log(c.yellow(`      [${w.code}] ${w.message}`));
@@ -540,21 +540,21 @@ export function printSentinelReport(result: SentinelResult, articleTitle?: strin
   }
 
   if (result.blocks.length === 0 && result.warnings.length === 0) {
-    console.log(c.green(c.bold('    ✓ All checks passed. Article meets E-E-A-T standards.')));
+    console.log(c.green(c.bold('    âœ“ All checks passed. Article meets E-E-A-T standards.')));
     console.log('');
   }
 
   if (result.pass) {
-    console.log(c.green(`    ✓ SENTINEL PASSED — proceeding to Supabase`));
+    console.log(c.green(`    âœ“ SENTINEL PASSED â€” proceeding to Supabase`));
   } else {
-    console.log(c.red(`    ✗ SENTINEL BLOCKED — fix the issues above and re-run wiki:publish`));
+    console.log(c.red(`    âœ— SENTINEL BLOCKED â€” fix the issues above and re-run wiki:publish`));
   }
 
-  console.log(c.bold('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
+  console.log(c.bold('â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”'));
   console.log('');
 }
 
-// ── Standalone CLI mode ───────────────────────────────────────────────────────
+// â”€â”€ Standalone CLI mode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 if (require.main === module) {
   const args = process.argv.slice(2);

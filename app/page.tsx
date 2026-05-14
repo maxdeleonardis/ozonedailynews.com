@@ -212,13 +212,21 @@ export default async function HomePage() {
     'Sports', 'sports',
     'Politics', 'politics',
     'Lifestyle', 'lifestyle',
+    // Non-editorial pages that should never appear in news feed
+    'Meta', 'meta', 'Services', 'services', 'Legal', 'legal',
+    'Support', 'support', 'Education', 'education', 'Reference', 'reference',
+    'Blog', 'blog', 'Social Media', 'social media',
+    'YouTube', 'youtube', 'Media', 'media',
   ]);
 
-  // Slug prefixes whose pages were deleted — exclude from homepage
+  // Slug prefixes whose pages were deleted or are non-editorial — exclude from homepage
   const EXCLUDED_PREFIXES = [
     '/cars/', '/influencer/', '/creator/', '/formula-1/',
     '/service', '/austin-private-detective-agency',
     '/winter-olympics/', '/world-cup/', '/mls/',
+    '/search', '/saved', '/login', '/auth', '/account',
+    '/privacy-policy', '/terms-of-service', '/corrections', '/editorial-standards',
+    '/get-help', '/site-index', '/about', '/authors', '/rocket-league',
   ];
 
   // Load the content registry
@@ -249,14 +257,26 @@ export default async function HomePage() {
     // JackArticles unavailable — no-op
   }
 
-  // Content registry: exclude section/hub pages (< 2 path segments)
-  // and dynamic route patterns like /profile/[username]
+  // Content registry: strict filter — only real editorial articles
   const registryArticles = contentRegistry
     .filter((e) => {
+      // Must have at least 2 path segments (not a hub)
       if (e.slug.split('/').filter(Boolean).length < 2) return false;
+      // Skip dynamic route patterns
       if (e.slug.includes('[')) return false;
+      // Skip double-slash malformed slugs
+      if (e.slug.includes('//')) return false;
+      // Skip excluded categories
       if (EXCLUDED_CATEGORIES.has(e.category)) return false;
+      // Skip excluded prefixes
       if (EXCLUDED_PREFIXES.some((p) => e.slug.startsWith(p))) return false;
+      // Skip pages with template-literal or breadcrumb titles (not real articles)
+      if (e.title.startsWith('{') || e.title.startsWith('›') || e.title.includes(' › ')) return false;
+      // Skip entries with no real description (hub pages, service pages)
+      if (!e.description || e.description.length < 60) return false;
+      // Skip registry entries where date was set to today by sync-registry fallback
+      // (means no real publishedTime — these are hubs/service pages, not dated articles)
+      // We allow them only if the static article sources (blogArticles) didn't already add them
       return true;
     })
     .map(fromRegistry);

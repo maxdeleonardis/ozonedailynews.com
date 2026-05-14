@@ -15,7 +15,7 @@ function readStaticDir<T>(table: string): T[] {
     const dir = path.join(STATIC_BASE, table);
     if (!fs.existsSync(dir)) return [];
     return fs.readdirSync(dir)
-      .filter(f => f.endsWith('.json'))
+      .filter(f => f.endsWith('.json') && f !== '_index.json')
       .map(f => {
         try { return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as T; }
         catch { return null; }

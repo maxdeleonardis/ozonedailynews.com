@@ -561,12 +561,27 @@ Raw `<table>` is acceptable only inside `<JackSection>` sub-components within Ja
 
 ### Homepage Article Pipeline
 
-The homepage (`app/page.tsx`) sources articles from three static JSON stores via `lib/article-service.ts`:
-- `content/static/articles/` — via `getAllArticles()`
-- `content/static/creator_articles/` — via `getCreatorArticles()`
-- `content/static/jack_articles/` — via `getJackArticles()` (added April 2, 2026)
+The homepage (`app/page.tsx`) sources articles from three sources merged in order:
+1. `content/static/articles/*.json` (individual files) — via `getAllArticles()`
+2. `content/static/jack_articles/*.json` — via `getJackArticles()`
+3. `content/static/content_registry.json` — via `getAllEntries()`
 
-All three are merged and sorted by `publishDate` before display. JackArticles appear on the homepage as long as their `article_url` field is populated with the canonical path.
+All three are merged, deduplicated by `href`, and sorted newest-first by `publishDate`. Articles with no valid `publishDate` sort to the bottom and will NOT appear in the carousel.
+
+**Critical rules for articles to appear on the homepage:**
+
+- Every `NewsArticle` page MUST have an individual JSON file at `content/static/articles/[slug].json`. The `_index.json` metadata file is not read by `getAllArticles()` and does not serve content.
+- Every `JackArticle` JSON must have `article_url` (canonical path) AND `publish_date` fields set.
+- Every `page.tsx` must have `openGraph.publishedTime` in its metadata — this is what `sync-registry.ts` uses to set `publish_date` in `content_registry.json`.
+- After writing a new article, run `npm run wiki:sync -- --write` to add/update the registry entry with the correct date.
+- After writing new JackArticles, run `npm run jack:enrich` to populate breadcrumbs and related articles.
+
+**Known pipeline bugs (May 13, 2026 — see AlfasaAutoSEO-Audit-May2026.md for full details):**
+- `readStaticDir('articles')` reads `_index.json` as a fake article (garbage entry, sorts to bottom)
+- Registry has 662+ entries including hub/category pages that flood "More Stories"
+- Some registry entries have double-slash slugs or encoding-corrupted titles
+
+`getCreatorArticles()` queries Supabase (not static files) and is excluded from the homepage via `EXCLUDED_CATEGORIES` (Influencer/Creator are excluded from homepage display).
 
 ---
 

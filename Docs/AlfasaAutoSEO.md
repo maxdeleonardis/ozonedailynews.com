@@ -1,8 +1,8 @@
 # AlfasaAutoSEO — ObjectWire Automated SEO Architecture
 
-**Version:** 2.0  
-**Updated:** May 4, 2026  
-**Status:** Active — Implementation Roadmap Locked
+**Version:** 2.1  
+**Updated:** May 13, 2026  
+**Status:** Active — Known Homepage Pipeline Bugs Documented Below
 
 ---
 
@@ -17,6 +17,130 @@ AlfasaAutoSEO is the internal name for ObjectWire's end-to-end automated SEO pip
 - The rules that prevent Google crawl throttling, canonical mismatches, and indexing drops
 
 The April 22, 2026 impressions drop was caused by violations of rules defined in this document. These rules are now enforced by prebuild validators. This document defines the full upgraded architecture going forward.
+
+---
+
+## Homepage Article Pipeline (May 2026)
+
+This is how `app/page.tsx` sources articles for the homepage carousel, "More Stories" grid, and headline list.
+
+### Three sources merged in order
+
+```
+1. getAllArticles()      → content/static/articles/*.json  (individual files only)
+2. getJackArticles()    → content/static/jack_articles/*.json
+3. getAllEntries()       → content/static/content_registry.json (via registry-service.ts)
+```
+
+All three are merged and deduplicated by `href`. Articles from source 1 and 2 are added first. If source 3 has the same `href`, the blog/jack article entry wins and registry backfills any missing fields (image, excerpt).
+
+### Sort — newest first
+
+```typescript
+merged.sort((a, b) => {
+  const ta = a.publishDate ? new Date(a.publishDate).getTime() : 0;
+  const tb = b.publishDate ? new Date(b.publishDate).getTime() : 0;
+  return tb - ta;
+});
+```
+
+Articles with no `publishDate` (empty string or null) get `time = 0` and sort to the **bottom**. New articles only appear at the top of the homepage if they have a valid, parseable `publishDate` value from at least one of the three sources.
+
+### How each source contributes a `publishDate`
+
+| Source | Field read | Format | Parsed as |
+|---|---|---|---|
+| `getAllArticles()` | `row.published_at` | ISO-8601 (`2026-05-11T23:00:00Z`) | Valid, sorts correctly |
+| `getJackArticles()` | `row.publish_date` | Display string (`"May 12, 2026"`) | Parseable in V8/Node, but non-ISO — fragile |
+| `getAllEntries()` / registry | `row.publish_date` | Display string (`"May 11, 2026"`) | Same as above |
+
+**Critical:** If a new article has no individual JSON file in `content/static/articles/` (it's only in `content_registry.json`), its date comes from the registry `publish_date` field only. If that field is missing or null, the article sorts to the bottom and will NOT appear in the carousel.
+
+### Known bugs in the pipeline (as of May 13, 2026)
+
+#### Bug 1 — `readStaticDir('articles')` reads `_index.json` as an article
+
+`content/static/articles/_index.json` is an array file (metadata index). `readStaticDir()` scans all `*.json` files including `_index.json`. The array is parsed and treated as a single `Record<string, unknown>` object. This creates a garbage article with:
+- `id = ""`
+- `title = ""`
+- `url = "/"` (resolves to homepage path)
+- `status = "published"` (passes the published filter)
+
+This entry gets into `blogArticles`, deduped against anything at href="/", and appears in `merged` with an empty title and no date. It sorts to the bottom so it's not visible in the carousel, but it is junk in the pipeline.
+
+**Fix:** Add an exclusion in `readStaticDir()` or in `getAllArticles()`:
+```typescript
+.filter(f => f.endsWith('.json') && f !== '_index.json')
+```
+
+#### Bug 2 — Registry has 662 entries; many hub and duplicate pages slip through the homepage filter
+
+`app/page.tsx` filters registry entries:
+```typescript
+if (e.slug.split('/').filter(Boolean).length < 2) return false;
+```
+
+This only excludes single-segment slugs (e.g. `/tech`, `/nvidia`). Hub pages with two or more path segments (like `/video-games/switch2`, `/nvidia/news`) still pass. Additionally, the same article can appear under two different URL structures if the registry has both variants.
+
+Result: the "More Stories" grid and headline list fill with hub pages, sub-hub pages, and duplicate links — making the homepage look like a generic sitemap rather than a curated news feed.
+
+**Fix needed:** The homepage filter should require `description.length > 80` AND the category must be a valid editorial category (not `Meta`, `Services`, `Legal`, `Support`, `Education`, `Reference`).
+
+#### Bug 3 — Malformed registry slugs
+
+Some entries in `content_registry.json` have double-slash slugs like `//events/gdc-2026/...` or encoding bugs like `â€"` in titles (mangled em dash). These create broken links and garbled text in the homepage.
+
+**Fix:** Run `npm run wiki:sync -- --write` which re-scans and rebuilds clean entries. Also add a validation step to reject slugs with `//` or entries with non-ASCII corruption.
+
+#### Bug 4 — New NewsArticle pages have no individual content JSON
+
+Articles like GitLab restructuring (`tech-news-gitlab-restructuring-may-2026-workforce-agentic-ai-pivot`) have:
+- A `page.tsx` stub using `NewsArticleDB`
+- An entry in `content/static/articles/_index.json`
+- An entry in `content_registry.json`
+
+But NO individual JSON file at `content/static/articles/tech-news-gitlab-restructuring-may-2026-workforce-agentic-ai-pivot.json`.
+
+`getAllArticles()` reads individual files, not `_index.json`. So these articles only appear on the homepage via the registry (`getAllEntries()`). Their content renders via `NewsArticleDB` which reads the individual JSON file — if that file doesn't exist, the page will 404 at read time.
+
+**Fix:** Every article page that uses `NewsArticleDB` MUST have a matching individual JSON file in `content/static/articles/[slug].json`. The `_index.json` is metadata-only — it does not serve content.
+
+### Correct publish workflow (all article types)
+
+**NewsArticle (uses `NewsArticleDB`):**
+1. Write `content/static/articles/[slug].json` — full article content with `published_at` ISO-8601
+2. Add entry to `content/static/articles/_index.json` with `published_at` ISO-8601
+3. Write `app/[path]/page.tsx` stub pointing at slug
+4. Run `npm run wiki:sync -- --write` to add registry entry with correct `publish_date`
+5. **Do not skip step 1.** Without the individual JSON file, `NewsArticleDB` has nothing to render.
+
+**JackArticle (uses `JackArticleDB`):**
+1. Write `content/static/jack_articles/[slug].json` — full article with `publish_date` (display) AND `published_at` (ISO-8601) AND `article_url` (canonical path)
+2. Add entry to `content/static/jack_articles/_index.json`
+3. Write `app/[path]/page.tsx` stub
+4. Run `npm run jack:enrich` to auto-populate breadcrumbs and related articles
+5. Run `npm run wiki:sync -- --write` to add/update registry entry
+
+**Registry entry date field:**
+The registry stores `publish_date` as a display string (e.g. `"May 11, 2026"`). When `sync-registry.ts` creates an entry, it extracts `openGraph.publishedTime` from `page.tsx` and converts it to `YYYY-MM-DD` format. If `publishedTime` is missing from the page metadata, the script falls back to TODAY, which may be wrong.
+
+**Always include `openGraph.publishedTime` in every `page.tsx` metadata block.** This is the only reliable source for `publish_date` in the registry.
+
+### Homepage layout sections
+
+```
+merged[0]                  → lead article (carousel feature slot)
+merged[1]                  → second story
+merged[2]                  → third story
+merged[0..9]               → popularArticles (carousel + Popular Now rail)
+merged[3..50]              → moreStories (4-col grid, 4 pages)
+merged[51..93]             → headlineArticles (compact list overflow)
+```
+
+If your article doesn't appear in the carousel, check:
+1. Does it have a valid `publishDate` from at least one source?
+2. Is its `href` correct (matches the actual route path)?
+3. Is it excluded by `EXCLUDED_CATEGORIES` or `EXCLUDED_PREFIXES`?
 
 ---
 

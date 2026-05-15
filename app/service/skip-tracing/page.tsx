@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, Section } from '@/components/articles/ArticlePage';
+import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,41 +62,29 @@ export default function SkipTracingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ArticlePage
+      <ServicePage
+        icon="🗺️"
         title="Skip Tracing Austin TX | ObjectWire"
         subtitle="Licensed skip tracing to locate debtors, witnesses, defendants, and hard-to-find individuals across Austin, Travis County, and Central Texas."
         category="Investigative Services"
-        lastUpdated="May 4, 2026"
-        slug="service-skip-tracing"
-        url="/service/skip-tracing"
+        lastUpdated="May 15, 2026"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/skip-tracing', label: 'Skip Tracing' },
         ]}
-        infoBox={{
-          title: 'Skip Tracing Service',
-          sections: [
-            {
-              heading: 'Details',
-              items: [
-                { label: 'Type', value: 'Skip Tracing / Locate' },
-                { label: 'Subjects', value: 'Debtors, witnesses, defendants, individuals' },
-                { label: 'Methods', value: 'Database, field work, digital research' },
-                { label: 'Area', value: 'Austin, Travis County, Texas, nationwide' },
-              ],
-            },
-            {
-              heading: 'Related Services',
-              links: [
-                { href: '/service/missing-persons', label: 'Missing Persons' },
-                { href: '/service/background-checks', label: 'Background Checks' },
-                { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
-              ],
-            },
-            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
-          ],
-        }}
+        stats={[
+          { value: 'Licensed', label: 'Texas PI' },
+          { value: 'Database', label: 'Research' },
+          { value: 'Field Work', label: 'Investigators' },
+          { value: 'Free', label: 'Consultation' },
+        ]}
+        infoRows={[
+          { label: 'Type', value: 'Skip Tracing / Locate' },
+          { label: 'Subjects', value: 'Debtors, witnesses, defendants, individuals' },
+          { label: 'Methods', value: 'Database, field work, digital research' },
+          { label: 'Area', value: 'Austin, Travis County, Texas, nationwide' },
+        ]}
         tableOfContents={[
           { id: 'what-is', label: 'What Skip Tracing Is' },
           { id: 'who-we-locate', label: 'Who We Locate' },
@@ -104,15 +92,16 @@ export default function SkipTracingPage() {
           { id: 'legal-use', label: 'Legal and Attorney Use Cases' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedLinks={[
-          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
-          { href: '/service/missing-persons', label: 'Missing Persons', description: 'Locate missing adults and family members' },
-          { href: '/service/background-checks', label: 'Background Checks', description: 'Criminal, employment, identity research' },
-          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Locate subjects in business fraud cases' },
+        relatedServices={[
+          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert photo and video documentation.' },
+          { href: '/service/missing-persons', icon: '📍', label: 'Missing Persons', desc: 'Locate missing adults and family members.' },
+          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Criminal, employment, identity research.' },
+          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Locate subjects in business fraud cases.' },
         ]}
-        backLink={{ href: '/service', label: 'Investigative Services' }}
+        ctaHeading="Start a Skip Trace Case"
+        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
       >
-        <Section id="what-is" title="What Skip Tracing Is">
+        <ServiceSection id="what-is" title="What Skip Tracing Is">
           <p>
             Skip tracing is the investigative process of locating a person who has moved, changed
             contact information, or is actively avoiding contact. The term originates from the collection
@@ -125,9 +114,9 @@ export default function SkipTracingPage() {
             being found, database searches alone are insufficient — field verification and investigative
             judgment are required.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="who-we-locate" title="Who We Locate | Skip Trace Case Types">
+        <ServiceSection id="who-we-locate" title="Who We Locate | Skip Trace Case Types">
           <ul className="space-y-2">
             <li><strong>Debtors</strong> — individuals who have moved to avoid debt collection or judgment enforcement</li>
             <li><strong>Witnesses</strong> — persons needed for deposition, statement, or court testimony</li>
@@ -143,9 +132,9 @@ export default function SkipTracingPage() {
                 corporate investigations
               </Link></li>
           </ul>
-        </Section>
+        </ServiceSection>
 
-        <Section id="methods" title="Methods | How We Locate Subjects">
+        <ServiceSection id="methods" title="Methods | How We Locate Subjects">
           <p>
             Skip tracing combines proprietary database research, public records, digital open-source
             intelligence, field interviews with known associates, and physical verification once a
@@ -159,9 +148,9 @@ export default function SkipTracingPage() {
             </Link>{' '}
             capability extends the search to online identity, social media activity, and alias account tracking.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="legal-use" title="Legal and Attorney Use Cases | Service of Process Support">
+        <ServiceSection id="legal-use" title="Legal and Attorney Use Cases | Service of Process Support">
           <p>
             Attorneys and process servers frequently engage skip tracing services when a subject has moved
             or is evading service. ObjectWire provides verified current address reports for service of
@@ -171,9 +160,9 @@ export default function SkipTracingPage() {
             We deliver a written locate report with source documentation suitable for use in Texas civil
             proceedings and judgment enforcement actions.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="contact" title="Start a Skip Trace">
+        <ServiceSection id="contact" title="Start a Skip Trace">
           <p>
             Initial consultations are free. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -185,8 +174,8 @@ export default function SkipTracingPage() {
             </Link>
             .
           </p>
-        </Section>
-      </ArticlePage>
+        </ServiceSection>
+      </ServicePage>
     </>
   );
 }

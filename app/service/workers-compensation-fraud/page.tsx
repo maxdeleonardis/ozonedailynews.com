@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, Section } from '@/components/articles/ArticlePage';
+import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,41 +62,29 @@ export default function WorkersCompFraudPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ArticlePage
+      <ServicePage
+        icon="🏥"
         title="Workers Compensation Fraud Investigation Austin TX | ObjectWire"
         subtitle="Licensed claimant surveillance for insurers, TPAs, and defense attorneys across Austin and Travis County. Admissible, timestamped photo and video documentation."
         category="Investigative Services"
-        lastUpdated="May 4, 2026"
-        slug="service-workers-compensation-fraud"
-        url="/service/workers-compensation-fraud"
+        lastUpdated="May 15, 2026"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/workers-compensation-fraud', label: 'Workers Compensation Fraud' },
         ]}
-        infoBox={{
-          title: 'Workers Comp Fraud Service',
-          sections: [
-            {
-              heading: 'Details',
-              items: [
-                { label: 'Type', value: 'Insurance Fraud Surveillance' },
-                { label: 'Clients', value: 'Insurers, TPAs, defense attorneys' },
-                { label: 'Output', value: 'Photo, video, written report' },
-                { label: 'Area', value: 'Austin, Travis County, Central Texas' },
-              ],
-            },
-            {
-              heading: 'Related Services',
-              links: [
-                { href: '/service/surveillance', label: 'Surveillance' },
-                { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
-                { href: '/service/background-checks', label: 'Background Checks' },
-              ],
-            },
-            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
-          ],
-        }}
+        stats={[
+          { value: 'Licensed', label: 'Texas PI' },
+          { value: 'Timestamped', label: 'Documentation' },
+          { value: 'Court-Ready', label: 'Evidence' },
+          { value: 'Free', label: 'Consultation' },
+        ]}
+        infoRows={[
+          { label: 'Type', value: 'Insurance Fraud Surveillance' },
+          { label: 'Clients', value: 'Insurers, TPAs, defense attorneys' },
+          { label: 'Output', value: 'Photo, video, written report' },
+          { label: 'Area', value: 'Austin, Travis County, Central Texas' },
+        ]}
         tableOfContents={[
           { id: 'what-is', label: 'What Workers Comp Fraud Investigation Covers' },
           { id: 'who-we-work-with', label: 'Who We Work With' },
@@ -104,15 +92,16 @@ export default function WorkersCompFraudPage() {
           { id: 'documentation', label: 'Documentation Standards' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedLinks={[
-          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
-          { href: '/service/surveillance', label: 'Surveillance', description: 'Covert observation and documentation' },
-          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Employee fraud and misconduct' },
-          { href: '/service/background-checks', label: 'Background Checks', description: 'Claimant history and identity research' },
+        relatedServices={[
+          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert observation and documentation.' },
+          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Employee fraud and misconduct.' },
+          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Claimant history and identity research.' },
+          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Online activity and communications.' },
         ]}
-        backLink={{ href: '/service', label: 'Investigative Services' }}
+        ctaHeading="Start a Workers Comp Fraud Investigation"
+        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
       >
-        <Section id="what-is" title="What Workers Comp Fraud Investigation Covers">
+        <ServiceSection id="what-is" title="What Workers Comp Fraud Investigation Covers">
           <p>
             Workers compensation fraud investigation documents whether a claimant is engaging in physical
             activities inconsistent with their stated injury or disability. ObjectWire conducts these
@@ -125,18 +114,18 @@ export default function WorkersCompFraudPage() {
             to be unable to do is among the most effective tools for contesting fraudulent claims in
             Texas Department of Insurance Division of Workers Compensation proceedings.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="who-we-work-with" title="Who We Work With | Insurance and Legal Clients">
+        <ServiceSection id="who-we-work-with" title="Who We Work With | Insurance and Legal Clients">
           <ul className="space-y-2">
             <li><strong>Insurance carriers</strong> — property-casualty and workers comp carriers investigating suspect claims</li>
             <li><strong>Third-party administrators (TPAs)</strong> — claim management organizations handling self-insured employer accounts</li>
             <li><strong>Defense attorneys</strong> — counsel representing employers or carriers in contested workers comp cases</li>
             <li><strong>Self-insured employers</strong> — Austin-area businesses managing their own workers comp exposure</li>
           </ul>
-        </Section>
+        </ServiceSection>
 
-        <Section id="process" title="Investigation Process | How a Claimant Case Works">
+        <ServiceSection id="process" title="Investigation Process | How a Claimant Case Works">
           <p>
             The client provides the claimant's name, last known address, vehicle information, and
             claimed injury details. We establish a surveillance plan based on the claimant's likely
@@ -153,9 +142,9 @@ export default function WorkersCompFraudPage() {
             activity log, all photo and video files with metadata intact, and a chain-of-custody record.
             Reports are formatted for presentation in Texas DWC proceedings and civil depositions.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="documentation" title="Documentation Standards | Texas DWC Proceedings">
+        <ServiceSection id="documentation" title="Documentation Standards | Texas DWC Proceedings">
           <p>
             Evidence presented in Texas workers compensation contested case hearings must be lawfully
             obtained and authenticated. ObjectWire surveillance reports are structured to meet these
@@ -167,9 +156,9 @@ export default function WorkersCompFraudPage() {
             public or semi-public spaces. Evidence obtained through any illegal means is inadmissible
             and creates liability for the carrier. Every engagement is scoped to stay within Texas law.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="contact" title="Start a Workers Comp Fraud Investigation">
+        <ServiceSection id="contact" title="Start a Workers Comp Fraud Investigation">
           <p>
             To discuss a case, visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -181,8 +170,8 @@ export default function WorkersCompFraudPage() {
             </Link>
             .
           </p>
-        </Section>
-      </ArticlePage>
+        </ServiceSection>
+      </ServicePage>
     </>
   );
 }

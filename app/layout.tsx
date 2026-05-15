@@ -175,56 +175,153 @@ export default async function RootLayout({
             <main style={{ marginLeft: '10px', marginRight: '10px' }}>{children}</main>
 
         {/* Footer */}
-        <footer className="border-t border-gray-200 bg-white dark:bg-gray-950 dark:border-gray-800 mt-24">
-          <div className="container max-w-6xl mx-auto px-4 sm:px-6 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_2fr] gap-x-16 gap-y-12">
+        <footer className="bg-gray-800 mt-24">
 
-              {/* Brand */}
-              <FooterAuthorSlot />
+          {/* ── Newsletter banner ── full-width centered dark section */}
+          <div className="border-t border-gray-700 px-4 py-16">
+            <div className="max-w-xl mx-auto">
+              <NewsletterSignupInline />
+            </div>
+          </div>
 
-              {/* Company — narrow */}
-              <div className="shrink-0">
-                <h4 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Company</h4>
-                <div className="flex flex-col gap-2">
-                  <Link href="/about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">About</Link>
-                  <Link href="/editorial-standards" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Editorial Standards</Link>
-                  <Link href="/corrections" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Corrections</Link>
-                  <Link href="/privacy-policy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Privacy Policy</Link>
-                  <Link href="/terms-of-service" className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium transition-colors">Terms of Service</Link>
+          {/* ── Main footer body ── */}
+          <div className="border-t border-gray-700">
+            <div className="container max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-8">
+
+              {/* 4-column nav grid */}
+              <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-x-8 gap-y-10 mb-12">
+
+                {/* Brand */}
+                <div className="col-span-2 md:col-span-1">
+                  <div className="font-black text-lg tracking-tight text-white mb-3">ObjectWire</div>
+                  <p className="text-xs text-gray-400 leading-relaxed max-w-[220px]">
+                    Independent nonprofit newsroom based in Austin, Texas. Verified reporting, primary sources only.
+                  </p>
+                  <div className="flex items-center gap-2 mt-5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
+                    <span className="text-xs text-gray-400 font-mono">objectwire.org</span>
+                  </div>
+                  <div className="flex flex-col gap-1.5 mt-5">
+                    <Link href="/about" className="text-xs text-gray-400 hover:text-white transition-colors">Our Story</Link>
+                    <Link href="/editorial-standards" className="text-xs text-gray-400 hover:text-white transition-colors">Editorial Standards</Link>
+                    <Link href="/authors" className="text-xs text-gray-400 hover:text-white transition-colors">Our Team</Link>
+                    <Link href="/get-help" className="text-xs text-gray-400 hover:text-white transition-colors">Contact</Link>
+                    <Link href="/site-index" className="text-xs text-gray-400 hover:text-white transition-colors">Site Index</Link>
+                    <Link href="/feeds" className="text-xs text-gray-400 hover:text-white transition-colors">RSS</Link>
+                  </div>
+                </div>
+
+                {/* Coverage */}
+                <div>
+                  <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-500 mb-4">Coverage</h4>
+                  <div className="flex flex-col gap-2.5">
+                    <Link href="/news" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">News</Link>
+                    <Link href="/tech" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Tech</Link>
+                    <Link href="/finance" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Finance</Link>
+                    <Link href="/entertainment" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Entertainment</Link>
+                    <Link href="/video-games" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Gaming</Link>
+                    <Link href="/crypto" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Crypto</Link>
+                    <Link href="/science" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Science</Link>
+                  </div>
+                </div>
+
+                {/* Company */}
+                <div>
+                  <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-500 mb-4">Company</h4>
+                  <div className="flex flex-col gap-2.5">
+                    <Link href="/about" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">About</Link>
+                    <Link href="/authors" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Our Team</Link>
+                    <Link href="/editorial-standards" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Editorial Standards</Link>
+                    <Link href="/corrections" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Corrections</Link>
+                    <Link href="/service" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Services</Link>
+                    <Link href="/site-index" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Site Index</Link>
+                  </div>
+                </div>
+
+                {/* Legal */}
+                <div>
+                  <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-500 mb-4">Legal</h4>
+                  <div className="flex flex-col gap-2.5">
+                    <Link href="/privacy-policy" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Privacy Policy</Link>
+                    <Link href="/terms-of-service" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Terms of Service</Link>
+                    <Link href="/copyright" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Copyright</Link>
+                    <Link href="/editorial-standards" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Editorial Policy</Link>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Reporters strip */}
+              <div className="border-t border-gray-700 pt-10 pb-10">
+                <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-500 mb-6">Our Reporters</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <Link
+                    href="/authors/jack-sterling"
+                    className="group flex items-center justify-between p-4 border border-gray-700 hover:border-gray-400 bg-gray-700/50 hover:bg-gray-700 transition-all"
+                  >
+                    <div>
+                      <div className="font-bold text-sm text-white">Jack Sterling</div>
+                      <div className="text-xs text-gray-400 mt-0.5">Reporter, Politics &amp; Federal Investigations</div>
+                    </div>
+                    <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
+                  </Link>
+                  <Link
+                    href="/authors/tina-boyle"
+                    className="group flex items-center justify-between p-4 border border-gray-700 hover:border-gray-400 bg-gray-700/50 hover:bg-gray-700 transition-all"
+                  >
+                    <div>
+                      <div className="font-bold text-sm text-white">Tina Boyle</div>
+                      <div className="text-xs text-gray-400 mt-0.5">Investigations, Environmental &amp; National Security</div>
+                    </div>
+                    <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
+                  </Link>
+                  <Link
+                    href="/authors/max-deleonardis"
+                    className="group flex items-center justify-between p-4 border border-gray-700 hover:border-gray-400 bg-gray-700/50 hover:bg-gray-700 transition-all"
+                  >
+                    <div>
+                      <div className="font-bold text-sm text-white">Max DeLeonardis</div>
+                      <div className="text-xs text-gray-400 mt-0.5">Science &amp; Technology Writer, Austin TX</div>
+                    </div>
+                    <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
+                  </Link>
                 </div>
               </div>
 
-              {/* Newsletter — wide */}
-              <div>
-                <NewsletterSignupInline />
+              {/* Ownership & funding disclosure */}
+              <div className="border-t border-gray-700 pt-8 pb-8">
+                <p className="text-xs text-gray-400 leading-relaxed max-w-3xl">
+                  <span className="font-semibold text-gray-300">Ownership and funding:</span>{' '}
+                  ObjectWire is an independent, self-funded nonprofit newsroom. We accept no advertising, no
+                  sponsored content, and no political donations. Read our{' '}
+                  <Link href="/about" className="text-blue-400 hover:text-blue-300 underline">about page</Link>,{' '}
+                  <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline">editorial standards</Link>, and{' '}
+                  <Link href="/corrections" className="text-blue-400 hover:text-blue-300 underline">corrections policy</Link>.
+                </p>
               </div>
 
-            </div>
-
-            {/* Ownership & funding disclosure */}
-            <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8">
-              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl">
-                <span className="font-semibold text-gray-700 dark:text-gray-300">Ownership and funding:</span>{' '}
-                ObjectWire is an independent, self-funded nonprofit newsroom. We accept no advertising, no
-                sponsored content, and no political donations. Read our{' '}
-                <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">about page</Link>,{' '}
-                <Link href="/editorial-standards" className="text-blue-600 hover:text-blue-800 underline">editorial standards</Link>, and{' '}
-                <Link href="/corrections" className="text-blue-600 hover:text-blue-800 underline">corrections policy</Link>.
-              </p>
-            </div>
-
-            {/* Bottom bar */}
-            <div className="border-t border-gray-100 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <span>© 2026 ObjectWire.</span>
-                <span className="hidden sm:inline">Self-funded nonprofit newsroom.</span>
-                <span className="text-gray-300 dark:text-gray-600">·</span>
-                <span className="text-xs">Verified reporting. Primary sources only.</span>
+              {/* Bottom bar */}
+              <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
+                  <span className="font-semibold text-gray-300">© 2026 ObjectWire</span>
+                  <span className="text-gray-600">|</span>
+                  <span>Self-funded nonprofit newsroom</span>
+                  <span className="text-gray-600">|</span>
+                  <span>Austin, Texas</span>
+                  <span className="text-gray-600">|</span>
+                  <span>Verified reporting. Primary sources only.</span>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-gray-400">
+                  <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+                  <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms</Link>
+                  <Link href="/corrections" className="hover:text-white transition-colors">Corrections</Link>
+                  <span className="flex items-center gap-1.5 ml-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
+                    <span className="font-mono text-gray-400">objectwire.org</span>
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-1 text-xs text-gray-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
-                <span>objectwire.org</span>
-              </div>
+
             </div>
           </div>
         </footer>

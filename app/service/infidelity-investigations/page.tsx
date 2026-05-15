@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, Section } from '@/components/articles/ArticlePage';
+import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,41 +62,30 @@ export default function InfidelityInvestigationsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ArticlePage
-        title="Infidelity Investigations Austin TX | ObjectWire"
+      <ServicePage
+        icon="🔍"
+        title="Infidelity Investigations Austin TX"
         subtitle="Licensed cheating spouse and domestic partner investigations in Austin and Travis County. Confidential, timestamped evidence for divorce proceedings and family court."
         category="Investigative Services"
-        lastUpdated="May 4, 2026"
-        slug="service-infidelity-investigations"
-        url="/service/infidelity-investigations"
+        lastUpdated="May 15, 2026"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/infidelity-investigations', label: 'Infidelity Investigations' },
         ]}
-        infoBox={{
-          title: 'Infidelity Investigations',
-          sections: [
-            {
-              heading: 'Details',
-              items: [
-                { label: 'Type', value: 'Domestic / Infidelity' },
-                { label: 'Output', value: 'Photo, video, written report' },
-                { label: 'Area', value: 'Austin, Travis County' },
-                { label: 'Use', value: 'Divorce, separation, peace of mind' },
-              ],
-            },
-            {
-              heading: 'Related Services',
-              links: [
-                { href: '/service/surveillance', label: 'Surveillance' },
-                { href: '/service/child-custody-investigations', label: 'Child Custody Investigations' },
-                { href: '/service/digital-forensics', label: 'Digital Forensics' },
-              ],
-            },
-            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
-          ],
-        }}
+        stats={[
+          { value: 'Confidential', label: 'Case Handling' },
+          { value: 'Timestamped', label: 'Photo & Video' },
+          { value: 'Court-Ready', label: 'Documentation' },
+          { value: 'Free', label: 'Consultation' },
+        ]}
+        infoRows={[
+          { label: 'Type', value: 'Domestic / Infidelity' },
+          { label: 'Output', value: 'Photo, video, written report' },
+          { label: 'Area', value: 'Austin / Travis County' },
+          { label: 'Use', value: 'Divorce, separation, peace of mind' },
+          { label: 'License', value: 'Texas Occ. Code Ch. 1702' },
+        ]}
         tableOfContents={[
           { id: 'what-is', label: 'What Infidelity Investigation Covers' },
           { id: 'what-we-document', label: 'What We Document' },
@@ -105,15 +94,16 @@ export default function InfidelityInvestigationsPage() {
           { id: 'confidentiality', label: 'Confidentiality' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedLinks={[
-          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
-          { href: '/service/surveillance', label: 'Surveillance', description: 'Covert observation and documentation' },
-          { href: '/service/child-custody-investigations', label: 'Child Custody Investigations', description: 'Family court evidence' },
-          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'Account activity and online communications' },
+        relatedServices={[
+          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert observation and documentation.' },
+          { href: '/service/child-custody-investigations', icon: '⚖️', label: 'Child Custody', desc: 'Family court evidence and parental surveillance.' },
+          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Account activity and online communications.' },
+          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Criminal history and identity research.' },
         ]}
-        backLink={{ href: '/service', label: 'Investigative Services' }}
+        ctaHeading="Start an Infidelity Investigation"
+        ctaBody="Initial consultations are free and confidential. We will discuss what you know, what you need to prove, and what is achievable under Texas family law."
       >
-        <Section id="what-is" title="What Infidelity Investigation Covers">
+        <ServiceSection id="what-is" title="What Infidelity Investigation Covers">
           <p>
             An infidelity investigation documents whether a spouse or domestic partner is engaging
             in an undisclosed relationship. ObjectWire conducts these cases with full confidentiality
@@ -124,9 +114,9 @@ export default function InfidelityInvestigationsPage() {
             documented infidelity investigation produces admissible, timestamped evidence that can support
             divorce filings, property division arguments, and custody proceedings under Texas family law.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="what-we-document" title="What We Document | Evidence Types">
+        <ServiceSection id="what-we-document" title="What We Document | Evidence Types">
           <ul className="space-y-2">
             <li><strong>Physical meetings</strong> — covert surveillance of the subject at locations relevant to the case</li>
             <li><strong>Vehicle and location tracking</strong> — lawful monitoring of movement patterns</li>
@@ -138,9 +128,9 @@ export default function InfidelityInvestigationsPage() {
               </Link>{' '}
               service, account communications, messaging patterns, and hidden profiles</li>
           </ul>
-        </Section>
+        </ServiceSection>
 
-        <Section id="process" title="How It Works | Case Process">
+        <ServiceSection id="process" title="How It Works | Case Process">
           <p>
             The process begins with a free confidential consultation. We discuss what you know, what
             you need to prove, and what evidence standards apply to your specific situation under
@@ -152,9 +142,9 @@ export default function InfidelityInvestigationsPage() {
             and video file set, and chain-of-custody documentation suitable for use in Texas court
             proceedings or divorce negotiations.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="divorce-proceedings" title="Divorce and Legal Proceedings | Texas Family Law">
+        <ServiceSection id="divorce-proceedings" title="Divorce and Legal Proceedings | Texas Family Law">
           <p>
             Texas is a community property state with fault-based divorce provisions. Documented infidelity
             can be relevant to property division and, in limited circumstances, spousal support rulings.
@@ -166,18 +156,18 @@ export default function InfidelityInvestigationsPage() {
             to litigation. Our written reports are formatted to meet Texas Rules of Evidence requirements
             for documentary evidence.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="confidentiality" title="Confidentiality | How We Handle Your Case">
+        <ServiceSection id="confidentiality" title="Confidentiality | How We Handle Your Case">
           <p>
             Infidelity cases are handled with strict confidentiality. We do not discuss client matters
             with third parties. Case files are delivered directly to the client or, where authorized,
             to the client's attorney. We do not retain copies of case files beyond project close unless
             specifically requested for ongoing matters.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="contact" title="Start an Infidelity Investigation">
+        <ServiceSection id="contact" title="Start an Infidelity Investigation">
           <p>
             Initial consultations are free and confidential. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -189,8 +179,8 @@ export default function InfidelityInvestigationsPage() {
             </Link>
             .
           </p>
-        </Section>
-      </ArticlePage>
+        </ServiceSection>
+      </ServicePage>
     </>
   );
 }

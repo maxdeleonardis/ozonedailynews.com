@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, Section } from '@/components/articles/ArticlePage';
+import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -68,50 +68,29 @@ export default function TipTheNewsroomPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ArticlePage
+      <ServicePage
+        icon="📨"
         title="Tip the Newsroom | Submit a Confidential News Tip"
         subtitle="ObjectWire protects sources. If you have information about wrongdoing, fraud, or a story the public deserves to know, we want to hear from you."
         category="Media Services"
-        lastUpdated="May 4, 2026"
-        slug="service-tip-the-newsroom"
-        url="/service/tip-the-newsroom"
+        lastUpdated="May 15, 2026"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Services' },
           { href: '/service/tip-the-newsroom', label: 'Tip the Newsroom' },
         ]}
-        infoBox={{
-          title: 'Tip Submission',
-          sections: [
-            {
-              heading: 'What Makes a Strong Tip',
-              list: [
-                'First-hand knowledge of events',
-                'Supporting documents or records',
-                'Specific names, dates, and places',
-                'Multiple independent sources',
-                'A public interest angle',
-              ],
-            },
-            {
-              heading: 'Source Protection',
-              items: [
-                { label: 'Confidentiality', value: 'Guaranteed when requested' },
-                { label: 'Anonymous tips', value: 'Accepted' },
-                { label: 'Document handling', value: 'Secure, limited access' },
-                { label: 'Disclosure', value: 'Never without permission' },
-              ],
-            },
-            {
-              heading: 'Related',
-              links: [
-                { href: '/service/investigative-reporting', label: 'How We Investigate' },
-                { href: '/service/document-review', label: 'Share Documents' },
-                { href: '/investigations', label: 'Published Investigations' },
-              ],
-            },
-          ],
-        }}
+        stats={[
+          { value: 'Anonymous', label: 'Tips Accepted' },
+          { value: 'Confidential', label: 'Source Protection' },
+          { value: 'Encrypted', label: 'Document Handling' },
+          { value: 'Free', label: 'Tip Review' },
+        ]}
+        infoRows={[
+          { label: 'Confidentiality', value: 'Guaranteed when requested' },
+          { label: 'Anonymous tips', value: 'Accepted' },
+          { label: 'Document handling', value: 'Secure, limited access' },
+          { label: 'Disclosure', value: 'Never without permission' },
+        ]}
         tableOfContents={[
           { id: 'what-we-need', label: 'What We Need From You' },
           { id: 'strong-tip', label: 'What Makes a Strong Tip' },
@@ -120,16 +99,16 @@ export default function TipTheNewsroomPage() {
           { id: 'what-happens', label: 'What Happens After You Tip' },
           { id: 'documents', label: 'Sharing Documents' },
         ]}
-        relatedLinks={[
-          { href: '/service', label: 'All Services', description: 'PI and media services' },
-          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How ObjectWire investigates' },
-          { href: '/service/document-review', label: 'Document Review', description: 'Submit records for analysis' },
-          { href: '/investigations', label: 'Our Investigations', description: 'Published investigative reporting' },
-          { href: '/editorial-standards', label: 'Editorial Standards', description: 'Our accuracy and ethics policy' },
+        relatedServices={[
+          { href: '/service/investigative-reporting', icon: '📰', label: 'Investigative Reporting', desc: 'How ObjectWire investigates.' },
+          { href: '/service/document-review', icon: '📁', label: 'Document Review', desc: 'Submit records for analysis.' },
+          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'OSINT and digital evidence.' },
+          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Private corporate case work.' },
         ]}
-        backLink={{ href: '/service', label: 'Services' }}
+        ctaHeading="Submit a Confidential Tip"
+        ctaBody="Anonymous tips are accepted. Source confidentiality is guaranteed. Contact us securely via the consultation page to establish a safe submission channel."
       >
-        <Section id="what-we-need" title="What We Need From You | Starting a Tip">
+        <ServiceSection id="what-we-need" title="What We Need From You | Starting a Tip">
           <p>
             ObjectWire investigates matters of genuine public interest. To begin an investigation we
             need more than a vague concern. The stronger your tip, the faster and more thoroughly we
@@ -142,9 +121,9 @@ export default function TipTheNewsroomPage() {
             public, a community, or an identifiable group of people? If yes to all three, your tip is
             worth submitting.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="strong-tip" title="What Makes a Strong Tip | Qualities That Move Stories Forward">
+        <ServiceSection id="strong-tip" title="What Makes a Strong Tip | Qualities That Move Stories Forward">
           <p>The tips that result in published investigations typically have most of the following:</p>
           <ul className="space-y-2 mt-2">
             <li><strong>First-hand knowledge</strong> — you witnessed it, participated in it, or have direct access to someone who did</li>
@@ -158,9 +137,9 @@ export default function TipTheNewsroomPage() {
             without a public interest angle are harder to pursue. We will still log them, and if a
             pattern emerges from multiple tips on the same subject, we may initiate an investigation.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="source-protection" title="Source Protection Policy | ObjectWire's Commitment">
+        <ServiceSection id="source-protection" title="Source Protection Policy | ObjectWire's Commitment">
           <p>
             ObjectWire does not disclose source identities without explicit permission from the source.
             This commitment is unconditional for sources who request confidentiality at the time of
@@ -178,9 +157,9 @@ export default function TipTheNewsroomPage() {
             attorney before submission. ObjectWire can provide information about federal and Texas
             whistleblower protection statutes on request.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="secure-submission" title="How to Submit Securely | Protecting Your Identity">
+        <ServiceSection id="secure-submission" title="How to Submit Securely | Protecting Your Identity">
           <p>
             For tips involving significant personal risk, use the following practices to reduce your
             exposure before contacting us:
@@ -199,9 +178,9 @@ export default function TipTheNewsroomPage() {
             </Link>{' '}
             and request a secure communication channel to be established before you transmit any documents.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="what-happens" title="What Happens After You Tip | The Follow-Up Process">
+        <ServiceSection id="what-happens" title="What Happens After You Tip | The Follow-Up Process">
           <p>
             Every tip received by ObjectWire is logged and reviewed by the editorial team within 5
             business days. We evaluate the public interest angle, the quality of supporting evidence,
@@ -217,9 +196,9 @@ export default function TipTheNewsroomPage() {
             Subjects of investigations are always given an opportunity to respond before publication.
             Their response, or their refusal to respond, becomes part of the public record.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="documents" title="Sharing Documents | Records, FOIA Files, and Leaked Materials">
+        <ServiceSection id="documents" title="Sharing Documents | Records, FOIA Files, and Leaked Materials">
           <p>
             ObjectWire accepts documents, filings, financial records, photographs, and other materials
             relevant to matters of public interest. For full guidance on document submission, metadata
@@ -240,8 +219,8 @@ export default function TipTheNewsroomPage() {
             </Link>
             .
           </p>
-        </Section>
-      </ArticlePage>
+        </ServiceSection>
+      </ServicePage>
     </>
   );
 }

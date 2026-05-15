@@ -55,7 +55,8 @@ export default function AboutPage() {
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <h2>Ownership</h2>
           <p>
-            ObjectWire is owned and operated by its editorial team. There are no outside shareholders,
+            ObjectWire is a formally registered 501(c)(3) nonprofit organization, incorporated in the
+            State of Wyoming as <strong>ObjectWire LLC</strong>. There are no outside shareholders,
             parent companies, or holding entities. Editorial decisions are made by named editors whose
             bios are public on our{' '}
             <Link href="/authors" className="text-blue-600 hover:text-blue-800 underline">

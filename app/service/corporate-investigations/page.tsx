@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArticlePage, Section } from '@/components/articles/ArticlePage';
+import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,42 +62,29 @@ export default function CorporateInvestigationsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ArticlePage
+      <ServicePage
+        icon="🏢"
         title="Corporate Investigations Austin TX | ObjectWire"
         subtitle="Employee misconduct, IP theft, fraud, and executive due diligence investigations for Austin-area businesses and legal teams."
         category="Investigative Services"
-        lastUpdated="May 4, 2026"
-        slug="service-corporate-investigations"
-        url="/service/corporate-investigations"
+        lastUpdated="May 15, 2026"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
         ]}
-        infoBox={{
-          title: 'Corporate Investigations',
-          sections: [
-            {
-              heading: 'Details',
-              items: [
-                { label: 'Type', value: 'Corporate / Business Investigation' },
-                { label: 'Clients', value: 'Businesses, legal counsel, HR' },
-                { label: 'Scope', value: 'Misconduct, fraud, IP, due diligence' },
-                { label: 'Area', value: 'Austin, Travis County, Central Texas' },
-              ],
-            },
-            {
-              heading: 'Related Services',
-              links: [
-                { href: '/service/surveillance', label: 'Surveillance' },
-                { href: '/service/background-checks', label: 'Background Checks' },
-                { href: '/service/digital-forensics', label: 'Digital Forensics' },
-                { href: '/service/skip-tracing', label: 'Skip Tracing' },
-              ],
-            },
-            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
-          ],
-        }}
+        stats={[
+          { value: 'Licensed', label: 'Texas PI' },
+          { value: 'Confidential', label: 'Case Handling' },
+          { value: 'Court-Ready', label: 'Documentation' },
+          { value: 'Free', label: 'Consultation' },
+        ]}
+        infoRows={[
+          { label: 'Type', value: 'Corporate / Business Investigation' },
+          { label: 'Clients', value: 'Businesses, legal counsel, HR' },
+          { label: 'Scope', value: 'Misconduct, fraud, IP, due diligence' },
+          { label: 'Area', value: 'Austin, Travis County, Central Texas' },
+        ]}
         tableOfContents={[
           { id: 'what-is', label: 'What Corporate Investigation Covers' },
           { id: 'case-types', label: 'Case Types' },
@@ -105,16 +92,16 @@ export default function CorporateInvestigationsPage() {
           { id: 'process', label: 'How It Works' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedLinks={[
-          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
-          { href: '/service/surveillance', label: 'Surveillance', description: 'Employee activity documentation' },
-          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'Digital communications and data investigations' },
-          { href: '/service/background-checks', label: 'Background Checks', description: 'Executive and vendor due diligence' },
-          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'Publishing accountability journalism on corporate misconduct' },
+        relatedServices={[
+          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Employee activity documentation.' },
+          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Digital communications and data investigations.' },
+          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Executive and vendor due diligence.' },
+          { href: '/service/workers-compensation-fraud', icon: '🏥', label: 'Workers Comp Fraud', desc: 'Insurance fraud investigation.' },
         ]}
-        backLink={{ href: '/service', label: 'Investigative Services' }}
+        ctaHeading="Start a Corporate Investigation"
+        ctaBody="Initial consultations are confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
       >
-        <Section id="what-is" title="What Corporate Investigation Covers">
+        <ServiceSection id="what-is" title="What Corporate Investigation Covers">
           <p>
             Corporate investigations address internal misconduct, fraud, intellectual property theft,
             and executive or vendor due diligence for Austin-area businesses and legal teams. ObjectWire
@@ -131,9 +118,9 @@ export default function CorporateInvestigationsPage() {
             . This is particularly valuable when a subject is aware they are being investigated and
             may be concealing or destroying evidence.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="case-types" title="Case Types | What We Investigate">
+        <ServiceSection id="case-types" title="Case Types | What We Investigate">
           <ul className="space-y-2">
             <li><strong>Employee misconduct</strong> — time theft, unauthorized outside employment, policy violations, harassment documentation</li>
             <li><strong>Intellectual property theft</strong> — unauthorized removal of trade secrets, proprietary data, client lists, or source code</li>
@@ -143,9 +130,9 @@ export default function CorporateInvestigationsPage() {
             <li><strong>Non-compete violations</strong> — documentation of a former employee working for a competitor in violation of a covenant</li>
             <li><strong>Workplace theft</strong> — property and equipment removal, documented through covert surveillance</li>
           </ul>
-        </Section>
+        </ServiceSection>
 
-        <Section id="journalism-connection" title="Investigative Journalism | When Corporate Misconduct Is a Public Matter">
+        <ServiceSection id="journalism-connection" title="Investigative Journalism | When Corporate Misconduct Is a Public Matter">
           <p>
             ObjectWire is an investigative media company as well as a PI agency. When corporate
             misconduct has public significance, including fraud affecting consumers, environmental
@@ -161,9 +148,9 @@ export default function CorporateInvestigationsPage() {
             page. If your concern is a private business matter requiring confidential investigation,
             this corporate PI service is the appropriate engagement.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="process" title="How It Works | Corporate Case Process">
+        <ServiceSection id="process" title="How It Works | Corporate Case Process">
           <p>
             Every corporate engagement begins with a confidential consultation to establish the scope,
             legal constraints, and deliverables. We work directly with in-house counsel and outside
@@ -175,9 +162,9 @@ export default function CorporateInvestigationsPage() {
             digital forensics produces documented findings with chain-of-custody records; background
             and due diligence investigations produce written reports with source documentation.
           </p>
-        </Section>
+        </ServiceSection>
 
-        <Section id="contact" title="Start a Corporate Investigation">
+        <ServiceSection id="contact" title="Start a Corporate Investigation">
           <p>
             Initial consultations are confidential. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -189,8 +176,8 @@ export default function CorporateInvestigationsPage() {
             </Link>
             .
           </p>
-        </Section>
-      </ArticlePage>
+        </ServiceSection>
+      </ServicePage>
     </>
   );
 }

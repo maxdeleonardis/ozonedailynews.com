@@ -63,6 +63,8 @@ export interface InternalLinkItem {
   href: string;
   label: string;
   description?: string;
+  /** Optional category chip shown above the label, e.g. "Gaming", "Tech", "Hub" */
+  category?: string;
 }
 
 export interface SourcesInterlinkProps {
@@ -174,28 +176,38 @@ export function SourcesInterlink({
         </ol>
       )}
 
-      {/* Internal ObjectWire cross-links — clean blue-underlined list */}
+      {/* Internal ObjectWire cross-links — card grid for strong visual interlinking */}
       {internalLinks.length > 0 && (
         <div>
-          <h3 className="text-base font-bold mb-2">Further Reading on ObjectWire</h3>
-          <ul className="list-disc pl-6 space-y-1 text-sm">
+          <h3 className="text-base font-bold mb-3">Further Reading on ObjectWire</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {internalLinks.map((link, i) => (
-              <li key={i}>
-                <Link
-                  href={link.href}
-                  className={`${textClass} underline hover:opacity-80`}
-                >
-                  {link.label}
-                </Link>
-                {link.description && (
-                  <span className="text-gray-600 dark:text-gray-400">
-                    {' — '}
-                    {link.description}
-                  </span>
-                )}
-              </li>
+              <Link
+                key={i}
+                href={link.href}
+                className={`group flex items-center justify-between p-3.5 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 bg-gray-50 dark:bg-gray-800/40 hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all no-underline`}
+              >
+                <div className="flex-1 min-w-0">
+                  {link.category && (
+                    <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-0.5">
+                      {link.category}
+                    </span>
+                  )}
+                  <div className={`font-semibold text-sm text-gray-900 dark:text-gray-100 group-hover:${textClass.replace('text-', 'text-')} transition-colors truncate`}>
+                    {link.label}
+                  </div>
+                  {link.description && (
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">
+                      {link.description}
+                    </div>
+                  )}
+                </div>
+                <span className={`ml-3 text-gray-400 group-hover:${textClass} transition-colors flex-shrink-0 text-base`}>
+                  →
+                </span>
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

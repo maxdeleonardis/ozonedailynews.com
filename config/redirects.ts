@@ -72,10 +72,6 @@ export const redirects: R[] = [
   { source: '/mha',            destination: '/video-games',  permanent: true },
   { source: '/james-cameron',  destination: '/entertainment',permanent: true },
 
-  // Tag pages — removed, redirect everything to /news
-  { source: '/tags',           destination: '/news', permanent: true },
-  { source: '/tags/:path*',    destination: '/news', permanent: true },
-
   // Service pages — detective agency
   { source: '/service/:path*', destination: '/austin-private-detective-agency', permanent: true },
   { source: '/service',        destination: '/austin-private-detective-agency', permanent: true },

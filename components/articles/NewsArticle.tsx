@@ -610,12 +610,13 @@ export function TagsSection({ tags }: { tags: string[] }) {
       </h3>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, index) => (
-          <span
+          <Link
             key={index}
-            className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 cursor-pointer transition-colors"
+            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+            className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors"
           >
             #{tag}
-          </span>
+          </Link>
         ))}
       </div>
     </div>

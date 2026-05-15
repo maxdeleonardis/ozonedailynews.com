@@ -51,12 +51,13 @@ function TagsSection({ tags }: { tags: string[] }) {
       <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Filed under</p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, i) => (
-          <span
+          <Link
             key={i}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-black hover:text-white dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white dark:hover:text-black transition-all duration-150 cursor-pointer border border-transparent hover:border-black dark:hover:border-white"
+            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-black hover:text-white dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white dark:hover:text-black transition-all duration-150 border border-transparent hover:border-black dark:hover:border-white"
           >
             #{tag}
-          </span>
+          </Link>
         ))}
       </div>
     </div>

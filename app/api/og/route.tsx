@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { createClient } from '@supabase/supabase-js';
+
+type Weight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+type OgFont = { name: string; data: ArrayBuffer; weight: Weight; style: 'normal' | 'italic' };
 import type { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
@@ -60,9 +63,9 @@ function truncateHeadline(text: string, maxChars = 70): string {
 }
 
 // ── Font loader — cached at module level for warm Edge instances ───────────
-let _fonts: { name: string; data: ArrayBuffer; weight: number; style: 'normal' | 'italic' }[] | null = null;
+let _fonts: OgFont[] | null = null;
 
-async function loadFonts(siteUrl: string) {
+async function loadFonts(siteUrl: string): Promise<OgFont[]> {
   if (_fonts) return _fonts;
   const [frauncesBlack, interBold, interMedium] = await Promise.all([
     fetch(`${siteUrl}/fonts/Fraunces-Black.ttf`).then(r => r.arrayBuffer()),

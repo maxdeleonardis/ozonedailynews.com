@@ -12763,7 +12763,13 @@
     "publish_date": "2026-05-12",
     "modified_date": "2026-05-12",
     "category": "Tech",
-    "tags": ["Tesla", "FSD", "Self-Driving Cars", "Autonomous Vehicles", "Cannonball Run"],
+    "tags": [
+      "Tesla",
+      "FSD",
+      "Self-Driving Cars",
+      "Autonomous Vehicles",
+      "Cannonball Run"
+    ],
     "author": "Jack Sterling",
     "priority": 0.8,
     "change_frequency": "weekly",
@@ -12790,5 +12796,1067 @@
     "change_frequency": "weekly",
     "image_width": 1200,
     "image_height": 675
+  },
+  {
+    "slug": "/authors/max-deleonardis",
+    "title": "Max DeLeonardis, ObjectWire Science & Technology Writer",
+    "description": "Max DeLeonardis is a founding writer at ObjectWire in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging technology",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Meta",
+    "tags": [
+      "Author",
+      "ObjectWire",
+      "Max Deleonardis"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly",
+    "image_url": "https://www.objectwire.org/authors/max-deleonardis",
+    "image_width": 800,
+    "image_height": 800
+  },
+  {
+    "slug": "/authors/tina-boyle",
+    "title": "Tina Boyle, ObjectWire Investigations Reporter",
+    "description": "Tina Boyle is an investigations reporter at ObjectWire covering federal environmental policy, national security law, and regulatory agencies.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Meta",
+    "tags": [
+      "Author",
+      "ObjectWire",
+      "Tina Boyle"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly",
+    "image_url": "https://www.objectwire.org/authors/tina-boyle",
+    "image_width": 800,
+    "image_height": 800
+  },
+  {
+    "slug": "/college/north-carolina-state-university",
+    "title": "NC State | North Carolina State University, Journalism Program",
+    "description": "North Carolina State University is a public land-grant research university in Raleigh, NC. NC State\\",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Education",
+    "tags": [
+      "College",
+      "Education",
+      "North Carolina State University"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}"
+  },
+  {
+    "slug": "/college/nyu",
+    "title": "NYU | New York University, Journalism Program",
+    "description": "New York University is a private research university in New York City. NYU\\",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Education",
+    "tags": [
+      "College",
+      "Education",
+      "Nyu"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}"
+  },
+  {
+    "slug": "/college",
+    "title": "College & University Profiles | ObjectWire Education Index",
+    "description": "University and journalism school profiles connected to ObjectWire reporters. Browse schools by alumni, program, and location.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Education",
+    "tags": [
+      "College",
+      "Education"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.8,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org/college"
+  },
+  {
+    "slug": "/college/ucla",
+    "title": "UCLA | University of California Los Angeles, Journalism Program",
+    "description": "University of California, Los Angeles is a public research university in Westwood, California. UCLA\\",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Education",
+    "tags": [
+      "College",
+      "Education",
+      "Ucla"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}"
+  },
+  {
+    "slug": "/creator/throttlehouse",
+    "title": "ThrottleHouse | Jeff Thomas and Thomas Holland YouTube 2026",
+    "description": "ThrottleHouse is a Canadian automotive YouTube channel hosted by Jeff Thomas and Thomas Holland. Over 2M subscribers, Victoria BC, founded 2017. Car reviews, co",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Creator",
+    "tags": [
+      "Creator"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 900,
+    "image_height": 900
+  },
+  {
+    "slug": "/influencer/abby-berner",
+    "title": "Abby Berner | Age, Height, Net Worth, TikTok 2026",
+    "description": "Abby Berner is a US fitness creator born September 1, 2000. Full bio: age, height 5\\",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Abby Berner"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/alanforze/supernova-genesis-2026-netflix-arena-ciudad-de-mexico",
+    "title": "Supernova Genesis 2026 | Netflix Live, Arena Ciudad de",
+    "description": "Supernova: Genesis 2026 takes place April 26 at Arena Ciudad de Mexico, live exclusively on Netflix. Full card: Alana Flores vs Samadis, Nando vs Abraham,",
+    "publish_date": "2026-04-19",
+    "modified_date": "2026-04-19",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Alanforze",
+      "Supernova Genesis 2026 Netflix Arena Ciudad De Mexico"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/alix-earle",
+    "title": "Alix Earle | Age, TikTok, Net Worth, GRWM Bio 2026",
+    "description": "Alix Earle, 25, is a Florida-born TikTok creator with 7M followers known for GRWM videos. Full biography: net worth, brand deals, college career, and social med",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Alix Earle"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/ari-kytsya",
+    "title": "Ari Kytsya | Age, TikTok, Instagram, Bio 2026",
+    "description": "Ari Kytsya is a Seattle-based model and creator, 24-25 in 2026, with 5M TikTok followers and 3M on Instagram. Full biography, social links, relationship",
+    "publish_date": "2026-04-02",
+    "modified_date": "2026-04-02",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Ari Kytsya"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/bryson-dechambeau/kalshi",
+    "title": "Bryson DeChambeau and Kalshi Partnership | First Kalshi",
+    "description": "Bryson DeChambeau became Kalshi\\",
+    "publish_date": "2026-02-20",
+    "modified_date": "2026-02-20",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Bryson Dechambeau",
+      "Kalshi"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/bryson-dechambeau/kalshi"
+  },
+  {
+    "slug": "/influencer/bryson-dechambeau",
+    "title": "Bryson DeChambeau | 2-Time US Open Champion, LIV Golf Star",
+    "description": "Full profile of Bryson DeChambeau: 2-time US Open champion (2020, 2024), LIV Golf star, physics-driven swing analyst, and YouTube creator with 1M+ subscribers.",
+    "publish_date": "2026-04-15",
+    "modified_date": "2026-04-15",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Bryson Dechambeau"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/bufalika",
+    "title": "Bufalika | Net Worth, Age, Instagram, OnlyFans, Telegram 2026",
+    "description": "Bufalika is a lifestyle creator and model known for Instagram and OnlyFans. Full bio: estimated net worth, age, Telegram, social handles, and 2026 creator profi",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Bufalika"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/charli-damelio",
+    "title": "Charli D\\",
+    "description": "Full profile of Charli D\\",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Charli Damelio"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/colleen-sheehan",
+    "title": "Colleen Sheehan | Age, Height, TikTok, Instagram 2026",
+    "description": "Colleen Sheehan (colleen.333) is a Boston-based model born June 7, 2004. Full bio: age, height, net worth, 757K+ Instagram, TikTok, fashion, festival, cosplay c",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Colleen Sheehan"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/daddywellness",
+    "title": "Daddy Wellness (Richie Lovelace) | Wellness Creator, 2M Followers",
+    "description": "Richie Lovelace, known as Daddy Wellness, is a Miami-based wellness creator with 2M+ Instagram followers, founder of Dialed University, and host of TSL Time pod",
+    "publish_date": "2026-04-10",
+    "modified_date": "2026-04-10",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Daddywellness"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/diamond-gym",
+    "title": "Diamond Gym | Maplewood, NJ | Where Elite Fitness",
+    "description": "Diamond Gym in Maplewood, NJ has become one of the most talked-about training facilities in the US fitness creator scene. Logan Paul, the Tren Twins,",
+    "publish_date": "2026-03-31",
+    "modified_date": "2026-03-31",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Diamond Gym"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/diamond-gym/prime",
+    "title": "PRIME x Diamond Gym | Logan Paul Hydration Sponsor Deal",
+    "description": "Logan Paul",
+    "publish_date": "2026-02-20",
+    "modified_date": "2026-02-20",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Diamond Gym",
+      "Prime"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/diamond-gym/prime"
+  },
+  {
+    "slug": "/influencer/ed-matthews",
+    "title": "Ed Matthews | TikTok, Boxing, Instagram, Bio 2026",
+    "description": "Ed Matthews is a British creator and influencer boxer with 1M+ TikTok followers. Full biography: boxing record, Elsa Rae relationship, net worth, and social med",
+    "publish_date": "2026-05-04",
+    "modified_date": "2026-05-04",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Ed Matthews"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/eden-gross",
+    "title": "› influencer › eden-gross",
+    "description": "ObjectWire coverage of › influencer › eden-gross.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Eden Gross"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/emma-chamberlain",
+    "title": "Emma Chamberlain | Age, YouTube, Chamberlain Coffee Bio 2026",
+    "description": "Emma Chamberlain, 25, is a San Francisco-born YouTube creator with 11M subscribers and founder of Chamberlain Coffee. Full biography: Met Gala, Louis Vuitton, n",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Emma Chamberlain"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/faithordway",
+    "title": "Faith Ordway | TikTok Star, Fitness Creator & Model",
+    "description": "Full profile of Faith Ordway, TikTok star with 5M+ followers and 243M+ likes. Ohio-born dancer, fitness creator, YoungLA ambassador, and social media",
+    "publish_date": "2026-03-31",
+    "modified_date": "2026-03-31",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Faithordway"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/iman-gadzhi",
+    "title": "Iman Gadzhi | Digital Marketing Entrepreneur & Educator",
+    "description": "Iman Gadzhi, Russian-British entrepreneur and founder of IAG Media and Educate. Biography, SMMA career, net worth, and 2026 updates from ObjectWire.",
+    "publish_date": "2026-02-09",
+    "modified_date": "2026-02-09",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Iman Gadzhi"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/instagram",
+    "title": "Instagram Wiki 2026 | History, Meta Acquisition & 2.4B Users",
+    "description": "Complete profile of Instagram: founded 2010 by Kevin Systrom and Mike Krieger, acquired by Facebook for $1B in 2012, now serving 2.4 billion monthly users under",
+    "publish_date": "2026-04-01",
+    "modified_date": "2026-04-01",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Instagram"
+    ],
+    "author": "Meta IR",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://investor.fb.com/investor-news/press-release-details/2012/Facebook-to-Acquire-Instagram/default.aspx"
+  },
+  {
+    "slug": "/influencer/kirstentoosweet",
+    "title": "Kirsten Toosweet | TikTok Creator & Lifestyle Creator",
+    "description": "Full profile of Kirsten Toosweet, TikTok creator with 2.5M+ followers and 25M+ likes. Lifestyle, comedy, and beauty content across TikTok, Instagram,",
+    "publish_date": "2026-03-31",
+    "modified_date": "2026-03-31",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Kirstentoosweet"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/leah-davies",
+    "title": "Leah Davies | Age, House DJ Sets, TikTok, Instagram 2026",
+    "description": "Leah Davies (lleahdavies) is a UK house DJ with 25K+ TikTok followers and a Resident Advisor profile. Full bio: age, DJ sets, SoundCloud, Instagram, booking inf",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Leah Davies"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/lean-beef-patty",
+    "title": "Lean Beef Patty | Age, Height, Net Worth, TikTok 2026",
+    "description": "Lean Beef Patty (Victoria Waldrip) is a US bodybuilding creator born May 14, 1999. Full bio: age, height 5\\",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Lean Beef Patty"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/megan-marie",
+    "title": "Megan Marie | Age, Net Worth, OnlyFans, Instagram 2026",
+    "description": "Megan Marie McCarthy (meganmariiee) is a US content creator on OnlyFans, Instagram, and Reddit. Full bio: age, net worth, platforms, meganmariiee social handles",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Megan Marie"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/mika-lafuente",
+    "title": "Mika Lafuente | Age, Height, Instagram, Bryce Hall 2026",
+    "description": "Mika Lafuente is an Argentine-American model and creator born December 22, 2000. Full bio: age, height, net worth, Bryce Hall relationship, Instagram, TikTok, S",
+    "publish_date": "2026-03-15",
+    "modified_date": "2026-03-15",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Mika Lafuente"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/miranda-marie",
+    "title": "Miranda Marie | Age, Height, OFTV, Instagram, TikTok 2026",
+    "description": "Miranda Marie (itsmirandahmarie) is a Florida creator on OFTV and Instagram with 730K+ followers. Full bio: age, height, net worth, TikTok, Twitch, nature and w",
+    "publish_date": "2026-04-27",
+    "modified_date": "2026-04-27",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Miranda Marie"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/mrbeast/last-to-leave-grocery-store-wins-250k",
+    "title": "MrBeast Grocery Store | $250K, Part 2 Cliffhanger",
+    "description": "MrBeast locks random shoppers in a grocery store for $250,000. Coca-Cola FIFA World Cup 2026 Easter egg, surprise brand lineup, and a shocking Part 2",
+    "publish_date": "2026-04-22",
+    "modified_date": "2026-04-22",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Mrbeast",
+      "Last To Leave Grocery Store Wins 250k"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/mrbeast",
+    "title": "MrBeast | Jimmy Donaldson, YouTube, Age, Bio 2026",
+    "description": "MrBeast (Jimmy Donaldson) is the most-subscribed solo YouTube creator, with 350M+ subscribers. Full biography, YouTube analytics, Beast Games, Feastables,",
+    "publish_date": "2026-04-22",
+    "modified_date": "2026-04-22",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Mrbeast"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/mrbeast-launches-beast-games-season-2-casting",
+    "title": "MrBeast Beast Games Season 2 | Casting, How to Apply",
+    "description": "MrBeast has officially opened casting for Beast Games Season 2 on Amazon Prime Video. How to apply, what to expect, prize details, and why this season could top",
+    "publish_date": "2026-03-20",
+    "modified_date": "2026-03-20",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Mrbeast Launches Beast Games Season 2 Casting"
+    ],
+    "author": "Amazon MGM Studios",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.primevideo.com/detail/Beast-Games/0NMXBMQJP0XRQB1FI2WKDNXF5",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/news/logan-paul-sells-pokemon-card-16-million",
+    "title": "Logan Paul Sells 1/1 Pikachu Illustrator for $16 Million",
+    "description": "Logan Paul has sold his ultra-rare 1/1 Pikachu Illustrator PSA 9 Pokémon card at auction for $16 million, setting a new world record. Full story, card",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "News",
+      "Logan Paul Sells Pokemon Card 16 Million"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/news/logan-paul-sells-pokemon-card-16-million"
+  },
+  {
+    "slug": "/influencer/news",
+    "title": "Creator News | Latest from YouTube, TikTok & Social Media",
+    "description": "Breaking creator news: MrBeast, Logan Paul, Pokimane, Ari Kytsya, and more. Updated daily.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "News"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/news"
+  },
+  {
+    "slug": "/influencer/nick-shirley",
+    "title": "Nick Shirley Wiki 2026 | Investigative YouTuber & Fraud",
+    "description": "Complete profile of Nick Shirley - investigative content creator known for exposing fraud schemes, urban exploration, and viral Minnesota Feeding Our",
+    "publish_date": "2026-02-09",
+    "modified_date": "2026-02-09",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Nick Shirley"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/nick-shirley"
+  },
+  {
+    "slug": "/influencer/of/mikaela-testa",
+    "title": "Mikaela Testa | Age, Instagram, OnlyFans, Bio 2026",
+    "description": "Mikaela Testa is an Australian creator and content creator known for her Instagram and OnlyFans presence. Full biography, age, and social media",
+    "publish_date": "2026-04-22",
+    "modified_date": "2026-04-22",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Mikaela Testa"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer",
+    "title": "Creator Hub | Profiles, News & Culture",
+    "description": "ObjectWire",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.8,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator"
+  },
+  {
+    "slug": "/influencer/pokimane",
+    "title": "Pokimane | Age, Net Worth, YouTube, Twitch Retirement Bio 2026",
+    "description": "Pokimane (Imane Anys), 29, retired from Twitch in 2024 after 10 years. Full biography: real name, net worth, Midnight snack brand, YouTube 2026, and relationshi",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Pokimane"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/queenkalin",
+    "title": "› influencer › queenkalin",
+    "description": "ObjectWire coverage of › influencer › queenkalin.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Queenkalin"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/serge-gatari/ai-course-review",
+    "title": "Serge Gatari AI Course Review | ClientAcquisition.io",
+    "description": "Critical review of Serge Gatari",
+    "publish_date": "2026-02-09",
+    "modified_date": "2026-02-09",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Serge Gatari",
+      "Ai Course Review"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/serge-gatari",
+    "title": "Serge Gatari | AI Expert & Digital Marketing Educator",
+    "description": "Serge Gatari is the founder of ClientAcquisition.io, an AI automation educator with courses on AI agents and client acquisition strategies. Full profile 2026.",
+    "publish_date": "2026-02-09",
+    "modified_date": "2026-02-09",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Serge Gatari"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/influencer/sssniperwolf",
+    "title": "SSSniperWolf | Age, YouTube, Net Worth, Bio 2026",
+    "description": "SSSniperWolf (Alia Shelesh), 32, is a British-American YouTube creator with 34M subscribers known for gaming reactions. Full biography: net worth, controversy, ",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Sssniperwolf"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/tren-twins",
+    "title": "Tren Twins | Christian & Michael Gaiera | Fitness",
+    "description": "Full profile of the Tren Twins, Christian and Michael Gaiera. Michigan-born identical twins who became viral fitness creators, bodybuilders, and",
+    "publish_date": "2026-03-31",
+    "modified_date": "2026-03-31",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Tren Twins"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/uk/stephen-tries",
+    "title": "Stephen Tries | Age, YouTube, Instagram, Bio 2026",
+    "description": "Stephen Tries (Stephen Lawson) is a British comedian and YouTuber from Norwich, 30 in 2026, with 1.6M+ subscribers. Full biography,",
+    "publish_date": "2026-04-02",
+    "modified_date": "2026-04-02",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Stephen Tries"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/usa/ben-azelart",
+    "title": "Ben Azelart | Age, YouTube, Instagram, TikTok, Bio 2026",
+    "description": "Ben Azelart is a Dallas-born YouTuber and skateboarder, 24 in 2026, with 49M+ YouTube subscribers and 15M+ TikTok fans. Full biography, Stay Wild brand,",
+    "publish_date": "2026-04-02",
+    "modified_date": "2026-04-02",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Usa",
+      "Ben Azelart"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/usa/brent-rivera",
+    "title": "Brent Rivera | Age, YouTube, Instagram, TikTok, Bio 2026",
+    "description": "Brent Rivera is a Huntington Beach-born YouTuber and Amp Studios CEO, 28 in 2026, with 41M+ YouTube subscribers. Full biography, Dream Vacation series,",
+    "publish_date": "2026-04-02",
+    "modified_date": "2026-04-02",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Usa",
+      "Brent Rivera"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/valkyrae",
+    "title": "Valkyrae | Age, 100 Thieves, YouTube Gaming, Bio 2026",
+    "description": "Valkyrae (Rachel Hofstetter) is a 32-year-old Las Vegas creator and co-owner of 100 Thieves. Full biography: YouTube Gaming, RLYRAE brand, net worth, and social",
+    "publish_date": "2026-04-29",
+    "modified_date": "2026-04-29",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Valkyrae"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/yellz0",
+    "title": "Yellz0 (Aniela Verbin) | TikTok Star, Model & Content",
+    "description": "Full biography of Yellz0, real name Aniela Verbin. Pennsylvania-born TikTok star with 4M+ followers, model, and content creator known for lifestyle",
+    "publish_date": "2026-02-21",
+    "modified_date": "2026-02-21",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Yellz0"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org/creator/yellz0",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/influencer/zavala-himself",
+    "title": "Zavala Him Self | TikTok, Twitch, YouTube, Bio 2026",
+    "description": "Zavala Him Self is a multi-platform creator with 1.3M TikTok followers, active on Twitch and YouTube with challenges, gaming streams, and vlogs. Full bio 2026.",
+    "publish_date": "2026-05-04",
+    "modified_date": "2026-05-04",
+    "category": "YouTube",
+    "tags": [
+      "Influencer",
+      "Social Media",
+      "Zavala Himself"
+    ],
+    "author": "ObjectWire Creator Desk",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.owire.org${IMAGE_URL}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/intel/news/server-cpu-market-share-amd-arm-data-center-may-2026",
+    "title": "Intel Server CPU Share Falls to 54.9% | AMD and Arm Gain",
+    "description": "Intel server CPU unit share fell from 64.4% to 54.9% in Q1 2026 as AMD expanded to 27.4% and Arm climbed to 17.7%. Intel stock dropped below $116 on May 15 — fo",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Technology",
+    "tags": [
+      "Intel",
+      "Semiconductors",
+      "News",
+      "Server Cpu Market Share Amd Arm Data Center May 2026"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/meta/news/meta-applied-ai-8000-layoffs-may-2026",
+    "title": "Meta 8,000 Layoffs | Applied AI Draft and $145B Silicon Race",
+    "description": "Meta terminates 8,000 employees May 20, 2026 while drafting 1,000 engineers into its Applied AI unit. Q1 revenue hit $56.3B as capex targets $145B.",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Meta",
+    "tags": [
+      "Meta"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly",
+    "image_url": "https://www.objectwire.org${SLUG}"
+  },
+  {
+    "slug": "/open-ai/helion-energy",
+    "title": "Helion Energy | Sam Altman $1.65B Stake, Polaris Milestone 2026",
+    "description": "Helion Energy is Sam Altman\\",
+    "publish_date": "2026-05-13",
+    "modified_date": "2026-05-13",
+    "category": "Technology",
+    "tags": [
+      "OpenAI",
+      "Artificial Intelligence",
+      "Helion Energy"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/tags/[tag]",
+    "title": "${display} | ObjectWire",
+    "description": "Browse all ObjectWire articles tagged with ${display}. News, analysis, and in-depth coverage.",
+    "publish_date": "2026-05-17",
+    "modified_date": "2026-05-17",
+    "category": "Tags",
+    "tags": [
+      "Tags"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_width": 640
+  },
+  {
+    "slug": "/video-games/news/infamous-remake-collection",
+    "title": "inFamous Remake Collection | PlayStation Studios, Not Sucker Punch",
+    "description": "VGC journalist Jordan Middler says he believes Sony has an inFamous project underway at a PlayStation Studios team separate from original developer Sucker Punch",
+    "publish_date": "2026-05-16",
+    "modified_date": "2026-05-16",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "News",
+      "Infamous Remake Collection"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/square-enix/fy2026-financial-results-western-downsizing-profit-surge",
+    "title": "Square Enix FY2026 | 35% Profit Surge, Western Retrenchment",
+    "description": "Square Enix FY2026: income surged 34.9% to 54.7B yen. Western downsizing cut 314 jobs and shrank 11 publishing hubs to four. Net sales declined 8.3%.",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Square Enix",
+      "Fy2026 Financial Results Western Downsizing Profit Surge"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/subnautica-2-early-access-2-million-sales-ue5",
+    "title": "Subnautica 2 Early Access | 2 Million Copies in 12 Hours",
+    "description": "Subnautica 2 sold 2 million copies in 12 hours on May 14, 2026, hitting 651,000 concurrent players across all platforms. Built on Unreal Engine 5 with optional ",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Subnautica 2 Early Access 2 Million Sales Ue5"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/unreal-engine/ue-5-8-preview-mesh-terrain-megalights-2026",
+    "title": "Unreal Engine 5.8 Preview | Mesh Terrain and MegaLights",
+    "description": "Unreal Engine 5.8 Preview (May 2026) introduces experimental Mesh Terrain 3D topology and production-ready MegaLights for PS5, Xbox Series X, and mobile handhel",
+    "publish_date": "2026-05-15",
+    "modified_date": "2026-05-15",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Unreal Engine",
+      "Ue 5 8 Preview Mesh Terrain Megalights 2026"
+    ],
+    "author": "ObjectWire Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.objectwire.org${SLUG}"
   }
 ]

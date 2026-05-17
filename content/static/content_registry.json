@@ -13858,5 +13858,29 @@
     "priority": 0.6,
     "change_frequency": "weekly",
     "image_url": "https://www.objectwire.org${SLUG}"
+  },
+  {
+    "slug": "/trump/iran-hormuz-safe-crypto-maritime-insurance-2026",
+    "title": "Iran Hormuz Safe | Bitcoin Insurance Weaponizes Persian Gulf Shipping",
+    "description": "Iran activated the Hormuz Safe Bitcoin maritime insurance platform on May 16, 2026, offering sanctions-bypass war risk coverage for vessels transiting the Strait of Hormuz. OFAC issued immediate secondary sanctions warnings.",
+    "publish_date": "2026-05-17T09:00:00Z",
+    "modified_date": "2026-05-17T09:00:00Z",
+    "category": "Politics",
+    "tags": [
+      "Iran",
+      "Strait of Hormuz",
+      "OFAC",
+      "Bitcoin",
+      "IRGC",
+      "Persian Gulf"
+    ],
+    "author": "Jack Sterling",
+    "priority": 0.9,
+    "change_frequency": "daily",
+    "image_width": 1200,
+    "image_height": 675,
+    "author_slug": "jack-sterling",
+    "image_url": "https://images.unsplash.com/photo-1598408745613-178751e2ccde?w=1200&h=675&fit=crop",
+    "image_alt": "Oil tanker at sea, Strait of Hormuz maritime shipping lanes 2026"
   }
 ]

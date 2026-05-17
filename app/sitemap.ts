@@ -25,9 +25,6 @@ const VALID_SLUG_PREFIXES = [
   '/elon-musk/', '/cursor/', '/social/', '/trump/', '/tags/',
   '/intel', '/shopify/', '/comet-ai-', '/clothing/', '/superintelligence-',
   '/crypto', '/amazon',
-  '/airlines', '/anime', '/cars', '/claude', '/creator', '/equipment',
-  '/finance', '/investigations', '/meta', '/rocket-league', '/tiktok',
-  '/world-cup',
 ];
 
 function isIndexable(slug: string): boolean {

@@ -24,7 +24,6 @@ import { readSessionLog } from './alfasa-session-log';
 
 const REGISTRY_PATH = path.resolve(process.cwd(), 'content_registry.json');
 const THRESHOLDS_PATH = path.resolve(process.cwd(), '.alfasa', 'stale-thresholds.json');
-const GA_CACHE_PATH = path.resolve(process.cwd(), '.alfasa', 'ga-cache.json');
 
 // Default stale thresholds in days (how long before a page needs a refresh check)
 const DEFAULT_THRESHOLDS: Record<string, number> = {
@@ -106,37 +105,6 @@ function readThresholds(): Record<string, number> {
   }
 }
 
-// ── GA cache reader ───────────────────────────────────────────────────────────
-
-interface GaPageRow {
-  path: string;
-  sessions: number;
-  impressions: number;
-  clicks: number;
-}
-
-interface GaCache {
-  updatedAt: string;
-  periodDays: number;
-  pages: GaPageRow[];
-}
-
-function readGaCache(): { cache: GaCache | null; ageHours: number } {
-  try {
-    if (!fs.existsSync(GA_CACHE_PATH)) return { cache: null, ageHours: Infinity };
-    const cache = JSON.parse(fs.readFileSync(GA_CACHE_PATH, 'utf-8')) as GaCache;
-    const ageHours = (Date.now() - new Date(cache.updatedAt).getTime()) / 1000 / 3600;
-    return { cache, ageHours };
-  } catch {
-    return { cache: null, ageHours: Infinity };
-  }
-}
-
-function gaSessionsForPath(gaPages: GaPageRow[], urlPath: string): number {
-  const entry = gaPages.find(p => p.path === urlPath || p.path === urlPath + '/');
-  return entry?.sessions ?? 0;
-}
-
 // ── Stale detection ───────────────────────────────────────────────────────────
 
 function getThresholdDays(category: string | undefined, thresholds: Record<string, number>): number {
@@ -180,7 +148,6 @@ function main() {
   const registry = readRegistry();
   const thresholds = readThresholds();
   const sessions = readSessionLog();
-  const { cache: gaCache, ageHours: gaAgeHours } = readGaCache();
 
   const now = new Date();
 
@@ -225,32 +192,17 @@ function main() {
   // ── 2. Stale Pages ──────────────────────────────────────────────────────────
   console.log('');
   console.log(c.bold('  STALE PAGES  (may need refresh or updated data)'));
-  if (gaCache) {
-    const gaAgeStr = gaAgeHours < 2 ? 'just now' : gaAgeHours < 24 ? `${Math.round(gaAgeHours)}h ago` : `${Math.round(gaAgeHours / 24)}d ago`;
-    console.log(c.gray(`  Traffic data: GA ${gaCache.periodDays}d window, synced ${gaAgeStr} — run \`npm run alfasa:sync\` to refresh`));
-  } else {
-    console.log(c.gray('  No GA traffic data. Run `npm run alfasa:sync` to enable traffic-weighted stale alerts.'));
-  }
   console.log(c.gray('  ─────────────────────────────────────────────────────────────'));
-
-  const gaPages = gaCache?.pages ?? [];
 
   const staleEntries = registry
     .filter(e => e.published_at)
     .map(e => {
       const days = daysSince(e.published_at!);
       const threshold = getThresholdDays(e.category, thresholds);
-      const urlPath = e.url || e.slug || '';
-      const sessions28d = gaSessionsForPath(gaPages, urlPath);
-      return { ...e, days, threshold, overage: days - threshold, sessions28d };
+      return { ...e, days, threshold, overage: days - threshold };
     })
     .filter(e => e.overage > 0)
-    .sort((a, b) => {
-      // Sort by sessions desc (high-traffic stale pages are highest priority),
-      // then by overage desc as tiebreaker
-      if (b.sessions28d !== a.sessions28d) return b.sessions28d - a.sessions28d;
-      return b.overage - a.overage;
-    })
+    .sort((a, b) => b.overage - a.overage)
     .slice(0, 8);
 
   if (staleEntries.length === 0) {
@@ -258,16 +210,11 @@ function main() {
   } else {
     staleEntries.forEach(e => {
       const ageStr = formatAge(e.days);
-      const url = (e.url || e.slug || '').slice(0, 44).padEnd(44);
+      const url = (e.url || e.slug || '').slice(0, 48).padEnd(48);
       const cat = (e.category || 'unknown').slice(0, 12).padEnd(12);
-      const overStr = `+${e.overage}d`;
-      const trafficStr = gaCache
-        ? e.sessions28d > 0
-          ? c.cyan(`${e.sessions28d.toLocaleString()}s`)
-          : c.gray('no traffic')
-        : '';
+      const overStr = `+${e.overage}d over`;
       console.log(
-        `  ${c.yellow('↻')}  ${c.gray(ageStr.padEnd(8))}  ${c.gray(cat)}  ${url}  ${c.yellow(overStr.padEnd(8))}  ${trafficStr}`
+        `  ${c.yellow('↻')}  ${c.gray(ageStr.padEnd(8))}  ${c.gray(cat)}  ${url}  ${c.yellow(overStr)}`
       );
     });
     if (staleEntries.length >= 8) {

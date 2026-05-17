@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -68,29 +68,52 @@ export default function DocumentReviewPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="📁"
+      <ArticlePage
         title="Document Review and FOIA | ObjectWire"
         subtitle="Submit public records, financial filings, FOIA responses, or leaked materials for analysis by ObjectWire's investigative team. All documents handled securely and legally."
         category="Media Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-document-review"
+        url="/service/document-review"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Services' },
           { href: '/service/document-review', label: 'Document Review and FOIA' },
         ]}
-        stats={[
-          { value: 'Secure', label: 'Encrypted Storage' },
-          { value: 'FOIA', label: 'Assistance' },
-          { value: 'Metadata', label: 'Stripped on Receipt' },
-          { value: 'Free', label: 'Review' },
-        ]}
-        infoRows={[
-          { label: 'Metadata', value: 'Stripped on receipt' },
-          { label: 'Access', value: 'Editorial team only' },
-          { label: 'Storage', value: 'Encrypted, limited retention' },
-          { label: 'Legal review', value: 'Performed before publication' },
-        ]}
+        infoBox={{
+          title: 'Document Submission',
+          sections: [
+            {
+              heading: 'Document Types Accepted',
+              list: [
+                'FOIA responses and public records',
+                'Financial filings and disclosures',
+                'Corporate contracts and agreements',
+                'Government meeting minutes and agendas',
+                'Court filings and legal documents',
+                'Photographs and video evidence',
+                'Communications (email, chat, text)',
+              ],
+            },
+            {
+              heading: 'Handling Standards',
+              items: [
+                { label: 'Metadata', value: 'Stripped on receipt' },
+                { label: 'Access', value: 'Editorial team only' },
+                { label: 'Storage', value: 'Encrypted, limited retention' },
+                { label: 'Legal review', value: 'Performed before publication' },
+              ],
+            },
+            {
+              heading: 'Related',
+              links: [
+                { href: '/service/tip-the-newsroom', label: 'Submit a Tip' },
+                { href: '/service/investigative-reporting', label: 'How We Investigate' },
+                { href: '/get-help', label: 'Contact Us Securely' },
+              ],
+            },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-we-accept', label: 'Document Types Accepted' },
           { id: 'foia', label: 'FOIA and Public Records' },
@@ -99,16 +122,16 @@ export default function DocumentReviewPage() {
           { id: 'metadata', label: 'Stripping Metadata Before You Submit' },
           { id: 'submit', label: 'How to Submit' },
         ]}
-        relatedServices={[
-          { href: '/service/tip-the-newsroom', icon: '📨', label: 'Tip the Newsroom', desc: 'Submit a confidential news tip.' },
-          { href: '/service/investigative-reporting', icon: '📰', label: 'Investigative Reporting', desc: 'How ObjectWire investigates.' },
-          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'OSINT and digital evidence analysis.' },
-          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Private corporate case work.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Services', description: 'PI and media services' },
+          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How ObjectWire investigates' },
+          { href: '/service/tip-the-newsroom', label: 'Tip the Newsroom', description: 'Submit a confidential news tip' },
+          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Private corporate case work' },
+          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'OSINT and digital evidence analysis' },
         ]}
-        ctaHeading="Submit Documents for Review"
-        ctaBody="Contact us via the secure consultation page and indicate you are submitting materials for editorial review. We will establish a safe transfer method."
+        backLink={{ href: '/service', label: 'Services' }}
       >
-        <ServiceSection id="what-we-accept" title="Document Types We Accept | What to Submit">
+        <Section id="what-we-accept" title="Document Types We Accept | What to Submit">
           <p>
             ObjectWire's investigative team analyzes public records, leaked materials, and submitted
             documents as the evidentiary backbone of published investigations. We accept:
@@ -122,9 +145,9 @@ export default function DocumentReviewPage() {
             <li><strong>Communications</strong> — emails, text messages, or screenshots of relevant correspondence</li>
             <li><strong>Photographic or video evidence</strong> — timestamped images or recordings of events, conditions, or conduct</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="foia" title="FOIA and Public Records | How ObjectWire Uses Public Filings">
+        <Section id="foia" title="FOIA and Public Records | How ObjectWire Uses Public Filings">
           <p>
             Public records are the foundation of most ObjectWire investigations. We file FOIA requests
             with federal agencies under 5 U.S.C. § 552 and Texas Public Information Act requests with
@@ -145,9 +168,9 @@ export default function DocumentReviewPage() {
             </Link>{' '}
             and we will initiate the appropriate request.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="handling" title="How We Handle Documents | Security and Access Controls">
+        <Section id="handling" title="How We Handle Documents | Security and Access Controls">
           <p>
             Documents submitted to ObjectWire are handled under strict access controls. Only members
             of the editorial team directly involved in the related investigation have access to submitted
@@ -165,9 +188,9 @@ export default function DocumentReviewPage() {
             receive a subpoena, we consult legal counsel before complying and notify the source to the
             extent legally permitted.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="legal" title="Legal Considerations | What Sources Should Know">
+        <Section id="legal" title="Legal Considerations | What Sources Should Know">
           <p>
             Submitting documents that belong to an employer, a government agency, or a third party
             can carry legal risk depending on how those documents were obtained. ObjectWire is not
@@ -189,9 +212,9 @@ export default function DocumentReviewPage() {
             we have the right to analyze and publish the information they contain. The source's act of
             submission and our act of publication are legally distinct.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="metadata" title="Stripping Metadata Before You Submit | Protecting Yourself">
+        <Section id="metadata" title="Stripping Metadata Before You Submit | Protecting Yourself">
           <p>
             Digital documents contain hidden metadata that can identify who created, modified, or
             printed them. Before submitting sensitive documents, strip this metadata to reduce your
@@ -220,9 +243,9 @@ export default function DocumentReviewPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="submit" title="How to Submit Documents | Contact and Channels">
+        <Section id="submit" title="How to Submit Documents | Contact and Channels">
           <p>
             To submit documents for investigative review, use the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -248,8 +271,8 @@ export default function DocumentReviewPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

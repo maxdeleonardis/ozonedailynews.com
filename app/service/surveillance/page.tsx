@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -68,52 +68,63 @@ export default function SurveillancePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-
-      <ServicePage
-        icon="🎥"
-        title="Surveillance Investigations Austin TX"
+      <ArticlePage
+        title="Surveillance Investigations Austin TX | ObjectWire"
         subtitle="Licensed covert surveillance for domestic, legal, and corporate cases across Austin and Travis County. Timestamped photo and video documentation."
         category="Investigative Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-surveillance"
+        url="/service/surveillance"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/surveillance', label: 'Surveillance' },
         ]}
-        stats={[
-          { value: 'Licensed', label: 'Texas PI Agency' },
-          { value: 'Covert', label: 'Photo & Video' },
-          { value: 'Court-Ready', label: 'Documentation' },
-          { value: 'Free', label: 'Consultation' },
-        ]}
-        infoRows={[
-          { label: 'Type', value: 'Covert Surveillance' },
-          { label: 'Output', value: 'Photo, video, written report' },
-          { label: 'Area', value: 'Austin / Travis County' },
-          { label: 'Use Cases', value: 'Domestic, legal, insurance, corporate' },
-          { label: 'License', value: 'Texas Occ. Code Ch. 1702' },
-        ]}
+        infoBox={{
+          title: 'Surveillance Service',
+          sections: [
+            {
+              heading: 'Details',
+              items: [
+                { label: 'Type', value: 'Covert Surveillance' },
+                { label: 'Output', value: 'Photo, video, written report' },
+                { label: 'Area', value: 'Austin, Travis County, Central Texas' },
+                { label: 'Use cases', value: 'Domestic, legal, insurance, corporate' },
+              ],
+            },
+            {
+              heading: 'Related Services',
+              links: [
+                { href: '/service/infidelity-investigations', label: 'Infidelity Investigations' },
+                { href: '/service/child-custody-investigations', label: 'Child Custody Investigations' },
+                { href: '/service/workers-compensation-fraud', label: 'Workers Comp Fraud' },
+                { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
+              ],
+            },
+            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
+          ],
+        }}
         tableOfContents={[
-          { id: 'what-is', label: 'What Surveillance Covers' },
+          { id: 'what-is', label: 'What Surveillance Investigation Covers' },
           { id: 'use-cases', label: 'Use Cases' },
           { id: 'process', label: 'How It Works' },
           { id: 'evidence', label: 'Evidence Standards' },
           { id: 'coverage', label: 'Coverage Area' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedServices={[
-          { href: '/service/infidelity-investigations', icon: '🔍', label: 'Infidelity Investigations', desc: 'Domestic partner cases with timestamped evidence.' },
-          { href: '/service/child-custody-investigations', icon: '⚖️', label: 'Child Custody', desc: 'Family court evidence and parental surveillance.' },
-          { href: '/service/workers-compensation-fraud', icon: '🏥', label: 'Workers Comp Fraud', desc: 'Claimant surveillance for insurers and defense counsel.' },
-          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Employee misconduct and fraud documentation.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types we handle' },
+          { href: '/service/infidelity-investigations', label: 'Infidelity Investigations', description: 'Cheating spouse and domestic partner cases' },
+          { href: '/service/child-custody-investigations', label: 'Child Custody Investigations', description: 'Family court evidence and parental surveillance' },
+          { href: '/service/workers-compensation-fraud', label: 'Workers Comp Fraud', description: 'Claimant surveillance for insurers and defense counsel' },
+          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Employee misconduct and fraud surveillance' },
         ]}
-        ctaHeading="Start a Surveillance Case"
-        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any field work begins."
+        backLink={{ href: '/service', label: 'Investigative Services' }}
       >
-        <ServiceSection id="what-is" title="What Surveillance Investigation Covers">
+        <Section id="what-is" title="What Surveillance Investigation Covers">
           <p>
             Surveillance investigation is the systematic, covert observation and documentation of a
-            subject&apos;s activities, movements, and behavior. ObjectWire conducts surveillance for private
+            subject's activities, movements, and behavior. ObjectWire conducts surveillance for private
             individuals, law firms, insurance companies, and corporations across Austin and Travis County.
           </p>
           <p>
@@ -125,87 +136,90 @@ export default function SurveillancePage() {
             </Link>
             .
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="use-cases" title="Use Cases | When Clients Request Surveillance">
-          <ul className="space-y-3 list-none pl-0">
-            {([
-              { label: 'Infidelity and domestic cases', href: '/service/infidelity-investigations', linkText: 'infidelity investigation', pre: 'Documenting a partner&apos;s activities as part of an ' },
-              { label: 'Child custody disputes', href: '/service/child-custody-investigations', linkText: 'family court evidence', pre: 'Observing parental behavior for ' },
-              { label: 'Workers compensation fraud', href: '/service/workers-compensation-fraud', linkText: 'insurers and defense attorneys', pre: 'Documenting claimant activity for ' },
-              { label: 'Corporate misconduct', href: '/service/corporate-investigations', linkText: 'corporate investigations', pre: 'Employee activity and IP removal as part of ' },
-            ] as const).map(({ label, href, linkText, pre }) => (
-              <li key={label} className="flex items-start gap-3 bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                <span className="text-blue-600 font-black shrink-0 mt-0.5">→</span>
-                <span><strong>{label}</strong>{' '}{pre}
-                  <Link href={href} className="text-blue-600 hover:text-blue-800 underline">{linkText}</Link>.
-                </span>
-              </li>
-            ))}
-            <li className="flex items-start gap-3 bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-              <span className="text-blue-600 font-black shrink-0 mt-0.5">→</span>
-              <span><strong>Legal proceedings</strong> — evidence collection for depositions, civil litigation, and restraining order support.</span>
+        <Section id="use-cases" title="Use Cases | When Clients Request Surveillance">
+          <ul className="space-y-2">
+            <li><strong>Infidelity and domestic cases</strong> — documenting a spouse or partner's activities as part of a{' '}
+              <Link href="/service/infidelity-investigations" className="text-blue-600 hover:text-blue-800 underline">
+                infidelity investigation
+              </Link>
             </li>
-            <li className="flex items-start gap-3 bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-              <span className="text-blue-600 font-black shrink-0 mt-0.5">→</span>
-              <span><strong>Insurance defense</strong> — claimant fraud documentation for civil defense attorneys.</span>
+            <li><strong>Child custody disputes</strong> — observing parental behavior for{' '}
+              <Link href="/service/child-custody-investigations" className="text-blue-600 hover:text-blue-800 underline">
+                family court evidence
+              </Link>
             </li>
+            <li><strong>Workers compensation fraud</strong> — documenting claimant physical activity for{' '}
+              <Link href="/service/workers-compensation-fraud" className="text-blue-600 hover:text-blue-800 underline">
+                insurers and defense attorneys
+              </Link>
+            </li>
+            <li><strong>Corporate misconduct</strong> — employee activity, unauthorized meetings, IP removal as part of{' '}
+              <Link href="/service/corporate-investigations" className="text-blue-600 hover:text-blue-800 underline">
+                corporate investigations
+              </Link>
+            </li>
+            <li><strong>Legal proceedings</strong> — evidence collection for depositions, civil litigation, and restraining order support</li>
+            <li><strong>Insurance defense</strong> — claimant fraud documentation for civil defense attorneys</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="process" title="How It Works | Surveillance Case Process">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
-            {([
-              { step: '01', title: 'Free Consultation', desc: 'Confidential discussion of your case, subject, and objectives. No commitment required.' },
-              { step: '02', title: 'Case Brief', desc: 'Scope, legal parameters, timeline, and cost agreed before any field work starts.' },
-              { step: '03', title: 'Field Surveillance', desc: 'Covert observation with professional photo and video equipment. Written activity log maintained throughout.' },
-              { step: '04', title: 'Report Delivery', desc: 'Written case report, full media file set, and chain-of-custody record suitable for court use.' },
-            ] as const).map(({ step, title, desc }) => (
-              <div key={step} className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800">
-                <div className="text-blue-600 font-black text-xs tracking-widest mb-2 font-mono">STEP {step}</div>
-                <h3 className="font-black text-gray-900 dark:text-white mb-1">{title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </ServiceSection>
+        <Section id="process" title="How It Works | Surveillance Case Process">
+          <p>
+            The process begins with a free confidential consultation. We establish the subject, location
+            parameters, objectives, and legal constraints applicable to your case. We do not begin field
+            work without a clear brief of what admissible evidence looks like for your specific situation.
+          </p>
+          <p>
+            Field surveillance is conducted over agreed-upon windows — typically a single day, multi-day,
+            or ongoing periodic basis depending on case needs. Investigators maintain a written activity
+            log and capture photo and video evidence at key moments. All media is preserved in original
+            format with metadata intact.
+          </p>
+          <p>
+            At case close, you receive a written report with a chronological summary of observations,
+            full photo and video file set, and a chain-of-custody record suitable for court submission.
+          </p>
+        </Section>
 
-        <ServiceSection id="evidence" title="Evidence Standards | Court-Ready Documentation">
+        <Section id="evidence" title="Evidence Standards | Court-Ready Documentation">
           <p>
             Texas courts require that evidence be lawfully obtained, authenticated, and presented with
             a clear chain of custody to be admissible. Every ObjectWire surveillance report is structured
-            to meet this standard, documenting investigator identity, timestamps, observation locations,
+            to meet this standard. We document investigator identity, timestamps, observation locations,
             and equipment used.
           </p>
           <p>
             We do not conduct illegal surveillance, including recording inside private spaces without
             consent where prohibited by Texas law. We operate strictly within the bounds of what a
-            licensed investigator may lawfully observe in public or semi-public spaces.
+            licensed investigator may lawfully observe in public or semi-public spaces. Clients who
+            present illegally obtained material to us do not receive case support.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="coverage" title="Coverage Area | Austin and Travis County">
+        <Section id="coverage" title="Coverage Area | Austin and Travis County">
           <p>
             Primary coverage: <strong>Austin, Travis County</strong>. We also regularly take cases in
             Williamson County, Hays County, Round Rock, Cedar Park, Georgetown, San Marcos, Kyle, Buda,
-            Pflugerville, and Leander. Out-of-area cases handled with travel fees disclosed at consultation.
+            Pflugerville, and Leander. Out-of-area cases are handled with travel disclosed at consultation.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Start a Surveillance Case">
+        <Section id="contact" title="Start a Surveillance Case">
           <p>
             Initial consultations are free and confidential. To discuss your case, visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
               consultation page
             </Link>
-            {' '}or see the{' '}
+            . To review all available services, see the{' '}
             <Link href="/service" className="text-blue-600 hover:text-blue-800 underline">
-              full services hub
+              investigative services hub
             </Link>
-            {' '}for other case types.
+            .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

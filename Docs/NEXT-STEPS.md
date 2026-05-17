@@ -1,374 +1,345 @@
-# 📰 News Network Approval Roadmap
-## Google News, Perplexity AI, and MSN News
+# ObjectWire | NEXT-STEPS.md
 
-## Current Status: Pre-Application Phase
-
-ObjectWire is building towards approval from major news aggregators. This document outlines requirements for **Google News**, **Perplexity**, and **MSN News**.
-
----
-
-## 🎯 Requirements Overview
-
-### 1. **Technical Requirements** (Infrastructure)
-| Requirement | Status | Priority | Platform |
-|-------------|--------|----------|----------|
-| robots.txt allows Googlebot-News | ✅ Done | P0 | Google |
-| News-specific sitemap (`/news-sitemap.xml`) | ✅ Done | P0 | Google |
-| NewsArticle Schema component | ✅ Done | P0 | All |
-| Organization Schema on site | ✅ Done | P0 | All |
-| WebSite Schema with SearchAction | ✅ Done | P0 | Google |
-| Mobile-responsive design | ✅ Done | P0 | All |
-| HTTPS enabled | ✅ Done | P0 | All |
-| Fast page load (<3s) | ✅ Done | P0 | All |
-| RSS Feed (`/rss.xml`) | ✅ Done | P0 | All |
-| Unique, canonical URLs | ✅ Done | P0 | All |
-
-### 2. **Content Requirements** (Editorial)
-| Requirement | Status | Priority | Platform |
-|-------------|--------|----------|----------|
-| Original, timely news content | ✅ Done | P0 | All |
-| Clear author attribution | ✅ Done | P0 | All |
-| Publication dates visible | ✅ Done | P0 | All |
-| Editorial standards page | ✅ Done | P0 | All |
-| About page | ✅ Done | P0 | All |
-| Contact information | ⏳ **ACTION NEEDED** | P0 | All |
-| Privacy policy | ✅ Done | P0 | All |
-| Minimum 3-5 articles per week | ⏳ **ACTION NEEDED** | P1 | All |
-
-### 3. **Publisher Requirements** (Trust & Credibility)
-| Requirement | Status | Priority | Platform |
-|-------------|--------|----------|----------|
-| Clear ownership/publisher info | ⏳ **ACTION NEEDED** | P0 | All |
-| Physical address or location | ⏳ **ACTION NEEDED** | P0 | Google/MSN |
-| Corrections policy page | ⏳ **ACTION NEEDED** | P1 | Google |
-| Staff/contributor pages | ❌ **NOT STARTED** | P1 | All |
-| Individual author profile pages | ❌ **NOT STARTED** | P1 | All |
-| Masthead/editorial team | ❌ **NOT STARTED** | P1 | MSN |
+**Last Updated:** May 16, 2026
+**Owner:** ObjectWire Engineering + Editorial
+**Purpose:** Single source of truth for every active task. Update this file at the start and end of every work session.
 
 ---
 
-## 🔴 IMMEDIATE ACTION ITEMS (Do These First)
+## Current Status — May 16, 2026
 
-### ☐ 1. Add NewsArticle Schema to Every Article Page
-**Status:** Component created, needs integration
+| Signal | State |
+|---|---|
+| Google Search Console impressions | **Suppressed** — HCU algorithmic classifier + April 22 canonical bug |
+| April 22 canonical bug | ✅ Fixed in code. Google re-crawl in progress (4–8 weeks). |
+| HCU classifier | ⏳ Next evaluation window: **Aug/Sep 2026 core update** |
+| Registry entries | 661 |
+| Static JSON articles | ~70 NewsArticles, ~25 JackArticles, 17 CreatorArticles |
+| Articles with `image_url` in registry | ~195 / 661 (30%) — critical gap |
+| Registry entries with `published_at` | Partial — new articles have it, legacy entries do not |
+| Last deploy | May 12, 2026 — Tesla FSD Cannonball article |
 
-The schema component is at `components/NewsArticleSchema.tsx`. You need to add it to each article page:
+---
 
+## Priority Stack — Ordered by Impact
+
+### 🔴 P0 — Do These Before Anything Else
+
+#### 1. Submit News Sitemap to Google Search Console
+- **Action:** GSC → Sitemaps → Add `https://www.objectwire.org/news-sitemap.xml`
+- **Why:** Required for Google News indexing. Not yet submitted per May 12 audit.
+- **Time:** 10 minutes
+- **Who:** Manual — needs GSC access
+
+#### 2. Verify Site in Bing Webmaster Tools + Submit Sitemaps
+- **URL:** https://bing.com/webmasters
+- **Action:** Verify ownership → submit `/sitemap.xml` + `/news-sitemap.xml`
+- **Why:** IndexNow key is live and deployed. BWT is the activation step that makes IndexNow pings count.
+- **Time:** 30 minutes
+- **Who:** Manual — needs BWT access
+
+#### 3. Validate RSS Feed (W3C)
+- **URL:** `https://validator.w3.org/feed/check.cgi?url=https://www.objectwire.org/rss.xml`
+- **Why:** RSS was fixed May 12 (content:encoded, media:thumbnail, dc:creator, enclosure length). Confirm the fix passes W3C before applying for Bing News and Apple News.
+- **Time:** 15 minutes
+- **Who:** Manual — open URL, check for errors
+
+---
+
+### 🔴 P1 — Code Fixes (High Leverage, Low Effort)
+
+#### 4. Fix `getArticlesByCategory()` — Local-First
+**File:** `lib/registry-service.ts`
+**Problem:** This function bypasses the local `content_registry.json` and hits Supabase directly. Category hub pages (`/tech`, `/crypto`, `/video-games`, etc.) get stale or empty results when Supabase is slow or unavailable. All other functions use local-first correctly.
+**Fix:**
+```typescript
+export async function getArticlesByCategory(category: string, limit?: number): Promise<ContentEntry[]> {
+  // Local first — same pattern as getAllEntries()
+  const local = loadLocalRegistry();
+  if (local && local.length > 0) {
+    const filtered = local.filter(e => e.category.toLowerCase() === category.toLowerCase());
+    return limit ? filtered.slice(0, limit) : filtered;
+  }
+  // Supabase fallback only
+  // ... existing Supabase code
+}
+```
+**Impact:** Category hubs serve from local JSON (~0ms) instead of Supabase (~200ms+). Googlebot crawl of hubs improves.
+
+#### 5. Add `published_at` to `rowToEntry()` Mapping
+**File:** `lib/registry-service.ts`
+**Problem:** `rowToEntry()` maps `publish_date` but not `published_at`. The news-sitemap and NewsArticle schema both need ISO-8601 `published_at`. New articles have it in static JSON but it is not surfaced through the registry service.
+**Fix:** Add to `rowToEntry()`:
+```typescript
+publishedAt: row.published_at ? String(row.published_at) : undefined,
+```
+And add `publishedAt?: string` to the `ContentEntry` interface in `lib/content-registry.ts`.
+
+#### 6. Confirm 34 Hub Pages Are On `revalidate = 3600`
+**File:** Multiple hub `page.tsx` files
+**Problem:** May 4 audit found 34 pages on `force-dynamic` that should be ISR. Docs say fixed — verify it held through subsequent deploys.
+**Run:** `grep -r "force-dynamic" app/ --include="*.tsx" -l | grep -v "admin\|auth\|api\|search\|sitemap\|news-sitemap"`
+**Expected:** 0 results (or only legitimate dynamic pages)
+**Impact:** Every Googlebot crawl of a hub currently re-renders. ISR serves from cache in ~10ms.
+
+#### 7. Fix `app/trump/page.tsx` — Confirm `scanAllContent()` Removed
+**Run:** `grep -n "scanAllContent" app/trump/page.tsx`
+**Expected:** No matches
+**If still present:** Replace with `getAllEntries()` filtered by slug prefix, add `revalidate = 3600`
+
+---
+
+### 🟡 P2 — Content Quality (What Moves the HCU Classifier)
+
+These are the actions that actually affect the Aug/Sep 2026 core update outcome. Code fixes help crawlability. These fix the classifier signal.
+
+#### 8. Publish 2–3 Original Investigations Before August 2026
+
+**This is the single most important content action.**
+
+The HCU classifier rewards:
+- Primary sources only (FOIA, court filings, named sources)
+- Named figures, dates, dollar amounts
+- An angle no other outlet has
+- Local relevance + public interest
+
+**Model:** `/investigations/minesoda/` — use this as the template for depth and sourcing.
+
+**Pipeline:**
+```
+File FOIA (Austin city / Travis County / Texas state agency)
+        ↓
+Publish findings as full investigation (1,200+ words, 2+ named sources)
+        ↓
+Submit tip to Austin Chronicle / Austin American-Statesman / KXAN / KUT
+        ↓
+If they cite ObjectWire → legitimate editorial backlink (highest-value SEO signal possible)
+```
+
+**Investigation ideas:**
+- Austin city budget allocations or contract awards via public records
+- Travis County court filings — fraud, civil suits against public figures
+- Texas state agency licensing violations or consumer complaints
+- Local business harm with documentable evidence
+
+#### 9. Fix All Author Pages — External Credential Links
+
+**Why:** Google quality raters look for author credentials verifiable **outside** the site. A bio referencing only ObjectWire is a weak E-E-A-T signal. A bio linking to prior publication bylines, LinkedIn, or journalism portfolios is a strong one.
+
+**Each `/authors/[slug]` page needs:**
+- [ ] Real photo consistent with any external social profile
+- [ ] Specific expertise statement: "covers Austin local government and Travis County courts since 2024" — not generic
+- [ ] At least one link to external work (prior publication, LinkedIn, journalism portfolio)
+- [ ] List of their most recent ObjectWire articles, linked
+- [ ] Beat clearly defined
+
+**Authors to prioritize:**
+- [ ] `jack-sterling` — crypto / finance / tech / autonomous vehicles
+- [ ] `michael-cripe` — entertainment / IP / copyright
+- [ ] `objectwire-investigative-desk` — PI services / local reporting
+
+#### 10. Noindex Thin Pages
+
+**Rule:** Any page under 600 words with no original reporting should be set to `noindex`.
+
+**How:**
 ```tsx
-import { NewsArticleSchema } from '@/components/NewsArticleSchema';
-
-// In your article component, add inside the return:
-<NewsArticleSchema
-  title="Article Title"
-  description="Article excerpt"
-  author="Author Name"
-  publishedTime="2026-01-15T10:00:00Z"
-  modifiedTime="2026-01-15T12:00:00Z"
-  imageUrl="https://objectwire.org/images/article-image.jpg"
-  articleUrl="https://objectwire.org/your-article-slug"
-  section="Technology"
-  keywords={["keyword1", "keyword2", "keyword3"]}
-/>
+// In the page's metadata export:
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  // ... rest unchanged
+};
 ```
 
-**Files to update:**
-- [ ] `app/[...slug]/page.tsx`
-- [ ] All individual article pages (minesoda, quantum-computing, etc.)
+**Priority targets for audit:**
+- Hub stubs with only navigation and no editorial body content
+- Creator/influencer profiles already migrated or planned for owire.org
+- Any page that is purely a rewrite of another outlet with no added data or angle
+
+**Track every noindexed page** in `Docs/RECOVERY_PLAN.md` → Noindex Audit Log section.
+
+#### 11. Add `/investigations` to Primary Navigation
+
+**Why:** `/investigations` is the highest-value domain identity signal and is currently buried. Google quality raters check nav structure to understand site identity.
+
+**File:** `components/nav/` — find the main nav component
+**Action:** Add "Investigations" link to primary nav, link `/investigations` from homepage with a dedicated module above the fold.
 
 ---
 
-### ☐ 2. Create Individual Author Pages
-**Status:** Not started
+### 🟡 P2 — SEO Data Quality (Unlocks Top Stories + Discover)
 
-Create a `/team` directory with individual author pages:
+#### 12. Backfill `image_url` for Top 50 Registry Entries
 
-```
-app/
-  team/
-    page.tsx              (main team listing)
-    [author]/
-      page.tsx            (individual author bio)
-```
+**Why:** 70% of registry entries have no `image_url`. No image = ineligible for Google Top Stories carousel and Google Discover. These are the two highest-volume traffic sources after standard search.
 
-**Required for each author:**
-- Full name
-- Professional headshot photo
-- Bio (100-200 words)
-- Expertise areas
-- Social media links (LinkedIn, Twitter/X)
-- List of articles they've written
-- Contact email (optional)
+**Minimum spec:** 1200×675px, hosted URL, set `image_width: 1200`, `image_height: 675`, `image_alt`.
 
-**Authors to create pages for:**
-- [ ] ObjectWire Editorial Team
-- [ ] ObjectWire Investigations
-- [ ] Tech Review Team
-- [ ] Business Analyst
-- [ ] (Add your actual writers)
-
----
-
-### ☐ 3. Enhance About Page with Ownership Info
-**Status:** Needs enhancement
-
-**Add to `/about` page:**
-- [ ] Legal entity name (LLC, Corp, etc.)
-- [ ] Physical business address (or registered agent address)
-- [ ] Year founded
-- [ ] Founding story
-- [ ] Mission statement
-- [ ] Ownership structure
-- [ ] Funding disclosure (self-funded, investors, etc.)
-
----
-
-### ☐ 4. Create/Enhance Contact Page
-**Status:** Needs work
-
-**Required elements for `/contact`:**
-- [ ] General inquiries email: `info@objectwire.org`
-- [ ] Editorial email: `editorial@objectwire.org`
-- [ ] Tips/submissions email: `tips@objectwire.org`
-- [ ] Press inquiries email: `press@objectwire.org`
-- [ ] Physical mailing address
-- [ ] Contact form
-- [ ] Response time expectations
-
----
-
-### ☐ 5. Create Corrections Policy Page
-**Status:** Page exists, verify content
-
-**Required for `/corrections`:**
-- [ ] How errors are handled
-- [ ] How to report an error
-- [ ] Correction process timeline
-- [ ] Types of corrections (minor edits vs. major corrections)
-- [ ] How corrections are displayed on articles
-- [ ] Archive of past corrections (if any)
-
----
-
-### ☐ 6. Update robots.txt with News Sitemap
-**Status:** Needs update
-
-Add to `public/robots.txt`:
-```
-Sitemap: https://objectwire.org/sitemap.xml
-Sitemap: https://objectwire.org/news-sitemap.xml
+**How to find missing entries:**
+```bash
+# From project root — count entries with no image_url
+node -e "const r = require('./content/static/content_registry.json'); console.log('Missing image:', r.filter(e => !e.image_url).length, '/', r.length)"
 ```
 
----
+**Source:** Unsplash API key `Xf48MkOY-E_ughjz6FJ1d_heBKDy0YcF_qpIDoVi1FQ`
 
-### ☐ 7. Create Required Image Assets
-**Status:** Not started
+#### 13. Backfill `published_at` ISO Field in Registry for Top Articles
 
-**For Google Publisher Center:**
-- [ ] Square logo: 1000x1000px PNG (transparent background)
-- [ ] Small square logo: 512x512px PNG
-- [ ] Rectangle logo: 400x40px PNG (site masthead)
-- [ ] Publication icon: 196x196px PNG
-- [ ] OG image: 1200x630px (for social sharing)
+**Why:** Google News and Top Stories require machine-readable `published_at` (ISO-8601) in structured data. Registry entries added before May 2026 have `publish_date` only as a display string.
 
-**Save to:** `public/` directory
+**Pattern for new entries:** Always include both:
+```json
+"publish_date": "2026-05-12",
+"published_at": "2026-05-12T10:00:00Z"
+```
 
----
-
-## 📋 Platform-Specific Requirements
-
-### 🔵 Google News Publisher Center
-
-**Application URL:** https://publishercenter.google.com
-
-**Steps:**
-1. [ ] Create Google Publisher Center account
-2. [ ] Verify site ownership via Google Search Console
-3. [ ] Add publication details
-4. [ ] Upload logo assets
-5. [ ] Select content categories
-6. [ ] Submit for review (takes 2-4 weeks)
-
-**Content requirements:**
-- Minimum 30 published articles before applying
-- At least 5 articles in the past 7 days
-- News-focused content (not just opinion/blog)
-- Clear separation between news and sponsored content
+**For legacy entries:** Script to backfill — convert `publish_date` string to ISO if in `YYYY-MM-DD` format.
 
 ---
 
-### 🟣 Perplexity AI Indexing
+### 🟠 P3 — Distribution Channels (Apply After RSS Validates)
 
-**How Perplexity finds content:**
-- Crawls RSS feeds
-- Indexes structured data (NewsArticle schema)
-- Follows links from authoritative sources
-- Prioritizes sites with strong E-E-A-T signals
+#### 14. Bing News Publisher Portal Application
+- **URL:** https://bing.com/news/publisher
+- **Prerequisites:** BWT verified (P0 #2), RSS validates (P0 #3)
+- **Time:** 1 hour
+- **Required:** RSS feed URL, site description, editorial contact
 
-**Optimization checklist:**
-- [ ] Ensure RSS feed is complete and valid (`/rss.xml`)
-- [ ] NewsArticle schema on all articles
-- [ ] Clear author attribution with expertise signals
-- [ ] Comprehensive source citations in articles
-- [ ] Fast page load times
-- [ ] Mobile-optimized design
+#### 15. Apple News Publisher Application
+- **URL:** https://news.apple.com/publisher
+- **Prerequisites:** RSS validates (P0 #3)
+- **Time:** 1 hour
 
-**No formal application process** - Perplexity crawls automatically. Focus on:
-1. Quality, original content
-2. Proper structured data
-3. Regular publishing cadence
-4. Strong citations and sources
+#### 16. Google Publisher Center
+- **URL:** https://publishercenter.google.com
+- **Required for:** Google News tab distribution
+- **Time:** 30 minutes
 
----
-
-### 🟢 MSN News / Microsoft Start
-
-**Partner Portal:** https://partnerhub.msn.com
-
-**Requirements:**
-- [ ] Active RSS feed
-- [ ] Consistent publishing (minimum 10 articles/month)
-- [ ] Original content only
-- [ ] Professional editorial standards
-- [ ] Clear ownership and contact info
-- [ ] No paywalled content (or clear free tier)
-
-**Application steps:**
-1. [ ] Go to MSN Partner Hub
-2. [ ] Submit application with site details
-3. [ ] Provide RSS feed URL
-4. [ ] Provide contact information
-5. [ ] Wait for review (4-8 weeks typically)
-
-**MSN prioritizes:**
-- Breaking news coverage
-- Local news (if applicable)
-- Exclusive reporting
-- Strong visual content (images, videos)
+#### 17. ONA + SPJ Memberships
+- ONA: https://journalists.org/membership ($100)
+- SPJ: https://spj.org/join.asp ($75/author — Jack Sterling + Michael Cripe)
+- **Why:** E-E-A-T author credential signals. Publisher memberships signal legitimate editorial operation.
 
 ---
 
-## 📅 Publishing Schedule Template
+### 🔵 P3 — owire.org Launch (Parallel Track)
 
-### Recommended Weekly Cadence (5-7 articles)
+Creator/influencer content separated from objectwire.org to resolve topical incoherence (HCU signal).
 
-| Day | Content Type | Topic Focus | Priority |
-|-----|--------------|-------------|----------|
-| Monday | Analysis | Technology/AI trends | High |
-| Tuesday | Breaking News | Current events | High |
-| Wednesday | Investigation | Deep-dive reporting | High |
-| Thursday | Business | Markets/startups | Medium |
-| Friday | Feature | Long-form weekend read | Medium |
-| Saturday | Opinion | Editorial perspective | Low |
-| Sunday | Roundup | Week in review | Low |
+**Technical checklist:**
+- [ ] Domain verified in Railway (separate from objectwire.org)
+- [ ] Next.js project scaffolded — separate repo
+- [ ] Supabase project created — separate from objectwire.org Supabase
+- [ ] Separate GA4 property + measurement ID
+- [ ] Separate Search Console property verified
+- [ ] `robots.ts` and `sitemap.ts` configured for owire.org domain
+- [ ] No mention of objectwire.org in nav, footer, or metadata
 
-**Minimum viable:** 3 articles per week
-**Optimal for approval:** 5-7 articles per week
-**Target before applying:** 30+ published articles
+**Editorial checklist:**
+- [ ] Distinct site name, tagline, About page
+- [ ] Author bylines defined for owire.org
+- [ ] Editorial standards page written
+- [ ] Content categories defined
 
----
-
-## 🗓️ Implementation Timeline
-
-### Week 1: Technical Setup ✅ (Mostly Complete)
-- [x] NewsArticle Schema component created
-- [x] Organization Schema added to layout
-- [x] News sitemap created (`/news-sitemap.xml`)
-- [x] RSS feed exists (`/rss.xml`)
-- [ ] Add schema to all article pages
-- [ ] Update robots.txt with news sitemap
-
-### Week 2: Author & Trust Pages
-- [ ] Create `/team` main page with all contributors
-- [ ] Create individual author pages (`/team/[author]`)
-- [ ] Enhance `/about` with ownership details
-- [ ] Enhance `/contact` with all required info
-- [ ] Review and update `/corrections` policy
-
-### Week 3: Assets & Registration
-- [ ] Create all logo assets (various sizes)
-- [ ] Upload OG image for social sharing
-- [ ] Register for Google Publisher Center
-- [ ] Verify site in Google Search Console
-- [ ] Submit MSN Partner Hub application
-
-### Week 4: Content Ramp-Up
-- [ ] Publish 5+ new articles
-- [ ] Establish consistent publishing schedule
-- [ ] Ensure all articles have proper schema
-- [ ] Monitor Google Search Console for issues
-
-### Week 5+: Monitor & Optimize
-- [ ] Check for Google News approval status
-- [ ] Monitor Perplexity citations
-- [ ] Track MSN application status
-- [ ] Continue publishing cadence
-- [ ] Address any feedback from platforms
+**Content migration:**
+- [ ] All creator/influencer `content/static/creator_articles/` pages inventoried
+- [ ] `noindex` added to objectwire.org versions before owire.org versions go live
+- [ ] owire.org versions published with canonical pointing to owire.org URLs
+- [ ] Redirect objectwire.org → owire.org versions after 90 days
 
 ---
 
-## 🔗 Important URLs & Resources
+## SEO Pipeline Architecture — Current State
 
-### Your Site URLs
-- Homepage: https://objectwire.org
-- RSS Feed: https://objectwire.org/rss.xml
-- Sitemap: https://objectwire.org/sitemap.xml
-- News Sitemap: https://objectwire.org/news-sitemap.xml
-- Editorial Standards: https://objectwire.org/editorial-standards
-- About: https://objectwire.org/about
-- Contact: https://objectwire.org/contact
-- Corrections: https://objectwire.org/corrections
+```
+content/static/content_registry.json (661 entries, on-prem)
+        ↓
+loadLocalRegistry() — in-memory cache at runtime
+        ↓
+getAllEntries()          → app/sitemap.ts        → /sitemap.xml
+getLatestArticles()      → homepage feed         → "More Stories"
+getRelatedArticles()     → article sidebar       → related articles
+feed-utils.ts            → /rss.xml, /feed.json, /news-sitemap.xml
+getArticlesByCategory()  → ⚠️ still hits Supabase directly (see P1 #4)
 
-### Platform Portals
-- Google Publisher Center: https://publishercenter.google.com
-- Google Search Console: https://search.google.com/search-console
-- MSN Partner Hub: https://partnerhub.msn.com
-- Schema Validator: https://validator.schema.org
-- Rich Results Test: https://search.google.com/test/rich-results
+Supabase content_registry ← fallback only (no new writes for articles)
+lib/content-registry.ts  ← last resort sync fallback (empty / stale)
+```
 
-### Documentation
-- [Google News Publisher Help](https://support.google.com/news/publisher-center)
-- [NewsArticle Schema](https://schema.org/NewsArticle)
-- [Google News Content Policies](https://support.google.com/news/publisher-center/answer/6204050)
-- [MSN Content Guidelines](https://partnerhub.msn.com/guidelines)
+### Article Storage — Where Content Lives
 
----
+| Type | Static JSON Store | Component | Route Pattern |
+|---|---|---|---|
+| News, breaking, gaming, tech | `content/static/articles/` | `NewsArticleDB` | Any route |
+| Research, investigations, reviews | `content/static/jack_articles/` | `JackArticleDB` | Any route |
+| Profiles, wiki-style, evergreen | `content/static/article_pages/` | `ArticlePageDB` | Any route |
+| Creator / influencer bios | `content/static/creator_articles/` | `CreatorArticleDB` | `/influencer/` |
+| Winter Olympics athlete profiles | `content/static/alysa_articles/` | `AlysaArticleDB` | `/winter-olympics/` |
 
-## ✅ Quick Checklist Before Applying
+### Publishing Workflow (Every New Article)
 
-### Technical (All Required)
-- [ ] NewsArticle JSON-LD on all articles
-- [ ] Organization JSON-LD on homepage
-- [ ] Valid RSS feed at `/rss.xml`
-- [ ] News sitemap at `/news-sitemap.xml`
-- [ ] All sitemaps listed in robots.txt
-- [ ] Mobile-responsive design
-- [ ] Page speed score >90
-- [ ] HTTPS everywhere
-- [ ] Canonical URLs on all pages
-
-### Content (All Required)
-- [ ] 30+ published original articles
-- [ ] 5+ articles published in last 7 days
-- [ ] Clear author bylines on every article
-- [ ] Visible publication dates
-- [ ] Source citations in articles
-
-### Trust Pages (All Required)
-- [ ] About page with ownership info
-- [ ] Contact page with email + address
-- [ ] Editorial standards page
-- [ ] Privacy policy
-- [ ] Corrections policy
-- [ ] Team/masthead page
-- [ ] Individual author pages
-
-### Assets (For Publisher Center)
-- [ ] Square logo 1000x1000
-- [ ] Small logo 512x512
-- [ ] OG image 1200x630
-- [ ] Favicon
+```
+1. Write page.tsx stub at correct route
+2. Write static JSON at content/static/{type}/{slug}.json
+3. Add entry to content/static/{type}/_index.json
+4. Add entry to content/static/content_registry.json (with image_url, published_at)
+5. npm run build (prebuild runs validate:eeat, validate:news, sync-registry)
+6. git add -A && git commit -m "feat: ..."
+7. git push origin main  ← Railway auto-deploys
+8. After deploy: npm run indexnow:bulk
+```
 
 ---
 
-*Last Updated: January 15, 2026*
-*Document Version: 2.0*
+## Recovery Timeline
+
+| Milestone | Target | Status |
+|---|---|---|
+| April 22 canonical bug fixed | May 2026 | ✅ Fixed |
+| ISR cache fix on 34 hub pages | May 2026 | ✅ Per audit (verify held) |
+| News sitemap submitted to GSC | May 2026 | ⏳ Pending manual action |
+| Bing Webmaster Tools verified | May 2026 | ⏳ Pending manual action |
+| RSS validated (W3C) | May 2026 | ⏳ Pending manual action |
+| `getArticlesByCategory()` local-first fix | May 2026 | ⏳ Pending code |
+| Author pages — external credentials added | Jun 2026 | ⏳ Pending |
+| `/investigations` in primary nav | May 2026 | ⏳ Pending |
+| Investigation #1 published | Jun 15, 2026 | ⏳ Pending |
+| Investigation #2 published | Jul 15, 2026 | ⏳ Pending |
+| First external citation earned | Jul 31, 2026 | ⏳ Pending |
+| Bing News Publisher application | Jun 2026 | ⏳ Pending |
+| Apple News Publisher application | Jun 2026 | ⏳ Pending |
+| Top 50 registry image_url backfill | Jun 2026 | ⏳ Pending |
+| owire.org scaffolded | May 20, 2026 | ⏳ Pending |
+| owire.org launched | Jun 1, 2026 | ⏳ Pending |
+| **Google core update — HCU re-evaluation** | **Aug/Sep 2026** | ⏳ Waiting |
+| Assess partial recovery | Sep 2026 | ⏳ Waiting |
+| **Google core update — full recovery assessment** | **Mar 2027** | ⏳ Waiting |
+
+---
+
+## What NOT To Do
+
+| Action | Why |
+|---|---|
+| Submit individual reindex requests for suppressed pages | Does not re-trigger the domain HCU classifier. Wastes time. |
+| Submit a reconsideration request | There is no manual action on file. Nothing to reconsider. |
+| Increase publishing volume without quality gate | More marginal content makes the classifier worse. |
+| Change domain or redirect | Destroys all existing indexing, backlinks, and SC history. |
+| Bulk-delete thin pages | Irreversible. Use `noindex` instead — it is reversible. |
+| Cross-link objectwire.org ↔ owire.org in nav | Signals same operation to Google, undermines separation. |
+| Push to Railway without running `npm run build` first | Build guard catches em dashes, missing canonicals, bad imports. |
+
+---
+
+## What to Check in Search Console (Weekly, Not Daily)
+
+- **Coverage report** — "Crawled, not indexed" count trend. Declining = recovery in progress.
+- **Core Web Vitals** — LCP or CLS degradation → fix immediately.
+- **Performance** — Track impressions for `/investigations`, `/service`, gaming/tech clusters specifically.
+- **Manual Actions** — If one appears, strategy changes entirely. Address immediately.
+
+Do NOT check daily rankings during algorithmic suppression. The classifier evaluates at core updates. Daily variance is noise.
+
+---
+
+*Update this file at the start and end of every session. It supersedes `object_nextsteps.md`, `RECOVERY_PLAN.md`, and `AlfasaAutoSEO-Audit-May2026.md` for active task tracking. Those files remain as reference history.*

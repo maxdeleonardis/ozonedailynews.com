@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -63,29 +63,42 @@ export default function DigitalForensicsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="💻"
+      <ArticlePage
         title="Digital Forensics Austin TX | ObjectWire"
         subtitle="Licensed online investigation covering harassment, catfishing, identity fraud, social media aliases, and dark-web exposure across Austin and Travis County."
         category="Investigative Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-digital-forensics"
+        url="/service/digital-forensics"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/digital-forensics', label: 'Digital Forensics' },
         ]}
-        stats={[
-          { value: 'OSINT', label: 'Capability' },
-          { value: 'Licensed', label: 'Texas PI' },
-          { value: 'Chain of Custody', label: 'Documentation' },
-          { value: 'Free', label: 'Consultation' },
-        ]}
-        infoRows={[
-          { label: 'Type', value: 'Digital / Online Investigation' },
-          { label: 'Methods', value: 'OSINT, database research, alias tracking' },
-          { label: 'Scope', value: 'Social media, dark web, communications' },
-          { label: 'Output', value: 'Written report, chain-of-custody documentation' },
-        ]}
+        infoBox={{
+          title: 'Digital Forensics Service',
+          sections: [
+            {
+              heading: 'Details',
+              items: [
+                { label: 'Type', value: 'Digital / Online Investigation' },
+                { label: 'Methods', value: 'OSINT, database research, alias tracking' },
+                { label: 'Scope', value: 'Social media, dark web, communications' },
+                { label: 'Output', value: 'Written report, chain-of-custody documentation' },
+              ],
+            },
+            {
+              heading: 'Related Services',
+              links: [
+                { href: '/service/background-checks', label: 'Background Checks' },
+                { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
+                { href: '/service/skip-tracing', label: 'Skip Tracing' },
+                { href: '/service/missing-persons', label: 'Missing Persons' },
+              ],
+            },
+            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-is', label: 'What Digital Forensics Investigation Covers' },
           { id: 'case-types', label: 'Case Types' },
@@ -93,16 +106,15 @@ export default function DigitalForensicsPage() {
           { id: 'journalism', label: 'Digital Investigation in Our Journalism' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedServices={[
-          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Identity and alias verification.' },
-          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Digital evidence in corporate fraud.' },
-          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert photo and video documentation.' },
-          { href: '/service/missing-persons', icon: '📍', label: 'Missing Persons', desc: 'Online identity in locate investigations.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
+          { href: '/service/background-checks', label: 'Background Checks', description: 'Identity and alias verification' },
+          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Digital evidence in corporate fraud' },
+          { href: '/service/missing-persons', label: 'Missing Persons', description: 'Online identity in locate investigations' },
         ]}
-        ctaHeading="Start a Digital Forensics Case"
-        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
+        backLink={{ href: '/service', label: 'Investigative Services' }}
       >
-        <ServiceSection id="what-is" title="What Digital Forensics Investigation Covers">
+        <Section id="what-is" title="What Digital Forensics Investigation Covers">
           <p>
             Digital forensics investigation uncovers online activity, hidden identities, and digital
             evidence relevant to a case. ObjectWire applies open-source intelligence (OSINT), proprietary
@@ -132,9 +144,9 @@ export default function DigitalForensicsPage() {
             </Link>{' '}
             cases to extend the investigation into the subject's digital life.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="case-types" title="Case Types | Digital Investigation Scope">
+        <Section id="case-types" title="Case Types | Digital Investigation Scope">
           <ul className="space-y-2">
             <li><strong>Online harassment</strong> — identifying the person or persons behind anonymous harassment accounts</li>
             <li><strong>Catfishing and romance fraud</strong> — verifying whether an online identity is real and who is behind it</li>
@@ -144,9 +156,9 @@ export default function DigitalForensicsPage() {
             <li><strong>Digital infidelity evidence</strong> — account activity, messaging patterns, and hidden profiles in domestic cases</li>
             <li><strong>IP theft digital trail</strong> — documenting unauthorized data transfers and communications in corporate cases</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="methods" title="Methods | OSINT and Digital Research Techniques">
+        <Section id="methods" title="Methods | OSINT and Digital Research Techniques">
           <p>
             Our digital investigations use open-source intelligence (OSINT) techniques: systematic
             research across social media platforms, public databases, domain registration records,
@@ -160,9 +172,9 @@ export default function DigitalForensicsPage() {
             in a chain-of-custody format suitable for use in Texas civil, criminal, or family court
             proceedings.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="journalism" title="Digital Investigation in Our Journalism">
+        <Section id="journalism" title="Digital Investigation in Our Journalism">
           <p>
             ObjectWire's investigative journalism team uses the same digital research techniques on
             matters of public interest. When we investigate public figures, institutions, or corporations,
@@ -178,9 +190,9 @@ export default function DigitalForensicsPage() {
             page. If your matter is private and requires confidential investigation, this digital
             forensics service is the right engagement.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Start a Digital Forensics Case">
+        <Section id="contact" title="Start a Digital Forensics Case">
           <p>
             Initial consultations are free and confidential. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -192,8 +204,8 @@ export default function DigitalForensicsPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -68,29 +68,51 @@ export default function InvestigativeReportingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="📰"
+      <ArticlePage
         title="Investigative Reporting | ObjectWire Austin"
         subtitle="ObjectWire is an Austin-based investigative media company. We publish source-cited accountability journalism on public figures, institutions, and stories the public deserves to know."
         category="Media Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-investigative-reporting"
+        url="/service/investigative-reporting"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Services' },
           { href: '/service/investigative-reporting', label: 'Investigative Reporting' },
         ]}
-        stats={[
-          { value: 'Primary', label: 'Sources Only' },
-          { value: 'Licensed', label: 'PI Methods' },
-          { value: 'Confidential', label: 'Source Protection' },
-          { value: 'Free', label: 'Tip Review' },
-        ]}
-        infoRows={[
-          { label: 'Sources', value: 'Primary only. No aggregation.' },
-          { label: 'Verification', value: 'Every factual claim sourced' },
-          { label: 'Corrections', value: 'Public, timestamped' },
-          { label: 'Anonymity', value: 'Available to sources when warranted' },
-        ]}
+        infoBox={{
+          title: 'Investigative Reporting',
+          sections: [
+            {
+              heading: 'What We Cover',
+              list: [
+                'Public figures and elected officials',
+                'Institutional misconduct',
+                'Corporate fraud and consumer harm',
+                'Missing persons and cold cases',
+                'Financial fraud and white-collar crime',
+                'Local Austin and Texas stories',
+              ],
+            },
+            {
+              heading: 'Standards',
+              items: [
+                { label: 'Sources', value: 'Primary only. No aggregation.' },
+                { label: 'Verification', value: 'Every factual claim sourced' },
+                { label: 'Corrections', value: 'Public, timestamped' },
+                { label: 'Anonymity', value: 'Available to sources when warranted' },
+              ],
+            },
+            {
+              heading: 'Get Involved',
+              links: [
+                { href: '/service/tip-the-newsroom', label: 'Submit a Tip' },
+                { href: '/service/document-review', label: 'Share Documents' },
+                { href: '/investigations', label: 'Read Our Investigations' },
+              ],
+            },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-is', label: 'What We Investigate' },
           { id: 'how-we-work', label: 'How We Investigate' },
@@ -99,16 +121,16 @@ export default function InvestigativeReportingPage() {
           { id: 'pi-vs-journalism', label: 'PI Services vs. Journalism' },
           { id: 'contact', label: 'Submit a Tip or Story Lead' },
         ]}
-        relatedServices={[
-          { href: '/service/tip-the-newsroom', icon: '📨', label: 'Tip the Newsroom', desc: 'Submit a confidential news tip.' },
-          { href: '/service/document-review', icon: '📁', label: 'Document Review', desc: 'Share records for investigation.' },
-          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Private corporate case work.' },
-          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'OSINT and digital evidence.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Services', description: 'PI and media services' },
+          { href: '/service/tip-the-newsroom', label: 'Tip the Newsroom', description: 'Submit a confidential news tip' },
+          { href: '/service/document-review', label: 'Document Review', description: 'Share records for investigation' },
+          { href: '/investigations', label: 'Our Investigations', description: 'Published investigative reporting' },
+          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Private corporate case work' },
         ]}
-        ctaHeading="Submit a Tip or Story Lead"
-        ctaBody="If you have a tip, document, or story lead, visit the tip page or contact us securely. Source confidentiality is guaranteed when requested."
+        backLink={{ href: '/service', label: 'Services' }}
       >
-        <ServiceSection id="what-is" title="What We Investigate | Scope of ObjectWire Reporting">
+        <Section id="what-is" title="What We Investigate | Scope of ObjectWire Reporting">
           <p>
             ObjectWire investigates people in power, institutions that affect the public, and stories
             that would otherwise go untold. Our reporting covers Austin and Texas, with national stories
@@ -129,9 +151,9 @@ export default function InvestigativeReportingPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="how-we-work" title="How We Investigate | The ObjectWire Method">
+        <Section id="how-we-work" title="How We Investigate | The ObjectWire Method">
           <p>
             Every ObjectWire investigation begins with a verifiable tip, document, or public record.
             We do not publish based on rumor, single anonymous sources, or unverified claims. The
@@ -156,9 +178,9 @@ export default function InvestigativeReportingPage() {
             </Link>{' '}
             for the full policy framework.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="standards" title="Editorial Standards | Accuracy Over Speed">
+        <Section id="standards" title="Editorial Standards | Accuracy Over Speed">
           <p>
             ObjectWire publishes when a story is verifiable, not when it is first. We do not chase
             breaking news without primary sourcing. Every factual claim in a published investigation
@@ -172,9 +194,9 @@ export default function InvestigativeReportingPage() {
             . Errors are acknowledged, corrected, and the original text is preserved with a timestamp.
             We do not quietly edit published stories to remove mistakes.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="sources" title="Working With Sources | Confidentiality and Protection">
+        <Section id="sources" title="Working With Sources | Confidentiality and Protection">
           <p>
             Sources who provide information to ObjectWire under an expectation of confidentiality are
             protected. We do not disclose source identities without explicit permission. We do not
@@ -188,9 +210,9 @@ export default function InvestigativeReportingPage() {
             </Link>{' '}
             page for secure submission options and guidance on protecting yourself as a source.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="pi-vs-journalism" title="PI Services vs. Journalism | Understanding the Difference">
+        <Section id="pi-vs-journalism" title="PI Services vs. Journalism | Understanding the Difference">
           <p>
             ObjectWire offers both licensed PI services and investigative journalism. These are distinct
             engagements with different outcomes, obligations, and costs.
@@ -216,9 +238,9 @@ export default function InvestigativeReportingPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Submit a Tip or Story Lead">
+        <Section id="contact" title="Submit a Tip or Story Lead">
           <p>
             If you have a tip, document, or story lead for ObjectWire's investigative team, visit the{' '}
             <Link href="/service/tip-the-newsroom" className="text-blue-600 hover:text-blue-800 underline">
@@ -234,8 +256,8 @@ export default function InvestigativeReportingPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

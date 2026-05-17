@@ -171,16 +171,10 @@ export default function MainNav() {
           {/* Right controls */}
           <div className="flex items-center ml-auto shrink-0">
             <Link
-              href="/about"
+              href="/site-index"
               className={`${LINK_CLS} border-l border-r border-black hidden sm:block`}
             >
-              About
-            </Link>
-            <Link
-              href="/service"
-              className={`${LINK_CLS} border-r border-black hidden sm:block`}
-            >
-              Services
+              Index
             </Link>
             <div className="hidden sm:block border-r border-black">
               <NavUserButton />

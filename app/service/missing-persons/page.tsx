@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,30 +62,41 @@ export default function MissingPersonsPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="📍"
-        title="Missing Persons Investigations Austin TX"
+      <ArticlePage
+        title="Missing Persons Investigations Austin TX | ObjectWire"
         subtitle="Licensed investigators locate missing adults, runaways, and estranged family members across Austin, Travis County, and Central Texas."
         category="Investigative Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-missing-persons"
+        url="/service/missing-persons"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/missing-persons', label: 'Missing Persons' },
         ]}
-        stats={[
-          { value: 'Database', label: 'Research' },
-          { value: 'Field Work', label: 'Investigators' },
-          { value: 'Central TX', label: 'Coverage' },
-          { value: 'Free', label: 'Consultation' },
-        ]}
-        infoRows={[
-          { label: 'Type', value: 'Missing Persons / Locate' },
-          { label: 'Subjects', value: 'Adults, runaways, estranged family' },
-          { label: 'Area', value: 'Austin / Travis County / Central TX' },
-          { label: 'Methods', value: 'Database research, field work, skip trace' },
-          { label: 'License', value: 'Texas Occ. Code Ch. 1702' },
-        ]}
+        infoBox={{
+          title: 'Missing Persons Service',
+          sections: [
+            {
+              heading: 'Details',
+              items: [
+                { label: 'Type', value: 'Missing Persons / Locate' },
+                { label: 'Subjects', value: 'Adults, runaways, estranged family' },
+                { label: 'Area', value: 'Austin, Travis County, Central Texas' },
+                { label: 'Methods', value: 'Database research, field work, skip trace' },
+              ],
+            },
+            {
+              heading: 'Related Services',
+              links: [
+                { href: '/service/skip-tracing', label: 'Skip Tracing' },
+                { href: '/service/background-checks', label: 'Background Checks' },
+                { href: '/service/digital-forensics', label: 'Digital Forensics' },
+              ],
+            },
+            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-is', label: 'What Missing Persons Investigation Covers' },
           { id: 'case-types', label: 'Case Types' },
@@ -94,16 +105,15 @@ export default function MissingPersonsPage() {
           { id: 'coverage', label: 'Coverage Area' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedServices={[
-          { href: '/service/skip-tracing', icon: '🗺️', label: 'Skip Tracing', desc: 'Locate debtors, witnesses, and defendants.' },
-          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Identity and address history research.' },
-          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Online identity and social media investigation.' },
-          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert observation once a location is identified.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
+          { href: '/service/skip-tracing', label: 'Skip Tracing', description: 'Locate debtors, witnesses, and defendants' },
+          { href: '/service/background-checks', label: 'Background Checks', description: 'Identity and address history research' },
+          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'Online identity and social media investigation' },
         ]}
-        ctaHeading="Start a Missing Persons Case"
-        ctaBody="Initial consultations are free and confidential. We will discuss your case circumstances, explain what methods apply, and set realistic expectations before any work begins."
+        backLink={{ href: '/service', label: 'Investigative Services' }}
       >
-        <ServiceSection id="what-is" title="What Missing Persons Investigation Covers">
+        <Section id="what-is" title="What Missing Persons Investigation Covers">
           <p>
             A missing persons investigation locates individuals who have left without explanation,
             cut contact voluntarily, or whose whereabouts are unknown. ObjectWire handles these cases
@@ -119,9 +129,9 @@ export default function MissingPersonsPage() {
             parent searches, and individuals lost contact through life transitions. Every case is
             handled with confidentiality and sensitivity to the circumstances.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="case-types" title="Case Types | Who We Locate">
+        <Section id="case-types" title="Case Types | Who We Locate">
           <ul className="space-y-2">
             <li><strong>Missing adults</strong> — adults who have left without explanation or lost contact with family</li>
             <li><strong>Runaways</strong> — minors who have left home; coordinated carefully given legal constraints</li>
@@ -134,9 +144,9 @@ export default function MissingPersonsPage() {
             </li>
             <li><strong>Debtors and judgment subjects</strong> — locate for attorneys and collection matters</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="methods" title="Investigation Methods | How We Find People">
+        <Section id="methods" title="Investigation Methods | How We Find People">
           <p>
             We use a layered approach: proprietary database research, public records analysis, social
             media investigation via our{' '}
@@ -150,9 +160,9 @@ export default function MissingPersonsPage() {
             history, and known associate networks. Digital investigation covers social media activity,
             alias accounts, and online communications where accessible through lawful means.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="law-enforcement" title="PI vs. Law Enforcement | When to Call Each">
+        <Section id="law-enforcement" title="PI vs. Law Enforcement | When to Call Each">
           <p>
             Law enforcement handles criminal missing persons cases, particularly those involving minors
             and foul play. Private investigators fill the gap for voluntary absences, estrangements,
@@ -165,17 +175,17 @@ export default function MissingPersonsPage() {
             Police Department or Travis County Sheriff first. We can coordinate with an active law
             enforcement investigation where appropriate.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="coverage" title="Coverage Area | Austin and Central Texas">
+        <Section id="coverage" title="Coverage Area | Austin and Central Texas">
           <p>
             Primary coverage: Austin and Travis County. Extended coverage across Williamson, Hays,
             Bastrop, and Caldwell Counties. Out-of-state locate work is available on a case-by-case
             basis through our network of licensed investigators.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Start a Missing Persons Case">
+        <Section id="contact" title="Start a Missing Persons Case">
           <p>
             Initial consultations are free and confidential. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -187,8 +197,8 @@ export default function MissingPersonsPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

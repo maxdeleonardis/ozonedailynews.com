@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,29 +62,41 @@ export default function ChildCustodyPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="⚖️"
+      <ArticlePage
         title="Child Custody Investigations Austin TX | ObjectWire"
         subtitle="Licensed parental surveillance and behavior documentation for Travis County family court proceedings. Admissible, timestamped evidence."
         category="Investigative Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-child-custody-investigations"
+        url="/service/child-custody-investigations"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/child-custody-investigations', label: 'Child Custody Investigations' },
         ]}
-        stats={[
-          { value: 'Family Court', label: 'Evidence' },
-          { value: 'Licensed', label: 'Texas PI' },
-          { value: 'Confidential', label: 'Case Handling' },
-          { value: 'Free', label: 'Consultation' },
-        ]}
-        infoRows={[
-          { label: 'Type', value: 'Family Court Investigation' },
-          { label: 'Court', value: 'Travis County Family Court' },
-          { label: 'Output', value: 'Photo, video, written report' },
-          { label: 'Use', value: 'Custody modification, parenting plan disputes' },
-        ]}
+        infoBox={{
+          title: 'Child Custody Service',
+          sections: [
+            {
+              heading: 'Details',
+              items: [
+                { label: 'Type', value: 'Family Court Investigation' },
+                { label: 'Court', value: 'Travis County Family Court' },
+                { label: 'Output', value: 'Photo, video, written report' },
+                { label: 'Use', value: 'Custody modification, parenting plan disputes' },
+              ],
+            },
+            {
+              heading: 'Related Services',
+              links: [
+                { href: '/service/surveillance', label: 'Surveillance' },
+                { href: '/service/infidelity-investigations', label: 'Infidelity Investigations' },
+                { href: '/service/digital-forensics', label: 'Digital Forensics' },
+              ],
+            },
+            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-is', label: 'What Child Custody Investigation Covers' },
           { id: 'what-we-document', label: 'What We Document' },
@@ -92,16 +104,15 @@ export default function ChildCustodyPage() {
           { id: 'working-with-attorneys', label: 'Working With Your Attorney' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedServices={[
-          { href: '/service/surveillance', icon: '🎥', label: 'Surveillance', desc: 'Covert observation and documentation.' },
-          { href: '/service/infidelity-investigations', icon: '🔍', label: 'Infidelity Investigations', desc: 'Domestic partner cases.' },
-          { href: '/service/background-checks', icon: '📋', label: 'Background Checks', desc: 'Criminal, employment, identity research.' },
-          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Communications and online behavior.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
+          { href: '/service/surveillance', label: 'Surveillance', description: 'Covert observation and documentation' },
+          { href: '/service/infidelity-investigations', label: 'Infidelity Investigations', description: 'Domestic partner cases' },
+          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'Communications and online behavior' },
         ]}
-        ctaHeading="Start a Child Custody Investigation"
-        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
+        backLink={{ href: '/service', label: 'Investigative Services' }}
       >
-        <ServiceSection id="what-is" title="What Child Custody Investigation Covers">
+        <Section id="what-is" title="What Child Custody Investigation Covers">
           <p>
             A child custody investigation documents parental behavior, living conditions, and activities
             relevant to a custody modification, initial custody determination, or violation of an existing
@@ -114,9 +125,9 @@ export default function ChildCustodyPage() {
             order is directly relevant to that standard. A properly documented investigation can support
             or contest a custody modification petition before Travis County Family Court.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="what-we-document" title="What We Document | Evidence Types">
+        <Section id="what-we-document" title="What We Document | Evidence Types">
           <ul className="space-y-2">
             <li><strong>Living environment</strong> — condition, safety, and appropriateness of the subject parent's home</li>
             <li><strong>Parenting behavior</strong> — how the parent interacts with and supervises children during observed periods</li>
@@ -129,9 +140,9 @@ export default function ChildCustodyPage() {
               </Link>{' '}
               service, where communications between parties are in dispute</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="texas-family-law" title="Texas Family Law Context | Travis County Family Court">
+        <Section id="texas-family-law" title="Texas Family Law Context | Travis County Family Court">
           <p>
             Texas family courts issue custody orders based on the best interest of the child standard
             under the Texas Family Code. Evidence of parental unfitness, instability, or contempt of
@@ -144,9 +155,9 @@ export default function ChildCustodyPage() {
             Family Court proceedings. Our written reports are structured to support attorney presentation
             in court, including source documentation and chain-of-custody records.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="working-with-attorneys" title="Working With Your Family Law Attorney">
+        <Section id="working-with-attorneys" title="Working With Your Family Law Attorney">
           <p>
             We work directly with family law attorneys in Travis County on litigation-bound cases. If
             you are represented, we recommend discussing your investigative needs with your attorney
@@ -157,9 +168,9 @@ export default function ChildCustodyPage() {
             If you are not yet represented, we can provide a case report that an attorney can evaluate
             when advising you on whether to pursue a custody modification.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Start a Child Custody Investigation">
+        <Section id="contact" title="Start a Child Custody Investigation">
           <p>
             Initial consultations are free and confidential. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -171,8 +182,8 @@ export default function ChildCustodyPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

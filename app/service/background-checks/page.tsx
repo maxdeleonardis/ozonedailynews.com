@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ServicePage, ServiceSection } from '@/components/articles/ServicePage';
+import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -62,29 +62,41 @@ export default function BackgroundChecksPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <ServicePage
-        icon="📋"
+      <ArticlePage
         title="Background Check Investigations Austin TX | ObjectWire"
         subtitle="Criminal history, employment verification, identity research, and address history for individuals and businesses across Austin and Travis County."
         category="Investigative Services"
-        lastUpdated="May 15, 2026"
+        lastUpdated="May 4, 2026"
+        slug="service-background-checks"
+        url="/service/background-checks"
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { href: '/service', label: 'Investigative Services' },
           { href: '/service/background-checks', label: 'Background Checks' },
         ]}
-        stats={[
-          { value: 'Deep Research', label: 'Multi-Source' },
-          { value: 'Court-Ready', label: 'Reports' },
-          { value: 'Nationwide', label: 'Records' },
-          { value: 'Free', label: 'Consultation' },
-        ]}
-        infoRows={[
-          { label: 'Type', value: 'Background Investigation' },
-          { label: 'Scope', value: 'Criminal, employment, identity, address' },
-          { label: 'Use cases', value: 'Personal, business, legal, tenant' },
-          { label: 'Area', value: 'Austin, Texas, nationwide records' },
-        ]}
+        infoBox={{
+          title: 'Background Check Service',
+          sections: [
+            {
+              heading: 'Details',
+              items: [
+                { label: 'Type', value: 'Background Investigation' },
+                { label: 'Scope', value: 'Criminal, employment, identity, address' },
+                { label: 'Use cases', value: 'Personal, business, legal, tenant' },
+                { label: 'Area', value: 'Austin, Texas, nationwide records' },
+              ],
+            },
+            {
+              heading: 'Related Services',
+              links: [
+                { href: '/service/skip-tracing', label: 'Skip Tracing' },
+                { href: '/service/corporate-investigations', label: 'Corporate Investigations' },
+                { href: '/service/digital-forensics', label: 'Digital Forensics' },
+              ],
+            },
+            { heading: 'Start a Case', links: [{ href: '/get-help', label: 'Free Consultation' }] },
+          ],
+        }}
         tableOfContents={[
           { id: 'what-is', label: 'What Background Investigation Covers' },
           { id: 'vs-consumer', label: 'vs. Consumer Background Check Services' },
@@ -92,16 +104,15 @@ export default function BackgroundChecksPage() {
           { id: 'what-we-research', label: 'What We Research' },
           { id: 'contact', label: 'Start a Case' },
         ]}
-        relatedServices={[
-          { href: '/service/skip-tracing', icon: '🗺️', label: 'Skip Tracing', desc: 'Locate subjects with unknown addresses.' },
-          { href: '/service/corporate-investigations', icon: '🏢', label: 'Corporate Investigations', desc: 'Executive due diligence and fraud.' },
-          { href: '/service/digital-forensics', icon: '💻', label: 'Digital Forensics', desc: 'Online identity and alias research.' },
-          { href: '/service/missing-persons', icon: '📍', label: 'Missing Persons', desc: 'Locate missing individuals.' },
+        relatedLinks={[
+          { href: '/service', label: 'All Investigative Services', description: 'Full list of case types' },
+          { href: '/service/skip-tracing', label: 'Skip Tracing', description: 'Locate subjects with unknown addresses' },
+          { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Executive due diligence and fraud' },
+          { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'Online identity and alias research' },
         ]}
-        ctaHeading="Start a Background Investigation"
-        ctaBody="Initial consultations are free and confidential. We will assess your case, explain what is achievable, and quote cost before any work begins."
+        backLink={{ href: '/service', label: 'Investigative Services' }}
       >
-        <ServiceSection id="what-is" title="What Background Investigation Covers">
+        <Section id="what-is" title="What Background Investigation Covers">
           <p>
             A background investigation is a deep, manual research process conducted by a licensed
             investigator. ObjectWire handles background checks for individuals vetting new relationships
@@ -113,9 +124,9 @@ export default function BackgroundChecksPage() {
             reach, and they are conducted by a licensed investigator who can interpret context, flag
             anomalies, and produce a written report rather than a raw data dump.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="vs-consumer" title="vs. Consumer Background Check Services | Why PI Investigation Differs">
+        <Section id="vs-consumer" title="vs. Consumer Background Check Services | Why PI Investigation Differs">
           <p>
             Consumer services like Spokeo or BeenVerified aggregate public data and return results in
             seconds. They miss sealed records, out-of-state incidents with inconsistent reporting, alias
@@ -127,9 +138,9 @@ export default function BackgroundChecksPage() {
             If what you need is court-ready documentation or a verified narrative rather than a list
             of possibly outdated data points, an investigative background check is the right instrument.
           </p>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="use-cases" title="Use Cases | Who Commissions Background Investigations">
+        <Section id="use-cases" title="Use Cases | Who Commissions Background Investigations">
           <ul className="space-y-2">
             <li><strong>Individuals</strong> — vetting a new romantic partner, business partner, or contractor</li>
             <li><strong>Businesses</strong> — pre-hire due diligence for executives, contractors, or high-trust roles</li>
@@ -138,9 +149,9 @@ export default function BackgroundChecksPage() {
             <li><strong>Investors</strong> — partner and principal due diligence before a transaction</li>
             <li><strong>Families</strong> — verifying the background of someone entering a family member's life</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="what-we-research" title="What We Research | Background Investigation Scope">
+        <Section id="what-we-research" title="What We Research | Background Investigation Scope">
           <ul className="space-y-2">
             <li><strong>Criminal history</strong> — Texas and multi-state court records, including misdemeanors often missed by consumer services</li>
             <li><strong>Address history</strong> — verified current and prior addresses, including gaps</li>
@@ -154,9 +165,9 @@ export default function BackgroundChecksPage() {
               , social media aliases and online presence</li>
             <li><strong>Associates and networks</strong> — known associates relevant to the investigative scope</li>
           </ul>
-        </ServiceSection>
+        </Section>
 
-        <ServiceSection id="contact" title="Start a Background Investigation">
+        <Section id="contact" title="Start a Background Investigation">
           <p>
             Initial consultations are free. Visit the{' '}
             <Link href="/get-help" className="text-blue-600 hover:text-blue-800 underline">
@@ -168,8 +179,8 @@ export default function BackgroundChecksPage() {
             </Link>
             .
           </p>
-        </ServiceSection>
-      </ServicePage>
+        </Section>
+      </ArticlePage>
     </>
   );
 }

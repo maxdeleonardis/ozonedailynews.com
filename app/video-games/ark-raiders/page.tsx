@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description:
       'Full profile of ARK Raiders, the free-to-play co-op extraction shooter from Nexon. Gameplay, lore, platforms, developer background, and release timeline.',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [
       {
         url: IMAGE_URL,

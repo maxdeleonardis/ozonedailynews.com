@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'A federal judge sentenced OneTaste co-founder Nicole Daedone to 9 years and ordered $12M in forfeiture on March 30, 2026, closing a years-long forced',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-31T16:00:00Z',
     modifiedTime: '2026-03-31T16:00:00Z',

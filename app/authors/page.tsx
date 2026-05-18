@@ -4,19 +4,19 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Authors & Contributors',
   description:
-    'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and',
+    'Meet the journalists, reporters, and editors behind OzoneNews, covering finance, markets, science, technology, anime, gaming, investigations, and',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors' },
   openGraph: {
-    title: 'ObjectWire Authors & Contributors',
-    description: 'Meet the journalists and editors behind ObjectWire.',
+    title: 'OzoneNews Authors & Contributors',
+    description: 'Meet the journalists and editors behind OzoneNews.',
     url: 'https://www.ozonenetwork.news/authors',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'ObjectWire Authors & Contributors',
-    description: 'Meet the journalists and editors behind ObjectWire.',
+    title: 'OzoneNews Authors & Contributors',
+    description: 'Meet the journalists and editors behind OzoneNews.',
   },
 };
 
@@ -42,7 +42,7 @@ const AUTHORS = [
     role: 'Founding Writer',
     department: 'Science & Technology',
     location: 'Austin, TX',
-    bio: 'Founding writer at ObjectWire. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI hardware, gaming, and the companies shaping the future of human health and emerging tech.',
+    bio: 'Founding writer at OzoneNews. NCSU journalism graduate covering biotechnology, CRISPR, medical research, AI hardware, gaming, and the companies shaping the future of human health and emerging tech.',
     beats: ['Biotechnology', 'CRISPR', 'AI Hardware', 'Gaming', 'Emerging Tech'],
     accent: 'bg-gray-800',
     border: 'border-gray-800',
@@ -93,13 +93,13 @@ export default function AuthorsPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-400 mb-3 font-mono">
-                ObjectWire Newsroom
+                OzoneNews Newsroom
               </p>
               <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 leading-none mb-5">
                 Our<br />Journalists
               </h1>
               <p className="text-lg text-gray-500 max-w-xl leading-relaxed">
-                The reporters, editors, and investigators producing ObjectWire&rsquo;s coverage
+                The reporters, editors, and investigators producing OzoneNews&rsquo;s coverage
                 of finance, technology, politics, science, and culture.
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function AuthorsPage() {
               <p className="text-[10px] uppercase tracking-widest font-black text-gray-500 mb-3">Editorial Principles</p>
               <h3 className="text-xl font-black mb-3">Verified. Source-cited. Correctable.</h3>
               <p className="text-sm text-gray-400 leading-relaxed max-w-lg">
-                All ObjectWire journalists operate under our published editorial standards. Errors are
+                All OzoneNews journalists operate under our published editorial standards. Errors are
                 corrected prominently. Sources are named where possible. Methods are disclosed.
               </p>
             </div>
@@ -205,7 +205,7 @@ export default function AuthorsPage() {
                 Corrections Policy
               </Link>
               <Link href="/about" className="text-xs font-black uppercase tracking-widest text-gray-400 border border-gray-700 px-5 py-2.5 hover:border-white hover:text-white transition-colors text-center">
-                About ObjectWire
+                About OzoneNews
               </Link>
             </div>
           </div>

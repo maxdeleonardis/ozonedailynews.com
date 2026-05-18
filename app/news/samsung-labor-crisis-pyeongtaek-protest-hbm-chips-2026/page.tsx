@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: '40,000 Samsung workers flooded Pyeongtaek demanding triple bonuses matching SK Hynix. An 18-day strike threat could cost $676M/day and delay AI servers for months.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T21:00:00Z',
     modifiedTime: '2026-04-23T21:00:00Z',

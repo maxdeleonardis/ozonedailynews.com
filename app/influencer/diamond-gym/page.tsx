@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Diamond Gym | Maplewood, NJ | Where Elite Fitness',
     description:
-      'Diamond Gym in Maplewood, NJ: the private gym where Logan Paul, the Tren Twins, and a wave of fitness creators have trained. Full profile on ObjectWire.',
+      'Diamond Gym in Maplewood, NJ: the private gym where Logan Paul, the Tren Twins, and a wave of fitness creators have trained. Full profile on OzoneNews.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Diamond Gym', 'Maplewood NJ', 'Logan Paul', 'Tren Twins', 'Fitness', 'Bodybuilding', 'New Jersey'],
     publishedTime: '2026-03-31T12:00:00Z',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Diamond Gym, Maplewood NJ | Logan Paul, Tren Twins & Elite',
     description:
-      'The New Jersey gym that became a destination for the biggest names in fitness content. Full profile on ObjectWire.',
+      'The New Jersey gym that became a destination for the biggest names in fitness content. Full profile on OzoneNews.',
   },
 };
 

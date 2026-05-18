@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Game Freak and Omega Force\'s sandbox Pokémon game scores higher than any title in franchise history. No battles, just rebuilding a post-apocalyptic Kanto',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-02T12:00:00Z',
     modifiedTime: '2026-03-02T12:00:00Z',

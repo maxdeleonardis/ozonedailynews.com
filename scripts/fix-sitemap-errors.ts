@@ -89,7 +89,7 @@ async function deleteFromRegistry(slugs: string[], reason: string) {
 }
 
 async function main() {
-  console.log('=== ObjectWire Sitemap Error Cleanup ===\n');
+  console.log('=== OzoneNews Sitemap Error Cleanup ===\n');
 
   // Remove template placeholder URLs
   await deleteFromRegistry(TEMPLATE_SLUGS, 'Template placeholder URLs');

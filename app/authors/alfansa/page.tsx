@@ -9,19 +9,19 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Alfansa â€” Finance & Markets Reporter',
   description:
-    'Alfansa is ObjectWire\'s Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, My Hero Academia,',
+    'Alfansa is OzoneNews\'s Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, My Hero Academia,',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/alfansa' },
   openGraph: {
-    title: 'Alfansa | ObjectWire Finance & Markets Reporter',
-    description: 'Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire. Covering fintech, payments, MHA, and gaming economics.',
+    title: 'Alfansa | OzoneNews Finance & Markets Reporter',
+    description: 'Finance & Markets Reporter and Anime & Gaming Editor at OzoneNews. Covering fintech, payments, MHA, and gaming economics.',
     url: 'https://www.ozonenetwork.news/authors/alfansa',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'profile',
   },
   twitter: {
     card: 'summary',
     title: 'Alfansa â€” Finance & Markets Reporter',
-    description: 'Finance & Anime & Gaming dual-desk at ObjectWire. New York.',
+    description: 'Finance & Anime & Gaming dual-desk at OzoneNews. New York.',
   },
 };
 
@@ -42,7 +42,7 @@ export default function AlfansaAuthorPage() {
       <AuthorSchema
         name="Alfansa"
         jobTitle="Finance & Markets Reporter"
-        description="Alfansa covers finance, markets, fintech, and payments at ObjectWire while also serving as the publication's Anime & Gaming Editor."
+        description="Alfansa covers finance, markets, fintech, and payments at OzoneNews while also serving as the publication's Anime & Gaming Editor."
         url="https://www.ozonenetwork.news/authors/alfansa"
         knowsAbout={['Finance', 'Markets', 'Fintech', 'Payments', 'Crypto', 'My Hero Academia', 'Gaming']}
         location={{ city: 'New York', region: 'NY' }}
@@ -69,7 +69,7 @@ export default function AlfansaAuthorPage() {
             {/* Identity */}
             <div className="flex-1">
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-blue-500 mb-2 font-mono">
-                Finance & Markets Reporter Â· ObjectWire
+                Finance & Markets Reporter Â· OzoneNews
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
                 Alfansa
@@ -127,7 +127,7 @@ export default function AlfansaAuthorPage() {
             {/* Details */}
             <div className="border border-gray-200 divide-y divide-gray-100">
               {[
-                ['Organization', 'ObjectWire'],
+                ['Organization', 'OzoneNews'],
                 ['Primary Desk', 'Finance & Markets'],
                 ['Secondary Desk', 'Anime & Gaming'],
                 ['Location', 'New York, NY'],
@@ -150,7 +150,7 @@ export default function AlfansaAuthorPage() {
                 Corrections Policy â†’
               </Link>
               <Link href="/about" className="block text-sm font-semibold hover:text-blue-300 transition-colors">
-                About ObjectWire â†’
+                About OzoneNews â†’
               </Link>
             </div>
           </aside>
@@ -165,7 +165,7 @@ export default function AlfansaAuthorPage() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Alfansa is ObjectWire&rsquo;s Finance &amp; Markets Reporter and Anime &amp; Gaming
+                  Alfansa is OzoneNews&rsquo;s Finance &amp; Markets Reporter and Anime &amp; Gaming
                   Editor based in New York. With dual-desk responsibilities, Alfansa covers the
                   intersection of global capital markets and cultural media â€” tracking how payments
                   infrastructure, fintech valuations, and crypto policy shape the broader economy
@@ -186,7 +186,7 @@ export default function AlfansaAuthorPage() {
                   to financial outcomes.
                 </p>
                 <p>
-                  Alfansa&rsquo;s work reflects ObjectWire&rsquo;s founding belief that finance and
+                  Alfansa&rsquo;s work reflects OzoneNews&rsquo;s founding belief that finance and
                   culture are inseparable narratives â€” the same macro forces reshaping Wall Street also
                   reshape how stories are told, consumed, and monetized worldwide.
                 </p>
@@ -250,7 +250,7 @@ export default function AlfansaAuthorPage() {
       {/* â”€â”€ Footer strip â”€â”€ */}
       <div className="border-t-2 border-blue-900 mt-8">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400 font-mono">Â© 2026 ObjectWire. All rights reserved.</p>
+          <p className="text-xs text-gray-400 font-mono">Â© 2026 OzoneNews. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/authors" className="text-xs font-semibold text-blue-600 hover:text-blue-900 transition-colors">â† All Authors</Link>
             <Link href="/about" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">About</Link>

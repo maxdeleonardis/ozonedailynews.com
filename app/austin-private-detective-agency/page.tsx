@@ -6,7 +6,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Private Detective Agency Austin Texas | Licensed PI Services",
-  description: "ObjectWire is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
+  description: "OzoneNews is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
   keywords: [
     "private detective Austin Texas",
     "private investigator Austin TX",
@@ -22,23 +22,23 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Private Detective Agency Austin Texas | Licensed PI Services",
-    description: "ObjectWire is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
+    description: "OzoneNews is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
     type: 'article',
     url: "https://www.ozonenetwork.news/austin-private-detective-agency",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {
     card: 'summary_large_image',
     title: "Private Detective Agency Austin Texas | Licensed PI Services",
-    description: "ObjectWire is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
+    description: "OzoneNews is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
   },
 };
 
 export default function AustinPrivateDetectivePage() {
   return (
     <ArticlePage
-      title="Austin Private Detective Agency | ObjectWire Investigations"
+      title="Austin Private Detective Agency | OzoneNews Investigations"
       subtitle="Licensed private detective agency serving Austin, Texas and Travis County. Domestic, legal, and corporate cases handled with full confidentiality."
       category="Investigative Services"
       lastUpdated="April 29, 2026"
@@ -110,7 +110,7 @@ export default function AustinPrivateDetectivePage() {
     >
       <Section id="about" title="About the Agency">
         <p>
-          ObjectWire is a licensed private detective agency based in Austin, Texas. We handle investigative
+          OzoneNews is a licensed private detective agency based in Austin, Texas. We handle investigative
           cases for private individuals, attorneys, law firms, insurance carriers, and businesses throughout
           Travis County and Central Texas. Every case is assigned to a licensed investigator operating under
           Texas Occupations Code Chapter 1702.
@@ -231,7 +231,7 @@ export default function AustinPrivateDetectivePage() {
 
       <Section id="licensing" title="Licensing and Standards">
         <p>
-          All investigative work performed by ObjectWire is conducted in compliance with Texas Occupations
+          All investigative work performed by OzoneNews is conducted in compliance with Texas Occupations
           Code Chapter 1702, which governs private security and investigations in the state. Our investigators
           are individually licensed through the Texas Department of Public Safety.
         </p>

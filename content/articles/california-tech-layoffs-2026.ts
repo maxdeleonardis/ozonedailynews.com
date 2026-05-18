@@ -40,7 +40,7 @@ const article: Article = {
   author_role: 'Science & Technology Writer',
   author_slug: 'conan-boyle',
   author_bio:
-    'Conan Boyle is the founding writer at ObjectWire covering science, biotechnology, AI hardware, and emerging technology trends from Austin, Texas.',
+    'Conan Boyle is the founding writer at OzoneNews covering science, biotechnology, AI hardware, and emerging technology trends from Austin, Texas.',
 
   hero_image_src: '/default/california-tech.jpg',
   hero_image_alt: 'San Francisco skyline with office towers in Silicon Valley',

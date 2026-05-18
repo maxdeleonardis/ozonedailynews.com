@@ -58,7 +58,7 @@ function rowToEntry(row: Record<string, unknown>): ContentEntry {
     modifiedDate:    String(row.modified_date ?? ''),
     category:        String(row.category ?? 'General'),
     tags:            Array.isArray(row.tags) ? (row.tags as string[]) : [],
-    author:          String(row.author ?? 'ObjectWire Editorial'),
+    author:          String(row.author ?? 'OzoneNews Editorial'),
     authorSlug:      row.author_slug ? String(row.author_slug) : undefined,
     priority:        Number(row.priority ?? 0.7),
     changeFrequency: String(row.change_frequency ?? 'weekly') as ChangeFrequency,
@@ -89,7 +89,7 @@ const HUB_SLUGS = new Set([
   '/youtube', '/editorial-standards', '/social', '/entertainment', '/blog',
   '/about', '/team', '/privacy-policy', '/terms-of-service', '/copyright',
   '/corrections', '/get-help', '/service', '/index', '/feeds', '/crypto',
-  '/artists', '/influencer', '/saas', '/research', '/objectwire',
+  '/artists', '/influencer', '/saas', '/research', '/OzoneNews',
   '/podcasts', '/video-games', '/winter-olympics', '/world-cup', '/formula-1',
   '/redbull', '/disney', '/elon-musk', '/google', '/apple', '/nvidia',
   '/microsoft', '/open-ai', '/github', '/nasa', '/intel', '/beastgames',
@@ -107,7 +107,7 @@ function isRealArticle(e: ContentEntry): boolean {
   const parts = e.slug.split('/').filter(Boolean);
   if (parts.length < 2) return false;
   if (e.description.length < 60) return false;
-  if (e.title.startsWith('›') || e.title.startsWith('ObjectWire coverage')) return false;
+  if (e.title.startsWith('›') || e.title.startsWith('OzoneNews coverage')) return false;
   return true;
 }
 

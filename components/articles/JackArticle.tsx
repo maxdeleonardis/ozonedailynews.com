@@ -9,7 +9,7 @@ import RelatedArticles from '@/components/discovery/RelatedArticles';
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
 //
-// Combines two ObjectWire design systems:
+// Combines two OzoneNews design systems:
 //   1. Strategic Report  — Monochrome, serif-heavy, uppercase, research-grade
 //      (based on /finance/articles/the-greenland-fulcrum-and-the-golden-dome-architecture)
 //   2. Dynamic News      — Hero image, sidebar, category badges, interactive blocks
@@ -277,15 +277,15 @@ function JackSchema({
     dateModified: modifiedDateISO || publishDateISO,
     author: {
       '@type': 'Person',
-      name: author?.name || 'ObjectWire Staff',
+      name: author?.name || 'OzoneNews Staff',
       ...(author?.url ? { url: author.url } : {}),
     },
     publisher: {
       '@type': 'NewsMediaOrganization',
-      name: 'ObjectWire',
+      name: 'OzoneNews',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.ozonenetwork.news/objectwire-logo.png',
+        url: 'https://www.ozonenetwork.news/OzoneNews-logo.png',
         width: 600,
         height: 60,
       },
@@ -787,7 +787,7 @@ export default function JackArticle({
   documents,
   showNewsletter = false,
   newsletterTitle = 'Investigation Updates',
-  newsletterDescription = 'Get updates on this case and other ObjectWire investigations.',
+  newsletterDescription = 'Get updates on this case and other OzoneNews investigations.',
   sources,
   showCorrections = true,
   showEditorialStandards = true,
@@ -1027,7 +1027,7 @@ export default function JackArticle({
           <footer className="bg-gray-50 border-t border-gray-200 py-16 mt-12">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
               <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-4">
-                ObjectWire Research &amp; Intelligence
+                OzoneNews Research &amp; Intelligence
               </p>
               <div className="text-2xl font-serif italic mb-8">{footerTagline}</div>
               <div className="flex justify-center gap-12 font-mono text-[10px] text-gray-500 underline underline-offset-4">
@@ -1341,7 +1341,7 @@ export default function JackArticle({
               {footerTagline && (
                 <div className="text-center border-t border-gray-200 pt-6">
                   <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-2">
-                    ObjectWire Research &amp; Intelligence
+                    OzoneNews Research &amp; Intelligence
                   </p>
                   <div className="text-lg font-serif italic text-gray-600">{footerTagline}</div>
                   <div className="flex justify-center gap-12 font-mono text-[10px] text-gray-500 underline underline-offset-4 mt-4">

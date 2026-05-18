@@ -8,22 +8,22 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Tina Boyle, ObjectWire Investigations Reporter',
+  title: 'Tina Boyle, OzoneNews Investigations Reporter',
   description:
-    'Tina Boyle is an investigations reporter at ObjectWire covering federal environmental policy, national security law, and regulatory agencies.',
+    'Tina Boyle is an investigations reporter at OzoneNews covering federal environmental policy, national security law, and regulatory agencies.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/tina-boyle' },
   openGraph: {
-    title: 'Tina Boyle, ObjectWire Investigations Reporter',
-    description: 'Investigations reporter at ObjectWire covering environmental law, national security, and federal regulatory agencies.',
+    title: 'Tina Boyle, OzoneNews Investigations Reporter',
+    description: 'Investigations reporter at OzoneNews covering environmental law, national security, and federal regulatory agencies.',
     url: 'https://www.ozonenetwork.news/authors/tina-boyle',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'profile',
-    images: [{ url: 'https://www.ozonenetwork.news/authors/Tina_Boyle.jpg', width: 800, height: 800, alt: 'Tina Boyle, ObjectWire investigations reporter' }],
+    images: [{ url: 'https://www.ozonenetwork.news/authors/Tina_Boyle.jpg', width: 800, height: 800, alt: 'Tina Boyle, OzoneNews investigations reporter' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Tina Boyle, ObjectWire Investigations',
-    description: 'Investigations reporter at ObjectWire. Environmental law, national security, regulatory agencies.',
+    title: 'Tina Boyle, OzoneNews Investigations',
+    description: 'Investigations reporter at OzoneNews. Environmental law, national security, regulatory agencies.',
     images: ['https://www.ozonenetwork.news/authors/Tina_Boyle.jpg'],
   },
 };
@@ -54,7 +54,7 @@ export default function TinaBoyleAuthorPage() {
       <AuthorSchema
         name="Tina Boyle"
         jobTitle="Investigations Reporter"
-        description="Tina Boyle is ObjectWire's investigations reporter covering federal environmental policy, national security law, the Endangered Species Act, regulatory agencies, and the Trump administration."
+        description="Tina Boyle is OzoneNews's investigations reporter covering federal environmental policy, national security law, the Endangered Species Act, regulatory agencies, and the Trump administration."
         url="https://www.ozonenetwork.news/authors/tina-boyle"
         sameAs={['https://www.facebook.com/tina.b.deleonardis']}
         knowsAbout={['Environmental Law', 'National Security', 'Federal Agencies', 'Energy Policy', 'Regulatory Affairs', 'Investigations']}
@@ -79,7 +79,7 @@ export default function TinaBoyleAuthorPage() {
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
               <Image
                 src="/authors/Tina_Boyle.jpg"
-                alt="Tina Boyle, ObjectWire investigations reporter"
+                alt="Tina Boyle, OzoneNews investigations reporter"
                 fill
                 sizes="(min-width: 768px) 96px, 80px"
                 className="object-cover"
@@ -89,7 +89,7 @@ export default function TinaBoyleAuthorPage() {
             {/* Identity */}
             <div className="flex-1">
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500 mb-2 font-mono">
-                ObjectWire &middot; Investigations
+                OzoneNews &middot; Investigations
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
                 Tina Boyle
@@ -158,7 +158,7 @@ export default function TinaBoyleAuthorPage() {
             {/* Details */}
             <div className="border border-gray-200 divide-y divide-gray-100">
               {[
-                ['Organization', 'ObjectWire'],
+                ['Organization', 'OzoneNews'],
                 ['Desk', 'Investigations'],
                 ['Education', 'UCLA, Political Science'],
                 ['Location', 'Washington, D.C.'],
@@ -201,7 +201,7 @@ export default function TinaBoyleAuthorPage() {
                 Corrections Policy &rarr;
               </Link>
               <Link href="/about" className="block text-sm font-semibold hover:text-gray-300 transition-colors">
-                About ObjectWire &rarr;
+                About OzoneNews &rarr;
               </Link>
             </div>
           </aside>
@@ -216,7 +216,7 @@ export default function TinaBoyleAuthorPage() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Tina Boyle is ObjectWire&rsquo;s investigations reporter, covering the intersection of
+                  Tina Boyle is OzoneNews&rsquo;s investigations reporter, covering the intersection of
                   federal law, environmental regulation, and national security policy from Washington, D.C.
                   A graduate of the{' '}
                   <a href="/college/ucla" className="text-blue-600 hover:text-blue-800 underline">University of California, Los Angeles</a>{' '}
@@ -240,8 +240,8 @@ export default function TinaBoyleAuthorPage() {
                   She does not speculate about motive when act and consequence are sufficient.
                 </p>
                 <p>
-                  She operates out of the ObjectWire Investigations Desk. Tips and document leads can be
-                  directed to ObjectWire&rsquo;s editorial contact channel.
+                  She operates out of the OzoneNews Investigations Desk. Tips and document leads can be
+                  directed to OzoneNews&rsquo;s editorial contact channel.
                 </p>
               </div>
             </section>
@@ -291,7 +291,7 @@ export default function TinaBoyleAuthorPage() {
       {/* Footer strip */}
       <div className="border-t-2 border-gray-900 mt-8">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400 font-mono">&copy; 2026 ObjectWire. All rights reserved.</p>
+          <p className="text-xs text-gray-400 font-mono">&copy; 2026 OzoneNews. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/authors" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">&larr; All Authors</Link>
             <Link href="/about" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">About</Link>

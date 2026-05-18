@@ -81,11 +81,11 @@ export function GEOArticleWrapper({
     },
     'publisher': {
       '@type': 'NewsMediaOrganization',
-      'name': 'ObjectWire',
+      'name': 'OzoneNews',
       'url': 'https://www.ozonenetwork.news',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://www.ozonenetwork.news/objectwire-logo.png',
+        'url': 'https://www.ozonenetwork.news/OzoneNews-logo.png',
         'width': 600,
         'height': 60,
       },

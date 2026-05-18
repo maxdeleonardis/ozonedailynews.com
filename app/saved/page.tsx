@@ -5,21 +5,21 @@ import SavedArticles    from '@/components/discovery/SavedArticles';
 import Link             from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Saved Articles | ObjectWire',
-  description: 'Your bookmarked articles on ObjectWire.',
+  title: 'Saved Articles | OzoneNews',
+  description: 'Your bookmarked articles on OzoneNews.',
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Saved Articles | ObjectWire",
-    description: "Your bookmarked articles on ObjectWire.",
+    title: "Saved Articles | OzoneNews",
+    description: "Your bookmarked articles on OzoneNews.",
     type: 'article',
     url: 'https://www.ozonenetwork.news',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Saved Articles | ObjectWire",
-    description: "Your bookmarked articles on ObjectWire.",
+    title: "Saved Articles | OzoneNews",
+    description: "Your bookmarked articles on OzoneNews.",
   },
 };
 

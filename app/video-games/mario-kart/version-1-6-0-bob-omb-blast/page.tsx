@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'The first major Battle Mode update since launch adds Bob-omb Blast, hold-up-to-10 explosives, L Button throw control, Bullet Bill buffs, and dynamic',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-30T12:00:00Z',
     modifiedTime: '2026-03-30T12:00:00Z',

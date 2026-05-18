@@ -38,8 +38,8 @@ export const metadata: Metadata = {
       'Anthropic\'s Claude Sonnet 4.6 dropped Feb 17, 2026. Oracle fell 3.4%, Intuit 5.2%, Salesforce 2.7%, Adobe 1.4%. India\'s Nifty IT dropped 2.5% the next',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Technology Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Technology Desk'],
     publishedTime: '2026-02-18T10:00:00Z',
     modifiedTime: '2026-02-18T10:00:00Z',
     section: 'Technology',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Anthropic Claude Sonnet 4.6 Triggers SaaS Selloff | Oracle',
     description:
-      'Anthropic\'s most capable mid-tier model yet hit on Feb 17. The market reaction was immediate. Full breakdown on ObjectWire.',
+      'Anthropic\'s most capable mid-tier model yet hit on Feb 17. The market reaction was immediate. Full breakdown on OzoneNews.',
     images: ['https://www.ozonenetwork.news/news/calude%20sonnet%204.6.png'],
   },
 };

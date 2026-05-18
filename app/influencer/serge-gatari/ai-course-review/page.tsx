@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     description: "Critical review of Serge Gatari's AI agent course and ClientAcquisition.io Community. Pricing, claims, student results, and our verdict.",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-02-09T10:00:00Z',
     modifiedTime: '2026-02-09T10:00:00Z',

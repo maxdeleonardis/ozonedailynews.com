@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Intel achieves critical milestone in semiconductor manufacturing comeback, positioning itself as credible TSMC alternative with advanced 18A process',
     type: 'article',
     url: 'https://www.ozonenetwork.news/intel/18a-high-volume-manufacturing',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-01-31T09:00:00Z',
     section: 'Technology',
     tags: ['Intel', 'Semiconductors', 'Manufacturing', 'Technology'],

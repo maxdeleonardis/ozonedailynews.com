@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: 'Japanese video game company: history, iconic franchises, and gaming innovations.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/nintendo',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

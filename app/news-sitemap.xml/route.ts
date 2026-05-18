@@ -72,7 +72,7 @@ ${allArticles.map(article => `  <url>
     <loc>${escapeXml(article.loc)}</loc>
     <news:news>
       <news:publication>
-        <news:name>ObjectWire</news:name>
+        <news:name>OzoneNews</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${article.publicationDate}</news:publication_date>

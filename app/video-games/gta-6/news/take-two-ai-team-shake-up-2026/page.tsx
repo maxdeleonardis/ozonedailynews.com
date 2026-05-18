@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     description:
       'Take-Two restructures its AI division weeks after Zelnick told investors they were running "hundreds of pilots." What it means for GTA 6 NPC behavior, QA',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Gaming'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Gaming'],
     publishedTime: '2026-04-03T12:00:00Z',
     modifiedTime: '2026-04-03T12:00:00Z',
     section: 'Gaming',

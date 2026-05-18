@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile: Colleen Sheehan (colleen.333), Boston model born 2004. Age, height, net worth, 757K+ Instagram followers, TikTok, fashion and cosplay content.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Colleen Sheehan', 'colleen.333', 'Creator', 'Instagram', 'Boston'],
     publishedTime: '2026-04-27T12:00:00Z',

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "MLB named Polymarket its official prediction market exchange partner, the first such deal in major U.S. sports. AOC responded immediately, warning that",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-24T15:00:00Z',
     modifiedTime: '2026-03-24T15:00:00Z',

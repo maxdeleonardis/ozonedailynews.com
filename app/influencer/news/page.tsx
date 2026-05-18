@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Hub from '@/components/Hub';
 import { getArticlesByCategory } from '@/lib/registry-service';
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'The latest news from the biggest names in online content creation.',
     type: 'website',
     url: 'https://www.owire.org/creator/news',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

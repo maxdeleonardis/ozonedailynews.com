@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       'Shopify released Tinker, a free mobile app bundling more than 100 specialized AI tools for merchants and entrepreneurs. Available now on iOS and Android.',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'E-commerce UI design representing Shopify Tinker AI creative tools app' }],
     publishedTime: '2026-03-30T23:30:00Z',
     modifiedTime: '2026-03-30T23:30:00Z',

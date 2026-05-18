@@ -8,7 +8,7 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/service/digital-forensics';
 
 export const metadata: Metadata = {
-  title: 'Digital Forensics Austin TX | Online Investigation | ObjectWire',
+  title: 'Digital Forensics Austin TX | Online Investigation | OzoneNews',
   description:
     'Licensed digital forensics investigations in Austin, Texas. Online harassment, identity fraud, social media aliases, catfishing, dark-web exposure, and account activity investigation across Travis County.',
   keywords: [
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Digital Forensics Austin TX | ObjectWire',
+    title: 'Digital Forensics Austin TX | OzoneNews',
     description: 'Licensed online investigation: harassment, catfishing, identity fraud, alias accounts, and dark-web exposure in Austin, TX.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Forensics Austin TX | ObjectWire',
+    title: 'Digital Forensics Austin TX | OzoneNews',
     description: 'Online harassment, catfishing, identity fraud, and alias investigation in Austin, TX.',
   },
 };
@@ -44,7 +44,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed digital forensics covering online harassment, identity fraud, social media aliases, catfishing, and dark-web exposure in Austin, Texas.',
   serviceType: 'Private Investigation — Digital Forensics',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -64,7 +64,7 @@ export default function DigitalForensicsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Digital Forensics Austin TX | ObjectWire"
+        title="Digital Forensics Austin TX | OzoneNews"
         subtitle="Licensed online investigation covering harassment, catfishing, identity fraud, social media aliases, and dark-web exposure across Austin and Travis County."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -117,7 +117,7 @@ export default function DigitalForensicsPage() {
         <Section id="what-is" title="What Digital Forensics Investigation Covers">
           <p>
             Digital forensics investigation uncovers online activity, hidden identities, and digital
-            evidence relevant to a case. ObjectWire applies open-source intelligence (OSINT), proprietary
+            evidence relevant to a case. OzoneNews applies open-source intelligence (OSINT), proprietary
             database research, and social media investigation to private cases, and uses the same
             methodology in its{' '}
             <Link href="/service/investigative-reporting" className="text-blue-600 hover:text-blue-800 underline">
@@ -176,7 +176,7 @@ export default function DigitalForensicsPage() {
 
         <Section id="journalism" title="Digital Investigation in Our Journalism">
           <p>
-            ObjectWire's investigative journalism team uses the same digital research techniques on
+            OzoneNews's investigative journalism team uses the same digital research techniques on
             matters of public interest. When we investigate public figures, institutions, or corporations,
             digital OSINT is a core part of how we verify identities, trace relationships, and
             corroborate document trails.

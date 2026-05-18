@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Fines up to $6,000 and a five-year ban for candidates who wagered on their own 2026 primaries. Kalshi calls it political insider trading.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-04-22T14:00:00Z',
     modifiedTime: '2026-04-22T14:00:00Z',

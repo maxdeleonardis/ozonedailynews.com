@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     description: "SteveWillDoIt was removed from Logan Paul's Impaulsive podcast. He announced his official return to YouTube. Full story and context.",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-02-09T10:00:00Z',
     modifiedTime: '2026-02-09T10:00:00Z',

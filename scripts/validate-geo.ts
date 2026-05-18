@@ -137,7 +137,7 @@ function analyzeGEO(filePath: string): GEOReport {
     },
     {
       code: 'G8',
-      present: /href=["']https?:\/\/(?!www\.objectwire\.org)[^"']+["']/.test(source),
+      present: /href=["']https?:\/\/(?!www\.OzoneNews\.org)[^"']+["']/.test(source),
       label: 'External source links (citation credibility)',
     },
     {

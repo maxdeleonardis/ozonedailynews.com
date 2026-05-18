@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       'Hotta Studio\'s open-world anime RPG hits 30M pre-registrations. Free A-Class character Haniel unlocked at launch. Global release April 29, 2026.',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [
       {
         url: `https://www.ozonenetwork.news${OG_IMAGE}`,

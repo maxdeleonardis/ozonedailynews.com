@@ -8,9 +8,9 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/service/skip-tracing';
 
 export const metadata: Metadata = {
-  title: 'Skip Tracing Austin TX | Locate Debtors and Witnesses | ObjectWire',
+  title: 'Skip Tracing Austin TX | Locate Debtors and Witnesses | OzoneNews',
   description:
-    'Licensed skip tracing in Austin, Texas. Locate debtors, witnesses, defendants, and hard-to-find individuals across Travis County and Central Texas. ObjectWire PI services.',
+    'Licensed skip tracing in Austin, Texas. Locate debtors, witnesses, defendants, and hard-to-find individuals across Travis County and Central Texas. OzoneNews PI services.',
   keywords: [
     'skip tracing Austin TX',
     'locate debtor Austin Texas',
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Skip Tracing Austin TX | Locate Debtors and Witnesses | ObjectWire',
+    title: 'Skip Tracing Austin TX | Locate Debtors and Witnesses | OzoneNews',
     description: 'Licensed skip tracing in Austin, TX. Locate debtors, witnesses, defendants, and hard-to-find individuals.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Skip Tracing Austin TX | ObjectWire',
+    title: 'Skip Tracing Austin TX | OzoneNews',
     description: 'Locate debtors, witnesses, and defendants in Austin, TX. Licensed PI skip trace service.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed skip tracing to locate debtors, witnesses, defendants, and hard-to-find individuals in Austin, Texas and Central Texas.',
   serviceType: 'Private Investigation — Skip Tracing',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -63,7 +63,7 @@ export default function SkipTracingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Skip Tracing Austin TX | ObjectWire"
+        title="Skip Tracing Austin TX | OzoneNews"
         subtitle="Licensed skip tracing to locate debtors, witnesses, defendants, and hard-to-find individuals across Austin, Travis County, and Central Texas."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -120,7 +120,7 @@ export default function SkipTracingPage() {
             where the subject's current address or contact information is unknown.
           </p>
           <p>
-            ObjectWire conducts skip tracing for attorneys, creditors, insurance companies, and private
+            OzoneNews conducts skip tracing for attorneys, creditors, insurance companies, and private
             individuals across Austin and Central Texas. When a subject has specifically moved to avoid
             being found, database searches alone are insufficient — field verification and investigative
             judgment are required.
@@ -164,7 +164,7 @@ export default function SkipTracingPage() {
         <Section id="legal-use" title="Legal and Attorney Use Cases | Service of Process Support">
           <p>
             Attorneys and process servers frequently engage skip tracing services when a subject has moved
-            or is evading service. ObjectWire provides verified current address reports for service of
+            or is evading service. OzoneNews provides verified current address reports for service of
             process, and can coordinate with process servers once a location is confirmed.
           </p>
           <p>

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Embark Studios rolls out the free Flashpoint update for Arc Raiders on March 31, 2026 at 1:30 AM PT. New threats, weapons, and map conditions arrive',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-31T10:00:00Z',
     modifiedTime: '2026-03-31T10:00:00Z',

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * migrate-wiki-content.ts
  *
  * Step 1 of the wiki migration.
@@ -495,7 +495,7 @@ function extractDynamicNewsArticleContent(source: string): {
 
   // Author from author={{ name, department }}
   const authorObj: any = extractExprProp(propsStr, 'author');
-  const authorName = authorObj?.name   || 'ObjectWire';
+  const authorName = authorObj?.name   || 'OzoneNews';
   const authorRole = authorObj?.department || '';
 
   const readTime = extractStrProp(propsStr, 'readTime');

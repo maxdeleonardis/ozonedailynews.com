@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Federal Agencies Warn About Grok Safety Before Pentagon',
     description: 'GSA, NSA flagged Grok vulnerabilities; Pentagon approved it for classified use anyway in February 2026.',
-    type: 'article', url: `https://www.ozonenetwork.news${SLUG}`, siteName: 'ObjectWire',
-    authors: ['ObjectWire Technology Desk'], publishedTime: '2026-03-05T10:00:00Z', modifiedTime: '2026-03-05T10:00:00Z',
+    type: 'article', url: `https://www.ozonenetwork.news${SLUG}`, siteName: 'OzoneNews',
+    authors: ['OzoneNews Technology Desk'], publishedTime: '2026-03-05T10:00:00Z', modifiedTime: '2026-03-05T10:00:00Z',
     section: 'Technology & Government', tags: ['Grok', 'xAI', 'Pentagon', 'AI Safety', 'Elon Musk'],
   },
   twitter: { card: 'summary_large_image', title: 'Federal Agencies Warned About Grok Safety Before Pentagon Approval', description: 'GSA flagged Grok as sycophantic and susceptible to data poisoning. Pentagon approved classified use anyway.' },

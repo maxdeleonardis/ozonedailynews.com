@@ -7,19 +7,19 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 export const metadata: Metadata = {
   title: "Jack Wang | Contributor & Journalist",
-  description: `Jack Wang is a co-founder and contributor at ObjectWire. published articles covering technology, gaming, finance, and digital culture.`,
+  description: `Jack Wang is a co-founder and contributor at OzoneNews. published articles covering technology, gaming, finance, and digital culture.`,
   alternates: {
     canonical: 'https://www.ozonenetwork.news/authors/jack-wang',
   },
   openGraph: {
-    title: "Jack Wang | ObjectWire Contributor",
+    title: "Jack Wang | OzoneNews Contributor",
     description: "Co-founder bringing insightful metaphors and deep perspectives to journalism.",
     type: "profile",
     url: 'https://www.ozonenetwork.news/authors/jack-wang',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jack Wang | ObjectWire Contributor',
+    title: 'Jack Wang | OzoneNews Contributor',
     description: 'Co-founder bringing insightful metaphors and deep perspectives to journalism.',
   },
 };

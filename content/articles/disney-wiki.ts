@@ -1,7 +1,7 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'The Walt Disney Company | Entertainment Conglomerate | ObjectWire',
+  title: 'The Walt Disney Company | Entertainment Conglomerate | OzoneNews',
   slug: 'disney',
   category: 'Entertainment',
   status: 'published',
@@ -12,9 +12,9 @@ const article: Article = {
   topic_tag: 'Company Profile',
   category_color: '#6366f1',
 
-  author_name: 'ObjectWire Editorial',
+  author_name: 'OzoneNews Editorial',
   author_role: 'Company Profiles & Analysis',
-  author_slug: 'objectwire-editorial',
+  author_slug: 'OzoneNews-editorial',
 
   content: [
     {

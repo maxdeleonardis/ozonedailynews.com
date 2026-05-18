@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "Based in Austin, Texas, we provide discreet, results-driven private detective services for individuals, businesses, and legal professionals.",
     type: 'article',
     url: "https://www.ozonenetwork.news/get-help",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Epic released UE 5.8 Preview on May 12, 2026. Mesh Terrain replaces legacy height-fields with true 3D topology. MegaLights hits production status for PS5, Xbox Series X, and mobile.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-15T14:00:00Z',
     modifiedTime: '2026-05-15T14:00:00Z',

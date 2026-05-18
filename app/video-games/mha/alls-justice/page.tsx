@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     title: "MY HERO ACADEMIA: All's Justice Review 2026 - Final War Arc 3v3 Fighting Game",
     description: "SMASH through My Hero Academia's Final War Arc in spectacular 3v3 battles. Released Feb 6, 2026 on PS5, Xbox Series X/S, and PC.",
     type: "article",
-    url: "https://objectwire.com/mha/alls-justice",
+    url: "https://OzoneNews.com/mha/alls-justice",
     images: [
       {
-        url: "https://objectwire.com/og-mha-alls-justice.jpg",
+        url: "https://OzoneNews.com/og-mha-alls-justice.jpg",
         width: 1200,
         height: 630,
         alt: "MY HERO ACADEMIA: All's Justice",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MY HERO ACADEMIA: All's Justice Review 2026",
     description: "The Final War Arc comes to life in 3v3 battles. Released Feb 6, 2026.",
-    images: ["https://objectwire.com/og-mha-alls-justice.jpg"],
+    images: ["https://OzoneNews.com/og-mha-alls-justice.jpg"],
   },
   alternates: {
     canonical: 'https://www.ozonenetwork.news/video-games/mha/alls-justice',

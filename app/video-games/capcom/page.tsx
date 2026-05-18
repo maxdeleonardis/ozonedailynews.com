@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: 'Capcom | Golden Era, RE Engine & 2026 Company Profile',
     description: 'Eleven straight years of record profit. RE Engine. Resident Evil Requiem at 6M units. Monster Hunter Wilds. Full Capcom profile for 2026.',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Capcom 2026 golden era company profile' }],
     publishedTime: '2026-04-21T18:00:00Z',
     modifiedTime: '2026-04-21T18:00:00Z',

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
       'Full profile: Leah Davies (lleahdavies), UK house DJ. 25K+ TikTok followers, Resident Advisor profile, SoundCloud mixes, Pull Up Recordings booking.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Leah Davies', 'UK DJ', 'House Music', 'lleahdavies'],
     publishedTime: '2026-04-27T12:00:00Z',

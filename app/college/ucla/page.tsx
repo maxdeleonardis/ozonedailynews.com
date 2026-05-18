@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Public research university in Los Angeles, California. Home to leading journalism, political science, and communications programs.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Education',
     tags: ['UCLA', 'University of California Los Angeles', 'Journalism', 'Political Science'],
   },
@@ -40,7 +40,7 @@ export default function UCLACollegePage() {
           </nav>
 
           <p className="text-[10px] uppercase tracking-[0.3em] font-black text-blue-400 mb-3 font-mono">
-            University Profile &middot; ObjectWire Education Index
+            University Profile &middot; OzoneNews Education Index
           </p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-4">
             UCLA
@@ -86,17 +86,17 @@ export default function UCLACollegePage() {
               </p>
               <p>
                 The department&rsquo;s focus on document-based research and primary source analysis
-                directly informs the kind of policy journalism practiced at publications like ObjectWire,
+                directly informs the kind of policy journalism practiced at publications like OzoneNews,
                 where reporters use court filings, agency records, and congressional documents as the
                 foundation of every story.
               </p>
 
-              <h2>ObjectWire Alumni</h2>
+              <h2>OzoneNews Alumni</h2>
               <p>
                 <Link href="/authors/tina-boyle" className="text-blue-600 hover:text-blue-800 underline">
                   Tina Boyle
                 </Link>
-                , ObjectWire&rsquo;s Investigations Reporter, graduated from UCLA with a degree in
+                , OzoneNews&rsquo;s Investigations Reporter, graduated from UCLA with a degree in
                 Political Science. Boyle covers federal environmental law, national security policy,
                 and the Trump administration from Washington, D.C. Her document-first reporting style
                 reflects the analytical framework developed in UCLA&rsquo;s Political Science program.
@@ -125,7 +125,7 @@ export default function UCLACollegePage() {
             </div>
 
             <div className="bg-blue-950 text-white p-5 space-y-3">
-              <p className="text-[10px] uppercase tracking-widest font-black text-blue-400">ObjectWire Alumni</p>
+              <p className="text-[10px] uppercase tracking-widest font-black text-blue-400">OzoneNews Alumni</p>
               <Link href="/authors/tina-boyle" className="block text-sm font-semibold text-blue-200 hover:text-white underline transition-colors">
                 Tina Boyle, Investigations Reporter &rarr;
               </Link>
@@ -136,7 +136,7 @@ export default function UCLACollegePage() {
               <div className="space-y-2">
                 <Link href="/college/nyu" className="block text-sm text-blue-600 hover:text-blue-800 underline">NYU &rarr;</Link>
                 <Link href="/college/north-carolina-state-university" className="block text-sm text-blue-600 hover:text-blue-800 underline">NC State University &rarr;</Link>
-                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All ObjectWire Authors &rarr;</Link>
+                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All OzoneNews Authors &rarr;</Link>
               </div>
             </div>
 

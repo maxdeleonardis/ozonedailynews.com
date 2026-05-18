@@ -17,7 +17,7 @@ async function main() {
       url: '/open-ai',
       content_html: `<div class="prose prose-lg max-w-none">
 <h2>OpenAI Coverage</h2>
-<p>ObjectWire News covers the latest OpenAI developments including ChatGPT updates, GPT-5 capabilities, Sora video generation, AI safety research, and enterprise deployments. All reporting is source-verified with primary references.</p>
+<p>OzoneNews News covers the latest OpenAI developments including ChatGPT updates, GPT-5 capabilities, Sora video generation, AI safety research, and enterprise deployments. All reporting is source-verified with primary references.</p>
 </div>`,
     },
     {
@@ -28,7 +28,7 @@ async function main() {
       url: '/elon-musk',
       content_html: `<div class="prose prose-lg max-w-none">
 <h2>Elon Musk Coverage</h2>
-<p>ObjectWire News covers Elon Musk's business empire including Tesla manufacturing, SpaceX orbital missions, xAI research, X platform developments, and his role in US government policy. All reporting is source-verified.</p>
+<p>OzoneNews News covers Elon Musk's business empire including Tesla manufacturing, SpaceX orbital missions, xAI research, X platform developments, and his role in US government policy. All reporting is source-verified.</p>
 </div>`,
     },
   ];

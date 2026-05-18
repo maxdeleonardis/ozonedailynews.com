@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       '$250,000 grocery store lockdown. Random shoppers, Coca-Cola World Cup 2026 Easter egg, 8 major brand sponsors, no winner crowned. Part 2 incoming.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-22T10:00:00Z',
     modifiedTime: '2026-04-22T10:00:00Z',

@@ -57,9 +57,9 @@ const MIN_TAGS = 4;
 const KNOWN_AUTHORS: string[] = [
   'michael-cripe',
   'jack-sterling',
-  'objectwire-investigative-desk',
-  'objectwire-influencer-desk',
-  'objectwire-editorial',
+  'OzoneNews-investigative-desk',
+  'OzoneNews-influencer-desk',
+  'OzoneNews-editorial',
   'alysa-rose',
 ];
 
@@ -170,7 +170,7 @@ function countInternalLinks(html: string): number {
 }
 
 function countExternalLinks(html: string): number {
-  const matches = html.match(/href=["']https?:\/\/(?!www\.objectwire\.org)[^"']+["']/g) || [];
+  const matches = html.match(/href=["']https?:\/\/(?!www\.OzoneNews\.org)[^"']+["']/g) || [];
   return matches.length;
 }
 

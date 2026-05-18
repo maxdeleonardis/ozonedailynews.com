@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'AI tool generates playable worlds resembling Mario, Zelda without restrictions.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/nintendo/google-project-genie-ai-knockoffs',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

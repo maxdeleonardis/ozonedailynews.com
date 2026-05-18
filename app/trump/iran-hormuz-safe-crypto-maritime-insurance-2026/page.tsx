@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       'Iran\'s sovereign crypto insurance platform lets vessels bypass SWIFT and Western sanctions to transit the Strait of Hormuz. $10B annual revenue projected. OFAC warns of immediate secondary sanctions.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-17T09:00:00Z',
     modifiedTime: '2026-05-17T09:00:00Z',

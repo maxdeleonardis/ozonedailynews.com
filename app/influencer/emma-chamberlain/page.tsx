@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       'Full profile of Emma Chamberlain, 25, YouTube creator and Chamberlain Coffee founder. Louis Vuitton ambassador, Met Gala host, net worth, and 2026 career.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -73,7 +73,7 @@ export default function EmmaChamberlinPage() {
           'Emma Chamberlain, 25, is a San Carlos, California-born YouTube creator with 11M subscribers and founder of Chamberlain Coffee. Full biography: Met Gala, Louis Vuitton, Anything Goes podcast, and 2026 career.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -158,7 +158,7 @@ export default function EmmaChamberlinPage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -292,7 +292,7 @@ export default function EmmaChamberlinPage() {
       <SourcesInterlink
         accentColor="gray"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/charli-damelio', label: 'Charli D\u2019Amelio Profile', description: 'First TikTok creator to 100M followers' },
           { href: '/influencer/pokimane', label: 'Pokimane Profile', description: 'Canadian-Moroccan creator, Midnight brand founder' },
           { href: '/influencer/alix-earle', label: 'Alix Earle Profile', description: 'GRWM creator, Fanatics ambassador' },

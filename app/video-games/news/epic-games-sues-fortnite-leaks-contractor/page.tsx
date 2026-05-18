@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'Former contractor Hayden Cohen allegedly operated the "AdiraInfo" leaks account on X and Discord, leaking a dozen unreleased Fortnite collaborations "for',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

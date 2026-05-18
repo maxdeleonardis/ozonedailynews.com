@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'My Hero Academia Hub | Final Season, Vigilantes & Ultra Rumble | ObjectWire',
+  title: 'My Hero Academia Hub | Final Season, Vigilantes & Ultra Rumble | OzoneNews',
   description:
     'Complete My Hero Academia knowledge hub: final season analysis, Vigilantes spin-off guide, and My Hero Ultra Rumble game coverage. Updated February 2026.',
   keywords: [
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
       'Your complete guide to the My Hero Academia universe: final season, Vigilantes spin-off, and Ultra Rumble game coverage.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/mha',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Video Games & Anime',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'My Hero Academia Hub | ObjectWire',
+    title: 'My Hero Academia Hub | OzoneNews',
     description: 'Final Season, Vigilantes & Ultra Rumble, complete MHA coverage.',
   },
 };

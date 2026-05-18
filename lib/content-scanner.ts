@@ -33,7 +33,7 @@ const CLIENT_SIDE_ARTICLES: DiscoveredArticle[] = [
   //   category: "NEWS",
   //   date: new Date('2026-01-27').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
   //   slug: "example/page",
-  //   author: "ObjectWire Team",
+  //   author: "OzoneNews Team",
   //   readTime: "5 min",
   //   urgent: false,
   //   filePath: "app/example/page/page.tsx",
@@ -61,7 +61,7 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
       
       // Extract title
       const titleMatch = metadataStr.match(/title:\s*["'`]([^"'`]+)["'`]/);
-      const title = titleMatch ? titleMatch[1].replace(/\s*\|\s*ObjectWire.*$/i, '').trim() : null;
+      const title = titleMatch ? titleMatch[1].replace(/\s*\|\s*OzoneNews.*$/i, '').trim() : null;
       
       if (!title) return null;
 
@@ -70,7 +70,7 @@ export async function scanAllContent(): Promise<DiscoveredArticle[]> {
       const excerpt = descMatch ? descMatch[1] : '';
 
       // Extract author from authors array or openGraph
-      let author = 'ObjectWire Team';
+      let author = 'OzoneNews Team';
       const authorMatch = metadataStr.match(/authors:\s*\[.*?name:\s*["']([^"']+)["']/s);
       if (authorMatch) author = authorMatch[1];
 

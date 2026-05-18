@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
       'Jimmy Donaldson, known as MrBeast, is the most-subscribed solo creator on YouTube. Bio, YouTube analytics, Beast Games Season 1 controversy, and brand',
     type: 'article',
     url: `https://www.owire.org${SLUG}`,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-22T10:00:00Z',
     modifiedTime: '2026-04-22T10:00:00Z',

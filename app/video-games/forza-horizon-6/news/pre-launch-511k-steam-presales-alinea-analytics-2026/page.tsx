@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Alinea Analytics: 511K Steam pre-sales, $30M gross revenue, 3.3M wishlists — one month before May 19 launch. Day-one 2M unit projection would be an',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-18T00:00:00Z',
     modifiedTime: '2026-04-18T00:00:00Z',

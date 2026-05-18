@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       '"I really like a game that has soul. I don\'t know how to graph that... but we know it when we see it." Outersloth has rejected every single GenAI pitch',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-12T00:00:00Z',
     modifiedTime: '2026-03-12T00:00:00Z',
     section: 'Video Games',

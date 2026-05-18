@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       'Star Wars Zero Company blends XCOM-style tactics with Mass Effect exploration and permadeath in a Clone Wars setting. Holiday 2026 on PC, PS5, Xbox Series',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [
       {
         url: OG_IMAGE,

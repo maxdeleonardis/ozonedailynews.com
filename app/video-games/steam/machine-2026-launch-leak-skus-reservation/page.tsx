@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Valve Steam client code exposes four Steam Machine configurations, two Steam Frame variants, and an imminent reservation queue. 512GB entry and 2TB flagship confirmed.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T20:00:00Z',
     modifiedTime: '2026-05-11T20:00:00Z',

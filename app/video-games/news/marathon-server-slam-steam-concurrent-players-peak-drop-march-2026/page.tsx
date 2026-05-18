@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Bungie's Marathon Server Slam hit 143,621 concurrent Steam players on February 26, 2026, then shed more than half by March 1. The open beta runs through",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-01T18:00:00Z',
     modifiedTime: '2026-03-01T18:00:00Z',

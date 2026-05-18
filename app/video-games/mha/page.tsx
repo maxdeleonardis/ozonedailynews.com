@@ -21,11 +21,11 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "ObjectWire",
+    name: "OzoneNews",
     url: "https://www.ozonenetwork.news",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.ozonenetwork.news/objectwire-logo.png",
+      url: "https://www.ozonenetwork.news/OzoneNews-logo.png",
     },
   },
   image: "https://www.ozonenetwork.news/images/mha-hub-og.jpg",
@@ -568,7 +568,7 @@ export default function MHAPage() {
               Alfansa
             </Link>
             <p className="text-gray-400 text-sm">
-              Anime &amp; Gaming Editor at ObjectWire · Covering MHA, Ultra Rumble, and
+              Anime &amp; Gaming Editor at OzoneNews · Covering MHA, Ultra Rumble, and
               the broader anime gaming landscape.
             </p>
           </div>

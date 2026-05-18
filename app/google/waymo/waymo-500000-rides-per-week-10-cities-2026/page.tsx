@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'Co-CEO Dmitri Dolgov says Waymo\'s 3,000-vehicle fleet drives more than 4 million fully autonomous miles per week and is targeting one million paid rides',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-25T12:00:00Z',
     modifiedTime: '2026-03-25T12:00:00Z',

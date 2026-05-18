@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'New cinematic trailer for IO Interactive\'s 007: First Light reveals Lenny Kravitz as pirate king Bawma. Multi-layered antagonist, crocodile scene, and',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

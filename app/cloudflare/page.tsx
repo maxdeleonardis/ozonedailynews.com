@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Cloudflare protects 21.3% of all websites on the internet, operates in 330+ cities across 125+ countries, and blocks 215 billion cyber threats per day.",
     type: 'article',
     url: 'https://www.ozonenetwork.news/cloudflare',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: ['/default/cloudflare/cloudflare.PNG'],
   },
   twitter: {

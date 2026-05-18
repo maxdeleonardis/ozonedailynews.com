@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'Valve Corporation: Steam, Counter-Strike, Dota 2, and the loot box economy. Revenue, history, and key statistics.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/valve-corporation',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: '/influncer/valve-ceo-Gabe-Newell.PNG' }],
   },
   twitter: {

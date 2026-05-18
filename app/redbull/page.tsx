@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Latest Red Bull news: F1 racing, extreme sports, events and energy drink company updates.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/redbull',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
 };
 

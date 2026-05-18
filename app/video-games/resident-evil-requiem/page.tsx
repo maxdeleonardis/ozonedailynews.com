@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Everything about Resident Evil: Requiem, the next chapter in Capcoms legendary survival horror franchise. Release date, gameplay details, and latest news.",
     type: 'article',
     url: "https://www.ozonenetwork.news/resident-evil-requiem",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "Gaming",
   },
   twitter: {

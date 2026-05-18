@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "On January 28, 2026, the FDA cleared Life Biosciences' ER-100 IND, a Phase 1 trial of AAV2-delivered OSK Yamanaka factors for retinal rejuvenation in",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-01-28T12:00:00Z',
     modifiedTime: '2026-03-01T09:00:00Z',

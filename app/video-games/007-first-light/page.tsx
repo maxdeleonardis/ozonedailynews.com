@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007",
     type: 'article',
     url: "https://www.ozonenetwork.news/007-first-light",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "Gaming",
   },
   twitter: {

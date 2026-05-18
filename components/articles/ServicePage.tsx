@@ -1,5 +1,5 @@
 /**
- * ServicePage — Layout component for individual ObjectWire PI/journalism service pages.
+ * ServicePage — Layout component for individual OzoneNews PI/journalism service pages.
  *
  * Provides: dark hero, stat bar, scrollable content with sidebar, related services grid, CTA.
  * Replace ArticlePage on all /service/* sub-pages for visual consistency.

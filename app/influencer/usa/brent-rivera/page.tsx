@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile of Brent Rivera, Huntington Beach YouTuber and Amp Studios CEO, 28 in 2026. YouTube: 41M subscribers. Formerly MrBrent98. Film: Alexander',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Brent Rivera', 'YouTuber', 'California', 'Amp Studios', 'Lexi Rivera'],
     publishedTime: '2026-04-02T15:00:00Z',

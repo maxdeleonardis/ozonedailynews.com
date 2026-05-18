@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Official DICE roadmap: Season 3 classic map remakes, Season 4 aircraft carriers and Wake Island, Season 5 three holiday maps. Server browser and proximity',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-19T14:00:00Z',
     modifiedTime: '2026-04-19T14:00:00Z',

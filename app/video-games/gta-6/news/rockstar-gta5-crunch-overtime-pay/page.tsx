@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'GTA 5 generated $8 billion. The developers who crunched 100-hour weeks to build it say they were never compensated.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-04T10:00:00Z',
     modifiedTime: '2026-05-04T10:00:00Z',

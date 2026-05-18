@@ -8,7 +8,7 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/service/child-custody-investigations';
 
 export const metadata: Metadata = {
-  title: 'Child Custody Investigations Austin TX | ObjectWire',
+  title: 'Child Custody Investigations Austin TX | OzoneNews',
   description:
     'Licensed child custody investigations in Austin, Texas. Parental surveillance and behavior documentation for Travis County family court. Confidential, court-ready evidence.',
   keywords: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Child Custody Investigations Austin TX | ObjectWire',
+    title: 'Child Custody Investigations Austin TX | OzoneNews',
     description: 'Licensed parental surveillance and behavior documentation for Travis County family court. Confidential, court-ready.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Child Custody Investigations Austin TX | ObjectWire',
+    title: 'Child Custody Investigations Austin TX | OzoneNews',
     description: 'Child custody PI in Austin, TX. Family court evidence, parental surveillance, licensed investigator.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed parental surveillance and documentation for child custody proceedings in Travis County Family Court, Austin, Texas.',
   serviceType: 'Private Investigation — Child Custody',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -63,7 +63,7 @@ export default function ChildCustodyPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Child Custody Investigations Austin TX | ObjectWire"
+        title="Child Custody Investigations Austin TX | OzoneNews"
         subtitle="Licensed parental surveillance and behavior documentation for Travis County family court proceedings. Admissible, timestamped evidence."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -116,7 +116,7 @@ export default function ChildCustodyPage() {
           <p>
             A child custody investigation documents parental behavior, living conditions, and activities
             relevant to a custody modification, initial custody determination, or violation of an existing
-            parenting plan. ObjectWire handles these cases for private individuals and family law attorneys
+            parenting plan. OzoneNews handles these cases for private individuals and family law attorneys
             across Austin and Travis County.
           </p>
           <p>
@@ -151,7 +151,7 @@ export default function ChildCustodyPage() {
             means.
           </p>
           <p>
-            ObjectWire investigators are familiar with the evidentiary requirements of Travis County
+            OzoneNews investigators are familiar with the evidentiary requirements of Travis County
             Family Court proceedings. Our written reports are structured to support attorney presentation
             in court, including source documentation and chain-of-custody records.
           </p>

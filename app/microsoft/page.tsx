@@ -9,19 +9,19 @@ const SLUG = '/microsoft';
 
 export const metadata: Metadata = {
   title: 'Microsoft News | Azure, Copilot & Windows 2026',
-  description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from ObjectWire.',
+  description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from OzoneNews.',
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Microsoft News | Azure, Copilot & Windows 2026',
-    description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from ObjectWire.',
+    description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from OzoneNews.',
     type: 'website',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Microsoft News | Azure, Copilot & Windows 2026',
-    description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from ObjectWire.',
+    description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from OzoneNews.',
   },
 };
 
@@ -106,7 +106,7 @@ export default async function Page() {
                       {article.category}
                     </span>
                     <h2 className="font-serif text-base font-black leading-snug group-hover:underline line-clamp-3 flex-1">
-                      {article.title.replace(/\s*[|]\s*ObjectWire.*$/i, '')}
+                      {article.title.replace(/\s*[|]\s*OzoneNews.*$/i, '')}
                     </h2>
                     <p className="text-[10px] text-gray-500 font-mono mt-3 pt-2 border-t border-gray-100">
                       {article.author} · {new Date(article.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}

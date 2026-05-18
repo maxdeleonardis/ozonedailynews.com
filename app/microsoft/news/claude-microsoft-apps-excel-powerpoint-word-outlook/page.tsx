@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'Anthropic confirms Claude GA in three Microsoft 365 apps. Outlook enters public beta. Context carries across the full suite.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-07T12:00:00Z',
     modifiedTime: '2026-05-07T12:00:00Z',

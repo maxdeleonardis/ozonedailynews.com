@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       'Days after its March 19 launch, players have flagged suspected AI-generated artwork inside Crimson Desert. The Steam page carries no disclosure \u2014',
     type: 'article',
     url: FULL_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-24T20:00:00Z',
     modifiedTime: '2026-03-24T20:00:00Z',

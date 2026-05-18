@@ -383,7 +383,7 @@ export function SiteIndexTree({
 
       {/* Footer note */}
       <p className="mt-8 text-center text-xs text-gray-400">
-        Index updated automatically from the ObjectWire content registry.
+        Index updated automatically from the OzoneNews content registry.
       </p>
     </main>
   );

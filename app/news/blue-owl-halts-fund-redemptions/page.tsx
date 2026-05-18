@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "Blue Owl Capital permanently halts quarterly redemptions for retail private credit fund OBDC II amid $1.4B asset sale, triggering selloff across private",
     type: 'article',
     url: "https://www.ozonenetwork.news/news/blue-owl-halts-fund-redemptions",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {

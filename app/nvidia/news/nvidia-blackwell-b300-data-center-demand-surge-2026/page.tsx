@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "52-week lead times. Colocation sold out through 2027. Power grids overwhelmed. The Blackwell B300 GPU demand spike is the biggest infrastructure shock the",
     type: 'article',
     url: FULL_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: IMAGE_URL }],
     publishedTime: '2026-03-25T14:00:00Z',
     modifiedTime: '2026-03-25T14:00:00Z',

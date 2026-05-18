@@ -1,7 +1,7 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'XRP | Digital Asset, XRP Ledger & Ripple Network | ObjectWire',
+  title: 'XRP | Digital Asset, XRP Ledger & Ripple Network | OzoneNews',
   slug: 'crypto-xrp',
   category: 'Reference',
   status: 'published',
@@ -12,9 +12,9 @@ const article: Article = {
   topic_tag: 'Digital Asset',
   category_color: '#f59e0b',
 
-  author_name: 'ObjectWire Editorial',
+  author_name: 'OzoneNews Editorial',
   author_role: 'Crypto & Digital Assets',
-  author_slug: 'objectwire-editorial',
+  author_slug: 'OzoneNews-editorial',
 
   content: [
     {

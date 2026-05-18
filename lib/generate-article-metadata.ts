@@ -7,7 +7,7 @@
  * making meta_title and meta_description editable from the admin editor.
  *
  * Fallback chain:
- *   meta_title       → row.title + " | ObjectWire"
+ *   meta_title       → row.title + " | OzoneNews"
  *   meta_description → row.subtitle → row.description → generic
  *
  * Usage in page.tsx:
@@ -105,7 +105,7 @@ export async function generateArticleMetadata(
   // If row not found, return minimal metadata
   if (!row) {
     return {
-      title: 'Article Not Found | ObjectWire',
+      title: 'Article Not Found | OzoneNews',
       description: 'The requested article could not be found.',
       ...overrides,
     };
@@ -116,14 +116,14 @@ export async function generateArticleMetadata(
   // ── Build title ──────────────────────────────────────────────────
   const metaTitle =
     r.meta_title ||
-    (r.title ? `${r.title} | ObjectWire` : 'ObjectWire');
+    (r.title ? `${r.title} | OzoneNews` : 'OzoneNews');
 
   // ── Build description ────────────────────────────────────────────
   const metaDescription =
     r.meta_description ||
     r.subtitle ||
     r.description ||
-    `Read the full article on ObjectWire.`;
+    `Read the full article on OzoneNews.`;
 
   // ── Resolve URL ──────────────────────────────────────────────────
   const canonicalPath = r.url || r.article_url || `/${slug.replace(/-/g, '/')}`;
@@ -186,7 +186,7 @@ export async function generateArticleMetadata(
       title: metaTitle,
       description: metaDescription,
       url: canonicalUrl,
-      siteName: 'ObjectWire',
+      siteName: 'OzoneNews',
       images: [
         {
           url: imageUrl,

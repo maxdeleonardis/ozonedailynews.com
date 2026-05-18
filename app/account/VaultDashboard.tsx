@@ -466,7 +466,7 @@ export default function VaultDashboard() {
             <p className="text-sm font-bold text-gray-700 mb-1">Your data, your value</p>
             <p className="text-xs text-gray-500 max-w-md mx-auto">
               Every like, save, and article you read contributes to your digital profile.
-              Soon, ObjectWire will compensate users for their engagement and attention.
+              Soon, OzoneNews will compensate users for their engagement and attention.
               Your Vault is where that value accumulates.
             </p>
           </div>

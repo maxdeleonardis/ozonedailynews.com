@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'GT7 still sets the standard for sim racing. Polyphony Digital just posted 18 jobs for next-gen Gran Turismo development, and Kazunori Yamauchi wants',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-02T12:00:00Z',
     modifiedTime: '2026-03-02T12:00:00Z',

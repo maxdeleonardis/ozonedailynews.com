@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile: Megan Marie McCarthy (meganmariiee), US content creator on OnlyFans, Instagram, and Reddit. Age, net worth, social handles, and 2026 creator summary.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Megan Marie', 'meganmariiee', 'OnlyFans', 'Creator', 'USA'],
     publishedTime: '2026-04-27T12:00:00Z',

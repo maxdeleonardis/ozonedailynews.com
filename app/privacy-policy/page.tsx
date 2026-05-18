@@ -7,22 +7,22 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
+  description: "OzoneNews Privacy Policy - How we collect, use, and protect your information",
   alternates: {
     canonical: 'https://www.ozonenetwork.news/privacy-policy',
   },
   openGraph: {
     title: "Privacy Policy",
-    description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
+    description: "OzoneNews Privacy Policy - How we collect, use, and protect your information",
     type: 'article',
     url: "https://www.ozonenetwork.news/privacy-policy",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {
     card: 'summary_large_image',
     title: "Privacy Policy",
-    description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
+    description: "OzoneNews Privacy Policy - How we collect, use, and protect your information",
   },
 };
 

@@ -156,9 +156,9 @@ function analyzeFile(filePath: string): PageReport {
     warnings.push('No openGraph block in metadata');
   }
 
-  // "| ObjectWire" brand suffix still in title (instruction says drop it)
-  if (titleStr.includes('ObjectWire')) {
-    warnings.push('metadata.title contains "ObjectWire" brand suffix — OStandard requires dropping it');
+  // "| OzoneNews" brand suffix still in title (instruction says drop it)
+  if (titleStr.includes('OzoneNews')) {
+    warnings.push('metadata.title contains "OzoneNews" brand suffix — OStandard requires dropping it');
   }
 
   return { route, criticals, warnings, hasMetadata, isStub, isStatic };

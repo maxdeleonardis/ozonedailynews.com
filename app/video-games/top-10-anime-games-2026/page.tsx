@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, and more.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/top-10-anime-games-2026',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

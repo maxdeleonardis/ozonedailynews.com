@@ -4,15 +4,15 @@ import Link from 'next/link';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'College & University Profiles | ObjectWire Education Index',
-  description: 'University and journalism school profiles connected to ObjectWire reporters. Browse schools by alumni, program, and location.',
+  title: 'College & University Profiles | OzoneNews Education Index',
+  description: 'University and journalism school profiles connected to OzoneNews reporters. Browse schools by alumni, program, and location.',
   alternates: { canonical: 'https://www.ozonenetwork.news/college' },
   openGraph: {
-    title: 'College & University Profiles | ObjectWire',
-    description: 'University and journalism school profiles connected to ObjectWire reporters.',
+    title: 'College & University Profiles | OzoneNews',
+    description: 'University and journalism school profiles connected to OzoneNews reporters.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/college',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
 };
 
@@ -60,13 +60,13 @@ export default function CollegeIndexPage() {
             <span className="text-black font-bold">College</span>
           </nav>
           <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-400 mb-3 font-mono">
-            ObjectWire Education Index
+            OzoneNews Education Index
           </p>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 leading-none mb-5">
             University<br />Profiles
           </h1>
           <p className="text-gray-500 text-lg max-w-xl">
-            Journalism schools and universities connected to ObjectWire reporters. Each profile documents the program, its editorial philosophy, and the ObjectWire journalists it produced.
+            Journalism schools and universities connected to OzoneNews reporters. Each profile documents the program, its editorial philosophy, and the OzoneNews journalists it produced.
           </p>
         </div>
       </div>

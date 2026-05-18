@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://www.owire.org/creator/yellz0',
     images: [{ url: '/influncer/yellz0_what_cup_size.PNG', width: 1200, height: 675 }],
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Yellz0', 'TikTok', 'Model', 'Creator', 'Aniela Verbin', 'Content Creator'],
     publishedTime: '2026-02-21T12:00:00Z',

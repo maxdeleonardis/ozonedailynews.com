@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       "Epic Games' Unreal Engine has grown from a 1998 shooter engine to the backbone of real-time 3D across gaming, film, automotive HMIs, and architectural",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-01T20:00:00Z',
     modifiedTime: '2026-03-01T20:00:00Z',

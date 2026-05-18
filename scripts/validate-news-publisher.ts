@@ -381,7 +381,7 @@ function checkManualSteps() {
 
 function main() {
   console.log(c.bold(c.cyan('\n╔══════════════════════════════════════════════════════╗')));
-  console.log(c.bold(c.cyan('║   ObjectWire — News Publisher Pre-Submission Check   ║')));
+  console.log(c.bold(c.cyan('║   OzoneNews — News Publisher Pre-Submission Check   ║')));
   console.log(c.bold(c.cyan('╚══════════════════════════════════════════════════════╝')));
   console.log(c.gray(`   Date: ${new Date().toISOString().split('T')[0]}`));
   console.log(c.gray('   Target: Google News, Bing News, Apple News\n'));

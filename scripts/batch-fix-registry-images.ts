@@ -38,7 +38,7 @@ const BRAND_WORDS = new Set([
   'anthropic', 'openai', 'perplexity', 'pokémon', 'pokopia', 'tenstorrent',
   'outersloth', 'sidemen', 'bungie', 'marathon', 'cursor', 'crowdstrike',
   'redbull', 'fortnite', 'youtube', 'tiktok', 'instagram', 'snapchat',
-  'discord', 'twitch', 'valkyrae', 'pokimane', 'jackarticle', 'objectwire',
+  'discord', 'twitch', 'valkyrae', 'pokimane', 'jackarticle', 'OzoneNews',
 ]);
 
 // Extract a search query from the title, with category-only fallback.
@@ -48,7 +48,7 @@ function titleToQueries(title: string, category: string): [string, string] {
 
   const words = title
     .replace(/[|—–\-:$'"]/g, ' ')
-    .replace(/ObjectWire/gi, '')
+    .replace(/OzoneNews/gi, '')
     .split(/\s+/)
     .filter((w) => w.length > 3 && !BRAND_WORDS.has(w.toLowerCase()))
     .slice(0, 3)
@@ -125,8 +125,8 @@ async function main() {
     if (result) {
       // Use the Unsplash alt_description if available, otherwise fall back to title
       const altText = result.description
-        ? `${result.description} — ${entry.title.replace(/\s*\|\s*ObjectWire/g, '')}`
-        : entry.title.replace(/\s*\|\s*ObjectWire/g, '');
+        ? `${result.description} — ${entry.title.replace(/\s*\|\s*OzoneNews/g, '')}`
+        : entry.title.replace(/\s*\|\s*OzoneNews/g, '');
 
       const { error: updateErr } = await supabase
         .from('content_registry')

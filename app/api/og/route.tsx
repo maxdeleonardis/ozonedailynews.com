@@ -12,7 +12,7 @@ const H = 675;  // Google Top Stories / Discover spec (16:9)
 
 // ── Supabase Storage assets (permanent public URLs) ────────────────────────
 const STORAGE_BASE = 'https://kzcwclprrtonpsnownbl.supabase.co/storage/v1/object/public/blog-images';
-const LOGO_URL     = `${STORAGE_BASE}/og-assets/objectwire-logo-white.png`;
+const LOGO_URL     = `${STORAGE_BASE}/og-assets/OzoneNews-logo-white.png`;
 const FALLBACK_BG  = `${STORAGE_BASE}/og-backgrounds/mat-armstrong-ferrari-296-gtb.jpg`;
 
 // ── Category accent colours ────────────────────────────────────────────────
@@ -115,7 +115,7 @@ export async function GET(req: NextRequest) {
     const siteUrl  = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonenetwork.news';
 
     const slug      = searchParams.get('slug');
-    let title       = searchParams.get('title')    ?? 'ObjectWire';
+    let title       = searchParams.get('title')    ?? 'OzoneNews';
     let category    = searchParams.get('category') ?? 'News';
     let desc        = searchParams.get('desc')      ?? '';
     let author      = searchParams.get('author')    ?? '';
@@ -215,10 +215,10 @@ export async function GET(req: NextRequest) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               {logoBase64 ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={logoBase64} alt="ObjectWire" style={{ height: 30, objectFit: 'contain' }} />
+                <img src={logoBase64} alt="OzoneNews" style={{ height: 30, objectFit: 'contain' }} />
               ) : (
                 <span style={{ fontFamily: 'Inter', fontWeight: 700, fontSize: 17, color: '#fff', letterSpacing: 3, textTransform: 'uppercase' }}>
-                  OBJECTWIRE
+                  OzoneNews
                 </span>
               )}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -305,7 +305,7 @@ export async function GET(req: NextRequest) {
     return new ImageResponse(
       (
         <div style={{ width: 1200, height: 675, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', fontSize: 56, fontWeight: 800, color: '#ffffff', fontFamily: 'system-ui' }}>
-          OBJECTWIRE
+          OzoneNews
         </div>
       ),
       { width: 1200, height: 675 },

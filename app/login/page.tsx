@@ -96,7 +96,7 @@ function LoginContent() {
         {/* Masthead mini */}
         <div className="text-center mb-10">
           <Link href="/" className="inline-block">
-            <div className="text-3xl font-black tracking-tighter font-serif">OBJECTWIRE</div>
+            <div className="text-3xl font-black tracking-tighter font-serif">OzoneNews</div>
           </Link>
           <p className="text-xs tracking-widest text-gray-400 mt-1 font-mono uppercase">
             Independent · Verified · In-Depth
@@ -215,7 +215,7 @@ function LoginContent() {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-6">
-          <Link href="/" className="hover:text-black underline">← Back to ObjectWire</Link>
+          <Link href="/" className="hover:text-black underline">← Back to OzoneNews</Link>
         </p>
       </div>
     </main>

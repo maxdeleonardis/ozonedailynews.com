@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Bill Gates\'s TerraPower breaks ground on nuclear components of the Natrium reactor in Wyoming — the first non-LWR construction permit in U.S. history, and a new chapter for clean baseload power.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T19:00:00Z',
     modifiedTime: '2026-04-23T19:00:00Z',

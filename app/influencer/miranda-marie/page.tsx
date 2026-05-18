@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile: Miranda Marie (itsmirandahmarie), Florida creator on OFTV and Instagram. Age, height, net worth, TikTok, Twitch, nature and wildlife content 2026.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Miranda Marie', 'OFTV', 'Instagram', 'Florida', 'Creator'],
     publishedTime: '2026-04-27T12:00:00Z',

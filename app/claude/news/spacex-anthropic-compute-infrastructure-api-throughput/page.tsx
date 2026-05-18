@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'Anthropic-SpaceX infrastructure deal raises Claude Code rate limits and Tier 4-5 API token quotas. Starlink LEO cuts latency for remote engineering teams.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-07T14:00:00Z',
     modifiedTime: '2026-05-07T14:00:00Z',

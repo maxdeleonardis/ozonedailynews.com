@@ -63,7 +63,7 @@ export function ProfilePageSchema({
     'inLanguage': 'en-US',
     'isPartOf': {
       '@type': 'WebSite',
-      'name': 'ObjectWire News',
+      'name': 'OzoneNews News',
       'url': 'https://www.ozonenetwork.news',
     },
     'breadcrumb': {
@@ -94,16 +94,16 @@ export function ProfilePageSchema({
     },
     'author': {
       '@type': 'Organization',
-      'name': 'ObjectWire News',
+      'name': 'OzoneNews News',
       'url': 'https://www.ozonenetwork.news',
     },
     'publisher': {
       '@type': 'NewsMediaOrganization',
-      'name': 'ObjectWire News',
+      'name': 'OzoneNews News',
       'url': 'https://www.ozonenetwork.news',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://www.ozonenetwork.news/objectwire-logo.png',
+        'url': 'https://www.ozonenetwork.news/OzoneNews-logo.png',
         'width': 600,
         'height': 60,
       },

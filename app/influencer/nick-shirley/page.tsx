@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     description: "From urban exploration to exposing multi-million dollar fraud schemes. Nick Shirley's rise as an investigative content creator and the Feeding Our Future story.",
     type: 'article',
     url: 'https://www.owire.org/creator/nick-shirley',
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-02-09T10:00:00Z',
     modifiedTime: '2026-02-09T10:00:00Z',

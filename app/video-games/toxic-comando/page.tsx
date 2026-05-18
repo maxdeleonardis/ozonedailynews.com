@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "74 Metascore. Gory, gritty, and groovy. Saber Interactive's swarm co-op shooter is out now on PS5, Xbox Series X|S, and PC.",
     type: "article",
     url: "https://www.ozonenetwork.news/video-games/toxic-comando",
-    siteName: "ObjectWire",
+    siteName: "OzoneNews",
     section: "Video Games",
   },
   twitter: {

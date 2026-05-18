@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'Take-Two raises full-year bookings outlook to $6.7B as GTA VI targets November 19, 2026. $1B pre-order forecast, possible $80 price point, 12,900 employees on final polish.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-07T12:00:00Z',
     modifiedTime: '2026-05-07T12:00:00Z',

@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
       const embedColor = isAnon ? 0x9ca3af : 0x5865f2; // gray for guests, purple for OAuth
 
       const webhookPayload: Record<string, unknown> = {
-        username: isAnon ? `${commenterName} (Guest) via ObjectWire` : `${commenterName} via ObjectWire`,
+        username: isAnon ? `${commenterName} (Guest) via OzoneNews` : `${commenterName} via OzoneNews`,
         avatar_url: commenterAvatar || undefined,
         embeds: [
           {

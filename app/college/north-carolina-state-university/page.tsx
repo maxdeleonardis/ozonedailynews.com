@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Public land-grant research university in Raleigh, North Carolina. Known for journalism, science communication, and engineering programs.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Education',
     tags: ['NC State', 'North Carolina State University', 'Journalism', 'Science Communication'],
   },
@@ -40,7 +40,7 @@ export default function NCStateCollegePage() {
           </nav>
 
           <p className="text-[10px] uppercase tracking-[0.3em] font-black text-red-400 mb-3 font-mono">
-            University Profile &middot; ObjectWire Education Index
+            University Profile &middot; OzoneNews Education Index
           </p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-4">
             NC State
@@ -92,12 +92,12 @@ export default function NCStateCollegePage() {
                 difficult for reporters to access without scientific grounding.
               </p>
 
-              <h2>ObjectWire Alumni</h2>
+              <h2>OzoneNews Alumni</h2>
               <p>
                 <Link href="/authors/max-deleonardis" className="text-blue-600 hover:text-blue-800 underline">
                   Max DeLeonardis
                 </Link>
-                , ObjectWire&rsquo;s founding writer and Science &amp; Technology Reporter, graduated from
+                , OzoneNews&rsquo;s founding writer and Science &amp; Technology Reporter, graduated from
                 NC State&rsquo;s journalism program. Based in Austin, Texas, DeLeonardis covers
                 biotechnology, CRISPR, medical research, AI hardware, video games, and emerging
                 technologies. His primary-source discipline, sourcing named researchers and official
@@ -128,7 +128,7 @@ export default function NCStateCollegePage() {
             </div>
 
             <div className="bg-red-900 text-white p-5 space-y-3">
-              <p className="text-[10px] uppercase tracking-widest font-black text-red-400">ObjectWire Alumni</p>
+              <p className="text-[10px] uppercase tracking-widest font-black text-red-400">OzoneNews Alumni</p>
               <Link href="/authors/max-deleonardis" className="block text-sm font-semibold text-red-200 hover:text-white underline transition-colors">
                 Max DeLeonardis, Science &amp; Tech Writer &rarr;
               </Link>
@@ -139,7 +139,7 @@ export default function NCStateCollegePage() {
               <div className="space-y-2">
                 <Link href="/college/ucla" className="block text-sm text-blue-600 hover:text-blue-800 underline">UCLA &rarr;</Link>
                 <Link href="/college/nyu" className="block text-sm text-blue-600 hover:text-blue-800 underline">NYU &rarr;</Link>
-                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All ObjectWire Authors &rarr;</Link>
+                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All OzoneNews Authors &rarr;</Link>
               </div>
             </div>
 

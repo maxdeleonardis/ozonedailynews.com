@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
       'Profile of the Tren Twins: viral fitness creators, YoungLA brand athletes, and one of the most talked-about duos in gym culture.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Tren Twins', 'Fitness', 'Bodybuilding', 'YoungLA', 'YouTube', 'Creator'],
     publishedTime: '2026-03-31T12:00:00Z',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tren Twins | Christian & Michael Gaiera | Fitness',
     description:
-      'Michigan-born identical twins, viral bodybuilders, YoungLA athletes. Full profile on ObjectWire.',
+      'Michigan-born identical twins, viral bodybuilders, YoungLA athletes. Full profile on OzoneNews.',
   },
 };
 

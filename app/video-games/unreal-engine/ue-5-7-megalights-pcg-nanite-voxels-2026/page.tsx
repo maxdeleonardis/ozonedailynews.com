@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Epic Games UE 5.7: thousands of dynamic shadow-casting lights, 35% faster PCG via GPU compute, Nanite Voxels eliminating LOD popping in forests, and a',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-19T16:00:00Z',
     modifiedTime: '2026-04-19T16:00:00Z',

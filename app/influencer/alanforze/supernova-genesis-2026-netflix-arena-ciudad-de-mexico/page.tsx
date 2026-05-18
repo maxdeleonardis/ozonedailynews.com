@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     description: 'The biggest creator boxing event in Latin America. Supernova: Genesis 2026 goes live April 26 on Netflix from Arena Ciudad de Mexico.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Entertainment Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Entertainment Desk'],
     publishedTime: '2026-04-19T18:00:00Z',
     modifiedTime: '2026-04-19T18:00:00Z',
     section: 'Entertainment',

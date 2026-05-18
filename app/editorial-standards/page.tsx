@@ -10,20 +10,20 @@ const PAGE_URL = 'https://www.ozonenetwork.news/editorial-standards';
 export const metadata: Metadata = {
   title: 'Editorial Standards',
   description:
-    'How ObjectWire reports, sources, verifies, and corrects. Our standards on accuracy, attribution, and conflicts of interest.',
+    'How OzoneNews reports, sources, verifies, and corrects. Our standards on accuracy, attribution, and conflicts of interest.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Editorial Standards',
-    description: 'How ObjectWire reports, sources, verifies, and corrects.',
+    description: 'How OzoneNews reports, sources, verifies, and corrects.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'About',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Editorial Standards',
-    description: 'How ObjectWire reports, sources, verifies, and corrects.',
+    description: 'How OzoneNews reports, sources, verifies, and corrects.',
   },
 };
 
@@ -44,11 +44,11 @@ export default function EditorialStandardsPage() {
           Editorial Policy
         </p>
         <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
-          ObjectWire Editorial Standards
+          OzoneNews Editorial Standards
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
           Accuracy over speed. Primary sources only. Transparent corrections. These are not slogans, they
-          are the rules every ObjectWire reporter and editor works by.
+          are the rules every OzoneNews reporter and editor works by.
         </p>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -100,13 +100,13 @@ export default function EditorialStandardsPage() {
 
           <h2>5. Conflicts of interest</h2>
           <p>
-            ObjectWire reporters and editors disclose any financial or personal interest that could
+            OzoneNews reporters and editors disclose any financial or personal interest that could
             reasonably be perceived as a conflict with their reporting. Reporters do not cover companies
             in which they hold individual stock positions. Crypto holdings are disclosed when relevant to
             coverage.
           </p>
           <p>
-            ObjectWire as an organization accepts no advertising, sponsored content, or political
+            OzoneNews as an organization accepts no advertising, sponsored content, or political
             donations. See our{' '}
             <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">
               ownership and funding disclosure
@@ -134,7 +134,7 @@ export default function EditorialStandardsPage() {
 
           <h2>8. Right of reply</h2>
           <p>
-            When ObjectWire reports a substantive claim about a person or organization, we contact the
+            When OzoneNews reports a substantive claim about a person or organization, we contact the
             subject for comment before publication and give a reasonable response window. If a response
             arrives after publication, the article is updated and the update is timestamped.
           </p>

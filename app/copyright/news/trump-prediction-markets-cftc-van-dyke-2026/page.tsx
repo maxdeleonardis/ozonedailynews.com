@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       'Days after calling the world a "casino," Trump said prediction markets have smart backers. Meanwhile the CFTC charged a Special Forces sergeant who used classified intel to win $404,000 on Polymarket.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Conan Boyle'],
     publishedTime: '2026-04-28T14:00:00Z',
     modifiedTime: '2026-04-28T14:00:00Z',

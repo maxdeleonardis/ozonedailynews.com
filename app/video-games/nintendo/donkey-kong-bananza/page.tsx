@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels. The",
     type: "article",
     url: "https://www.ozonenetwork.news/video-games/nintendo/donkey-kong-bananza",
-    siteName: "ObjectWire",
+    siteName: "OzoneNews",
     publishedTime: "2026-03-12T10:00:00Z",
     modifiedTime: "2026-03-12T10:00:00Z",
     section: "Video Games",

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Cluster Bakugo leaves the My Hero Ultra Rumble shop on May 27, 2026 when Season 16 closes. Here is exactly how long you have and how to get him.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Alfansa'],
     publishedTime: '2026-05-06T12:00:00Z',
     modifiedTime: '2026-05-06T12:00:00Z',

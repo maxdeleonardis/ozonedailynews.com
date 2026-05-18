@@ -102,7 +102,7 @@ export default function AdminDashboard() {
               <span className="text-white font-bold text-lg">OW</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">ObjectWire Admin</h1>
+              <h1 className="text-xl font-bold">OzoneNews Admin</h1>
               <p className="text-sm text-gray-600">Blog Management Dashboard</p>
             </div>
           </div>

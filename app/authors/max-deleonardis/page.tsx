@@ -8,22 +8,22 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
+  title: 'Max DeLeonardis, OzoneNews Science & Technology Writer',
   description:
-    'Max DeLeonardis is a founding writer at ObjectWire in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging technology.',
+    'Max DeLeonardis is a founding writer at OzoneNews in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging technology.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/max-deleonardis' },
   openGraph: {
-    title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
-    description: 'Founding writer at ObjectWire covering biotech, medical research, AI hardware, video games, and emerging technology.',
+    title: 'Max DeLeonardis, OzoneNews Science & Technology Writer',
+    description: 'Founding writer at OzoneNews covering biotech, medical research, AI hardware, video games, and emerging technology.',
     url: 'https://www.ozonenetwork.news/authors/max-deleonardis',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'profile',
-    images: [{ url: 'https://www.ozonenetwork.news/authors/max_de_leonardis.jpg', width: 800, height: 800, alt: 'Max DeLeonardis, ObjectWire science and technology writer' }],
+    images: [{ url: 'https://www.ozonenetwork.news/authors/max_de_leonardis.jpg', width: 800, height: 800, alt: 'Max DeLeonardis, OzoneNews science and technology writer' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
-    description: 'Founding writer at ObjectWire. Biotech, medical research, AI hardware, video games.',
+    title: 'Max DeLeonardis, OzoneNews Science & Technology Writer',
+    description: 'Founding writer at OzoneNews. Biotech, medical research, AI hardware, video games.',
     images: ['https://www.ozonenetwork.news/authors/max_de_leonardis.jpg'],
   },
 };
@@ -34,7 +34,7 @@ const BEATS = [
 ];
 
 const HIGHLIGHTS = [
-  { stat: '3+', label: 'Years at ObjectWire' },
+  { stat: '3+', label: 'Years at OzoneNews' },
   { stat: '8+', label: 'Beats Covered' },
   { stat: '22+', label: 'Published Articles' },
 ];
@@ -63,7 +63,7 @@ export default function MaxDeLeonardisAuthorPage() {
       <AuthorSchema
         name="Max DeLeonardis"
         jobTitle="Science & Technology Writer"
-        description="Max DeLeonardis is the founding writer at ObjectWire covering biotechnology, CRISPR, medical research, AI hardware, video games, and emerging technologies."
+        description="Max DeLeonardis is the founding writer at OzoneNews covering biotechnology, CRISPR, medical research, AI hardware, video games, and emerging technologies."
         url="https://www.ozonenetwork.news/authors/max-deleonardis"
         sameAs={[
           'https://www.linkedin.com/in/max-deleonardis-341a01350',
@@ -93,7 +93,7 @@ export default function MaxDeLeonardisAuthorPage() {
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
               <Image
                 src="/authors/max_de_leonardis.jpg"
-                alt="Max DeLeonardis, ObjectWire founding writer"
+                alt="Max DeLeonardis, OzoneNews founding writer"
                 fill
                 sizes="(min-width: 768px) 96px, 80px"
                 className="object-cover"
@@ -103,7 +103,7 @@ export default function MaxDeLeonardisAuthorPage() {
             {/* Identity */}
             <div className="flex-1">
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500 mb-2 font-mono">
-                Founding Writer &middot; ObjectWire
+                Founding Writer &middot; OzoneNews
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
                 Max DeLeonardis
@@ -172,7 +172,7 @@ export default function MaxDeLeonardisAuthorPage() {
             {/* Details */}
             <div className="border border-gray-200 divide-y divide-gray-100">
               {[
-                ['Organization', 'ObjectWire'],
+                ['Organization', 'OzoneNews'],
                 ['Role', 'Founding Writer'],
                 ['Education', 'NC State, Journalism'],
                 ['Location', 'Austin, Texas'],
@@ -215,7 +215,7 @@ export default function MaxDeLeonardisAuthorPage() {
                 Corrections Policy &rarr;
               </Link>
               <Link href="/about" className="block text-sm font-semibold hover:text-gray-300 transition-colors">
-                About ObjectWire &rarr;
+                About OzoneNews &rarr;
               </Link>
             </div>
           </aside>
@@ -230,7 +230,7 @@ export default function MaxDeLeonardisAuthorPage() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Max DeLeonardis is a founding writer at ObjectWire and the publication&rsquo;s primary
+                  Max DeLeonardis is a founding writer at OzoneNews and the publication&rsquo;s primary
                   voice on science, biotechnology, and emerging technology. Based in Austin, Texas,
                   DeLeonardis brings a research-grounded perspective to complex scientific topics,
                   translating peer-reviewed findings, clinical data, and laboratory breakthroughs into
@@ -318,7 +318,7 @@ export default function MaxDeLeonardisAuthorPage() {
       {/* Footer strip */}
       <div className="border-t-2 border-gray-900 mt-8">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400 font-mono">&copy; 2026 ObjectWire. All rights reserved.</p>
+          <p className="text-xs text-gray-400 font-mono">&copy; 2026 OzoneNews. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/authors" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">&larr; All Authors</Link>
             <Link href="/about" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">About</Link>

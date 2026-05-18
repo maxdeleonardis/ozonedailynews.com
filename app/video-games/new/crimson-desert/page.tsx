@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       '3 million wishlists across PC, PS5, Xbox, and Mac. A map twice Skyrim\'s size. Pearl Abyss pivots from MMO to single-player action RPG ahead of March 19',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

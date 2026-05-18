@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       'AdHoc Studio\'s hit superhero workplace comedy Dispatch heads to Xbox this summer. Aaron Paul voices protagonist Mecha Man. Xbox Play Anywhere supported.',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [
       {
         url: OG_IMAGE,

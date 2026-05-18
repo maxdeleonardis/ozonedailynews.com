@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Pre-orders expected before November 19 launch. $70-$80 price range confirmed by Take-Two earnings. Editions and bonus content breakdown.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Michael Cripe'],
     publishedTime: '2026-05-12T10:00:00Z',
     modifiedTime: '2026-05-12T10:00:00Z',

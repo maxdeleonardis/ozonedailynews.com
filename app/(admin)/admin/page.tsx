@@ -52,7 +52,7 @@ export default function AdminLogin() {
             </div>
           </div>
           <div>
-            <CardTitle className="text-3xl font-bold">ObjectWire Admin</CardTitle>
+            <CardTitle className="text-3xl font-bold">OzoneNews Admin</CardTitle>
             <CardDescription className="text-base mt-2">Sign in to write and manage blog posts</CardDescription>
           </div>
         </CardHeader>
@@ -104,7 +104,7 @@ export default function AdminLogin() {
 
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-xs text-center text-gray-500">
-              Secure admin access • ObjectWire © {new Date().getFullYear()}
+              Secure admin access • OzoneNews © {new Date().getFullYear()}
             </p>
           </div>
         </CardContent>

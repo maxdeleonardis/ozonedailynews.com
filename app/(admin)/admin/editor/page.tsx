@@ -60,7 +60,7 @@ export default function BlogEditor() {
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
   const [excerpt, setExcerpt] = useState('');
-  const [author, setAuthor] = useState('ObjectWire Editorial Team');
+  const [author, setAuthor] = useState('OzoneNews Editorial Team');
   const [category, setCategory] = useState('Technology');
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState('');

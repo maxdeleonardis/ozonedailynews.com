@@ -6,7 +6,7 @@ export async function GET() {
   const baseUrl = SITE_CONFIG.url;
   
   const feeds = {
-    site_name: "ObjectWire",
+    site_name: "OzoneNews",
     feeds: {
       main_sitemap: `${baseUrl}/sitemap.xml`,
       news_sitemap: `${baseUrl}/news-sitemap.xml`,

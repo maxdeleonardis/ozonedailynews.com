@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Team Artichoke\'s Mythmatch launched March 13, 2026 on Steam. Play as Artemis rejected by "Olympus Inc." and help the women of Ithaca rebuild through a',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/mythmatch',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Video Games',
   },
   twitter: {

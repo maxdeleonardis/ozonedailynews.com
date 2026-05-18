@@ -153,7 +153,7 @@ function main() {
 
   console.log('');
   console.log(c.bold(c.cyan('╔══════════════════════════════════════════════════════════════╗')));
-  console.log(c.bold(c.cyan('║           ALFASA  ·  ObjectWire Editorial Briefing           ║')));
+  console.log(c.bold(c.cyan('║           ALFASA  ·  OzoneNews Editorial Briefing           ║')));
   console.log(c.bold(c.cyan(`║           ${now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).padEnd(52)}║`)));
   console.log(c.bold(c.cyan('╚══════════════════════════════════════════════════════════════╝')));
   console.log('');

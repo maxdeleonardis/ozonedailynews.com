@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
       'Profile of Faith Ordway, Ohio-born TikTok star with 5M+ followers and 243M+ likes. Dance content, fitness, YoungLA ambassador, and music career.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Faith Ordway', 'TikTok', 'Creator', 'Fitness', 'YoungLA', 'Dance Creator'],
     publishedTime: '2026-03-31T12:00:00Z',

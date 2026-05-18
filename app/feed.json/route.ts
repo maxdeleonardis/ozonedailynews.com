@@ -37,7 +37,7 @@ export async function GET() {
           : entry.publish_date
           ? new Date(entry.publish_date).toISOString()
           : undefined,
-        authors: [{ name: entry.author || 'ObjectWire Editorial Team' }],
+        authors: [{ name: entry.author || 'OzoneNews Editorial Team' }],
         tags: Array.isArray(entry.tags) ? entry.tags : [],
       };
       if (entry.image_url) item.image = entry.image_url;

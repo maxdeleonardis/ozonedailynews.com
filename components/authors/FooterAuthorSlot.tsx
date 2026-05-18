@@ -3,7 +3,7 @@
 /**
  * FooterAuthorSlot
  *
- * Always renders the default ObjectWire brand block with social links.
+ * Always renders the default OzoneNews brand block with social links.
  */
 
 import Link from 'next/link';
@@ -15,7 +15,7 @@ export default function FooterAuthorSlot() {
         <div className="w-9 h-9 bg-black flex items-center justify-center rounded-sm shadow-sm">
           <span className="text-white font-black text-base tracking-tight">O</span>
         </div>
-        <span className="font-black text-xl tracking-tight text-gray-900 dark:text-white">ObjectWire</span>
+        <span className="font-black text-xl tracking-tight text-gray-900 dark:text-white">OzoneNews</span>
       </Link>
       <p className="text-sm text-gray-500 leading-relaxed mb-5">
         Precision intelligence for professionals who demand verified, source-cited reporting.

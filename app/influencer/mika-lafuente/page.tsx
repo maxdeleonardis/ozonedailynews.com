@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
       'Full profile of Mika Lafuente: age, height 5\'7", net worth, Bryce Hall relationship, Instagram @mikalafuente (3M+), TikTok, Snapchat, and Telegram.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Mika Lafuente', 'Creator', 'Model', 'Bryce Hall', 'Instagram', 'Argentina'],
     publishedTime: '2026-03-15T12:00:00Z',

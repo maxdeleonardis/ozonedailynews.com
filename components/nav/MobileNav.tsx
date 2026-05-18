@@ -170,8 +170,8 @@ export default function MobileNav() {
         <div className="flex items-center justify-between px-4 h-20 border-b border-gray-100">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center">
             <img
-              src="/objectwire-logo.png"
-              alt="OBJECTWIRE"
+              src="/OzoneNews-logo.png"
+              alt="OzoneNews"
               style={{ height: '44px', width: 'auto' }}
             />
           </Link>
@@ -209,7 +209,7 @@ export default function MobileNav() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search ObjectWire..."
+                placeholder="Search OzoneNews..."
                 className="flex-1 bg-transparent px-3 py-3 text-sm text-gray-900 placeholder-gray-500 outline-none"
               />
               {searchQuery && (

@@ -11,9 +11,9 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+  title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
   description:
-    'ObjectWire is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
+    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
   keywords: [
     'tech news 2026',
     'gaming news',
@@ -22,20 +22,20 @@ export const metadata: Metadata = {
     'esports news',
     'culture news',
     'investigative journalism',
-    'ObjectWire',
+    'OzoneNews',
   ],
   alternates: { canonical: 'https://www.ozonenetwork.news' },
   openGraph: {
-    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
     description:
       'Verified news across tech, gaming, crypto, entertainment, esports, and culture. Source-cited, fact-checked, written with depth.',
     url: 'https://www.ozonenetwork.news',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
     description:
       'Tech, gaming, crypto, esports, and culture. Verified news, no aggregation, no filler.',
   },
@@ -64,7 +64,7 @@ type Article = {
 function fromRegistry(e: ContentEntry): Article {
   return {
     id: e.slug,
-    title: e.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
+    title: e.title.replace(/\s*[|—–\-]\s*OzoneNews.*$/i, ''),
     excerpt: e.description,
     href: e.slug,
     publishDate: e.publishDate,
@@ -89,12 +89,12 @@ function fromBlog(p: ArticleFull, registry: ContentEntry[]): Article | null {
   if (!href) return null;
   return {
     id: String(p.id),
-    title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
+    title: p.title.replace(/\s*[|—–\-]\s*OzoneNews.*$/i, ''),
     excerpt: p.excerpt ?? undefined,
     href,
     publishDate: (p.published_at ?? p.publishedAt ?? ''),
     category: p.category ?? 'News',
-    author: p.author_name ?? 'ObjectWire',
+    author: p.author_name ?? 'OzoneNews',
     imageUrl: p.imageUrl ?? p.thumbnail_url ?? undefined,
     imageAlt: p.image_alt ?? p.thumbnail_alt ?? undefined,
     breaking: p.breaking ?? false,
@@ -386,9 +386,9 @@ export default async function HomePage() {
 
         {/* ── ABOUT STRIP ───────────────────────────────────────────────────── */}
         <section className="border-t-2 border-b-2 border-black py-6 text-center mt-4">
-          <p className="text-[9px] tracking-[.4em] uppercase font-black text-gray-500 mb-2">About ObjectWire</p>
+          <p className="text-[9px] tracking-[.4em] uppercase font-black text-gray-500 mb-2">About OzoneNews</p>
           <p className="text-gray-600 max-w-xl mx-auto text-sm leading-relaxed mb-4">
-            ObjectWire is a focused, verified news platform covering tech, AI, gaming, finance, and culture.
+            OzoneNews is a focused, verified news platform covering tech, AI, gaming, finance, and culture.
             Every article is source-cited, fact-checked, and written for depth, not clicks. No aggregation, no filler.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5 text-[10px] tracking-widest uppercase font-bold text-gray-500">

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     description:
       "Bryson DeChambeau became Kalshi's first official athlete partner. The prediction market around his 2026 YouTube course record series has crossed $159K in volume.",
     url: 'https://www.owire.org/creator/bryson-dechambeau/kalshi',
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     type: 'article',
     section: 'Creator',
     publishedTime: '2026-02-20T00:00:00Z',

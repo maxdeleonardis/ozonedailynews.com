@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'DryRun Security tested Claude, Codex, and Gemini building full apps autonomously. 26 of 30 PRs had at least one high-severity security flaw. Claude',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-12T00:00:00Z',
     modifiedTime: '2026-03-12T00:00:00Z',
     section: 'Technology',

@@ -31,7 +31,7 @@ export async function GET() {
     const items = articles.map(row => {
       const slug = row.slug.startsWith('/') ? row.slug.substring(1) : row.slug;
       const pubDate = new Date(row.publish_date).toUTCString();
-      const author = row.author || 'ObjectWire Editorial';
+      const author = row.author || 'OzoneNews Editorial';
       const mediaTag = row.image_url
         ? `\n      <media:content url="${row.image_url}" medium="image"/>`
         : '';

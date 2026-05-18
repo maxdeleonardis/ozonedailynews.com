@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       'Valve\'s April 1 beta overhauled CS2\'s entire animation system. The CS3 on Unreal Engine 5 rumor originated from April Fools\' jokes referencing a "March',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Conan Boyle'],
     publishedTime: '2026-04-03T10:00:00Z',
     modifiedTime: '2026-04-03T10:00:00Z',

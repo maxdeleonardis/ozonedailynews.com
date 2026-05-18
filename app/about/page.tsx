@@ -14,16 +14,16 @@ export const metadata: Metadata = {
     'OzoneNews is a self-funded, nonprofit newsroom focused on verified, source-cited reporting. Read our mission, ownership, and funding.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'About ObjectWire',
+    title: 'About OzoneNews',
     description: 'Self-funded, nonprofit newsroom. Verified, source-cited reporting.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'About',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About ObjectWire',
+    title: 'About OzoneNews',
     description: 'Self-funded, nonprofit newsroom. Verified, source-cited reporting.',
   },
 };
@@ -45,7 +45,7 @@ export default function AboutPage() {
           Ownership and Funding Disclosure
         </p>
         <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
-          ObjectWire is an independent, self-funded nonprofit newsroom.
+          OzoneNews is an independent, self-funded nonprofit newsroom.
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
           We exist to publish verified, source-cited reporting. We are not owned by, controlled by, or
@@ -55,8 +55,8 @@ export default function AboutPage() {
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <h2>Ownership</h2>
           <p>
-            ObjectWire is a formally registered 501(c)(3) nonprofit organization, incorporated in the
-            State of Wyoming as <strong>ObjectWire LLC</strong>. There are no outside shareholders,
+            OzoneNews is a formally registered 501(c)(3) nonprofit organization, incorporated in the
+            State of Wyoming as <strong>OzoneNews LLC</strong>. There are no outside shareholders,
             parent companies, or holding entities. Editorial decisions are made by named editors whose
             bios are public on our{' '}
             <Link href="/authors" className="text-blue-600 hover:text-blue-800 underline">
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
 
           <h2>Funding</h2>
-          <p>ObjectWire is self-funded by its founders and staff. We do not accept:</p>
+          <p>OzoneNews is self-funded by its founders and staff. We do not accept:</p>
           <ul>
             <li>Advertising of any kind</li>
             <li>Sponsored content, native ads, or paid placements</li>
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
           <h2>What we cover</h2>
           <p>
-            ObjectWire reports on technology, finance, politics, gaming, entertainment, and culture, with
+            OzoneNews reports on technology, finance, politics, gaming, entertainment, and culture, with
             a focus on stories that can be verified against primary documents: court filings, SEC
             disclosures, government records, peer-reviewed research, and named on-record sources. We do
             not aggregate or rewrite competitors&rsquo; coverage as our own.
@@ -108,7 +108,7 @@ export default function AboutPage() {
 
           <h2>Our authors</h2>
           <p>
-            All ObjectWire reporters publish under their real names with full bios, beats, and contact
+            All OzoneNews reporters publish under their real names with full bios, beats, and contact
             paths:
           </p>
           <ul>
@@ -146,7 +146,7 @@ export default function AboutPage() {
 
           <h2>Updates to this page</h2>
           <p>
-            This disclosure page is maintained directly in the ObjectWire codebase. Material changes
+            This disclosure page is maintained directly in the OzoneNews codebase. Material changes
             (ownership, funding model, leadership) are committed to the public repository and dated in
             the change log. Last updated: April 29, 2026.
           </p>

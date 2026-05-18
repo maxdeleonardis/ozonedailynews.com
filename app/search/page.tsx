@@ -21,8 +21,8 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
   return {
     title: query ? `Search Results for "${query}"` : 'Search',
     description: query 
-      ? `Search results for "${query}" on ObjectWire` 
-      : 'Search ObjectWire for news, articles, and investigations',
+      ? `Search results for "${query}" on OzoneNews` 
+      : 'Search OzoneNews for news, articles, and investigations',
     robots: {
       index: false, // Don't index search results pages
       follow: true,
@@ -86,7 +86,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         {/* Search Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {query ? `Search Results for "${query}"` : 'Search ObjectWire'}
+            {query ? `Search Results for "${query}"` : 'Search OzoneNews'}
           </h1>
           
           {searchPerformed && (

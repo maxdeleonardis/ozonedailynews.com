@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: 'American multinational semiconductor corporation: history, products, and latest developments.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/intel',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

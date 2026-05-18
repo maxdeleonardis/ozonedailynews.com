@@ -1,5 +1,5 @@
 // =============================================================================
-// ObjectWire Analytics — GA4 + Measurement Protocol
+// OzoneNews Analytics — GA4 + Measurement Protocol
 // =============================================================================
 // Client-side: uses window.gtag (injected by GoogleAnalytics component)
 // Server-side: uses Measurement Protocol API via /api/analytics route

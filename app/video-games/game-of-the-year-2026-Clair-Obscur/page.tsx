@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       '95% Blueprint, 4 programmers, under $10M budget. Sandfall Interactive\'s GDC 2026 talk revealed how Clair Obscur: Expedition 33 beat Elden Ring\'s',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-17T18:00:00Z',
     modifiedTime: '2026-03-17T18:00:00Z',
     section: 'Video Games',

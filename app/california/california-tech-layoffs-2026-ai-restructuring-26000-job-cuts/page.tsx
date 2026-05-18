@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "26,283 tech job cuts announced in California through February 2026. Amazon, Meta, Block, Workday, and C3.ai all contributed, with 20.4% of global tracked",
     type: 'article',
     url: FULL_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-18T15:00:00Z',
     modifiedTime: '2026-03-18T15:00:00Z',
     section: 'Technology',

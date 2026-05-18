@@ -7,14 +7,14 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Amazon News 2026 | AWS, Robotics & AI',
-  description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from ObjectWire.',
+  description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from OzoneNews.',
   alternates: { canonical: 'https://www.ozonenetwork.news/amazon' },
   openGraph: {
     title: 'Amazon News 2026 | AWS, Robotics & AI',
-    description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from ObjectWire.',
+    description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from OzoneNews.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/amazon',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
 };
 
@@ -44,7 +44,7 @@ export default async function Page() {
             <div className="h-12 w-1.5 bg-orange-600 shrink-0 mt-1" />
             <div>
               <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-black">Amazon</h1>
-              <p className="mt-2 text-gray-600 text-base sm:text-lg max-w-2xl">Latest Amazon and AWS news: cloud computing, robotics, AI and retail from ObjectWire.</p>
+              <p className="mt-2 text-gray-600 text-base sm:text-lg max-w-2xl">Latest Amazon and AWS news: cloud computing, robotics, AI and retail from OzoneNews.</p>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default async function Page() {
                       {article.category}
                     </span>
                     <h2 className="font-serif text-base font-black leading-snug group-hover:underline line-clamp-3 flex-1">
-                      {article.title.replace(/\s*[|]\s*ObjectWire.*$/i, '')}
+                      {article.title.replace(/\s*[|]\s*OzoneNews.*$/i, '')}
                     </h2>
                     <p className="text-[10px] text-gray-500 font-mono mt-3 pt-2 border-t border-gray-100">
                       {article.author} · {new Date(article.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}

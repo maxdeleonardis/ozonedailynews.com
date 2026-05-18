@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Everything you need to know about Marvels Wolverine, the brutal single-player adventure by Insomniac Games. Release date, gameplay, and latest news.",
     type: 'article',
     url: "https://www.ozonenetwork.news/marvels-wolverine",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "Gaming",
   },
   twitter: {

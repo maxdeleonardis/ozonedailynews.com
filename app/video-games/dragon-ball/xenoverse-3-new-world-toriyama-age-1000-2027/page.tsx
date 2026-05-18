@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Official reveal at Dragon Ball Games Battle Hour 2026: Xenoverse 3 set in Toriyama-designed AGE 1000 West City, PS5/Xbox Series X/PC in 2027.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-27T12:00:00Z',
     modifiedTime: '2026-04-27T12:00:00Z',

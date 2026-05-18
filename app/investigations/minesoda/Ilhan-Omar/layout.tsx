@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Ilhan Omar | ObjectWire',
+  title: 'Ilhan Omar | OzoneNews',
   description: 'Coverage and analysis of Ilhan Omar, her political career, and policy positions.',
   alternates: {
     canonical: 'https://www.ozonenetwork.news/minesoda/Ilhan-Omar',

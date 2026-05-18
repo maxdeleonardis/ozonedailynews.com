@@ -194,7 +194,7 @@ ${stats}
   <p>${
     c.height
       ? `Reported height for ${fullName} is approximately <strong>${c.height}</strong>. This figure is based on publicly stated information from interviews and verified profiles.`
-      : `${fullName}'s height has not been publicly confirmed in verified interviews or official profiles. ObjectWire only publishes measurements when they are stated by the creator or a verified agency.`
+      : `${fullName}'s height has not been publicly confirmed in verified interviews or official profiles. OzoneNews only publishes measurements when they are stated by the creator or a verified agency.`
   }</p>
 </CreatorSection>
 
@@ -225,12 +225,12 @@ ${gallery}
 <CreatorSection heading="How Many Followers Does ${fullName} Have? | 2026 Audience">
   <p>As of April 2026, ${fullName} maintains the following verified follower counts across major platforms:</p>
   ${socialList(c)}
-  <p class="text-sm text-gray-500"><em>Follower counts fluctuate. Numbers reflect ObjectWire's most recent verification check.</em></p>
+  <p class="text-sm text-gray-500"><em>Follower counts fluctuate. Numbers reflect OzoneNews's most recent verification check.</em></p>
 </CreatorSection>
 
 <CreatorSection heading="What Is ${fullName}'s Net Worth? | 2026 Estimate">
   <p>${c.netWorthAnswer}</p>
-  <p class="text-sm text-gray-500"><em>ObjectWire does not publish speculative financial figures. We only cite net worth ranges that the creator or a verified outlet has disclosed.</em></p>
+  <p class="text-sm text-gray-500"><em>OzoneNews does not publish speculative financial figures. We only cite net worth ranges that the creator or a verified outlet has disclosed.</em></p>
 </CreatorSection>
 
 <CreatorSection heading="Why Is ${fullName} Notable? | Cultural Context">
@@ -238,7 +238,7 @@ ${gallery}
 </CreatorSection>
 
 <CreatorSection heading="${fullName} Links Directory | All Official Accounts">
-  <p>Below is a verified directory of every official ${fullName} account ObjectWire has confirmed. Click any link to open the profile in a new tab.</p>
+  <p>Below is a verified directory of every official ${fullName} account OzoneNews has confirmed. Click any link to open the profile in a new tab.</p>
   ${linksDirectory(c)}
   ${c.email ? `<p class="mt-4"><strong>Business inquiries:</strong> ${A(`mailto:${c.email}`, c.email)}</p>` : ''}
   ${c.agency ? `<p><strong>Agency / management:</strong> ${c.agency}</p>` : ''}
@@ -326,7 +326,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       'Berner is part of a generation of female fitness creators who built mainstream audiences without leaving short-form video. Her growth illustrates how niche gym content can scale into broad lifestyle influence when paired with consistent posting and a recognizable visual identity.',
     netWorthAnswer:
-      "Abby Berner's exact net worth has not been publicly disclosed. Industry reporting suggests creators at her follower tier and brand-deal frequency typically earn in the high six figures annually, but ObjectWire does not publish a specific figure without verified disclosure.",
+      "Abby Berner's exact net worth has not been publicly disclosed. Industry reporting suggests creators at her follower tier and brand-deal frequency typically earn in the high six figures annually, but OzoneNews does not publish a specific figure without verified disclosure.",
     notableEvents: [
       { year: '2018', event: 'Begins posting fitness content on Instagram.' },
       { year: '2020', event: 'TikTok account begins gaining traction during the pandemic fitness boom.' },
@@ -368,7 +368,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       'Lean Beef Patty represents the rise of strength-first female fitness creators on short-form video, displacing the older fitness-modeling template. Her audience size and engagement consistently rank her among the top female fitness creators globally.',
     netWorthAnswer:
-      "Lean Beef Patty's net worth has not been officially disclosed. Public reporting estimates vary widely. ObjectWire does not publish a specific figure without verified disclosure from the creator or her management.",
+      "Lean Beef Patty's net worth has not been officially disclosed. Public reporting estimates vary widely. OzoneNews does not publish a specific figure without verified disclosure from the creator or her management.",
     notableEvents: [
       { year: '2020', event: 'Begins posting fitness content on TikTok.' },
       { year: '2022', event: 'Crosses 5M TikTok followers.' },
@@ -404,7 +404,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       'Bufalika is part of a wave of Brazilian creators who built global audiences during the 2020s through visual-first short-form video. Her growth illustrates how non-English creators can scale to international subscription revenue using mainstream platforms as a top-of-funnel.',
     netWorthAnswer:
-      "Bufalika's net worth and earnings have not been publicly disclosed. ObjectWire does not publish speculative figures.",
+      "Bufalika's net worth and earnings have not been publicly disclosed. OzoneNews does not publish speculative figures.",
     closingNote:
       'Bufalika continues to grow her international audience in 2026 across Instagram, TikTok, and her subscription platforms.',
   },
@@ -438,7 +438,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       'Lafuente represents the bilingual Latin American creator wave, with audiences in both Spanish-speaking markets and the US. Her cross-cultural reach illustrates the increasing globalization of the creator economy.',
     netWorthAnswer:
-      "Mika Lafuente's net worth has not been officially disclosed. ObjectWire does not publish speculative financial figures.",
+      "Mika Lafuente's net worth has not been officially disclosed. OzoneNews does not publish speculative financial figures.",
     notableEvents: [
       { year: '2018', event: 'Begins posting modeling content on Instagram.' },
       { year: '2021', event: 'Publicly linked to influencer Bryce Hall.' },
@@ -480,7 +480,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       "Colleen represents a wave of regional US creators who scaled audiences from outside the typical LA / NYC / Miami creator hubs, demonstrating that distinctive aesthetic and consistent posting can drive growth from any market.",
     netWorthAnswer:
-      "Colleen Sheehan's net worth has not been publicly disclosed. ObjectWire does not publish speculative figures.",
+      "Colleen Sheehan's net worth has not been publicly disclosed. OzoneNews does not publish speculative figures.",
     closingNote:
       'Colleen Sheehan continues to publish fashion, festival, and lifestyle content from Boston in 2026.',
   },
@@ -512,7 +512,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       'Miranda is part of a niche of regional outdoor lifestyle creators who built audiences on platforms typically dominated by traditional fashion or fitness creators, demonstrating the breadth of the modern influencer economy.',
     netWorthAnswer:
-      "Miranda Marie's net worth has not been publicly disclosed. ObjectWire does not publish speculative figures.",
+      "Miranda Marie's net worth has not been publicly disclosed. OzoneNews does not publish speculative figures.",
     closingNote:
       'Miranda Marie continues to publish Florida-based wildlife and lifestyle content in 2026.',
   },
@@ -550,7 +550,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       "Megan represents the wide tier of mid-size US adult creators who built sustainable subscription businesses through coordinated multi-platform funnels, a model that defines the post-2020 adult creator economy.",
     netWorthAnswer:
-      "Megan Marie's net worth and earnings have not been publicly disclosed. ObjectWire does not publish speculative income or net worth figures.",
+      "Megan Marie's net worth and earnings have not been publicly disclosed. OzoneNews does not publish speculative income or net worth figures.",
     closingNote:
       'Megan Marie continues to publish across Instagram, TikTok, and Reddit in 2026.',
   },
@@ -583,7 +583,7 @@ const CREATORS: CreatorData[] = [
     whyMatters:
       "Leah Davies represents the post-pandemic generation of UK club DJs who built careers on TikTok rather than through traditional club residencies first. Her trajectory illustrates how the dance music industry's discovery layer is shifting toward short-form video.",
     netWorthAnswer:
-      "Leah Davies's net worth and earnings have not been publicly disclosed. ObjectWire does not publish speculative figures.",
+      "Leah Davies's net worth and earnings have not been publicly disclosed. OzoneNews does not publish speculative figures.",
     notableEvents: [
       { year: '2022', event: 'Begins releasing mixes on SoundCloud and posting clips on TikTok.' },
       { year: '2024', event: 'Increases UK club bookings and gains industry attention.' },

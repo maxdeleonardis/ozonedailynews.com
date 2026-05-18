@@ -26,13 +26,13 @@
 //   "prebuild": "... && npx tsx scripts/validate-canonicals.ts && ..."
 //
 // To intentionally skip (emergencies only):
-//   OBJECTWIRE_OVERRIDE=true npm run build
+//   OzoneNews_OVERRIDE=true npm run build
 // =============================================================================
 
 import fs from 'fs';
 import path from 'path';
 
-const OVERRIDE_FLAG = process.env.OBJECTWIRE_OVERRIDE === 'true';
+const OVERRIDE_FLAG = process.env.OzoneNews_OVERRIDE === 'true';
 const APP_DIR = path.join(process.cwd(), 'app');
 
 // Directories skipped for per-page canonical check (non-indexable routes)
@@ -195,7 +195,7 @@ if (errors.length > 0) {
   console.error('are duplicates of the homepage — causing an impressions cliff.\n');
   errors.forEach(v => console.error(v));
   console.error('\nFix: remove the <link rel="canonical"> from layout files.');
-  console.error('Override (emergencies only): OBJECTWIRE_OVERRIDE=true npm run build\n');
+  console.error('Override (emergencies only): OzoneNews_OVERRIDE=true npm run build\n');
 }
 
 // ── Page canonical warnings (soft error — logged but non-blocking by default) ─
@@ -213,7 +213,7 @@ if (warnings.length > 0) {
 // Hard-error path
 if (errors.length > 0) {
   if (OVERRIDE_FLAG) {
-    console.warn('⚠ OBJECTWIRE_OVERRIDE=true — skipping exit(1). PRODUCTION RISK.');
+    console.warn('⚠ OzoneNews_OVERRIDE=true — skipping exit(1). PRODUCTION RISK.');
     process.exit(0);
   }
   process.exit(1);

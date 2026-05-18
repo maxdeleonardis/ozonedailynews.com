@@ -37,8 +37,8 @@ export const metadata: Metadata = {
       'Every weapon in the Fortnite Chapter 6 Season 2 loot pool ranked S through D. Katana tops the melee class, new SMG and LMG additions change the mid-range meta.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Gaming Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Gaming Desk'],
     publishedTime: '2026-04-29T16:00:00Z',
     modifiedTime: '2026-04-29T16:00:00Z',
     section: 'Gaming',
@@ -64,7 +64,7 @@ export default function FortniteC6S2WeaponsTierListPage() {
       topicTag="gaming"
       publishDate="April 29, 2026"
       readTime="8 min read"
-      author={{ name: 'ObjectWire Gaming Desk', authorSlug: 'objectwire-gaming-desk' }}
+      author={{ name: 'OzoneNews Gaming Desk', authorSlug: 'OzoneNews-gaming-desk' }}
       tags={['Fortnite', 'Epic Games', 'Gaming', 'Battle Royale', 'Chapter 6']}
       thumbnail={{ src: OG_IMAGE, alt: 'Fortnite Chapter 6 Season 2 weapons tier list ranked' }}
       slug="video-games-fortnite-chapter-6-season-2-weapons-tier-list"

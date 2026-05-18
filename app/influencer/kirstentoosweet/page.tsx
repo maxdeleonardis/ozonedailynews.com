@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
       'Profile of Kirsten Toosweet, TikTok lifestyle creator with 2.5M+ followers. Comedy, beauty, and day-in-the-life content across all major platforms.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Kirsten Toosweet', 'TikTok', 'Creator', 'Lifestyle Creator', 'Instagram', 'YouTube'],
     publishedTime: '2026-03-31T12:00:00Z',

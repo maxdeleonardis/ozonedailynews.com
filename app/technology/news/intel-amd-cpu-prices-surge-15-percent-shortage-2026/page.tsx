@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'CPU prices are up 10–15% across Intel and AMD product lines as global supply meets only 65–75% of demand. Lead times have stretched from two weeks to',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-25T12:00:00Z',
     modifiedTime: '2026-03-25T12:00:00Z',

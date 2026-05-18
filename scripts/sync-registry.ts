@@ -35,7 +35,7 @@ try {
 // ---------------------------------------------------------------------------
 const ROOT = path.resolve(__dirname, '..');
 const APP_DIR = path.join(ROOT, 'app');
-const DEFAULT_AUTHOR = 'ObjectWire Editorial';
+const DEFAULT_AUTHOR = 'OzoneNews Editorial';
 const DEFAULT_AUTHOR_SLUG = undefined; // only set on named-author entries
 const TODAY = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
 const WRITE_FLAG = process.argv.includes('--write');
@@ -84,14 +84,14 @@ const CATEGORY_MAP: { prefix: string; category: string; tags: string[] }[] = [
   { prefix: '/investigations',     category: 'Investigations',tags: ['Investigations'] },
   { prefix: '/austin-private',     category: 'Investigations',tags: ['Private Investigations', 'Austin'] },
   { prefix: '/ironspring',         category: 'Business',      tags: ['Startups', 'Venture Capital', 'Construction Tech'] },
-  { prefix: '/objectwire',         category: 'Meta',          tags: ['ObjectWire'] },
+  { prefix: '/OzoneNews',         category: 'Meta',          tags: ['OzoneNews'] },
   { prefix: '/news',               category: 'News',          tags: ['News'] },
   { prefix: '/blog',               category: 'Blog',          tags: ['Blog'] },
   { prefix: '/podcasts',           category: 'Media',         tags: ['Podcasts'] },
   { prefix: '/service',            category: 'Services',      tags: ['Services'] },
-  { prefix: '/about',              category: 'Meta',          tags: ['About', 'ObjectWire'] },
-  { prefix: '/team',               category: 'Meta',          tags: ['Team', 'ObjectWire'] },
-  { prefix: '/authors',            category: 'Meta',          tags: ['Author', 'ObjectWire'] },
+  { prefix: '/about',              category: 'Meta',          tags: ['About', 'OzoneNews'] },
+  { prefix: '/team',               category: 'Meta',          tags: ['Team', 'OzoneNews'] },
+  { prefix: '/authors',            category: 'Meta',          tags: ['Author', 'OzoneNews'] },
   { prefix: '/clothing',           category: 'Lifestyle',     tags: ['Clothing', 'Fashion'] },
   { prefix: '/define',             category: 'Reference',     tags: ['Definitions', 'Reference'] },
   { prefix: '/get-help',           category: 'Support',       tags: ['Help', 'Support'] },
@@ -191,7 +191,7 @@ function extractMetadataFromFile(filePath: string): PageMeta | null {
     const descMatch =
       content.match(/description\s*:\s*['"`]([^'"`\r\n]{10,300})['"`]/) ||
       content.match(/content\s*:\s*['"`]([^'"`\r\n]{10,300})['"`]/);
-    const description = (descMatch?.[1]?.trim() ?? `ObjectWire coverage of ${title}.`)
+    const description = (descMatch?.[1]?.trim() ?? `OzoneNews coverage of ${title}.`)
       .slice(0, 160);
 
     // extract author

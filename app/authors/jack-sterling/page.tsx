@@ -8,22 +8,22 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Jack Sterling, ObjectWire Reporter',
+  title: 'Jack Sterling, OzoneNews Reporter',
   description:
-    'Jack Sterling is a reporter at ObjectWire covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology.',
+    'Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-sterling' },
   openGraph: {
-    title: 'Jack Sterling, ObjectWire Reporter',
-    description: 'Reporter at ObjectWire covering breaking news, federal investigations, Congress, and AI policy.',
+    title: 'Jack Sterling, OzoneNews Reporter',
+    description: 'Reporter at OzoneNews covering breaking news, federal investigations, Congress, and AI policy.',
     url: 'https://www.ozonenetwork.news/authors/jack-sterling',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     type: 'profile',
-    images: [{ url: 'https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, ObjectWire reporter' }],
+    images: [{ url: 'https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, OzoneNews reporter' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Jack Sterling, ObjectWire Reporter',
-    description: 'Reporter at ObjectWire. Breaking news, federal investigations, Congress, AI policy.',
+    title: 'Jack Sterling, OzoneNews Reporter',
+    description: 'Reporter at OzoneNews. Breaking news, federal investigations, Congress, AI policy.',
     images: ['https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg'],
   },
 };
@@ -45,7 +45,7 @@ export default function JackSterlingAuthorPage() {
       <AuthorSchema
         name="Jack Sterling"
         jobTitle="Reporter"
-        description="Jack Sterling is a reporter at ObjectWire covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology."
+        description="Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology."
         url="https://www.ozonenetwork.news/authors/jack-sterling"
         image="https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg"
         knowsAbout={['Breaking News', 'Politics', 'Investigations', 'Congress', 'AI Policy', 'Federal Law', 'Gaming', 'Technology']}
@@ -71,7 +71,7 @@ export default function JackSterlingAuthorPage() {
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white relative bg-white">
               <Image
                 src="/influncer/author/jack_sterling.jpg"
-                alt="Jack Sterling, ObjectWire reporter"
+                alt="Jack Sterling, OzoneNews reporter"
                 fill
                 sizes="(min-width: 768px) 96px, 80px"
                 className="object-cover"
@@ -81,7 +81,7 @@ export default function JackSterlingAuthorPage() {
             {/* Identity */}
             <div className="flex-1">
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500 mb-2 font-mono">
-                Reporter &middot; ObjectWire
+                Reporter &middot; OzoneNews
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
                 Jack Sterling
@@ -139,7 +139,7 @@ export default function JackSterlingAuthorPage() {
             {/* Details */}
             <div className="border border-gray-200 divide-y divide-gray-100">
               {[
-                ['Organization', 'ObjectWire'],
+                ['Organization', 'OzoneNews'],
                 ['Desk', 'Politics & Investigations'],
                 ['Education', 'NYU, Journalism'],
                 ['Location', 'Washington, D.C.'],
@@ -162,7 +162,7 @@ export default function JackSterlingAuthorPage() {
                 Corrections Policy &rarr;
               </Link>
               <Link href="/about" className="block text-sm font-semibold hover:text-gray-300 transition-colors">
-                About ObjectWire &rarr;
+                About OzoneNews &rarr;
               </Link>
             </div>
           </aside>
@@ -177,7 +177,7 @@ export default function JackSterlingAuthorPage() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Jack Sterling is a reporter at ObjectWire covering breaking news, federal investigations,
+                  Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations,
                   Congress, and the intersection of politics and technology. Based in Washington, D.C.,
                   he reports on how federal policy decisions shape the technology industry, with a
                   particular focus on AI regulation, antitrust enforcement, and legislative oversight
@@ -198,8 +198,8 @@ export default function JackSterlingAuthorPage() {
                   structure.
                 </p>
                 <p>
-                  He operates from the ObjectWire Politics and Investigations Desk. Tips and document
-                  leads can be directed to ObjectWire&rsquo;s editorial contact channel.
+                  He operates from the OzoneNews Politics and Investigations Desk. Tips and document
+                  leads can be directed to OzoneNews&rsquo;s editorial contact channel.
                 </p>
               </div>
             </section>
@@ -261,7 +261,7 @@ export default function JackSterlingAuthorPage() {
       {/* Footer strip */}
       <div className="border-t-2 border-gray-900 mt-8">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400 font-mono">&copy; 2026 ObjectWire. All rights reserved.</p>
+          <p className="text-xs text-gray-400 font-mono">&copy; 2026 OzoneNews. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/authors" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">&larr; All Authors</Link>
             <Link href="/about" className="text-xs font-semibold text-gray-500 hover:text-black transition-colors">About</Link>

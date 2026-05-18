@@ -70,7 +70,7 @@ const BRAND_WORDS = new Set([
   'anthropic', 'openai', 'perplexity', 'pokémon', 'pokemon', 'pokopia',
   'tenstorrent', 'outersloth', 'sidemen', 'bungie', 'marathon', 'cursor',
   'crowdstrike', 'fortnite', 'youtube', 'tiktok', 'instagram', 'snapchat',
-  'discord', 'twitch', 'valkyrae', 'pokimane', 'objectwire', 'rockstar',
+  'discord', 'twitch', 'valkyrae', 'pokimane', 'OzoneNews', 'rockstar',
   'take-two', 'taketwo', 'ubisoft', 'nintendo', 'playstation', 'xbox',
   'microsoft', 'google', 'apple', 'nvidia', 'meta', 'bytedance',
   'hugging', 'gemini', 'claude', 'gpt', 'chatgpt', 'copilot',
@@ -83,7 +83,7 @@ function titleToQueries(title: string, category: string): [string, string] {
   const fallback = CATEGORY_QUERIES[category] ?? category.toLowerCase();
   const words = title
     .replace(/[|—–\-:$'"]/g, ' ')
-    .replace(/objectwire/gi, '')
+    .replace(/OzoneNews/gi, '')
     .split(/\s+/)
     .filter(w => w.length > 3 && !BRAND_WORDS.has(w.toLowerCase()))
     .slice(0, 4)
@@ -206,7 +206,7 @@ async function main() {
       continue;
     }
 
-    const altText = `${photo.alt} — ${title.replace(/\s*\|\s*ObjectWire/gi, '')}`.slice(0, 255);
+    const altText = `${photo.alt} — ${title.replace(/\s*\|\s*OzoneNews/gi, '')}`.slice(0, 255);
 
     // Update registry entry in-memory
     entry.image_url    = photo.url;

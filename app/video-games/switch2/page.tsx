@@ -39,8 +39,8 @@ export const metadata: Metadata = {
       'Everything confirmed about Nintendo Switch 2. Launches June 5, 2026 at $449.99. Mario Kart World, Donkey Kong Bananza, GameChat, 4K docked output via DLSS.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Gaming Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Gaming Desk'],
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
     section: 'Gaming',
@@ -66,7 +66,7 @@ export default function Switch2HubPage() {
       topicTag="gaming"
       publishDate="April 29, 2026"
       readTime="8 min read"
-      author={{ name: 'ObjectWire Gaming Desk', authorSlug: 'objectwire-gaming-desk' }}
+      author={{ name: 'OzoneNews Gaming Desk', authorSlug: 'OzoneNews-gaming-desk' }}
       tags={['Nintendo Switch 2', 'Nintendo', 'Mario Kart World', 'Donkey Kong Bananza', 'Gaming']}
       thumbnail={{ src: OG_IMAGE, alt: 'Nintendo Switch 2 console with Joy-Con 2 controllers' }}
       slug="video-games-switch2"
@@ -275,7 +275,7 @@ export default function Switch2HubPage() {
             { href: '/video-games/switch2/pokemon-pokopia', label: 'Pokemon Pokopia | Review Scores', description: 'Highest-rated Pokemon game ever, launching on Switch 2' },
             { href: '/video-games/switch2/super-mario-wonder-switch2-edition-bellabel-park', label: 'Super Mario Wonder Switch 2 Edition', description: 'Bellabel Park and Switch 2 exclusive content breakdown' },
             { href: '/video-games/switch2/switch-2-vs-steam-deck-oled-2026', label: 'Switch 2 vs Steam Deck OLED 2026', description: 'Full hardware and game library comparison' },
-            { href: '/video-games/nintendo', label: 'Nintendo Hub', description: 'All Nintendo coverage on ObjectWire' },
+            { href: '/video-games/nintendo', label: 'Nintendo Hub', description: 'All Nintendo coverage on OzoneNews' },
             { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news, guides, and analysis' },
           ]}
         />

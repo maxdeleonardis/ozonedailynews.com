@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Ex-Human accuses Apple of removing Botify AI and Photify AI without clear justification and withholding $500K in earned revenue. Meanwhile Apple has',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-03T08:00:00Z',
     modifiedTime: '2026-04-03T08:00:00Z',

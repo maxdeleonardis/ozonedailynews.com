@@ -34,7 +34,7 @@ async function run() {
     modified_date:    item.modifiedDate,
     category:         item.category         || 'General',
     tags:             item.tags             || [],
-    author:           item.author           || 'ObjectWire Editorial',
+    author:           item.author           || 'OzoneNews Editorial',
     author_slug:      item.authorSlug       ?? null,
     priority:         item.priority         ?? 0.70,
     change_frequency: item.changeFrequency  || 'weekly',

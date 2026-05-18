@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
             email,
             reactivate_existing: true,
             send_welcome_email:  true,
-            utm_source:   'objectwire',
+            utm_source:   'OzoneNews',
             utm_medium:   'article_footer',
             utm_campaign: 'newsletter_signup',
             referring_site: req.headers.get('referer') || 'https://www.ozonenetwork.news',

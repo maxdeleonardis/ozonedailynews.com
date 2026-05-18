@@ -5,7 +5,7 @@
  * app/**\/page.tsx files. Designed for Organic Search + AI SEO compliance.
  *
  * Fixes applied:
- *   1. Strip "| ObjectWire" brand suffix from ALL title fields
+ *   1. Strip "| OzoneNews" brand suffix from ALL title fields
  *   2. Replace " - " separator with " | " in title values
  *   3. Replace em/en dashes (— –) with " | " in title values
  *   4. Trim description > 155 chars to nearest word boundary ≤ 155
@@ -213,12 +213,12 @@ function findMetadataBlock(content: string): { start: number; end: number } | nu
 // FIX FUNCTIONS — each mutates metaBlock in place (via string replacement)
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Fix 1: Strip " | ObjectWire" brand suffix from all title: fields */
+/** Fix 1: Strip " | OzoneNews" brand suffix from all title: fields */
 function fixBrandSuffix(metaBlock: string, changes: string[]): string {
   return metaBlock.replace(
-    /(^\s*title:\s*)(["'])(.*?)\s*\|\s*ObjectWire\2/gm,
+    /(^\s*title:\s*)(["'])(.*?)\s*\|\s*OzoneNews\2/gm,
     (_match, prefix, quote, value) => {
-      changes.push(`BRAND: removed "| ObjectWire" → title is now "${value}"`);
+      changes.push(`BRAND: removed "| OzoneNews" → title is now "${value}"`);
       return `${prefix}${quote}${value}${quote}`;
     }
   );
@@ -305,14 +305,14 @@ function fixDescriptionLength(metaBlock: string, changes: string[]): string {
 
 /**
  * Fix 4b: Strip "| ozonenetwork.news" and "| Object Wire" brand suffix variants
- * that were not caught by the original fixBrandSuffix (only matched exact "| ObjectWire").
+ * that were not caught by the original fixBrandSuffix (only matched exact "| OzoneNews").
  */
 function fixBrandSuffixVariant(metaBlock: string, changes: string[]): string {
   return metaBlock.replace(
     /(^\s*title:\s*)(["'])([^"'\n]+)\2/gm,
     (_match, prefix, quote, value) => {
       const cleaned = value
-        .replace(/\s*\|\s*ObjectWire\.org\s*$/i, '')
+        .replace(/\s*\|\s*OzoneNews\.org\s*$/i, '')
         .replace(/\s*\|\s*Object\s+Wire\s*$/i, '')
         .trim();
       if (cleaned === value) return _match;
@@ -399,13 +399,13 @@ function fixMissingTwitter(metaBlock: string, changes: string[]): string {
   if (!ogBlock) return metaBlock;
 
   let twitterTitle = extractStringField(ogBlock, 'title')
-    .replace(/\s*\|\s*ObjectWire$/, ''); // strip brand if present in OG title
+    .replace(/\s*\|\s*OzoneNews$/, ''); // strip brand if present in OG title
   const twitterDesc = trimAtWord(extractStringField(ogBlock, 'description'), 155);
 
   // Fallback: use metadata-level title
   if (!twitterTitle) {
     const topTitleM = metaBlock.match(/^\s*title:\s*["']([^"'\n]+)["']/m);
-    if (topTitleM) twitterTitle = topTitleM[1].replace(/\s*\|\s*ObjectWire$/, '');
+    if (topTitleM) twitterTitle = topTitleM[1].replace(/\s*\|\s*OzoneNews$/, '');
   }
 
   if (!twitterTitle) return metaBlock;
@@ -515,7 +515,7 @@ function run() {
   const toProcess = LIMIT < Infinity ? pages.slice(0, LIMIT) : pages;
 
   const modeLabel = WRITE_MODE ? `${C.yellow}WRITE MODE${C.reset}` : `${C.cyan}DRY-RUN${C.reset} (pass --write to apply changes)`;
-  console.log(`\n${C.bold}ObjectWire Metadata Fixer${C.reset}  |  ${modeLabel}`);
+  console.log(`\n${C.bold}OzoneNews Metadata Fixer${C.reset}  |  ${modeLabel}`);
   console.log(`${C.dim}Scanning ${toProcess.length} of ${pages.length} pages...${C.reset}\n`);
 
   const fixCounts: Record<string, number> = {

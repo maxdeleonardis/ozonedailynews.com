@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Season 16 goes Plus Ultra, America's No.1 hero Star and Stripe joins the roster with her New Order Quirk, free weekly 10-draws run through May 27, and",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-25T08:00:00Z',
     modifiedTime: '2026-03-25T08:00:00Z',
     section: 'Video Games',

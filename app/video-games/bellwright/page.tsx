@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Medieval survival RPG Bellwright has surpassed 1 million units sold on Steam while still in Early Access. Release 1.0 and console versions for PS5 and',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/bellwright',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-07T20:00:00Z',
     modifiedTime: '2026-03-07T20:00:00Z',
     section: 'Video Games',

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Manus CEO Xiao Hong and chief scientist Ji Yichao were summoned to Beijing's National Development and Reform Commission and told they cannot leave China",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-25T18:00:00Z',
     modifiedTime: '2026-03-25T18:00:00Z',

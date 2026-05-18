@@ -455,7 +455,7 @@ export function ArticlePage({
       {/* Use PageHeader component */}
       <PageHeader
         title={title}
-        subtitle={subtitle ?? 'From ObjectWire, the verification-first intelligence platform'}
+        subtitle={subtitle ?? 'From OzoneNews, the verification-first intelligence platform'}
         category={category}
         lastUpdated={lastUpdated}
         backLink={backLink}
@@ -499,7 +499,7 @@ export function ArticlePage({
         <div className="container mx-auto px-4 max-w-6xl text-center text-sm text-gray-600">
           <p>
             This article is part of{' '}
-            <Link href="/" className="text-blue-600 hover:underline">ObjectWire</Link>'s coverage.
+            <Link href="/" className="text-blue-600 hover:underline">OzoneNews</Link>'s coverage.
           </p>
         </div>
       </footer>

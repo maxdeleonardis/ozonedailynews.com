@@ -70,7 +70,7 @@ function buildOGBlock(title: string, description: string, canonical: string, sec
     description: ${JSON.stringify(ogDesc)},
     type: 'article',
     url: ${canonical ? JSON.stringify(canonical) : "'https://www.ozonenetwork.news'"},
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: ${JSON.stringify(section)},
   },
   twitter: {

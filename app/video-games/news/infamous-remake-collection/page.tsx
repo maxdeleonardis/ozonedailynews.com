@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'VGC journalist Jordan Middler says a separate PlayStation Studios team, not Sucker Punch, has an inFamous project underway.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-16T08:00:00Z',
     modifiedTime: '2026-05-16T08:00:00Z',

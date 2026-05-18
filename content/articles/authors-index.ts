@@ -1,18 +1,18 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'Authors & Contributors | ObjectWire',
+  title: 'Authors & Contributors | OzoneNews',
   slug: 'authors',
   category: 'Reference',
   status: 'published',
   published_at: '2026-01-01',
 
-  excerpt: 'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and breaking news.',
-  tags: ['ObjectWire', 'Authors', 'Journalists', 'Team'],
+  excerpt: 'Meet the journalists, reporters, and editors behind OzoneNews, covering finance, markets, science, technology, anime, gaming, investigations, and breaking news.',
+  tags: ['OzoneNews', 'Authors', 'Journalists', 'Team'],
 
-  author_name: 'ObjectWire Editorial',
+  author_name: 'OzoneNews Editorial',
   author_role: 'Editorial',
-  author_slug: 'objectwire-editorial',
+  author_slug: 'OzoneNews-editorial',
   category_color: '#6b7280',
 
   content: [
@@ -24,7 +24,7 @@ const article: Article = {
   <!-- Header -->
   <div class="bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-lg p-8 mb-10">
     <h2 class="text-3xl font-bold mb-2">Authors &amp; Contributors</h2>
-    <p class="text-gray-300">The journalists, reporters, and editors behind ObjectWire's coverage.</p>
+    <p class="text-gray-300">The journalists, reporters, and editors behind OzoneNews's coverage.</p>
   </div>
 
   <!-- Author Grid -->
@@ -94,11 +94,11 @@ const article: Article = {
   <!-- Editorial Commitment -->
   <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-sm text-gray-600">
     <h3 class="font-bold text-gray-900 mb-2">Editorial Commitment</h3>
-    <p class="mb-3">Every author at ObjectWire follows the same editorial standards: verification-first, primary-source-cited reporting. No content is published without rigorous fact-checking.</p>
+    <p class="mb-3">Every author at OzoneNews follows the same editorial standards: verification-first, primary-source-cited reporting. No content is published without rigorous fact-checking.</p>
     <div class="flex gap-4">
       <a href="/editorial-standards" class="text-blue-600 hover:underline">Editorial Standards</a>
       <a href="/corrections" class="text-blue-600 hover:underline">Corrections</a>
-      <a href="/about" class="text-blue-600 hover:underline">About ObjectWire</a>
+      <a href="/about" class="text-blue-600 hover:underline">About OzoneNews</a>
     </div>
   </div>
 </div>

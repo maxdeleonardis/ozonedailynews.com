@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       'With March 19 two weeks away, Pearl Abyss addresses growing fan frustration over the absence of PS5 and Xbox gameplay footage for Crimson Desert.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

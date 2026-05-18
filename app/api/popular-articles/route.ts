@@ -117,7 +117,7 @@ export async function GET(request: Request) {
           title: entry?.title ?? fallbackTitle,
           category: entry?.category ?? r.slug.split('/').filter(Boolean)[0] ?? 'news',
           publishDate: entry?.publishDate ?? '',
-          author: entry?.author ?? 'ObjectWire',
+          author: entry?.author ?? 'OzoneNews',
           description: entry?.description,
         };
       })

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: 'Season 15 of My Hero Ultra Rumble brings new playable characters, balance updates, and fresh content to the popular free-to-play battle royale game.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/mha/ultra-rumble/season-15',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

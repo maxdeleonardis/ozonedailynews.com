@@ -1,23 +1,23 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'Alfansa | Finance & Markets Reporter | ObjectWire',
+  title: 'Alfansa | Finance & Markets Reporter | OzoneNews',
   slug: 'authors-alfansa',
   category: 'Reference',
   status: 'published',
   published_at: '2026-03-11',
 
-  excerpt: 'Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire, covering markets, payments, fintech, My Hero Academia, and gaming culture.',
-  tags: ['Finance', 'Markets', 'Anime', 'Gaming', 'ObjectWire', 'Author'],
+  excerpt: 'Alfansa is a Finance & Markets Reporter and Anime & Gaming Editor at OzoneNews, covering markets, payments, fintech, My Hero Academia, and gaming culture.',
+  tags: ['Finance', 'Markets', 'Anime', 'Gaming', 'OzoneNews', 'Author'],
   topic_tag: 'Author Profile',
   category_color: '#10b981',
 
-  author_name: 'ObjectWire Editorial',
+  author_name: 'OzoneNews Editorial',
   author_role: 'Editorial',
-  author_slug: 'objectwire-editorial',
+  author_slug: 'OzoneNews-editorial',
 
   image_url: '',
-  image_alt: 'Alfansa, ObjectWire Finance & Markets Reporter',
+  image_alt: 'Alfansa, OzoneNews Finance & Markets Reporter',
 
   content: [
     {
@@ -34,13 +34,13 @@ const article: Article = {
 
     <h2 class="text-2xl font-bold mb-4 text-gray-900">About Alfansa</h2>
     <p class="mb-4 text-gray-700 leading-relaxed">
-      Alfansa is a <strong>Finance &amp; Markets Reporter</strong> and <strong>Anime &amp; Gaming Editor</strong> at ObjectWire. Her financial coverage focuses on payments infrastructure, fintech disruption, market events, and the intersection of emerging technology with capital markets, bringing the same analytical depth to Wall Street that she brings to the gaming world.
+      Alfansa is a <strong>Finance &amp; Markets Reporter</strong> and <strong>Anime &amp; Gaming Editor</strong> at OzoneNews. Her financial coverage focuses on payments infrastructure, fintech disruption, market events, and the intersection of emerging technology with capital markets, bringing the same analytical depth to Wall Street that she brings to the gaming world.
     </p>
     <p class="mb-4 text-gray-700 leading-relaxed">
-      On the finance beat, Alfansa covers breaking market events, sector selloffs, and structural shifts in industries being reshaped by AI and digital finance. Her reporting on the February 2026 payments sector selloff, driven by an AI disruption note and tariff uncertainty, drew significant readership across ObjectWire's finance audience.
+      On the finance beat, Alfansa covers breaking market events, sector selloffs, and structural shifts in industries being reshaped by AI and digital finance. Her reporting on the February 2026 payments sector selloff, driven by an AI disruption note and tariff uncertainty, drew significant readership across OzoneNews's finance audience.
     </p>
     <p class="mb-6 text-gray-700 leading-relaxed">
-      Alfansa also leads ObjectWire's <strong>Anime &amp; Gaming coverage</strong>, heading the My Hero Academia franchise desk across its manga/anime universe and video game catalogue. She covers My Hero Ultra Rumble season by season and contributes broader seasonal anime commentary, approaching every beat with the conviction that it deserves rigorous editorial standards.
+      Alfansa also leads OzoneNews's <strong>Anime &amp; Gaming coverage</strong>, heading the My Hero Academia franchise desk across its manga/anime universe and video game catalogue. She covers My Hero Ultra Rumble season by season and contributes broader seasonal anime commentary, approaching every beat with the conviction that it deserves rigorous editorial standards.
     </p>
 
     <h3 class="text-xl font-bold mb-3 mt-8 text-gray-900">Coverage Areas</h3>
@@ -102,7 +102,7 @@ const article: Article = {
             </tr>
             <tr class="border-b border-gray-100">
               <th class="py-1.5 pr-2 text-left text-gray-600 font-medium">Outlet</th>
-              <td class="py-1.5">ObjectWire</td>
+              <td class="py-1.5">OzoneNews</td>
             </tr>
             <tr>
               <th class="py-1.5 pr-2 text-left text-gray-600 font-medium align-top">Beats</th>
@@ -125,7 +125,7 @@ const article: Article = {
 
       <!-- Editorial Standards -->
       <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm">
-        <p class="text-gray-600">All reporting follows ObjectWire's <a href="/editorial-standards" class="text-blue-600 hover:underline">editorial standards</a>. Submit corrections via <a href="/corrections" class="text-blue-600 hover:underline">our corrections page</a>.</p>
+        <p class="text-gray-600">All reporting follows OzoneNews's <a href="/editorial-standards" class="text-blue-600 hover:underline">editorial standards</a>. Submit corrections via <a href="/corrections" class="text-blue-600 hover:underline">our corrections page</a>.</p>
       </div>
     </div>
   </aside>

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Italy\'s government calls a U.S. backdoor entry proposal "shameful." With Iran\'s security status unresolved 50 days out, the 2026 World Cup faces its biggest geopolitical crisis yet.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T16:00:00Z',
     modifiedTime: '2026-04-23T16:00:00Z',

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Attackers drained $285M from Solana\'s largest perp DEX in 12 minutes. $230M in stolen USDC bridged to Ethereum via Circle\'s CCTP without intervention.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-17T23:30:00Z',
     modifiedTime: '2026-04-17T23:30:00Z',

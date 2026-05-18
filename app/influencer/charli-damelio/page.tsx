@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       'Full profile of Charli D\'Amelio, 21, first person to 100M TikTok followers. Dancing career, D\'Amelio Show, BORN DREAMER brand, and social media 2026.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -73,7 +73,7 @@ export default function CharliDameliioPage() {
           'Charli D\'Amelio, 21, is an American dancer and TikTok creator from Norwalk, Connecticut. She was the first person to reach 100 million TikTok followers. Full biography: net worth, D\'Amelio Show, BORN DREAMER brand, and 2026 career.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -158,7 +158,7 @@ export default function CharliDameliioPage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -290,7 +290,7 @@ export default function CharliDameliioPage() {
       <SourcesInterlink
         accentColor="purple"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/alix-earle', label: 'Alix Earle Profile', description: 'GRWM creator, Fanatics ambassador' },
           { href: '/influencer/emma-chamberlain', label: 'Emma Chamberlain Profile', description: 'YouTube creator, Chamberlain Coffee founder' },
           { href: '/tiktok', label: 'TikTok News', description: 'Latest TikTok platform coverage' },

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
 import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
       'From NCAA phenom to 2-time US Open champion and LIV Golf icon. Physics-based swing, 40-lb body transformation, 320-yard drives, and a growing YouTube presence.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Editorial'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Editorial'],
     publishedTime: '2026-04-15T10:00:00Z',
     modifiedTime: '2026-05-06T10:00:00Z',
     section: 'Creator',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bryson DeChambeau | 2-Time US Open Champion, LIV Golf Star',
     description:
-      'Career, body transformation, LIV Golf move, YouTube content, and the Steph Curry challenge. Full profile on ObjectWire.',
+      'Career, body transformation, LIV Golf move, YouTube content, and the Steph Curry challenge. Full profile on OzoneNews.',
   },
 };
 
@@ -57,7 +57,7 @@ export default function BrysonDeChambauPage() {
       <NewsArticleSchema
         title="Bryson DeChambeau | 2-Time US Open Champion, LIV Golf Star"
         description="Full profile of Bryson DeChambeau: 2-time US Open champion (2020, 2024), LIV Golf Crushers GC, physics-based swing, YouTube creator with 1M+ subscribers."
-        author="ObjectWire Editorial"
+        author="OzoneNews Editorial"
         publishedTime="2026-04-15T10:00:00Z"
         modifiedTime="2026-05-06T10:00:00Z"
         articleUrl={ARTICLE_URL}
@@ -72,7 +72,7 @@ export default function BrysonDeChambauPage() {
       topicTag="sports"
       publishDate="April 15, 2026"
       readTime="7 min read"
-      author={{ name: 'ObjectWire Editorial', role: 'Sports Desk' }}
+      author={{ name: 'OzoneNews Editorial', role: 'Sports Desk' }}
       tags={['Bryson DeChambeau', 'LIV Golf', 'US Open', 'Golf', 'Sports']}
       breadcrumbs={[
         { name: 'Home', item: '/' },
@@ -151,7 +151,7 @@ export default function BrysonDeChambauPage() {
       <SourcesInterlink
         accentColor="blue"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/bryson-dechambeau/kalshi', label: 'Bryson x Kalshi Partnership', description: 'First official Kalshi athlete partner, $159K prediction market' },
           { href: '/influencer/mrbeast', label: 'MrBeast Profile', description: 'Most-subscribed solo YouTube creator' },
         ]}

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'The Pokémon Company confirms 2.2 million units sold in four days. Japan accounted for nearly 1 million copies. Physical stock sold out at Amazon, Currys,',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-12T10:00:00Z',
     modifiedTime: '2026-03-12T10:00:00Z',
     section: 'Video Games',

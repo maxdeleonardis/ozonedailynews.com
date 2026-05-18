@@ -129,7 +129,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       url: canonical,
-      siteName: 'ObjectWire',
+      siteName: 'OzoneNews',
     },
   };
 }

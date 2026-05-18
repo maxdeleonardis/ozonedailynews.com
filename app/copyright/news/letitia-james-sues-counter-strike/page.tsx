@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "New York's AG alleges Counter-Strike 2 loot boxes are illegal gambling. Some CS skins have sold for over $1 million. The broader skins market is worth",
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-02-25T20:00:00Z',
     modifiedTime: '2026-02-25T20:00:00Z',

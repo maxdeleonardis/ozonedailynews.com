@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'RTX 5090 hits 2x RTX 4090 in ray tracing and AI workloads. DLSS 4 Multi Frame Generation doubles frame rates. Full tier-by-tier verdict on the Blackwell GPU lineup for 2026.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T22:00:00Z',
     modifiedTime: '2026-05-11T22:00:00Z',

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'One month after exiting Disney, Bob Iger returns to Thrive Capital to guide investments in OpenAI, A24, Spotify, and the generative AI era.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T14:00:00Z',
     modifiedTime: '2026-04-23T14:00:00Z',

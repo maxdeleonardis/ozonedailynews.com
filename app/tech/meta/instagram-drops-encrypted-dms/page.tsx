@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: 'Meta is removing optional end-to-end encryption from Instagram DMs on May 8, 2026. Affected users must download their encrypted chats before access disappears.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-07T10:00:00Z',
     modifiedTime: '2026-05-07T10:00:00Z',

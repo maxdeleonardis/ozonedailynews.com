@@ -33,16 +33,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rocket League | News, Esports, Ranks & Updates 2026',
     description:
-      'Physics-based vehicular soccer. Season 22 patch notes, competitive rank breakdown, RLCS esports coverage, and car build guides on ObjectWire.',
+      'Physics-based vehicular soccer. Season 22 patch notes, competitive rank breakdown, RLCS esports coverage, and car build guides on OzoneNews.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Rocket League arena cars ball aerial' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Rocket League | News, Esports, Ranks & Updates 2026',
-    description: 'Season 22, ranked breakdown, esports, car builds, and patch notes. Everything Rocket League on ObjectWire.',
+    description: 'Season 22, ranked breakdown, esports, car builds, and patch notes. Everything Rocket League on OzoneNews.',
     images: [OG_IMAGE],
   },
 };
@@ -51,7 +51,7 @@ export default function RocketLeagueHubPage() {
   return (
     <ArticlePage
       title="Rocket League | News, Esports, Ranks & Updates"
-      subtitle="The complete ObjectWire hub for Rocket League — Season 22 patch notes, competitive rank tiers, RLCS esports, car builds, mechanics guides, and all Psyonix updates"
+      subtitle="The complete OzoneNews hub for Rocket League — Season 22 patch notes, competitive rank tiers, RLCS esports, car builds, mechanics guides, and all Psyonix updates"
       category="Gaming"
       lastUpdated="May 4, 2026"
       slug="rocket-league"
@@ -97,12 +97,12 @@ export default function RocketLeagueHubPage() {
         { id: 'esports', label: 'RLCS Esports | Structure and Teams' },
         { id: 'mechanics', label: 'Core Mechanics | Aerials, Boost, Dribbling' },
         { id: 'car-builds', label: 'Car Builds | Hitboxes Explained' },
-        { id: 'coverage', label: 'ObjectWire Rocket League Coverage' },
+        { id: 'coverage', label: 'OzoneNews Rocket League Coverage' },
       ]}
       relatedLinks={[
         { href: '/video-games/news/rocket-league-season-22-v2-66-patch-notes', label: 'Season 22 Patch Notes | v2.66', description: 'Rocket Pass, concurrent LTEs, ranked modifications, and training overhaul' },
         { href: '/video-games/fortnite', label: 'Fortnite Hub', description: 'Chapter 6 Season 2 news, guides, and patch notes' },
-        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on ObjectWire' },
+        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on OzoneNews' },
       ]}
       backLink={{ href: '/video-games', label: 'Video Games' }}
     >
@@ -113,7 +113,7 @@ export default function RocketLeagueHubPage() {
         { id: 'esports', label: 'RLCS Esports | Structure and Teams' },
         { id: 'mechanics', label: 'Core Mechanics | Aerials, Boost, Dribbling' },
         { id: 'car-builds', label: 'Car Builds | Hitboxes Explained' },
-        { id: 'coverage', label: 'ObjectWire Rocket League Coverage' },
+        { id: 'coverage', label: 'OzoneNews Rocket League Coverage' },
       ]} />
 
       <Section id="what-is-rl" title="What Is Rocket League | Physics-Based Vehicular Soccer">
@@ -266,9 +266,9 @@ export default function RocketLeagueHubPage() {
         </p>
       </Section>
 
-      <Section id="coverage" title="ObjectWire Rocket League Coverage">
+      <Section id="coverage" title="OzoneNews Rocket League Coverage">
         <p>
-          ObjectWire covers Rocket League patch notes, esports results, and competitive guides.
+          OzoneNews covers Rocket League patch notes, esports results, and competitive guides.
           The most recent article covers{' '}
           <Link href="/video-games/news/rocket-league-season-22-v2-66-patch-notes" className="text-blue-600 hover:text-blue-800 underline">
             Season 22 v2.66 patch notes

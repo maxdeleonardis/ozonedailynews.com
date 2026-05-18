@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Bloomberg's Mark Gurman reports Apple will introduce Core AI at WWDC 2026, replacing the Core ML developer framework shipped since 2017. The function",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-01T22:00:00Z',
     modifiedTime: '2026-03-01T22:00:00Z',

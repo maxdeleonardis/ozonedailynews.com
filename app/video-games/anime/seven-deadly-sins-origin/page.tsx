@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'Free-to-play open-world action RPG in the Seven Deadly Sins universe. Unreal Engine 5, real-time tag combat, climbing, gliding, crafting, anime voice',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/anime/seven-deadly-sins-origin',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: '/video-games/seven_deadly_sins_orgins.PNG' }],
   },
   twitter: {

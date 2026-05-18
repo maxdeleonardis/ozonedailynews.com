@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       'After one day of deliberation, a Santa Fe jury found Meta liable on two counts under New Mexico\'s Unfair Practices Act, concluding the company made false',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-25T20:00:00Z',
     modifiedTime: '2026-03-25T20:00:00Z',
     section: 'Law & Technology',

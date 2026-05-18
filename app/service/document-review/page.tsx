@@ -8,9 +8,9 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/service/document-review';
 
 export const metadata: Metadata = {
-  title: 'Document Review and FOIA | ObjectWire Investigative Services',
+  title: 'Document Review and FOIA | OzoneNews Investigative Services',
   description:
-    'Submit public records, FOIA documents, financial filings, or leaked materials for ObjectWire investigative review. Austin TX-based investigative media team handles all document types securely.',
+    'Submit public records, FOIA documents, financial filings, or leaked materials for OzoneNews investigative review. Austin TX-based investigative media team handles all document types securely.',
   keywords: [
     'document review investigative journalism',
     'FOIA request assistance Austin TX',
@@ -19,22 +19,22 @@ export const metadata: Metadata = {
     'FOIA Austin Texas',
     'leaked documents newsroom',
     'investigative document analysis Austin',
-    'ObjectWire document review',
+    'OzoneNews document review',
     'public records journalism Texas',
     'FOIA journalism Austin',
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Document Review and FOIA | ObjectWire Investigative Services',
-    description: 'Submit records, FOIA filings, or leaked materials for investigation. ObjectWire\'s Austin team handles documents securely and legally.',
+    title: 'Document Review and FOIA | OzoneNews Investigative Services',
+    description: 'Submit records, FOIA filings, or leaked materials for investigation. OzoneNews\'s Austin team handles documents securely and legally.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Document Review and FOIA | ObjectWire Austin',
-    description: 'Submit public records, FOIA documents, or leaked materials to ObjectWire\'s investigative team.',
+    title: 'Document Review and FOIA | OzoneNews Austin',
+    description: 'Submit public records, FOIA documents, or leaked materials to OzoneNews\'s investigative team.',
   },
 };
 
@@ -47,7 +47,7 @@ const SERVICE_SCHEMA = {
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
   provider: {
     '@type': ['LocalBusiness', 'NewsMediaOrganization'],
-    name: 'ObjectWire',
+    name: 'OzoneNews',
     url: 'https://www.ozonenetwork.news',
   },
   url: PAGE_URL,
@@ -69,8 +69,8 @@ export default function DocumentReviewPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Document Review and FOIA | ObjectWire"
-        subtitle="Submit public records, financial filings, FOIA responses, or leaked materials for analysis by ObjectWire's investigative team. All documents handled securely and legally."
+        title="Document Review and FOIA | OzoneNews"
+        subtitle="Submit public records, financial filings, FOIA responses, or leaked materials for analysis by OzoneNews's investigative team. All documents handled securely and legally."
         category="Media Services"
         lastUpdated="May 4, 2026"
         slug="service-document-review"
@@ -124,7 +124,7 @@ export default function DocumentReviewPage() {
         ]}
         relatedLinks={[
           { href: '/service', label: 'All Services', description: 'PI and media services' },
-          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How ObjectWire investigates' },
+          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How OzoneNews investigates' },
           { href: '/service/tip-the-newsroom', label: 'Tip the Newsroom', description: 'Submit a confidential news tip' },
           { href: '/service/corporate-investigations', label: 'Corporate Investigations', description: 'Private corporate case work' },
           { href: '/service/digital-forensics', label: 'Digital Forensics', description: 'OSINT and digital evidence analysis' },
@@ -133,7 +133,7 @@ export default function DocumentReviewPage() {
       >
         <Section id="what-we-accept" title="Document Types We Accept | What to Submit">
           <p>
-            ObjectWire's investigative team analyzes public records, leaked materials, and submitted
+            OzoneNews's investigative team analyzes public records, leaked materials, and submitted
             documents as the evidentiary backbone of published investigations. We accept:
           </p>
           <ul className="space-y-2 mt-2">
@@ -147,9 +147,9 @@ export default function DocumentReviewPage() {
           </ul>
         </Section>
 
-        <Section id="foia" title="FOIA and Public Records | How ObjectWire Uses Public Filings">
+        <Section id="foia" title="FOIA and Public Records | How OzoneNews Uses Public Filings">
           <p>
-            Public records are the foundation of most ObjectWire investigations. We file FOIA requests
+            Public records are the foundation of most OzoneNews investigations. We file FOIA requests
             with federal agencies under 5 U.S.C. § 552 and Texas Public Information Act requests with
             state and local agencies under Texas Government Code Chapter 552. Responses to these
             requests are analyzed for patterns, inconsistencies, and evidence that supports or
@@ -172,7 +172,7 @@ export default function DocumentReviewPage() {
 
         <Section id="handling" title="How We Handle Documents | Security and Access Controls">
           <p>
-            Documents submitted to ObjectWire are handled under strict access controls. Only members
+            Documents submitted to OzoneNews are handled under strict access controls. Only members
             of the editorial team directly involved in the related investigation have access to submitted
             materials. Documents are stored in encrypted environments and are not retained beyond the
             conclusion of the related investigation unless the source authorizes longer-term storage.
@@ -193,7 +193,7 @@ export default function DocumentReviewPage() {
         <Section id="legal" title="Legal Considerations | What Sources Should Know">
           <p>
             Submitting documents that belong to an employer, a government agency, or a third party
-            can carry legal risk depending on how those documents were obtained. ObjectWire is not
+            can carry legal risk depending on how those documents were obtained. OzoneNews is not
             your attorney and this page is not legal advice.
           </p>
           <p>
@@ -204,7 +204,7 @@ export default function DocumentReviewPage() {
           </p>
           <p>
             If you are concerned about legal exposure from submitting documents, consult an employment
-            or media law attorney before submission. ObjectWire can refer you to Texas media law
+            or media law attorney before submission. OzoneNews can refer you to Texas media law
             resources on request.
           </p>
           <p>

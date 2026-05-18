@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'Free-to-play roguelike survivor game in the Hunter x Hunter universe. 1.5M pre-registrations, original anime voice cast, four-character Nen teams, and',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/anime/hunter-hunter-nen-survivor',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: '/video-games/thumbnail.PNG' }],
   },
   twitter: {

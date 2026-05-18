@@ -1,18 +1,18 @@
 import type { Article } from '../../content/types';
 
 const article: Article = {
-  title: 'About ObjectWire',
+  title: 'About OzoneNews',
   slug: 'about',
   category: 'Reference',
   status: 'published',
   published_at: '2026-01-01',
 
-  excerpt: 'ObjectWire is a verification-first intelligence platform that provides cited business and technology analysis.',
-  tags: ['ObjectWire', 'About', 'Mission', 'Intelligence Platform'],
+  excerpt: 'OzoneNews is a verification-first intelligence platform that provides cited business and technology analysis.',
+  tags: ['OzoneNews', 'About', 'Mission', 'Intelligence Platform'],
 
-  author_name: 'ObjectWire Editorial',
+  author_name: 'OzoneNews Editorial',
   author_role: 'Editorial',
-  author_slug: 'objectwire-editorial',
+  author_slug: 'OzoneNews-editorial',
   category_color: '#6b7280',
 
   content: [
@@ -29,7 +29,7 @@ const article: Article = {
 
   <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
   <p class="mb-4 text-gray-700 leading-relaxed">
-    ObjectWire is a <strong>verification-first intelligence platform</strong> that provides cited business and technology analysis. We operate as a credibility engine, not a content aggregator. Every piece of content published undergoes rigorous verification using primary sources and custom language model processing specifically trained for fact-checking and citation validation.
+    OzoneNews is a <strong>verification-first intelligence platform</strong> that provides cited business and technology analysis. We operate as a credibility engine, not a content aggregator. Every piece of content published undergoes rigorous verification using primary sources and custom language model processing specifically trained for fact-checking and citation validation.
   </p>
   <p class="mb-8 text-gray-700 leading-relaxed">
     Our mission is to reveal truth through transparent verification methodology and documented claims.

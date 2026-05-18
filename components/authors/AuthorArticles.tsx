@@ -42,7 +42,7 @@ export default async function AuthorArticles({
   }[] = [
     ...registryArticles.map((a: ContentEntry) => ({
       href: a.slug,
-      title: a.title.replace(/ \| ObjectWire$/, ''),
+      title: a.title.replace(/ \| OzoneNews$/, ''),
       date: new Date(a.publishDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',

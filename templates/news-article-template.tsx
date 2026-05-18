@@ -20,13 +20,13 @@ import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Primary Keyword | ObjectWire',
+  title: 'Primary Keyword | OzoneNews',
   description: '130-155 chars. Primary keyword in first 60 chars. No generic phrases.',
   alternates: {
     canonical: 'https://www.ozonenetwork.news/REPLACE-WITH-SLUG',
   },
   openGraph: {
-    title: 'Primary Keyword | ObjectWire',
+    title: 'Primary Keyword | OzoneNews',
     description: '130-155 char OG description.',
     type: 'article',
     publishedTime: '2026-03-28T14:00:00Z',
@@ -46,7 +46,7 @@ export default function YourArticlePage() {
   return (
     <>
       <NewsArticleSchema
-        title="Primary Keyword | ObjectWire"
+        title="Primary Keyword | OzoneNews"
         description="130-155 char description matching metadata above."
         author="Jack Sterling"
         authorUrl="https://www.ozonenetwork.news/authors/jack-sterling"

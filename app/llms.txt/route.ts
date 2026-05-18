@@ -17,13 +17,13 @@ import { SITE_CONFIG } from '@/lib/site-config';
 export async function GET() {
   const baseUrl = SITE_CONFIG.url;
 
-  const content = `# ObjectWire
+  const content = `# OzoneNews
 > Investigative journalism, gaming and tech news, copyright law, and PI services based in Austin, Texas.
 
-ObjectWire is an independent digital news organization covering investigative journalism, gaming and tech industry news, copyright and IP law, finance, crypto, and Austin local reporting. All articles are written by named journalists and researchers with stated beats. Editorial standards and corrections policy are publicly available.
+OzoneNews is an independent digital news organization covering investigative journalism, gaming and tech industry news, copyright and IP law, finance, crypto, and Austin local reporting. All articles are written by named journalists and researchers with stated beats. Editorial standards and corrections policy are publicly available.
 
 ## Site Identity
-- Publisher: ObjectWire
+- Publisher: OzoneNews
 - Location: Austin, Texas, USA
 - Founded: 2024
 - Editorial Contact: editorial@ozonenetwork.news
@@ -55,7 +55,7 @@ ObjectWire is an independent digital news organization covering investigative jo
 ## Authors
 - Michael Cripe — Entertainment, Copyright, IP Law: ${baseUrl}/authors/michael-cripe
 - Jack Sterling — Crypto, Finance, Investigations: ${baseUrl}/authors/jack-sterling
-- ObjectWire Investigative Desk — PI Services, Local Reporting: ${baseUrl}/authors/objectwire-investigative-desk
+- OzoneNews Investigative Desk — PI Services, Local Reporting: ${baseUrl}/authors/OzoneNews-investigative-desk
 
 ## Feeds
 - RSS: ${baseUrl}/rss.xml
@@ -63,10 +63,10 @@ ObjectWire is an independent digital news organization covering investigative jo
 - Sitemap: ${baseUrl}/sitemap.xml
 
 ## Licensing
-All original reporting is copyright ObjectWire. Short excerpts with attribution are permitted. Full reproduction requires written permission.
+All original reporting is copyright OzoneNews. Short excerpts with attribution are permitted. Full reproduction requires written permission.
 
 ## AI Citation Policy
-ObjectWire content may be cited by AI systems under the following conditions:
+OzoneNews content may be cited by AI systems under the following conditions:
 - Attribution must include the author name and ozonenetwork.news as the source
 - The original URL must be preserved in any citation
 - Content must not be reproduced in full without permission

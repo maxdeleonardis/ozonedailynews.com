@@ -13,7 +13,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635372730136-06b29022281c?w
 export const metadata: Metadata = {
   title: 'Fortnite | Chapter 6 Season 2, News & Guides 2026',
   description:
-    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides from ObjectWire.',
+    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides from OzoneNews.',
   keywords: [
     'Fortnite',
     'Fortnite Chapter 6 Season 2',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Fortnite Chapter 6 Season 2 "Lawless": map changes, Battle Pass skins, weapons tier list, ranked updates, and all current guides.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Fortnite Chapter 6 Season 2 Lawless hub' }],
   },
   twitter: {
@@ -104,7 +104,7 @@ export default function FortniteHubPage() {
         { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Chapter 6 Season 2 Map Changes', description: 'Shogun POI, cherry blossoms, and every new named location' },
         { href: '/video-games/fortnite/chapter-6-season-2-battle-pass', label: 'Chapter 6 Season 2 Battle Pass', description: 'All skins, secret styles, and bonus rewards in the Season 2 pass' },
         { href: '/video-games/fortnite/chapter-6-season-2-weapons-tier-list', label: 'Season 2 Weapons Tier List', description: 'Katanas, SMGs, LMGs and the complete weapon rankings' },
-        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on ObjectWire' },
+        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on OzoneNews' },
       ]}
       backLink={{ href: '/video-games', label: 'Video Games' }}
     >
@@ -280,7 +280,7 @@ export default function FortniteHubPage() {
             { href: '/video-games/fortnite/chapter-6-season-2-battle-pass', label: 'Chapter 6 Season 2 Battle Pass', description: 'All skins, secret styles, and bonus rewards tier by tier' },
             { href: '/video-games/fortnite/chapter-6-season-2-weapons-tier-list', label: 'Season 2 Weapons Tier List', description: 'Full S-to-D ranking of every weapon in the current loot pool' },
             { href: '/entertainment/news/fortnite-moves-into-movies', label: 'Fortnite Moves Into Movies', description: 'How Epic is building Fortnite into a full entertainment IP' },
-            { href: '/video-games/epic', label: 'Epic Games Hub', description: 'All Epic Games news and coverage on ObjectWire' },
+            { href: '/video-games/epic', label: 'Epic Games Hub', description: 'All Epic Games news and coverage on OzoneNews' },
             { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news, guides, and analysis' },
           ]}
         />

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Baltimore sued xAI Corp. and X Corp. on March 24, 2026, becoming the first U.S. city to use its Consumer Protection Ordinance against an AI company,",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-25T12:00:00Z',
     modifiedTime: '2026-03-25T12:00:00Z',

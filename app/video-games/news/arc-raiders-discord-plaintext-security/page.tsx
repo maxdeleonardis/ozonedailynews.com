@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'Embark Studios\' extraction shooter was writing private Discord messages and auth tokens to unencrypted local files. Emergency hotfix announced.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

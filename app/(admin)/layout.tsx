@@ -8,10 +8,10 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: {
-    default: "Admin Dashboard | ObjectWire",
-    template: "%s | ObjectWire Admin"
+    default: "Admin Dashboard | OzoneNews",
+    template: "%s | OzoneNews Admin"
   },
-  description: "ObjectWire Admin Dashboard - Manage articles and content",
+  description: "OzoneNews Admin Dashboard - Manage articles and content",
 };
 
 export default function AdminLayout({

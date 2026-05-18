@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Season 16 brings Bakugo\'s Cluster super move to My Hero Ultra Rumble. Technical Class overhaul, S-Tier stun-lock potential, and a 1% drop rate gacha trap.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-22T12:00:00Z',
     modifiedTime: '2026-04-22T12:00:00Z',

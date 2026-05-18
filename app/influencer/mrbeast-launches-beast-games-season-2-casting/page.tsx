@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
 import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
       'MrBeast has opened casting for Beast Games Season 2 on Amazon Prime Video. Apply link, what producers are looking for, prize amount, and Season 1 recap.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     publishedTime: '2026-03-20T14:00:00Z',
     modifiedTime: '2026-05-06T14:00:00Z',
     section: 'Creator',
@@ -64,7 +64,7 @@ export default function BeastGamesSeason2CastingPage() {
       <NewsArticleSchema
         title="MrBeast Beast Games Season 2 | Casting, How to Apply"
         description="MrBeast has officially opened casting for Beast Games Season 2 on Amazon Prime Video. How to apply, what to expect, prize details, and production timeline."
-        author="ObjectWire Creator Desk"
+        author="OzoneNews Creator Desk"
         publishedTime="2026-03-20T14:00:00Z"
         modifiedTime="2026-05-06T14:00:00Z"
         imageUrl={OG_IMAGE}
@@ -80,7 +80,7 @@ export default function BeastGamesSeason2CastingPage() {
       topicTag="entertainment"
       publishDate="March 20, 2026"
       readTime="5 min read"
-      author={{ name: 'ObjectWire Creator Desk', role: 'Creator News' }}
+      author={{ name: 'OzoneNews Creator Desk', role: 'Creator News' }}
       thumbnail={{
         src: '/influncer/usa/mr_beast.png',
         alt: 'MrBeast, Jimmy Donaldson, host of Beast Games on Amazon Prime Video',
@@ -164,7 +164,7 @@ export default function BeastGamesSeason2CastingPage() {
         ]}
         internalLinks={[
           { href: '/influencer/mrbeast', label: 'MrBeast Profile', description: '350M+ subscribers, Beast Games, Feastables' },
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/mrbeast/last-to-leave-grocery-store-wins-250k', label: 'MrBeast Grocery Store Challenge', description: 'Last to leave wins $250K' },
         ]}
       />

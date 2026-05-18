@@ -10,8 +10,8 @@ import Link from 'next/link';
 // Two sections:
 //   1. External primary sources — numbered list with domain badge, author,
 //      date, blue link, optional description. Styled for journalistic credibility.
-//   2. Internal ObjectWire cross-links — pill-style links to related hubs
-//      and cluster articles ("Also on ObjectWire").
+//   2. Internal OzoneNews cross-links — pill-style links to related hubs
+//      and cluster articles ("Also on OzoneNews").
 //
 // INLINE CITATION NUMBERS
 //   Use <CitationRef n={1} /> in JSX to render a superscript [1] that scrolls
@@ -176,10 +176,10 @@ export function SourcesInterlink({
         </ol>
       )}
 
-      {/* Internal ObjectWire cross-links — card grid for strong visual interlinking */}
+      {/* Internal OzoneNews cross-links — card grid for strong visual interlinking */}
       {internalLinks.length > 0 && (
         <div>
-          <h3 className="text-base font-bold mb-3">Further Reading on ObjectWire</h3>
+          <h3 className="text-base font-bold mb-3">Further Reading on OzoneNews</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {internalLinks.map((link, i) => (
               <Link

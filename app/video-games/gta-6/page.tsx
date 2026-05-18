@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       'November 19, 2026 confirmed. Dual protagonists Jason and Lucia. The state of Leonida. Everything Rockstar has confirmed.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Gaming',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Grand Theft Auto VI GTA 6 complete guide' }],
     tags: ['GTA 6', 'Rockstar Games', 'Grand Theft Auto', 'Gaming'],
@@ -114,7 +114,7 @@ export default function GTA6Page() {
         { href: '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay', label: 'GTA 6 Pre-Orders', description: 'PlayStation Store title IDs signal imminent launch window' },
         { href: '/video-games/gta-6/news/take-two-ai-team-shake-up-2026', label: 'Take-Two AI Team Restructure', description: 'Hundreds of AI pilots pledged ahead of GTA 6 launch' },
         { href: '/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay', label: 'GTA 5 Crunch Overtime Pay', description: 'Former Rockstar developers say they were never compensated for 100-hour crunch weeks' },
-        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on ObjectWire' },
+        { href: '/video-games', label: 'Video Games Hub', description: 'All gaming news and guides on OzoneNews' },
       ]}
       backLink={{ href: '/video-games', label: 'Video Games' }}
     >
@@ -291,7 +291,7 @@ export default function GTA6Page() {
 
       <Section id="sub-articles" title="More GTA 6 Coverage">
         <p>
-          ObjectWire covers GTA 6 in depth across multiple articles. Start with the{' '}
+          OzoneNews covers GTA 6 in depth across multiple articles. Start with the{' '}
           <Link href="/video-games/gta-6" className="text-blue-600 hover:text-blue-800 underline">
             Trailer 2 full breakdown
           </Link>

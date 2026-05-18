@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile of Stephen Tries (real name: Stephen Lawson), Norwich comedian, 30 in 2026. YouTube: 1.6M subscribers. Known for "How To Be Stormzy" and UK',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Stephen Tries', 'UK YouTuber', 'Norwich', 'Comedy', 'Sidemen', 'YouTube'],
     publishedTime: '2026-04-02T14:00:00Z',

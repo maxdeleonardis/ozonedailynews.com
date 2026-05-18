@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Private research university in New York City. NYU\'s journalism institute trains reporters in investigative, political, and technology journalism.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: 'Education',
     tags: ['NYU', 'New York University', 'Journalism', 'Arthur L. Carter Journalism Institute'],
   },
@@ -40,7 +40,7 @@ export default function NYUCollegePage() {
           </nav>
 
           <p className="text-[10px] uppercase tracking-[0.3em] font-black text-purple-400 mb-3 font-mono">
-            University Profile &middot; ObjectWire Education Index
+            University Profile &middot; OzoneNews Education Index
           </p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-4">
             NYU
@@ -92,12 +92,12 @@ export default function NYUCollegePage() {
                 journalists who resist speculation in favor of what the record shows.
               </p>
 
-              <h2>ObjectWire Alumni</h2>
+              <h2>OzoneNews Alumni</h2>
               <p>
                 <Link href="/authors/jack-sterling" className="text-blue-600 hover:text-blue-800 underline">
                   Jack Sterling
                 </Link>
-                , ObjectWire&rsquo;s reporter covering breaking news, federal investigations, Congress,
+                , OzoneNews&rsquo;s reporter covering breaking news, federal investigations, Congress,
                 and AI policy, graduated from NYU&rsquo;s journalism program. Based in Washington, D.C.,
                 Sterling&rsquo;s document-first approach to reporting on federal policy, technology
                 regulation, and gaming industry finance reflects the Carter Institute&rsquo;s core
@@ -127,7 +127,7 @@ export default function NYUCollegePage() {
             </div>
 
             <div className="bg-purple-950 text-white p-5 space-y-3">
-              <p className="text-[10px] uppercase tracking-widest font-black text-purple-400">ObjectWire Alumni</p>
+              <p className="text-[10px] uppercase tracking-widest font-black text-purple-400">OzoneNews Alumni</p>
               <Link href="/authors/jack-sterling" className="block text-sm font-semibold text-purple-200 hover:text-white underline transition-colors">
                 Jack Sterling, Reporter &rarr;
               </Link>
@@ -138,7 +138,7 @@ export default function NYUCollegePage() {
               <div className="space-y-2">
                 <Link href="/college/ucla" className="block text-sm text-blue-600 hover:text-blue-800 underline">UCLA &rarr;</Link>
                 <Link href="/college/north-carolina-state-university" className="block text-sm text-blue-600 hover:text-blue-800 underline">NC State University &rarr;</Link>
-                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All ObjectWire Authors &rarr;</Link>
+                <Link href="/authors" className="block text-sm text-blue-600 hover:text-blue-800 underline">All OzoneNews Authors &rarr;</Link>
               </div>
             </div>
 

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       'TAS Rights Management filed three USPTO trademarks covering Taylor Swift\'s voice and likeness as AI-generated celebrity content floods social media.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Michael Cripe'],
     publishedTime: '2026-04-28T03:11:00Z',
     modifiedTime: '2026-04-28T03:11:00Z',
@@ -61,7 +61,7 @@ const ARTICLE_SCHEMA = {
   author: { '@type': 'Person', name: 'Michael Cripe', url: 'https://www.ozonenetwork.news/authors/michael-cripe' },
   publisher: {
     '@type': 'Organization',
-    name: 'ObjectWire',
+    name: 'OzoneNews',
     url: 'https://www.ozonenetwork.news',
     logo: { '@type': 'ImageObject', url: 'https://www.ozonenetwork.news/logo.png' },
   },
@@ -321,7 +321,7 @@ export default function TaylorSwiftTrademarkPage() {
                 </Link>
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Entertainment and IP reporter at ObjectWire. Covers copyright, trademark, and AI law in music,
+                Entertainment and IP reporter at OzoneNews. Covers copyright, trademark, and AI law in music,
                 gaming, and film.
               </p>
             </div>

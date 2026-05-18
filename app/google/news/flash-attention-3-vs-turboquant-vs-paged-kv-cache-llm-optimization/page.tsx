@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       'Three LLM optimization techniques that solve different bottlenecks and stack together. Compute speed, memory compression, and allocation efficiency',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-01T14:00:00Z',
     modifiedTime: '2026-04-01T14:00:00Z',

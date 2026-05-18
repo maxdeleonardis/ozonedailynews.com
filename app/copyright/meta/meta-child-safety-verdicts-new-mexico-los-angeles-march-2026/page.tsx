@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'On a single day, juries in New Mexico and Los Angeles delivered twin liability verdicts against Meta, $375M for child exploitation algorithms and $3M for',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-25T18:00:00Z',
     modifiedTime: '2026-03-25T18:00:00Z',

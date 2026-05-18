@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
       'Logan Paul sells the world\'s rarest Pokémon card for $16 million at auction, nearly tripling the $5.275M he paid in 2022. Full breakdown of the iconic',
     type: 'article',
     url: 'https://www.owire.org/creator/news/logan-paul-sells-pokemon-card-16-million',
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Editorial'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Editorial'],
     section: 'Creator',
     tags: ['Logan Paul', 'Pokemon', 'Pikachu Illustrator', 'Auction', 'Collectibles', 'Record'],
   },

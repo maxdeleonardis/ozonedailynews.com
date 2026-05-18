@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Nvidia licensed Groq's full LPU patent portfolio and hired founder Jonathan Ross on December 24, 2025 for $20 billion. The result debuts at GTC 2026 in",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-01T20:00:00Z',
     modifiedTime: '2026-03-01T22:00:00Z',

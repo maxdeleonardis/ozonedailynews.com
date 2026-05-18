@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     description: 'Serge Gatari built ClientAcquisition.io and teaches AI automation for client acquisition. Full biography, course breakdown, and 2026 profile.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-02-09T10:00:00Z',
     modifiedTime: '2026-02-09T10:00:00Z',

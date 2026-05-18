@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Full analysis of Square Enix FY2026: 34.9% income surge to 54.7B yen, western publishing consolidated from 11 hubs to four, and HD Games growing from 3.3B to 14.1B in operating profit.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-15T10:00:00Z',
     modifiedTime: '2026-05-15T10:00:00Z',

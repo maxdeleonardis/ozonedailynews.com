@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Switch 2 launches June 5 at $449.99. Steam Deck OLED is $549. Both are handheld consoles, but they serve completely different players. Full comparison: specs, games, display, and price.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T14:00:00Z',
     modifiedTime: '2026-05-11T14:00:00Z',

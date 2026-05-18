@@ -54,7 +54,7 @@ export default function SearchBar({ className = '' }: { className?: string }) {
             <div className="container mx-auto max-w-3xl">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold text-gray-900">
-                  Search ObjectWire
+                  Search OzoneNews
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}

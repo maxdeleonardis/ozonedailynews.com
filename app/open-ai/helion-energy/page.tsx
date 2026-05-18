@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Full profile of Helion Energy: FRC fusion technology, the 150M degree Polaris milestone, and the Sam Altman conflict revealed during the Musk v. Altman trial.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-13T12:00:00Z',
     modifiedTime: '2026-05-13T12:00:00Z',

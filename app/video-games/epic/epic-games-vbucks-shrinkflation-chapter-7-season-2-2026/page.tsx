@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Epic keeps prices the same but slashes V-Bucks quantities by up to 20% across every bundle, effective March 19, 2026. The $8.99 starter pack goes from",
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-18T18:00:00Z',
     modifiedTime: '2026-03-18T18:00:00Z',

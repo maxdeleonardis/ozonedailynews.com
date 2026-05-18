@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       "Pearl Abyss's custom BlackSpace Engine hit native 4K at 60fps on ultra settings with full ray tracing on an AMD RX 7900 XTX, no upscaling applied. Digital",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-01T22:00:00Z',
     modifiedTime: '2026-03-01T22:00:00Z',

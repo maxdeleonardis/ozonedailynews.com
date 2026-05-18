@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile of Ari Kytsya, Seattle-based fashion model and creator, 24-25 in 2026. TikTok: @notburnttoasthehe (5M), Instagram: @arikytsya (3M). Career,',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Ari Kytsya', 'Creator', 'Seattle', 'Model', 'TikTok', 'Yung Gravy'],
     publishedTime: '2026-04-02T12:00:00Z',

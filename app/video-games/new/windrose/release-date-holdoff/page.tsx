@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       'Despite crossing 1M wishlists and going viral at Steam Next Fest, Windrose Crew says they won\'t announce a date until the build is ready.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

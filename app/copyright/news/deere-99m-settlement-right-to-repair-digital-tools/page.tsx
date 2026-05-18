@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'John Deere will pay $99M and provide digital repair tools to farmers for a decade, settling a class-action antitrust lawsuit filed in 2022.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Alfanasa'],
     publishedTime: '2026-04-08T16:00:00Z',
     modifiedTime: '2026-04-08T16:00:00Z',

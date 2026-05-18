@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
       "Logan Paul's PRIME Hydration partners with Diamond Gym in Maplewood, NJ. The deal includes a Special Edition TTD bottle and Prime Protein, repositioning PRIME in the bodybuilding market.",
     type: 'article',
     url: 'https://www.owire.org/creator/diamond-gym/prime',
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     publishedTime: '2026-02-20T10:00:00Z',
     modifiedTime: '2026-02-20T10:00:00Z',
     section: 'Creator',

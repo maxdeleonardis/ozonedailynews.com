@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       'Full profile of SSSniperWolf (Alia Shelesh), 32, YouTube creator with 34M subscribers. Gaming reactions, Little Lia channel, JacksFilms controversy, net worth 2026.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -73,7 +73,7 @@ export default function SSSniperWolfPage() {
           'SSSniperWolf (Alia Shelesh), 32, is a British-American YouTube creator with 34 million subscribers known for gaming reactions and challenge videos. Full biography: net worth, JacksFilms controversy, Little Lia channel, and 2026 career.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -161,7 +161,7 @@ export default function SSSniperWolfPage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -299,10 +299,10 @@ export default function SSSniperWolfPage() {
       <SourcesInterlink
         accentColor="red"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/valkyrae', label: 'Valkyrae Profile', description: 'YouTube-exclusive gaming creator, 100 Thieves co-owner' },
           { href: '/influencer/pokimane', label: 'Pokimane Profile', description: 'Twitch-retired creator, Midnight brand founder' },
-          { href: '/video-games', label: 'Gaming News', description: 'Latest gaming coverage on ObjectWire' },
+          { href: '/video-games', label: 'Gaming News', description: 'Latest gaming coverage on OzoneNews' },
         ]}
       />
 

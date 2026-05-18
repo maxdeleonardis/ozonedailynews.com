@@ -5,7 +5,7 @@ import React from 'react';
 // =============================================================================
 // SisterSiteLink — Cross-site promotional link to owire.org
 //
-// owire.org is ObjectWire's sister site focused on entertainment, creators,
+// owire.org is OzoneNews's sister site focused on entertainment, creators,
 // influencers, and pop culture content.
 //
 // Use this component inside JackArticle, NewsArticle, or any article body

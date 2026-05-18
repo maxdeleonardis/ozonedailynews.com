@@ -109,8 +109,8 @@ function checkViolations(content: string, relPath: string): PageViolation | null
   const violations: string[] = [];
 
   // 1. Title ends with brand suffix
-  if (/\|\s*ObjectWire\s*$/.test(title)) {
-    violations.push(`BRAND SUFFIX: title ends with "| ObjectWire" (wastes ~12 chars) → "${title}"`);
+  if (/\|\s*OzoneNews\s*$/.test(title)) {
+    violations.push(`BRAND SUFFIX: title ends with "| OzoneNews" (wastes ~12 chars) → "${title}"`);
   }
 
   // 2. Title length
@@ -203,7 +203,7 @@ function run() {
   // ── Summary banner ────────────────────────────────────────────────────────
   console.log('');
   console.log(`${COLORS.bold}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${COLORS.reset}`);
-  console.log(`${COLORS.bold}  ObjectWire Metadata Audit  |  ${new Date().toDateString()}${COLORS.reset}`);
+  console.log(`${COLORS.bold}  OzoneNews Metadata Audit  |  ${new Date().toDateString()}${COLORS.reset}`);
   console.log(`${COLORS.bold}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${COLORS.reset}`);
   console.log(`  Pages scanned : ${COLORS.cyan}${pages.length}${COLORS.reset}`);
   console.log(`  Pages with violations : ${COLORS.red}${results.length}${COLORS.reset}`);
@@ -241,7 +241,7 @@ function run() {
     console.log('');
   }
 
-  printGroup('BRAND SUFFIX  — strip "| ObjectWire" from title', brandSuffix, 'BRAND SUFFIX');
+  printGroup('BRAND SUFFIX  — strip "| OzoneNews" from title', brandSuffix, 'BRAND SUFFIX');
   printGroup('TITLE TOO LONG  — trim to 60 chars', titleTooLong, 'TITLE TOO LONG');
   printGroup('DASH VIOLATIONS  — replace — / – / " - " with |', dashViolations, 'EM/EN DASH');
   printGroup('WRONG SEPARATOR  — replace " - " with " | "', dashViolations, 'WRONG SEPARATOR');

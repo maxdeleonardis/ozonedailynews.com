@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Bungie\'s first major balance pass for Marathon (2026) reduces UESC health by 10–15%, slashes boss shield HP by 25%, and caps thermal scope tracking at',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-12T10:00:00Z',
     modifiedTime: '2026-03-12T10:00:00Z',
     section: 'Video Games',

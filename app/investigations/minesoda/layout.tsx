@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Minesoda | ObjectWire',
+  title: 'Minesoda | OzoneNews',
   description: 'Coverage of Minnesota news and investigations.',
   alternates: {
     canonical: 'https://www.ozonenetwork.news/minesoda',

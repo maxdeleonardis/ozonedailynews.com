@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
       'Full profile of Valkyrae (Rachel Hofstetter), 32, co-owner of 100 Thieves esports org and top YouTube Gaming creator. Career, RLYRAE brand, net worth, social handles.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -74,7 +74,7 @@ export default function ValkyraePage() {
           'Valkyrae (Rachel Hofstetter), 32, is a Las Vegas-based YouTube Gaming creator, co-owner of 100 Thieves esports organization, and founder of the RLYRAE beauty brand. Full biography, net worth, and social media 2026.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -158,7 +158,7 @@ export default function ValkyraePage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -303,7 +303,7 @@ export default function ValkyraePage() {
         </p>
         <p>
           Her dual identity as both a content creator and an esports executive is rare in the industry, giving her credibility across entertainment, business, and gaming media. For related profiles, see the{' '}
-          <a href="/creator" className="text-blue-600 hover:text-blue-800 underline">ObjectWire Creator Hub</a> and the{' '}
+          <a href="/creator" className="text-blue-600 hover:text-blue-800 underline">OzoneNews Creator Hub</a> and the{' '}
           <a href="/creator/pokimane" className="text-blue-600 hover:text-blue-800 underline">Pokimane profile</a>.
         </p>
       </CreatorSection>
@@ -311,10 +311,10 @@ export default function ValkyraePage() {
       <SourcesInterlink
         accentColor="orange"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/pokimane', label: 'Pokimane Profile', description: 'Twitch-retired creator, Midnight brand founder' },
           { href: '/influencer/sssniperwolf', label: 'SSSniperWolf Profile', description: '34M YouTube subscribers, reaction content' },
-          { href: '/video-games', label: 'Gaming News', description: 'Latest gaming coverage on ObjectWire' },
+          { href: '/video-games', label: 'Gaming News', description: 'Latest gaming coverage on OzoneNews' },
         ]}
       />
 

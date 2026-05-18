@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       'From $1 billion to $2 billion ARR in roughly 90 days. Anysphere\'s Cursor sets one of the fastest recurring revenue acceleration rates in SaaS history.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
     publishedTime: '2026-03-02T12:00:00Z',
     modifiedTime: '2026-03-02T12:00:00Z',

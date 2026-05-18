@@ -102,7 +102,7 @@ export default function TopStripSearch({ dateString }: { dateString: string }) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Search ObjectWire…"
+                placeholder="Search OzoneNews…"
                 className="text-sm font-mono border-b-2 border-black bg-transparent outline-none w-52 sm:w-72 py-1 placeholder-gray-400 text-gray-900"
                 autoComplete="off"
               />
@@ -171,7 +171,7 @@ export default function TopStripSearch({ dateString }: { dateString: string }) {
             href="https://discord.gg/wBsgkU4uAf"
             target="_blank"
             rel="noopener noreferrer"
-            title="Join the ObjectWire Discord community"
+            title="Join the OzoneNews Discord community"
             className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-semibold text-[#5865F2] hover:text-[#4752C4] transition-colors border border-[#5865F2]/30 hover:border-[#5865F2] rounded px-2 py-0.5"
           >
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

@@ -26,7 +26,7 @@ export default function FooterNewsletterForm() {
   if (status === 'success') {
     return (
       <p className="text-sm text-green-600 font-medium py-2">
-        ✓ You&apos;re on the list. Welcome to ObjectWire.
+        ✓ You&apos;re on the list. Welcome to OzoneNews.
       </p>
     );
   }

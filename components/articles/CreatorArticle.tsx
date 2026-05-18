@@ -12,7 +12,7 @@ import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 // =============================================================================
 // CREATOR ARTICLE — Reusable profile/biography article layout
 //
-// Based on: AlysaArticle design (ObjectWire Winter Olympics)
+// Based on: AlysaArticle design (OzoneNews Winter Olympics)
 // Use for: Athletes, influencers, founders, artists, creators, authors
 //
 // Layout: Hero banner + 2/3 article body + 1/3 sticky sidebar

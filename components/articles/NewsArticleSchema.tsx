@@ -61,17 +61,17 @@ export function NewsArticleSchema({
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
-      "name": "ObjectWire",
+      "name": "OzoneNews",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.ozonenetwork.news/objectwire-logo.png",
+        "url": "https://www.ozonenetwork.news/OzoneNews-logo.png",
         "width": 600,
         "height": 60
       },
       "url": "https://www.ozonenetwork.news",
       "sameAs": [
         "https://twitter.com/object_wire",
-        "https://www.facebook.com/objectwire",
+        "https://www.facebook.com/OzoneNews",
         "https://www.tiktok.com/@object_wire"
       ]
     },
@@ -84,7 +84,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.ozonenetwork.news" },
+    "copyrightHolder": { "@type": "Organization", "name": "OzoneNews", "url": "https://www.ozonenetwork.news" },
     // speakable — voice assistants (Google Assistant, Siri) and AI systems read these selectors.
     // Using specific selectors targets the actual answer content, not nav/footer noise.
     "speakable": {
@@ -113,26 +113,26 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
     "additionalType": "https://schema.org/NGO",
-    "name": "ObjectWire News",
-    "alternateName": "ObjectWire News Network",
+    "name": "OzoneNews News",
+    "alternateName": "OzoneNews News Network",
     "url": "https://www.ozonenetwork.news",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.ozonenetwork.news/objectwire-logo.png",
+      "url": "https://www.ozonenetwork.news/OzoneNews-logo.png",
       "width": 600,
       "height": 60
     },
-    "description": "ObjectWire is an independent, self-funded nonprofit newsroom delivering verified, source-cited reporting on business, technology, and policy.",
+    "description": "OzoneNews is an independent, self-funded nonprofit newsroom delivering verified, source-cited reporting on business, technology, and policy.",
     "foundingDate": "2024",
     "founders": [
       {
         "@type": "Person",
-        "name": "ObjectWire News Editorial Team"
+        "name": "OzoneNews News Editorial Team"
       }
     ],
     "sameAs": [
       "https://twitter.com/object_wire",
-      "https://www.facebook.com/objectwire",
+      "https://www.facebook.com/OzoneNews",
       "https://www.tiktok.com/@object_wire"
     ],
     "contactPoint": {
@@ -148,8 +148,8 @@ export function OrganizationSchema() {
     "ownershipFundingInfo": "https://www.ozonenetwork.news/about",
     "funder": {
       "@type": "Organization",
-      "name": "ObjectWire (self-funded)",
-      "description": "Self-funded by the ObjectWire editorial team. No advertising, sponsored content, or political donations accepted."
+      "name": "OzoneNews (self-funded)",
+      "description": "Self-funded by the OzoneNews editorial team. No advertising, sponsored content, or political donations accepted."
     }
   };
 
@@ -166,7 +166,7 @@ export function WebSiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ObjectWire",
+    "name": "OzoneNews",
     "url": "https://www.ozonenetwork.news",
     "potentialAction": {
       "@type": "SearchAction",

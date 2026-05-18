@@ -1,7 +1,7 @@
 /**
  * Scan all internal links across app/ and components/ and report:
  *   1. Broken internal links (href="/path" with no matching page.tsx)
- *   2. Pages with zero internal links to other ObjectWire pages (orphans)
+ *   2. Pages with zero internal links to other OzoneNews pages (orphans)
  *
  * Run: npx tsx scripts/_audit-interlinks.ts
  */

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       'Full profile of Pokimane (Imane Anys), 29, who retired from Twitch in 2024. YouTube, Midnight brand, net worth, real name, and life after streaming.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -73,7 +73,7 @@ export default function PokimanePage() {
           'Pokimane (Imane Anys), 29, is a Canadian-Moroccan content creator who retired from Twitch in January 2024 after a decade. Full biography: net worth, YouTube, Midnight brand, and life in 2026.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -156,7 +156,7 @@ export default function PokimanePage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -293,7 +293,7 @@ export default function PokimanePage() {
       <SourcesInterlink
         accentColor="blue"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/valkyrae', label: 'Valkyrae Profile', description: 'YouTube-exclusive gaming creator, 100 Thieves co-owner' },
           { href: '/influencer/sssniperwolf', label: 'SSSniperWolf Profile', description: '34M YouTube subscribers, reaction content' },
           { href: '/influencer/emma-chamberlain', label: 'Emma Chamberlain Profile', description: 'YouTube creator, Chamberlain Coffee founder' },

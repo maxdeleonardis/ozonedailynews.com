@@ -37,8 +37,8 @@ export const metadata: Metadata = {
       'Every game confirmed for Nintendo Switch 2 launch. Mario Kart World at $79.99, Donkey Kong Bananza, Pokemon Pokopia with 93 OpenCritic, and all confirmed third-party titles.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Gaming Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Gaming Desk'],
     publishedTime: '2026-04-29T13:00:00Z',
     modifiedTime: '2026-04-29T13:00:00Z',
     section: 'Gaming',
@@ -64,7 +64,7 @@ export default function Switch2LaunchGamesPage() {
       topicTag="gaming"
       publishDate="April 29, 2026"
       readTime="6 min read"
-      author={{ name: 'ObjectWire Gaming Desk', authorSlug: 'objectwire-gaming-desk' }}
+      author={{ name: 'OzoneNews Gaming Desk', authorSlug: 'OzoneNews-gaming-desk' }}
       tags={['Nintendo Switch 2', 'Mario Kart World', 'Donkey Kong Bananza', 'Pokemon Pokopia', 'Gaming']}
       thumbnail={{ src: OG_IMAGE, alt: 'Nintendo Switch 2 launch games 2026' }}
       slug="video-games-switch2-nintendo-switch-2-launch-games"

@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       'Google Research TurboQuant compresses LLM KV caches 6x and speeds attention 8x at 3 bits per value. Training-free, calibration-free, zero accuracy loss.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-03-25T09:00:00Z',
     modifiedTime: '2026-04-01T09:00:00Z',

@@ -1,5 +1,5 @@
 /**
- * Permanent 301 redirects for ObjectWire.
+ * Permanent 301 redirects for OzoneNews.
  *
  * HOW TO ADD:    Push an entry to the correct section array below.
  * HOW TO REMOVE: Delete or comment out the entry.
@@ -57,7 +57,7 @@ export const redirects: R[] = [
   { source: '/index',          destination: '/news',         permanent: true },
   { source: '/team',           destination: '/news',         permanent: true },
   { source: '/research',       destination: '/news',         permanent: true },
-  { source: '/objectwire',     destination: '/news',         permanent: true },
+  { source: '/OzoneNews',     destination: '/news',         permanent: true },
   { source: '/missing-persons', destination: '/news',        permanent: true },
 
   { source: '/bank-of-america', destination: '/news',        permanent: true },

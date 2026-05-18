@@ -19,7 +19,7 @@
 export interface AuthorSchemaProps {
   /** Full name */
   name: string;
-  /** Job title / role at ObjectWire */
+  /** Job title / role at OzoneNews */
   jobTitle: string;
   /** Bio / description */
   description: string;
@@ -60,7 +60,7 @@ export function AuthorSchema({
     url,
     worksFor: {
       '@type': 'NewsMediaOrganization',
-      name: 'ObjectWire',
+      name: 'OzoneNews',
       url: 'https://www.ozonenetwork.news',
       publishingPrinciples: 'https://www.ozonenetwork.news/editorial-standards',
       correctionsPolicy: 'https://www.ozonenetwork.news/corrections',
@@ -95,7 +95,7 @@ export function AuthorSchema({
           mainEntityOfPage: {
             '@type': 'ProfilePage',
             url,
-            description: `${name} has published ${articleCount} articles on ObjectWire.`,
+            description: `${name} has published ${articleCount} articles on OzoneNews.`,
           },
         }
       : {}),

@@ -29,7 +29,7 @@ export const metadata: Metadata = generateArticleMetadata({
   canonicalUrl: "https://www.ozonenetwork.news/github",
   publishedTime: "2026-01-24T00:00:00Z",
   modifiedTime: "2026-01-24T00:00:00Z",
-  authors: ["ObjectWire Technology Desk"],
+  authors: ["OzoneNews Technology Desk"],
   category: "Technology",
   tags: ["GitHub", "Microsoft", "Open Source", "Software Development", "Developer Tools"],
 });

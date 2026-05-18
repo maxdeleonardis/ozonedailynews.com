@@ -7,22 +7,22 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 export const metadata: Metadata = {
   title: 'Disney | Parks, Streaming, Marvel, Star Wars & ESPN',
-  description: 'ObjectWire coverage of the Walt Disney Company. Theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, Bob Iger, and corporate news.',
+  description: 'OzoneNews coverage of the Walt Disney Company. Theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, Bob Iger, and corporate news.',
   alternates: {
     canonical: 'https://www.ozonenetwork.news/disney',
   },
   keywords: ['Disney', 'Walt Disney Company', 'Disney Parks', 'Disney+', 'Bob Iger', "Josh D'Amaro", 'Marvel', 'Pixar', 'Star Wars', 'ESPN'],
   openGraph: {
     title: 'Disney | Parks, Streaming, Marvel, Star Wars & ESPN',
-    description: 'ObjectWire Disney coverage: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger leadership news.',
+    description: 'OzoneNews Disney coverage: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger leadership news.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/disney',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Disney | Parks, Marvel, Star Wars, ESPN & Disney+',
-    description: 'ObjectWire Disney hub: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger news.',
+    description: 'OzoneNews Disney hub: theme parks, Disney+, Marvel, Star Wars, Pixar, ESPN, and Bob Iger news.',
   },
 };
 

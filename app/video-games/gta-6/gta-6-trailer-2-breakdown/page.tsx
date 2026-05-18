@@ -38,8 +38,8 @@ export const metadata: Metadata = {
       'GTA 6 Trailer 2 confirmed: dual protagonist Jason and Lucia, the state of Leonida (Vice City), November 19, 2026 release, and a map designed around social media-era Florida.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Gaming Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Gaming Desk'],
     publishedTime: '2026-04-29T14:00:00Z',
     modifiedTime: '2026-04-29T14:00:00Z',
     section: 'Gaming',
@@ -65,7 +65,7 @@ export default function GTA6Trailer2BreakdownPage() {
       topicTag="gaming"
       publishDate="April 29, 2026"
       readTime="7 min read"
-      author={{ name: 'ObjectWire Gaming Desk', authorSlug: 'objectwire-gaming-desk' }}
+      author={{ name: 'OzoneNews Gaming Desk', authorSlug: 'OzoneNews-gaming-desk' }}
       tags={['GTA 6', 'Rockstar Games', 'Grand Theft Auto', 'Vice City', 'Gaming', 'Take-Two']}
       thumbnail={{ src: OG_IMAGE, alt: 'GTA 6 Vice City Leonida Rockstar Games' }}
       slug="video-games-gta-6-gta-6-trailer-2-breakdown"

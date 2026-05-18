@@ -25,7 +25,7 @@
 import { getEntry } from '@/lib/registry-service';
 
 const SITE_URL = 'https://www.ozonenetwork.news';
-const ORG_NAME = 'ObjectWire';
+const ORG_NAME = 'OzoneNews';
 
 interface SEOWrapperProps {
   slug: string;
@@ -37,12 +37,12 @@ export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
 
   // ── NewsArticle schema ──────────────────────────────────────────────────────
   // Resolve author URL: use explicit authorSlug, or derive from author name if it
-  // looks like a personal name (contains a space, doesn't start with "ObjectWire").
+  // looks like a personal name (contains a space, doesn't start with "OzoneNews").
   const authorUrl = (() => {
     if (!entry) return undefined;
     if (entry.authorSlug) return `${SITE_URL}/authors/${entry.authorSlug}`;
     const name = entry.author;
-    if (name.startsWith('ObjectWire') || !name.includes(' ')) return undefined;
+    if (name.startsWith('OzoneNews') || !name.includes(' ')) return undefined;
     return `${SITE_URL}/authors/${name.toLowerCase().replace(/\s+/g, '-')}`;
   })();
 
@@ -70,7 +70,7 @@ export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
           url: SITE_URL,
           logo: {
             '@type': 'ImageObject',
-            url: `${SITE_URL}/objectwire-logo.png`,
+            url: `${SITE_URL}/OzoneNews-logo.png`,
           },
         },
         mainEntityOfPage: `${SITE_URL}${slug}`,

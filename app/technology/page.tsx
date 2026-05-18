@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Latest technology news: AI hardware, semiconductors, startups and industry analysis.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/technology',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
 };
 

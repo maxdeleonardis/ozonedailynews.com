@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       'A federal judge granted Detroit permission to file an amicus brief backing Michigan in its lawsuit against Coinbase over prediction markets, marking the',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'U.S. federal courthouse exterior representing Detroit prediction market lawsuit' }],
     publishedTime: '2026-03-30T23:00:00Z',
     modifiedTime: '2026-03-30T23:00:00Z',

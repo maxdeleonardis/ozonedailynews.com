@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       'Mastercard fell 5.73% to $496.40 on February 23, 2026, the first sub-$500 close since April 2025, after a viral fintech research note projected AI could',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Alfansa'],
     publishedTime: '2026-02-24T08:00:00Z',
     modifiedTime: '2026-02-24T08:00:00Z',

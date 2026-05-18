@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       '267,509 concurrent players. Nearly 100K above RE4 remake. More than double Village. Fourth most-played game on Steam at peak. Capcom\'s open-zone horror',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-01T00:00:00Z',
     modifiedTime: '2026-03-01T00:00:00Z',

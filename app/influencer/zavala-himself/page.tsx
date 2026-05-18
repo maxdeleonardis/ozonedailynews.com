@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
       'Full profile of Zavala Him Self, creator with 1.3M TikTok followers. Challenges, gaming streams on Twitch, vlogs on ZavalaHimselfYT, and travel content.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-05-04T12:00:00Z',
     modifiedTime: '2026-05-04T12:00:00Z',
@@ -71,7 +71,7 @@ export default function ZavalaHimselfPage() {
           'Zavala Him Self is a multi-platform content creator with 1.3 million TikTok followers and over 25 million likes. He streams live on Twitch as zavalahimself and produces challenges, vlogs, and gaming content on YouTube at ZavalaHimselfYT.',
         publishedTime: '2026-05-04T12:00:00Z',
         modifiedTime: '2026-05-04T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -159,7 +159,7 @@ export default function ZavalaHimselfPage() {
         meta: {
           publishedDate: 'May 4, 2026',
           updatedDate: 'May 4, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -304,7 +304,7 @@ export default function ZavalaHimselfPage() {
       <SourcesInterlink
         accentColor="blue"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/charli-damelio', label: 'Charli D\u2019Amelio Profile', description: 'First TikTok creator to 100M followers' },
           { href: '/influencer/mrbeast', label: 'MrBeast Profile', description: 'Most-subscribed solo YouTube creator, Beast Games' },
           { href: '/tiktok', label: 'TikTok News', description: 'Latest TikTok platform coverage' },

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory",
     type: 'article',
     url: "https://www.ozonenetwork.news/define/how-does-copy-paste-work",
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     section: "News",
   },
   twitter: {

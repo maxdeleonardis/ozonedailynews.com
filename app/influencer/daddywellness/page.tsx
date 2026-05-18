@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
 import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
       'Miami-based wellness creator Richie Lovelace, founder of Dialed University, host of TSL Time podcast. Full profile: Instagram, YouTube, background, and content.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     publishedTime: '2026-04-10T12:00:00Z',
     modifiedTime: '2026-05-06T12:00:00Z',
     section: 'Creator',
@@ -68,7 +68,7 @@ export default function DaddyWellnessPage() {
       <NewsArticleSchema
         title="Daddy Wellness (Richie Lovelace) | Wellness Creator, 2M+ Followers"
         description="Richie Lovelace (Daddy Wellness) is a Miami-based wellness creator with 2M+ Instagram followers, founder of Dialed University, and host of TSL Time podcast."
-        author="ObjectWire Creator Desk"
+        author="OzoneNews Creator Desk"
         publishedTime="2026-04-10T12:00:00Z"
         modifiedTime="2026-05-06T12:00:00Z"
         imageUrl={OG_IMAGE}
@@ -84,7 +84,7 @@ export default function DaddyWellnessPage() {
       topicTag="lifestyle"
       publishDate="April 10, 2026"
       readTime="6 min read"
-      author={{ name: 'ObjectWire Creator Desk', role: 'Creator Profiles' }}
+      author={{ name: 'OzoneNews Creator Desk', role: 'Creator Profiles' }}
       thumbnail={{
         src: '/influncer/daddy_wellness.jpg',
         alt: 'Richie Lovelace, Daddy Wellness, wellness creator and founder of Dialed University',
@@ -187,7 +187,7 @@ export default function DaddyWellnessPage() {
       <SourcesInterlink
         accentColor="green"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/mrbeast', label: 'MrBeast Profile', description: 'Most-subscribed solo YouTube creator, Beast Games' },
           { href: '/influencer/charli-damelio', label: 'Charli D\u2019Amelio Profile', description: 'First TikTok creator to 100M followers' },
         ]}

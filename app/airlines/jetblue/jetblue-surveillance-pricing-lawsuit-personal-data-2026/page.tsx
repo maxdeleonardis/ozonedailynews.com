@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'A viral X post, a $230 single-day fare jump, and a deleted JetBlue reply have ignited a federal class action lawsuit and congressional scrutiny over whether airlines use your browsing history to charge you more.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T22:00:00Z',
     modifiedTime: '2026-04-23T22:00:00Z',

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
       'Full profile of Ed Matthews, British creator and influencer boxer. TikTok @edmatthewstokky, boxing record, Elsa Rae relationship, net worth $800K-$1.7M.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-05-04T12:00:00Z',
     modifiedTime: '2026-05-04T12:00:00Z',
@@ -71,7 +71,7 @@ export default function EdMatthewsPage() {
           'Ed Matthews is a British social media influencer and influencer boxer, born around 2002-2004, known for TikTok @edmatthewstokky, KingPyn and MF & DAZN X Series boxing events, and a fitness background through HED Fitness LTD.',
         publishedTime: '2026-05-04T12:00:00Z',
         modifiedTime: '2026-05-04T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -158,7 +158,7 @@ export default function EdMatthewsPage() {
         meta: {
           publishedDate: 'May 4, 2026',
           updatedDate: 'May 4, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -319,7 +319,7 @@ export default function EdMatthewsPage() {
       <SourcesInterlink
         accentColor="red"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/sssniperwolf', label: 'SSSniperWolf Profile', description: '34M YouTube subscribers, UK creator' },
           { href: '/influencer/mrbeast', label: 'MrBeast Profile', description: 'Most-subscribed solo YouTube creator, Beast Games' },
         ]}

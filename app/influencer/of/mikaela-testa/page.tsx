@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
       'Full profile of Mikaela Testa, Australian creator. Age, Instagram, OnlyFans, and career history.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Mikaela Testa', 'Creator', 'Australia', 'OnlyFans'],
     publishedTime: '2026-04-22T12:00:00Z',

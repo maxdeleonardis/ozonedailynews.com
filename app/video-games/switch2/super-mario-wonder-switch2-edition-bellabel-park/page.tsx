@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       'Everything new in the Nintendo Switch 2 Edition of Super Mario Bros. Wonder, including Bellabel Park, 12-player online rooms, 70+ training courses, and a',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-08T14:00:00Z',
     modifiedTime: '2026-04-08T14:00:00Z',

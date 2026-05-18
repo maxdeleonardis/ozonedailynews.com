@@ -60,7 +60,7 @@ export interface ResearchOptions {
 
 const PERPLEXITY_API_URL = 'https://api.perplexity.ai/chat/completions';
 
-const DEFAULT_SYSTEM_PROMPT = `You are an expert research assistant for ObjectWire, a digital news and media organization. 
+const DEFAULT_SYSTEM_PROMPT = `You are an expert research assistant for OzoneNews, a digital news and media organization. 
 Your job is to provide thorough, accurate, well-structured research on any topic requested.
 
 When researching athletes, public figures, or events:

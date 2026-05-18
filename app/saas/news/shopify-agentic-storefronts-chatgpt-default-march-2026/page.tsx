@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Shopify's millions of merchants will have their products auto-syndicated into ChatGPT starting late March 2026, no app install required. But in-chat",
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-18T14:00:00Z',
     modifiedTime: '2026-03-18T14:00:00Z',

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { WikiArticle } from '@/components/articles/WikiArticle';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.owire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Iman Gadzhi | Digital Marketing Entrepreneur & Educator',
-  description: 'Iman Gadzhi, Russian-British entrepreneur and founder of IAG Media and Educate. Biography, SMMA career, net worth, and 2026 updates from ObjectWire.',
+  description: 'Iman Gadzhi, Russian-British entrepreneur and founder of IAG Media and Educate. Biography, SMMA career, net worth, and 2026 updates from OzoneNews.',
   keywords: [
     'Iman Gadzhi',
     'Iman Gadzhi SMMA',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     description: 'Russian-British entrepreneur who built IAG Media and Educate from a teenage dropout story. Full biography, net worth, SMMA career, and 2026 updates.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-02-09T10:00:00Z',
     modifiedTime: '2026-02-09T10:00:00Z',

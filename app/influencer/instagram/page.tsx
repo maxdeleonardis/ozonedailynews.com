@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
 import { NewsArticleSchema } from '@/components/articles/NewsArticleSchema';
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
       'From a 13-person startup to 2.4 billion users. Instagram history, Facebook acquisition for $1B, the Systrom-Krieger exit, Reels, and where the platform stands in 2026.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Editorial'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Editorial'],
     publishedTime: '2026-04-01T10:00:00Z',
     modifiedTime: '2026-05-06T10:00:00Z',
     section: 'Creator',
@@ -57,7 +57,7 @@ export default function InstagramPage() {
       <NewsArticleSchema
         title="Instagram Wiki 2026 | History, Meta Acquisition & 2.4B Users"
         description="Complete profile of Instagram: founded 2010 by Kevin Systrom and Mike Krieger, acquired by Facebook for $1B in 2012, now serving 2.4 billion monthly users under Meta."
-        author="ObjectWire Editorial"
+        author="OzoneNews Editorial"
         publishedTime="2026-04-01T10:00:00Z"
         modifiedTime="2026-05-06T10:00:00Z"
         articleUrl={ARTICLE_URL}
@@ -72,7 +72,7 @@ export default function InstagramPage() {
       topicTag="technology"
       publishDate="April 1, 2026"
       readTime="8 min read"
-      author={{ name: 'ObjectWire Editorial', role: 'Tech Desk' }}
+      author={{ name: 'OzoneNews Editorial', role: 'Tech Desk' }}
       tags={['Instagram', 'Meta', 'Kevin Systrom', 'Social Media', 'Tech']}
       breadcrumbs={[
         { name: 'Home', item: '/' },
@@ -95,7 +95,7 @@ export default function InstagramPage() {
         . Launched on October 6, 2010, by <strong>Kevin Systrom</strong> and <strong>Mike Krieger</strong>, the app was acquired by Facebook in April 2012 for approximately $1 billion in cash and stock. As of 2026, Instagram serves over 2.4 billion monthly active users, making it the fourth-largest social media platform in the world by active user count, behind Facebook, YouTube, and WhatsApp.
       </p>
       <p>
-        Instagram is the dominant platform for visual creator content, influencer marketing, and brand direct-to-consumer advertising. It is central to the creator economy that ObjectWire covers across its{' '}
+        Instagram is the dominant platform for visual creator content, influencer marketing, and brand direct-to-consumer advertising. It is central to the creator economy that OzoneNews covers across its{' '}
         <Link href="/creator" className="text-blue-600 hover:text-blue-800 underline">Creator hub</Link>.
       </p>
 
@@ -158,7 +158,7 @@ export default function InstagramPage() {
       </p>
       <p>
         For coverage of individual creators on Instagram and the wider influencer economy, see the{' '}
-        <Link href="/creator" className="text-blue-600 hover:text-blue-800 underline">ObjectWire Creator hub</Link>.
+        <Link href="/creator" className="text-blue-600 hover:text-blue-800 underline">OzoneNews Creator hub</Link>.
       </p>
 
       <SourcesInterlink
@@ -168,8 +168,8 @@ export default function InstagramPage() {
           { number: 2, url: 'https://about.meta.com/company-info/', title: 'Meta Company Information', author: 'Meta', date: '2026' },
         ]}
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
-          { href: '/tech', label: 'Tech News', description: 'Latest technology coverage on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
+          { href: '/tech', label: 'Tech News', description: 'Latest technology coverage on OzoneNews' },
           { href: '/meta', label: 'Meta News', description: 'Meta, Facebook, and Instagram news' },
           { href: '/tiktok', label: 'TikTok News', description: 'TikTok platform news and creator profiles' },
         ]}

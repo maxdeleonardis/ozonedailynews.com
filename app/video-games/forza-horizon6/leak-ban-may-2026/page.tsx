@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: '155GB full build leaked May 11. Playground Games confirmed permanent franchise-wide and hardware-level bans. Launch: May 19, 2026 on Xbox, PC, and Game Pass.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T16:00:00Z',
     modifiedTime: '2026-05-11T16:00:00Z',

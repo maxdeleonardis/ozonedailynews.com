@@ -417,7 +417,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
       <div className="flex items-center justify-between gap-3 rounded-lg bg-[#5865F2]/5 border border-[#5865F2]/15 px-4 py-2.5 mb-5">
         <div className="flex items-center gap-2 text-xs text-gray-600">
           <DiscordIcon className="w-3.5 h-3.5 text-[#5865F2] shrink-0" />
-          <span>Comments post live to the <strong className="font-semibold text-gray-800">ObjectWire Discord</strong> server.</span>
+          <span>Comments post live to the <strong className="font-semibold text-gray-800">OzoneNews Discord</strong> server.</span>
         </div>
         <a
           href="https://discord.gg/wBsgkU4uAf"
@@ -543,14 +543,14 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
           className="shrink-0 inline-flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
         >
           <DiscordIcon className="w-4 h-4" />
-          Join ObjectWire Discord
+          Join OzoneNews Discord
         </a>
       </div>
 
       <p className="text-xs text-gray-400 mt-4 text-center">
         Comments sync to our{' '}
         <a href="https://discord.gg/wBsgkU4uAf" target="_blank" rel="noopener noreferrer" className="text-[#5865F2] hover:underline">
-          ObjectWire Discord
+          OzoneNews Discord
         </a>
         {articleTitle ? ` · ${articleTitle}` : ''}.
       </p>

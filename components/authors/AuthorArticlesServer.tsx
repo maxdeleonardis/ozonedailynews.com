@@ -40,7 +40,7 @@ export async function AuthorArticlesServer({ authorSlug, authorName }: Props) {
 
   const registryArticles: Article[] = registryEntries.map((e) => ({
     href: e.slug,
-    title: e.title.replace(/ \| ObjectWire$/, ''),
+    title: e.title.replace(/ \| OzoneNews$/, ''),
     date: new Date(e.publishDate).toLocaleDateString('en-US', {
       year: 'numeric', month: 'long', day: 'numeric',
     }),
@@ -80,7 +80,7 @@ export async function AuthorArticlesServer({ authorSlug, authorName }: Props) {
 
         return {
           href,
-          title: String(row.title ?? '').replace(/ \| ObjectWire$/, ''),
+          title: String(row.title ?? '').replace(/ \| OzoneNews$/, ''),
           date: publishDate,
           category: String(row.section ?? 'General'),
           imageUrl: hero?.src ?? undefined,

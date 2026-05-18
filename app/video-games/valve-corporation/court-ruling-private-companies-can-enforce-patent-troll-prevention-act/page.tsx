@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       'Federal jury awards Valve $152,093 against patent troll Display Technologies, LLC. Court confirms private companies can sue under Washington PTPA via',
     type: 'article',
     url: 'https://www.ozonenetwork.news/video-games/valve-corporation/court-ruling-private-companies-can-enforce-patent-troll-prevention-act',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [{ url: '/influncer/valve-ceo-Gabe-Newell.PNG' }],
   },
   twitter: {

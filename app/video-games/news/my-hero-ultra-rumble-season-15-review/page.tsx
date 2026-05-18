@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam",
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-02T00:00:00Z',
     modifiedTime: '2026-03-02T00:00:00Z',

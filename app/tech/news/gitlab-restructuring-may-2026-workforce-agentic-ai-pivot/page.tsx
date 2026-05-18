@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'GitLab flattens three management layers, cuts operating countries by up to 30%, doubles R&D into 60 autonomous teams, and retires CREDIT values to reposition for agentic AI. Voluntary separation closes May 18. Final structure June 1.',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T23:00:00Z',
     modifiedTime: '2026-05-11T23:00:00Z',

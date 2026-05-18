@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 
 // Page renders dynamically — content fetched from Supabase at request time.
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
       'Full profile of Ben Azelart, Dallas-born challenger and skateboarder, 24 in 2026. YouTube: 49M subscribers. TikTok: 15M fans. Engaged to Hannah Thomas,',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     tags: ['Ben Azelart', 'YouTuber', 'Texas', 'Skateboarder', 'Stay Wild'],
     publishedTime: '2026-04-02T14:30:00Z',

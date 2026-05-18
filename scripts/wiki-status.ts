@@ -117,7 +117,7 @@ const c = {
 };
 
 async function main() {
-  console.log(c.bold('\n📊  ObjectWire — Content Sync Status\n'));
+  console.log(c.bold('\n📊  OzoneNews — Content Sync Status\n'));
   console.log(c.gray('   Scanning pages, registry, and Supabase...\n'));
 
   // 1. Scan all pages

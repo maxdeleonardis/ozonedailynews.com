@@ -16,13 +16,13 @@
 //   "prebuild": "npx tsx scripts/validate-public.ts && npx tsx scripts/sync-registry.ts --write"
 //
 // To intentionally skip (emergencies only):
-//   OBJECTWIRE_OVERRIDE=true npm run build
+//   OzoneNews_OVERRIDE=true npm run build
 // =============================================================================
 
 import fs from 'fs';
 import path from 'path';
 
-const OVERRIDE_FLAG = process.env.OBJECTWIRE_OVERRIDE === 'true';
+const OVERRIDE_FLAG = process.env.OzoneNews_OVERRIDE === 'true';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 // Files that must NEVER exist in /public because they override App Router handlers
@@ -58,10 +58,10 @@ console.error('└────────────────────�
 console.error('\nThe following files in /public will silently override App Router handlers:\n');
 violations.forEach(v => console.error(v));
 console.error('\nFix: delete the listed files from /public and rely on the App Router handlers instead.');
-console.error('Override (emergencies only): OBJECTWIRE_OVERRIDE=true npm run build\n');
+console.error('Override (emergencies only): OzoneNews_OVERRIDE=true npm run build\n');
 
 if (OVERRIDE_FLAG) {
-  console.warn('⚠ OBJECTWIRE_OVERRIDE=true — skipping exit(1). PRODUCTION RISK.');
+  console.warn('⚠ OzoneNews_OVERRIDE=true — skipping exit(1). PRODUCTION RISK.');
   process.exit(0);
 }
 

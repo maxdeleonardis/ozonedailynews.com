@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Hub } from '@/components/Hub';
 import { Breadcrumb } from '@/components/nav/Breadcrumb';
 import { SEOWrapper } from '@/components/SEOWrapper';
@@ -13,7 +13,7 @@ export const revalidate = 86400; // Profiles rarely change — daily ISR
 export const metadata: Metadata = {
   title: 'Creator Hub | Profiles, News & Culture',
   description:
-    "ObjectWire's Creator Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and",
+    "OzoneNews's Creator Hub: in-depth profiles, breaking news, and cultural coverage of the biggest names in content creation, fitness, YouTube, golf, and",
   keywords: [
     'creator profiles',
     'creator news 2026',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'fitness creators',
     'content creators 2026',
     'creator hub',
-    'ObjectWire creator',
+    'OzoneNews creator',
   ],
   alternates: {
     canonical: 'https://www.owire.org/creator',
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
       'In-depth profiles and breaking news covering the biggest creators across fitness, YouTube, golf, and online culture. Updated 2026.',
     type: 'website',
     url: 'https://www.owire.org/creator',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Creator Hub',
     description:
-      'Profiles, news, and cultural coverage of the biggest names in content creation, ObjectWire Creator Hub.',
+      'Profiles, news, and cultural coverage of the biggest names in content creation, OzoneNews Creator Hub.',
   },
 };
 

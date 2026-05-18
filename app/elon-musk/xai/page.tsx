@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Founded in July 2023, xAI has raised $12 billion, built the 200,000-GPU Colossus supercluster, and released Grok-3, one of the most capable large language',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     images: [IMAGE_URL],
   },
   twitter: {

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Latest bio-hacking news: CRISPR, longevity research, FDA clearances and health tech.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/bio-hacking',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
 };
 

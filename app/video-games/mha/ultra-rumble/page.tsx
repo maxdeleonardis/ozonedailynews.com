@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: 'Comprehensive guide to My Hero Ultra Rumble, the free-to-play 24-player battle royale based on My Hero Academia.',
     type: 'article',
     url: 'https://www.ozonenetwork.news/mha/ultra-rumble',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',

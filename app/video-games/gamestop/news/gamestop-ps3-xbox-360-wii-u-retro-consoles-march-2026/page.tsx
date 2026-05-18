@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "GameStop moved the PS3, Xbox 360, and Wii U into its retro console category on March 16, 2026. The official X post cited 'component cables, lack of Fortnite, and launching during Bush.' The Wii U launched in 2012, under Obama.",
     type: 'article',
     url: FULL_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-16T18:00:00Z',
     modifiedTime: '2026-03-16T18:00:00Z',
     section: 'Gaming',

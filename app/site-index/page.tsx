@@ -7,22 +7,22 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Site Index',
   description:
-    'Browse the complete ObjectWire article index organized by category and tags. Explore 400+ verified articles across technology, gaming, finance, politics,',
+    'Browse the complete OzoneNews article index organized by category and tags. Explore 400+ verified articles across technology, gaming, finance, politics,',
   alternates: {
     canonical: 'https://www.ozonenetwork.news/site-index',
   },
   openGraph: {
     title: 'Site Index',
     description:
-      'Browse the complete ObjectWire article index organized by category and tags.',
+      'Browse the complete OzoneNews article index organized by category and tags.',
     type: 'website',
     url: 'https://www.ozonenetwork.news/site-index',
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Site Index',
-    description: 'Browse the complete ObjectWire article index organized by category and tags.',
+    description: 'Browse the complete OzoneNews article index organized by category and tags.',
   },
 };
 
@@ -32,7 +32,7 @@ const HUB_SLUGS = new Set([
   '/youtube', '/editorial-standards', '/social', '/entertainment', '/blog',
   '/about', '/team', '/privacy-policy', '/terms-of-service', '/copyright',
   '/corrections', '/get-help', '/service', '/index', '/feeds', '/crypto',
-  '/artists', '/influencer', '/saas', '/research', '/objectwire',
+  '/artists', '/influencer', '/saas', '/research', '/OzoneNews',
   '/podcasts', '/video-games', '/winter-olympics', '/world-cup', '/formula-1',
   '/redbull', '/disney', '/elon-musk', '/google', '/apple', '/nvidia',
   '/microsoft', '/open-ai', '/github', '/nasa', '/intel',
@@ -50,7 +50,7 @@ function isArticle(e: ContentEntry): boolean {
   const parts = e.slug.split('/').filter(Boolean);
   if (parts.length < 2) return false;
   if (e.description.length < 60) return false;
-  if (e.title.startsWith('›') || e.title.startsWith('ObjectWire coverage')) return false;
+  if (e.title.startsWith('›') || e.title.startsWith('OzoneNews coverage')) return false;
   return true;
 }
 
@@ -89,7 +89,7 @@ export default async function SiteIndexPage() {
     if (!grouped.has(cat)) grouped.set(cat, []);
     grouped.get(cat)!.push({
       slug: a.slug,
-      title: a.title.replace(/\s*\|\s*ObjectWire.*$/i, '').trim(),
+      title: a.title.replace(/\s*\|\s*OzoneNews.*$/i, '').trim(),
       description: a.description,
       publishDate: a.publishDate,
       category: a.category,
@@ -139,7 +139,7 @@ export default async function SiteIndexPage() {
             Site Index
           </h1>
           <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-            Browse {articles.length} articles across {categories.length} categories and {allTags.length} topics. Auto-generated from the ObjectWire content registry, the same source feeding every search engine signal below.
+            Browse {articles.length} articles across {categories.length} categories and {allTags.length} topics. Auto-generated from the OzoneNews content registry, the same source feeding every search engine signal below.
           </p>
 
           {/* Automatic SEO System panel */}

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Intel server CPU unit share collapsed from 64.4% to 54.9% in Q1 2026. AMD hit 27.4%, Arm 17.7%, in a market that grew 19% year-over-year. Intel shares fell below $116 on May 15.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-15T14:00:00Z',
     modifiedTime: '2026-05-15T14:00:00Z',

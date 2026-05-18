@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Apple wins a stay on the App Store contempt ruling while it petitions the Supreme Court. Epic Games calls it a "delay tactic."',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Tina Boyle'],
     publishedTime: '2026-04-08T21:00:00Z',
     modifiedTime: '2026-04-08T21:00:00Z',

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CreatorArticle, {
   CreatorSection,
   CreatorStat,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       'Full profile of Alix Earle, 25, TikTok\'s defining GRWM creator with 7M followers. Net worth, brand deals, University of Miami, acne story, and 2026 career.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Creator Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Creator Desk'],
     section: 'Creator',
     publishedTime: '2026-04-29T12:00:00Z',
     modifiedTime: '2026-04-29T12:00:00Z',
@@ -73,7 +73,7 @@ export default function AlixEarlePage() {
           'Alix Earle, 25, is a Tequesta, Florida-born TikTok creator with 7M followers, best known for GRWM (Get Ready With Me) videos. Full biography: net worth, brand deals, University of Miami, and 2026 career.',
         publishedTime: '2026-04-29T12:00:00Z',
         modifiedTime: '2026-04-29T12:00:00Z',
-        author: 'ObjectWire Creator Desk',
+        author: 'OzoneNews Creator Desk',
         articleUrl: PAGE_URL,
         imageUrl: `https://www.owire.org${IMAGE_URL}`,
         section: 'Creator',
@@ -156,7 +156,7 @@ export default function AlixEarlePage() {
         meta: {
           publishedDate: 'April 29, 2026',
           updatedDate: 'April 29, 2026',
-          author: 'ObjectWire Creator Desk',
+          author: 'OzoneNews Creator Desk',
           category: 'Creator',
         },
       }}
@@ -287,7 +287,7 @@ export default function AlixEarlePage() {
       <SourcesInterlink
         accentColor="blue"
         internalLinks={[
-          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on ObjectWire' },
+          { href: '/influencer', label: 'Influencer Hub', description: 'All creator profiles on OzoneNews' },
           { href: '/influencer/charli-damelio', label: 'Charli D\u2019Amelio Profile', description: 'First TikTok creator to 100M followers' },
           { href: '/influencer/emma-chamberlain', label: 'Emma Chamberlain Profile', description: 'YouTube creator, Chamberlain Coffee, Louis Vuitton ambassador' },
           { href: '/tiktok', label: 'TikTok News', description: 'Latest TikTok platform coverage' },

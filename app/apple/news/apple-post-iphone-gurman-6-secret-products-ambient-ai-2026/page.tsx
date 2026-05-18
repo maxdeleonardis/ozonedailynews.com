@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'AI AirPods with cameras, AR smart glasses, a tabletop robot, and a privacy-first security camera — Gurman\'s Apple roadmap for the John Ternus era.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T18:00:00Z',
     modifiedTime: '2026-04-23T18:00:00Z',

@@ -96,7 +96,7 @@ export function NewsletterPanel({ onClose }: { onClose?: () => void }) {
     <div className="w-80 p-5">
       {/* Header */}
       <div className="mb-4">
-        <p className="font-bold text-gray-900 text-[15px]">ObjectWire Newsletter</p>
+        <p className="font-bold text-gray-900 text-[15px]">OzoneNews Newsletter</p>
         <p className="text-xs text-gray-500 mt-0.5">Choose what you want delivered to your inbox.</p>
       </div>
 

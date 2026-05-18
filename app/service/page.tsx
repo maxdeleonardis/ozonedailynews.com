@@ -8,9 +8,9 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/service';
 
 export const metadata: Metadata = {
-  title: 'Investigative Services Austin TX | ObjectWire',
+  title: 'Investigative Services Austin TX | OzoneNews',
   description:
-    'ObjectWire is an Austin-based investigative media company. Licensed PI services, investigative journalism, document review, and newsroom tips. Serving Travis County and Central Texas.',
+    'OzoneNews is an Austin-based investigative media company. Licensed PI services, investigative journalism, document review, and newsroom tips. Serving Travis County and Central Texas.',
   keywords: [
     'investigative services Austin TX',
     'private investigator Austin Texas',
@@ -24,20 +24,20 @@ export const metadata: Metadata = {
     'skip tracing Austin Texas',
     'tip the newsroom Austin',
     'FOIA Austin Texas',
-    'ObjectWire investigative services',
+    'OzoneNews investigative services',
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Investigative Services Austin TX | ObjectWire',
+    title: 'Investigative Services Austin TX | OzoneNews',
     description:
       'Austin investigative media company. Licensed PI services and investigative journalism. Surveillance, missing persons, digital forensics, background checks, corporate investigations, FOIA, and newsroom tips.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Investigative Services Austin TX | ObjectWire',
+    title: 'Investigative Services Austin TX | OzoneNews',
     description:
       'Austin PI and investigative journalism services. Surveillance, missing persons, digital forensics, and newsroom tips.',
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'ProfessionalService'],
-  name: 'ObjectWire Investigative Services',
+  name: 'OzoneNews Investigative Services',
   description:
     'Austin-based investigative media company offering licensed private investigator services including surveillance, missing persons, digital forensics, background checks, infidelity investigations, skip tracing, child custody, workers compensation fraud, and corporate investigations.',
   url: PAGE_URL,
@@ -140,8 +140,8 @@ export default function ServicesHubPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <ArticlePage
-        title="Investigative Services | ObjectWire Austin"
-        subtitle="ObjectWire is an Austin-based investigative media company. We publish accountability journalism and take private cases, applying the same investigative discipline to both."
+        title="Investigative Services | OzoneNews Austin"
+        subtitle="OzoneNews is an Austin-based investigative media company. We publish accountability journalism and take private cases, applying the same investigative discipline to both."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
         slug="service"
@@ -151,7 +151,7 @@ export default function ServicesHubPage() {
           { href: '/service', label: 'Investigative Services' },
         ]}
         infoBox={{
-          title: 'ObjectWire Investigations',
+          title: 'OzoneNews Investigations',
           sections: [
             {
               heading: 'Agency',
@@ -189,11 +189,11 @@ export default function ServicesHubPage() {
           ...JOURNALISM_SERVICES.map((s) => ({ href: s.href, label: s.label, description: s.desc })),
           ...SERVICES.map((s) => ({ href: s.href, label: s.label, description: s.desc })),
         ]}
-        backLink={{ href: '/', label: 'ObjectWire' }}
+        backLink={{ href: '/', label: 'OzoneNews' }}
       >
         <Section id="who-we-are" title="Who We Are | Investigative Media Company">
           <p>
-            ObjectWire is an Austin-based investigative media company. Our primary mission is publishing
+            OzoneNews is an Austin-based investigative media company. Our primary mission is publishing
             source-cited accountability journalism on public figures, institutions, and stories the public
             deserves to know. We also take private cases, applying the same investigative discipline we bring
             to journalism to matters for individuals, attorneys, insurers, and businesses.
@@ -219,7 +219,7 @@ export default function ServicesHubPage() {
 
         <Section id="journalism-services" title="Media and Journalism Services | Public Interest Reporting">
           <p>
-            ObjectWire's primary identity is investigative journalism. We investigate, verify, and publish
+            OzoneNews's primary identity is investigative journalism. We investigate, verify, and publish
             stories that hold people in power accountable. Our journalism services are available to sources,
             whistleblowers, and members of the public who have information that belongs in the public record.
           </p>

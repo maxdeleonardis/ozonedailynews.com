@@ -1,5 +1,5 @@
 # Commit-Deploy Automation Pipeline
-## Execution Plan | ObjectWire
+## Execution Plan | OzoneNews
 
 **Goal:** Every `git push` to `main` automatically extracts article content
 from full JSX pages, upserts to the correct Supabase table, trims the page

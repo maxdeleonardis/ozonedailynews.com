@@ -1,4 +1,4 @@
-# Image SEO — ObjectWire Engineering Reference
+# Image SEO — OzoneNews Engineering Reference
 
 > How to upload, store, display, and mark up images so they appear in Google Images,
 > rank inside news articles, and never trigger a copyright claim.
@@ -40,7 +40,7 @@ Fair use protects you when **all four** of these apply:
 3. The image is **factually newsworthy** (not just making the page look nice)
 4. The use does **not harm the market** for the original
 
-For ObjectWire: a small crop of a product screenshot in a review = fine. Using the same AP photo every tech news site uses as a header image = not fine.
+For OzoneNews: a small crop of a product screenshot in a review = fine. Using the same AP photo every tech news site uses as a header image = not fine.
 
 ---
 
@@ -68,7 +68,7 @@ Use this for: logos, team photos, UI assets, anything under ~200 KB.
 
 ### Option B — Supabase Storage (recommended for article photos)
 
-ObjectWire already uses Supabase. Add a `media` bucket:
+OzoneNews already uses Supabase. Add a `media` bucket:
 
 ```
 Supabase Storage
@@ -130,11 +130,11 @@ The `imageUrl` field powers Google's rich results and the `NewsArticleSchema`:
   modifiedDate: '2026-02-11',
   category: 'Sports',
   tags: ['Winter Olympics', 'Team USA', 'Alpine Skiing'],
-  author: 'ObjectWire Sports Desk',
+  author: 'OzoneNews Sports Desk',
   priority: 0.9,
   changeFrequency: 'weekly',
   // ← Add this whenever the article has a real image
-  imageUrl: 'https://www.objectwire.org/images/articles/winter-olympics/breezy-johnson-finish.webp',
+  imageUrl: 'https://www.OzoneNews.org/images/articles/winter-olympics/breezy-johnson-finish.webp',
 },
 ```
 
@@ -144,7 +144,7 @@ Google requires a `NewsArticle` image that is **at least 1200 × 675 px** and **
 
 ## Part 4: Displaying Images — `NewsArticle` Style
 
-For standard news articles use Next.js `<Image>` with the standard ObjectWire aspect ratio:
+For standard news articles use Next.js `<Image>` with the standard OzoneNews aspect ratio:
 
 ```tsx
 import Image from 'next/image';
@@ -237,7 +237,7 @@ The `SEOWrapper` component already injects a `NewsArticle` schema that includes 
   "headline": "...",
   "image": {
     "@type": "ImageObject",
-    "url": "https://www.objectwire.org/images/articles/breezy-johnson-finish.webp",
+    "url": "https://www.OzoneNews.org/images/articles/breezy-johnson-finish.webp",
     "width": 1200,
     "height": 675
   }
@@ -313,7 +313,7 @@ export async function GET() {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   ${entries.map(e => `
   <url>
-    <loc>https://www.objectwire.org${e.slug}</loc>
+    <loc>https://www.OzoneNews.org${e.slug}</loc>
     <lastmod>${e.modifiedDate}</lastmod>
     <image:image>
       <image:loc>${e.imageUrl}</image:loc>
@@ -377,7 +377,7 @@ Before publishing any article with images:
 ☐ Infobox image is portrait/square, 600 px minimum wide
 ☐ imageUrl added to contentRegistry entry
 ☐ Attribution caption visible on page (if CC-BY)
-☐ Image hosted on objectwire.org or Supabase (not hotlinked from source)
+☐ Image hosted on OzoneNews.org or Supabase (not hotlinked from source)
 ☐ priority set on hero image, lazy on all others
 ```
 
@@ -393,4 +393,4 @@ Before publishing any article with images:
 
 ---
 
-*Document authored by ObjectWire Engineering, February 2026.*
+*Document authored by OzoneNews Engineering, February 2026.*

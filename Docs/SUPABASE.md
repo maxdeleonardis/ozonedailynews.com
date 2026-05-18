@@ -1,6 +1,6 @@
-# ObjectWire | Supabase Reference
+# OzoneNews | Supabase Reference
 **Last updated:** March 26, 2026  
-**Production:** Railway → `Autolab350/Objectwire-Frontend` main → `objectwire.org`  
+**Production:** Railway → `Autolab350/OzoneNews-Frontend` main → `OzoneNews.org`  
 **Supabase:** `https://kzcwclprrtonpsnownbl.supabase.co`
 
 ---
@@ -107,7 +107,7 @@ npm run content:dry-run
 npm run content:publish
 ```
 
-The article lands in the `articles` table and is live at `objectwire.org/blog/your-slug`.
+The article lands in the `articles` table and is live at `OzoneNews.org/blog/your-slug`.
 
 ---
 
@@ -221,7 +221,7 @@ Exists at `/admin/editor`. Not the primary workflow. Use only for quick edits or
 | `news_article` | `dangerouslySetInnerHTML` on `content_html` |
 
 **`generateMetadata` now emits:**
-- Canonical URL: `https://www.objectwire.org/blog/${slug}`
+- Canonical URL: `https://www.OzoneNews.org/blog/${slug}`
 - `openGraph.publishedTime` from `content_registry.publish_date`
 - `openGraph.modifiedTime` from `content_registry.modified_date`  
 - `openGraph.images` from `content_registry.image_url`
@@ -299,7 +299,7 @@ Add to `package.json`: `"wiki:publish": "npx tsx scripts/wiki-publish.ts -- --fi
 **E — On-demand revalidation via Supabase webhook**  
 When an article is updated in Supabase, instantly flush the CDN cache for that path. Requires:
 1. `app/api/revalidate/route.ts`, calls `revalidatePath(path)`, protected by `REVALIDATION_SECRET`
-2. Supabase Database Webhook on `articles` UPDATE → `POST https://objectwire.org/api/revalidate`
+2. Supabase Database Webhook on `articles` UPDATE → `POST https://OzoneNews.org/api/revalidate`
 3. Add `REVALIDATION_SECRET` to Railway environment variables
 
 **F — Google News sitemap ping after each publish**  

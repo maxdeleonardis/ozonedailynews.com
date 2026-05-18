@@ -1,4 +1,4 @@
-# AlfasaAutoSEO — ObjectWire Automated SEO Architecture
+# AlfasaAutoSEO — OzoneNews Automated SEO Architecture
 
 **Version:** 2.0  
 **Updated:** May 4, 2026  
@@ -8,7 +8,7 @@
 
 ## What Is AlfasaAutoSEO
 
-AlfasaAutoSEO is the internal name for ObjectWire's end-to-end automated SEO pipeline. It covers:
+AlfasaAutoSEO is the internal name for OzoneNews's end-to-end automated SEO pipeline. It covers:
 
 - How article metadata is generated and served
 - How Supabase is queried and when it is not
@@ -26,7 +26,7 @@ The April 22, 2026 impressions drop was caused by violations of rules defined in
 
 1. **`force-dynamic` on the catch-all route** — every Googlebot request triggered a live Supabase query with no cache. Hundreds of concurrent crawl requests saturated the connection pool.
 2. **Sequential Supabase probes** — the catch-all was checking 4 tables one after another (4 round trips per page load, up to 5 with metadata).
-3. **Hardcoded layout canonical** — `app/layout.tsx` had `<link rel="canonical" href="https://www.objectwire.org">` applied globally, telling Google every page was a duplicate of the homepage.
+3. **Hardcoded layout canonical** — `app/layout.tsx` had `<link rel="canonical" href="https://www.OzoneNews.org">` applied globally, telling Google every page was a duplicate of the homepage.
 4. **`generate-article-metadata.ts` double fetch** — any stub using `generateMetadata()` fired a second Supabase query just for metadata, independent of the content fetch.
 5. **`sitemap.ts` querying Supabase** — the daily sitemap regeneration hit `content_registry` directly instead of reading the local JSON file.
 
@@ -153,7 +153,7 @@ Currently the news-sitemap queries `content_registry` which is synced at build t
 export const metadata: Metadata = {
   title: 'GTA 6 Release Date | Everything Confirmed So Far',
   description: '155 char description...',
-  alternates: { canonical: 'https://www.objectwire.org/video-games/gta-6/release-date' },
+  alternates: { canonical: 'https://www.OzoneNews.org/video-games/gta-6/release-date' },
   openGraph: { ... },
 };
 ```
@@ -185,14 +185,14 @@ These rules exist because a canonical violation can tank an entire domain's impr
 1. **Never add `<link rel="canonical">` to `app/layout.tsx` or any shared layout.**
 2. Every `page.tsx` sets its own canonical via `metadata.alternates.canonical`.
 3. The canonical URL must exactly match the `url` field in the Supabase row and the `content_registry` entry.
-4. All canonical URLs must use `https://www.objectwire.org` (with www).
+4. All canonical URLs must use `https://www.OzoneNews.org` (with www).
 5. `scripts/validate-canonicals.ts` runs at `prebuild` and fails the build on violations.
 
 ---
 
 ## The Google Crawl Budget Protection Rules
 
-These rules protect ObjectWire's crawl allocation. Violating them risks reduced crawl rate, deindexing of new articles, or impressions drops.
+These rules protect OzoneNews's crawl allocation. Violating them risks reduced crawl rate, deindexing of new articles, or impressions drops.
 
 ### Never do these
 
@@ -214,13 +214,13 @@ These rules protect ObjectWire's crawl allocation. Violating them risks reduced 
 
 ---
 
-## Cross-Site Interlinking — ObjectWire ↔ owire.org
+## Cross-Site Interlinking — OzoneNews ↔ owire.org
 
-**owire.org** is ObjectWire's sister site. It covers entertainment, creators, influencers, and pop culture. Cross-linking between the two sites passes authority bidirectionally and helps each site rank for its respective keyword set.
+**owire.org** is OzoneNews's sister site. It covers entertainment, creators, influencers, and pop culture. Cross-linking between the two sites passes authority bidirectionally and helps each site rank for its respective keyword set.
 
 ### When to link to owire.org
 
-| ObjectWire article topic | Link to owire.org |
+| OzoneNews article topic | Link to owire.org |
 |---|---|
 | Entertainment (film, TV, streaming, HBO, Netflix, Disney) | `https://owire.org/entertainment` |
 | Creator economy (MrBeast, TikTok creators, YouTube channels) | `https://owire.org/creators` |
@@ -313,7 +313,7 @@ grep -r "generateArticleMetadata" app/ --include="*.tsx" -l
 - `scripts/enrich-jack-articles.ts` — enriches all static JSON files with:
   - `breadcrumbs` — auto-generated from `article_url` path segments
   - `related_articles` — auto-selected from `content_registry.json` by category + tag scoring
-  - `footer_links` — standard ObjectWire editorial nav
+  - `footer_links` — standard OzoneNews editorial nav
   - `owire_link` — owire.org cross-link for 13 entertainment/creator/sports articles
 - 84 of 89 files were missing breadcrumbs/related articles — all now populated
 - `JackArticleDB` updated to render `SisterSiteCallout` when `owire_link` field is present
@@ -374,7 +374,7 @@ export const revalidate = 86400; // 24hr ISR — content changes are rare
 export const metadata: Metadata = {
   title: article.metaTitle,
   description: article.metaDescription,
-  alternates: { canonical: `https://www.objectwire.org${article.url}` },
+  alternates: { canonical: `https://www.OzoneNews.org${article.url}` },
   // ...
 };
 
@@ -574,4 +574,4 @@ force-dynamic      →  API routes, auth, news-sitemap, admin only
 
 ---
 
-*AlfasaAutoSEO v2.0 — ObjectWire internal architecture document. Do not publish publicly.*
+*AlfasaAutoSEO v2.0 — OzoneNews internal architecture document. Do not publish publicly.*

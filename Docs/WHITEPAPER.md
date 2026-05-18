@@ -1,26 +1,26 @@
-OBJECTWIRE: A HYBRID INTELLIGENCE AND MEDIA INFRASTRUCTURE PLATFORM
+OzoneNews: A HYBRID INTELLIGENCE AND MEDIA INFRASTRUCTURE PLATFORM
 
 Executive Summary
 
-ObjectWire is a dual-layer enterprise platform combining media intelligence, automated content generation, and
+OzoneNews is a dual-layer enterprise platform combining media intelligence, automated content generation, and
 proprietary data analytics into a cohesive ecosystem. The platform operates as a public-facing newswire service
-(ObjectWire.org) delivering financial, technology, and sectoral news, supported by a proprietary backend engine
+(OzoneNews.org) delivering financial, technology, and sectoral news, supported by a proprietary backend engine
 of AI agents, automation pipelines, and real-time market intelligence.
 
 The platform is designed to function as a standardized feed system, comparable to Bloomberg Terminal or Reuters
 services, but extensible into AI-driven media distribution, trading intelligence, and autonomous agent frameworks.
-ObjectWire generates value through three primary channels: editorial credibility, automated content pipeline,
+OzoneNews generates value through three primary channels: editorial credibility, automated content pipeline,
 and proprietary data-driven decision support for institutional and individual traders.
 
 This document outlines the technical architecture, intellectual property framework, business model, and growth
-strategy for ObjectWire as a scalable intelligence infrastructure platform.
+strategy for OzoneNews as a scalable intelligence infrastructure platform.
 
 
 1. PLATFORM OVERVIEW
 
 1.1 Core Vision
 
-ObjectWire combines three foundational pillars:
+OzoneNews combines three foundational pillars:
 
 First, Media Infrastructure: A credible, SEO-optimized news distribution platform producing daily financial and
 technology content, structured as a public newswire service.
@@ -34,10 +34,10 @@ across user touchpoints.
 
 1.2 Market Positioning
 
-ObjectWire is positioned as a bridge between traditional financial wire services and modern AI-powered automation.
-Unlike legacy newswires, ObjectWire leverages large language models for content generation, vector databases for
+OzoneNews is positioned as a bridge between traditional financial wire services and modern AI-powered automation.
+Unlike legacy newswires, OzoneNews leverages large language models for content generation, vector databases for
 semantic search, and autonomous agent frameworks for real-time decision support. Unlike pure content platforms,
-ObjectWire maintains proprietary intelligence engines that generate trading edges and competitive insights.
+OzoneNews maintains proprietary intelligence engines that generate trading edges and competitive insights.
 
 The platform targets three primary audiences:
 
@@ -159,7 +159,7 @@ Scope: Protection of original editorial content, code, and creative works.
 Protected Artifacts:
 - Generated articles and summaries produced by the AI-CMS
 - Software source code for all platform components
-- Design and layout of ObjectWire.org
+- Design and layout of OzoneNews.org
 - Video content, research reports, and visual assets
 - Database schema and structured data formats
 
@@ -170,7 +170,7 @@ Duration: Automatically granted upon creation; corporate works protected for 95 
 Scope: Brand protection for name, logo, and service marks.
 
 Registrations:
-- ObjectWire name and all associated variants
+- OzoneNews name and all associated variants
 - Logo and visual identity elements
 - Service marks for API products and terminal interfaces
 - Regional variations for expanded geographic operations
@@ -196,7 +196,7 @@ Duration: Indefinite as long as secrecy is maintained; lost upon public disclosu
 
 3.5 Dual-Layer IP Architecture
 
-ObjectWire employs a strategic dual-layer structure:
+OzoneNews employs a strategic dual-layer structure:
 
 Public Layer (Non-Profit/Open Source): Core terminal, API documentation, basic data feeds, and editorial output
 are made available as open-source under permissive licenses (MIT or Apache 2.0). This layer drives community
@@ -206,7 +206,7 @@ Proprietary Layer: Proprietary intelligence engines, fine-tuned models, exclusiv
 analytics remain closed-source and trade-secret protected. This layer generates competitive advantage and
 revenue through premium API tiers and institutional licensing.
 
-The dual structure allows ObjectWire to operate as a non-profit or charitable entity for the public layer while
+The dual structure allows OzoneNews to operate as a non-profit or charitable entity for the public layer while
 generating revenue through proprietary services, avoiding regulatory burden while building platform value.
 
 
@@ -214,12 +214,12 @@ generating revenue through proprietary services, avoiding regulatory burden whil
 
 4.1 Organizational Framework
 
-ObjectWire operates as a Non-Profit Foundation (similar to Mozilla Foundation or Linux Foundation) that develops
+OzoneNews operates as a Non-Profit Foundation (similar to Mozilla Foundation or Linux Foundation) that develops
 and maintains open-source intelligence infrastructure. The core platform, tools, and data feeds are provided free
 and open-source under permissive licenses (MIT, Apache 2.0).
 
 Separate from the non-profit foundation, an independent for-profit entity (or multiple for-profit entities) may
-be established to commercialize services, tools, and applications built on top of the ObjectWire foundation.
+be established to commercialize services, tools, and applications built on top of the OzoneNews foundation.
 This structure mirrors Google's relationship with Chrome and Android, the foundation provides free, open-source
 infrastructure; commercial entities build profitable services around it.
 
@@ -235,7 +235,7 @@ Grants and Donations: Technology foundations (Mozilla Foundation, Ethereum Found
 capital firms with vested interest in financial transparency, and institutional donors supporting open-source
 financial infrastructure. Target: 500K-2M USD annually.
 
-Commercial Entity Contributions: For-profit companies built on ObjectWire contribute back to the foundation
+Commercial Entity Contributions: For-profit companies built on OzoneNews contribute back to the foundation
 through dues, equity stakes, or revenue sharing to ensure continued development and maintenance. This resembles
 how Android device manufacturers contribute to Google's Android development.
 
@@ -250,31 +250,31 @@ intelligence (not tied to platform features or advertising).
 
 4.3 For-Profit Commercial Entities (Independent)
 
-Separate commercial entities build and monetize services on top of the open-source ObjectWire foundation. These
+Separate commercial entities build and monetize services on top of the open-source OzoneNews foundation. These
 entities operate independently of the non-profit and are responsible for their own revenue and marketing.
 
 Example Commercial Services:
 
-Hosted SaaS Platform: A managed ObjectWire instance with authentication, team collaboration, and premium
+Hosted SaaS Platform: A managed OzoneNews instance with authentication, team collaboration, and premium
 features. Commercial entity charges subscription fees (e.g., 50-200 USD/month). Non-profit foundation provides
 the open-source core; commercial entity adds value through hosting, support, and premium features.
 
 AI Agent Marketplace: A commercial platform where traders and developers monetize custom AI agents and analysis
-tools built on ObjectWire infrastructure. Commercial entity takes 10-30% commission on transactions.
+tools built on OzoneNews infrastructure. Commercial entity takes 10-30% commission on transactions.
 
 Data Licensing Service: A commercial entity licenses premium datasets, alternative data feeds, and proprietary
-research built from ObjectWire infrastructure to institutional traders and hedge funds. Revenue: 10K-100K USD
+research built from OzoneNews infrastructure to institutional traders and hedge funds. Revenue: 10K-100K USD
 per client annually.
 
 Enterprise Consulting and Integration: Commercial entities offer custom integrations, consulting, and
-deployment services for financial institutions seeking to build ObjectWire into internal systems. Revenue:
+deployment services for financial institutions seeking to build OzoneNews into internal systems. Revenue:
 50K-500K USD per engagement.
 
 Trading Signal Services: A separate commercial entity develops and sells AI-driven trading signals and
-recommendations derived from ObjectWire intelligence. Packaged as Discord bots, VSCode plugins, or API
+recommendations derived from OzoneNews intelligence. Packaged as Discord bots, VSCode plugins, or API
 subscriptions. Revenue: 100-500 USD per user monthly.
 
-Secondary Blockchain/Token Layer: An independent blockchain or token-based project integrates with ObjectWire
+Secondary Blockchain/Token Layer: An independent blockchain or token-based project integrates with OzoneNews
 to create decentralized data markets, token-based incentive systems, or on-chain intelligence feeds. Revenue
 generated independently from the non-profit foundation.
 
@@ -288,7 +288,7 @@ the foundation.
 The non-profit foundation focuses solely on maintaining, developing, and sustaining open-source infrastructure.
 Commercial revenue is not directed to the foundation.
 
-Commercial entities built on ObjectWire generate profit independently. They contribute to the foundation
+Commercial entities built on OzoneNews generate profit independently. They contribute to the foundation
 voluntarily through grants, sponsorships, or formal partnership agreements.
 
 This structure prevents the non-profit from being corrupted by commercial interests while allowing vibrant
@@ -317,7 +317,7 @@ contributions from commercial entities.
 
 4.6 Growth Strategy (Foundation-Focused)
 
-Community Contributions: Recruit developers, researchers, and traders to contribute to ObjectWire as an
+Community Contributions: Recruit developers, researchers, and traders to contribute to OzoneNews as an
 open-source project. Provide governance and incentive structures (recognition, attribution, advisory board seats)
 to encourage long-term participation.
 
@@ -328,10 +328,10 @@ Adoption Metrics: Track adoption across commercial platforms, institutional inte
 communities. Use adoption metrics to demonstrate impact when applying for grants and attracting contributors.
 
 Ecosystem Documentation and Education: Produce tutorials, documentation, workshops, and online courses for
-developers and traders seeking to learn ObjectWire. Distribute free and open-source.
+developers and traders seeking to learn OzoneNews. Distribute free and open-source.
 
 Standards Development: Lead development of open standards for financial data formats, API specifications, and
-intelligence schema. Position ObjectWire as the reference implementation.
+intelligence schema. Position OzoneNews as the reference implementation.
 
 International Expansion: Build community chapters and localized documentation in major financial centers (London,
 Singapore, Hong Kong, Tokyo, São Paulo) to drive global adoption and contributor participation.
@@ -379,16 +379,16 @@ Open Source Licensing: Public layer released under MIT or Apache 2.0 licenses. P
 remain closed-source.
 
 Compliance: GDPR compliance for user data; FTC compliance for sponsored content disclosure; SEC compliance if
-offering investment advice (disclaimer: ObjectWire does not offer investment advice).
+offering investment advice (disclaimer: OzoneNews does not offer investment advice).
 
 Liability: Clear terms of service disclaiming liability for trading losses; customer agreements establishing
-ObjectWire's role as a data provider, not an investment advisor.
+OzoneNews's role as a data provider, not an investment advisor.
 
 
 6. COMPETITIVE ADVANTAGES
 
-Automation Efficiency: ObjectWire generates 100+ articles per week with minimal editorial overhead. Traditional
-newsrooms require dozens of journalists; ObjectWire requires 1-2 editors overseeing AI generation.
+Automation Efficiency: OzoneNews generates 100+ articles per week with minimal editorial overhead. Traditional
+newsrooms require dozens of journalists; OzoneNews requires 1-2 editors overseeing AI generation.
 
 Real-Time Intelligence: Automated scraping and AI processing deliver news minutes after events occur, competing
 with wire services on speed while maintaining lower operational costs.
@@ -397,7 +397,7 @@ Cost Accessibility: Retail traders access Bloomberg Terminal-equivalent intellig
 of 2,000+ USD/month.
 
 Extensibility: Open API architecture and multi-platform interfaces (Discord, VSCode, Obsidian, CLI) make
-ObjectWire accessible across user workflows, increasing adoption and retention.
+OzoneNews accessible across user workflows, increasing adoption and retention.
 
 AI-Driven Insights: Fine-tuned models trained on financial data provide trend analysis, sentiment scoring, and
 impact assessments beyond typical news aggregation.
@@ -411,7 +411,7 @@ and virality unachievable with closed platforms.
 
 7. RISK MITIGATION
 
-Regulatory Risk: Disclaimer language clarifying that ObjectWire provides information, not investment advice.
+Regulatory Risk: Disclaimer language clarifying that OzoneNews provides information, not investment advice.
 Compliance with FTC, SEC, and state-level financial services regulations. Regular legal review.
 
 Data Privacy Risk: Encryption of user data in transit and at rest. GDPR compliance mechanisms. Privacy policy
@@ -433,7 +433,7 @@ Legal counsel retained for IP disputes. Regular IP audits to identify gaps.
 
 8. VISION FOR SCALE
 
-Long-Term Positioning: ObjectWire evolves into a foundational intelligence infrastructure layer for AI-driven
+Long-Term Positioning: OzoneNews evolves into a foundational intelligence infrastructure layer for AI-driven
 trading, media, and decision-making, comparable to Bloomberg, Reuters, or Federal Reserve databases in importance,
 but decentralized, transparent, and community-driven.
 
@@ -461,26 +461,26 @@ community-driven intelligence infrastructure.
 
 9. CONCLUSION
 
-ObjectWire represents a fundamental shift in how financial and technology intelligence is produced, distributed,
+OzoneNews represents a fundamental shift in how financial and technology intelligence is produced, distributed,
 and consumed. By combining automated content generation, real-time data collection, and extensible API
-integration, ObjectWire creates a scalable intelligence infrastructure accessible to traders, businesses, and
+integration, OzoneNews creates a scalable intelligence infrastructure accessible to traders, businesses, and
 communities worldwide.
 
 The platform's dual-layer IP architecture, public open-source for community adoption and proprietary services for
 revenue, enables sustainable growth while building network effects and brand value. With a clear technical roadmap,
-diversified revenue model, and strategic positioning at the intersection of media, AI, and finance, ObjectWire is
+diversified revenue model, and strategic positioning at the intersection of media, AI, and finance, OzoneNews is
 positioned to become a category-defining intelligence platform for the AI-driven economy.
 
 Execution focuses on three near-term priorities: establishing editorial credibility through high-quality content,
 scaling automated intelligence pipelines, and building institutional API partnerships. Success in these areas
-establishes ObjectWire as a credible data provider and positions the platform for rapid scaling and eventual
+establishes OzoneNews as a credible data provider and positions the platform for rapid scaling and eventual
 strategic partnerships or independent growth.
 
 The opportunity is significant; the market for alternative financial data, AI-driven intelligence, and accessible
-trading tools continues to expand. ObjectWire's timing, technology, and vision align with long-term trends in
+trading tools continues to expand. OzoneNews's timing, technology, and vision align with long-term trends in
 financial markets, media transformation, and AI adoption.
 
 
 Document Version: 1.0
 Last Updated: November 12, 2025
-Compiled from: 62 ObjectWire-related conversations (May-November 2025)
+Compiled from: 62 OzoneNews-related conversations (May-November 2025)

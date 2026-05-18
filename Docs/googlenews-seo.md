@@ -1,4 +1,4 @@
-# Google News SEO | ObjectWire
+# Google News SEO | OzoneNews
 
 > **How `content-registry.ts`, the Supabase articles table, and structured data work together to compete with IGN, CNN, and established media for Google News placement.**
 
@@ -24,7 +24,7 @@ Related: [supabase-library.md](supabase-library.md)
 
 **File:** [`lib/content-registry.ts`](lib/content-registry.ts)
 
-The content registry is ObjectWire's **sitemap brain**, a single TypeScript array where every static page on the site is declared with title, description, publish date, author, image, and topic tags.
+The content registry is OzoneNews's **sitemap brain**, a single TypeScript array where every static page on the site is declared with title, description, publish date, author, image, and topic tags.
 
 It is **not** a CMS. It is metadata. The actual page content lives in `app/**/page.tsx` files. The registry tells Google everything about those pages that HTML alone cannot.
 
@@ -33,7 +33,7 @@ It is **not** a CMS. It is metadata. The actual page content lives in `app/**/pa
 ```ts
 {
   slug: "/technology/cursor",
-  title: "Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in Three Months | ObjectWire",
+  title: "Cursor Hits $2 Billion ARR | Anysphere Doubles Revenue in Three Months | OzoneNews",
   description: "Anysphere reported $2 billion in annual recurring revenue for Cursor in February 2026...",
   publishDate: "2026-03-02",       // ISO date, drives news sitemap freshness
   modifiedDate: "2026-03-02",      // Updated when article content changes
@@ -44,7 +44,7 @@ It is **not** a CMS. It is metadata. The actual page content lives in `app/**/pa
   priority: 0.9,                   // Sitemap crawl priority (0.0–1.0)
   changeFrequency: "weekly",
   featured: true,                  // Appears in homepage hero slot
-  imageUrl: "https://www.objectwire.org/news/cursor.PNG",   // Required for Top Stories
+  imageUrl: "https://www.OzoneNews.org/news/cursor.PNG",   // Required for Top Stories
   imageAlt: "Cursor AI code editor, Anysphere $2 billion ARR milestone",
 }
 ```
@@ -66,7 +66,7 @@ Every field has a job. None are cosmetic.
 | `NewsArticle` structured data on the page | `NewsArticleSchema` component on each page |
 | Unique, descriptive `<title>` tag | `title` in registry → page `metadata.title` |
 | Author byline | `author` + optional `authorSlug` in registry |
-| Publisher name matches Google News registration | Hardcoded as ObjectWire in schema components |
+| Publisher name matches Google News registration | Hardcoded as OzoneNews in schema components |
 
 If any of these are missing, the article is invisible to Google News regardless of how good the content is.
 
@@ -119,7 +119,7 @@ The Supabase `articles` table (see [supabase-library.md](supabase-library.md)) h
 
 ## 4. The Two-Tier Content Strategy
 
-ObjectWire runs two parallel content systems. Understanding which to use for each article is the most important publishing decision you make.
+OzoneNews runs two parallel content systems. Understanding which to use for each article is the most important publishing decision you make.
 
 ```
 STATIC REGISTRY PAGES                    SUPABASE ARTICLES
@@ -155,7 +155,7 @@ Google News: Via news-sitemap.xml        Google News: Via DB-driven sitemap feed
 
 ### Their structural constraints
 
-| Legacy media constraint | ObjectWire structural advantage |
+| Legacy media constraint | OzoneNews structural advantage |
 |---|---|
 | Editorial approval chains (hours to days per story) | `/admin/editor` publishes in minutes with no deploy |
 | Legacy CMS emitting messy HTML | Native `NewsArticleSchema` JSON-LD, Google reads it cleaner |
@@ -175,7 +175,7 @@ Publish deep article on topic X
   → Dwell time signals quality
   → Other sites cite it
   → Google increases authority for topic X
-  → Next ObjectWire article on topic X ranks faster and higher
+  → Next OzoneNews article on topic X ranks faster and higher
   → Repeat
 ```
 
@@ -183,13 +183,13 @@ IGN took 30 years to build topic authority on gaming. The gap closes from the bo
 
 ### The velocity advantage in practice
 
-In a single afternoon (March 2, 2026), ObjectWire published:
+In a single afternoon (March 2, 2026), OzoneNews published:
 - Cursor $2B ARR story (`/technology/cursor`)
 - Hulu Mike & Nick & Nick & Alice trailer coverage (`/entertainment/hulu`)
 - Pokémon Pokopia franchise-record review (`/video-games/switch2/pokemon-pokopia`)
 - Polyphony Digital hiring + Gran Turismo review (`/video-games/racing/polyphony-gran-turismo`)
 
-A CNN gaming desk or IGN news team requires separate writers and editors for each of those verticals. ObjectWire's architecture, registry + Supabase + reusable article components, compresses that to a single publishing session.
+A CNN gaming desk or IGN news team requires separate writers and editors for each of those verticals. OzoneNews's architecture, registry + Supabase + reusable article components, compresses that to a single publishing session.
 
 **Sustained over months, this velocity builds topical authority that Google treats as primary source status, not secondary citation.**
 
@@ -205,7 +205,7 @@ Run through this for every article before publishing:
 - [ ] `imageUrl` present and resolving (test in browser)
 - [ ] `imageWidth` ≥ 1200 and `imageHeight` ≥ 675 in registry entry (16:9 ratio for Top Stories)
 - [ ] `NewsArticleSchema` component included on the page with `publishedTime` in ISO 8601
-- [ ] `author` field filled (not "ObjectWire Editorial" for Google News, use a real byline when possible)
+- [ ] `author` field filled (not "OzoneNews Editorial" for Google News, use a real byline when possible)
 - [ ] `<title>` tag is unique, no two pages with identical titles
 - [ ] `canonical` URL in metadata matches the actual page URL
 
@@ -222,7 +222,7 @@ Run through this for every article before publishing:
 
 ## 7. Structured Data Reference
 
-Every ObjectWire article page should include both of these:
+Every OzoneNews article page should include both of these:
 
 ### NewsArticleSchema component
 
@@ -231,11 +231,11 @@ Every ObjectWire article page should include both of these:
   title="Article Title"
   description="Article excerpt under 160 chars."
   author="Jack Wang"
-  authorUrl="https://www.objectwire.org/authors/jack-wang"
+  authorUrl="https://www.OzoneNews.org/authors/jack-wang"
   publishedTime="2026-03-02T12:00:00Z"   // ISO 8601, required
   modifiedTime="2026-03-02T12:00:00Z"
-  imageUrl="https://www.objectwire.org/news/cursor.PNG"
-  articleUrl="https://www.objectwire.org/technology/cursor"
+  imageUrl="https://www.OzoneNews.org/news/cursor.PNG"
+  articleUrl="https://www.OzoneNews.org/technology/cursor"
   section="Technology"
   keywords={['Cursor', 'Anysphere', 'ARR', 'SaaS']}
 />
@@ -280,7 +280,7 @@ Google mandates a minimum image size of **1200×675 px (16:9)** for Top Stories 
 Always include `imageWidth` and `imageHeight` in the registry entry:
 
 ```ts
-imageUrl: "https://www.objectwire.org/news/cursor.PNG",
+imageUrl: "https://www.OzoneNews.org/news/cursor.PNG",
 imageWidth: 1200,
 imageHeight: 675,
 imageAlt: "Cursor AI code editor interface screenshot",

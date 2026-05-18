@@ -1,5 +1,5 @@
 # Commit-Deploy Automation Pipeline (Enhanced)
-## Execution Plan | ObjectWire
+## Execution Plan | OzoneNews
 ### "Content-as-Code" Approach
 
 **Goal:** Every `git push` to `main` containing new articles automatically

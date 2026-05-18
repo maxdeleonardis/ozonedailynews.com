@@ -1,4 +1,4 @@
-# SEO Next Steps | ObjectWire
+# SEO Next Steps | OzoneNews
 
 > Quick-reference action list distilled from the full [100k_organicsearch.md](100k_organicsearch.md) plan. Check items off as completed.
 
@@ -63,7 +63,7 @@ Every news article needs **all** of these to be eligible for Top Stories:
 - [ ] Listed in `/news-sitemap.xml` (auto from registry)
 - [ ] `imageUrl` ≥ 1200px wide with `imageWidth` + `imageHeight` set
 - [ ] Publisher registered in Google Publisher Center
-- [ ] Real author name (not "ObjectWire Editorial" for news pieces)
+- [ ] Real author name (not "OzoneNews Editorial" for news pieces)
 
 ---
 

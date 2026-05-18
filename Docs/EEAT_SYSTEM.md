@@ -1,9 +1,9 @@
-# ObjectWire | E-E-A-T System — Complete Architecture
+# OzoneNews | E-E-A-T System — Complete Architecture
 
 **Version:** 1.0  
 **Created:** May 5, 2026  
 **Status:** Active — fully integrated into publish pipeline  
-**Purpose:** This document defines how E-E-A-T quality enforcement is embedded across every layer of the ObjectWire codebase.
+**Purpose:** This document defines how E-E-A-T quality enforcement is embedded across every layer of the OzoneNews codebase.
 
 ---
 
@@ -11,7 +11,7 @@
 
 E-E-A-T stands for **Experience, Expertise, Authoritativeness, and Trustworthiness**. It is the primary framework Google's quality raters use to evaluate content, and it is the signal that Google's HCU (Helpful Content Update) classifier uses at the domain level.
 
-The HCU classifier is **site-level**, not page-level. When it fires, it suppresses ALL pages on a domain — including the good ones — until the classifier re-evaluates during a future core update. ObjectWire experienced this in April 2026.
+The HCU classifier is **site-level**, not page-level. When it fires, it suppresses ALL pages on a domain — including the good ones — until the classifier re-evaluates during a future core update. OzoneNews experienced this in April 2026.
 
 This means:
 - One bad page does not just fail on its own. It pulls down every other page on the domain.
@@ -128,7 +128,7 @@ Every `page.tsx` in `app/` with a `metadata` export is checked for:
 - Description under 130 chars
 - No `keywords` array
 - No `openGraph` block on article pages
-- Brand suffix "ObjectWire" still in title
+- Brand suffix "OzoneNews" still in title
 
 ### Strict Mode
 
@@ -248,9 +248,9 @@ The sentinel validates `author_slug` against this list. Add new authors here whe
 const KNOWN_AUTHORS: string[] = [
   'michael-cripe',
   'jack-sterling',
-  'objectwire-investigative-desk',
-  'objectwire-influencer-desk',
-  'objectwire-editorial',
+  'OzoneNews-investigative-desk',
+  'OzoneNews-influencer-desk',
+  'OzoneNews-editorial',
   'alysa-rose',
 ];
 ```
@@ -290,7 +290,7 @@ npm run build
 
 ## HCU Recovery Context
 
-ObjectWire is recovering from a Google Helpful Content Update algorithmic penalty (April 2026). The E-E-A-T system is part of the domain-level rehabilitation strategy documented in `Docs/RECOVERY_PLAN.md`.
+OzoneNews is recovering from a Google Helpful Content Update algorithmic penalty (April 2026). The E-E-A-T system is part of the domain-level rehabilitation strategy documented in `Docs/RECOVERY_PLAN.md`.
 
 Recovery target: partial recovery at Aug/Sep 2026 core update. Full recovery by Mar 2027.
 
@@ -300,7 +300,7 @@ The E-E-A-T system alone does not guarantee recovery. It is the quality floor �
 2. **Original reporting** — articles with named sources, original data, unique angles
 3. **Noindex for thin pages** — pages that cannot be made substantial should be noindexed, not deleted
 4. **News network presence** — Google News, Bing News, Apple News (see `Docs/alfasa_credibility.md`)
-5. **Topical coherence** — creator content moving to owire.org, objectwire.org as journalism + gaming
+5. **Topical coherence** — creator content moving to owire.org, OzoneNews.org as journalism + gaming
 
 The classifier re-evaluates at core algorithm updates only. The window is approximately every 3-6 months. Every publish between now and August 2026 either builds toward recovery or delays it.
 

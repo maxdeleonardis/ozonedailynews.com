@@ -1,4 +1,4 @@
-# ObjectWire | Step-by-Step Action Plan
+# OzoneNews | Step-by-Step Action Plan
 
 > Distilled from `seo_contentregistry_auto.md` + `SEO_NEXTSTEPS_CONTEXT.md`.
 > These are the highest-impact actions executable directly in this codebase, in priority order.
@@ -17,7 +17,7 @@ npm run registry:sync   # dry-run, shows all missing/broken entries
 
 For every entry missing `imageUrl`, `imageWidth`, `imageHeight`:
 - Open `lib/content-registry.ts`
-- Add the actual hosted image URL (must be on `objectwire.org`, min 1200px wide)
+- Add the actual hosted image URL (must be on `OzoneNews.org`, min 1200px wide)
 - Set `imageWidth: 1200`, `imageHeight: 675`
 - Set `imageAlt` to a descriptive string
 
@@ -34,11 +34,11 @@ Creates a self-running check that flags bad entries before they go live.
 // For every entry in contentRegistry, flag:
 //   - missing imageUrl / imageWidth / imageHeight
 //   - description shorter than 130 chars or longer than 155 chars
-//   - description containing "ObjectWire coverage of"
+//   - description containing "OzoneNews coverage of"
 //   - slug that doesn't start with /
 //   - duplicate slugs
 //   - tags[] with fewer than 5 items
-//   - author === "ObjectWire Editorial" on category === "News"
+//   - author === "OzoneNews Editorial" on category === "News"
 ```
 
 Add to `package.json`:
@@ -70,7 +70,7 @@ Then update `scripts/sync-registry.ts` CATEGORY_MAP to use the consolidated name
 
 Any description that:
 - Is fewer than 130 characters
-- Is a generic stub like "ObjectWire coverage of..."
+- Is a generic stub like "OzoneNews coverage of..."
 - Is a duplicate of another entry
 
 ...must be rewritten with:
@@ -92,19 +92,19 @@ Every article page must include all of these. Use this as a copy-paste checklist
 // app/[section]/[slug]/page.tsx
 
 export const metadata = {
-  title: '[Primary Keyword] | Exact Headline | ObjectWire',   // ≤ 60 chars, keyword first
+  title: '[Primary Keyword] | Exact Headline | OzoneNews',   // ≤ 60 chars, keyword first
   description: '[Unique, 130–155 chars, keyword in first 60]',
   keywords: ['keyword 1', 'keyword 2', ...],                  // 10–15 phrases
   openGraph: {
     title: '...',
     description: '...',
-    url: 'https://www.objectwire.org/[full/slug]',
+    url: 'https://www.OzoneNews.org/[full/slug]',
     type: 'article',
     publishedTime: '2026-MM-DDTHH:MM:SSZ',
     section: 'Technology',                                     // Canonical category
     images: [{ url: '...', width: 1200, height: 675, alt: '...' }],
   },
-  alternates: { canonical: 'https://www.objectwire.org/[full/slug]' },
+  alternates: { canonical: 'https://www.OzoneNews.org/[full/slug]' },
 };
 
 export default function ArticlePage() {
@@ -116,8 +116,8 @@ export default function ArticlePage() {
         description="..."
         author="First Last"                    {/* real name — not generic */}
         publishedTime="2026-MM-DDTHH:MM:SSZ"
-        imageUrl="https://www.objectwire.org/images/..."
-        articleUrl="https://www.objectwire.org/[full/slug]"
+        imageUrl="https://www.OzoneNews.org/images/..."
+        articleUrl="https://www.OzoneNews.org/[full/slug]"
         section="Technology"
         keywords={['keyword 1', 'keyword 2']}
       />
@@ -139,7 +139,7 @@ export default function ArticlePage() {
 - [ ] `<Breadcrumb>`, 3+ levels
 - [ ] `<h1>`, matches metadata title headline exactly
 - [ ] Hero image, `next/image`, width + height set (prevents CLS)
-- [ ] 4–6 internal `<Link>` cards to related ObjectWire pages
+- [ ] 4–6 internal `<Link>` cards to related OzoneNews pages
 - [ ] Real author name in both `NewsArticleSchema` and registry entry
 
 ---
@@ -151,7 +151,7 @@ After `npm run build` auto-syncs the entry, go back and patch:
 ```ts
 {
   slug: '/[full/slug]',
-  title: '[Title without | ObjectWire]',
+  title: '[Title without | OzoneNews]',
   description: '[Unique 130–155 char description]',  // ← patch this
   publishDate: 'YYYY-MM-DD',
   modifiedDate: 'YYYY-MM-DD',
@@ -160,7 +160,7 @@ After `npm run build` auto-syncs the entry, go back and patch:
   author: 'First Last',                               // ← real name
   priority: 0.9,                                      // 0.9 breaking, 0.7 news, 0.5 evergreen
   changeFrequency: 'daily',                           // daily|weekly|monthly
-  imageUrl: 'https://www.objectwire.org/images/...', // ← CRITICAL, patch this
+  imageUrl: 'https://www.OzoneNews.org/images/...', // ← CRITICAL, patch this
   imageWidth: 1200,                                   // ← CRITICAL
   imageHeight: 675,                                   // ← CRITICAL
   imageAlt: 'Descriptive alt text',

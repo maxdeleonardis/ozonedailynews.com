@@ -1,8 +1,8 @@
-# ObjectWire × Discord Integration Blueprint
+# OzoneNews × Discord Integration Blueprint
 
 ## The Core Idea
 
-Every article on ObjectWire has a comment section powered by Discord. When a reader comments on an article, two things happen simultaneously:
+Every article on OzoneNews has a comment section powered by Discord. When a reader comments on an article, two things happen simultaneously:
 
 1. The comment is **saved to Supabase** (`discord_comments` table) so it persists on the website
 2. The comment is **forwarded via webhook** to a Discord Forum Channel where it becomes a permanent, threaded discussion
@@ -60,10 +60,10 @@ Discord Forum Channels were designed for exactly this use case, organized, searc
 │  │ 📰 Amazon's New AI Chip Challenges   │ ← Forum Post (auto-created│
 │  │    NVIDIA Dominance                  │    by first comment)       │
 │  │                                     │                            │
-│  │  JohnDoe via ObjectWire:            │                            │
+│  │  JohnDoe via OzoneNews:            │                            │
 │  │  "This is huge for the industry..." │                            │
 │  │                                     │                            │
-│  │  JaneSmith via ObjectWire:          │                            │
+│  │  JaneSmith via OzoneNews:          │                            │
 │  │  "I think NVIDIA will respond..."   │                            │
 │  │                                     │                            │
 │  │  [Read full article →]              │ ← Link back to site        │
@@ -72,7 +72,7 @@ Discord Forum Channels were designed for exactly this use case, organized, searc
 │  ┌─────────────────────────────────────┐                            │
 │  │ 📰 KSI Announces New Boxing Match    │ ← Different article       │
 │  │                                     │                            │
-│  │  GamerX via ObjectWire:             │                            │
+│  │  GamerX via OzoneNews:             │                            │
 │  │  "Let's gooo!"                      │                            │
 │  └─────────────────────────────────────┘                            │
 │                                                                     │
@@ -85,14 +85,14 @@ Every webhook message in the Forum Post includes:
 
 - **Username + avatar** of the commenter
 - **Comment text** as the message body
-- **Article title + link** back to the full article on ObjectWire
+- **Article title + link** back to the full article on OzoneNews
 - **Timestamp**
 - **Article category/beat** as a footer tag
 
 Discord members who weren't on the website can:
 - React to comments with emoji
 - Reply to start deeper discussions
-- Click the article link to read the full piece on ObjectWire
+- Click the article link to read the full piece on OzoneNews
 - Get notified when new comments are posted (if they follow the post)
 
 ### Webhook Payload (Technical)
@@ -100,7 +100,7 @@ Discord members who weren't on the website can:
 First comment on a new article:
 ```json
 {
-  "username": "JohnDoe via ObjectWire",
+  "username": "JohnDoe via OzoneNews",
   "avatar_url": "https://cdn.discordapp.com/avatars/123/abc.png",
   "thread_name": "Amazon's New AI Chip Challenges NVIDIA Dominance",
   "embeds": [{
@@ -112,9 +112,9 @@ First comment on a new article:
     },
     "fields": [{
       "name": "📰 Read Article",
-      "value": "[Amazon's New AI Chip →](https://www.objectwire.org/amazon/ai-chip)"
+      "value": "[Amazon's New AI Chip →](https://www.OzoneNews.org/amazon/ai-chip)"
     }],
-    "footer": { "text": "Tech · objectwire.org" },
+    "footer": { "text": "Tech · OzoneNews.org" },
     "timestamp": "2026-03-21T15:30:00Z"
   }]
 }
@@ -168,14 +168,14 @@ The `<DiscordComments>` component appears at the bottom of every article. It has
 **For signed-out users:**
 - Large Discord-branded sign-in gate with the message: *"Sign in with Discord to join the conversation"*
 - Subtext: *"Your comments appear live in our Discord server, every post grows the community."*
-- Link: *"Don't have Discord? Join our server first →"* pointing to `discord.gg/objectwire`
+- Link: *"Don't have Discord? Join our server first →"* pointing to `discord.gg/OzoneNews`
 
 **After posting a comment:**
 - Success toast includes: *"See it live in Discord →"* with invite link
 
 **Community growth banner (always visible):**
 - Bottom of comment section: *"Every comment appears live in our Discord server."*
-- CTA button: **"Join ObjectWire Discord"** with Discord branding
+- CTA button: **"Join OzoneNews Discord"** with Discord branding
 
 ### 2. ReactionBar "Comment" Button (Every Article)
 
@@ -185,7 +185,7 @@ The existing ReactionBar on every article has a 💬 Comment button that scrolls
 
 ### 3. Header / Navigation
 
-Add a small Discord icon in the site header next to the auth button. Clicking it opens `discord.gg/objectwire` in a new tab. Always visible, zero friction.
+Add a small Discord icon in the site header next to the auth button. Clicking it opens `discord.gg/OzoneNews` in a new tab. Always visible, zero friction.
 
 ### 4. Article Sidebar / Related Content
 
@@ -218,7 +218,7 @@ When a new article is published, a webhook posts to a `#new-articles` channel in
                     ┌──────────────────┐
                     │   Reader visits   │
                     │    article on     │
-                    │    ObjectWire     │
+                    │    OzoneNews     │
                     └────────┬─────────┘
                              │
                              ▼
@@ -260,7 +260,7 @@ When a new article is published, a webhook posts to a `#new-articles` channel in
 ## Discord Server Structure (Recommended)
 
 ```
-OBJECTWIRE DISCORD SERVER
+OzoneNews DISCORD SERVER
 │
 ├── 📢 ANNOUNCEMENTS
 │   ├── #new-articles        ← Webhook: auto-posts when articles publish
@@ -326,12 +326,12 @@ DISCORD_NEW_ARTICLES_WEBHOOK_URL=https://discord.com/api/webhooks/{id}/{token}
 
 2. **Create a Webhook for that channel**
    - Server Settings → Integrations → Webhooks → New Webhook
-   - Name: `ObjectWire Comments`
+   - Name: `OzoneNews Comments`
    - Channel: `#article-discussion`
    - Copy the webhook URL → paste into `.env.local` as `DISCORD_COMMENTS_WEBHOOK_URL`
 
 3. **Set up the Discord OAuth app** (already done)
-   - Ensure redirect URL is set to `https://www.objectwire.org/api/auth/callback/discord`
+   - Ensure redirect URL is set to `https://www.OzoneNews.org/api/auth/callback/discord`
 
 ### Code Side (What we'll build)
 

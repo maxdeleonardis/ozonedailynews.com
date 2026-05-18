@@ -1,6 +1,6 @@
 # Central Writer | Auth & Permissions Roadmap
 
-This document outlines the plan for locking down ObjectWire's admin editor using Supabase Auth and role-based access control (RBAC), plus infrastructure work in progress.
+This document outlines the plan for locking down OzoneNews's admin editor using Supabase Auth and role-based access control (RBAC), plus infrastructure work in progress.
 
 ---
 
@@ -42,7 +42,7 @@ lib/generate-article-metadata.ts (fetches row from Supabase)
        ↓
 Supabase row: meta_title, meta_description columns
        ↓
-Falls back to: title + " | ObjectWire", subtitle
+Falls back to: title + " | OzoneNews", subtitle
 ```
 
 ### What's Done

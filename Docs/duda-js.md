@@ -1,13 +1,13 @@
 # Why Duda's Built-In SEO Is So Strong — And How to Replicate It in JavaScript
 
-> Internal reference document for ObjectWire engineering.
+> Internal reference document for OzoneNews engineering.
 > Last updated: February 21, 2026
 
 ---
 
 ## Part 1: Why Duda's Built-In SEO Was Strong
 
-Duda is a website builder that handles SEO **automatically at the infrastructure level**. Here's what it did for ObjectWire out of the box:
+Duda is a website builder that handles SEO **automatically at the infrastructure level**. Here's what it did for OzoneNews out of the box:
 
 ### 1. Server-Side Rendering by Default
 
@@ -62,7 +62,7 @@ Duda's navigation system automatically created crawlable internal links. The hea
 
 ---
 
-## Part 2: What ObjectWire Lost When Switching to Next.js
+## Part 2: What OzoneNews Lost When Switching to Next.js
 
 Our current setup is missing several critical SEO systems that Duda handled automatically:
 
@@ -81,7 +81,7 @@ Our current setup is missing several critical SEO systems that Duda handled auto
 Named author entries in the registry so far:
 - **Conan Boyle** (`authorSlug: 'conan-boyle'`) — Neurophos, NASA, Blitzy, IronSpring, Anthropic/Claude article
 
-For entries using generic desk names (e.g. "ObjectWire Tech Desk"), no author URL is emitted — intentional, since desks don't have profile pages.
+For entries using generic desk names (e.g. "OzoneNews Tech Desk"), no author URL is emitted — intentional, since desks don't have profile pages.
 
 ### ❌ INCOMPLETE — Only 38 of 251 Pages in the Registry
 
@@ -144,7 +144,7 @@ export const contentRegistry: ContentEntry[] = [
     modifiedDate: '2026-02-11',
     category: 'Sports',
     tags: ['Winter Olympics', 'Team USA', 'Alpine Skiing'],
-    author: 'ObjectWire Team',
+    author: 'OzoneNews Team',
     priority: 0.8,
     changeFrequency: 'weekly',
   },
@@ -160,7 +160,7 @@ import { MetadataRoute } from 'next';
 import { contentRegistry } from '@/lib/content-registry';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.objectwire.org';
+  const baseUrl = 'https://www.OzoneNews.org';
 
   return contentRegistry.map((entry) => ({
     url: `${baseUrl}${entry.slug}`,
@@ -193,10 +193,10 @@ export function SEOWrapper({ slug, children }: { slug: string; children: React.R
     author: { '@type': 'Person', name: entry.author },
     publisher: {
       '@type': 'Organization',
-      name: 'ObjectWire',
-      url: 'https://www.objectwire.org',
+      name: 'OzoneNews',
+      url: 'https://www.OzoneNews.org',
     },
-    mainEntityOfPage: `https://www.objectwire.org${entry.slug}`,
+    mainEntityOfPage: `https://www.OzoneNews.org${entry.slug}`,
   };
 
   const breadcrumbSchema = {
@@ -206,7 +206,7 @@ export function SEOWrapper({ slug, children }: { slug: string; children: React.R
       '@type': 'ListItem',
       position: i + 1,
       name: segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-      item: `https://www.objectwire.org/${arr.slice(0, i + 1).join('/')}`,
+      item: `https://www.OzoneNews.org/${arr.slice(0, i + 1).join('/')}`,
     })),
   };
 
@@ -237,7 +237,7 @@ import { contentRegistry } from '../lib/content-registry';
 async function pingGoogle() {
   // Ping sitemap
   await fetch(
-    `https://www.google.com/ping?sitemap=https://www.objectwire.org/sitemap.xml`
+    `https://www.google.com/ping?sitemap=https://www.OzoneNews.org/sitemap.xml`
   );
 
   // For faster indexing, use Google Indexing API
@@ -300,7 +300,7 @@ export function RelatedArticles({ currentSlug, category, tags }: {
 
 ## Part 4: SEO Architecture Comparison (Feb 21 2026)
 
-| System | Duda (automatic) | ObjectWire (current) | Status |
+| System | Duda (automatic) | OzoneNews (current) | Status |
 |--------|------------------|---------------------:|--------|
 | Sitemap with real `lastmod` | ✅ | ✅ Content registry drives sitemap | Done |
 | Structured data every page | ✅ | ⚠️ ~38/251 pages via SEOWrapper | Partial — need to register all pages |
@@ -339,7 +339,7 @@ Template for each entry:
 ```typescript
 {
   slug: '/section/article-slug',
-  title: 'Article Title | ObjectWire',
+  title: 'Article Title | OzoneNews',
   description: 'Max 160 char meta description.',
   publishDate: '2026-MM-DD',
   modifiedDate: '2026-MM-DD',
@@ -363,4 +363,4 @@ Template for each entry:
 
 ---
 
-*Document authored by ObjectWire Engineering, February 2026.*
+*Document authored by OzoneNews Engineering, February 2026.*

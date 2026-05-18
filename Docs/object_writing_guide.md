@@ -1,7 +1,7 @@
-# ObjectWire Writing & Publishing Guide
+# OzoneNews Writing & Publishing Guide
 
 **Last updated:** March 26, 2026  
-**Production:** Railway → `objectwire.org`  
+**Production:** Railway → `OzoneNews.org`  
 **Supabase:** `https://kzcwclpurrtonpsnownbl.supabase.co`
 
 ---
@@ -26,12 +26,12 @@
 
 ## 1. How Articles Work (The SSR Pipeline)
 
-ObjectWire uses **Next.js Server Components + Supabase** to deliver fully-rendered HTML to every reader and to Googlebot, no JavaScript required to read an article.
+OzoneNews uses **Next.js Server Components + Supabase** to deliver fully-rendered HTML to every reader and to Googlebot, no JavaScript required to read an article.
 
 ### What happens when someone visits an article URL
 
 ```
-Reader / Googlebot → objectwire.org/california/california-tech-layoffs-2026-...
+Reader / Googlebot → OzoneNews.org/california/california-tech-layoffs-2026-...
         │
         ▼
 app/.../page.tsx   (Next.js Server Component, runs on Railway)
@@ -98,10 +98,10 @@ import { NewsArticleDB } from '@/components/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/section/your-article-slug';
-const FULL_URL = `https://www.objectwire.org${SLUG}`;
+const FULL_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Your Article Title | ObjectWire',
+  title: 'Your Article Title | OzoneNews',
   description: 'Two-sentence description for search engines.',
   alternates: { canonical: FULL_URL },
   openGraph: {
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     description: 'Two-sentence description.',
     type: 'article',
     url: FULL_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     publishedTime: '2026-03-26T15:00:00Z',
     section: 'Technology',
     tags: ['Tag1', 'Tag2'],
@@ -569,13 +569,13 @@ Switch `force-dynamic` → `revalidate = 3600` on any article once it is final a
 
 Run this on any live article to confirm SSR is working:
 
-1. Open `objectwire.org/{your-article-path}` in a browser
+1. Open `OzoneNews.org/{your-article-path}` in a browser
 2. Right-click → **View Page Source** (not DevTools, actual source)
 3. `Ctrl + F` → search for the article headline
 4. **Headline visible in source** → SSR working ✅, Googlebot can index it
 5. **No headline / only `<script>` tags** → JS-heavy ❌, content is not indexed
 
-All ObjectWire articles using `NewsArticleDB`, `JackArticleDB`, or `ArticlePageDB` pass this test, the Supabase fetch runs on the server before the HTML is sent.
+All OzoneNews articles using `NewsArticleDB`, `JackArticleDB`, or `ArticlePageDB` pass this test, the Supabase fetch runs on the server before the HTML is sent.
 
 ---
 
@@ -604,7 +604,7 @@ Before committing and pushing any new article:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    OBJECTWIRE CONTENT PIPELINE                   │
+│                    OzoneNews CONTENT PIPELINE                   │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                   │
 │  WRITE                  STORE                    RENDER           │

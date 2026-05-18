@@ -1,5 +1,5 @@
 # NGO Investigations — Editorial Planning Document
-**ObjectWire Investigations Desk | Updated February 21, 2026**
+**OzoneNews Investigations Desk | Updated February 21, 2026**
 
 ---
 
@@ -32,7 +32,7 @@ The United States, UK, Germany, Australia, and 13 other donor nations suspended 
 - At least 10% of UNRWA's Gaza workforce had documented ties to Hamas or Islamic Jihad per Israeli intelligence
 - Teachers in UNRWA schools found celebrating the Oct 7 attacks on social media — many still employed
 
-**Angle for ObjectWire:**
+**Angle for OzoneNews:**
 Terrorist infiltration of a UN agency bankrolled almost entirely by Western taxpayers. The donor accountability angle is strong — the US gave UNRWA $344 million in FY2023 alone. The story also connects to the broader "NGO complex" question: can a billion-dollar international bureaucracy with zero vetting accountability ever be reformed, or does it need to be dissolved?
 
 **Suggested slug:** `/ngos/unrwa`
@@ -60,7 +60,7 @@ The freeze triggered lawsuits from over 200 USAID-dependent NGOs — revealing j
 - Many senior USAID officials cycle directly from NGO leadership roles to government and back
 - USAID has never passed a full independent audit
 
-**Angle for ObjectWire:**
+**Angle for OzoneNews:**
 The DOGE freeze cracked open a system where "nonprofits" were effectively government-funded consulting firms paying executives $500,000+ salaries. The revolving door between NGO leadership and USAID management is a textbook conflict of interest story. Follow the money from appropriation to NGO bank account to executive compensation.
 
 **Suggested slug:** `/ngos/usaid-partner-network`
@@ -84,7 +84,7 @@ Documented NED activities:
 
 DOGE defunded NED in February 2025 along with USIP and several other federally-funded quasi-NGOs.
 
-**Angle for ObjectWire:**
+**Angle for OzoneNews:**
 A 501(c)(3) that is 100% government-funded operating as if it's a private charity — no donor disclosures, limited FOIA exposure, and a board of former CIA directors and State Department officials. The question isn't whether democracy promotion is good policy — it's whether routing that activity through a nominally "independent" NGO structure is a deliberate accountability dodge.
 
 **Suggested slug:** `/ngos/national-endowment-for-democracy`
@@ -105,7 +105,7 @@ Key accountability concerns:
 - OSF funds media organizations (ProPublica, The Guardian US) while those outlets cover OSF-related political subjects without disclosure
 - Hungarian government documented OSF funding of NGOs that facilitated illegal border crossings — Soros eventually closed the Budapest office under legal pressure
 
-**Angle for ObjectWire:**
+**Angle for OzoneNews:**
 The pass-through funding network makes it nearly impossible for a casual observer to trace the origin of political advocacy funding back to OSF. That's the story: how a $25 billion private foundation structures itself to maximize political influence while minimizing public accountability, all under 501(c) tax-exempt status.
 
 **Suggested slug:** `/ngos/open-society-foundations`
@@ -142,7 +142,7 @@ In Nepal's Chitwan National Park and national parks in Cameroon, Congo, and Keny
 
 WWF's response was to commission an internal review that critics said was designed to protect the organization rather than surface the full truth. No senior WWF executives were dismissed.
 
-**Why it matters for ObjectWire:**
+**Why it matters for OzoneNews:**
 This is a story about how the conservation NGO industrial complex — with billions of dollars flowing to charismatic wildlife causes — created paramilitary forces accountable to no government, operating with impunity in remote regions, while donors were shown pictures of tigers and elephants.
 
 **Suggested slug:** `/ngos/wwf-eco-guard-abuses`
@@ -204,10 +204,10 @@ When selecting which NGO to investigate, score against these criteria:
 **Page structure:**
 - Wikipedia/OAT hybrid format
 - Infobox: Founded, HQ, Annual Budget, Donor Countries, Status
-- Sections: What Is UNRWA / The October 7 Connection / What the Colonna Report Found / US Funding History / The Debate / ObjectWire Analysis
+- Sections: What Is UNRWA / The October 7 Connection / What the Colonna Report Found / US Funding History / The Debate / OzoneNews Analysis
 - NewsArticle Schema
 - Internal links: `/investigations`, `/ngos`, `/news`
 
 ---
 
-*ObjectWire Editorial Standards apply. All claims must be verified against public records before publication. Contact subjects for comment a minimum of 48 hours before publication.*
+*OzoneNews Editorial Standards apply. All claims must be verified against public records before publication. Contact subjects for comment a minimum of 48 hours before publication.*

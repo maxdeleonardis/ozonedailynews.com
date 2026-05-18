@@ -1,4 +1,4 @@
-# Components | ObjectWire
+# Components | OzoneNews
 
 > **What every file in `/components` does, how the content registry connects to each one, and the full gap analysis between the current system and IGN/CNN-scale organic traffic.**
 
@@ -119,7 +119,7 @@ Flashy editorial aesthetic: large hero, gradient header, bold category tags.
 
 ### `ObjectDesign.tsx` | 1,032 lines
 
-**Use for:** Long-form profiles, deep-dives, flagship evergreen articles that need both reference structure and visual impact. Think: Wikipedia article aesthetics with ObjectWire design polish.
+**Use for:** Long-form profiles, deep-dives, flagship evergreen articles that need both reference structure and visual impact. Think: Wikipedia article aesthetics with OzoneNews design polish.
 
 **Sub-components exported:**
 
@@ -326,7 +326,7 @@ These are dedicated header/sidebar/stats components for content verticals. Each 
 | `TechSidebar.tsx` | Tech article sidebar |
 | `TechStatsBar.tsx` | Stats bar for tech metrics (ARR, users, valuation, etc.) |
 
-**Missing verticals that need equivalent component sets:** Gaming, Entertainment, Sports, World News — each is currently borrowing `JackArticle` or `NewsArticle` without vertical-specific headers/sidebars. IGN has a distinct visual identity per sub-section (reviews, news, video, wiki). So does CNN (politics, business, entertainment, sport). ObjectWire's vertical components need to match that differentiation at scale.
+**Missing verticals that need equivalent component sets:** Gaming, Entertainment, Sports, World News — each is currently borrowing `JackArticle` or `NewsArticle` without vertical-specific headers/sidebars. IGN has a distinct visual identity per sub-section (reviews, news, video, wiki). So does CNN (politics, business, entertainment, sport). OzoneNews's vertical components need to match that differentiation at scale.
 
 ---
 
@@ -361,7 +361,7 @@ Located in `components/ui/` — these are [shadcn/ui](https://ui.shadcn.com/) pr
 
 ## 12. What Is Missing | IGN & CNN Traffic Gap Analysis
 
-This section maps the exact structural gaps between ObjectWire's current component library and what IGN (120M+ monthly visitors) and CNN (150M+ monthly visitors) run to capture search traffic at scale. Each gap has a traffic mechanism explaining *why* it drives clicks.
+This section maps the exact structural gaps between OzoneNews's current component library and what IGN (120M+ monthly visitors) and CNN (150M+ monthly visitors) run to capture search traffic at scale. Each gap has a traffic mechanism explaining *why* it drives clicks.
 
 ---
 
@@ -379,7 +379,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 **Traffic mechanism:** Every "[Game] Review" and "[Product] Review" query in Google shows star ratings in the SERP for sites that emit `Review` + `aggregateRating` JSON-LD. IGN owns the first page of nearly every game review query in part because their review pages emit this schema. The stars increase CTR by ~30% over plain blue links.
 
-**Current state:** `JackStats` displays review score numbers visually. No `Review` JSON-LD is emitted. Google cannot surface star ratings in search results for ObjectWire reviews.
+**Current state:** `JackStats` displays review score numbers visually. No `Review` JSON-LD is emitted. Google cannot surface star ratings in search results for OzoneNews reviews.
 
 **Component needed:** `ReviewSchema.tsx` — emits `Review` + `AggregateRating` JSON-LD attached to a `VideoGame`, `Movie`, `Product`, or `CreativeWork` item type.
 
@@ -419,7 +419,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 **Traffic mechanism:** Event listings (`Formula 1 race schedule`, `Nintendo Direct date`) with `Event` JSON-LD appear in the **Events rich result** above organic results. CNN's entertainment and sports coverage drives significant traffic from event queries. IGN deploys event schema for game launches, Nintendo Directs, and esports tournaments.
 
-**Current state:** Events are covered editorially (Winter Olympics hub, Formula 1 pages) but no `Event` JSON-LD is emitted. ObjectWire's event pages are invisible to the Events carousel.
+**Current state:** Events are covered editorially (Winter Olympics hub, Formula 1 pages) but no `Event` JSON-LD is emitted. OzoneNews's event pages are invisible to the Events carousel.
 
 **Component needed:** `EventSchema.tsx` — emits `Event` JSON-LD with `name`, `startDate`, `endDate`, `location`, `organizer`, `eventStatus`, `eventAttendanceMode`.
 
@@ -427,7 +427,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 
 ### Gap 7 | `Podcast` / `AudioObject` Schema Component
 
-**Traffic mechanism:** Google surfaces podcasts in a dedicated Podcast app and in search results with `PodcastEpisode` / `PodcastSeries` JSON-LD. ObjectWire has a podcasts section (`/podcasts`) but no structured data for episodes.
+**Traffic mechanism:** Google surfaces podcasts in a dedicated Podcast app and in search results with `PodcastEpisode` / `PodcastSeries` JSON-LD. OzoneNews has a podcasts section (`/podcasts`) but no structured data for episodes.
 
 **Current state:** `/podcasts` hub exists. No `PodcastEpisode` or `AudioObject` JSON-LD is emitted on episode pages.
 
@@ -480,7 +480,7 @@ This section maps the exact structural gaps between ObjectWire's current compone
 | `Podcast` schema | Podcast app indexing | Low | 🟢 Low |
 | Live data widgets | Return visitor behavior | High | 🟢 Low |
 
-The four "High" items, tag archives, review schema, video schema, and E-E-A-T author pages, are the ones IGN and CNN invested in earliest and that drive the largest share of their sustained organic traffic. Building these in order closes the structural gap between ObjectWire's current footprint and the component surface area that search engines reward at scale.
+The four "High" items, tag archives, review schema, video schema, and E-E-A-T author pages, are the ones IGN and CNN invested in earliest and that drive the largest share of their sustained organic traffic. Building these in order closes the structural gap between OzoneNews's current footprint and the component surface area that search engines reward at scale.
 
 ---
 

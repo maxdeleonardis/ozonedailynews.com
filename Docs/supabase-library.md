@@ -1,4 +1,4 @@
-# Supabase Library | ObjectWire
+# Supabase Library | OzoneNews
 
 > **How articles written in `/admin/editor` go from input to live page, and how it scales to 1000+ articles without a single extra file.**
 
@@ -25,7 +25,7 @@ Related: [googlenews-seo.md](googlenews-seo.md), How the two content systems dri
 
 ## 1. The Big Picture
 
-ObjectWire runs **two parallel content systems**. Knowing which to use is the most important publishing decision:
+OzoneNews runs **two parallel content systems**. Knowing which to use is the most important publishing decision:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -286,7 +286,7 @@ Defined in [`supabase/setup.sql`](supabase/setup.sql). RLS runs on Supabase's Po
 
 ## 9. Static Pages vs Dynamic Articles
 
-ObjectWire uses **two content systems**, know when to use each:
+OzoneNews uses **two content systems**, know when to use each:
 
 | | Static `page.tsx` files | Supabase `articles` table |
 |---|---|---|

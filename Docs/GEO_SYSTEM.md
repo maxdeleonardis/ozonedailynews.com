@@ -1,4 +1,4 @@
-# ObjectWire | GEO System — Generative Engine Optimization
+# OzoneNews | GEO System — Generative Engine Optimization
 
 **Version:** 1.0  
 **Created:** May 11, 2026  
@@ -21,9 +21,9 @@ The shift matters because:
 - Google's AI Overviews (SGE) now appear above organic results for 40%+ of news queries
 - Apple Intelligence cites web sources directly in iOS/macOS search
 
-ObjectWire's target keywords are exactly the type AI systems answer: "What is the GTA 6 release date?", "What are the copyright rules for AI voices?", "Who owns X?", "What happened with Y?"
+OzoneNews's target keywords are exactly the type AI systems answer: "What is the GTA 6 release date?", "What are the copyright rules for AI voices?", "Who owns X?", "What happened with Y?"
 
-If ObjectWire is not optimized for AI extraction, these queries will be answered by whoever is.
+If OzoneNews is not optimized for AI extraction, these queries will be answered by whoever is.
 
 ---
 
@@ -60,10 +60,10 @@ For GEO: Does the content contain something a human couldn't find by reading 10 
 
 The LLM-readable site manifest. Equivalent of `robots.txt` for AI systems.
 
-Served at: `https://www.objectwire.org/llms.txt`
+Served at: `https://www.OzoneNews.org/llms.txt`
 
 Tells AI systems:
-- What ObjectWire covers (topic authority signals)
+- What OzoneNews covers (topic authority signals)
 - Who produces the content (named authors with URLs)
 - What crawlers are explicitly permitted
 - How to cite content correctly
@@ -167,7 +167,7 @@ These print as warnings (not hard blocks) on every `wiki:publish`. They do not s
 
 ## Article Writing Format for GEO
 
-Every article published on ObjectWire must follow this structure order:
+Every article published on OzoneNews must follow this structure order:
 
 ```
 1. <DirectAnswer answer="[2-4 sentences answering the core question immediately]" />
@@ -266,10 +266,10 @@ These are the highest-impact GEO changes, ordered by effort vs. return:
 
 1. **Add `DirectAnswer` + `KeyTakeaways` to the top 20 highest-traffic articles** (run `npm run alfasa` to see which have the most readers). 2 components, 20 pages = 40 additions. Highest immediate impact.
 
-2. **Add `<FAQAccordion>` to every article in the gaming, copyright, and tech clusters.** These are the verticals where ObjectWire has most content depth. FAQ schema in clusters signals topical authority to AI systems.
+2. **Add `<FAQAccordion>` to every article in the gaming, copyright, and tech clusters.** These are the verticals where OzoneNews has most content depth. FAQ schema in clusters signals topical authority to AI systems.
 
 3. **Add `CitationBlock` to every key stat or claim in new articles going forward.** This is a writing habit change, not a migration.
 
-4. **Ensure `/llms.txt` is accessible** — verify `https://www.objectwire.org/llms.txt` returns a 200 after deploy.
+4. **Ensure `/llms.txt` is accessible** — verify `https://www.OzoneNews.org/llms.txt` returns a 200 after deploy.
 
 5. **Add `mentions` to `GEOArticleWrapper` on hub pages** — list the key entities each hub covers. Hub pages are what AI systems use to understand topical authority.

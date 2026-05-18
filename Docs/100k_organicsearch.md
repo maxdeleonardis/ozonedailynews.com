@@ -1,4 +1,4 @@
-# 100K Organic Search | ObjectWire Growth Plan
+# 100K Organic Search | OzoneNews Growth Plan
 
 > **Goal:** Reach 100,000 monthly organic search sessions within 12 months.
 > **Last updated:** April 4, 2026
@@ -159,7 +159,7 @@ export default async function HubPage() {
 ✅ SEOWrapper           | slug pointed at registry
 ✅ Breadcrumb           | 3-4 levels deep
 ✅ H2 headings          | one per major section, keyword-rich, uses | separator
-✅ Internal links       | 4-6 interlinks to related ObjectWire pages
+✅ Internal links       | 4-6 interlinks to related OzoneNews pages
 ✅ thumbnail + imageUrl | real Unsplash image, 1200px+ wide
 ```
 
@@ -297,11 +297,11 @@ The `/define/` section (13 pages) is a programmatic SEO goldmine. Scale to 200+ 
 - "What is CUDA" → `/define/cuda`
 - "What is LLM" → `/define/llm`
 - "What is Tokamak" → `/define/tokamak`
-- Template: 300-word definition + related ObjectWire articles + schema.org `DefinedTerm` markup
+- Template: 300-word definition + related OzoneNews articles + schema.org `DefinedTerm` markup
 
 Each definition page:
 - Targets a "what is X" keyword (high volume, low competition)
-- Links to 3–5 related ObjectWire articles
+- Links to 3–5 related OzoneNews articles
 - Takes < 10 minutes to create with a standard template
 
 ### 6.2 Company Profiles
@@ -333,7 +333,7 @@ Google Discover (mobile feed) drives massive traffic for publishers. Requirement
 - Engaging titles (not clickbait, but compelling)
 - E-E-A-T signals (author pages, about page, editorial standards)
 
-ObjectWire already has `/about`, `/editorial-standards`, `/authors/*`, these are E-E-A-T signals. Ensure they're linked from every article footer (already done via the `NewsArticle` author card).
+OzoneNews already has `/about`, `/editorial-standards`, `/authors/*`, these are E-E-A-T signals. Ensure they're linked from every article footer (already done via the `NewsArticle` author card).
 
 ### 7.2 Bing News
 
@@ -382,7 +382,7 @@ ObjectWire already has `/about`, `/editorial-standards`, `/authors/*`, these are
 
 ## Immediate Action Items (This Week)
 
-1. **Register ObjectWire in Google Publisher Center**, unlocks Google News eligibility
+1. **Register OzoneNews in Google Publisher Center**, unlocks Google News eligibility
 2. **Run registry audit script**, identify all entries missing `imageUrl` and fix top 50
 3. **Consolidate "Tech" → "Technology" and "Gaming" → merge with "Video Games"** in registry + sync script
 4. **Write 3 GTA 6 cluster sub-articles**, pre-orders, PC release, system requirements
@@ -392,7 +392,7 @@ ObjectWire already has `/about`, `/editorial-standards`, `/authors/*`, these are
 
 ---
 
-*This plan builds on ObjectWire's existing technical infrastructure — the content registry, auto-sync, news sitemap, structured data, and Supabase CMS are all operational. The gap is content volume and data completeness, not tooling.*
+*This plan builds on OzoneNews's existing technical infrastructure — the content registry, auto-sync, news sitemap, structured data, and Supabase CMS are all operational. The gap is content volume and data completeness, not tooling.*
 
 ---
 
@@ -416,7 +416,7 @@ Still need to merge:
 ### D.2 Google News Publisher Center
 
 - Register at [Google Publisher Center](https://publishercenter.google.com/)
-- Verify `objectwire.org` ownership
+- Verify `OzoneNews.org` ownership
 - Submit `/news-sitemap.xml` as the news feed
 - Label sections: Technology, Gaming, Entertainment, Finance, Science
 - Upload publisher logo (min 1000x1000 square)

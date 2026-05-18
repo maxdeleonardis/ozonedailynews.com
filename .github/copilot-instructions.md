@@ -1,14 +1,30 @@
-# ObjectWire Copilot Instructions
+# OzoneNews Copilot Instructions
 
 These rules apply to **every** GitHub Copilot request in this workspace.
 
 ---
 
-## What ObjectWire Is
+## What OzoneNews Is
 
-ObjectWire is a verified news platform built on Next.js 15, React 19, and Tailwind CSS. Article content is stored as on-prem static JSON files in `content/static/`. The editorial mission is accuracy over speed, primary sources only, and transparent corrections. It is not a blog, aggregator, or opinion site. Every article must be verifiable, sourced, and written for real search intent.
+OzoneNews is a verified news platform built on Next.js 15, React 19, and Tailwind CSS. Article content is stored as on-prem static JSON files in `content/static/`. The editorial mission is accuracy over speed, primary sources only, and transparent corrections. It is not a blog, aggregator, or opinion site. Every article must be verifiable, sourced, and written for real search intent.
 
-Production: Railway → `objectwire.org` | Repo: `Autolab350/Objectwire-Frontend`
+**Legal entity:** Ozone Network News LLC (ONN)
+**Production:** Railway → `ozonenetwork.news` | **Repo:** `Autolab350/Objectwire-Frontend`
+
+---
+
+## Post March 2026 Core Update Rules (binding on every publish)
+
+Full plan: [`Docs/OZONE_NETWORK_LAUNCH.md`](Docs/OZONE_NETWORK_LAUNCH.md)
+
+1. **Information Gain** — every article must contain at least one original quote, contrarian take, custom chart/screenshot, or hand-written "Why This Matters" section. Generic AI rewrites of existing articles will be suppressed by Google.
+2. **Banned LLM transition phrases (build fails on any occurrence)** — never write "In conclusion", "It is important to note", "It is important to remember", "Furthermore, it is crucial", "In today's fast-paced world", "In the ever-evolving landscape", "It is worth noting that", "Moreover, it should be noted", "Navigating the complex", "Delve into", "In summary".
+3. **Author footprint** — every byline author must have an external `sameAs` profile (Twitter or LinkedIn) on their `/authors/[slug]` page. Authors with no external footprint must use the "OzoneNews Editorial Team" house byline instead.
+4. **Author schema is a Person, not a string** — `NewsArticle.author` must be `{ "@type": "Person", "name": "...", "url": "...", "sameAs": [...] }` with at least one real external URL.
+5. **Timestamps use full ISO 8601 with timezone offset** — `2026-05-18T18:00:00-05:00` preferred over bare `Z`. Date-only is banned.
+6. **News sitemap is 48 hours and 1,000 URLs max** — articles older than 48h fall off the news sitemap but stay on the main sitemap.
+7. **NewsMediaOrganization schema** lives in `app/layout.tsx` and links to `publishingPrinciples`, `correctionsPolicy`, `actionableFeedbackPolicy`, `ethicsPolicy`. All four trust pages must exist and be visible blue-underlined links in the global footer.
+8. **Four trust pages** — `/about`, `/editorial-standards`, `/corrections`, `/contact`. All four must be linked from the global footer in a dedicated "Newsroom Policies" row.
 
 ---
 
@@ -24,7 +40,7 @@ Whenever writing or editing any article, component, static JSON record, or edito
 - **Headings use `|`** as a separator, never `:` followed by a dependent clause.
 - Subheadings must be niche and specific, not generic (`"Background"`, `"Overview"` are banned).
 - Meta description: 130–155 chars, contains primary keyword, no generic phrases.
-- `metadata.title` format: `Primary Keyword | Specific Detail` — **no brand suffix** (`| ObjectWire` is dropped). Max 60 chars. No em dashes. `&` allowed.
+- `metadata.title` format: `Primary Keyword | Specific Detail` — **no brand suffix** (`| OzoneNews` is dropped). Max 60 chars. No em dashes. `&` allowed.
 - Every article slug must be lowercase, hyphen-only, no stop words.
 - `tags` must be an array of 4–8 real proper nouns (no generic terms).
 - `category` must be one of: `News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Crypto`, `Gaming`.
@@ -65,7 +81,7 @@ All fetching is server-side. Every `page.tsx` must export `dynamic = 'force-dyna
 
 **This is the reference article all new `NewsArticle` pages must match.**
 
-Live: `https://www.objectwire.org/entertainment/news/fortnite-moves-into-movies`
+Live: `https://www.OzoneNews.org/entertainment/news/fortnite-moves-into-movies`
 Slug: `entertainment-news-fortnite-moves-into-movies` | Store: `content/static/articles/` | Component: `NewsArticleDB`
 
 ### Why it is the standard
@@ -92,13 +108,13 @@ export const metadata: Metadata = {
   title: 'Primary Keyword | Specific Detail',  // max 60 chars, no brand suffix, no em dashes, no &
   description: '130-155 chars. Primary keyword in first 60 chars. No generic phrases.',
   keywords: ['keyword 1', 'keyword 2', /* 10-18 targeted keywords */],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
     title: 'Article Title Without Brand Suffix',
     description: 'Slightly different from meta description, emphasize data/hook.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
-    siteName: 'ObjectWire',
+    url: `https://www.OzoneNews.org${SLUG}`,
+    siteName: 'OzoneNews',
     authors: ['Author Name'],
     publishedTime: '2026-03-12T00:00:00Z',
     modifiedTime: '2026-03-12T00:00:00Z',
@@ -146,7 +162,7 @@ Every `NewsArticle` article must have ALL of these populated before publishing:
 
 **This is the reference article all new `JackArticle` pages must match.**
 
-Live: `https://www.objectwire.org/crypto/news/anchorage-usat-expands-to-celo-network`
+Live: `https://www.OzoneNews.org/crypto/news/anchorage-usat-expands-to-celo-network`
 Slug: `crypto-news-anchorage-usat-expands-to-celo-network` | Store: `content/static/jack_articles/` | Component: `JackArticleDB`
 
 ### Why it is the standard
@@ -170,8 +186,8 @@ import { JackArticleDB } from '@/components/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/your/path/here';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = 'https://www.objectwire.org/your-image.png';
+const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
+const OG_IMAGE = 'https://www.OzoneNews.org/your-image.png';
 
 export const metadata: Metadata = {
   title: 'Primary Keyword | Specific Detail',
@@ -183,7 +199,7 @@ export const metadata: Metadata = {
     description: 'OG description',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'ObjectWire',
+    siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
     publishedTime: '2026-04-02T16:00:00Z',
     modifiedTime: '2026-04-02T16:00:00Z',
@@ -205,7 +221,7 @@ export default function YourPage() {
 
 **This is the reference article all new `CreatorArticle` pages must match.**
 
-Live: `https://www.objectwire.org/influencer/ari-kytsya`
+Live: `https://www.OzoneNews.org/influencer/ari-kytsya`
 Slug: `influencer-ari-kytsya` | Store: `content/static/creator_articles/` | Component: `CreatorArticleDB`
 
 ### Why it is the standard
@@ -231,7 +247,7 @@ import { CreatorArticleDB } from '@/components/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/influencer/your-creator';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const PAGE_URL = `https://www.OzoneNews.org${SLUG}`;
 const IMAGE_URL = '/influncer/yourCreator.jpg';  // local public file
 
 export const metadata: Metadata = {
@@ -254,13 +270,13 @@ export const metadata: Metadata = {
     description: 'Full profile: age, platforms, social handles, career history.',
     type: 'article',
     url: PAGE_URL,
-    siteName: 'ObjectWire',
-    authors: ['ObjectWire Influencer Desk'],
+    siteName: 'OzoneNews',
+    authors: ['OzoneNews Influencer Desk'],
     section: 'Influencer',
     tags: ['Creator Name', 'Influencer', 'City', 'Platform'],
     publishedTime: '2026-04-02T12:00:00Z',
     modifiedTime: '2026-04-02T12:00:00Z',
-    images: [{ url: `https://www.objectwire.org${IMAGE_URL}`, width: 1200, height: 675, alt: 'Creator Name portrait' }],
+    images: [{ url: `https://www.OzoneNews.org${IMAGE_URL}`, width: 1200, height: 675, alt: 'Creator Name portrait' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -280,9 +296,9 @@ export default function InfluencerYourCreatorPage() {
 |---|---|
 | `schema_title` | Full name + role, e.g. `"Ari Kytsya | Seattle Model, Influencer & Creator Profile"` |
 | `schema_description` | 130-155 chars, name first, platforms + location |
-| `schema_author` | `"ObjectWire Influencer Desk"` |
+| `schema_author` | `"OzoneNews Influencer Desk"` |
 | `schema_article_url` | Full canonical URL |
-| `schema_image_url` | Full URL to portrait image (`https://www.objectwire.org/influncer/...`) |
+| `schema_image_url` | Full URL to portrait image (`https://www.OzoneNews.org/influncer/...`) |
 | `schema_section` | `"Influencer"` |
 | `schema_keywords` | Array of 15-18 terms matching `page.tsx` keywords |
 | `schema_published_time` | ISO-8601 |
@@ -302,7 +318,7 @@ export default function InfluencerYourCreatorPage() {
 | `sidebar_infobox_rows` | Wikipedia-style rows: Born, Nationality, Based in, Occupation, social handles (with `href`), business email, follower counts |
 | `sidebar_meta_published_date` | Display string: `"April 2, 2026"` |
 | `sidebar_meta_updated_date` | Display string or omit |
-| `sidebar_meta_author` | `"ObjectWire Influencer Desk"` |
+| `sidebar_meta_author` | `"OzoneNews Influencer Desk"` |
 | `sidebar_meta_category` | `"Influencer"` |
 | `content_html` | Full component-tagged HTML — see section order below |
 
@@ -382,7 +398,7 @@ After publishing, every article also needs a `content_registry` entry. Missing e
 
 Every article that ships must have all of the following:
 
-- `metadata.title` — keyword + brand (`"GTA 6 Release Date | ObjectWire"`)
+- `metadata.title` — keyword + brand (`"GTA 6 Release Date | OzoneNews"`)
 - `metadata.description` — 130-155 chars, primary keyword in first 60 chars
 - `canonical` URL set in `alternates`
 - `openGraph` block with title, description, image (1200x675), `publishedTime`, `section`
@@ -390,14 +406,14 @@ Every article that ships must have all of the following:
 - `SEOWrapper` wrapping the page, slug pointed at registry
 - Breadcrumb at 3-4 levels
 - H2 headings (one per major section, keyword-rich)
-- 4-6 internal links to related ObjectWire pages
+- 4-6 internal links to related OzoneNews pages
 - `imageUrl`, `imageWidth`, `imageHeight` in the registry entry (required for Google Top Stories)
 
 ---
 
 ## SEO Growth Context
 
-ObjectWire's current SEO state (March 2026): ~330 indexed pages, 25+ topic verticals, full structured-data pipeline (sitemap, news-sitemap, JSON-LD on every page). Growth target: 100K monthly organic sessions within 12 months.
+OzoneNews's current SEO state (March 2026): ~330 indexed pages, 25+ topic verticals, full structured-data pipeline (sitemap, news-sitemap, JSON-LD on every page). Growth target: 100K monthly organic sessions within 12 months.
 
 **Priority content pillars and clusters to build or expand:**
 
@@ -610,11 +626,11 @@ These rules were added after a production canonical bug caused a major impressio
 - **Never place `robots.txt` or `sitemap.xml` in `/public`.** Next.js serves `/public` before App Router handlers, so a static file silently overrides the dynamic handler.
 - `app/robots.ts` is the single source of truth for robots rules.
 - `scripts/validate-public.ts` runs at `prebuild` and fails the build if `public/robots.txt` or `public/sitemap.xml` exist.
-- Emergency override: `OBJECTWIRE_OVERRIDE=true npm run build`
+- Emergency override: `OzoneNews_OVERRIDE=true npm run build`
 
 ### Schema / JSON-LD rules
 
-- All URLs in JSON-LD must use `https://www.objectwire.org` (with www). Non-www URLs cause a canonical mismatch between schema and the canonical tag.
+- All URLs in JSON-LD must use `https://www.OzoneNews.org` (with www). Non-www URLs cause a canonical mismatch between schema and the canonical tag.
 - Author fallback URL resolves to `/authors/[slug]`, not `/team/[slug]`.
 - `lib/seo.ts` has been deleted. Do not recreate it. Use `@/lib/seo-utils` or `@/lib/generate-article-metadata`.
 

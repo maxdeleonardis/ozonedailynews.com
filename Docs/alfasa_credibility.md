@@ -1,4 +1,4 @@
-# Alfasa | ObjectWire Credibility and News Network Authority Plan
+# Alfasa | OzoneNews Credibility and News Network Authority Plan
 
 **Created:** May 5, 2026  
 **Status:** Active — Execute alongside RECOVERY_PLAN.md  
@@ -30,10 +30,10 @@
 
 ## Why Google My Business Helps (and What It Does Not Do)
 
-Your verified GMB profile confirms ObjectWire exists as a real local business entity in Austin, TX. This matters for:
+Your verified GMB profile confirms OzoneNews exists as a real local business entity in Austin, TX. This matters for:
 
 - Local search visibility (PI services, investigative journalism Austin queries)
-- Google's entity graph — associating objectwire.org with a verified real-world entity
+- Google's entity graph — associating OzoneNews.org with a verified real-world entity
 - Knowledge panel eligibility (will appear once domain authority recovers)
 
 What GMB does **not** do:
@@ -99,9 +99,9 @@ Bing News requires explicit submission and approval. It is not crawl-based. A si
 
 **Step 1 — Bing Webmaster Tools verification**
 - Go to bing.com/webmasters
-- Add objectwire.org and verify ownership (XML file method or DNS TXT record)
-- Submit your sitemap: `https://www.objectwire.org/sitemap.xml`
-- Submit your news sitemap: `https://www.objectwire.org/news-sitemap.xml`
+- Add OzoneNews.org and verify ownership (XML file method or DNS TXT record)
+- Submit your sitemap: `https://www.OzoneNews.org/sitemap.xml`
+- Submit your news sitemap: `https://www.OzoneNews.org/news-sitemap.xml`
 
 **Step 2 — Bing News Publisher Portal application**
 - URL: `https://www.bing.com/news/publisher`
@@ -113,7 +113,7 @@ Bing News requires explicit submission and approval. It is not crawl-based. A si
   - WHOIS information must be transparent (privacy protection is flagged)
 
 **Step 3 — MSN News (automatic after Bing News approval)**
-MSN News automatically syndicates from approved Bing News publishers. Once Bing News approves ObjectWire, MSN News inclusion is automatic.
+MSN News automatically syndicates from approved Bing News publishers. Once Bing News approves OzoneNews, MSN News inclusion is automatic.
 
 **Timeline:** Bing News approval typically takes 2-4 weeks after submission.
 
@@ -121,7 +121,7 @@ MSN News automatically syndicates from approved Bing News publishers. Once Bing 
 
 ## Apple News | The Highest-Quality Referral Traffic Source
 
-Apple News reaches 125M+ monthly active users in the US. Publisher traffic from Apple News can be substantial for entertainment, gaming, and tech content — exactly ObjectWire's strongest verticals.
+Apple News reaches 125M+ monthly active users in the US. Publisher traffic from Apple News can be substantial for entertainment, gaming, and tech content — exactly OzoneNews's strongest verticals.
 
 ### How Apple News Publisher Works
 
@@ -135,7 +135,7 @@ Apple News uses **Apple News Format (ANF)** — a JSON-based article format — 
 - [ ] Must have an About page and Contact information
 - [ ] Must publish content consistently (minimum 3 articles/week)
 - [ ] Content must be original (not aggregated)
-- [ ] Must comply with Apple News content guidelines (no adult content on objectwire.org feed — this is why owire.org separation matters)
+- [ ] Must comply with Apple News content guidelines (no adult content on OzoneNews.org feed — this is why owire.org separation matters)
 
 ### Application Process
 
@@ -151,13 +151,13 @@ Apple News+ is the paid subscription tier. This requires a separate partnership 
 
 ### owire.org and Apple News
 
-Creator/influencer content may face Apple News content guideline restrictions. This is another reason owire.org must be completely separate. Apply objectwire.org to Apple News only — with the investigative journalism + gaming/tech identity clearly visible.
+Creator/influencer content may face Apple News content guideline restrictions. This is another reason owire.org must be completely separate. Apply OzoneNews.org to Apple News only — with the investigative journalism + gaming/tech identity clearly visible.
 
 ---
 
 ## Perplexity | AI Search Citations
 
-Perplexity cites sources in its answers. When Perplexity cites ObjectWire, it drives direct traffic and builds authority signals that feed back into traditional search.
+Perplexity cites sources in its answers. When Perplexity cites OzoneNews, it drives direct traffic and builds authority signals that feed back into traditional search.
 
 ### How Perplexity Decides What to Cite
 
@@ -168,7 +168,7 @@ Perplexity's citation model favors:
 - Pages with named primary sources, specific data, and verifiable claims
 - Sites with real About pages, author bios, and editorial transparency
 
-ObjectWire's investigative content and PI service pages are exactly the kind of specific, factual, locally-relevant content Perplexity cites. The gaming/tech news pages compete with hundreds of other outlets. The PI services and investigations compete with almost no one.
+OzoneNews's investigative content and PI service pages are exactly the kind of specific, factual, locally-relevant content Perplexity cites. The gaming/tech news pages compete with hundreds of other outlets. The PI services and investigations compete with almost no one.
 
 ### What to Do
 
@@ -179,7 +179,7 @@ ObjectWire's investigative content and PI service pages are exactly the kind of 
 
 ### Perplexity Pages (New Feature)
 
-Perplexity now offers "Perplexity Pages" — structured reference pages on topics. If ObjectWire publishes a comprehensive hub page on a specific topic (Austin PI services, GTA 6 release date, etc.) that is more complete than competing pages, Perplexity may cite it as the authoritative source.
+Perplexity now offers "Perplexity Pages" — structured reference pages on topics. If OzoneNews publishes a comprehensive hub page on a specific topic (Austin PI services, GTA 6 release date, etc.) that is more complete than competing pages, Perplexity may cite it as the authoritative source.
 
 ---
 
@@ -216,7 +216,7 @@ These third-party credentials signal editorial legitimacy to Google, Bing, and A
 **LION Publishers (Local Independent Online News)**
 - `lionpublishers.com`
 - Specifically for independent digital local news organizations
-- Membership signals to Google and funders that ObjectWire is a legitimate local news operation
+- Membership signals to Google and funders that OzoneNews is a legitimate local news operation
 - Application requires demonstrating editorial independence and community coverage
 
 **Google News Initiative**
@@ -241,9 +241,9 @@ Austin city government issues press credentials to journalists covering city hal
 
 Many news verification programs (Bing News, Apple News, LION) flag domain privacy protection as a negative signal. Verify:
 
-- [ ] Check current WHOIS record for `objectwire.org` at `whois.domaintools.com`
-- [ ] If registrant information is hidden behind privacy protection, consider making the registrant organization name public (not personal address, but organization name "ObjectWire" or the LLC name)
-- [ ] Registrant email should be a real business email at the domain (e.g., `editorial@objectwire.org`), not a personal Gmail
+- [ ] Check current WHOIS record for `OzoneNews.org` at `whois.domaintools.com`
+- [ ] If registrant information is hidden behind privacy protection, consider making the registrant organization name public (not personal address, but organization name "OzoneNews" or the LLC name)
+- [ ] Registrant email should be a real business email at the domain (e.g., `editorial@OzoneNews.org`), not a personal Gmail
 
 ---
 
@@ -314,7 +314,7 @@ Run the feed through the W3C validator and fix any errors before submitting to B
 
 ## What This Looks Like When It Works
 
-Six months of consistent execution on this plan puts ObjectWire in:
+Six months of consistent execution on this plan puts OzoneNews in:
 
 - **Google News / Top Stories** — articles appearing in the news carousel for gaming, copyright, Austin local, and PI-related queries
 - **Bing News + MSN News** — full article syndication to Bing News (opens a completely new traffic source that has never existed)
@@ -322,7 +322,7 @@ Six months of consistent execution on this plan puts ObjectWire in:
 - **Perplexity citations** — investigation articles and PI service pages cited as authoritative sources in AI search answers
 - **Verified editorial entity** — SPJ, ONA, and Texas Press Association memberships linkable from author pages and the About page
 
-Combined with the RECOVERY_PLAN.md execution, this is what transforms ObjectWire from an HCU-suppressed domain into a verified, multi-platform news operation that Google, Bing, and Apple all recognize as a legitimate editorial source.
+Combined with the RECOVERY_PLAN.md execution, this is what transforms OzoneNews from an HCU-suppressed domain into a verified, multi-platform news operation that Google, Bing, and Apple all recognize as a legitimate editorial source.
 
 ---
 

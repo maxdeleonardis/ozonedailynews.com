@@ -1,12 +1,12 @@
 # Content Topics — Main Branch
 
-**Branch:** `main` | **Site:** `objectwire.org` | **Last updated:** May 4, 2026
+**Branch:** `main` | **Site:** `OzoneNews.org` | **Last updated:** May 4, 2026
 
 ---
 
 ## What This Branch Covers
 
-ObjectWire main branch publishes verified news and analysis across these verticals. Every article uses `NewsArticleDB` (standard news) or `JackArticleDB` (premium research/investigations). No creator profiles, no influencer content — those live in `creator_articles` and are out of scope here.
+OzoneNews main branch publishes verified news and analysis across these verticals. Every article uses `NewsArticleDB` (standard news) or `JackArticleDB` (premium research/investigations). No creator profiles, no influencer content — those live in `creator_articles` and are out of scope here.
 
 | Vertical | Hub | Primary Keywords |
 |---|---|---|
@@ -41,7 +41,7 @@ ObjectWire main branch publishes verified news and analysis across these vertica
 
 ### Transparency and Trust Overhaul
 
-**Problem identified:** ObjectWire lacked visible editorial policies, named author credentials, ownership disclosure, and funding transparency — all factors that reduce credibility and hurt Google's E-E-A-T scoring on news sites.
+**Problem identified:** OzoneNews lacked visible editorial policies, named author credentials, ownership disclosure, and funding transparency — all factors that reduce credibility and hurt Google's E-E-A-T scoring on news sites.
 
 **Changes made:**
 
@@ -52,16 +52,16 @@ All three author pages converted from placeholder initials to real photos using 
 - `/authors/conan-boyle` — `public/influncer/author/conan_doyle.jpg`
 
 Meta titles simplified from SEO-stuffed pipe-separated strings to plain human names:
-- `Jack Sterling, ObjectWire Reporter`
-- `Jack Brennan, ObjectWire Investigations Reporter`
-- `Conan Boyle, ObjectWire Science Writer`
+- `Jack Sterling, OzoneNews Reporter`
+- `Jack Brennan, OzoneNews Investigations Reporter`
+- `Conan Boyle, OzoneNews Science Writer`
 
 OG/Twitter card images now include author headshot URLs so social previews show faces.
 
 #### Footer — sitewide ownership disclosure
 `app/layout.tsx` footer updated:
 - Added a visible "Ownership and funding" paragraph on every page disclosing: self-funded nonprofit, no advertising, no sponsored content, no political donations, with links to about / editorial-standards / corrections.
-- Bottom bar updated from "© 2026 ObjectWire News. All rights reserved." to "© 2026 ObjectWire. Self-funded nonprofit newsroom."
+- Bottom bar updated from "© 2026 OzoneNews News. All rights reserved." to "© 2026 OzoneNews. Self-funded nonprofit newsroom."
 
 #### OrganizationSchema — JSON-LD updated
 `components/articles/NewsArticleSchema.tsx` `OrganizationSchema`:
@@ -88,19 +88,19 @@ Ships on every page in the site's `<head>`.
 - Full ownership and funding disclosure (self-funded, nonprofit, no ads/sponsorships/affiliates/political donations)
 - Lists all 3 authors with profile links
 - Explains editorial accountability rules
-- Contact info: `editorial@objectwire.org`
+- Contact info: `editorial@OzoneNews.org`
 - Datestamped April 29, 2026
 
 #### `/editorial-standards` — `app/editorial-standards/page.tsx`
 - `force-static`, no Supabase
 - 10 numbered standards: accuracy over speed, primary sources only, attribution, news vs analysis, conflicts of interest, AI use in newsroom, corrections, right of reply, source protection, diversity of coverage
 - Explicitly states AI is not used to write published copy
-- Contact: `editorial@objectwire.org`
+- Contact: `editorial@OzoneNews.org`
 
 #### `/corrections` — `app/corrections/page.tsx`
 - `force-static`, no Supabase
 - Defines what gets corrected, how a correction looks on the page (original text preserved, timestamped), what is NOT a correction (routine updates), how to report an error, right of reply, removals/unpublishing policy
-- Contact: `corrections@objectwire.org`
+- Contact: `corrections@OzoneNews.org`
 
 **Why this matters for SEO:**
 - `force-static` pages are prerendered HTML — Googlebot gets full content instantly
@@ -187,7 +187,7 @@ Set `openGraph.images` in `page.tsx` metadata with explicit `width`, `height`, a
 ```ts
 openGraph: {
   images: [{
-    url: 'https://www.objectwire.org/influncer/valkyrae-profile.jpg',
+    url: 'https://www.OzoneNews.org/influncer/valkyrae-profile.jpg',
     width: 1200,
     height: 675,
     alt: 'Valkyrae YouTube Gaming profile 2026',
@@ -203,7 +203,7 @@ Missing `width`/`height` causes Google to skip the image in rich snippets.
 | `thumbnail_alt` | Descriptive alt text, primary keyword included. |
 | `hero_image_src` | For CreatorArticleDB — portrait, min 800px wide. |
 | `hero_image_alt` | For CreatorArticleDB — name + role. |
-| `schema_image_url` | Full `https://www.objectwire.org/...` URL. Used in JSON-LD. Must be absolute. |
+| `schema_image_url` | Full `https://www.OzoneNews.org/...` URL. Used in JSON-LD. Must be absolute. |
 
 ### 6. Image Placement in Content
 - Hero/thumbnail: above the fold, handled automatically by the component

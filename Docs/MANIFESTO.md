@@ -1,12 +1,12 @@
 # 📜 MANIFESTO
 
-## ObjectWire: The Future of News
+## OzoneNews: The Future of News
 
 ---
 
 ### Vision Statement
 
-**ObjectWire is building the world's most interactive news reading experience paired with the world's easiest publishing tool.**
+**OzoneNews is building the world's most interactive news reading experience paired with the world's easiest publishing tool.**
 
 We believe that:
 - News should be **verified**, not viral
@@ -111,7 +111,7 @@ Publishing is unnecessarily hard. Journalists and creators struggle with:
 
 ## III. Our Content Blocks
 
-The building blocks of ObjectWire stories:
+The building blocks of OzoneNews stories:
 
 | Block Type | Purpose | Animation |
 |------------|---------|-----------|
@@ -243,9 +243,9 @@ The building blocks of ObjectWire stories:
 
 ## VII. Competitive Landscape
 
-### What Makes ObjectWire Different
+### What Makes OzoneNews Different
 
-| Feature | Traditional CMS | Medium/Substack | ObjectWire |
+| Feature | Traditional CMS | Medium/Substack | OzoneNews |
 |---------|-----------------|-----------------|------------|
 | Interactive content | ❌ | ❌ | ✅ Animated blocks |
 | Source transparency | ❌ | ❌ | ✅ Built-in citations |
@@ -261,7 +261,7 @@ The building blocks of ObjectWire stories:
 ## VIII. Our Commitment
 
 ### To Readers:
-> We will never sacrifice accuracy for engagement. Every story you read on ObjectWire has been verified, every claim is sourced, and every fact can be checked.
+> We will never sacrifice accuracy for engagement. Every story you read on OzoneNews has been verified, every claim is sourced, and every fact can be checked.
 
 ### To Writers:
 > We will never add complexity where simplicity serves. Writing news should be as easy as writing an email. The technology should disappear so the journalism can shine.
@@ -276,7 +276,7 @@ The building blocks of ObjectWire stories:
 **Object** — Facts. Data. Documented claims.
 **Wire** — Connected. Real-time. Transmitted.
 
-**ObjectWire** — Facts, delivered.
+**OzoneNews** — Facts, delivered.
 
 ---
 
@@ -290,7 +290,7 @@ We're building more than a news site. We're building the infrastructure for trus
 
 ---
 
-*This is ObjectWire.*
+*This is OzoneNews.*
 *Verified news. Source-cited reporting.*
 *The future of how news is written and read.*
 
@@ -303,9 +303,9 @@ We're building more than a news site. We're building the infrastructure for trus
 
 ### Contact
 
-- **Website:** objectwire.com
-- **Editorial:** editorial@objectwire.com
-- **Technical:** tech@objectwire.com
+- **Website:** OzoneNews.com
+- **Editorial:** editorial@OzoneNews.com
+- **Technical:** tech@OzoneNews.com
 
 ---
 

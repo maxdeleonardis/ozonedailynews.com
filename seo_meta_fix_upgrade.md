@@ -71,13 +71,13 @@
 ### Issue #3 | Production health = GREEN ✅
 
 Confirmed live (Googlebot UA, April 25):
-- `https://www.objectwire.org/robots.txt` → 122 lines (dynamic ✅, not the deleted static)
-- `https://www.objectwire.org/sitemap.xml` → 700 URLs ✅
-- `https://www.objectwire.org/news-sitemap.xml` → 37 URLs in 3-day window ✅ (M8 working)
+- `https://www.OzoneNews.org/robots.txt` → 122 lines (dynamic ✅, not the deleted static)
+- `https://www.OzoneNews.org/sitemap.xml` → 700 URLs ✅
+- `https://www.OzoneNews.org/news-sitemap.xml` → 37 URLs in 3-day window ✅ (M8 working)
 - `/entertainment/news/fortnite-moves-into-movies` canonical = self ✅, count = 1 ✅
 - `/influencer/ari-kytsya` canonical count = 1 ✅
 - `/crypto/news/anchorage-usat-expands-to-celo-network` canonical count = 1 ✅
-- Homepage canonical = `https://www.objectwire.org`, count = 1 ✅
+- Homepage canonical = `https://www.OzoneNews.org`, count = 1 ✅
 
 The April 22 impressions cliff is now stopped. M3 (GSC reindex) is the user-side action needed to accelerate recovery.
 
@@ -193,9 +193,9 @@ Links added across these three: `/video-games`, `/open-ai`, `/finance`, `/video-
 
 ## TL;DR — Root Cause
 
-Two production bugs were silently neutering ObjectWire's SEO surface:
+Two production bugs were silently neutering OzoneNews's SEO surface:
 
-1. **Site-wide canonical override.** [app/layout.tsx](app/layout.tsx) hardcoded `<link rel="canonical" href={SITE_CONFIG.url} />` inside `<head>`. Every page emitted **two** canonical tags — its own self-canonical from `metadata.alternates.canonical`, plus a second one pointing to `https://www.objectwire.org`. Google's canonicalizer collapsed many article URLs into the homepage, suppressing them from search.
+1. **Site-wide canonical override.** [app/layout.tsx](app/layout.tsx) hardcoded `<link rel="canonical" href={SITE_CONFIG.url} />` inside `<head>`. Every page emitted **two** canonical tags — its own self-canonical from `metadata.alternates.canonical`, plus a second one pointing to `https://www.OzoneNews.org`. Google's canonicalizer collapsed many article URLs into the homepage, suppressing them from search.
 2. **Static `public/robots.txt` shadowing the dynamic [app/robots.ts](app/robots.ts).** Next.js serves files in `/public` before route handlers, so the rich dynamic robots config (AI bots, tracking-param disallows, Bingbot, Applebot, etc.) was never actually live.
 
 Both are fixed in the working copy. This document covers the **deploy, verify, and structural upgrade** plan.
@@ -244,12 +244,12 @@ After deploy, run these checks (Googlebot UA):
 
 | URL | Expected |
 |---|---|
-| `https://www.objectwire.org/robots.txt` | 300+ line dynamic robots, AI bot rules present |
-| `https://www.objectwire.org/sitemap.xml` | 200, ~690 URLs, no change |
-| `https://www.objectwire.org/news-sitemap.xml` | 200, ≥30 URLs in 2-day window |
-| `https://www.objectwire.org/entertainment/news/fortnite-moves-into-movies` | **Exactly one** `<link rel="canonical">` pointing at self |
-| `https://www.objectwire.org/crypto/news/anchorage-usat-expands-to-celo-network` | Same |
-| `https://www.objectwire.org/influencer/ari-kytsya` | Same |
+| `https://www.OzoneNews.org/robots.txt` | 300+ line dynamic robots, AI bot rules present |
+| `https://www.OzoneNews.org/sitemap.xml` | 200, ~690 URLs, no change |
+| `https://www.OzoneNews.org/news-sitemap.xml` | 200, ≥30 URLs in 2-day window |
+| `https://www.OzoneNews.org/entertainment/news/fortnite-moves-into-movies` | **Exactly one** `<link rel="canonical">` pointing at self |
+| `https://www.OzoneNews.org/crypto/news/anchorage-usat-expands-to-celo-network` | Same |
+| `https://www.OzoneNews.org/influencer/ari-kytsya` | Same |
 
 Acceptance: `grep -c 'rel="canonical"'` on each article page returns `1`.
 
@@ -430,7 +430,7 @@ For each pillar in `copilot-instructions.md`:
 |---|---|
 | Canonical fix triggers a recanonicalization storm and short-term ranking volatility | Expected; Google typically stabilizes within 14 days. Monitor GSC daily. |
 | Removing `public/robots.txt` accidentally exposes a path that was implicitly allowed | None — dynamic `app/robots.ts` allows all by default with stricter disallows than the static file. |
-| Build-time validators (M4-M6) block legitimate emergency publishes | Add `--allow-canonical-mismatch` and `--allow-orphan` override flags, restricted to env var `OBJECTWIRE_OVERRIDE=true`. |
+| Build-time validators (M4-M6) block legitimate emergency publishes | Add `--allow-canonical-mismatch` and `--allow-orphan` override flags, restricted to env var `OzoneNews_OVERRIDE=true`. |
 | News sitemap window expansion (M8) causes Google to flag stale entries | Window is still well below Google's 30-day NewsArticle freshness limit; safe. |
 | Schema validator (M11) flags pages we cannot quickly fix | Run in report-only mode first; promote to build-blocking after backlog cleared. |
 

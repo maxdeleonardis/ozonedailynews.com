@@ -1,10 +1,10 @@
-# ObjectWire | HCU Recovery Plan
+# OzoneNews | HCU Recovery Plan
 
 **Created:** May 5, 2026
 **Last Updated:** May 12, 2026
 **Status:** Executing — Infrastructure complete. Content writing phase started.
 **Target:** Partial recovery at Aug/Sep 2026 core update. Full recovery by Mar 2027.
-**Owner:** ObjectWire Editorial + Engineering
+**Owner:** OzoneNews Editorial + Engineering
 
 ---
 
@@ -60,7 +60,7 @@
 | 🟡 THIS WEEK | Google Search Console — submit news sitemap | GSC → Sitemaps | 10 min |
 | 🟡 THIS WEEK | ONA membership | journalists.org/membership | 30 min |
 | 🟡 THIS WEEK | SPJ membership (Michael Cripe + Jack Sterling) | spj.org/join.asp | 30 min |
-| 🟡 THIS WEEK | WHOIS transparency check | whois.domaintools.com/objectwire.org | 15 min |
+| 🟡 THIS WEEK | WHOIS transparency check | whois.domaintools.com/OzoneNews.org | 15 min |
 | 🟠 BEFORE JUNE | First IndexNow bulk ping (after deploy) | npm run indexnow:bulk | 5 min |
 
 ---
@@ -69,7 +69,7 @@
 
 ### What Happened
 
-ObjectWire experienced a site-wide impressions drop with **no manual action notification in Search Console**. This pattern is consistent with a **Google Helpful Content Update (HCU) algorithmic penalty**, not a manual spam action.
+OzoneNews experienced a site-wide impressions drop with **no manual action notification in Search Console**. This pattern is consistent with a **Google Helpful Content Update (HCU) algorithmic penalty**, not a manual spam action.
 
 The HCU classifier is a site-level signal. Once it fires on a domain, it suppresses all pages — including high-quality ones — until the classifier re-evaluates the domain during a future core algorithm update.
 
@@ -89,13 +89,13 @@ Contributing factors:
 | Increasing publishing volume | More content at marginal quality makes the classifier worse, not better. |
 | Changing the domain or redirecting | Destroys all existing indexing, backlinks, and Search Console history. |
 | Bulk-deleting pages | Irreversible. `noindex` is safer and reversible. |
-| Cross-linking objectwire.org and owire.org | Signals to Google they are the same operation. Undermines the separation strategy. |
+| Cross-linking OzoneNews.org and owire.org | Signals to Google they are the same operation. Undermines the separation strategy. |
 
 ---
 
 ## The Two-Domain Strategy
 
-### objectwire.org — Investigative Journalism + Gaming/Tech News
+### OzoneNews.org — Investigative Journalism + Gaming/Tech News
 
 Primary identity: **Austin investigative media company**.  
 Content: Investigations, PI services, gaming/tech news, copyright/IP law, finance, crypto.  
@@ -110,11 +110,11 @@ Why separated: Google's HCU classifier penalizes topical incoherence. Mixing adu
 
 - [ ] Different site name, logo, and About page
 - [ ] Different author bylines or at minimum a distinct editorial voice
-- [ ] No cross-domain navigation links between objectwire.org and owire.org
+- [ ] No cross-domain navigation links between OzoneNews.org and owire.org
 - [ ] Own Search Console property (separate verification)
 - [ ] Own GA4 property (separate measurement ID)
 - [ ] Own sitemap at `owire.org/sitemap.xml`
-- [ ] Own canonical URLs — no canonicals pointing back to objectwire.org
+- [ ] Own canonical URLs — no canonicals pointing back to OzoneNews.org
 
 ---
 
@@ -156,22 +156,22 @@ Track every noindexed page in the audit log below.
 Each `/authors/[slug]` page must have ALL of the following:
 
 - [ ] Real photo (consistent with any social profile)
-- [ ] Stated area of expertise with specifics: "covers Austin local government and Travis County courts since 2024" — not just "writer at ObjectWire"
+- [ ] Stated area of expertise with specifics: "covers Austin local government and Travis County courts since 2024" — not just "writer at OzoneNews"
 - [ ] At least one link to external work: prior publication byline, LinkedIn, journalism portfolio, or professional profile
-- [ ] List of their most recent ObjectWire articles, linked
+- [ ] List of their most recent OzoneNews articles, linked
 - [ ] Author's beat clearly defined (gaming, crypto, investigative, IP law, etc.)
 
-Google's quality rater guidelines look for author credentials verifiable **outside** the site. An author bio that only references ObjectWire is a weak signal. A bio that references prior work elsewhere is a strong signal.
+Google's quality rater guidelines look for author credentials verifiable **outside** the site. An author bio that only references OzoneNews is a weak signal. A bio that references prior work elsewhere is a strong signal.
 
 Authors to prioritize:
 - [ ] Michael Cripe — entertainment / IP / copyright
 - [ ] Jack Sterling — crypto / finance / investigations
-- [ ] ObjectWire Investigative Desk — PI services / local reporting
+- [ ] OzoneNews Investigative Desk — PI services / local reporting
 - [ ] Any other active bylines on published articles
 
 #### 3. Homepage — Journalism Identity Above the Fold
 
-The homepage must communicate ObjectWire's editorial identity in the first viewport. A visitor landing on the homepage should immediately understand this is an investigative journalism operation, not a general news aggregator.
+The homepage must communicate OzoneNews's editorial identity in the first viewport. A visitor landing on the homepage should immediately understand this is an investigative journalism operation, not a general news aggregator.
 
 Required changes:
 - [ ] Investigations section linked prominently from homepage — dedicated module, not buried in feed
@@ -214,13 +214,13 @@ Each investigation needs:
 
 #### 6. Get One Real External Citation
 
-The single fastest trust signal is a legitimate external website citing ObjectWire as a source in an editorial context.
+The single fastest trust signal is a legitimate external website citing OzoneNews as a source in an editorial context.
 
 **Achievable path:**
 1. File a FOIA request with Austin city, Travis County, or a Texas state agency
 2. Publish findings as a full investigation with source documents linked
 3. Submit the story as a tip to: Austin Chronicle, Austin American-Statesman, KXAN, KUT
-4. If they cover it and reference ObjectWire, that is a legitimate editorial backlink
+4. If they cover it and reference OzoneNews, that is a legitimate editorial backlink
 
 This is not link building. This is how journalism earns domain authority. One credible external citation from a legitimate local news outlet carries more weight than 50 directory submissions.
 
@@ -254,28 +254,28 @@ Before running `wiki:publish` on any article, verify:
 
 ## owire.org Launch Checklist
 
-Track separately from objectwire.org recovery. These are parallel tasks.
+Track separately from OzoneNews.org recovery. These are parallel tasks.
 
 ### Technical Setup
 - [ ] Domain verified in Railway
 - [ ] Next.js project scaffolded (separate repo from Object-wire26-)
-- [ ] Supabase project created (separate from objectwire.org Supabase)
+- [ ] Supabase project created (separate from OzoneNews.org Supabase)
 - [ ] Separate GA4 property created and measurement ID added
 - [ ] Separate Search Console property verified
 - [ ] `robots.ts` and `sitemap.ts` configured for owire.org domain
-- [ ] No mention of objectwire.org in owire.org nav, footer, or metadata
+- [ ] No mention of OzoneNews.org in owire.org nav, footer, or metadata
 
 ### Editorial Identity
-- [ ] Site name, tagline, and About page written — distinct from ObjectWire
+- [ ] Site name, tagline, and About page written — distinct from OzoneNews
 - [ ] Author bylines defined for owire.org (can overlap in person, must differ in presentation)
 - [ ] Editorial standards page written for owire.org
 - [ ] Content categories defined (creator profiles, influencer features, etc.)
 
 ### Content Migration
-- [ ] All creator/influencer pages from objectwire.org inventoried
-- [ ] `noindex` added to objectwire.org versions before owire.org versions publish
+- [ ] All creator/influencer pages from OzoneNews.org inventoried
+- [ ] `noindex` added to OzoneNews.org versions before owire.org versions publish
 - [ ] owire.org versions published with canonical pointing to owire.org URLs
-- [ ] objectwire.org versions left as `noindex` (not deleted) — redirect to owire.org versions after 90 days if no ranking loss
+- [ ] OzoneNews.org versions left as `noindex` (not deleted) — redirect to owire.org versions after 90 days if no ranking loss
 
 ---
 
@@ -333,8 +333,8 @@ Do NOT obsessively check daily rankings. The classifier evaluates the domain hol
 **Full recovery (Mar 2027 core update):**
 - Organic impressions returning to or exceeding pre-penalty levels
 - Multiple pages ranking for non-branded gaming, tech, and local journalism queries
-- objectwire.org recognized as a topical authority in Austin investigative journalism + gaming news
+- OzoneNews.org recognized as a topical authority in Austin investigative journalism + gaming news
 
 ---
 
-*This document is the single source of truth for the objectwire.org recovery strategy. Update the checklist and timeline as tasks are completed. Reviewed and updated at the start of each weekly session.*
+*This document is the single source of truth for the OzoneNews.org recovery strategy. Update the checklist and timeline as tasks are completed. Reviewed and updated at the start of each weekly session.*

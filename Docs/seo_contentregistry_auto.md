@@ -1,6 +1,6 @@
 # SEO Content Registry | Automatic Ranking Chain
 
-> Every time a new article is published on ObjectWire, a chain of SEO systems must fire in the correct order, at lightning speed, for the article to have the **highest possible chance of ranking #1 in Google**. This document defines that chain, what each link does, and the hard requirements at every step.
+> Every time a new article is published on OzoneNews, a chain of SEO systems must fire in the correct order, at lightning speed, for the article to have the **highest possible chance of ranking #1 in Google**. This document defines that chain, what each link does, and the hard requirements at every step.
 
 ---
 
@@ -42,10 +42,10 @@ Every `page.tsx` must export a `metadata` object. This is what Google reads firs
 
 | Field | Requirement | Why |
 |---|---|---|
-| `title` | Primary keyword first, `\| ObjectWire` at end, ≤ 60 chars | Google truncates at ~60. Keyword-first = highest weight |
+| `title` | Primary keyword first, `\| OzoneNews` at end, ≤ 60 chars | Google truncates at ~60. Keyword-first = highest weight |
 | `description` | 130–155 chars. Primary keyword in the first 60 chars. Unique per page | This is the snippet in search results. Dupes = demotion |
 | `keywords` | 10–15 long-tail keyword phrases as an array | Google ignores the meta tag, but Bing and AI crawlers use it |
-| `canonical` | Always set to `https://www.objectwire.org/[slug]` | Prevents duplicate content penalties |
+| `canonical` | Always set to `https://www.OzoneNews.org/[slug]` | Prevents duplicate content penalties |
 | `openGraph.title` | Same as `title` or slightly reworded for social | Social shares and Google Discover use this |
 | `openGraph.description` | Same as `description` | Social shares use this |
 | `openGraph.images` | Array with `url` (1200×675+), `width`, `height`, `alt` | **Mandatory for Google Top Stories and Discover** |
@@ -57,24 +57,24 @@ Every `page.tsx` must export a `metadata` object. This is what Google reads firs
 
 ```tsx
 export const metadata = {
-  title: 'GTA 6 Pre-Orders Open on PlayStation Store | ObjectWire',
+  title: 'GTA 6 Pre-Orders Open on PlayStation Store | OzoneNews',
   description: 'GTA 6 pre-order listings appear on the PlayStation Store database with product IDs PPSA01547_00 and PPSA29660_00, confirming digital editions ahead of the Fall 2025 launch.',
   keywords: ['GTA 6 pre-orders', 'GTA 6 PlayStation Store', 'GTA 6 release date', ...],
   openGraph: {
-    title: 'GTA 6 Pre-Orders Open on PlayStation Store | ObjectWire',
+    title: 'GTA 6 Pre-Orders Open on PlayStation Store | OzoneNews',
     description: '...',
-    url: 'https://www.objectwire.org/video-games/news/gta6-pre-orders',
+    url: 'https://www.OzoneNews.org/video-games/news/gta6-pre-orders',
     type: 'article',
     publishedTime: '2026-03-04T12:00:00Z',
     section: 'Gaming',
     images: [{
-      url: 'https://www.objectwire.org/images/gta6-preorders.jpg',
+      url: 'https://www.OzoneNews.org/images/gta6-preorders.jpg',
       width: 1200,
       height: 675,
       alt: 'GTA 6 pre-order page on PlayStation Store',
     }],
   },
-  alternates: { canonical: 'https://www.objectwire.org/video-games/news/gta6-pre-orders' },
+  alternates: { canonical: 'https://www.OzoneNews.org/video-games/news/gta6-pre-orders' },
 };
 ```
 
@@ -89,13 +89,13 @@ The content registry ([lib/content-registry.ts](lib/content-registry.ts)) is the
 | Field | Required | Notes |
 |---|---|---|
 | `slug` | YES | Must exactly match the page's URL path (e.g. `/video-games/news/gta6-pre-orders`) |
-| `title` | YES | Must match the `metadata.title` minus the `\| ObjectWire` suffix |
-| `description` | YES | 130–155 chars, unique, contains primary keyword, NOT "ObjectWire coverage of..." |
+| `title` | YES | Must match the `metadata.title` minus the `\| OzoneNews` suffix |
+| `description` | YES | 130–155 chars, unique, contains primary keyword, NOT "OzoneNews coverage of..." |
 | `publishDate` | YES | ISO format `YYYY-MM-DD`. Determines news sitemap inclusion (2-day window) |
 | `modifiedDate` | YES | Update this every time the article content changes |
 | `category` | YES | One of the canonical categories: Technology, Gaming, Sports, Entertainment, Finance, Science, News, YouTube, Reference, Meta |
 | `tags` | YES | 5–10 topic tags. These become `<news:keywords>` in the news sitemap |
-| `author` | YES | Real name preferred. "ObjectWire Editorial" only for unsigned content |
+| `author` | YES | Real name preferred. "OzoneNews Editorial" only for unsigned content |
 | `priority` | YES | `0.9` breaking/featured, `0.7` standard news, `0.5` evergreen/reference |
 | `changeFrequency` | YES | `daily` for news, `weekly` for evergreen, `monthly` for reference |
 | `imageUrl` | **CRITICAL** | Full URL to hero image. Min 1200px wide. **Without this, article is ineligible for Google Top Stories** |
@@ -110,7 +110,7 @@ The content registry ([lib/content-registry.ts](lib/content-registry.ts)) is the
 |---|---|
 | Missing `imageUrl` | Blocked from Google Top Stories, Discover, and rich results carousel |
 | `publishDate` older than 2 days | Not included in news sitemap → Google News won't find it |
-| Generic description ("ObjectWire coverage of...") | Google devalues duplicate/thin descriptions across the site |
+| Generic description ("OzoneNews coverage of...") | Google devalues duplicate/thin descriptions across the site |
 | Wrong `slug` | SEOWrapper can't find the entry → no JSON-LD on the page |
 | Missing `tags` | No `<news:keywords>` in news sitemap → weaker topical signal |
 
@@ -250,7 +250,7 @@ Google ranks pages higher when other pages on the same domain link to them. The 
 
 | Element | Count | Implementation |
 |---|---|---|
-| Interlinks grid at bottom | 4–6 links | Manual `<Link>` cards to related ObjectWire pages |
+| Interlinks grid at bottom | 4–6 links | Manual `<Link>` cards to related OzoneNews pages |
 | Hub page link to this article | 1 | Add a card on the parent hub page (e.g. `/video-games/gta-6`) |
 | Breadcrumb links | 3–4 levels | `Breadcrumb` component (auto from slug) |
 | Newsletter mention | 1 | `NewsletterSignupInline` component (already on every article) |
@@ -273,8 +273,8 @@ For a static `page.tsx` article:
 ```
 □ 1. Create page.tsx with metadata export (title, desc, OG, canonical)
 □ 2. Use NewsArticle + SEOWrapper + NewsArticleSchema + Breadcrumb components
-□ 3. Include hero image (1200×675+, hosted on objectwire.org)
-□ 4. Add 4–6 interlinks to related ObjectWire pages
+□ 3. Include hero image (1200×675+, hosted on OzoneNews.org)
+□ 4. Add 4–6 interlinks to related OzoneNews pages
 □ 5. npm run build (prebuild auto-registers in content registry)
 □ 6. Verify: open /news-sitemap.xml, article should be listed
 □ 7. Push to GitHub → deploy
@@ -310,7 +310,7 @@ These are the things that **must be right on every single article, no exceptions
 | 9 | `NewsArticleSchema` component with matching data | No structured data for Google News |
 | 10 | `SEOWrapper` with correct slug | No JSON-LD injected on page |
 | 11 | `Breadcrumb` with 3+ levels | Missing BreadcrumbList rich result |
-| 12 | 4–6 internal links to related ObjectWire pages | Low internal PageRank flow |
+| 12 | 4–6 internal links to related OzoneNews pages | Low internal PageRank flow |
 | 13 | `H1` matches `metadata.title` headline | Google cross-checks, mismatch = trust drop |
 | 14 | Real author name (not generic) | E-E-A-T signal weakened |
 | 15 | Hero image uses `next/image` with width/height | CLS penalty in Core Web Vitals |

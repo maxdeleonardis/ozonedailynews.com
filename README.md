@@ -1,10 +1,10 @@
-# ObjectWire Frontend
+# OzoneNews Frontend
 
 **Professional intelligence platform with block-based article editor and AI-ready architecture**
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)](https://nextjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/) [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-green)](https://fastapi.tiangolo.com/)
 
-# ObjectWire Frontend
+# OzoneNews Frontend
 
 **Professional intelligence platform with block-based article editor and AI-ready architecture**
 
@@ -61,7 +61,7 @@ npm run import-blogs  # Import RSS articles
 - **Currently localStorage** (backend integration ready)
 
 ### ✅ RSS Import System
-- Converts objectwire.org RSS to structured blocks
+- Converts OzoneNews.org RSS to structured blocks
 - Smart category mapping
 - Auto-generates TypeScript files
 - `npm run import-blogs`
@@ -87,7 +87,7 @@ npm run import-blogs  # Import RSS articles
 ## Project Structure
 
 ```
-ObjectWire-Frontend/
+OzoneNews-Frontend/
 │
 ├── app/                          # Next.js App Router
 │   ├── admin/page.tsx            # Article editor dashboard
@@ -139,7 +139,7 @@ ObjectWire-Frontend/
 │   └── editorial-standards.md    # Markdown version of standards
 │
 ├── Docs/                         # Original documentation
-│   ├── Objectwire Whitepaper.md
+│   ├── OzoneNews Whitepaper.md
 │   ├── Editorial Standard.txt
 │   ├── Private Policy.txt
 │   └── Terms of Services.txt
@@ -337,7 +337,7 @@ python main.py            # Runs on localhost:8000
 
 ## Contact & Support
 
-- **Email:** jack@objectwire.org
+- **Email:** jack@OzoneNews.org
 - **Phone:** (575) 495-0323
 - **Location:** Austin, TX
 - **Development Log:** See [LOG.md](LOG.md) for complete progress history
@@ -349,4 +349,4 @@ python main.py            # Runs on localhost:8000
 
 ---
 
-*Proprietary - ObjectWire, 2026*
+*Proprietary - OzoneNews, 2026*

@@ -6,12 +6,12 @@ const SLUG = '/anime';
 export const metadata: Metadata = {
   title: 'Anime News | Coverage Coming Soon | ObjectWire 2026',
   description: 'ObjectWire anime coverage is coming soon. In the meantime, explore our tech, gaming, and science verticals.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Anime News | ObjectWire 2026',
     description: 'ObjectWire anime coverage coming soon.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
 };

@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical:
-      'https://www.objectwire.org/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
+      'https://www.ozonenetwork.news/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
   },
   openGraph: {
     title: 'Lenny Kravitz as Villain Bawma in 007 | First Light -- IGN',
     description:
       'New cinematic trailer for IO Interactive\'s 007: First Light reveals Lenny Kravitz as pirate king Bawma. Multi-layered antagonist, crocodile scene, and',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
+    url: 'https://www.ozonenetwork.news/video-games/007-first-light/news/lenny-kravitz-bawma-cinematic-ign-fan-fest',
     siteName: 'ObjectWire',
   },
   twitter: {

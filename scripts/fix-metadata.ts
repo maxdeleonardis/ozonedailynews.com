@@ -46,7 +46,7 @@ const TARGET_ARG = (() => {
 })();
 
 const APP_DIR  = path.join(process.cwd(), 'app');
-const BASE_URL = 'https://www.objectwire.org';
+const BASE_URL = 'https://www.ozonenetwork.news';
 
 const SKIP_DIRS = new Set([
   '(admin)', 'api', 'auth', 'account', 'saved', 'search',
@@ -304,7 +304,7 @@ function fixDescriptionLength(metaBlock: string, changes: string[]): string {
 }
 
 /**
- * Fix 4b: Strip "| ObjectWire.org" and "| Object Wire" brand suffix variants
+ * Fix 4b: Strip "| ozonenetwork.news" and "| Object Wire" brand suffix variants
  * that were not caught by the original fixBrandSuffix (only matched exact "| ObjectWire").
  */
 function fixBrandSuffixVariant(metaBlock: string, changes: string[]): string {

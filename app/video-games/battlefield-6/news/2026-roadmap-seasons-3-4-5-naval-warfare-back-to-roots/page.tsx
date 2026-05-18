@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/battlefield-6/news/2026-roadmap-seasons-3-4-5-naval-warfare-back-to-roots';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

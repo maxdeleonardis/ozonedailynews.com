@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     images: ["https://objectwire.com/og-mha-alls-justice.jpg"],
   },
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/mha/alls-justice',
+    canonical: 'https://www.ozonenetwork.news/video-games/mha/alls-justice',
   },
 };
 

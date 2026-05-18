@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: 'Primary Keyword | ObjectWire',
   description: '130-155 chars. Primary keyword in first 60 chars. No generic phrases.',
   alternates: {
-    canonical: 'https://www.objectwire.org/REPLACE-WITH-SLUG',
+    canonical: 'https://www.ozonenetwork.news/REPLACE-WITH-SLUG',
   },
   openGraph: {
     title: 'Primary Keyword | ObjectWire',
@@ -49,10 +49,10 @@ export default function YourArticlePage() {
         title="Primary Keyword | ObjectWire"
         description="130-155 char description matching metadata above."
         author="Jack Sterling"
-        authorUrl="https://www.objectwire.org/authors/jack-sterling"
+        authorUrl="https://www.ozonenetwork.news/authors/jack-sterling"
         publishedTime="2026-03-28T14:00:00Z"
         modifiedTime="2026-03-28T14:00:00Z"
-        articleUrl="https://www.objectwire.org/REPLACE-WITH-SLUG"
+        articleUrl="https://www.ozonenetwork.news/REPLACE-WITH-SLUG"
         imageUrl="https://REPLACE-WITH-IMAGE-URL"
         section="News"
         keywords={['keyword1', 'keyword2', 'keyword3']}
@@ -75,7 +75,7 @@ export default function YourArticlePage() {
         }}
         tags={['ProperNoun1', 'ProperNoun2', 'ProperNoun3', 'ProperNoun4']}
         slug="topic-your-slug"
-        url="https://www.objectwire.org/topic/your-slug"
+        url="https://www.ozonenetwork.news/topic/your-slug"
       >
         {/* ── Intro ── */}
         <p>

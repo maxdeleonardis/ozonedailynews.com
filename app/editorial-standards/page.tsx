@@ -5,7 +5,7 @@ import { Breadcrumb } from '@/components/nav/Breadcrumb';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/editorial-standards';
+const PAGE_URL = 'https://www.ozonenetwork.news/editorial-standards';
 
 export const metadata: Metadata = {
   title: 'Editorial Standards',
@@ -157,10 +157,10 @@ export default function EditorialStandardsPage() {
           <p>
             Questions about our standards, or a specific article&rsquo;s sourcing:{' '}
             <a
-              href="mailto:editorial@objectwire.org"
+              href="mailto:editorial@ozonenetwork.news"
               className="text-blue-600 hover:text-blue-800 underline"
             >
-              editorial@objectwire.org
+              editorial@ozonenetwork.news
             </a>
             .
           </p>

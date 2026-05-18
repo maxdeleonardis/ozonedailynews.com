@@ -73,7 +73,7 @@ async function run() {
     const missing = rows.filter(row => {
       const rawUrl = row[urlField] as string | null;
       if (!rawUrl) return false;
-      // Normalize: strip full origin (https://www.objectwire.org) if present
+      // Normalize: strip full origin (https://www.ozonenetwork.news) if present
       const urlPath = rawUrl.replace(/^https?:\/\/[^/]+/, '');
       const registrySlug = urlPath.startsWith('/') ? urlPath : `/${urlPath}`;
       return !registered.has(registrySlug);

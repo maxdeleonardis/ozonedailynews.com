@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/switch2/price-hike-september-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1749264292585-858660898055?w=1200&h=675&fit=crop';
 

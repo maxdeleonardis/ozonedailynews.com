@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "horror game",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/resident-evil-requiem',
+    canonical: 'https://www.ozonenetwork.news/resident-evil-requiem',
   },
   openGraph: {
     title: "Resident Evil: Requiem | Upcoming Survival Horror Game",
     description: "Everything about Resident Evil: Requiem, the next chapter in Capcoms legendary survival horror franchise. Release date, gameplay details, and latest news.",
     type: 'article',
-    url: "https://www.objectwire.org/resident-evil-requiem",
+    url: "https://www.ozonenetwork.news/resident-evil-requiem",
     siteName: 'ObjectWire',
     section: "Gaming",
   },

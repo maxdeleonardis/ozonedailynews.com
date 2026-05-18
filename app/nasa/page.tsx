@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     "space agency",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/nasa',
+    canonical: 'https://www.ozonenetwork.news/nasa',
   },
   openGraph: {
     title: "NASA: America's Space Agency - Missions, Discoveries & Exploration",
     description: "Complete overview of NASA's current missions, recent discoveries, and contributions to space science. From Moon missions to Europa's ocean.",
     type: "article",
-    url: "https://www.objectwire.org/nasa",
+    url: "https://www.ozonenetwork.news/nasa",
     images: [
       {
-        url: "https://www.objectwire.org/images/nasa-overview-og.jpg",
+        url: "https://www.ozonenetwork.news/images/nasa-overview-og.jpg",
         width: 1200,
         height: 630,
         alt: "NASA Space Exploration",

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/meta/instagram-drops-encrypted-dms';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = '';
 
 export const metadata: Metadata = {

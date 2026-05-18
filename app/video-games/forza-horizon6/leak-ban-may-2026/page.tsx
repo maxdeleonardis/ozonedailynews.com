@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/forza-horizon6/leak-ban-may-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues Franchise Bans',

@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     'PCG hybrid pipeline UE5',
     'Unreal Engine Switch 2 optimization',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Unreal Engine 5.8 Preview | Mesh Terrain & MegaLights Go Production',
     description:
       'Epic released UE 5.8 Preview on May 12, 2026. Mesh Terrain replaces legacy height-fields with true 3D topology. MegaLights hits production status for PS5, Xbox Series X, and mobile.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-15T14:00:00Z',

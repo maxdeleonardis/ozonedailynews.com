@@ -17,16 +17,16 @@ export const metadata: Metadata = {
     'anime 2026',
     'MHA game',
   ],
-  authors: [{ name: 'Alfansa', url: 'https://www.objectwire.org/authors/alfansa' }],
+  authors: [{ name: 'Alfansa', url: 'https://www.ozonenetwork.news/authors/alfansa' }],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/mha',
+    canonical: 'https://www.ozonenetwork.news/video-games/mha',
   },
   openGraph: {
     title: 'My Hero Academia Hub | Final Season, Vigilantes & Ultra Rumble',
     description:
       'Your complete guide to the My Hero Academia universe: final season, Vigilantes spin-off, and Ultra Rumble game coverage.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/mha',
+    url: 'https://www.ozonenetwork.news/video-games/mha',
     siteName: 'ObjectWire',
     section: 'Video Games & Anime',
   },

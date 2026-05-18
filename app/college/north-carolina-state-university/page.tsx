@@ -8,12 +8,12 @@ const SLUG = '/college/north-carolina-state-university';
 export const metadata: Metadata = {
   title: 'NC State | North Carolina State University, Journalism Program',
   description: 'North Carolina State University is a public land-grant research university in Raleigh, NC. NC State\'s journalism and communications programs are known for science and technology reporting.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'NC State | North Carolina State University',
     description: 'Public land-grant research university in Raleigh, North Carolina. Known for journalism, science communication, and engineering programs.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     section: 'Education',
     tags: ['NC State', 'North Carolina State University', 'Journalism', 'Science Communication'],

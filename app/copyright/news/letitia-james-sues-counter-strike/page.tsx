@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'CS2 skin market $1 million',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: "NY AG Letitia James Sues Valve Over Loot Boxes -- Gabe Newell Responds 'GL HF'",
     description:
       "New York's AG alleges Counter-Strike 2 loot boxes are illegal gambling. Some CS skins have sold for over $1 million. The broader skins market is worth",
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-02-25T20:00:00Z',

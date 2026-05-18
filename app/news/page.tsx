@@ -10,12 +10,12 @@ const SLUG = '/news';
 export const metadata: Metadata = {
   title: 'News | Breaking Stories & Analysis 2026',
   description: 'Breaking news, investigative reports, and in-depth analysis from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'News | Breaking Stories & Analysis 2026',
     description: 'Breaking news, investigative reports, and in-depth analysis from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

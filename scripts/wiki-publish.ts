@@ -153,7 +153,7 @@ function extractJSXPropValue(source: string, propName: string): unknown | null {
   // Resolve common variable references (SLUG, ARTICLE_URL)
   const slugConstMatch = source.match(/const\s+SLUG\s*=\s*['"`]([^'"`]+)['"`]/);
   const slugVal = slugConstMatch ? slugConstMatch[1] : '';
-  const articleUrlVal = `https://www.objectwire.org${slugVal}`;
+  const articleUrlVal = `https://www.ozonenetwork.news${slugVal}`;
 
   // eslint-disable-next-line no-new-func
   try { return new Function('SLUG', 'ARTICLE_URL', `return (${raw})`)(slugVal, articleUrlVal); }
@@ -602,7 +602,7 @@ function buildStub(
   const slugConst    = slugConstMatch    ? slugConstMatch[0]    : `const SLUG = '/${slug.replace(/-/g, '/')}';`;
   const ogImageConst = ogImageConstMatch ? ogImageConstMatch[0] : `const OG_IMAGE = '';`;
   // Always regenerate ARTICLE_URL from SLUG so it's never missing in the stub
-  const articleUrlConst = `const ARTICLE_URL = \`https://www.objectwire.org\${SLUG}\`; // restored by wiki:publish`;
+  const articleUrlConst = `const ARTICLE_URL = \`https://www.ozonenetwork.news\${SLUG}\`; // restored by wiki:publish`;
 
   const imports: Record<string, string> = {
     JackArticle:    "import { JackArticleDB } from '@/components/articles/JackArticleDB';",
@@ -928,7 +928,7 @@ async function main() {
 
   // ── IndexNow — instantly notify Bing, Yandex, Seznam, Naver, Mojeek ──────
   if (!isDryRun && process.env.INDEXNOW_KEY) {
-    const fullUrl = `https://www.objectwire.org${route}`;
+    const fullUrl = `https://www.ozonenetwork.news${route}`;
     console.log(c.gray(`  📡  Pinging IndexNow for ${fullUrl}...`));
     await pingIndexNow([fullUrl]).catch(err => {
       // Non-fatal — log but don't fail the publish

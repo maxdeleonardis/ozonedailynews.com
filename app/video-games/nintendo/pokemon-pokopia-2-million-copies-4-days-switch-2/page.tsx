@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/nintendo/pokemon-pokopia-2-million-copies-4-days-switch-2';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title:

@@ -10,12 +10,12 @@ const SLUG = '/crypto';
 export const metadata: Metadata = {
   title: 'Crypto News | Bitcoin, Ethereum & Web3 2026',
   description: 'Crypto news covering Bitcoin, Ethereum, stablecoins, DeFi, and Web3 from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Crypto News | Bitcoin, Ethereum & Web3 2026',
     description: 'Crypto news covering Bitcoin, Ethereum, stablecoins, DeFi, and Web3 from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

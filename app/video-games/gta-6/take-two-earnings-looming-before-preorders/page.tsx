@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/gta-6/take-two-earnings-looming-before-preorders';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = '';
 
 export const metadata: Metadata = {

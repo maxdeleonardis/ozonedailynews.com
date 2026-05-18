@@ -28,7 +28,7 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
       follow: true,
     },
     alternates: {
-      canonical: 'https://www.objectwire.org/search',
+      canonical: 'https://www.ozonenetwork.news/search',
     },
   };
 }

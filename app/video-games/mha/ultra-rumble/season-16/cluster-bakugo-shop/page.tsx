@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/mha/ultra-rumble/season-16/cluster-bakugo-shop';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = 'https://www.objectwire.org/video-games/cluster_mhur.png';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const OG_IMAGE = 'https://www.ozonenetwork.news/video-games/cluster_mhur.png';
 
 export const metadata: Metadata = {
   title: 'Cluster Bakugo Shop Duration | MHUR Season 16 End Date',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'My Hero Ultra Rumble battle royale',
     'MHA Ultra Rumble Bakugo',
   ],
-  alternates: { canonical: 'https://www.objectwire.org/video-games/mha/ultra-rumble/season-16/cluster-bakugo-shop' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/video-games/mha/ultra-rumble/season-16/cluster-bakugo-shop' },
   openGraph: {
     title: 'Cluster Bakugo Shop Duration | MHUR Season 16 End Date',
     description:

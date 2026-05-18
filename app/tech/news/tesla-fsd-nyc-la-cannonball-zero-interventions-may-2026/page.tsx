@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/news/tesla-fsd-nyc-la-cannonball-zero-interventions-may-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1772171386187-bc14e6cd7804?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

@@ -24,7 +24,7 @@
 
 import { getEntry } from '@/lib/registry-service';
 
-const SITE_URL = 'https://www.objectwire.org';
+const SITE_URL = 'https://www.ozonenetwork.news';
 const ORG_NAME = 'ObjectWire';
 
 interface SEOWrapperProps {

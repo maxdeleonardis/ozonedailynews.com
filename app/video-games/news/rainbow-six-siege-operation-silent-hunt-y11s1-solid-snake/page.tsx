@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/news/rainbow-six-siege-operation-silent-hunt-y11s1-solid-snake';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Operation Silent Hunt | Solid Snake, 1v1',

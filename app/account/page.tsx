@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Your Vault | ObjectWire",
     description: "Your digital vault of interests, saved articles, reading history, and engagement on ObjectWire.",
     type: 'article',
-    url: 'https://www.objectwire.org',
+    url: 'https://www.ozonenetwork.news',
     siteName: 'ObjectWire',
     section: "News",
   },

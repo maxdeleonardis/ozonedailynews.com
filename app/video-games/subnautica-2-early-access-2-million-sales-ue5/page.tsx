@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     'Subnautica 2 review',
     'UE5 survival game',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Subnautica 2 Early Access | 2 Million Copies in 12 Hours, 651K Concurrent',
     description:
       'Unknown Worlds launched Subnautica 2 into Early Access on May 14, 2026. 1 million copies in the first hour. 2 million in 12 hours. 651,000 peak concurrent players on Unreal Engine 5.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-15T18:00:00Z',

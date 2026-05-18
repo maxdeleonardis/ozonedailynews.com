@@ -29,7 +29,7 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const SITE = 'https://www.objectwire.org';
+const SITE = 'https://www.ozonenetwork.news';
 const AUTHOR = 'Jack Brennan';
 const AUTHOR_URL = `${SITE}/authors/jack-brennan`;
 

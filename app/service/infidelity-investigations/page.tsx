@@ -5,7 +5,7 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/service/infidelity-investigations';
+const PAGE_URL = 'https://www.ozonenetwork.news/service/infidelity-investigations';
 
 export const metadata: Metadata = {
   title: 'Infidelity Investigations Austin TX | Cheating Spouse PI | ObjectWire',
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed cheating spouse and domestic partner investigations in Austin, Texas with timestamped evidence for divorce and family court proceedings.',
   serviceType: 'Private Investigation — Infidelity',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
     { '@type': 'ListItem', position: 3, name: 'Infidelity Investigations', item: PAGE_URL },
   ],
 };

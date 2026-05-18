@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'ObjectWire — Breaking news, technology, and digital culture';
+export const alt = 'OzoneNews — Breaking news, technology, and digital culture';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -66,7 +66,7 @@ export default function Image() {
               letterSpacing: '-0.5px',
             }}
           >
-            ObjectWire
+            OzoneNews
           </span>
         </div>
 
@@ -93,7 +93,7 @@ export default function Image() {
             fontWeight: 400,
           }}
         >
-          objectwire.org
+          ozonenetwork.news
         </div>
 
         {/* Bottom accent line */}

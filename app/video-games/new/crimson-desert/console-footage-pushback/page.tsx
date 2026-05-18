@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/new/crimson-desert/console-footage-pushback';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Crimson Desert Dev Pushes Back on Claims of Hiding',

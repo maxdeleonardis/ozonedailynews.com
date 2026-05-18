@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: 'Alfansa â€” Finance & Markets Reporter',
   description:
     'Alfansa is ObjectWire\'s Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, My Hero Academia,',
-  alternates: { canonical: 'https://www.objectwire.org/authors/alfansa' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors/alfansa' },
   openGraph: {
     title: 'Alfansa | ObjectWire Finance & Markets Reporter',
     description: 'Finance & Markets Reporter and Anime & Gaming Editor at ObjectWire. Covering fintech, payments, MHA, and gaming economics.',
-    url: 'https://www.objectwire.org/authors/alfansa',
+    url: 'https://www.ozonenetwork.news/authors/alfansa',
     siteName: 'ObjectWire',
     type: 'profile',
   },
@@ -43,7 +43,7 @@ export default function AlfansaAuthorPage() {
         name="Alfansa"
         jobTitle="Finance & Markets Reporter"
         description="Alfansa covers finance, markets, fintech, and payments at ObjectWire while also serving as the publication's Anime & Gaming Editor."
-        url="https://www.objectwire.org/authors/alfansa"
+        url="https://www.ozonenetwork.news/authors/alfansa"
         knowsAbout={['Finance', 'Markets', 'Fintech', 'Payments', 'Crypto', 'My Hero Academia', 'Gaming']}
         location={{ city: 'New York', region: 'NY' }}
         articleCount={18}

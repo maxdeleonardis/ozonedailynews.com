@@ -16,7 +16,7 @@ export interface ProfilePageSchemaProps {
   pageTitle: string;
   /** Meta description */
   description: string;
-  /** Canonical page URL — must be https://www.objectwire.org/... */
+  /** Canonical page URL — must be https://www.ozonenetwork.news/... */
   pageUrl: string;
   /** Full image URL for the person */
   imageUrl?: string;
@@ -48,7 +48,7 @@ export function ProfilePageSchema({
   const socialUrls = sameAs.filter(
     (url) =>
       url.startsWith('http') &&
-      !url.startsWith('https://www.objectwire.org') &&
+      !url.startsWith('https://www.ozonenetwork.news') &&
       !url.startsWith('mailto:'),
   );
 
@@ -64,13 +64,13 @@ export function ProfilePageSchema({
     'isPartOf': {
       '@type': 'WebSite',
       'name': 'ObjectWire News',
-      'url': 'https://www.objectwire.org',
+      'url': 'https://www.ozonenetwork.news',
     },
     'breadcrumb': {
       '@type': 'BreadcrumbList',
       'itemListElement': [
-        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.objectwire.org' },
-        { '@type': 'ListItem', 'position': 2, 'name': 'Influencer', 'item': 'https://www.objectwire.org/influencer' },
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.ozonenetwork.news' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Influencer', 'item': 'https://www.ozonenetwork.news/influencer' },
         { '@type': 'ListItem', 'position': 3, 'name': personName, 'item': pageUrl },
       ],
     },
@@ -83,7 +83,7 @@ export function ProfilePageSchema({
           '@type': 'ImageObject',
           'url': imageUrl.startsWith('http')
             ? imageUrl
-            : `https://www.objectwire.org${imageUrl}`,
+            : `https://www.ozonenetwork.news${imageUrl}`,
           'width': 1200,
           'height': 675,
         },
@@ -95,15 +95,15 @@ export function ProfilePageSchema({
     'author': {
       '@type': 'Organization',
       'name': 'ObjectWire News',
-      'url': 'https://www.objectwire.org',
+      'url': 'https://www.ozonenetwork.news',
     },
     'publisher': {
       '@type': 'NewsMediaOrganization',
       'name': 'ObjectWire News',
-      'url': 'https://www.objectwire.org',
+      'url': 'https://www.ozonenetwork.news',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://www.objectwire.org/objectwire-logo.png',
+        'url': 'https://www.ozonenetwork.news/objectwire-logo.png',
         'width': 600,
         'height': 60,
       },

@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/forza-horizon-6/news/forza-horizon-6-500k-steam-presales-better-launch-fh5-alinea-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = 'https://www.objectwire.org/entertainment/forza_horizon_6.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const OG_IMAGE = 'https://www.ozonenetwork.news/entertainment/forza_horizon_6.PNG';
 
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 | 500K Steam Pre-Sales One Month Before',

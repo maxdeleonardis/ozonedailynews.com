@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/anime/kagurabachi-anime-april-2027';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Kagurabachi Anime | April 2027 Premiere, CygamesPictures',

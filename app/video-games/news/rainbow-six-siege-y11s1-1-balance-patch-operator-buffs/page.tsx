@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/news/rainbow-six-siege-y11s1-1-balance-patch-operator-buffs';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rainbow Six Siege Y11S1.1 Patch | Flores, Jäger, Rook, Nøkk',

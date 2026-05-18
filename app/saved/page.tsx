@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Saved Articles | ObjectWire",
     description: "Your bookmarked articles on ObjectWire.",
     type: 'article',
-    url: 'https://www.objectwire.org',
+    url: 'https://www.ozonenetwork.news',
     siteName: 'ObjectWire',
     section: "News",
   },

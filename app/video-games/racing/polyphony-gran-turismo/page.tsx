@@ -6,8 +6,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/racing/polyphony-gran-turismo';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = 'https://www.objectwire.org/entertainment/gran_turismo.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const IMAGE_URL = 'https://www.ozonenetwork.news/entertainment/gran_turismo.PNG';
 
 export const metadata: Metadata = {
   title:

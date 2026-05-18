@@ -26,7 +26,7 @@ export const metadata: Metadata = generateArticleMetadata({
     "software development",
     "GitHub 2026",
   ],
-  canonicalUrl: "https://www.objectwire.org/github",
+  canonicalUrl: "https://www.ozonenetwork.news/github",
   publishedTime: "2026-01-24T00:00:00Z",
   modifiedTime: "2026-01-24T00:00:00Z",
   authors: ["ObjectWire Technology Desk"],

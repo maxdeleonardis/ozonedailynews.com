@@ -6,8 +6,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/switch2/super-mario-wonder-switch2-edition-bellabel-park';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = 'https://www.objectwire.org/video-games/mariokart.png';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const OG_IMAGE = 'https://www.ozonenetwork.news/video-games/mariokart.png';
 
 export const metadata: Metadata = {
   title: 'Super Mario Wonder Switch 2 Edition | Bellabel Park',

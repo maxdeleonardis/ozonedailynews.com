@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'SaaS News 2026 | AI Software & Business Tools',
   description: 'Latest SaaS industry news: AI pricing, enterprise tools, and software market analysis.',
-  alternates: { canonical: 'https://www.objectwire.org/saas' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/saas' },
   openGraph: {
     title: 'SaaS News 2026 | AI Software & Business Tools',
     description: 'Latest SaaS industry news: AI pricing, enterprise tools, and software market analysis.',
     type: 'website',
-    url: 'https://www.objectwire.org/saas',
+    url: 'https://www.ozonenetwork.news/saas',
     siteName: 'ObjectWire',
   },
 };

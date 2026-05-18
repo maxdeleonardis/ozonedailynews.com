@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Social Media News 2026 | Instagram, TikTok & X',
   description: 'Latest social media news: Instagram, TikTok, X/Twitter platform updates and trends.',
-  alternates: { canonical: 'https://www.objectwire.org/social' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/social' },
   openGraph: {
     title: 'Social Media News 2026 | Instagram, TikTok & X',
     description: 'Latest social media news: Instagram, TikTok, X/Twitter platform updates and trends.',
     type: 'website',
-    url: 'https://www.objectwire.org/social',
+    url: 'https://www.ozonenetwork.news/social',
     siteName: 'ObjectWire',
   },
 };

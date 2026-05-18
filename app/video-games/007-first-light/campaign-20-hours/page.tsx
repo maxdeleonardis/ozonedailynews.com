@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/007-first-light/campaign-20-hours';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: '007 First Light Campaign Length | 20 Hours Average Playthrough',

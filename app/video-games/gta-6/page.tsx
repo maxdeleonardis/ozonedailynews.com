@@ -6,7 +6,7 @@ import { ArticlePage, Section, TableOfContents } from '@/components/articles/Art
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/video-games/gta-6';
+const PAGE_URL = 'https://www.ozonenetwork.news/video-games/gta-6';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

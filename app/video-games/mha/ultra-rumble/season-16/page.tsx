@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 
 const SLUG = '/video-games/mha/ultra-rumble/season-16';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'My Hero Ultra Rumble Season 16 | Star and Stripe & 2.5',

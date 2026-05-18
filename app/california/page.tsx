@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'California News 2026 | Tech, Law & Policy',
   description: 'Latest California news: tech industry, legislation, AI policy and economic updates.',
-  alternates: { canonical: 'https://www.objectwire.org/california' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/california' },
   openGraph: {
     title: 'California News 2026 | Tech, Law & Policy',
     description: 'Latest California news: tech industry, legislation, AI policy and economic updates.',
     type: 'website',
-    url: 'https://www.objectwire.org/california',
+    url: 'https://www.ozonenetwork.news/california',
     siteName: 'ObjectWire',
   },
 };

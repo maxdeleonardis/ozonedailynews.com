@@ -10,14 +10,14 @@ const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPAB
 
 // slug → correct canonical URL (slash-separated path)
 const URL_MAP: Record<string, string> = {
-  'influencer-abby-berner':      'https://www.objectwire.org/influencer/abby-berner',
-  'influencer-lean-beef-patty':  'https://www.objectwire.org/influencer/lean-beef-patty',
-  'influencer-bufalika':         'https://www.objectwire.org/influencer/bufalika',
-  'influencer-mika-lafuente':    'https://www.objectwire.org/influencer/mika-lafuente',
-  'influencer-colleen-sheehan':  'https://www.objectwire.org/influencer/colleen-sheehan',
-  'influencer-miranda-marie':    'https://www.objectwire.org/influencer/miranda-marie',
-  'influencer-megan-marie':      'https://www.objectwire.org/influencer/megan-marie',
-  'influencer-leah-davies':      'https://www.objectwire.org/influencer/leah-davies',
+  'influencer-abby-berner':      'https://www.ozonenetwork.news/influencer/abby-berner',
+  'influencer-lean-beef-patty':  'https://www.ozonenetwork.news/influencer/lean-beef-patty',
+  'influencer-bufalika':         'https://www.ozonenetwork.news/influencer/bufalika',
+  'influencer-mika-lafuente':    'https://www.ozonenetwork.news/influencer/mika-lafuente',
+  'influencer-colleen-sheehan':  'https://www.ozonenetwork.news/influencer/colleen-sheehan',
+  'influencer-miranda-marie':    'https://www.ozonenetwork.news/influencer/miranda-marie',
+  'influencer-megan-marie':      'https://www.ozonenetwork.news/influencer/megan-marie',
+  'influencer-leah-davies':      'https://www.ozonenetwork.news/influencer/leah-davies',
 };
 
 async function main() {

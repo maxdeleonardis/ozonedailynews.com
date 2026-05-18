@@ -6,8 +6,8 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/forza-horizon-6';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
-const OG_IMAGE = 'https://www.objectwire.org/video-games/forza-horizon-6.jpg';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const OG_IMAGE = 'https://www.ozonenetwork.news/video-games/forza-horizon-6.jpg';
 
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 | Japan Map, Release Date, Developer',

@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'TikTok News 2026 | Platform Updates & Policy',
   description: 'Latest TikTok news: platform updates, US policy, creators and ByteDance developments.',
-  alternates: { canonical: 'https://www.objectwire.org/tiktok' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/tiktok' },
   openGraph: {
     title: 'TikTok News 2026 | Platform Updates & Policy',
     description: 'Latest TikTok news: platform updates, US policy, creators and ByteDance developments.',
     type: 'website',
-    url: 'https://www.objectwire.org/tiktok',
+    url: 'https://www.ozonenetwork.news/tiktok',
     siteName: 'ObjectWire',
   },
 };

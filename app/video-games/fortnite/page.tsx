@@ -7,7 +7,7 @@ import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/video-games/fortnite';
+const PAGE_URL = 'https://www.ozonenetwork.news/video-games/fortnite';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1635372730136-06b29022281c?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

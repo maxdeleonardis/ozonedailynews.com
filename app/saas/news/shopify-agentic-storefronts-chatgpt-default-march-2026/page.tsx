@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 
 const SLUG = '/saas/news/shopify-agentic-storefronts-chatgpt-default-march-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = 'https://www.objectwire.org/shopify/shopify.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const OG_IMAGE = 'https://www.ozonenetwork.news/shopify/shopify.PNG';
 
 export const metadata: Metadata = {
   title: "Shopify Agentic Storefronts | ChatGPT Default 2026",

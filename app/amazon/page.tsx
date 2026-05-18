@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Amazon News 2026 | AWS, Robotics & AI',
   description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from ObjectWire.',
-  alternates: { canonical: 'https://www.objectwire.org/amazon' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/amazon' },
   openGraph: {
     title: 'Amazon News 2026 | AWS, Robotics & AI',
     description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from ObjectWire.',
     type: 'website',
-    url: 'https://www.objectwire.org/amazon',
+    url: 'https://www.ozonenetwork.news/amazon',
     siteName: 'ObjectWire',
   },
 };

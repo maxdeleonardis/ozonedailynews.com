@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "espionage",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/007-first-light',
+    canonical: 'https://www.ozonenetwork.news/007-first-light',
   },
   openGraph: {
     title: "007: First Light | James Bond Game by IO Interactive",
     description: "Everything about 007: First Light, the new James Bond origin story game from IO Interactive. Systemic gameplay meets espionage in the definitive 007",
     type: 'article',
-    url: "https://www.objectwire.org/007-first-light",
+    url: "https://www.ozonenetwork.news/007-first-light",
     siteName: 'ObjectWire',
     section: "Gaming",
   },

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/copyright/news/baltimore-xai-grok-sexual-deepfakes-lawsuit-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL = '/default/xAI_company_history_profile.png';
 
 export const metadata: Metadata = {

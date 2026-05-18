@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "PlayStation 5",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/marvels-wolverine',
+    canonical: 'https://www.ozonenetwork.news/marvels-wolverine',
   },
   openGraph: {
     title: "Marvels Wolverine | PS5 Exclusive Game",
     description: "Everything you need to know about Marvels Wolverine, the brutal single-player adventure by Insomniac Games. Release date, gameplay, and latest news.",
     type: 'article',
-    url: "https://www.objectwire.org/marvels-wolverine",
+    url: "https://www.ozonenetwork.news/marvels-wolverine",
     siteName: 'ObjectWire',
     section: "Gaming",
   },

@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Copyright & Legal News 2026 | Lawsuits & Policy',
   description: 'Latest copyright, antitrust and tech legal news: lawsuits, rulings and regulatory updates.',
-  alternates: { canonical: 'https://www.objectwire.org/copyright' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/copyright' },
   openGraph: {
     title: 'Copyright & Legal News 2026 | Lawsuits & Policy',
     description: 'Latest copyright, antitrust and tech legal news: lawsuits, rulings and regulatory updates.',
     type: 'website',
-    url: 'https://www.objectwire.org/copyright',
+    url: 'https://www.ozonenetwork.news/copyright',
     siteName: 'ObjectWire',
   },
 };

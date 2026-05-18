@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'Bandai Namco MHA',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/mha/ultra-rumble/season-15',
+    canonical: 'https://www.ozonenetwork.news/mha/ultra-rumble/season-15',
   },
   openGraph: {
     title: 'My Hero Ultra Rumble Season 15: New Characters & Updates',
     description: 'Season 15 of My Hero Ultra Rumble brings new playable characters, balance updates, and fresh content to the popular free-to-play battle royale game.',
     type: 'article',
-    url: 'https://www.objectwire.org/mha/ultra-rumble/season-15',
+    url: 'https://www.ozonenetwork.news/mha/ultra-rumble/season-15',
     siteName: 'ObjectWire',
   },
   twitter: {

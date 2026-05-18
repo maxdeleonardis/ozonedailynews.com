@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     'AI ethics',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/nintendo/google-project-genie-ai-knockoffs',
+    canonical: 'https://www.ozonenetwork.news/nintendo/google-project-genie-ai-knockoffs',
   },
   openGraph: {
     title: 'Google\'s Project Genie AI Creates Nintendo Game Knockoffs',
     description: 'AI tool generates playable worlds resembling Mario, Zelda without restrictions.',
     type: 'article',
-    url: 'https://www.objectwire.org/nintendo/google-project-genie-ai-knockoffs',
+    url: 'https://www.ozonenetwork.news/nintendo/google-project-genie-ai-knockoffs',
     siteName: 'ObjectWire',
   },
   twitter: {

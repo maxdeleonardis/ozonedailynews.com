@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 
 const SLUG = '/california/california-tech-layoffs-2026-ai-restructuring-26000-job-cuts';
-const FULL_URL = `https://www.objectwire.org${SLUG}`;
+const FULL_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: "California Tech Sector Announces 26,000+ Job Cuts in",

@@ -22,7 +22,7 @@ import path from 'path';
 
 const JACK_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
 const REGISTRY_PATH = path.join(process.cwd(), 'content', 'static', 'content_registry.json');
-const BASE_URL = 'https://www.objectwire.org';
+const BASE_URL = 'https://www.ozonenetwork.news';
 const FORCE = process.argv.includes('--force');
 const DRY_RUN = process.argv.includes('--dry-run');
 

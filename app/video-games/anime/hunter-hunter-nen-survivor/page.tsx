@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     'Hunter x Hunter Gon Killua mobile',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/anime/hunter-hunter-nen-survivor',
+    canonical: 'https://www.ozonenetwork.news/video-games/anime/hunter-hunter-nen-survivor',
   },
   openGraph: {
     title: 'HUNTER×HUNTER NEN×SURVIVOR -- February 18, 2026 Global',
     description:
       'Free-to-play roguelike survivor game in the Hunter x Hunter universe. 1.5M pre-registrations, original anime voice cast, four-character Nen teams, and',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/anime/hunter-hunter-nen-survivor',
+    url: 'https://www.ozonenetwork.news/video-games/anime/hunter-hunter-nen-survivor',
     siteName: 'ObjectWire',
     images: [{ url: '/video-games/thumbnail.PNG' }],
   },

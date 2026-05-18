@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     title: "X (Twitter): Complete Company Profile & History",
     description: "From Twitter to X - Elon Musk's transformation of the microblogging platform.",
     type: "article",
-    url: "https://www.objectwire.org/x-twitter",
+    url: "https://www.ozonenetwork.news/x-twitter",
     images: [
       {
-        url: "https://www.objectwire.org/x-twitter-og.jpg",
+        url: "https://www.ozonenetwork.news/x-twitter-og.jpg",
         width: 1200,
         height: 630,
         alt: "X (Twitter) Company Profile",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "Complete profile of X, the platform formerly known as Twitter.",
   },
   alternates: {
-    canonical: 'https://www.objectwire.org/social/x-twitter',
+    canonical: 'https://www.ozonenetwork.news/social/x-twitter',
   },
 };
 

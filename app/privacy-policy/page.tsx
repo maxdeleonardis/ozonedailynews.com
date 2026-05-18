@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
   alternates: {
-    canonical: 'https://www.objectwire.org/privacy-policy',
+    canonical: 'https://www.ozonenetwork.news/privacy-policy',
   },
   openGraph: {
     title: "Privacy Policy",
     description: "ObjectWire Privacy Policy - How we collect, use, and protect your information",
     type: 'article',
-    url: "https://www.objectwire.org/privacy-policy",
+    url: "https://www.ozonenetwork.news/privacy-policy",
     siteName: 'ObjectWire',
     section: "News",
   },

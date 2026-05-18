@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     'Nicole Daedone victim impact statement 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'Nicole Daedone Sentenced to 9 Years for OneTaste Forced',
     description:
       'A federal judge sentenced OneTaste co-founder Nicole Daedone to 9 years and ordered $12M in forfeiture on March 30, 2026, closing a years-long forced',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-31T16:00:00Z',

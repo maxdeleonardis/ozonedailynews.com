@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     'Star Wars Zero Company Holiday 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     type: 'article',
     title: 'Star Wars Zero Company | Bit Reactor and Respawn Tactical',
     description:
       'Star Wars Zero Company blends XCOM-style tactics with Mass Effect exploration and permadeath in a Clone Wars setting. Holiday 2026 on PC, PS5, Xbox Series',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     images: [
       {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: 'Star Wars Zero Company | Clone Wars Tactical RPG | Holiday',
     description:
       'Bit Reactor and Respawn\'s Star Wars Zero Company combines grid-based tactics, permadeath clone DNA, and Mass Effect-style hubs. Holiday 2026.',
-    images: [`https://www.objectwire.org${SLUG}/og`],
+    images: [`https://www.ozonenetwork.news${SLUG}/og`],
   },
 };
 

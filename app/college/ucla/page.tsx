@@ -8,12 +8,12 @@ const SLUG = '/college/ucla';
 export const metadata: Metadata = {
   title: 'UCLA | University of California Los Angeles, Journalism Program',
   description: 'University of California, Los Angeles is a public research university in Westwood, California. UCLA\'s journalism and political science programs have produced leading reporters and investigators.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'UCLA | University of California Los Angeles',
     description: 'Public research university in Los Angeles, California. Home to leading journalism, political science, and communications programs.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     section: 'Education',
     tags: ['UCLA', 'University of California Los Angeles', 'Journalism', 'Political Science'],

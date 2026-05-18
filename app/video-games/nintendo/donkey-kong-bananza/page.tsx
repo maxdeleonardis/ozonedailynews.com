@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     "Nintendo destructible world game design",
   ],
   alternates: {
-    canonical: "https://www.objectwire.org/video-games/nintendo/donkey-kong-bananza",
+    canonical: "https://www.ozonenetwork.news/video-games/nintendo/donkey-kong-bananza",
   },
   openGraph: {
     title: "Donkey Kong Bananza: 347M Voxels Per Level | Nintendo's GDC 2026 Tech Reveal",
     description:
       "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels. The",
     type: "article",
-    url: "https://www.objectwire.org/video-games/nintendo/donkey-kong-bananza",
+    url: "https://www.ozonenetwork.news/video-games/nintendo/donkey-kong-bananza",
     siteName: "ObjectWire",
     publishedTime: "2026-03-12T10:00:00Z",
     modifiedTime: "2026-03-12T10:00:00Z",

@@ -9,14 +9,14 @@ export const metadata: Metadata = {
   title: "Blue Owl Halts Fund Redemptions, Sparking Private Credit",
   description: "Blue Owl Capital permanently halts quarterly redemptions for retail private credit fund OBDC II amid $1.4B asset sale, triggering selloff across private",
   alternates: {
-    canonical: 'https://www.objectwire.org/news/blue-owl-halts-fund-redemptions',
+    canonical: 'https://www.ozonenetwork.news/news/blue-owl-halts-fund-redemptions',
   },
   keywords: ['Blue Owl Capital', 'fund redemptions', 'private credit', 'OBDC II', 'BDC', 'alternative assets', 'liquidity crisis', 'Blackstone', 'Mohamed El-Erian'],
   openGraph: {
     title: "Blue Owl Halts Fund Redemptions, Sparking Private Credit",
     description: "Blue Owl Capital permanently halts quarterly redemptions for retail private credit fund OBDC II amid $1.4B asset sale, triggering selloff across private",
     type: 'article',
-    url: "https://www.objectwire.org/news/blue-owl-halts-fund-redemptions",
+    url: "https://www.ozonenetwork.news/news/blue-owl-halts-fund-redemptions",
     siteName: 'ObjectWire',
     section: "News",
   },

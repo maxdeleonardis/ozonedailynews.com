@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     'Valve Steam update',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     type: 'article',
     title: 'Valve Ships CS2 Animation Overhaul | CS3 Reports Are False',
     description:
       'Valve\'s April 1 beta overhauled CS2\'s entire animation system. The CS3 on Unreal Engine 5 rumor originated from April Fools\' jokes referencing a "March',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Conan Boyle'],
     publishedTime: '2026-04-03T10:00:00Z',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     section: 'Gaming',
     images: [
       {
-        url: `https://www.objectwire.org${OG_IMAGE}`,
+        url: `https://www.ozonenetwork.news${OG_IMAGE}`,
         width: 1200,
         height: 675,
         alt: 'Valve CEO Gabe Newell',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Valve Ships CS2 Animation Overhaul, CS3 Rumors Are April Fools Jokes",
     description:
       'The "CS3 on Unreal Engine 5" story is fake. What Valve actually shipped on April 1 is a major CS2 animation system beta.',
-    images: [`https://www.objectwire.org${OG_IMAGE}`],
+    images: [`https://www.ozonenetwork.news${OG_IMAGE}`],
   },
 };
 

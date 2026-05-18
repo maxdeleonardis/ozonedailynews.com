@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: ["news", "intelligence", "journalism", "business news", "technology news", "verified news", "fact-checked reporting"],
-  authors: [{ name: "ObjectWire News Editorial Team" }],
+  authors: [{ name: "OzoneNews Editorial Team" }],
   creator: SITE_CONFIG.name,
   publisher: `${SITE_CONFIG.name} News Network`,
   formatDetection: {
@@ -156,7 +156,7 @@ export default async function RootLayout({
               <div className="container mx-auto px-4 py-2 md:py-5 text-center">
                 <Link href="/" className="inline-block group">
                   <div className="text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif">
-                    OBJECTWIRE
+                    OZONENEWS
                   </div>
                   <div className="flex items-center justify-center gap-4 mt-1.5">
                     <div className="h-px w-10 md:w-28 bg-black" />
@@ -193,13 +193,13 @@ export default async function RootLayout({
 
                 {/* Brand */}
                 <div className="col-span-2 md:col-span-1">
-                  <div className="font-black text-lg tracking-tight text-white mb-3">ObjectWire</div>
+                  <div className="font-black text-lg tracking-tight text-white mb-3">OzoneNews</div>
                   <p className="text-xs text-gray-400 leading-relaxed max-w-[220px]">
                     Independent nonprofit newsroom based in Austin, Texas. Verified reporting, primary sources only.
                   </p>
                   <div className="flex items-center gap-2 mt-5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
-                    <span className="text-xs text-gray-400 font-mono">objectwire.org</span>
+                    <span className="text-xs text-gray-400 font-mono">ozonenetwork.news</span>
                   </div>
                   <div className="flex flex-col gap-1.5 mt-5">
                     <Link href="/about" className="text-xs text-gray-400 hover:text-white transition-colors">Our Story</Link>
@@ -292,7 +292,7 @@ export default async function RootLayout({
               <div className="border-t border-gray-700 pt-8 pb-8">
                 <p className="text-xs text-gray-400 leading-relaxed max-w-3xl">
                   <span className="font-semibold text-gray-300">Ownership and funding:</span>{' '}
-                  ObjectWire is an independent, self-funded nonprofit newsroom. We accept no advertising, no
+                  OzoneNews is an independent, self-funded nonprofit newsroom. We accept no advertising, no
                   sponsored content, and no political donations. Read our{' '}
                   <Link href="/about" className="text-blue-400 hover:text-blue-300 underline">about page</Link>,{' '}
                   <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline">editorial standards</Link>, and{' '}
@@ -303,7 +303,7 @@ export default async function RootLayout({
               {/* Bottom bar */}
               <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
-                  <span className="font-semibold text-gray-300">© 2026 ObjectWire</span>
+                  <span className="font-semibold text-gray-300">© 2026 OzoneNews</span>
                   <span className="text-gray-600">|</span>
                   <span>Self-funded nonprofit newsroom</span>
                   <span className="text-gray-600">|</span>
@@ -317,7 +317,7 @@ export default async function RootLayout({
                   <Link href="/corrections" className="hover:text-white transition-colors">Corrections</Link>
                   <span className="flex items-center gap-1.5 ml-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
-                    <span className="font-mono text-gray-400">objectwire.org</span>
+                    <span className="font-mono text-gray-400">ozonenetwork.news</span>
                   </span>
                 </div>
               </div>

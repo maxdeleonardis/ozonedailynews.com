@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Authors & Contributors',
   description:
     'Meet the journalists, reporters, and editors behind ObjectWire, covering finance, markets, science, technology, anime, gaming, investigations, and',
-  alternates: { canonical: 'https://www.objectwire.org/authors' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors' },
   openGraph: {
     title: 'ObjectWire Authors & Contributors',
     description: 'Meet the journalists and editors behind ObjectWire.',
-    url: 'https://www.objectwire.org/authors',
+    url: 'https://www.ozonenetwork.news/authors',
     siteName: 'ObjectWire',
     type: 'website',
   },

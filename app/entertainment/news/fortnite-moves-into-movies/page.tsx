@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     'UEFN entertainment production',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'Unreal Engine Becomes the Backbone of 2026 Entertainment',
     description:
       '153 films and TV shows in 2025 alone. 500+ cumulative productions. The engine that runs Fortnite now renders Gotham, Arrakis, and the Upside Down, in real',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-12T00:00:00Z',

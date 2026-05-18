@@ -11,7 +11,7 @@ import { SITE_CONFIG } from '@/lib/site-config';
  * Format follows the emerging llms.txt specification:
  * https://llmstxt.org/
  *
- * Served at: https://www.objectwire.org/llms.txt
+ * Served at: https://www.ozonenetwork.news/llms.txt
  */
 
 export async function GET() {
@@ -26,7 +26,7 @@ ObjectWire is an independent digital news organization covering investigative jo
 - Publisher: ObjectWire
 - Location: Austin, Texas, USA
 - Founded: 2024
-- Editorial Contact: editorial@objectwire.org
+- Editorial Contact: editorial@ozonenetwork.news
 - Editorial Standards: ${baseUrl}/editorial-standards
 - Corrections Policy: ${baseUrl}/corrections
 - About: ${baseUrl}/about
@@ -67,7 +67,7 @@ All original reporting is copyright ObjectWire. Short excerpts with attribution 
 
 ## AI Citation Policy
 ObjectWire content may be cited by AI systems under the following conditions:
-- Attribution must include the author name and objectwire.org as the source
+- Attribution must include the author name and ozonenetwork.news as the source
 - The original URL must be preserved in any citation
 - Content must not be reproduced in full without permission
 - Corrections and updated versions supersede original publications

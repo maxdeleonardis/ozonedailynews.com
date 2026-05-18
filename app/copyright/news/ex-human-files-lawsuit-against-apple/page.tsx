@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 
 const SLUG = '/copyright/news/ex-human-files-lawsuit-against-apple';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1657868203197-627e5ab86e19?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 
 export const metadata: Metadata = {

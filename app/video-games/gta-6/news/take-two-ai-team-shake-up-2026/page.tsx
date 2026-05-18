@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     'Kotaku Take-Two',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     type: 'article',
     title: 'GTA 6 | Take-Two Shakes Up AI Team Despite CEO Hundreds of',
     description:
       'Take-Two restructures its AI division weeks after Zelnick told investors they were running "hundreds of pilots." What it means for GTA 6 NPC behavior, QA',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Gaming'],
     publishedTime: '2026-04-03T12:00:00Z',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     section: 'Gaming',
     images: [
       {
-        url: `https://www.objectwire.org${OG_IMAGE}`,
+        url: `https://www.ozonenetwork.news${OG_IMAGE}`,
         width: 1200,
         height: 675,
         alt: 'Grand Theft Auto VI promotional artwork',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: 'Take-Two Reshuffles AI Team While GTA 6 Is in Final Polish',
     description:
       'CEO Strauss Zelnick ran "hundreds of pilots" in Q1 2026, now the team building those pilots is being restructured. What does it mean for GTA 6?',
-    images: [`https://www.objectwire.org${OG_IMAGE}`],
+    images: [`https://www.ozonenetwork.news${OG_IMAGE}`],
   },
 };
 

@@ -25,18 +25,18 @@ export const metadata: Metadata = {
     'free to play open world 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     type: 'article',
     title: 'Neverness to Everness Tops 30M Pre-Registrations | Launches',
     description:
       'Hotta Studio\'s open-world anime RPG hits 30M pre-registrations. Free A-Class character Haniel unlocked at launch. Global release April 29, 2026.',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     images: [
       {
-        url: `https://www.objectwire.org${OG_IMAGE}`,
+        url: `https://www.ozonenetwork.news${OG_IMAGE}`,
         width: 1200,
         height: 675,
         alt: 'Neverness to Everness open world anime RPG 2026',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: 'Neverness to Everness | 30M Pre-Regs, Free Haniel at Launch',
     description:
       'Anime GTA hits 30M pre-registrations. Haniel is free for all players. Global launch April 29, 2026.',
-    images: [`https://www.objectwire.org${OG_IMAGE}`],
+    images: [`https://www.ozonenetwork.news${OG_IMAGE}`],
   },
 };
 

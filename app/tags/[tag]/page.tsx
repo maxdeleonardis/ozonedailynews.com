@@ -39,12 +39,12 @@ export async function generateMetadata({
   return {
     title: `${display} | ObjectWire`,
     description: `Browse all ObjectWire articles tagged with ${display}. News, analysis, and in-depth coverage.`,
-    alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+    alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
     openGraph: {
       title: `${display} | ObjectWire`,
       description: `All ObjectWire articles tagged with ${display}.`,
       type: 'website',
-      url: `https://www.objectwire.org${SLUG}`,
+      url: `https://www.ozonenetwork.news${SLUG}`,
       siteName: 'ObjectWire',
     },
     twitter: {

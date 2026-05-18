@@ -10,12 +10,12 @@ const SLUG = '/finance';
 export const metadata: Metadata = {
   title: 'Finance News | Markets, Crypto & Banking 2026',
   description: 'Finance news covering markets, banking, stablecoins, and institutional investment from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Finance News | Markets, Crypto & Banking 2026',
     description: 'Finance news covering markets, banking, stablecoins, and institutional investment from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

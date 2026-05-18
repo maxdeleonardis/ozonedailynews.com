@@ -10,7 +10,7 @@ import { createServerClient } from '@supabase/ssr';
 
 // NOTE: We inline these values here because middleware runs on Edge Runtime
 // and cannot import from lib/ directly in all cases
-const SITE_URL = 'https://www.objectwire.org'; // Changed to www as canonical
+const SITE_URL = 'https://www.ozonenetwork.news'; // Changed to www as canonical
 
 // Tracking parameters to strip (prevents index bloat)
 const PARAMS_TO_STRIP = [
@@ -186,9 +186,9 @@ export async function middleware(request: NextRequest) {
   // 5. NON-WWW TO WWW REDIRECT (Canonical domain)
   // ==========================================================================
   const host = request.headers.get('host') || '';
-  if (host === 'objectwire.org') {
+  if (host === 'ozonenetwork.news') {
     const newUrl = new URL(request.url);
-    newUrl.host = 'www.objectwire.org';
+    newUrl.host = 'www.ozonenetwork.news';
     return NextResponse.redirect(newUrl, 308);
   }
   

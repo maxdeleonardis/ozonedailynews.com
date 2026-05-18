@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     'best medieval games 2026',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/bellwright',
+    canonical: 'https://www.ozonenetwork.news/video-games/bellwright',
   },
   openGraph: {
     title: 'Bellwright Tops 1 Million Units Sold Ahead of Full Launch',
     description:
       'Medieval survival RPG Bellwright has surpassed 1 million units sold on Steam while still in Early Access. Release 1.0 and console versions for PS5 and',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/bellwright',
+    url: 'https://www.ozonenetwork.news/video-games/bellwright',
     siteName: 'ObjectWire',
     publishedTime: '2026-03-07T20:00:00Z',
     modifiedTime: '2026-03-07T20:00:00Z',

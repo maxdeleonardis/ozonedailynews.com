@@ -242,7 +242,7 @@ export function CreatorArticle({
     hero.gradient ??
     'linear-gradient(135deg, #0f172a 0%, #1e3a5f 45%, #b45309 100%)';
 
-  const articleSlug = schema.articleUrl.replace('https://www.objectwire.org', '');
+  const articleSlug = schema.articleUrl.replace('https://www.ozonenetwork.news', '');
 
   return (
     <>

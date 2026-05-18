@@ -7,9 +7,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 const SLUG =
   '/apple/core-ai-framework-replaces-core-ml-wwdc-2026-bloomberg';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/apple/apple-core-ai-framework-wwdc-2026-core-ml-replacement.jpg';
+  'https://www.ozonenetwork.news/apple/apple-core-ai-framework-wwdc-2026-core-ml-replacement.jpg';
 
 export const metadata: Metadata = {
   title:

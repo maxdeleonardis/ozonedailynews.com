@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "investigative services Austin Texas",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/austin-private-detective-agency',
+    canonical: 'https://www.ozonenetwork.news/austin-private-detective-agency',
   },
   openGraph: {
     title: "Private Detective Agency Austin Texas | Licensed PI Services",
     description: "ObjectWire is a licensed private detective agency in Austin, Texas. Surveillance, infidelity, missing persons, digital forensics, and evidence collection.",
     type: 'article',
-    url: "https://www.objectwire.org/austin-private-detective-agency",
+    url: "https://www.ozonenetwork.news/austin-private-detective-agency",
     siteName: 'ObjectWire',
     section: "News",
   },

@@ -123,7 +123,7 @@ export default function EngagementBar({
   }, [requireAuth, saveLoading, slug, title, url, image, category]);
 
   const handleShare = useCallback(async () => {
-    const fullUrl = `https://www.objectwire.org${url}`;
+    const fullUrl = `https://www.ozonenetwork.news${url}`;
 
     if (navigator.share) {
       try {

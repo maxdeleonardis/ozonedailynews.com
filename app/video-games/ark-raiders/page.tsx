@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const revalidate = 3600;
 
 const SLUG = 'video-games-ark-raiders';
-const ARTICLE_URL = 'https://www.objectwire.org/video-games/ark-raiders';
+const ARTICLE_URL = 'https://www.ozonenetwork.news/video-games/ark-raiders';
 const IMAGE_URL =
   'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.1.0&w=1200&q=85&fm=jpg&fit=crop&crop=entropy';
 

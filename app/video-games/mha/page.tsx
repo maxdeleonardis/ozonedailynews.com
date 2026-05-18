@@ -11,24 +11,24 @@ const articleSchema = {
   headline: "My Hero Academia Hub, Final Season, Vigilantes & Ultra Rumble",
   description:
     "Complete guide to the My Hero Academia universe: final season analysis, Vigilantes spin-off, and My Hero Ultra Rumble battle royale game coverage.",
-  url: "https://www.objectwire.org/video-games/mha",
+  url: "https://www.ozonenetwork.news/video-games/mha",
   datePublished: "2024-09-01T10:00:00Z",
   dateModified: "2026-02-24T10:00:00Z",
   author: {
     "@type": "Person",
     name: "Alfansa",
-    url: "https://www.objectwire.org/authors/alfansa",
+    url: "https://www.ozonenetwork.news/authors/alfansa",
   },
   publisher: {
     "@type": "Organization",
     name: "ObjectWire",
-    url: "https://www.objectwire.org",
+    url: "https://www.ozonenetwork.news",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.objectwire.org/objectwire-logo.png",
+      url: "https://www.ozonenetwork.news/objectwire-logo.png",
     },
   },
-  image: "https://www.objectwire.org/images/mha-hub-og.jpg",
+  image: "https://www.ozonenetwork.news/images/mha-hub-og.jpg",
   articleSection: "Video Games & Anime",
   keywords:
     "My Hero Academia, MHA, Ultra Rumble, MHA Vigilantes, final season, Deku, Bakugo",

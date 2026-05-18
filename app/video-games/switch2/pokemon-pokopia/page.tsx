@@ -6,8 +6,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/switch2/pokemon-pokopia';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = 'https://www.objectwire.org/entertainment/new_pokemon_game.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const IMAGE_URL = 'https://www.ozonenetwork.news/entertainment/new_pokemon_game.PNG';
 
 export const metadata: Metadata = {
   title:

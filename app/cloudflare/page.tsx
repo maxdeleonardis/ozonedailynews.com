@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     'content delivery network',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/cloudflare',
+    canonical: 'https://www.ozonenetwork.news/cloudflare',
   },
   openGraph: {
     title: 'Cloudflare | CDN, Zero Trust, DDoS Protection & Security',
     description:
       "Cloudflare protects 21.3% of all websites on the internet, operates in 330+ cities across 125+ countries, and blocks 215 billion cyber threats per day.",
     type: 'article',
-    url: 'https://www.objectwire.org/cloudflare',
+    url: 'https://www.ozonenetwork.news/cloudflare',
     siteName: 'ObjectWire',
     images: ['/default/cloudflare/cloudflare.PNG'],
   },

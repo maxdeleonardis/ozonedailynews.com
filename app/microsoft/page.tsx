@@ -10,12 +10,12 @@ const SLUG = '/microsoft';
 export const metadata: Metadata = {
   title: 'Microsoft News | Azure, Copilot & Windows 2026',
   description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Microsoft News | Azure, Copilot & Windows 2026',
     description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

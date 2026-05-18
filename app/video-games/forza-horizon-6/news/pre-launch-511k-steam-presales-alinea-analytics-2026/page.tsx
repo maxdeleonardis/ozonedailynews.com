@@ -6,8 +6,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/forza-horizon-6/news/pre-launch-511k-steam-presales-alinea-analytics-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = 'https://www.objectwire.org/entertainment/forza_horizon_6.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const OG_IMAGE = 'https://www.ozonenetwork.news/entertainment/forza_horizon_6.PNG';
 
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 | 511K Steam Pre-Sales, $30M Revenue Before',

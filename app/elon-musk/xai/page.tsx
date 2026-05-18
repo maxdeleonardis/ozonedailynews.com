@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 
 const SLUG = '/elon-musk/xai';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL = '/default/xAI_company_history_profile.png';
 
 export const metadata: Metadata = {

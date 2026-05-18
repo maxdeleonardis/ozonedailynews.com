@@ -1,4 +1,4 @@
-﻿/**
+/**
  * alfasa-sentinel.ts
  *
  * The Alfasa Sentinel — E-E-A-T quality gate for the wiki:publish pipeline.
@@ -312,7 +312,7 @@ export function runSentinel(input: SentinelInput): SentinelResult {
       code: 'H6',
       level: 'BLOCK',
       message: 'No canonical URL found in metadata.alternates.canonical.',
-      fix: 'Add alternates: { canonical: "https://www.objectwire.org/your/path" } to the metadata export.',
+      fix: 'Add alternates: { canonical: "https://www.ozonenetwork.news/your/path" } to the metadata export.',
     });
   }
 

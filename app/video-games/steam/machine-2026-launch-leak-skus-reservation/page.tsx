@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     'Wccftech Steam Machine leak',
     'Steam Machine modular SSD',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Steam Machine 2026 Leak | 4 SKUs, Steam Frame, Reservation Queue Confirmed',
     description:
       'Valve Steam client code exposes four Steam Machine configurations, two Steam Frame variants, and an imminent reservation queue. 512GB entry and 2TB flagship confirmed.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T20:00:00Z',

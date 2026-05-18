@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/rainbow-6-siege',
+    canonical: 'https://www.ozonenetwork.news/video-games/rainbow-6-siege',
   },
   twitter: {
     card: 'summary_large_image',

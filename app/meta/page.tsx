@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Meta News 2026 | Instagram, AI & Reality Labs',
   description: 'Latest Meta news: Instagram, WhatsApp, Ray-Ban glasses, and AI from ObjectWire.',
-  alternates: { canonical: 'https://www.objectwire.org/meta' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/meta' },
   openGraph: {
     title: 'Meta News 2026 | Instagram, AI & Reality Labs',
     description: 'Latest Meta news: Instagram, WhatsApp, Ray-Ban glasses, and AI from ObjectWire.',
     type: 'website',
-    url: 'https://www.objectwire.org/meta',
+    url: 'https://www.ozonenetwork.news/meta',
     siteName: 'ObjectWire',
   },
 };

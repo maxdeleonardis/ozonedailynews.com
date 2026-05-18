@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     'Seven Deadly Sins Nanatsu no Taizai game',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/anime/seven-deadly-sins-origin',
+    canonical: 'https://www.ozonenetwork.news/video-games/anime/seven-deadly-sins-origin',
   },
   openGraph: {
     title: 'Seven Deadly Sins | Origin Open World RPG -- March 16 on',
     description:
       'Free-to-play open-world action RPG in the Seven Deadly Sins universe. Unreal Engine 5, real-time tag combat, climbing, gliding, crafting, anime voice',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/anime/seven-deadly-sins-origin',
+    url: 'https://www.ozonenetwork.news/video-games/anime/seven-deadly-sins-origin',
     siteName: 'ObjectWire',
     images: [{ url: '/video-games/seven_deadly_sins_orgins.PNG' }],
   },

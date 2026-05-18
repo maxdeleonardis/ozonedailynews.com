@@ -6,12 +6,12 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'College & University Profiles | ObjectWire Education Index',
   description: 'University and journalism school profiles connected to ObjectWire reporters. Browse schools by alumni, program, and location.',
-  alternates: { canonical: 'https://www.objectwire.org/college' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/college' },
   openGraph: {
     title: 'College & University Profiles | ObjectWire',
     description: 'University and journalism school profiles connected to ObjectWire reporters.',
     type: 'website',
-    url: 'https://www.objectwire.org/college',
+    url: 'https://www.ozonenetwork.news/college',
     siteName: 'ObjectWire',
   },
 };

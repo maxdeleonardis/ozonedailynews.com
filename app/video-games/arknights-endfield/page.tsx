@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     'Arknights Endfield release date',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/arknights-endfield',
+    canonical: 'https://www.ozonenetwork.news/video-games/arknights-endfield',
   },
   openGraph: {
     title: 'Arknights | Endfield Launches January 22, 2026 -- $173M in',
     description:
       'Hypergryph shifts from tower defense to open-world action RPG with real-time combat and factory automation on Talos-II. 35M pre-registrations, $173M',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/arknights-endfield',
+    url: 'https://www.ozonenetwork.news/video-games/arknights-endfield',
     siteName: 'ObjectWire',
     images: [{ url: '/video-games/endfield_gryphline.PNG' }],
   },

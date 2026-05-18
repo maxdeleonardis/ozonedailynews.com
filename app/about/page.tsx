@@ -6,12 +6,12 @@ import { Breadcrumb } from '@/components/nav/Breadcrumb';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/about';
+const PAGE_URL = 'https://www.ozonenetwork.news/about';
 
 export const metadata: Metadata = {
-  title: 'About ObjectWire',
+  title: 'About OzoneNews',
   description:
-    'ObjectWire is a self-funded, nonprofit newsroom focused on verified, source-cited reporting. Read our mission, ownership, and funding.',
+    'OzoneNews is a self-funded, nonprofit newsroom focused on verified, source-cited reporting. Read our mission, ownership, and funding.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'About ObjectWire',
@@ -136,10 +136,10 @@ export default function AboutPage() {
           <p>
             Editorial contact:{' '}
             <a
-              href="mailto:editorial@objectwire.org"
+              href="mailto:editorial@ozonenetwork.news"
               className="text-blue-600 hover:text-blue-800 underline"
             >
-              editorial@objectwire.org
+              editorial@ozonenetwork.news
             </a>
             . Tips, document leads, and corrections are welcome. We protect source identities.
           </p>

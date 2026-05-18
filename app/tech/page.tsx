@@ -10,12 +10,12 @@ const SLUG = '/tech';
 export const metadata: Metadata = {
   title: 'Tech News | AI, Semiconductors & Software 2026',
   description: 'Latest technology news covering AI chips, cloud infrastructure, software, and semiconductor industry from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Tech News | AI, Semiconductors & Software 2026',
     description: 'Latest technology news covering AI chips, cloud infrastructure, software, and semiconductor industry from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

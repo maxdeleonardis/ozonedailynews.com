@@ -5,7 +5,7 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/service/workers-compensation-fraud';
+const PAGE_URL = 'https://www.ozonenetwork.news/service/workers-compensation-fraud';
 
 export const metadata: Metadata = {
   title: 'Workers Compensation Fraud Investigation Austin TX | ObjectWire',
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed claimant surveillance for workers compensation fraud cases in Austin, Texas, for insurers, TPAs, and defense attorneys.',
   serviceType: 'Private Investigation — Insurance Fraud',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
     { '@type': 'ListItem', position: 3, name: 'Workers Compensation Fraud', item: PAGE_URL },
   ],
 };

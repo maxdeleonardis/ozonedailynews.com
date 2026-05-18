@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/nintendo/mar10-day-2026-40th-anniversary-super-mario';
-const FULL_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = 'https://www.objectwire.org/winter-olympics/Mario_by_Shigehisa_Nakaue.png';
+const FULL_URL = `https://www.ozonenetwork.news${SLUG}`;
+const IMAGE_URL = 'https://www.ozonenetwork.news/winter-olympics/Mario_by_Shigehisa_Nakaue.png';
 
 export const metadata: Metadata = {
   title: 'Nintendo MAR10 Day 2026 | 40th Anniversary Super Mario',

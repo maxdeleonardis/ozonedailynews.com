@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 
 const SLUG = '/apple/copyright/ninth-circuit-denies-apple-rehearing-epic-games-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://kzcwclprrtonpsnownbl.supabase.co/storage/v1/object/public/thumbnails/apple-ninth-circuit-epic-games-2026.jpg';
 
 export const metadata: Metadata = {

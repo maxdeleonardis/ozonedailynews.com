@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/new/crimson-desert-ai-art-steam-disclosure-controversy';
-const FULL_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = 'https://www.objectwire.org/video-games/thumbnail.PNG';
+const FULL_URL = `https://www.ozonenetwork.news${SLUG}`;
+const IMAGE_URL = 'https://www.ozonenetwork.news/video-games/thumbnail.PNG';
 
 export const metadata: Metadata = {
   title: 'Crimson Desert Players Flag Suspected AI Art, Raising',

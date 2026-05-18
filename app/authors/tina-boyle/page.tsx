@@ -11,20 +11,20 @@ export const metadata: Metadata = {
   title: 'Tina Boyle, ObjectWire Investigations Reporter',
   description:
     'Tina Boyle is an investigations reporter at ObjectWire covering federal environmental policy, national security law, and regulatory agencies.',
-  alternates: { canonical: 'https://www.objectwire.org/authors/tina-boyle' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors/tina-boyle' },
   openGraph: {
     title: 'Tina Boyle, ObjectWire Investigations Reporter',
     description: 'Investigations reporter at ObjectWire covering environmental law, national security, and federal regulatory agencies.',
-    url: 'https://www.objectwire.org/authors/tina-boyle',
+    url: 'https://www.ozonenetwork.news/authors/tina-boyle',
     siteName: 'ObjectWire',
     type: 'profile',
-    images: [{ url: 'https://www.objectwire.org/authors/Tina_Boyle.jpg', width: 800, height: 800, alt: 'Tina Boyle, ObjectWire investigations reporter' }],
+    images: [{ url: 'https://www.ozonenetwork.news/authors/Tina_Boyle.jpg', width: 800, height: 800, alt: 'Tina Boyle, ObjectWire investigations reporter' }],
   },
   twitter: {
     card: 'summary',
     title: 'Tina Boyle, ObjectWire Investigations',
     description: 'Investigations reporter at ObjectWire. Environmental law, national security, regulatory agencies.',
-    images: ['https://www.objectwire.org/authors/Tina_Boyle.jpg'],
+    images: ['https://www.ozonenetwork.news/authors/Tina_Boyle.jpg'],
   },
 };
 
@@ -55,7 +55,7 @@ export default function TinaBoyleAuthorPage() {
         name="Tina Boyle"
         jobTitle="Investigations Reporter"
         description="Tina Boyle is ObjectWire's investigations reporter covering federal environmental policy, national security law, the Endangered Species Act, regulatory agencies, and the Trump administration."
-        url="https://www.objectwire.org/authors/tina-boyle"
+        url="https://www.ozonenetwork.news/authors/tina-boyle"
         sameAs={['https://www.facebook.com/tina.b.deleonardis']}
         knowsAbout={['Environmental Law', 'National Security', 'Federal Agencies', 'Energy Policy', 'Regulatory Affairs', 'Investigations']}
         alumniOf={[{ name: 'University of California, Los Angeles', department: 'Political Science' }]}

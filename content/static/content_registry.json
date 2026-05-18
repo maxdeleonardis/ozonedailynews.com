@@ -11102,7 +11102,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org"
+    "image_url": "https://www.ozonenetwork.news"
   },
   {
     "slug": "/amazon",
@@ -11117,7 +11117,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/amazon",
+    "image_url": "https://www.ozonenetwork.news/amazon",
     "image_width": 640
   },
   {
@@ -11133,7 +11133,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/apple",
@@ -11149,7 +11149,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/apple"
+    "image_url": "https://www.ozonenetwork.news/apple"
   },
   {
     "slug": "/austin-private-detective-agency",
@@ -11165,7 +11165,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/austin-private-detective-agency"
+    "image_url": "https://www.ozonenetwork.news/austin-private-detective-agency"
   },
   {
     "slug": "/authors/jack-brennan",
@@ -11182,7 +11182,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.3,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/authors/jack-brennan",
+    "image_url": "https://www.ozonenetwork.news/authors/jack-brennan",
     "image_width": 800,
     "image_height": 800
   },
@@ -11200,7 +11200,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/authors"
+    "image_url": "https://www.ozonenetwork.news/authors"
   },
   {
     "slug": "/bio-hacking/life-biosciences-fda-clearance-er-100-epigenetic-reprogramming-optic-neuropathy-2026",
@@ -11232,7 +11232,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/california",
+    "image_url": "https://www.ozonenetwork.news/california",
     "image_width": 640
   },
   {
@@ -11248,7 +11248,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/claude",
+    "image_url": "https://www.ozonenetwork.news/claude",
     "image_width": 640
   },
   {
@@ -11282,7 +11282,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/cloudflare"
+    "image_url": "https://www.ozonenetwork.news/cloudflare"
   },
   {
     "slug": "/copyright/news/kalshi-suspends-candidates-betting-own-races-2026",
@@ -11319,7 +11319,7 @@
     "author": "Michael Cripe",
     "priority": 0.3,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/authors/michael-cripe"
+    "image_url": "https://www.ozonenetwork.news/authors/michael-cripe"
   },
   {
     "slug": "/copyright",
@@ -11335,7 +11335,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/copyright",
+    "image_url": "https://www.ozonenetwork.news/copyright",
     "image_width": 640
   },
   {
@@ -11368,7 +11368,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -11384,7 +11384,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/cursor",
+    "image_url": "https://www.ozonenetwork.news/cursor",
     "image_width": 640
   },
   {
@@ -11401,7 +11401,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/disney"
+    "image_url": "https://www.ozonenetwork.news/disney"
   },
   {
     "slug": "/editorial-standards",
@@ -11433,7 +11433,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/entertainment",
@@ -11448,7 +11448,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -11497,7 +11497,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/davos",
+    "image_url": "https://www.ozonenetwork.news/davos",
     "image_width": 1200,
     "image_height": 630
   },
@@ -11514,7 +11514,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/events",
+    "image_url": "https://www.ozonenetwork.news/events",
     "image_width": 640
   },
   {
@@ -11531,7 +11531,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -11548,7 +11548,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/get-help"
+    "image_url": "https://www.ozonenetwork.news/get-help"
   },
   {
     "slug": "/github",
@@ -11579,7 +11579,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -11597,7 +11597,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube"
+    "image_url": "https://www.ozonenetwork.news/influencer/steve-will-do-it-kicked-of-logan-paul-s-podcast-making-an-official-return-to-youtube"
   },
   {
     "slug": "/intel",
@@ -11613,7 +11613,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/intel"
+    "image_url": "https://www.ozonenetwork.news/intel"
   },
   {
     "slug": "/login",
@@ -11642,7 +11642,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/meta",
+    "image_url": "https://www.ozonenetwork.news/meta",
     "image_width": 640
   },
   {
@@ -11659,7 +11659,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/nasa",
+    "image_url": "https://www.ozonenetwork.news/nasa",
     "image_width": 1200,
     "image_height": 630
   },
@@ -11676,7 +11676,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -11694,7 +11694,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/nvidia",
+    "image_url": "https://www.ozonenetwork.news/nvidia",
     "image_width": 1200,
     "image_height": 630
   },
@@ -11712,7 +11712,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/privacy-policy",
@@ -11728,7 +11728,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/privacy-policy"
+    "image_url": "https://www.ozonenetwork.news/privacy-policy"
   },
   {
     "slug": "/redbull",
@@ -11744,7 +11744,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/redbull"
+    "image_url": "https://www.ozonenetwork.news/redbull"
   },
   {
     "slug": "/saas",
@@ -11760,7 +11760,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/saas",
+    "image_url": "https://www.ozonenetwork.news/saas",
     "image_width": 640
   },
   {
@@ -11776,7 +11776,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org"
+    "image_url": "https://www.ozonenetwork.news"
   },
   {
     "slug": "/search",
@@ -11806,7 +11806,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/child-custody-investigations",
@@ -11822,7 +11822,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/corporate-investigations",
@@ -11838,7 +11838,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/digital-forensics",
@@ -11854,7 +11854,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/document-review",
@@ -11870,7 +11870,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org"
+    "image_url": "https://www.ozonenetwork.news"
   },
   {
     "slug": "/service/infidelity-investigations",
@@ -11886,7 +11886,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/investigative-reporting",
@@ -11902,7 +11902,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org"
+    "image_url": "https://www.ozonenetwork.news"
   },
   {
     "slug": "/service/missing-persons",
@@ -11918,7 +11918,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service",
@@ -11933,7 +11933,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service/surveillance"
+    "image_url": "https://www.ozonenetwork.news/service/surveillance"
   },
   {
     "slug": "/service/skip-tracing",
@@ -11949,7 +11949,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/surveillance",
@@ -11965,7 +11965,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/service/tip-the-newsroom",
@@ -11981,7 +11981,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org"
+    "image_url": "https://www.ozonenetwork.news"
   },
   {
     "slug": "/service/workers-compensation-fraud",
@@ -11997,7 +11997,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/service"
+    "image_url": "https://www.ozonenetwork.news/service"
   },
   {
     "slug": "/shopify",
@@ -12012,7 +12012,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/shopify",
+    "image_url": "https://www.ozonenetwork.news/shopify",
     "image_width": 640
   },
   {
@@ -12029,7 +12029,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/site-index"
+    "image_url": "https://www.ozonenetwork.news/site-index"
   },
   {
     "slug": "/social",
@@ -12044,7 +12044,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/social",
+    "image_url": "https://www.ozonenetwork.news/social",
     "image_width": 640
   },
   {
@@ -12060,7 +12060,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -12076,7 +12076,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/technology"
+    "image_url": "https://www.ozonenetwork.news/technology"
   },
   {
     "slug": "/terms-of-service",
@@ -12092,7 +12092,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/terms-of-service"
+    "image_url": "https://www.ozonenetwork.news/terms-of-service"
   },
   {
     "slug": "/tiktok",
@@ -12107,7 +12107,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/tiktok",
+    "image_url": "https://www.ozonenetwork.news/tiktok",
     "image_width": 640
   },
   {
@@ -12124,7 +12124,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/video-games/007-first-light/campaign-20-hours",
@@ -12176,7 +12176,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/video-games/fortnite/chapter-6-season-2-battle-pass",
@@ -12341,7 +12341,7 @@
     "author": "Alfansa",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/video-games/mha"
+    "image_url": "https://www.ozonenetwork.news/video-games/mha"
   },
   {
     "slug": "/video-games/mha/ultra-rumble",
@@ -12359,7 +12359,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/mha/ultra-rumble"
+    "image_url": "https://www.ozonenetwork.news/mha/ultra-rumble"
   },
   {
     "slug": "/video-games/mha/ultra-rumble/season-15",
@@ -12378,7 +12378,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/mha/ultra-rumble/season-15"
+    "image_url": "https://www.ozonenetwork.news/mha/ultra-rumble/season-15"
   },
   {
     "slug": "/video-games/mha/ultra-rumble/season-15/strike-overhaul",
@@ -12398,7 +12398,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/video-games/mha/ultra-rumble/season-15/strike-overhaul"
+    "image_url": "https://www.ozonenetwork.news/video-games/mha/ultra-rumble/season-15/strike-overhaul"
   },
   {
     "slug": "/video-games/news/kotor-remake-saber-confirmed-still-in-development",
@@ -12416,7 +12416,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/video-games/news/kotor-remake-saber-confirmed-still-in-development"
+    "image_url": "https://www.ozonenetwork.news/video-games/news/kotor-remake-saber-confirmed-still-in-development"
   },
   {
     "slug": "/video-games/news/outersloth-rejects-ai",
@@ -12449,7 +12449,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -12559,7 +12559,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -12578,7 +12578,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/youtube/sidemen/alfie-buttle"
+    "image_url": "https://www.ozonenetwork.news/youtube/sidemen/alfie-buttle"
   },
   {
     "slug": "/youtube/sidemen/charity-match/2026-lineup-max-fosh-willne",
@@ -12636,7 +12636,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/youtube/sidemen/italian-bach"
+    "image_url": "https://www.ozonenetwork.news/youtube/sidemen/italian-bach"
   },
   {
     "slug": "/[...path]",
@@ -12812,7 +12812,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.3,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/authors/max-deleonardis",
+    "image_url": "https://www.ozonenetwork.news/authors/max-deleonardis",
     "image_width": 800,
     "image_height": 800
   },
@@ -12831,7 +12831,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.3,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org/authors/tina-boyle",
+    "image_url": "https://www.ozonenetwork.news/authors/tina-boyle",
     "image_width": 800,
     "image_height": 800
   },
@@ -12850,7 +12850,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/college/nyu",
@@ -12867,7 +12867,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/college",
@@ -12883,7 +12883,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.8,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org/college"
+    "image_url": "https://www.ozonenetwork.news/college"
   },
   {
     "slug": "/college/ucla",
@@ -12900,7 +12900,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/creator/throttlehouse",
@@ -13750,7 +13750,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.3,
     "change_frequency": "monthly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/open-ai/helion-energy",
@@ -13783,7 +13783,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 640
   },
   {
@@ -13837,7 +13837,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 1200,
     "image_height": 675
   },
@@ -13857,7 +13857,7 @@
     "author": "ObjectWire Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.objectwire.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
     "slug": "/trump/iran-hormuz-safe-crypto-maritime-insurance-2026",

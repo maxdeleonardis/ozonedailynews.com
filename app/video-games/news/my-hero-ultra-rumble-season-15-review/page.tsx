@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'My Hero Ultra Rumble events March 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'My Hero Ultra Rumble Season 15 | Tokoyami, Neo Academia',
     description:
       "Full breakdown of Season 15, Tokoyami's Dark Shadow kit, the Neo Academia rotating stage, all event rewards through March 25, gacha schedule, and Steam",
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-02T00:00:00Z',

@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/copyright/news/trump-prediction-markets-cftc-van-dyke-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = '';
 
 export const metadata: Metadata = {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     'CFTC event contract enforcement 2026',
     'prediction market gambling New York law',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Trump Softens Prediction Market Criticism | CFTC Files First Insider Trading Case',
     description:
       'Days after calling the world a "casino," Trump said prediction markets have smart backers. Meanwhile the CFTC charged a Special Forces sergeant who used classified intel to win $404,000 on Polymarket.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Conan Boyle'],
     publishedTime: '2026-04-28T14:00:00Z',

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Minesoda | ObjectWire',
   description: 'Coverage of Minnesota news and investigations.',
   alternates: {
-    canonical: 'https://www.objectwire.org/minesoda',
+    canonical: 'https://www.ozonenetwork.news/minesoda',
   },
 };
 

@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Cursor News 2026 | AI Code Editor Updates',
   description: 'Latest Cursor AI code editor news, features, and developer updates.',
-  alternates: { canonical: 'https://www.objectwire.org/cursor' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/cursor' },
   openGraph: {
     title: 'Cursor News 2026 | AI Code Editor Updates',
     description: 'Latest Cursor AI code editor news, features, and developer updates.',
     type: 'website',
-    url: 'https://www.objectwire.org/cursor',
+    url: 'https://www.ozonenetwork.news/cursor',
     siteName: 'ObjectWire',
   },
 };

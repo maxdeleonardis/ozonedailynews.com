@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'Trump trade war',
     'Trump ICE',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Trump | Politics, Policy & Executive Actions 2026',
     description:
       'Comprehensive coverage of Trump White House actions: tariffs, immigration enforcement, crypto policy, DOGE, and executive orders. Verified reporting.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

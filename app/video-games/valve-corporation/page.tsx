@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     'Steam revenue',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/valve-corporation',
+    canonical: 'https://www.ozonenetwork.news/video-games/valve-corporation',
   },
   openGraph: {
     title: 'Valve Corporation | Company Profile 2026',
     description:
       'Valve Corporation: Steam, Counter-Strike, Dota 2, and the loot box economy. Revenue, history, and key statistics.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/valve-corporation',
+    url: 'https://www.ozonenetwork.news/video-games/valve-corporation',
     siteName: 'ObjectWire',
     images: [{ url: '/influncer/valve-ceo-Gabe-Newell.PNG' }],
   },

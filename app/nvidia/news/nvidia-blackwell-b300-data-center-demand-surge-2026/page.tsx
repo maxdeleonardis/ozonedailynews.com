@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
 
 const SLUG = '/nvidia/news/nvidia-blackwell-b300-data-center-demand-surge-2026';
-const FULL_URL = `https://www.objectwire.org${SLUG}`;
+const FULL_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL = '/nvidia/nvidia-blackwell-b300-datacenter.jpg';
 
 export const metadata: Metadata = {

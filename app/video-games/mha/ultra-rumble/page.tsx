@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     'MHA Ultra Rumble wiki',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/mha/ultra-rumble',
+    canonical: 'https://www.ozonenetwork.news/mha/ultra-rumble',
   },
   openGraph: {
     title: 'My Hero Ultra Rumble: Complete Game Guide & Wiki',
     description: 'Comprehensive guide to My Hero Ultra Rumble, the free-to-play 24-player battle royale based on My Hero Academia.',
     type: 'article',
-    url: 'https://www.objectwire.org/mha/ultra-rumble',
+    url: 'https://www.ozonenetwork.news/mha/ultra-rumble',
     siteName: 'ObjectWire',
   },
   twitter: {

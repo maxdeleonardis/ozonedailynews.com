@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/microsoft/news/claude-microsoft-apps-excel-powerpoint-word-outlook';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = '';
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'Microsoft AI assistant 2026',
     'Claude generally available',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Claude for Excel, Word & PowerPoint Now Generally Available',
     description: 'Anthropic confirms Claude GA in three Microsoft 365 apps. Outlook enters public beta. Context carries across the full suite.',

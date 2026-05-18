@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/copyright/news/taylor-swift-trademark-voice-image-ai-2026';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const PAGE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Taylor Swift Trademarks Voice and Image | AI Protection 2026',
@@ -58,12 +58,12 @@ const ARTICLE_SCHEMA = {
   url: PAGE_URL,
   datePublished: '2026-04-28T03:11:00Z',
   dateModified: '2026-04-28T03:11:00Z',
-  author: { '@type': 'Person', name: 'Michael Cripe', url: 'https://www.objectwire.org/authors/michael-cripe' },
+  author: { '@type': 'Person', name: 'Michael Cripe', url: 'https://www.ozonenetwork.news/authors/michael-cripe' },
   publisher: {
     '@type': 'Organization',
     name: 'ObjectWire',
-    url: 'https://www.objectwire.org',
-    logo: { '@type': 'ImageObject', url: 'https://www.objectwire.org/logo.png' },
+    url: 'https://www.ozonenetwork.news',
+    logo: { '@type': 'ImageObject', url: 'https://www.ozonenetwork.news/logo.png' },
   },
   articleSection: 'Copyright',
   keywords: 'Taylor Swift, Trademark, AI, Voice, Likeness, USPTO, TAS Rights Management',
@@ -75,9 +75,9 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
-    { '@type': 'ListItem', position: 2, name: 'Copyright', item: 'https://www.objectwire.org/copyright' },
-    { '@type': 'ListItem', position: 3, name: 'News', item: 'https://www.objectwire.org/copyright/news' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Copyright', item: 'https://www.ozonenetwork.news/copyright' },
+    { '@type': 'ListItem', position: 3, name: 'News', item: 'https://www.ozonenetwork.news/copyright/news' },
     { '@type': 'ListItem', position: 4, name: 'Taylor Swift Voice and Image Trademark 2026', item: PAGE_URL },
   ],
 };

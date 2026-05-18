@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     'Fortnite Crew subscription V-Bucks April 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: "Epic Games Implements Fortnite 'Shrinkflation' | V-Bucks Purchasing Power Drops 20–25%",
     description:
       "Epic keeps prices the same but slashes V-Bucks quantities by up to 20% across every bundle, effective March 19, 2026. The $8.99 starter pack goes from",
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-18T18:00:00Z',

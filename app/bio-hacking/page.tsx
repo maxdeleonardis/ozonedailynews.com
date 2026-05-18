@@ -6,12 +6,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Bio-Hacking News 2026 | Longevity & CRISPR',
   description: 'Latest bio-hacking news: CRISPR, longevity research, FDA clearances and health tech.',
-  alternates: { canonical: 'https://www.objectwire.org/bio-hacking' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/bio-hacking' },
   openGraph: {
     title: 'Bio-Hacking News 2026 | Longevity & CRISPR',
     description: 'Latest bio-hacking news: CRISPR, longevity research, FDA clearances and health tech.',
     type: 'website',
-    url: 'https://www.objectwire.org/bio-hacking',
+    url: 'https://www.ozonenetwork.news/bio-hacking',
     siteName: 'ObjectWire',
   },
 };

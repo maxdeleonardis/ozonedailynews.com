@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     'first human epigenetic reprogramming FDA',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'ER-100 FDA Clearance | First Human Epigenetic Reprogramming',
     description:
       'Life Biosciences ER-100 cleared for Phase 1 human trial, AAV2-delivered OSK Yamanaka factors targeting retinal ganglion cell rejuvenation in glaucoma and',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Science Desk'],
     publishedTime: '2026-01-28T12:00:00Z',

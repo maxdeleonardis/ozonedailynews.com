@@ -5,7 +5,7 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/service/tip-the-newsroom';
+const PAGE_URL = 'https://www.ozonenetwork.news/service/tip-the-newsroom';
 
 export const metadata: Metadata = {
   title: 'Tip the Newsroom | Submit a Confidential News Tip',
@@ -48,7 +48,7 @@ const SERVICE_SCHEMA = {
   provider: {
     '@type': ['LocalBusiness', 'NewsMediaOrganization'],
     name: 'ObjectWire',
-    url: 'https://www.objectwire.org',
+    url: 'https://www.ozonenetwork.news',
   },
   url: PAGE_URL,
 };
@@ -57,8 +57,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.objectwire.org/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.ozonenetwork.news/service' },
     { '@type': 'ListItem', position: 3, name: 'Tip the Newsroom', item: PAGE_URL },
   ],
 };

@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Shopify News 2026 | AI Commerce & Storefronts',
   description: 'Latest Shopify news: agentic storefronts, AI tools, and e-commerce updates.',
-  alternates: { canonical: 'https://www.objectwire.org/shopify' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/shopify' },
   openGraph: {
     title: 'Shopify News 2026 | AI Commerce & Storefronts',
     description: 'Latest Shopify news: agentic storefronts, AI tools, and e-commerce updates.',
     type: 'website',
-    url: 'https://www.objectwire.org/shopify',
+    url: 'https://www.ozonenetwork.news/shopify',
     siteName: 'ObjectWire',
   },
 };

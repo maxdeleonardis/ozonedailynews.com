@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     'Dispatch Xbox Series X',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     type: 'article',
     title: 'Dispatch Xbox Release Date | Superhero Comedy Coming Summer',
     description:
       'AdHoc Studio\'s hit superhero workplace comedy Dispatch heads to Xbox this summer. Aaron Paul voices protagonist Mecha Man. Xbox Play Anywhere supported.',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     images: [
       {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: 'Dispatch Xbox | Superhero Comedy Hits Xbox Summer 2026',
     description:
       'AdHoc Studio\'s Dispatch, narrated by Aaron Paul, is coming to Xbox Series X|S, Xbox PC, and Xbox Cloud this summer.',
-    images: [`https://www.objectwire.org${SLUG}/og`],
+    images: [`https://www.ozonenetwork.news${SLUG}/og`],
   },
 };
 

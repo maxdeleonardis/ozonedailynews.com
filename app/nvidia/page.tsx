@@ -23,16 +23,16 @@ export const metadata: Metadata = {
     "semiconductor",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/nvidia',
+    canonical: 'https://www.ozonenetwork.news/nvidia',
   },
   openGraph: {
     title: "Nvidia Corporation | AI Computing & Graphics Processing",
     description: "Complete guide to Nvidia, covering GPU technology, AI computing platforms, market dominance, and data center solutions.",
     type: "article",
-    url: "https://www.objectwire.org/nvidia",
+    url: "https://www.ozonenetwork.news/nvidia",
     images: [
       {
-        url: "https://www.objectwire.org/images/nvidia-og.jpg",
+        url: "https://www.ozonenetwork.news/images/nvidia-og.jpg",
         width: 1200,
         height: 630,
         alt: "Nvidia Corporation",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nvidia Corporation: AI Computing Leader",
     description: "Comprehensive overview of Nvidia GPU and AI technology.",
-    images: ["https://www.objectwire.org/images/nvidia-twitter.jpg"],
+    images: ["https://www.ozonenetwork.news/images/nvidia-twitter.jpg"],
   },
 };
 

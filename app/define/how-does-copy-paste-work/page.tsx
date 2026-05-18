@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     'ctrl c ctrl v process behind the scenes',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/define/how-does-copy-paste-work',
+    canonical: 'https://www.ozonenetwork.news/define/how-does-copy-paste-work',
   },
   openGraph: {
     title: "How Does Copy and Paste Work? A Technical Breakdown of",
     description: "A deep technical dive into how copy-paste works on modern operating systems, from keyboard interrupts and system calls to clipboard managers, memory",
     type: 'article',
-    url: "https://www.objectwire.org/define/how-does-copy-paste-work",
+    url: "https://www.ozonenetwork.news/define/how-does-copy-paste-work",
     siteName: 'ObjectWire',
     section: "News",
   },

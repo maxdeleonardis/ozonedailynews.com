@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     'Claude AI model 2026',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'Anthropic Claude Sonnet 4.6 Sells Fresh Wave of SaaS Falloff',
     description:
       'Anthropic\'s Claude Sonnet 4.6 dropped Feb 17, 2026. Oracle fell 3.4%, Intuit 5.2%, Salesforce 2.7%, Adobe 1.4%. India\'s Nifty IT dropped 2.5% the next',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['ObjectWire Technology Desk'],
     publishedTime: '2026-02-18T10:00:00Z',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     tags: ['Anthropic', 'Claude', 'AI', 'SaaS', 'Stocks', 'Oracle', 'Salesforce', 'Intuit', 'Adobe'],
     images: [
       {
-        url: 'https://www.objectwire.org/news/calude%20sonnet%204.6.png',
+        url: 'https://www.ozonenetwork.news/news/calude%20sonnet%204.6.png',
         width: 1200,
         height: 630,
         alt: 'Anthropic Claude Sonnet 4.6',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: 'Anthropic Claude Sonnet 4.6 Triggers SaaS Selloff | Oracle',
     description:
       'Anthropic\'s most capable mid-tier model yet hit on Feb 17. The market reaction was immediate. Full breakdown on ObjectWire.',
-    images: ['https://www.objectwire.org/news/calude%20sonnet%204.6.png'],
+    images: ['https://www.ozonenetwork.news/news/calude%20sonnet%204.6.png'],
   },
 };
 

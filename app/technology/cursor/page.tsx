@@ -6,8 +6,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 
 const SLUG = '/technology/cursor';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const IMAGE_URL = 'https://www.objectwire.org/news/cursor.PNG';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const IMAGE_URL = 'https://www.ozonenetwork.news/news/cursor.PNG';
 
 export const metadata: Metadata = {
   title:

@@ -10,7 +10,7 @@
 //   npx tsx scripts/ping-sitemap.ts
 // =============================================================================
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.objectwire.org';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonenetwork.news';
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 const NEWS_SITEMAP_URL = `${SITE_URL}/news-sitemap.xml`;
 

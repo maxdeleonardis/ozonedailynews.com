@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     'Saber Interactive Star Wars',
     'KOTOR remake development update',
   ],
-  alternates: { canonical: 'https://www.objectwire.org/video-games/news/kotor-remake-saber-confirmed-still-in-development' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/video-games/news/kotor-remake-saber-confirmed-still-in-development' },
   openGraph: {
     title: "KOTOR Remake Still Alive, Saber Says | 5 Years After",
     description:
       'Tim Willits offered exactly 11 words: "Yes, it is still in development. That\'s all I can say." Five years on, no screenshot, no footage, and a developer',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/news/kotor-remake-saber-confirmed-still-in-development',
+    url: 'https://www.ozonenetwork.news/video-games/news/kotor-remake-saber-confirmed-still-in-development',
     siteName: 'ObjectWire',
     authors: ['ObjectWire Editorial'],
     publishedTime: '2026-03-07T18:00:00Z',

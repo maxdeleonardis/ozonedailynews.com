@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'Santa Clara California',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/intel',
+    canonical: 'https://www.ozonenetwork.news/intel',
   },
   openGraph: {
     title: 'Intel Corporation | Semiconductor Company Profile',
     description: 'American multinational semiconductor corporation: history, products, and latest developments.',
     type: 'article',
-    url: 'https://www.objectwire.org/intel',
+    url: 'https://www.ozonenetwork.news/intel',
     siteName: 'ObjectWire',
   },
   twitter: {

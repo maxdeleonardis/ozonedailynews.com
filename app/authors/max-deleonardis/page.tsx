@@ -11,20 +11,20 @@ export const metadata: Metadata = {
   title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
   description:
     'Max DeLeonardis is a founding writer at ObjectWire in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging technology.',
-  alternates: { canonical: 'https://www.objectwire.org/authors/max-deleonardis' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors/max-deleonardis' },
   openGraph: {
     title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
     description: 'Founding writer at ObjectWire covering biotech, medical research, AI hardware, video games, and emerging technology.',
-    url: 'https://www.objectwire.org/authors/max-deleonardis',
+    url: 'https://www.ozonenetwork.news/authors/max-deleonardis',
     siteName: 'ObjectWire',
     type: 'profile',
-    images: [{ url: 'https://www.objectwire.org/authors/max_de_leonardis.jpg', width: 800, height: 800, alt: 'Max DeLeonardis, ObjectWire science and technology writer' }],
+    images: [{ url: 'https://www.ozonenetwork.news/authors/max_de_leonardis.jpg', width: 800, height: 800, alt: 'Max DeLeonardis, ObjectWire science and technology writer' }],
   },
   twitter: {
     card: 'summary',
     title: 'Max DeLeonardis, ObjectWire Science & Technology Writer',
     description: 'Founding writer at ObjectWire. Biotech, medical research, AI hardware, video games.',
-    images: ['https://www.objectwire.org/authors/max_de_leonardis.jpg'],
+    images: ['https://www.ozonenetwork.news/authors/max_de_leonardis.jpg'],
   },
 };
 
@@ -64,7 +64,7 @@ export default function MaxDeLeonardisAuthorPage() {
         name="Max DeLeonardis"
         jobTitle="Science & Technology Writer"
         description="Max DeLeonardis is the founding writer at ObjectWire covering biotechnology, CRISPR, medical research, AI hardware, video games, and emerging technologies."
-        url="https://www.objectwire.org/authors/max-deleonardis"
+        url="https://www.ozonenetwork.news/authors/max-deleonardis"
         sameAs={[
           'https://www.linkedin.com/in/max-deleonardis-341a01350',
           'https://www.youtube.com/@amarketology',

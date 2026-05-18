@@ -7,9 +7,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 const SLUG =
   '/video-games/news/marathon-server-slam-steam-concurrent-players-peak-drop-march-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/video-games/marathon-server-slam-steam-concurrent-players-peak-2026.jpg';
+  'https://www.ozonenetwork.news/video-games/marathon-server-slam-steam-concurrent-players-peak-2026.jpg';
 
 export const metadata: Metadata = {
   title:

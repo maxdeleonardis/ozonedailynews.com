@@ -6,9 +6,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/copyright/news/aoc-mlb-polymarket-gambling-warning';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/default/aoc.PNG';
+  'https://www.ozonenetwork.news/default/aoc.PNG';
 
 export const metadata: Metadata = {
   title: "AOC Calls MLB's $300M Polymarket Deal 'Sad,' Warns Against Pervasive Gambling",

@@ -4,7 +4,7 @@ import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/creator/throttlehouse';
-const PAGE_URL = `https://www.objectwire.org${SLUG}`;
+const PAGE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL = 'https://yt3.googleusercontent.com/ytc/AIdro_nK2N8g_cFQzJ0v9dpnJW2a1gm1ZNMx7cXfME9R=s900-c-k-c0x00ffffff-no-rj';
 
 export const metadata: Metadata = {

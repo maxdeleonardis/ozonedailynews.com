@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     'Meta flat management structure',
     'Meta AI data center spending',
   ],
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Meta 8,000 Layoffs | Applied AI Draft and $145B Silicon Race',
     description:
       'Meta terminates 8,000 employees May 20, 2026 while drafting 1,000 elite engineers into a mandatory Applied AI unit under VP Maher Saba. Record Q1 revenue of $56.3B alongside $145B capex.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-15T16:00:00Z',

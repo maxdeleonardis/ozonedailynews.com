@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     "Left 4 Dead spiritual successor",
   ],
   alternates: {
-    canonical: "https://www.objectwire.org/video-games/toxic-comando",
+    canonical: "https://www.ozonenetwork.news/video-games/toxic-comando",
   },
   openGraph: {
     title: "John Carpenter's Toxic Commando | Launch Day Review Roundup",
     description:
       "74 Metascore. Gory, gritty, and groovy. Saber Interactive's swarm co-op shooter is out now on PS5, Xbox Series X|S, and PC.",
     type: "article",
-    url: "https://www.objectwire.org/video-games/toxic-comando",
+    url: "https://www.ozonenetwork.news/video-games/toxic-comando",
     siteName: "ObjectWire",
     section: "Video Games",
   },

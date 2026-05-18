@@ -6,9 +6,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/Digital-Foundry';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/video-games/crimson-desert-blackspace-engine-4k-60fps-ray-tracing-digital-foundry-2026.jpg';
+  'https://www.ozonenetwork.news/video-games/crimson-desert-blackspace-engine-4k-60fps-ray-tracing-digital-foundry-2026.jpg';
 
 export const metadata: Metadata = {
   title:

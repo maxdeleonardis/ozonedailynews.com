@@ -6,9 +6,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/epic';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/video-games/unreal-engine-epic-games-film-automotive-architecture-2026.jpg';
+  'https://www.ozonenetwork.news/video-games/unreal-engine-epic-games-film-automotive-architecture-2026.jpg';
 
 export const metadata: Metadata = {
   title:

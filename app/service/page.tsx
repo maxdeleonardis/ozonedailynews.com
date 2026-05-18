@@ -5,7 +5,7 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/service';
+const PAGE_URL = 'https://www.ozonenetwork.news/service';
 
 export const metadata: Metadata = {
   title: 'Investigative Services Austin TX | ObjectWire',
@@ -84,28 +84,28 @@ const LOCAL_BUSINESS_SCHEMA = {
     '@type': 'OfferCatalog',
     name: 'Investigative Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Surveillance Investigations', url: 'https://www.objectwire.org/service/surveillance' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Infidelity Investigations', url: 'https://www.objectwire.org/service/infidelity-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Missing Persons Investigations', url: 'https://www.objectwire.org/service/missing-persons' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Background Check Investigations', url: 'https://www.objectwire.org/service/background-checks' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skip Tracing', url: 'https://www.objectwire.org/service/skip-tracing' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Child Custody Investigations', url: 'https://www.objectwire.org/service/child-custody-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workers Compensation Fraud', url: 'https://www.objectwire.org/service/workers-compensation-fraud' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Investigations', url: 'https://www.objectwire.org/service/corporate-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Forensics', url: 'https://www.objectwire.org/service/digital-forensics' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Investigative Reporting', url: 'https://www.objectwire.org/service/investigative-reporting' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newsroom Tip Submission', url: 'https://www.objectwire.org/service/tip-the-newsroom' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Document Review and FOIA', url: 'https://www.objectwire.org/service/document-review' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Surveillance Investigations', url: 'https://www.ozonenetwork.news/service/surveillance' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Infidelity Investigations', url: 'https://www.ozonenetwork.news/service/infidelity-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Missing Persons Investigations', url: 'https://www.ozonenetwork.news/service/missing-persons' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Background Check Investigations', url: 'https://www.ozonenetwork.news/service/background-checks' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skip Tracing', url: 'https://www.ozonenetwork.news/service/skip-tracing' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Child Custody Investigations', url: 'https://www.ozonenetwork.news/service/child-custody-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workers Compensation Fraud', url: 'https://www.ozonenetwork.news/service/workers-compensation-fraud' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Investigations', url: 'https://www.ozonenetwork.news/service/corporate-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Forensics', url: 'https://www.ozonenetwork.news/service/digital-forensics' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Investigative Reporting', url: 'https://www.ozonenetwork.news/service/investigative-reporting' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newsroom Tip Submission', url: 'https://www.ozonenetwork.news/service/tip-the-newsroom' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Document Review and FOIA', url: 'https://www.ozonenetwork.news/service/document-review' } },
     ],
   },
-  sameAs: ['https://www.objectwire.org'],
+  sameAs: ['https://www.ozonenetwork.news'],
 };
 
 const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
     { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: PAGE_URL },
   ],
 };

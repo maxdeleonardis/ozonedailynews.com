@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     "Great Reset",
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/davos',
+    canonical: 'https://www.ozonenetwork.news/davos',
   },
   openGraph: {
     title: "Davos 2026: World Economic Forum Annual Meeting Coverage",
     description: "Inside the 2026 World Economic Forum in Davos - AI governance, tech leaders, and global economic policy discussions.",
     type: "article",
-    url: "https://www.objectwire.org/davos",
+    url: "https://www.ozonenetwork.news/davos",
     images: [
       {
-        url: "https://www.objectwire.org/images/davos-2026-og.jpg",
+        url: "https://www.ozonenetwork.news/images/davos-2026-og.jpg",
         width: 1200,
         height: 630,
         alt: "Davos 2026 World Economic Forum",

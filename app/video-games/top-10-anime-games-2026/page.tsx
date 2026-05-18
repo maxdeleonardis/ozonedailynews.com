@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'anime multiplayer games',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/top-10-anime-games-2026',
+    canonical: 'https://www.ozonenetwork.news/video-games/top-10-anime-games-2026',
   },
   openGraph: {
     title: 'Top 10 Anime Games of 2026 | Best Seasonal Games & Battle',
     description: 'Discover the best anime games in 2026 with seasonal updates, including My Hero Ultra Rumble, Dragon Ball Legends, and more.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/top-10-anime-games-2026',
+    url: 'https://www.ozonenetwork.news/video-games/top-10-anime-games-2026',
     siteName: 'ObjectWire',
   },
   twitter: {

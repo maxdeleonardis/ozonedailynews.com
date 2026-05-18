@@ -7,9 +7,9 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
 const SLUG =
   '/bio-hacking/life-biosciences-fda-clearance-er-100-epigenetic-reprogramming-optic-neuropathy-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const IMAGE_URL =
-  'https://www.objectwire.org/bio-hacking/life-biosciences-er100-fda-clearance.jpg';
+  'https://www.ozonenetwork.news/bio-hacking/life-biosciences-er100-fda-clearance.jpg';
 
 export const metadata: Metadata = {
   title:

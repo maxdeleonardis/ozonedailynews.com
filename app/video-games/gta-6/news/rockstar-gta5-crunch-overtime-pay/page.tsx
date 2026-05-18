@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rockstar GTA 5 Crunch | Developers Were Never Paid Overtime',

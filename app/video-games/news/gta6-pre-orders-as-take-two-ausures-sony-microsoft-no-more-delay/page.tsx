@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     'GTA VI release date',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: 'GTA 6 Pre-Orders May Be Imminent | PlayStation Backend',
     description:
       'PlayStation Store backend surfaced two GTA VI title IDs on March 1, 2026. Take-Two has reportedly told Sony and Microsoft the November 19 launch is',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Connan Boyle'],
     publishedTime: '2026-03-02T00:00:00Z',

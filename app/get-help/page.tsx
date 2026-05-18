@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   title: "Austin Private Detective + Investigative Journalism Services",
   description: "Based in Austin, Texas, we provide discreet, results-driven private detective services for individuals, businesses, and legal professionals.",
   alternates: {
-    canonical: 'https://www.objectwire.org/get-help',
+    canonical: 'https://www.ozonenetwork.news/get-help',
   },
   openGraph: {
     title: "Austin Private Detective + Investigative Journalism Services",
     description: "Based in Austin, Texas, we provide discreet, results-driven private detective services for individuals, businesses, and legal professionals.",
     type: 'article',
-    url: "https://www.objectwire.org/get-help",
+    url: "https://www.ozonenetwork.news/get-help",
     siteName: 'ObjectWire',
     section: "News",
   },

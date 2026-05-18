@@ -6,8 +6,8 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/epic/fortnite/phineas-ferb-skins-april-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = 'https://www.objectwire.org/video-games/epic/pherb.png';
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const OG_IMAGE = 'https://www.ozonenetwork.news/video-games/epic/pherb.png';
 
 export const metadata: Metadata = {
   title: 'Fortnite Phineas and Ferb Cup | How to Win the Free Skins',

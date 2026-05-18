@@ -6,7 +6,7 @@ import { NewsArticle } from '@/components/articles/NewsArticle';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/switch2/nintendo-switch-2-launch-games';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

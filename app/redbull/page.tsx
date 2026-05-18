@@ -6,12 +6,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Red Bull News 2026 | Sports, Racing & Culture',
   description: 'Latest Red Bull news: F1 racing, extreme sports, events and energy drink company updates.',
-  alternates: { canonical: 'https://www.objectwire.org/redbull' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/redbull' },
   openGraph: {
     title: 'Red Bull News 2026 | Sports, Racing & Culture',
     description: 'Latest Red Bull news: F1 racing, extreme sports, events and energy drink company updates.',
     type: 'website',
-    url: 'https://www.objectwire.org/redbull',
+    url: 'https://www.ozonenetwork.news/redbull',
     siteName: 'ObjectWire',
   },
 };

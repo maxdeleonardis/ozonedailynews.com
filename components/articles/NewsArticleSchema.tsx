@@ -1,6 +1,6 @@
 // NewsArticle Schema Component for Google News, Perplexity, and MSN
 // Add this to your article pages for proper indexing
-// IMPORTANT: All URLs must use https://www.objectwire.org (canonical www domain)
+// IMPORTANT: All URLs must use https://www.ozonenetwork.news (canonical www domain)
 //
 // Google Top Stories image requirement: minimum 1200x675 (16:9 ratio).
 // 1200x630 fails the Top Stories eligibility check.
@@ -57,18 +57,18 @@ export function NewsArticleSchema({
     "author": {
       "@type": "Person",
       "name": author,
-      "url": authorUrl || `https://www.objectwire.org/authors/${author.toLowerCase().replace(/\s+/g, '-')}`
+      "url": authorUrl || `https://www.ozonenetwork.news/authors/${author.toLowerCase().replace(/\s+/g, '-')}`
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
       "name": "ObjectWire",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.objectwire.org/objectwire-logo.png",
+        "url": "https://www.ozonenetwork.news/objectwire-logo.png",
         "width": 600,
         "height": 60
       },
-      "url": "https://www.objectwire.org",
+      "url": "https://www.ozonenetwork.news",
       "sameAs": [
         "https://twitter.com/object_wire",
         "https://www.facebook.com/objectwire",
@@ -84,7 +84,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.objectwire.org" },
+    "copyrightHolder": { "@type": "Organization", "name": "ObjectWire", "url": "https://www.ozonenetwork.news" },
     // speakable — voice assistants (Google Assistant, Siri) and AI systems read these selectors.
     // Using specific selectors targets the actual answer content, not nav/footer noise.
     "speakable": {
@@ -115,10 +115,10 @@ export function OrganizationSchema() {
     "additionalType": "https://schema.org/NGO",
     "name": "ObjectWire News",
     "alternateName": "ObjectWire News Network",
-    "url": "https://www.objectwire.org",
+    "url": "https://www.ozonenetwork.news",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.objectwire.org/objectwire-logo.png",
+      "url": "https://www.ozonenetwork.news/objectwire-logo.png",
       "width": 600,
       "height": 60
     },
@@ -138,14 +138,14 @@ export function OrganizationSchema() {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "editorial",
-      "email": "editorial@objectwire.org"
+      "email": "editorial@ozonenetwork.news"
     },
-    "ethicsPolicy": "https://www.objectwire.org/editorial-standards",
-    "correctionsPolicy": "https://www.objectwire.org/corrections",
-    "verificationFactCheckingPolicy": "https://www.objectwire.org/editorial-standards",
-    "diversityPolicy": "https://www.objectwire.org/editorial-standards",
-    "masthead": "https://www.objectwire.org/team",
-    "ownershipFundingInfo": "https://www.objectwire.org/about",
+    "ethicsPolicy": "https://www.ozonenetwork.news/editorial-standards",
+    "correctionsPolicy": "https://www.ozonenetwork.news/corrections",
+    "verificationFactCheckingPolicy": "https://www.ozonenetwork.news/editorial-standards",
+    "diversityPolicy": "https://www.ozonenetwork.news/editorial-standards",
+    "masthead": "https://www.ozonenetwork.news/team",
+    "ownershipFundingInfo": "https://www.ozonenetwork.news/about",
     "funder": {
       "@type": "Organization",
       "name": "ObjectWire (self-funded)",
@@ -167,12 +167,12 @@ export function WebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ObjectWire",
-    "url": "https://www.objectwire.org",
+    "url": "https://www.ozonenetwork.news",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.objectwire.org/search?q={search_term_string}"
+        "urlTemplate": "https://www.ozonenetwork.news/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }

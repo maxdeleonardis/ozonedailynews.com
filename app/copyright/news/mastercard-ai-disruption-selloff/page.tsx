@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     'card transaction volume AI',
   ],
   alternates: {
-    canonical: `https://www.objectwire.org${SLUG}`,
+    canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
     title: "Mastercard Drops Below $500 as AI Disruption Note and",
     description:
       'Mastercard fell 5.73% to $496.40 on February 23, 2026, the first sub-$500 close since April 2025, after a viral fintech research note projected AI could',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     authors: ['Alfansa'],
     publishedTime: '2026-02-24T08:00:00Z',

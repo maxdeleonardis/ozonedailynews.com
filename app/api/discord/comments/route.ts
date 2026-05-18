@@ -148,7 +148,7 @@ export async function POST(req: NextRequest) {
         .single();
 
       // Always use the production URL for article links in Discord
-      const articleUrl = `https://www.objectwire.org/${slug}`;
+      const articleUrl = `https://www.ozonenetwork.news/${slug}`;
       const threadTitle = articleTitle || slug.split('/').pop()?.replace(/-/g, ' ') || slug;
       const isAnon  = commenterId.startsWith('anon_') || commenterId.startsWith('guest_');
       const embedColor = isAnon ? 0x9ca3af : 0x5865f2; // gray for guests, purple for OAuth
@@ -170,7 +170,7 @@ export async function POST(req: NextRequest) {
                 value: `[${threadTitle}](${articleUrl})`,
               },
             ],
-            footer: { text: 'objectwire.org' },
+            footer: { text: 'ozonenetwork.news' },
             timestamp: comment.createdAt,
           },
         ],
@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'User-Agent': 'DiscordBot (https://objectwire.org, 1.0)',
+          'User-Agent': 'DiscordBot (https://ozonenetwork.news, 1.0)',
         },
         body: JSON.stringify(webhookPayload),
       });

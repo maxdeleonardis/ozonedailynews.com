@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     'Arizona fab',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/intel/18a-high-volume-manufacturing',
+    canonical: 'https://www.ozonenetwork.news/intel/18a-high-volume-manufacturing',
   },
   openGraph: {
     title: 'Intel Completes 18A Process Node, Enters High-Volume',
     description: 'Intel achieves critical milestone in semiconductor manufacturing comeback, positioning itself as credible TSMC alternative with advanced 18A process',
     type: 'article',
-    url: 'https://www.objectwire.org/intel/18a-high-volume-manufacturing',
+    url: 'https://www.ozonenetwork.news/intel/18a-high-volume-manufacturing',
     siteName: 'ObjectWire',
     publishedTime: '2026-01-31T09:00:00Z',
     section: 'Technology',

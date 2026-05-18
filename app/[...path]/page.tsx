@@ -118,7 +118,7 @@ export async function generateMetadata({
     (data.description as string) ||
     (data.excerpt as string) ||
     '';
-  const canonical = `https://www.objectwire.org/${segments.join('/')}`;
+  const canonical = `https://www.ozonenetwork.news/${segments.join('/')}`;
 
   return {
     title,

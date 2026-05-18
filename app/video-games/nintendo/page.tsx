@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     'Shigeru Miyamoto',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/nintendo',
+    canonical: 'https://www.ozonenetwork.news/nintendo',
   },
   openGraph: {
     title: 'Nintendo Co., Ltd. | Gaming Company Profile',
     description: 'Japanese video game company: history, iconic franchises, and gaming innovations.',
     type: 'article',
-    url: 'https://www.objectwire.org/nintendo',
+    url: 'https://www.ozonenetwork.news/nintendo',
     siteName: 'ObjectWire',
   },
   twitter: {

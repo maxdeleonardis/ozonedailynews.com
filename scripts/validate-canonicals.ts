@@ -146,7 +146,7 @@ function checkPageCanonicals(): string[] {
       if (!content.includes('canonical')) {
         violations.push(
           `  ✗  app/${rel}  →  DB stub exports metadata but no canonical URL found. ` +
-          `Add: alternates: { canonical: \`https://www.objectwire.org/your/path\` }`
+          `Add: alternates: { canonical: \`https://www.ozonenetwork.news/your/path\` }`
         );
       }
       continue;
@@ -161,7 +161,7 @@ function checkPageCanonicals(): string[] {
     if (!hasCanonical) {
       violations.push(
         `  ⚠  app/${rel}  →  no canonical URL in metadata export. ` +
-        `Add: alternates: { canonical: \`https://www.objectwire.org/your/path\` }`
+        `Add: alternates: { canonical: \`https://www.ozonenetwork.news/your/path\` }`
       );
     }
   }

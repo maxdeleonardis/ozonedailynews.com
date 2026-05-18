@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/fortnite/chapter-6-season-2-battle-pass';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1627891127978-e33338a159d6?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

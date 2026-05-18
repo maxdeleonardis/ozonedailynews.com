@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'ObjectWire',
-    short_name: 'ObjectWire',
+    name: 'OzoneNews',
+    short_name: 'ONN',
     description: 'Breaking news, technology, and digital culture',
     start_url: '/',
     display: 'standalone',

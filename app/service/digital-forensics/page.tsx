@@ -5,7 +5,7 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.objectwire.org/service/digital-forensics';
+const PAGE_URL = 'https://www.ozonenetwork.news/service/digital-forensics';
 
 export const metadata: Metadata = {
   title: 'Digital Forensics Austin TX | Online Investigation | ObjectWire',
@@ -44,7 +44,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed digital forensics covering online harassment, identity fraud, social media aliases, catfishing, and dark-web exposure in Austin, Texas.',
   serviceType: 'Private Investigation — Digital Forensics',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.ozonenetwork.news/service' },
   url: PAGE_URL,
 };
 
@@ -52,8 +52,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
     { '@type': 'ListItem', position: 3, name: 'Digital Forensics', item: PAGE_URL },
   ],
 };

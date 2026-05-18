@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/news/windrose';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Windrose Hits 1M Steam Wishlists | Uzbek Pirate Survival Game',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     tags: ['Windrose', 'Indie Games', 'Pirate', 'Survival', 'Steam', 'Uzbekistan'],
     images: [
       {
-        url: 'https://www.objectwire.org/entertainment/windrose.PNG',
+        url: 'https://www.ozonenetwork.news/entertainment/windrose.PNG',
         width: 1200,
         height: 675,
         alt: 'Windrose pirate survival game key art',

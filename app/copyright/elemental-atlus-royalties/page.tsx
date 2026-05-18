@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     'crypto gold dividend',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/copyright/elemental-atlus-royalties',
+    canonical: 'https://www.ozonenetwork.news/copyright/elemental-atlus-royalties',
   },
   openGraph: {
     title: 'Elemental Royalty Completes Merger & Introduces',
     description:
       'The first publicly listed gold company to pay dividends in tokenized gold. Elemental Royalty (ELE) merged with EMX, raised $100M from Tether Investments,',
     type: 'article',
-    url: 'https://www.objectwire.org/copyright/elemental-atlus-royalties',
+    url: 'https://www.ozonenetwork.news/copyright/elemental-atlus-royalties',
     siteName: 'ObjectWire',
     authors: ['ObjectWire Editorial'],
     publishedTime: '2026-02-18T10:00:00Z',

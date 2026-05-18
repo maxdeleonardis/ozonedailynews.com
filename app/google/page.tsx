@@ -10,12 +10,12 @@ const SLUG = '/google';
 export const metadata: Metadata = {
   title: 'Google News | Search, AI & Android 2026',
   description: 'Google news covering Search, AI, Android, YouTube, and Google Cloud from ObjectWire.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Google News | Search, AI & Android 2026',
     description: 'Google news covering Search, AI, Android, YouTube, and Google Cloud from ObjectWire.',
     type: 'website',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
   },
   twitter: {

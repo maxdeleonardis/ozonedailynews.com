@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/fortnite/chapter-6-season-2-weapons-tier-list';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1634287847376-06de6b0132bc?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {

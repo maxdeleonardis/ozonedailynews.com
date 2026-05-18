@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     'investigative journalism',
     'ObjectWire',
   ],
-  alternates: { canonical: 'https://www.objectwire.org' },
+  alternates: { canonical: 'https://www.ozonenetwork.news' },
   openGraph: {
     title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
     description:
       'Verified news across tech, gaming, crypto, entertainment, esports, and culture. Source-cited, fact-checked, written with depth.',
-    url: 'https://www.objectwire.org',
+    url: 'https://www.ozonenetwork.news',
     siteName: 'ObjectWire',
     type: 'website',
   },

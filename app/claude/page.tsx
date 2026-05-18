@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Anthropic Claude News 2026 | AI Model Updates',
   description: 'Latest Anthropic Claude AI news: model updates, safety, and enterprise deployments.',
-  alternates: { canonical: 'https://www.objectwire.org/claude' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/claude' },
   openGraph: {
     title: 'Anthropic Claude News 2026 | AI Model Updates',
     description: 'Latest Anthropic Claude AI news: model updates, safety, and enterprise deployments.',
     type: 'website',
-    url: 'https://www.objectwire.org/claude',
+    url: 'https://www.ozonenetwork.news/claude',
     siteName: 'ObjectWire',
   },
 };

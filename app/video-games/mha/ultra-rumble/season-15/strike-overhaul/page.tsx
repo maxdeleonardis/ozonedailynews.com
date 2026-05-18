@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     'Ultra Rumble Assault role',
   ],
   alternates: {
-    canonical: 'https://www.objectwire.org/video-games/mha/ultra-rumble/season-15/strike-overhaul',
+    canonical: 'https://www.ozonenetwork.news/video-games/mha/ultra-rumble/season-15/strike-overhaul',
   },
   openGraph: {
     title: 'Overhaul Blighted Precipice Quick Skill  ” Season 15',
     description:
       'Bandai Namco drops the Overhaul "Blighted Precipice" Quick Skill variant in My Hero Ultra Rumble Season 15. Full stats, quirk breakdown, and roll guide.',
     type: 'article',
-    url: 'https://www.objectwire.org/video-games/mha/ultra-rumble/season-15/strike-overhaul',
+    url: 'https://www.ozonenetwork.news/video-games/mha/ultra-rumble/season-15/strike-overhaul',
     siteName: 'ObjectWire',
     publishedTime: '2026-02-18T13:00:00+09:00',
     modifiedTime: '2026-02-18T13:00:00+09:00',

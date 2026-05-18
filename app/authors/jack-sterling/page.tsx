@@ -11,20 +11,20 @@ export const metadata: Metadata = {
   title: 'Jack Sterling, ObjectWire Reporter',
   description:
     'Jack Sterling is a reporter at ObjectWire covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology.',
-  alternates: { canonical: 'https://www.objectwire.org/authors/jack-sterling' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-sterling' },
   openGraph: {
     title: 'Jack Sterling, ObjectWire Reporter',
     description: 'Reporter at ObjectWire covering breaking news, federal investigations, Congress, and AI policy.',
-    url: 'https://www.objectwire.org/authors/jack-sterling',
+    url: 'https://www.ozonenetwork.news/authors/jack-sterling',
     siteName: 'ObjectWire',
     type: 'profile',
-    images: [{ url: 'https://www.objectwire.org/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, ObjectWire reporter' }],
+    images: [{ url: 'https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, ObjectWire reporter' }],
   },
   twitter: {
     card: 'summary',
     title: 'Jack Sterling, ObjectWire Reporter',
     description: 'Reporter at ObjectWire. Breaking news, federal investigations, Congress, AI policy.',
-    images: ['https://www.objectwire.org/influncer/author/jack_sterling.jpg'],
+    images: ['https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg'],
   },
 };
 
@@ -46,8 +46,8 @@ export default function JackSterlingAuthorPage() {
         name="Jack Sterling"
         jobTitle="Reporter"
         description="Jack Sterling is a reporter at ObjectWire covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology."
-        url="https://www.objectwire.org/authors/jack-sterling"
-        image="https://www.objectwire.org/influncer/author/jack_sterling.jpg"
+        url="https://www.ozonenetwork.news/authors/jack-sterling"
+        image="https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg"
         knowsAbout={['Breaking News', 'Politics', 'Investigations', 'Congress', 'AI Policy', 'Federal Law', 'Gaming', 'Technology']}
         alumniOf={[{ name: 'New York University', department: 'Journalism' }]}
         location={{ city: 'Washington', region: 'D.C.' }}

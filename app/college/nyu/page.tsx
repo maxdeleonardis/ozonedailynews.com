@@ -8,12 +8,12 @@ const SLUG = '/college/nyu';
 export const metadata: Metadata = {
   title: 'NYU | New York University, Journalism Program',
   description: 'New York University is a private research university in New York City. NYU\'s journalism program at the Arthur L. Carter Journalism Institute is one of the most respected in the United States.',
-  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
+  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'NYU | New York University, Journalism Program',
     description: 'Private research university in New York City. NYU\'s journalism institute trains reporters in investigative, political, and technology journalism.',
     type: 'article',
-    url: `https://www.objectwire.org${SLUG}`,
+    url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'ObjectWire',
     section: 'Education',
     tags: ['NYU', 'New York University', 'Journalism', 'Arthur L. Carter Journalism Institute'],

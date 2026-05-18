@@ -4,8 +4,8 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/trump/iran-hormuz-safe-crypto-maritime-insurance-2026';
-const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
-const OG_IMAGE = `https://www.objectwire.org/api/og?title=Iran+Hormuz+Safe+%7C+Sovereign+Crypto+Insurance+Weaponizes+Persian+Gulf&category=Politics&author=Jack+Sterling&date=May+17+2026&bg=${encodeURIComponent('https://images.unsplash.com/photo-1598408745613-178751e2ccde?w=1200&h=675&fit=crop')}`;
+const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?title=Iran+Hormuz+Safe+%7C+Sovereign+Crypto+Insurance+Weaponizes+Persian+Gulf&category=Politics&author=Jack+Sterling&date=May+17+2026&bg=${encodeURIComponent('https://images.unsplash.com/photo-1598408745613-178751e2ccde?w=1200&h=675&fit=crop')}`;
 
 export const metadata: Metadata = {
   title: 'Iran Hormuz Safe | Bitcoin Insurance Weaponizes Persian Gulf Shipping',

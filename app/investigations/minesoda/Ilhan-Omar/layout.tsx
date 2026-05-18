@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Ilhan Omar | ObjectWire',
   description: 'Coverage and analysis of Ilhan Omar, her political career, and policy positions.',
   alternates: {
-    canonical: 'https://www.objectwire.org/minesoda/Ilhan-Omar',
+    canonical: 'https://www.ozonenetwork.news/minesoda/Ilhan-Omar',
   },
 };
 

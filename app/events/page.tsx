@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Tech Events 2026 | GDC, GTC, CES & More',
   description: 'Latest tech event news: GDC, GTC, Davos, CES and major industry conference coverage.',
-  alternates: { canonical: 'https://www.objectwire.org/events' },
+  alternates: { canonical: 'https://www.ozonenetwork.news/events' },
   openGraph: {
     title: 'Tech Events 2026 | GDC, GTC, CES & More',
     description: 'Latest tech event news: GDC, GTC, Davos, CES and major industry conference coverage.',
     type: 'website',
-    url: 'https://www.objectwire.org/events',
+    url: 'https://www.ozonenetwork.news/events',
     siteName: 'ObjectWire',
   },
 };

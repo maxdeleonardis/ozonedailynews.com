@@ -64,7 +64,7 @@ const article: Article = {
   <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
   <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
     <ul class="space-y-2 text-gray-700">
-      <li><strong>Email:</strong> jack@objectwire.org</li>
+      <li><strong>Email:</strong> jack@ozonenetwork.news</li>
       <li><strong>Phone:</strong> (575) 495-0323</li>
       <li><strong>Location:</strong> Austin, TX 78702</li>
     </ul>

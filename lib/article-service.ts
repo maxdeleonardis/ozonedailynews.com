@@ -15,7 +15,7 @@ function readStaticDir<T>(table: string): T[] {
     const dir = path.join(STATIC_BASE, table);
     if (!fs.existsSync(dir)) return [];
     return fs.readdirSync(dir)
-      .filter(f => f.endsWith('.json'))
+      .filter(f => f.endsWith('.json') && f !== '_index.json')
       .map(f => {
         try { return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as T; }
         catch { return null; }
@@ -125,8 +125,8 @@ export async function getAllArticles(): Promise<ArticleFull[]> {
       published_at: String(row.published_at || ''),
       category: String(row.category ?? 'News'),
       status: String(row.status ?? 'published'),
-      author: String(row.author_name ?? 'OzoneNews'),
-      author_name: String(row.author_name ?? 'OzoneNews'),
+      author: String(row.author_name ?? 'ObjectWire'),
+      author_name: String(row.author_name ?? 'ObjectWire'),
       author_slug: row.author_slug ? String(row.author_slug) : undefined,
       excerpt: row.excerpt ? String(row.excerpt) : undefined,
       imageUrl: String(row.image_url || row.hero_image_src || row.thumbnail_src || ''),
@@ -313,8 +313,8 @@ export async function getJackArticles(): Promise<ArticleFull[]> {
         id: row.slug, title: row.title, slug: row.slug, url,
         publishedAt: row.publish_date, published_at: row.publish_date,
         category: row.section ?? 'Research', status: 'published' as const,
-        author_name: authorObj?.name ? String(authorObj.name) : 'OzoneNews',
-        author: authorObj?.name ? String(authorObj.name) : 'OzoneNews',
+        author_name: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
+        author: authorObj?.name ? String(authorObj.name) : 'ObjectWire',
         excerpt: row.subtitle ?? row.description ?? undefined,
         imageUrl: heroObj?.src ? String(heroObj.src) : undefined,
         image_alt: heroObj?.alt ? String(heroObj.alt) : undefined,

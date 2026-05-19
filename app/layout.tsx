@@ -288,6 +288,17 @@ export default async function RootLayout({
                 </div>
               </div>
 
+              {/* Newsroom Policies — visible blue-underlined trust links (Google News Publisher Center requirement) */}
+              <div className="border-t border-gray-700 pt-8 pb-2">
+                <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-400 mb-3">Newsroom Policies</h4>
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                  <Link href="/about" className="text-blue-400 hover:text-blue-300 underline font-medium">About</Link>
+                  <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline font-medium">Editorial Standards</Link>
+                  <Link href="/corrections" className="text-blue-400 hover:text-blue-300 underline font-medium">Corrections Policy</Link>
+                  <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">Contact</Link>
+                </div>
+              </div>
+
               {/* Ownership & funding disclosure */}
               <div className="border-t border-gray-700 pt-8 pb-8">
                 <p className="text-xs text-gray-400 leading-relaxed max-w-3xl">

@@ -10,6 +10,12 @@ export interface ArticleSchemaProps {
   description: string;
   author: string;
   authorUrl?: string;
+  /**
+   * Author's external profile URLs (Twitter, LinkedIn, Medium, prior outlet bylines).
+   * Required by the post-March-2026 Core Update author footprint rule.
+   * If an author has no external sameAs entries, use the "OzoneNews Editorial Team" house byline instead.
+   */
+  authorSameAs?: string[];
   publishedTime: string;
   modifiedTime?: string;
   imageUrl?: string;
@@ -26,6 +32,7 @@ export function NewsArticleSchema({
   description,
   author,
   authorUrl,
+  authorSameAs,
   publishedTime,
   modifiedTime,
   imageUrl,
@@ -57,11 +64,13 @@ export function NewsArticleSchema({
     "author": {
       "@type": "Person",
       "name": author,
-      "url": authorUrl || `https://www.ozonenetwork.news/authors/${author.toLowerCase().replace(/\s+/g, '-')}`
+      "url": authorUrl || `https://www.ozonenetwork.news/authors/${author.toLowerCase().replace(/\s+/g, '-')}`,
+      ...(authorSameAs && authorSameAs.length > 0 ? { "sameAs": authorSameAs } : {}),
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
       "name": "OzoneNews",
+      "legalName": "Ozone Network News LLC",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.ozonenetwork.news/OzoneNews-logo.png",
@@ -70,9 +79,8 @@ export function NewsArticleSchema({
       },
       "url": "https://www.ozonenetwork.news",
       "sameAs": [
-        "https://twitter.com/object_wire",
-        "https://www.facebook.com/OzoneNews",
-        "https://www.tiktok.com/@object_wire"
+        "https://twitter.com/ozonenews",
+        "https://www.linkedin.com/company/ozonenetworknews"
       ]
     },
     "mainEntityOfPage": {
@@ -84,7 +92,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "OzoneNews", "url": "https://www.ozonenetwork.news" },
+    "copyrightHolder": { "@type": "Organization", "name": "Ozone Network News LLC", "url": "https://www.ozonenetwork.news" },
     // speakable — voice assistants (Google Assistant, Siri) and AI systems read these selectors.
     // Using specific selectors targets the actual answer content, not nav/footer noise.
     "speakable": {
@@ -107,14 +115,17 @@ export function NewsArticleSchema({
   );
 }
 
-// Organization Schema for the main site
+// NewsMediaOrganization schema for the main site
+// Post-March-2026 Core Update: this is the entity footprint Google and Bing use to
+// verify OzoneNews is a real newsroom, not a blog. Every policy URL must resolve
+// to a real, populated trust page, missing pages cause schema validation failures.
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
-    "additionalType": "https://schema.org/NGO",
-    "name": "OzoneNews News",
-    "alternateName": "OzoneNews News Network",
+    "name": "OzoneNews",
+    "legalName": "Ozone Network News LLC",
+    "alternateName": ["Ozone Network News", "ONN"],
     "url": "https://www.ozonenetwork.news",
     "logo": {
       "@type": "ImageObject",
@@ -122,34 +133,48 @@ export function OrganizationSchema() {
       "width": 600,
       "height": 60
     },
-    "description": "OzoneNews is an independent, self-funded nonprofit newsroom delivering verified, source-cited reporting on business, technology, and policy.",
-    "foundingDate": "2024",
+    "description": "OzoneNews is an independent newsroom delivering verified, source-cited reporting on technology, finance, gaming, and digital culture. We do not accept advertising, sponsored content, or political donations.",
+    "foundingDate": "2026",
     "founders": [
       {
         "@type": "Person",
-        "name": "OzoneNews News Editorial Team"
+        "name": "OzoneNews Editorial Team"
       }
     ],
     "sameAs": [
-      "https://twitter.com/object_wire",
-      "https://www.facebook.com/OzoneNews",
-      "https://www.tiktok.com/@object_wire"
+      "https://twitter.com/ozonenews",
+      "https://www.linkedin.com/company/ozonenetworknews"
     ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "editorial",
-      "email": "editorial@ozonenetwork.news"
-    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "editorial",
+        "email": "editorial@ozonenetwork.news"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "corrections",
+        "email": "corrections@ozonenetwork.news"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "contact@ozonenetwork.news"
+      }
+    ],
+    "publishingPrinciples": "https://www.ozonenetwork.news/editorial-standards",
     "ethicsPolicy": "https://www.ozonenetwork.news/editorial-standards",
     "correctionsPolicy": "https://www.ozonenetwork.news/corrections",
+    "actionableFeedbackPolicy": "https://www.ozonenetwork.news/contact",
     "verificationFactCheckingPolicy": "https://www.ozonenetwork.news/editorial-standards",
     "diversityPolicy": "https://www.ozonenetwork.news/editorial-standards",
-    "masthead": "https://www.ozonenetwork.news/team",
+    "unnamedSourcesPolicy": "https://www.ozonenetwork.news/editorial-standards",
+    "masthead": "https://www.ozonenetwork.news/authors",
     "ownershipFundingInfo": "https://www.ozonenetwork.news/about",
     "funder": {
       "@type": "Organization",
-      "name": "OzoneNews (self-funded)",
-      "description": "Self-funded by the OzoneNews editorial team. No advertising, sponsored content, or political donations accepted."
+      "name": "Ozone Network News LLC (self-funded)",
+      "description": "Self-funded by the founders of Ozone Network News LLC. No advertising, sponsored content, or political donations accepted."
     }
   };
 

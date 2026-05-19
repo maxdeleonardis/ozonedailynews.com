@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/square-enix/fy2026-financial-results-western-downsizing-profit-surge';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Square Enix FY2026 | 35% Profit Surge, Western Retrenchment',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       'Full analysis of Square Enix FY2026: 34.9% income surge to 54.7B yen, western publishing consolidated from 11 hubs to four, and HD Games growing from 3.3B to 14.1B in operating profit.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-15T10:00:00Z',
     modifiedTime: '2026-05-15T10:00:00Z',

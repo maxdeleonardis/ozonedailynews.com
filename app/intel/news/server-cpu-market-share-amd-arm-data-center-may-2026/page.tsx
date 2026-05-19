@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/intel/news/server-cpu-market-share-amd-arm-data-center-may-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop';
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Intel server CPU unit share collapsed from 64.4% to 54.9% in Q1 2026. AMD hit 27.4%, Arm 17.7%, in a market that grew 19% year-over-year. Intel shares fell below $116 on May 15.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-15T14:00:00Z',
     modifiedTime: '2026-05-15T14:00:00Z',

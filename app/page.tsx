@@ -11,9 +11,9 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
-  title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+  title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
   description:
-    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
+    'ObjectWire is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
   keywords: [
     'tech news 2026',
     'gaming news',
@@ -22,20 +22,20 @@ export const metadata: Metadata = {
     'esports news',
     'culture news',
     'investigative journalism',
-    'OzoneNews',
+    'ObjectWire',
   ],
-  alternates: { canonical: 'https://www.ozonenetwork.news' },
+  alternates: { canonical: 'https://www.objectwire.org' },
   openGraph: {
-    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
     description:
       'Verified news across tech, gaming, crypto, entertainment, esports, and culture. Source-cited, fact-checked, written with depth.',
-    url: 'https://www.ozonenetwork.news',
-    siteName: 'OzoneNews',
+    url: 'https://www.objectwire.org',
+    siteName: 'ObjectWire',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
     description:
       'Tech, gaming, crypto, esports, and culture. Verified news, no aggregation, no filler.',
   },
@@ -64,7 +64,7 @@ type Article = {
 function fromRegistry(e: ContentEntry): Article {
   return {
     id: e.slug,
-    title: e.title.replace(/\s*[|—–\-]\s*OzoneNews.*$/i, ''),
+    title: e.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
     excerpt: e.description,
     href: e.slug,
     publishDate: e.publishDate,
@@ -77,24 +77,19 @@ function fromRegistry(e: ContentEntry): Article {
   };
 }
 
-function fromBlog(p: ArticleFull, registry: ContentEntry[]): Article | null {
-  // Articles migrated from page routes have slugs derived from their path
-  // (e.g. /social/meta/news/article → slug "social-meta-news-article").
-  // Look up the canonical URL in the content registry. If no match, use
-  // the `url` field from the article itself (set by wiki:publish).
-  const registryEntry = registry.find(
-    (e) => e.slug.replace(/^\//, '').replace(/\//g, '-') === p.slug
-  );
-  const href = registryEntry?.slug ?? p.url;
+function fromBlog(p: ArticleFull): Article | null {
+  // Use the canonical `url` field set by wiki:publish (e.g. "/video-games/gta-6/...").
+  // This is always correct — wiki:publish derives it from the actual folder path.
+  const href = p.url;
   if (!href) return null;
   return {
     id: String(p.id),
-    title: p.title.replace(/\s*[|—–\-]\s*OzoneNews.*$/i, ''),
+    title: p.title.replace(/\s*[|—–\-]\s*ObjectWire.*$/i, ''),
     excerpt: p.excerpt ?? undefined,
     href,
     publishDate: (p.published_at ?? p.publishedAt ?? ''),
     category: p.category ?? 'News',
-    author: p.author_name ?? 'OzoneNews',
+    author: p.author_name ?? 'ObjectWire',
     imageUrl: p.imageUrl ?? p.thumbnail_url ?? undefined,
     imageAlt: p.image_alt ?? p.thumbnail_alt ?? undefined,
     breaking: p.breaking ?? false,
@@ -210,9 +205,6 @@ function HeadlineRow({ article }: { article: Article }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default async function HomePage() {
-  // Load the content registry from Supabase
-  const contentRegistry = await getAllEntries();
-
   // Categories whose pages no longer exist on this site — exclude from homepage
   const EXCLUDED_CATEGORIES = new Set([
     'Automotive', 'automotive', 'Cars', 'cars',
@@ -220,48 +212,71 @@ export default async function HomePage() {
     'Sports', 'sports',
     'Politics', 'politics',
     'Lifestyle', 'lifestyle',
+    // Non-editorial pages that should never appear in news feed
+    'Meta', 'meta', 'Services', 'services', 'Legal', 'legal',
+    'Support', 'support', 'Education', 'education', 'Reference', 'reference',
+    'Blog', 'blog', 'Social Media', 'social media',
+    'YouTube', 'youtube', 'Media', 'media',
   ]);
 
-  // Slug prefixes whose pages were deleted — exclude from homepage
+  // Slug prefixes whose pages were deleted or are non-editorial — exclude from homepage
   const EXCLUDED_PREFIXES = [
     '/cars/', '/influencer/', '/creator/', '/formula-1/',
     '/service', '/austin-private-detective-agency',
     '/winter-olympics/', '/world-cup/', '/mls/',
+    '/search', '/saved', '/login', '/auth', '/account',
+    '/privacy-policy', '/terms-of-service', '/corrections', '/editorial-standards',
+    '/get-help', '/site-index', '/about', '/authors', '/rocket-league',
   ];
 
-  // Load Supabase articles (non-fatal)
+  // Load the content registry
+  const contentRegistry = await getAllEntries();
+
+  // Load static articles (non-fatal)
   let blogArticles: Article[] = [];
   try {
     const all = await getAllArticles();
     blogArticles = all
       .filter((p: ArticleFull) => p.status === 'published')
       .filter((p: ArticleFull) => !EXCLUDED_CATEGORIES.has(p.category ?? ''))
-      .map((p: ArticleFull) => fromBlog(p, contentRegistry))
+      .map((p: ArticleFull) => fromBlog(p))
       .filter((a: Article | null): a is Article => a !== null)
       .filter((a: Article) => !EXCLUDED_PREFIXES.some((pfx) => a.href.startsWith(pfx)));
   } catch {
-    // Supabase unavailable — static registry still shows
+    // Static files unavailable — registry still shows
   }
 
   // Load jack articles (premium research, investigations)
   try {
     const jacks = await getJackArticles();
     const jackArticles = jacks
-      .map((p: ArticleFull) => fromBlog(p, contentRegistry))
+      .map((p: ArticleFull) => fromBlog(p))
       .filter((a): a is Article => a !== null);
     blogArticles.push(...jackArticles);
   } catch {
     // JackArticles unavailable — no-op
   }
 
-  // Content registry: exclude section/hub pages (< 2 path segments)
-  // and dynamic route patterns like /profile/[username]
+  // Content registry: strict filter — only real editorial articles
   const registryArticles = contentRegistry
     .filter((e) => {
+      // Must have at least 2 path segments (not a hub)
       if (e.slug.split('/').filter(Boolean).length < 2) return false;
+      // Skip dynamic route patterns
       if (e.slug.includes('[')) return false;
+      // Skip double-slash malformed slugs
+      if (e.slug.includes('//')) return false;
+      // Skip excluded categories
       if (EXCLUDED_CATEGORIES.has(e.category)) return false;
+      // Skip excluded prefixes
       if (EXCLUDED_PREFIXES.some((p) => e.slug.startsWith(p))) return false;
+      // Skip pages with template-literal or breadcrumb titles (not real articles)
+      if (e.title.startsWith('{') || e.title.startsWith('›') || e.title.includes(' › ')) return false;
+      // Skip entries with no real description (hub pages, service pages)
+      if (!e.description || e.description.length < 60) return false;
+      // Skip registry entries where date was set to today by sync-registry fallback
+      // (means no real publishedTime — these are hubs/service pages, not dated articles)
+      // We allow them only if the static article sources (blogArticles) didn't already add them
       return true;
     })
     .map(fromRegistry);
@@ -293,7 +308,12 @@ export default async function HomePage() {
       }
     }
   }
-  merged.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+  // Push articles with missing/invalid publishDate to the bottom before sorting
+  merged.sort((a, b) => {
+    const ta = a.publishDate ? new Date(a.publishDate).getTime() : 0;
+    const tb = b.publishDate ? new Date(b.publishDate).getTime() : 0;
+    return tb - ta;
+  });
 
   // GA4: promote most-read article to lead slot
   let popularLeadSlug: string | null = null;
@@ -386,9 +406,9 @@ export default async function HomePage() {
 
         {/* ── ABOUT STRIP ───────────────────────────────────────────────────── */}
         <section className="border-t-2 border-b-2 border-black py-6 text-center mt-4">
-          <p className="text-[9px] tracking-[.4em] uppercase font-black text-gray-500 mb-2">About OzoneNews</p>
+          <p className="text-[9px] tracking-[.4em] uppercase font-black text-gray-500 mb-2">About ObjectWire</p>
           <p className="text-gray-600 max-w-xl mx-auto text-sm leading-relaxed mb-4">
-            OzoneNews is a focused, verified news platform covering tech, AI, gaming, finance, and culture.
+            ObjectWire is a focused, verified news platform covering tech, AI, gaming, finance, and culture.
             Every article is source-cited, fact-checked, and written for depth, not clicks. No aggregation, no filler.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5 text-[10px] tracking-widest uppercase font-bold text-gray-500">

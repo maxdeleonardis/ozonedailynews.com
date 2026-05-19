@@ -1,14 +1,14 @@
-# AlfasaAutoSEO — OzoneNews Automated SEO Architecture
+# AlfasaAutoSEO — ObjectWire Automated SEO Architecture
 
-**Version:** 2.0  
-**Updated:** May 4, 2026  
-**Status:** Active — Implementation Roadmap Locked
+**Version:** 2.1  
+**Updated:** May 13, 2026  
+**Status:** Active — Known Homepage Pipeline Bugs Documented Below
 
 ---
 
 ## What Is AlfasaAutoSEO
 
-AlfasaAutoSEO is the internal name for OzoneNews's end-to-end automated SEO pipeline. It covers:
+AlfasaAutoSEO is the internal name for ObjectWire's end-to-end automated SEO pipeline. It covers:
 
 - How article metadata is generated and served
 - How Supabase is queried and when it is not
@@ -20,13 +20,137 @@ The April 22, 2026 impressions drop was caused by violations of rules defined in
 
 ---
 
+## Homepage Article Pipeline (May 2026)
+
+This is how `app/page.tsx` sources articles for the homepage carousel, "More Stories" grid, and headline list.
+
+### Three sources merged in order
+
+```
+1. getAllArticles()      → content/static/articles/*.json  (individual files only)
+2. getJackArticles()    → content/static/jack_articles/*.json
+3. getAllEntries()       → content/static/content_registry.json (via registry-service.ts)
+```
+
+All three are merged and deduplicated by `href`. Articles from source 1 and 2 are added first. If source 3 has the same `href`, the blog/jack article entry wins and registry backfills any missing fields (image, excerpt).
+
+### Sort — newest first
+
+```typescript
+merged.sort((a, b) => {
+  const ta = a.publishDate ? new Date(a.publishDate).getTime() : 0;
+  const tb = b.publishDate ? new Date(b.publishDate).getTime() : 0;
+  return tb - ta;
+});
+```
+
+Articles with no `publishDate` (empty string or null) get `time = 0` and sort to the **bottom**. New articles only appear at the top of the homepage if they have a valid, parseable `publishDate` value from at least one of the three sources.
+
+### How each source contributes a `publishDate`
+
+| Source | Field read | Format | Parsed as |
+|---|---|---|---|
+| `getAllArticles()` | `row.published_at` | ISO-8601 (`2026-05-11T23:00:00Z`) | Valid, sorts correctly |
+| `getJackArticles()` | `row.publish_date` | Display string (`"May 12, 2026"`) | Parseable in V8/Node, but non-ISO — fragile |
+| `getAllEntries()` / registry | `row.publish_date` | Display string (`"May 11, 2026"`) | Same as above |
+
+**Critical:** If a new article has no individual JSON file in `content/static/articles/` (it's only in `content_registry.json`), its date comes from the registry `publish_date` field only. If that field is missing or null, the article sorts to the bottom and will NOT appear in the carousel.
+
+### Known bugs in the pipeline (as of May 13, 2026)
+
+#### Bug 1 — `readStaticDir('articles')` reads `_index.json` as an article
+
+`content/static/articles/_index.json` is an array file (metadata index). `readStaticDir()` scans all `*.json` files including `_index.json`. The array is parsed and treated as a single `Record<string, unknown>` object. This creates a garbage article with:
+- `id = ""`
+- `title = ""`
+- `url = "/"` (resolves to homepage path)
+- `status = "published"` (passes the published filter)
+
+This entry gets into `blogArticles`, deduped against anything at href="/", and appears in `merged` with an empty title and no date. It sorts to the bottom so it's not visible in the carousel, but it is junk in the pipeline.
+
+**Fix:** Add an exclusion in `readStaticDir()` or in `getAllArticles()`:
+```typescript
+.filter(f => f.endsWith('.json') && f !== '_index.json')
+```
+
+#### Bug 2 — Registry has 662 entries; many hub and duplicate pages slip through the homepage filter
+
+`app/page.tsx` filters registry entries:
+```typescript
+if (e.slug.split('/').filter(Boolean).length < 2) return false;
+```
+
+This only excludes single-segment slugs (e.g. `/tech`, `/nvidia`). Hub pages with two or more path segments (like `/video-games/switch2`, `/nvidia/news`) still pass. Additionally, the same article can appear under two different URL structures if the registry has both variants.
+
+Result: the "More Stories" grid and headline list fill with hub pages, sub-hub pages, and duplicate links — making the homepage look like a generic sitemap rather than a curated news feed.
+
+**Fix needed:** The homepage filter should require `description.length > 80` AND the category must be a valid editorial category (not `Meta`, `Services`, `Legal`, `Support`, `Education`, `Reference`).
+
+#### Bug 3 — Malformed registry slugs
+
+Some entries in `content_registry.json` have double-slash slugs like `//events/gdc-2026/...` or encoding bugs like `â€"` in titles (mangled em dash). These create broken links and garbled text in the homepage.
+
+**Fix:** Run `npm run wiki:sync -- --write` which re-scans and rebuilds clean entries. Also add a validation step to reject slugs with `//` or entries with non-ASCII corruption.
+
+#### Bug 4 — New NewsArticle pages have no individual content JSON
+
+Articles like GitLab restructuring (`tech-news-gitlab-restructuring-may-2026-workforce-agentic-ai-pivot`) have:
+- A `page.tsx` stub using `NewsArticleDB`
+- An entry in `content/static/articles/_index.json`
+- An entry in `content_registry.json`
+
+But NO individual JSON file at `content/static/articles/tech-news-gitlab-restructuring-may-2026-workforce-agentic-ai-pivot.json`.
+
+`getAllArticles()` reads individual files, not `_index.json`. So these articles only appear on the homepage via the registry (`getAllEntries()`). Their content renders via `NewsArticleDB` which reads the individual JSON file — if that file doesn't exist, the page will 404 at read time.
+
+**Fix:** Every article page that uses `NewsArticleDB` MUST have a matching individual JSON file in `content/static/articles/[slug].json`. The `_index.json` is metadata-only — it does not serve content.
+
+### Correct publish workflow (all article types)
+
+**NewsArticle (uses `NewsArticleDB`):**
+1. Write `content/static/articles/[slug].json` — full article content with `published_at` ISO-8601
+2. Add entry to `content/static/articles/_index.json` with `published_at` ISO-8601
+3. Write `app/[path]/page.tsx` stub pointing at slug
+4. Run `npm run wiki:sync -- --write` to add registry entry with correct `publish_date`
+5. **Do not skip step 1.** Without the individual JSON file, `NewsArticleDB` has nothing to render.
+
+**JackArticle (uses `JackArticleDB`):**
+1. Write `content/static/jack_articles/[slug].json` — full article with `publish_date` (display) AND `published_at` (ISO-8601) AND `article_url` (canonical path)
+2. Add entry to `content/static/jack_articles/_index.json`
+3. Write `app/[path]/page.tsx` stub
+4. Run `npm run jack:enrich` to auto-populate breadcrumbs and related articles
+5. Run `npm run wiki:sync -- --write` to add/update registry entry
+
+**Registry entry date field:**
+The registry stores `publish_date` as a display string (e.g. `"May 11, 2026"`). When `sync-registry.ts` creates an entry, it extracts `openGraph.publishedTime` from `page.tsx` and converts it to `YYYY-MM-DD` format. If `publishedTime` is missing from the page metadata, the script falls back to TODAY, which may be wrong.
+
+**Always include `openGraph.publishedTime` in every `page.tsx` metadata block.** This is the only reliable source for `publish_date` in the registry.
+
+### Homepage layout sections
+
+```
+merged[0]                  → lead article (carousel feature slot)
+merged[1]                  → second story
+merged[2]                  → third story
+merged[0..9]               → popularArticles (carousel + Popular Now rail)
+merged[3..50]              → moreStories (4-col grid, 4 pages)
+merged[51..93]             → headlineArticles (compact list overflow)
+```
+
+If your article doesn't appear in the carousel, check:
+1. Does it have a valid `publishDate` from at least one source?
+2. Is its `href` correct (matches the actual route path)?
+3. Is it excluded by `EXCLUDED_CATEGORIES` or `EXCLUDED_PREFIXES`?
+
+---
+
 ## The Core Problem We Solved (And Must Never Repeat)
 
 ### What caused the Google impressions drop
 
 1. **`force-dynamic` on the catch-all route** — every Googlebot request triggered a live Supabase query with no cache. Hundreds of concurrent crawl requests saturated the connection pool.
 2. **Sequential Supabase probes** — the catch-all was checking 4 tables one after another (4 round trips per page load, up to 5 with metadata).
-3. **Hardcoded layout canonical** — `app/layout.tsx` had `<link rel="canonical" href="https://www.OzoneNews.org">` applied globally, telling Google every page was a duplicate of the homepage.
+3. **Hardcoded layout canonical** — `app/layout.tsx` had `<link rel="canonical" href="https://www.objectwire.org">` applied globally, telling Google every page was a duplicate of the homepage.
 4. **`generate-article-metadata.ts` double fetch** — any stub using `generateMetadata()` fired a second Supabase query just for metadata, independent of the content fetch.
 5. **`sitemap.ts` querying Supabase** — the daily sitemap regeneration hit `content_registry` directly instead of reading the local JSON file.
 
@@ -153,7 +277,7 @@ Currently the news-sitemap queries `content_registry` which is synced at build t
 export const metadata: Metadata = {
   title: 'GTA 6 Release Date | Everything Confirmed So Far',
   description: '155 char description...',
-  alternates: { canonical: 'https://www.OzoneNews.org/video-games/gta-6/release-date' },
+  alternates: { canonical: 'https://www.objectwire.org/video-games/gta-6/release-date' },
   openGraph: { ... },
 };
 ```
@@ -185,14 +309,14 @@ These rules exist because a canonical violation can tank an entire domain's impr
 1. **Never add `<link rel="canonical">` to `app/layout.tsx` or any shared layout.**
 2. Every `page.tsx` sets its own canonical via `metadata.alternates.canonical`.
 3. The canonical URL must exactly match the `url` field in the Supabase row and the `content_registry` entry.
-4. All canonical URLs must use `https://www.OzoneNews.org` (with www).
+4. All canonical URLs must use `https://www.objectwire.org` (with www).
 5. `scripts/validate-canonicals.ts` runs at `prebuild` and fails the build on violations.
 
 ---
 
 ## The Google Crawl Budget Protection Rules
 
-These rules protect OzoneNews's crawl allocation. Violating them risks reduced crawl rate, deindexing of new articles, or impressions drops.
+These rules protect ObjectWire's crawl allocation. Violating them risks reduced crawl rate, deindexing of new articles, or impressions drops.
 
 ### Never do these
 
@@ -214,13 +338,13 @@ These rules protect OzoneNews's crawl allocation. Violating them risks reduced c
 
 ---
 
-## Cross-Site Interlinking — OzoneNews ↔ owire.org
+## Cross-Site Interlinking — ObjectWire ↔ owire.org
 
-**owire.org** is OzoneNews's sister site. It covers entertainment, creators, influencers, and pop culture. Cross-linking between the two sites passes authority bidirectionally and helps each site rank for its respective keyword set.
+**owire.org** is ObjectWire's sister site. It covers entertainment, creators, influencers, and pop culture. Cross-linking between the two sites passes authority bidirectionally and helps each site rank for its respective keyword set.
 
 ### When to link to owire.org
 
-| OzoneNews article topic | Link to owire.org |
+| ObjectWire article topic | Link to owire.org |
 |---|---|
 | Entertainment (film, TV, streaming, HBO, Netflix, Disney) | `https://owire.org/entertainment` |
 | Creator economy (MrBeast, TikTok creators, YouTube channels) | `https://owire.org/creators` |
@@ -313,7 +437,7 @@ grep -r "generateArticleMetadata" app/ --include="*.tsx" -l
 - `scripts/enrich-jack-articles.ts` — enriches all static JSON files with:
   - `breadcrumbs` — auto-generated from `article_url` path segments
   - `related_articles` — auto-selected from `content_registry.json` by category + tag scoring
-  - `footer_links` — standard OzoneNews editorial nav
+  - `footer_links` — standard ObjectWire editorial nav
   - `owire_link` — owire.org cross-link for 13 entertainment/creator/sports articles
 - 84 of 89 files were missing breadcrumbs/related articles — all now populated
 - `JackArticleDB` updated to render `SisterSiteCallout` when `owire_link` field is present
@@ -374,7 +498,7 @@ export const revalidate = 86400; // 24hr ISR — content changes are rare
 export const metadata: Metadata = {
   title: article.metaTitle,
   description: article.metaDescription,
-  alternates: { canonical: `https://www.OzoneNews.org${article.url}` },
+  alternates: { canonical: `https://www.objectwire.org${article.url}` },
   // ...
 };
 
@@ -574,4 +698,4 @@ force-dynamic      →  API routes, auth, news-sitemap, admin only
 
 ---
 
-*AlfasaAutoSEO v2.0 — OzoneNews internal architecture document. Do not publish publicly.*
+*AlfasaAutoSEO v2.0 — ObjectWire internal architecture document. Do not publish publicly.*

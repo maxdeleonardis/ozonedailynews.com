@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 export const revalidate = false;
 
 const SLUG = '/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay';

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { NewsArticle } from '@/components/articles/NewsArticle';
 
 // Inline codebase article — no Supabase sync. Content lives in the codebase.
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 export const revalidate = false;
 
 const SLUG = '/video-games/fortnite/chapter-6-season-2-battle-pass';

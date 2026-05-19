@@ -8,22 +8,22 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Jack Sterling, OzoneNews Reporter',
+  title: 'Jack Sterling | Co-Founder & Managing Reporter, OzoneNews',
   description:
-    'Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology.',
+    'Jack Sterling is a co-founder and managing reporter at OzoneNews, an independent nonprofit newsroom. He covers federal investigations, Congress, AI policy, and the politics of technology from Washington, D.C.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-sterling' },
   openGraph: {
-    title: 'Jack Sterling, OzoneNews Reporter',
-    description: 'Reporter at OzoneNews covering breaking news, federal investigations, Congress, and AI policy.',
+    title: 'Jack Sterling | Co-Founder & Managing Reporter, OzoneNews',
+    description: 'Co-Founder and Managing Reporter at OzoneNews. Federal investigations, Congress, AI policy, politics of technology.',
     url: 'https://www.ozonenetwork.news/authors/jack-sterling',
     siteName: 'OzoneNews',
     type: 'profile',
-    images: [{ url: 'https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, OzoneNews reporter' }],
+    images: [{ url: 'https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg', width: 800, height: 800, alt: 'Jack Sterling, OzoneNews co-founder and reporter' }],
   },
   twitter: {
     card: 'summary',
-    title: 'Jack Sterling, OzoneNews Reporter',
-    description: 'Reporter at OzoneNews. Breaking news, federal investigations, Congress, AI policy.',
+    title: 'Jack Sterling | Co-Founder, OzoneNews',
+    description: 'Co-founder & managing reporter at OzoneNews. Federal investigations, Congress, AI policy.',
     images: ['https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg'],
   },
 };
@@ -39,18 +39,26 @@ const HIGHLIGHTS = [
   { stat: '40+', label: 'Published Articles' },
 ];
 
+const SOCIAL = [
+  {
+    label: 'Email',
+    href: 'mailto:j.sterling@ozonenetwork.news',
+    icon: '\u2709',
+  },
+];
+
 export default function JackSterlingAuthorPage() {
   return (
     <main className="min-h-screen bg-white">
       <AuthorSchema
         name="Jack Sterling"
-        jobTitle="Reporter"
-        description="Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations, Congress, AI policy, and the intersection of politics and technology."
+        jobTitle="Co-Founder & Managing Reporter"
+        description="Jack Sterling is a co-founder and managing reporter at OzoneNews, an independent nonprofit newsroom. He covers federal investigations, Congress, AI policy, and the politics of technology from Washington, D.C."
         url="https://www.ozonenetwork.news/authors/jack-sterling"
         image="https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg"
         knowsAbout={['Breaking News', 'Politics', 'Investigations', 'Congress', 'AI Policy', 'Federal Law', 'Gaming', 'Technology']}
         alumniOf={[{ name: 'New York University', department: 'Journalism' }]}
-        location={{ city: 'Washington', region: 'D.C.' }}
+        location={{ city: 'Washington', region: 'DC' }}
         articleCount={40}
       />
 
@@ -81,12 +89,12 @@ export default function JackSterlingAuthorPage() {
             {/* Identity */}
             <div className="flex-1">
               <p className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500 mb-2 font-mono">
-                Reporter &middot; OzoneNews
+                Co-Founder &middot; OzoneNews
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
                 Jack Sterling
               </h1>
-              <p className="text-gray-300 text-xl font-medium">Politics, Investigations &amp; Technology</p>
+              <p className="text-gray-300 text-xl font-medium">Co-Founder &amp; Managing Reporter</p>
             </div>
             {/* Stats */}
             <div className="flex gap-8 md:pb-1 shrink-0">
@@ -114,7 +122,13 @@ export default function JackSterlingAuthorPage() {
           <span>📍 Washington, D.C.</span>
           <span>🎓 NYU, Journalism</span>
           <span>🗂 Politics &amp; Investigations Desk</span>
-          <span>📅 Active Since 2023</span>
+          <span>📅 Co-Founder &middot; 2026</span>
+          <a
+            href="mailto:j.sterling@ozonenetwork.news"
+            className="text-blue-400 hover:text-blue-300 underline transition-colors"
+          >
+            ✉ j.sterling@ozonenetwork.news
+          </a>
         </div>
       </div>
 
@@ -139,11 +153,12 @@ export default function JackSterlingAuthorPage() {
             {/* Details */}
             <div className="border border-gray-200 divide-y divide-gray-100">
               {[
-                ['Organization', 'OzoneNews'],
+                ['Organization', 'OzoneNews (Nonprofit)'],
+                ['Role', 'Co-Founder & Managing Reporter'],
                 ['Desk', 'Politics & Investigations'],
                 ['Education', 'NYU, Journalism'],
                 ['Location', 'Washington, D.C.'],
-                ['Joined', '2023'],
+                ['Joined', '2026'],
               ].map(([label, value]) => (
                 <div key={label} className="px-5 py-3 flex justify-between items-baseline gap-4">
                   <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 shrink-0">{label}</p>
@@ -177,11 +192,12 @@ export default function JackSterlingAuthorPage() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Jack Sterling is a reporter at OzoneNews covering breaking news, federal investigations,
-                  Congress, and the intersection of politics and technology. Based in Washington, D.C.,
-                  he reports on how federal policy decisions shape the technology industry, with a
-                  particular focus on AI regulation, antitrust enforcement, and legislative oversight
-                  of the major technology platforms.
+                  Jack Sterling is a co-founder and managing reporter at{' '}
+                  <a href="/about" className="text-blue-600 hover:text-blue-800 underline">OzoneNews</a>,
+                  an independent nonprofit newsroom organized under Section 501(c) of the Internal Revenue Code.
+                  Based in Washington, D.C., Sterling covers federal investigations, Congress, and the
+                  intersection of politics and technology, with a particular focus on AI regulation,
+                  antitrust enforcement, and legislative oversight of the major technology platforms.
                 </p>
                 <p>
                   A graduate of{' '}
@@ -194,12 +210,14 @@ export default function JackSterlingAuthorPage() {
                   Sterling&rsquo;s gaming coverage applies the same investigative rigor to the
                   video game industry: tracking studio financials, analyzing earnings call transcripts,
                   and reporting on the business decisions behind major releases including GTA VI,
-                  the Nintendo Switch 2 launch, and Gran Turismo&rsquo;s competitive licensing
-                  structure.
+                  the Nintendo Switch 2 launch, and Gran Turismo&rsquo;s competitive licensing structure.
                 </p>
                 <p>
-                  He operates from the OzoneNews Politics and Investigations Desk. Tips and document
-                  leads can be directed to OzoneNews&rsquo;s editorial contact channel.
+                  As co-founder, Sterling oversees OzoneNews&rsquo;s editorial independence policies,
+                  source protection standards, and the newsroom&rsquo;s nonprofit governance structure.
+                  The newsroom accepts no advertising, sponsored content, or political donations.
+                  Tips and document leads can be directed to{' '}
+                  <a href="mailto:j.sterling@ozonenetwork.news" className="text-blue-600 hover:text-blue-800 underline">j.sterling@ozonenetwork.news</a>.
                 </p>
               </div>
             </section>

@@ -14,19 +14,32 @@
  *
  * Rules (post-March-2026 Core Update):
  *  - Only list verified, live external profiles (Twitter, LinkedIn, Facebook).
- *  - Editorial personas with no real external footprint get an empty array.
+ *  - Entries with no real external footprint get an empty array.
  *  - An empty array means the sameAs key is omitted from the Person object.
+ *  - Update this map when a real external profile is created for any author.
  */
 const AUTHOR_SAME_AS: Record<string, string[]> = {
+  // Max DeLeonardis — 70% founding member. Real verified profiles:
   'Max DeLeonardis': [
     'https://x.com/ozonedailynews',
     'https://www.linkedin.com/in/maximillion-deleonardis',
     'https://www.facebook.com/don.deleonardis/',
   ],
-  // Jack Sterling and Tina Boyle are editorial personas. No external profiles.
-  // If real authors are ever assigned these bylines, add their sameAs here.
+  // Jack Sterling — 30% founding member. Profiles pending account creation.
+  // TODO: add https://x.com/[handle] and https://www.linkedin.com/in/[slug] once created.
   'Jack Sterling': [],
-  'Tina Boyle': [],
+  // Tina Boyle — Investigations Reporter. Public Facebook profile:
+  'Tina Boyle': [
+    'https://www.facebook.com/tina.b.deleonardis',
+  ],
+  // Alfasa Chillingsworth — Finance & Markets / Anime & Gaming. Profiles pending.
+  // TODO: add social profiles once created.
+  'Alfasa Chillingsworth': [],
+  // Legacy byline still referenced in some article JSON files:
+  'Alfansa': [],
+  // Jack Brennan — Creator & Influencer Reporter. Profiles pending.
+  // TODO: add social profiles once created.
+  'Jack Brennan': [],
 };
 
 export interface ArticleSchemaProps {

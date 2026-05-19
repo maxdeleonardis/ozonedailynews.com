@@ -122,8 +122,12 @@ export default function TinaBoyleAuthorPage() {
           <span>📍 Washington, D.C.</span>
           <span>� UCLA, Political Science</span>
           <span>🗂 Investigations Desk</span>
-          <span>📅 Active Since 2024</span>
-          {SOCIAL.map((s) => (
+          <span>📅 Active Since 2024</span>          <a
+            href="mailto:t.boyle@ozonenetwork.news"
+            className="text-blue-400 hover:text-blue-300 underline transition-colors"
+          >
+            ✉ t.boyle@ozonenetwork.news
+          </a>          {SOCIAL.map((s) => (
             <a
               key={s.label}
               href={s.href}
@@ -241,7 +245,8 @@ export default function TinaBoyleAuthorPage() {
                 </p>
                 <p>
                   She operates out of the OzoneNews Investigations Desk. Tips and document leads can be
-                  directed to OzoneNews&rsquo;s editorial contact channel.
+                  directed to{' '}
+                  <a href="mailto:t.boyle@ozonenetwork.news" className="text-blue-600 hover:text-blue-800 underline">t.boyle@ozonenetwork.news</a>.
                 </p>
               </div>
             </section>

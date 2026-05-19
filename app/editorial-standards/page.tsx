@@ -8,13 +8,13 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/editorial-standards';
 
 export const metadata: Metadata = {
-  title: 'Editorial Standards',
+  title: 'Editorial Standards | OzoneNews',
   description:
-    'How OzoneNews reports, sources, verifies, and corrects. Our standards on accuracy, attribution, and conflicts of interest.',
+    'How OzoneNews reports, sources, verifies, and corrects. Our standards on accuracy, attribution, AI use, Information Gain, and conflicts of interest.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Editorial Standards',
-    description: 'How OzoneNews reports, sources, verifies, and corrects.',
+    title: 'Editorial Standards | OzoneNews',
+    description: 'How OzoneNews reports, sources, verifies, corrects, and applies AI policy.',
     type: 'article',
     url: PAGE_URL,
     siteName: 'OzoneNews',
@@ -22,14 +22,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Editorial Standards',
+    title: 'Editorial Standards | OzoneNews',
     description: 'How OzoneNews reports, sources, verifies, and corrects.',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Editorial Standards', item: PAGE_URL },
+  ],
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': PAGE_URL,
+  url: PAGE_URL,
+  name: 'Editorial Standards | OzoneNews',
+  description: 'OzoneNews editorial policy covering accuracy, sourcing, AI use, Information Gain, and corrections.',
+  publisher: {
+    '@type': 'NewsMediaOrganization',
+    name: 'OzoneNews',
+    legalName: 'Ozone Network News LLC',
+    url: 'https://www.ozonenetwork.news',
   },
 };
 
 export default function EditorialStandardsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <div className="container mx-auto px-4 pt-4 max-w-3xl">
         <Breadcrumb
           items={[
@@ -48,10 +80,44 @@ export default function EditorialStandardsPage() {
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
           Accuracy over speed. Primary sources only. Transparent corrections. These are not slogans, they
-          are the rules every OzoneNews reporter and editor works by.
+          are the rules every OzoneNews reporter and editor works by, enforced on every publish.
         </p>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">
+
+          <h2>0. Information Gain requirement (post-March 2026)</h2>
+          <p>
+            Following the Google March 2026 Core Update, every article published on the Ozone Network
+            must contain at least one piece of <strong>Information Gain</strong>, original content that
+            does not exist anywhere else on the open web. Generic AI rewrites of existing articles are
+            not journalism and will not be published.
+          </p>
+          <p>Every article must contain at least one of the following before publication:</p>
+          <ul>
+            <li>An original quote from a named source obtained through direct contact</li>
+            <li>A contrarian perspective with explicit reasoning not present in the source reporting</li>
+            <li>A custom chart, raw data screenshot, or primary-source dataset the wider web has not summarized</li>
+            <li>A &ldquo;Why This Matters&rdquo; section written by a human editor tying the story to a macro trend</li>
+          </ul>
+          <p>
+            <strong>Banned transition phrases.</strong> The following phrases are prohibited in all published
+            article body copy. They are markers of low-effort AI generation and will cause the
+            prebuild lint to fail:
+          </p>
+          <ul>
+            <li>&ldquo;In conclusion&rdquo;</li>
+            <li>&ldquo;It is important to note&rdquo;</li>
+            <li>&ldquo;It is important to remember&rdquo;</li>
+            <li>&ldquo;Furthermore, it is crucial&rdquo;</li>
+            <li>&ldquo;In today&rsquo;s fast-paced world&rdquo;</li>
+            <li>&ldquo;In the ever-evolving landscape&rdquo;</li>
+            <li>&ldquo;It is worth noting that&rdquo;</li>
+            <li>&ldquo;Moreover, it should be noted&rdquo;</li>
+            <li>&ldquo;Navigating the complex&rdquo;</li>
+            <li>&ldquo;Delve into&rdquo;</li>
+            <li>&ldquo;In summary&rdquo;</li>
+          </ul>
+
           <h2>1. Accuracy over speed</h2>
           <p>
             We do not chase breaking news without sourcing. If a story cannot be verified, it does not
@@ -116,9 +182,16 @@ export default function EditorialStandardsPage() {
 
           <h2>6. AI use in the newsroom</h2>
           <p>
-            AI tools are used internally for research assistance, transcription, and code review. AI is
-            not used to generate published article copy or to fabricate quotes, sources, or facts. Every
-            published sentence is written or edited by a named human reporter who is accountable for it.
+            AI tools are used internally for research assistance, transcription, and first-draft
+            structuring. AI is <strong>never</strong> used to generate published article copy without
+            human editorial review and complete rewrite by the named reporter. Every published sentence
+            is written or substantially edited by a named human reporter who is accountable for it.
+            We do not use AI to fabricate quotes, invent sources, or produce synthetic data.
+          </p>
+          <p>
+            The Ozone Network does not publish fully automated AI-generated articles. Every article that
+            uses AI assistance must have measurable Information Gain added by a human before publish
+            (see Section 0 above).
           </p>
 
           <h2>7. Corrections and accountability</h2>
@@ -166,8 +239,8 @@ export default function EditorialStandardsPage() {
           </p>
 
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Last updated: April 29, 2026. Material changes to this policy are committed to the public
-            repository.
+            Last updated: May 19, 2026. Published by Ozone Network News LLC, Austin, Texas. Material
+            changes to this policy are committed to the public repository.
           </p>
         </div>
       </article>

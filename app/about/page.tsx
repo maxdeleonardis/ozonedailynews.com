@@ -9,13 +9,13 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/about';
 
 export const metadata: Metadata = {
-  title: 'About OzoneNews',
+  title: 'About OzoneNews | Ozone Network News LLC',
   description:
-    'OzoneNews is a self-funded, nonprofit newsroom focused on verified, source-cited reporting. Read our mission, ownership, and funding.',
+    'Ozone Network News LLC is an independent, self-funded newsroom delivering verified, source-cited reporting. Read our mission, ownership, funding, and editorial independence statement.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'About OzoneNews',
-    description: 'Self-funded, nonprofit newsroom. Verified, source-cited reporting.',
+    title: 'About OzoneNews | Ozone Network News LLC',
+    description: 'Independent, self-funded newsroom. Verified, source-cited reporting. No advertising, no political donations.',
     type: 'article',
     url: PAGE_URL,
     siteName: 'OzoneNews',
@@ -23,14 +23,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About OzoneNews',
-    description: 'Self-funded, nonprofit newsroom. Verified, source-cited reporting.',
+    title: 'About OzoneNews | Ozone Network News LLC',
+    description: 'Independent, self-funded newsroom. Verified, source-cited reporting.',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: PAGE_URL },
+  ],
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': PAGE_URL,
+  url: PAGE_URL,
+  name: 'About OzoneNews | Ozone Network News LLC',
+  description: 'Ozone Network News LLC is an independent, self-funded newsroom. Ownership, funding, and editorial independence disclosure.',
+  publisher: {
+    '@type': 'NewsMediaOrganization',
+    name: 'OzoneNews',
+    legalName: 'Ozone Network News LLC',
+    url: 'https://www.ozonenetwork.news',
   },
 };
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <div className="container mx-auto px-4 pt-4 max-w-3xl">
         <Breadcrumb
           items={[
@@ -45,7 +77,7 @@ export default function AboutPage() {
           Ownership and Funding Disclosure
         </p>
         <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
-          OzoneNews is an independent, self-funded nonprofit newsroom.
+          About Ozone Network News
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
           We exist to publish verified, source-cited reporting. We are not owned by, controlled by, or
@@ -55,10 +87,10 @@ export default function AboutPage() {
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <h2>Ownership</h2>
           <p>
-            OzoneNews is a formally registered 501(c)(3) nonprofit organization, incorporated in the
-            State of Wyoming as <strong>OzoneNews LLC</strong>. There are no outside shareholders,
-            parent companies, or holding entities. Editorial decisions are made by named editors whose
-            bios are public on our{' '}
+            OzoneNews is published by <strong>Ozone Network News LLC</strong>, a limited liability
+            company organized and headquartered in <strong>Austin, Texas</strong>. There are no outside
+            shareholders, parent companies, or holding entities. Editorial decisions are made by named
+            editors whose bios are public on our{' '}
             <Link href="/authors" className="text-blue-600 hover:text-blue-800 underline">
               authors page
             </Link>
@@ -132,6 +164,19 @@ export default function AboutPage() {
             </li>
           </ul>
 
+          <h2>AI and technology policy</h2>
+          <p>
+            AI tools are used internally for research assistance, transcription, and first-draft
+            structuring. AI is <strong>never</strong> used to generate published article copy without
+            human editorial review and rewrite. Every published sentence is the product of a named human
+            reporter who is accountable for it. We do not use AI to fabricate quotes, invent sources, or
+            produce synthetic data. See our{' '}
+            <Link href="/editorial-standards" className="text-blue-600 hover:text-blue-800 underline">
+              editorial standards
+            </Link>{' '}
+            for the full AI policy.
+          </p>
+
           <h2>Contact</h2>
           <p>
             Editorial contact:{' '}
@@ -148,7 +193,7 @@ export default function AboutPage() {
           <p>
             This disclosure page is maintained directly in the OzoneNews codebase. Material changes
             (ownership, funding model, leadership) are committed to the public repository and dated in
-            the change log. Last updated: April 29, 2026.
+            the change log. Last updated: May 19, 2026.
           </p>
         </div>
       </article>

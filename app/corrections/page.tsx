@@ -8,12 +8,12 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/corrections';
 
 export const metadata: Metadata = {
-  title: 'Corrections Policy',
+  title: 'Corrections Policy | OzoneNews',
   description:
-    'How OzoneNews handles corrections. Errors are fixed publicly, timestamped, and the original text is preserved. Report an issue here.',
+    'How OzoneNews handles corrections. Errors are fixed publicly, timestamped, and original text is preserved. Report an issue to corrections@ozonenetwork.news.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Corrections Policy',
+    title: 'Corrections Policy | OzoneNews',
     description: 'How OzoneNews handles corrections. Errors fixed publicly and timestamped.',
     type: 'article',
     url: PAGE_URL,
@@ -22,14 +22,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Corrections Policy',
+    title: 'Corrections Policy | OzoneNews',
     description: 'How OzoneNews handles corrections. Errors fixed publicly and timestamped.',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 2, name: 'Corrections', item: PAGE_URL },
+  ],
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': PAGE_URL,
+  url: PAGE_URL,
+  name: 'Corrections Policy | OzoneNews',
+  description: 'OzoneNews corrections policy. Errors fixed publicly, timestamped, original text preserved.',
+  publisher: {
+    '@type': 'NewsMediaOrganization',
+    name: 'OzoneNews',
+    legalName: 'Ozone Network News LLC',
+    url: 'https://www.ozonenetwork.news',
   },
 };
 
 export default function CorrectionsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <div className="container mx-auto px-4 pt-4 max-w-3xl">
         <Breadcrumb
           items={[
@@ -141,8 +173,22 @@ export default function CorrectionsPage() {
           </p>
 
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Last updated: April 29, 2026.
+            Last updated: May 19, 2026. Published by Ozone Network News LLC, Austin, Texas.
           </p>
+
+          <h2>Public corrections log</h2>
+          <p>
+            Substantive corrections (corrected central claims, mis-identified subjects, significant
+            numerical errors) are logged below in reverse chronological order. Each entry links to
+            the amended article.
+          </p>
+          <div className="not-prose border border-gray-200 dark:border-gray-700 rounded p-5 bg-gray-50 dark:bg-gray-900">
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+              No substantive corrections have been logged since the Ozone Network launched on
+              ozonenetwork.news. This log will be updated whenever a substantive correction is
+              published.
+            </p>
+          </div>
         </div>
       </article>
     </main>

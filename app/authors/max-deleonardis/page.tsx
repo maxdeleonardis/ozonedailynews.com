@@ -41,14 +41,14 @@ const HIGHLIGHTS = [
 
 const SOCIAL = [
   {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/max-deleonardis-341a01350',
-    icon: '💼',
+    label: 'Twitter / X',
+    href: 'https://x.com/ozonedailynews',
+    icon: '𝕏',
   },
   {
-    label: 'YouTube',
-    href: 'https://www.youtube.com/@amarketology',
-    icon: '▶',
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/maximillion-deleonardis',
+    icon: '💼',
   },
   {
     label: 'Facebook',
@@ -65,9 +65,10 @@ export default function MaxDeLeonardisAuthorPage() {
         jobTitle="Science & Technology Writer"
         description="Max DeLeonardis is the founding writer at OzoneNews covering biotechnology, CRISPR, medical research, AI hardware, video games, and emerging technologies."
         url="https://www.ozonenetwork.news/authors/max-deleonardis"
+        image="https://www.ozonenetwork.news/authors/max_de_leonardis.jpg"
         sameAs={[
-          'https://www.linkedin.com/in/max-deleonardis-341a01350',
-          'https://www.youtube.com/@amarketology',
+          'https://x.com/ozonedailynews',
+          'https://www.linkedin.com/in/maximillion-deleonardis',
           'https://www.facebook.com/don.deleonardis/',
         ]}
         knowsAbout={['Biotechnology', 'CRISPR', 'Medical Research', 'AI Hardware', 'Emerging Technology', 'Neuroscience', 'Video Games']}
@@ -136,7 +137,13 @@ export default function MaxDeLeonardisAuthorPage() {
           <span>📍 Austin, Texas</span>
           <span>🎓 NC State University, Journalism</span>
           <span>🔬 Science &amp; Technology Desk</span>
-          <span>📅 Founding Writer &middot; 2023</span>
+          <span>📅 Founding Writer &middot; 2026</span>
+          <a
+            href="mailto:m.deleonardis@ozonenetwork.news"
+            className="text-blue-400 hover:text-blue-300 underline transition-colors"
+          >
+            ✉ m.deleonardis@ozonenetwork.news
+          </a>
           {SOCIAL.map((s) => (
             <a
               key={s.label}

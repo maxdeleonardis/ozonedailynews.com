@@ -5,6 +5,30 @@
 // Google Top Stories image requirement: minimum 1200x675 (16:9 ratio).
 // 1200x630 fails the Top Stories eligibility check.
 
+/**
+ * Author → external profile sameAs lookup map.
+ *
+ * When `authorSameAs` is NOT passed to NewsArticleSchema, the component
+ * falls back to this map keyed by `author` display name. This means all
+ * existing article pages get correct Person sameAs in schema automatically.
+ *
+ * Rules (post-March-2026 Core Update):
+ *  - Only list verified, live external profiles (Twitter, LinkedIn, Facebook).
+ *  - Editorial personas with no real external footprint get an empty array.
+ *  - An empty array means the sameAs key is omitted from the Person object.
+ */
+const AUTHOR_SAME_AS: Record<string, string[]> = {
+  'Max DeLeonardis': [
+    'https://x.com/ozonedailynews',
+    'https://www.linkedin.com/in/maximillion-deleonardis',
+    'https://www.facebook.com/don.deleonardis/',
+  ],
+  // Jack Sterling and Tina Boyle are editorial personas. No external profiles.
+  // If real authors are ever assigned these bylines, add their sameAs here.
+  'Jack Sterling': [],
+  'Tina Boyle': [],
+};
+
 export interface ArticleSchemaProps {
   title: string;
   description: string;
@@ -43,6 +67,12 @@ export function NewsArticleSchema({
   keywords = [],
   wordCount,
 }: ArticleSchemaProps) {
+  // Resolve sameAs: prefer explicitly-passed prop, fall back to the lookup
+  // map so all existing articles get correct Person sameAs without page edits.
+  const resolvedSameAs = (authorSameAs && authorSameAs.length > 0)
+    ? authorSameAs
+    : (AUTHOR_SAME_AS[author] ?? []);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -65,7 +95,7 @@ export function NewsArticleSchema({
       "@type": "Person",
       "name": author,
       "url": authorUrl || `https://www.ozonenetwork.news/authors/${author.toLowerCase().replace(/\s+/g, '-')}`,
-      ...(authorSameAs && authorSameAs.length > 0 ? { "sameAs": authorSameAs } : {}),
+      ...(resolvedSameAs.length > 0 ? { "sameAs": resolvedSameAs } : {}),
     },
     "publisher": {
       "@type": "NewsMediaOrganization",
@@ -73,13 +103,15 @@ export function NewsArticleSchema({
       "legalName": "Ozone Network News LLC",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.ozonenetwork.news/OzoneNews-logo.png",
+        // objectwire-logo.png is the current live logo in /public.
+        // Replace with /ozonenetwork-logo.png once the OzoneNews brand asset is ready.
+        "url": "https://www.ozonenetwork.news/objectwire-logo.png",
         "width": 600,
         "height": 60
       },
       "url": "https://www.ozonenetwork.news",
       "sameAs": [
-        "https://twitter.com/ozonenews",
+        "https://x.com/ozonedailynews",
         "https://www.linkedin.com/company/ozonenetworknews"
       ]
     },
@@ -125,11 +157,13 @@ export function OrganizationSchema() {
     "@type": "NewsMediaOrganization",
     "name": "OzoneNews",
     "legalName": "Ozone Network News LLC",
-    "alternateName": ["Ozone Network News", "ONN"],
+    "alternateName": ["The Ozone Network", "Ozone Network News", "ONN"],
     "url": "https://www.ozonenetwork.news",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.ozonenetwork.news/OzoneNews-logo.png",
+      // objectwire-logo.png is the current live logo in /public.
+      // Replace with /ozonenetwork-logo.png once the OzoneNews brand asset is ready.
+      "url": "https://www.ozonenetwork.news/objectwire-logo.png",
       "width": 600,
       "height": 60
     },
@@ -142,7 +176,7 @@ export function OrganizationSchema() {
       }
     ],
     "sameAs": [
-      "https://twitter.com/ozonenews",
+      "https://x.com/ozonedailynews",
       "https://www.linkedin.com/company/ozonenetworknews"
     ],
     "contactPoint": [

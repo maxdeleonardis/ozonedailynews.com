@@ -160,7 +160,10 @@ export default function AboutPage() {
               <Link href="/authors/max-deleonardis" className="text-blue-600 hover:text-blue-800 underline">
                 Max DeLeonardis
               </Link>
-              , Science and Technology Writer (biotech, medical research, AI hardware)
+              , Founding Writer (science, biotechnology, AI hardware, video games) &mdash;{' '}
+              <a href="https://x.com/ozonedailynews" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">@ozonedailynews</a>
+              {' '}&middot;{' '}
+              <a href="https://www.linkedin.com/in/maximillion-deleonardis" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">LinkedIn</a>
             </li>
           </ul>
 

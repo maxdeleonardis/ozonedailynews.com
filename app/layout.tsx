@@ -281,7 +281,18 @@ export default async function RootLayout({
                   >
                     <div>
                       <div className="font-bold text-sm text-white">Max DeLeonardis</div>
-                      <div className="text-xs text-gray-400 mt-0.5">Science &amp; Technology Writer, Austin TX</div>
+                      <div className="text-xs text-gray-400 mt-0.5">Founding Writer, Science &amp; Technology</div>
+                      <div className="flex items-center gap-2 mt-1">
+                        <a
+                          href="https://x.com/ozonedailynews"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-xs text-blue-400 hover:text-blue-300 underline"
+                        >
+                          @ozonedailynews
+                        </a>
+                      </div>
                     </div>
                     <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
                   </Link>

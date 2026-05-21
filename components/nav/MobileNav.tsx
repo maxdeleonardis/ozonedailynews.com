@@ -71,9 +71,11 @@ const NAV_HUBS: NavHub[] = [
 ];
 
 const FOOTER_LINKS = [
+  { href: '/about', label: 'About OzoneNews' },
   { href: '/editorial-standards', label: 'Editorial Standards' },
-  { href: '/about', label: 'About' },
-  { href: '/get-help/contact', label: 'Contact' },
+  { href: '/corrections', label: 'Corrections Policy' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/authors', label: 'Our Team' },
 ];
 
 export default function MobileNav() {

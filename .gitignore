@@ -55,6 +55,8 @@ supabase/functions/.vscode
 # Google service account credential files — NEVER commit these
 objectwireorg-76d014b98819.json
 *-????????????????.json
+# Allow static content JSON (overrides the credential pattern above)
+!content/static/**/*.json
 
 # Screenshots and screen recordings — never commit to repo
 public/Screenshot*.png

@@ -170,12 +170,73 @@ export default function MainNav() {
 
           {/* Right controls */}
           <div className="flex items-center ml-auto shrink-0">
-            <Link
-              href="/site-index"
-              className={`${LINK_CLS} border-l border-r border-black hidden sm:block`}
+
+            {/* About dropdown */}
+            <div
+              className="relative shrink-0 hidden sm:block"
+              onMouseEnter={() => openMenu('About')}
+              onMouseLeave={scheduleClose}
             >
-              Index
-            </Link>
+              <Link
+                href="/about"
+                className={`${LINK_CLS} border-l border-r border-black flex items-center gap-1 ${openHub === 'About' ? 'bg-black text-white' : ''}`}
+              >
+                About
+                <svg
+                  className={`w-2.5 h-2.5 transition-transform duration-150 ${openHub === 'About' ? 'rotate-180' : ''}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+
+              {openHub === 'About' && (
+                <div
+                  className="absolute top-full right-0 z-[200] bg-white border-2 border-t-0 border-black shadow-2xl py-1 min-w-[220px]"
+                  onMouseEnter={cancelClose}
+                  onMouseLeave={scheduleClose}
+                >
+                  <div className="flex flex-col">
+                    <Link
+                      href="/about"
+                      onClick={() => setOpenHub(null)}
+                      className="block px-4 py-2.5 text-[10px] font-bold tracking-[.1em] uppercase text-gray-800 hover:bg-black hover:text-white transition-colors border-b border-gray-200"
+                    >
+                      About OzoneNews
+                    </Link>
+                    <Link
+                      href="/editorial-standards"
+                      onClick={() => setOpenHub(null)}
+                      className="block px-4 py-2.5 text-[10px] font-bold tracking-[.1em] uppercase text-gray-800 hover:bg-black hover:text-white transition-colors"
+                    >
+                      Editorial Standards
+                    </Link>
+                    <Link
+                      href="/corrections"
+                      onClick={() => setOpenHub(null)}
+                      className="block px-4 py-2.5 text-[10px] font-bold tracking-[.1em] uppercase text-gray-800 hover:bg-black hover:text-white transition-colors"
+                    >
+                      Corrections Policy
+                    </Link>
+                    <Link
+                      href="/contact"
+                      onClick={() => setOpenHub(null)}
+                      className="block px-4 py-2.5 text-[10px] font-bold tracking-[.1em] uppercase text-gray-800 hover:bg-black hover:text-white transition-colors"
+                    >
+                      Contact
+                    </Link>
+                    <Link
+                      href="/authors"
+                      onClick={() => setOpenHub(null)}
+                      className="block px-4 py-2.5 text-[10px] font-bold tracking-[.1em] uppercase text-gray-800 hover:bg-black hover:text-white transition-colors border-t border-gray-200"
+                    >
+                      Our Team
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <div className="hidden sm:block border-r border-black">
               <NavUserButton />
             </div>

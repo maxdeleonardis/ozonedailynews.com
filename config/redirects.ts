@@ -1,5 +1,5 @@
 /**
- * Permanent 301 redirects for OzoneNews.
+ * Permanent 301 redirects for ObjectWire.
  *
  * HOW TO ADD:    Push an entry to the correct section array below.
  * HOW TO REMOVE: Delete or comment out the entry.
@@ -27,6 +27,13 @@ export const redirects: R[] = [
     destination: '/blitzy-ai-powered-autonomous-software-development',
     permanent: true,
   },
+
+  // ==========================================================================
+  // YOUTUBE SECTION MIGRATION — moved to owire.org
+  // Date: May 11, 2026
+  // ==========================================================================
+  { source: '/youtube',        destination: 'https://owire.org/youtube',        permanent: true },
+  { source: '/youtube/:path*', destination: 'https://owire.org/youtube/:path*', permanent: true },
 
   // ==========================================================================
   // SIDEMEN CONTENT MIGRATION — /sidemen → /youtube/sidemen
@@ -57,16 +64,13 @@ export const redirects: R[] = [
   { source: '/index',          destination: '/news',         permanent: true },
   { source: '/team',           destination: '/news',         permanent: true },
   { source: '/research',       destination: '/news',         permanent: true },
-  { source: '/OzoneNews',     destination: '/news',         permanent: true },
+  { source: '/objectwire',     destination: '/news',         permanent: true },
   { source: '/missing-persons', destination: '/news',        permanent: true },
 
   { source: '/bank-of-america', destination: '/news',        permanent: true },
   { source: '/contactus',      destination: '/',             permanent: true },
   { source: '/mha',            destination: '/video-games',  permanent: true },
   { source: '/james-cameron',  destination: '/entertainment',permanent: true },
-
-  // Tag pages — no individual tag pages exist
-  { source: '/tags/:path*',    destination: '/news', permanent: true },
 
   // Service pages — detective agency
   { source: '/service/:path*', destination: '/austin-private-detective-agency', permanent: true },

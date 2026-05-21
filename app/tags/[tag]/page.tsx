@@ -37,20 +37,20 @@ export async function generateMetadata({
   const SLUG = `/tags/${tag}`;
 
   return {
-    title: `${display} | OzoneNews`,
-    description: `Browse all OzoneNews articles tagged with ${display}. News, analysis, and in-depth coverage.`,
-    alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
+    title: `${display} | ObjectWire`,
+    description: `Browse all ObjectWire articles tagged with ${display}. News, analysis, and in-depth coverage.`,
+    alternates: { canonical: `https://www.objectwire.org${SLUG}` },
     openGraph: {
-      title: `${display} | OzoneNews`,
-      description: `All OzoneNews articles tagged with ${display}.`,
+      title: `${display} | ObjectWire`,
+      description: `All ObjectWire articles tagged with ${display}.`,
       type: 'website',
-      url: `https://www.ozonenetwork.news${SLUG}`,
-      siteName: 'OzoneNews',
+      url: `https://www.objectwire.org${SLUG}`,
+      siteName: 'ObjectWire',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${display} | OzoneNews`,
-      description: `All OzoneNews articles tagged with ${display}.`,
+      title: `${display} | ObjectWire`,
+      description: `All ObjectWire articles tagged with ${display}.`,
     },
   };
 }
@@ -116,7 +116,7 @@ export default async function TagPage({
                 #{display}
               </h1>
               <p className="mt-2 text-gray-600 text-base sm:text-lg max-w-2xl">
-                All OzoneNews articles tagged with &ldquo;{display}&rdquo;.
+                All ObjectWire articles tagged with &ldquo;{display}&rdquo;.
               </p>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default async function TagPage({
                       {article.category}
                     </span>
                     <h2 className="font-serif text-base font-black leading-snug group-hover:underline line-clamp-3 flex-1">
-                      {article.title.replace(/\s*[|]\s*OzoneNews.*$/i, '')}
+                      {article.title.replace(/\s*[|]\s*ObjectWire.*$/i, '')}
                     </h2>
                     {article.description && (
                       <p className="text-xs text-gray-500 mt-2 line-clamp-2">

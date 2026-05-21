@@ -17,7 +17,9 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { NewsArticle } from './NewsArticle';
 import { ContentRenderer } from './ContentRenderer';
+import { NewsArticleSchema } from './NewsArticleSchema';
 import type { BreadcrumbItem } from '@/components/nav/Breadcrumb';
+import { getOGImageUrl } from '@/lib/og/url';
 
 // ---------------------------------------------------------------------------
 // Static-first data helpers
@@ -208,14 +210,45 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
       }
     : undefined;
 
-  const thumbnail = r.thumbnail_src
-    ? {
-        src: r.thumbnail_src as string,
-        alt: (r.thumbnail_alt as string) ?? '',
-      }
-    : undefined;
+  // ── Satori OG image URL — stable, crawlable, 1200×675 ─────────────────────
+  // Prefer explicit thumbnail/hero, fall back to slug-based Satori generation.
+  // Used for: NewsArticleSchema imageUrl, in-article genie-float header, social cards.
+  const satoriUrl = getOGImageUrl({
+    slug: r.url as string | undefined,
+    title: r.title as string | undefined,
+    category: r.category as string | undefined,
+  });
+  const ogImageUrl = (r.thumbnail_src as string | null)
+    ?? (r.hero_image_src as string | null)
+    ?? satoriUrl;
+
+  // In-article genie-float header thumbnail.
+  // If no explicit thumbnail_src is set, use the Satori image so every article
+  // gets a branded, auto-generated header image — no manual asset work needed.
+  const thumbnail = r.hero_image_src
+    ? undefined  // hero image already fills the header; no thumbnail column needed
+    : {
+        src: (r.thumbnail_src as string | null) ?? satoriUrl,
+        alt: (r.thumbnail_alt as string | null) ?? (r.title as string) ?? '',
+        aspectRatio: '16:9' as const,
+      };
 
   return (
+    <>
+      <NewsArticleSchema
+        title={r.title as string}
+        description={(r.subtitle ?? r.excerpt ?? '') as string}
+        author={(r.author_name ?? 'OzoneNews Editorial Team') as string}
+        authorUrl={r.author_slug ? `https://www.ozonenetwork.news/authors/${r.author_slug}` : undefined}
+        publishedTime={(r.published_at ?? r.created_at ?? '') as string}
+        modifiedTime={(r.updated_at ?? r.published_at ?? '') as string}
+        imageUrl={ogImageUrl}
+        imageWidth={1200}
+        imageHeight={675}
+        articleUrl={`https://www.ozonenetwork.news${r.url ?? ''}`}
+        section={(r.category ?? 'News') as string}
+        keywords={Array.isArray(r.tags) ? (r.tags as string[]) : []}
+      />
     <NewsArticle
       title={r.title}
       subtitle={r.subtitle ?? undefined}
@@ -241,5 +274,7 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
     >
       <ContentRenderer html={r.content_html ?? ''} />
     </NewsArticle>
+    </>
   );
 }
+

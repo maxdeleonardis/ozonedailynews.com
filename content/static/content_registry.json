@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/video-games/ea/news/f1-25-2026-season-pack-audi-cadillac",
+    "title": "EA F1 25 2026 Season Pack | Audi, Cadillac, and the MADRING Madrid Circuit Coming June 3",
+    "description": "EA confirms the F1 25: 2026 Season Pack launches June 3 on PS5, Xbox Series X|S, and PC. Audi and Cadillac join the grid as new constructors, Lewis Hamilton leads cover athletes, and the MADRING Madrid circuit is playable before the real-world Grand Prix.",
+    "publish_date": "May 20, 2026",
+    "published_at": "2026-05-20T18:00:00-05:00",
+    "modified_date": "2026-05-20T18:00:00-05:00",
+    "category": "Gaming",
+    "tags": [
+      "Electronic Arts",
+      "F1 25",
+      "Formula 1",
+      "Audi",
+      "Cadillac",
+      "Lewis Hamilton",
+      "MADRING"
+    ],
+    "author": "OzoneNews Editorial Team",
+    "author_slug": "ozonenetwork-editorial-team",
+    "priority": 0.8,
+    "change_frequency": "weekly",
+    "featured": false,
+    "image_url": "https://www.ozonenetwork.news/api/og?title=EA+F1+25+2026+Season+Pack+%7C+Audi+%26+Cadillac+Join+Grid&category=Gaming&date=May+20+2026",
+    "image_alt": "EA F1 25 2026 Season Pack with Audi, Cadillac, and MADRING Madrid circuit",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
     "slug": "/tech/news/gitlab-restructuring-may-2026-workforce-agentic-ai-pivot",
     "title": "GitLab Restructuring May 2026 | Workforce Reduction, Flattened Management, 60 Autonomous Teams, Agentic AI Pivot",
     "description": "GitLab CEO Bill Staples announced a once-in-a-generation repositioning on May 11, 2026: up to 30% country reduction, three management layers removed, R&D into 60 autonomous teams, CREDIT values retired. Voluntary separation closes May 18. June 2 earnings call. June 10 GitLab Transcend.",
@@ -6571,22 +6598,6 @@
     "image_alt": null
   },
   {
-    "slug": "//video-games/nintendo/donkey-kong-bananza",
-    "title": "Donkey Kong Bananza — GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine | OzoneNews",
-    "description": "Nintendo's GDC 2026 session revealed Donkey Kong Bananza's 347,070,464 individually destructible voxels per level, dynamic resolution system, and restore mechanic. Producer Kenta Motokura and engineer Tatsuya Kurihara detailed how voxel tech evolved from Super Mario Odyssey's snow to Switch 2's breakable worlds.",
-    "publish_date": "2026-03-12T10:00:00+00:00",
-    "modified_date": "2026-03-12T18:08:20.747947+00:00",
-    "category": "General",
-    "tags": [],
-    "author": "Conan Boyle",
-    "author_slug": null,
-    "priority": 0.7,
-    "change_frequency": "monthly",
-    "featured": false,
-    "image_url": null,
-    "image_alt": null
-  },
-  {
     "slug": "//video-games/news/marathon-bungie-update-1-0-0-4-uesc-nerf-patch-notes",
     "title": "Marathon Update 1.0.0.4 — Bungie Nerfs UESC AI, Thermal Scopes, & More | OzoneNews",
     "description": "Bungie has deployed Marathon Update 1.0.0.4 on March 11, 2026. The first major balance pass reduces UESC enemy health by 10–15%, cuts boss shield HP by 25%, nerfs thermal scope range from 180m to 100m, and adds Med Cabinets and Munitions Crates to the Perimeter map. Full patch notes breakdown.",
@@ -6627,22 +6638,6 @@
     "category": "General",
     "tags": [],
     "author": "Conan Boyle",
-    "author_slug": null,
-    "priority": 0.7,
-    "change_frequency": "monthly",
-    "featured": false,
-    "image_url": null,
-    "image_alt": null
-  },
-  {
-    "slug": "/video-games/nintendo-donkey-kong-bananza",
-    "title": "Donkey Kong Bananza",
-    "description": "",
-    "publish_date": "2026-03-12T10:00:00+00:00",
-    "modified_date": "2026-03-25T02:38:20.586506+00:00",
-    "category": "Video Games",
-    "tags": [],
-    "author": "Austin Web Services",
     "author_slug": null,
     "priority": 0.7,
     "change_frequency": "monthly",
@@ -10884,16 +10879,22 @@
   },
   {
     "slug": "/video-games/nintendo/donkey-kong-bananza",
-    "title": "Donkey Kong Bananza",
-    "description": "GDC 2026 Tech Reveal: 347M Voxels, Switch 2 Destruction Engine",
-    "publish_date": "",
-    "modified_date": "2026-03-25T20:41:10.47978+00:00",
-    "category": "Video Games",
-    "tags": [],
-    "author": "OzoneNews",
-    "author_slug": null,
-    "priority": 0.75,
-    "change_frequency": "monthly",
+    "title": "Donkey Kong Bananza | 347M Voxels Per Level, Nintendo Switch 2",
+    "description": "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Donkey Kong Bananza level contains 347,070,464 individually destructible voxels. Launches June 5, 2026 on Nintendo Switch 2 at USD 59.99.",
+    "publish_date": "2026-03-12T10:00:00-05:00",
+    "modified_date": "2026-05-20T12:00:00-05:00",
+    "category": "Gaming",
+    "tags": [
+      "Donkey Kong Bananza",
+      "Nintendo",
+      "Nintendo Switch 2",
+      "GDC 2026",
+      "Gaming"
+    ],
+    "author": "Max DeLeonardis",
+    "author_slug": "max-deleonardis",
+    "priority": 0.8,
+    "change_frequency": "weekly",
     "featured": false,
     "image_url": null,
     "image_alt": null
@@ -13882,5 +13883,77 @@
     "author_slug": "jack-sterling",
     "image_url": "https://images.unsplash.com/photo-1598408745613-178751e2ccde?w=1200&h=675&fit=crop",
     "image_alt": "Oil tanker at sea, Strait of Hormuz maritime shipping lanes 2026"
+  },
+  {
+    "slug": "/contact",
+    "title": "Contact OzoneNews | Editorial, Corrections, Tips",
+    "description": "Contact the OzoneNews newsroom. Editorial inquiries, corrections, news tips, and general questions. We respond within one business day.",
+    "publish_date": "2026-05-21",
+    "modified_date": "2026-05-21",
+    "category": "Contact",
+    "tags": [
+      "Contact"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.8,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/google/news/google-samsung-ai-smart-glasses-fall-2026",
+    "title": "Google Samsung AI Smart Glasses | Fall 2026 Launch",
+    "description": "Google and Samsung revealed audio-first AI smart glasses at Google I/O 2026 built on Android XR with Gemini AI. Warby Parker and Gentle Monster designs launch f",
+    "publish_date": "2026-05-20",
+    "modified_date": "2026-05-20",
+    "category": "Technology",
+    "tags": [
+      "Google",
+      "Big Tech",
+      "News",
+      "Google Samsung Ai Smart Glasses Fall 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/news/warhorse-studios-middle-earth-rpg-kingdom-come-2026",
+    "title": "Warhorse Studios Confirms Middle-earth RPG | New Kingdom Come Title 2026",
+    "description": "Warhorse Studios confirms an open-world Middle-earth RPG and a new Kingdom Come title on May 20, 2026. Embracer Group reveals Fellowship Entertainment spin-off ",
+    "publish_date": "2026-05-20",
+    "modified_date": "2026-05-20",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "News",
+      "Warhorse Studios Middle Earth Rpg Kingdom Come 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/ubisoft/news/ubisoft-record-loss-hexe-roadmap-2029",
+    "title": "Ubisoft €1.3B Record Loss | Hexe 2027, Far Cry & Ghost Recon by 2029",
+    "description": "CFO Frédéric Duguet confirms the largest loss in Ubisoft history alongside a 3-franchise pipeline: AC Hexe 2027, new Far Cry and Ghost Recon by March 2029.",
+    "publish_date": "2026-04-28",
+    "modified_date": "2026-04-28",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Ubisoft",
+      "News",
+      "Ubisoft Record Loss Hexe Roadmap 2029"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

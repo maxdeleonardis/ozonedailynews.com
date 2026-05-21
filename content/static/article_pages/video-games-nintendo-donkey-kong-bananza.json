@@ -1,0 +1,62 @@
+{
+  "slug": "video-games-nintendo-donkey-kong-bananza",
+  "title": "Donkey Kong Bananza",
+  "subtitle": "Nintendo Switch 2 launch platformer with 347 million individually destructible voxels per level",
+  "category": "Gaming",
+  "last_updated": "May 2026",
+  "url": "/video-games/nintendo/donkey-kong-bananza",
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/video-games", "label": "Video Games" },
+    { "href": "/video-games/switch2", "label": "Nintendo Switch 2" },
+    { "href": "/video-games/nintendo/donkey-kong-bananza", "label": "Donkey Kong Bananza" }
+  ],
+  "back_link": {
+    "href": "/video-games/switch2",
+    "label": "Nintendo Switch 2"
+  },
+  "info_box": {
+    "title": "Donkey Kong Bananza",
+    "items": [
+      { "label": "Developer", "value": "Nintendo EPD" },
+      { "label": "Publisher", "value": "Nintendo" },
+      { "label": "Director", "value": "Kenta Motokura, Tatsuya Kurihara" },
+      { "label": "Platform", "value": "Nintendo Switch 2" },
+      { "label": "Release Date", "value": "June 5, 2026" },
+      { "label": "Price", "value": "$59.99" },
+      { "label": "Genre", "value": "3D Platformer" },
+      { "label": "Rating", "value": "TBD (E10+ expected)" },
+      { "label": "Voxels Per Level", "value": "347,070,464" },
+      { "label": "Target Frame Rate", "value": "60fps" }
+    ]
+  },
+  "table_of_contents": [
+    { "id": "overview", "label": "Overview" },
+    { "id": "reveal-trailer", "label": "Official Reveal Trailer" },
+    { "id": "gameplay", "label": "Gameplay and Destruction System" },
+    { "id": "gdc-tech", "label": "GDC 2026 Tech Breakdown: 347M Voxels" },
+    { "id": "development", "label": "Development History" },
+    { "id": "launch", "label": "Launch Window Details" },
+    { "id": "why-it-matters", "label": "Why This Matters" }
+  ],
+  "content_html": "<section id=\"overview\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Overview</h2><p><strong>Donkey Kong Bananza</strong> is a 3D platformer developed by Nintendo EPD and one of two flagship first-party launch titles for the <a href=\"/video-games/switch2\" class=\"text-blue-600 hover:text-blue-800 underline\">Nintendo Switch 2</a>, releasing June 5, 2026 at $59.99. Directed by Kenta Motokura (Super Mario Odyssey) and Tatsuya Kurihara, the game centers on a fully destructible voxel world: every surface, wall, and platform can be smashed, carved, or torn apart by Donkey Kong in real time.</p><p>The game builds on a technology foundation Nintendo first prototyped in the snow drifts of Super Mario Odyssey. Bananza scales that prototype to an entire game world, with each level containing <strong>347,070,464 individually tracked destructible voxels</strong>, a figure the directors disclosed publicly at GDC 2026 in San Francisco.</p><p>Bananza is priced at $59.99, $20 below Nintendo's new $79.99 flagship price point set by Mario Kart World. It launched as part of the <a href=\"/video-games/switch2/nintendo-switch-2-launch-games\" class=\"text-blue-600 hover:text-blue-800 underline\">Switch 2 day-one lineup</a> alongside Mario Kart World and the free Nintendo Switch 2 Welcome Tour.</p></section><section id=\"reveal-trailer\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Official Reveal Trailer</h2><p>Nintendo revealed Donkey Kong Bananza during a Nintendo Direct presentation. The trailer confirmed the Switch 2 launch date, destructible world mechanics, and the game's 3D platformer structure.</p><div class=\"relative w-full my-6\" style=\"padding-bottom:56.25%\"><iframe class=\"absolute top-0 left-0 w-full h-full rounded\" src=\"https://www.youtube.com/embed/Am14yeTAeOc\" title=\"Donkey Kong Bananza Official Reveal Trailer\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div></section><section id=\"gameplay\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Gameplay and Destruction System</h2><p>Donkey Kong Bananza is built around a single core mechanic: everything breaks. Unlike traditional platformers where the environment is a fixed obstacle course, Bananza treats the entire level geometry as interactive material. Donkey Kong can punch through floors to create shortcuts, tear walls apart to find hidden routes, and flatten enemy structures entirely.</p><p>The destruction system operates on a voxel grid. Each voxel is a discrete cube of material with its own physical properties. Rock shatters differently from soil; packed earth behaves differently from ice. The visual result is chunky, satisfying fracture geometry rather than the smooth procedural deformation seen in games like Minecraft.</p><h3 class=\"text-xl font-semibold mt-6 mb-3\">The Restore Mechanic</h3><p>Alongside destruction, the game introduces a <strong>Restore</strong> mechanic. Donkey Kong can rebuild destroyed sections of a level, either to create platforms in areas he has already cleared or to reset a path he needs to reuse. This creates a design tension: the most powerful move (total destruction) also removes options. Players manage destruction as a resource, not just a spectacle.</p><h3 class=\"text-xl font-semibold mt-6 mb-3\">Canyon Layer System</h3><p>Levels are structured vertically through a canyon layer system. The surface layer is the primary play space. Destroying downward opens access to deeper material layers, each with different voxel compositions, densities, and enemy placements. Some collectibles and story elements are only accessible by digging through multiple layers, making vertical exploration as important as horizontal navigation.</p></section><section id=\"gdc-tech\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">GDC 2026 Tech Breakdown | 347 Million Voxels</h2><p>At GDC 2026 in San Francisco's Moscone Center, directors Kenta Motokura and Tatsuya Kurihara presented a technical session on Bananza's voxel engine. The session was one of the most technically detailed Nintendo has given at a public developer conference, disclosing specific numbers that the company rarely shares.</p><table><thead><tr><th>Technical Specification</th><th>Value</th></tr></thead><tbody><tr><td>Voxels Per Level</td><td>347,070,464 (individually destructible)</td></tr><tr><td>Target Frame Rate</td><td>60fps</td></tr><tr><td>Resolution Mode</td><td>Dynamic resolution scaling</td></tr><tr><td>Voxel Origin</td><td>Super Mario Odyssey snow drift prototype</td></tr><tr><td>Platform</td><td>Nintendo Switch 2 (moved from Switch 1)</td></tr></tbody></table><p>The <strong>347,070,464</strong> figure refers to individual tracked voxels per level, each maintaining its own state: intact, damaged, or destroyed. The engine updates the visual and physical state of all active voxels within the player's render distance in real time at 60fps.</p><p>Motokura explained that the voxel prototype originated during development of Super Mario Odyssey, where a small team experimented with procedural snow deformation for the Shiveria kingdom. That prototype was shelved when it exceeded Switch 1 hardware limits. When the Switch 2 project began, the team retrieved the prototype and found that Switch 2's increased memory bandwidth and GPU throughput made the full voxel world viable.</p><p>The decision to move the game from Switch 1 to Switch 2 was confirmed during the session. The directors noted that running 347 million tracked voxels at 60fps was not achievable on the original Switch hardware, and that the game's design was fundamentally built around a scale of destruction that required Switch 2's capabilities.</p><p>The dynamic resolution system adjusts output resolution frame-by-frame based on scene complexity. During heavy destruction sequences, where large sections of the voxel grid are simultaneously recalculating, the resolution scales down to maintain the 60fps target. The system was described as transparent in practice, with the visual quality drop in destruction sequences being imperceptible at normal play distance.</p></section><section id=\"development\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Development History</h2><p>Donkey Kong Bananza began as a Switch 1 project before the voxel scale requirements pushed it to Switch 2. The directorial team of Motokura and Kurihara had previously worked together on Super Mario Odyssey, the 2017 Switch launch title that remains one of the highest-reviewed 3D platformers ever made.</p><p>The game represents the first major Donkey Kong title since Tropical Freeze (2014, Wii U; re-released 2018, Switch), a twelve-year gap for the franchise as a standalone 3D platformer. Prior to Bananza, Donkey Kong's most recent starring role was as a secondary character in Mario Kart and Super Smash Bros. entries.</p><p>Nintendo EPD, the internal division responsible for flagship Mario and Zelda titles, took development duties directly rather than outsourcing to Retro Studios (developer of the Donkey Kong Country: Returns series). This marks a shift in how Nintendo manages the DK franchise, bringing it back under the same team that produced Odyssey.</p></section><section id=\"launch\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Launch Window Details</h2><p>Donkey Kong Bananza launches alongside the <a href=\"/video-games/switch2\" class=\"text-blue-600 hover:text-blue-800 underline\">Nintendo Switch 2</a> on June 5, 2026. It is priced at $59.99, below the $79.99 flagship tier established by Mario Kart World, positioning it as the more accessible of the two day-one Nintendo first-party titles.</p><table><thead><tr><th>Detail</th><th>Value</th></tr></thead><tbody><tr><td>Release Date</td><td>June 5, 2026</td></tr><tr><td>Price</td><td>$59.99</td></tr><tr><td>Platform</td><td>Nintendo Switch 2 exclusive</td></tr><tr><td>Bundle Inclusion</td><td>Not included in hardware bundle</td></tr><tr><td>Backwards Compat.</td><td>Not playable on Switch 1</td></tr></tbody></table><p>The game is a Switch 2 exclusive and is not playable on the original Switch hardware. Nintendo has confirmed it will not receive a Switch 1 version, consistent with the directors' disclosure that the voxel engine requires Switch 2's hardware capabilities.</p></section><section id=\"why-it-matters\" class=\"mb-10 scroll-mt-20\"><h2 class=\"text-2xl font-serif border-b border-gray-200 pb-2 mb-4\">Why This Matters</h2><p>Donkey Kong Bananza is the most technically transparent Nintendo has been about a game's internal architecture in years. The specific disclosure of 347,070,464 voxels at GDC 2026 is not marketing language. It is a precise engineering number that tells the developer community exactly how the game works and what the Switch 2 hardware can sustain.</p><p>For the broader gaming market, Bananza is evidence that Nintendo's approach to Switch 2 is materially different from Switch 1. The original Switch launched with Breath of the Wild, a game that could also run on Wii U. Bananza and Mario Kart World are both hardware-exclusive experiences that could not exist on last-gen Nintendo hardware. That distinction matters for adoption, because it answers the question every Switch owner is asking: \"Do I need to upgrade?\"</p><p>For the Donkey Kong franchise, this is a franchise reset after a twelve-year absence. If Bananza reviews well and sells into the Switch 2 install base, it reestablishes DK as a flagship Nintendo IP rather than a licensed IP managed by external studios. The long-term implication is a more active Donkey Kong release cadence, similar to what happened with the Metroid franchise after the success of Dread in 2021.</p></section>",
+  "related_links": [
+    {
+      "href": "/video-games/switch2",
+      "label": "Nintendo Switch 2 Hub"
+    },
+    {
+      "href": "/video-games/switch2/nintendo-switch-2-launch-games",
+      "label": "Nintendo Switch 2 Launch Games | Full Day-One Lineup"
+    },
+    {
+      "href": "/video-games/switch2/mario-kart-world",
+      "label": "Mario Kart World | Switch 2 Open-World Racing"
+    },
+    {
+      "href": "/video-games",
+      "label": "Video Games Hub"
+    }
+  ],
+  "view_count": 0
+}

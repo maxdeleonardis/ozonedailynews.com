@@ -193,19 +193,25 @@ export default async function RootLayout({
 
                 {/* Brand */}
                 <div className="col-span-2 md:col-span-1">
-                  <div className="font-black text-lg tracking-tight text-white mb-3">OzoneNews</div>
-                  <p className="text-xs text-gray-400 leading-relaxed max-w-[220px]">
-                    Independent nonprofit newsroom based in Austin, Texas. Verified reporting, primary sources only.
+                  <div className="font-black text-lg tracking-tight text-white mb-1">OzoneNews</div>
+                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">Verified News Network</p>
+                  <p className="text-xs text-gray-400 leading-relaxed max-w-[220px] mb-4">
+                    Independent nonprofit newsroom delivering verified, source-cited reporting on technology, finance, gaming, and global affairs.
                   </p>
-                  <div className="flex items-center gap-2 mt-5">
+                  <div className="flex flex-col gap-1 text-xs text-gray-500 mb-4">
+                    <span>2921 E 17th St Bldg 3, Austin, TX 78702</span>
+                    <a href="tel:+15754950323" className="hover:text-gray-300 transition-colors">(575) 495-0323</a>
+                    <a href="mailto:editorial@ozonenetwork.news" className="hover:text-gray-300 transition-colors">editorial@ozonenetwork.news</a>
+                  </div>
+                  <div className="flex items-center gap-2 mb-5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
                     <span className="text-xs text-gray-400 font-mono">ozonenetwork.news</span>
                   </div>
-                  <div className="flex flex-col gap-1.5 mt-5">
+                  <div className="flex flex-col gap-1.5">
                     <Link href="/about" className="text-xs text-gray-400 hover:text-white transition-colors">Our Story</Link>
                     <Link href="/editorial-standards" className="text-xs text-gray-400 hover:text-white transition-colors">Editorial Standards</Link>
                     <Link href="/authors" className="text-xs text-gray-400 hover:text-white transition-colors">Our Team</Link>
-                    <Link href="/get-help" className="text-xs text-gray-400 hover:text-white transition-colors">Contact</Link>
+                    <Link href="/contact" className="text-xs text-gray-400 hover:text-white transition-colors">Contact</Link>
                     <Link href="/site-index" className="text-xs text-gray-400 hover:text-white transition-colors">Site Index</Link>
                     <Link href="/feeds" className="text-xs text-gray-400 hover:text-white transition-colors">RSS</Link>
                   </div>
@@ -282,17 +288,6 @@ export default async function RootLayout({
                     <div>
                       <div className="font-bold text-sm text-white">Max DeLeonardis</div>
                       <div className="text-xs text-gray-400 mt-0.5">Founding Writer, Science &amp; Technology</div>
-                      <div className="flex items-center gap-2 mt-1">
-                        <a
-                          href="https://x.com/ozonedailynews"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="text-xs text-blue-400 hover:text-blue-300 underline"
-                        >
-                          @ozonedailynews
-                        </a>
-                      </div>
                     </div>
                     <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
                   </Link>
@@ -310,16 +305,60 @@ export default async function RootLayout({
                 </div>
               </div>
 
-              {/* Ownership & funding disclosure */}
-              <div className="border-t border-gray-700 pt-8 pb-8">
-                <p className="text-xs text-gray-400 leading-relaxed max-w-3xl">
-                  <span className="font-semibold text-gray-300">Ownership and funding:</span>{' '}
-                  OzoneNews is an independent, self-funded nonprofit newsroom. We accept no advertising, no
-                  sponsored content, and no political donations. Read our{' '}
-                  <Link href="/about" className="text-blue-400 hover:text-blue-300 underline">about page</Link>,{' '}
-                  <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline">editorial standards</Link>, and{' '}
-                  <Link href="/corrections" className="text-blue-400 hover:text-blue-300 underline">corrections policy</Link>.
-                </p>
+              {/* Three-column transparency prose blocks (Objective Wire pattern) */}
+              <div className="border-t border-gray-700 pt-10 pb-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                  {/* Our Mission */}
+                  <div>
+                    <h4 className="font-bold text-xs uppercase tracking-widest text-gray-300 mb-3">Our Mission</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      OzoneNews is an independent, self-funded newsroom based in Austin, Texas. We deliver
+                      verified, source-cited reporting on technology, finance, politics, gaming, and global
+                      affairs. Every article is produced by a named reporter, sourced to primary documents,
+                      and published without advertiser influence. We do not aggregate or rewrite
+                      competitors&rsquo; work as our own.
+                    </p>
+                  </div>
+
+                  {/* Editorial Independence */}
+                  <div>
+                    <h4 className="font-bold text-xs uppercase tracking-widest text-gray-300 mb-3">Editorial Independence</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      Editorial decisions are made independently of advertising and sponsorship. Ozone
+                      Network News LLC accepts no paid placements, affiliate commissions, political
+                      donations, or government grants tied to coverage. Sponsored content is clearly
+                      labeled. Errors are corrected publicly, timestamped, and original text is preserved.
+                      Read our{' '}
+                      <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline">
+                        editorial standards
+                      </Link>
+                      .
+                    </p>
+                  </div>
+
+                  {/* Contact */}
+                  <div>
+                    <h4 className="font-bold text-xs uppercase tracking-widest text-gray-300 mb-3">Contact</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed mb-3">
+                      Newsroom tips, corrections, press inquiries, and story submissions:{' '}
+                      <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">
+                        contact form
+                      </Link>
+                      . Copyright complaints:{' '}
+                      <Link href="/copyright" className="text-blue-400 hover:text-blue-300 underline">
+                        copyright policy
+                      </Link>
+                      .
+                    </p>
+                    <div className="flex flex-col gap-1 text-xs text-gray-500">
+                      <span>2921 E 17th St Bldg 3, Austin, TX 78702</span>
+                      <a href="tel:+15754950323" className="hover:text-gray-300 transition-colors">(575) 495-0323</a>
+                      <a href="mailto:corrections@ozonenetwork.news" className="hover:text-gray-300 transition-colors">corrections@ozonenetwork.news</a>
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
               {/* Bottom bar */}
@@ -327,15 +366,16 @@ export default async function RootLayout({
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
                   <span className="font-semibold text-gray-300">© 2026 OzoneNews</span>
                   <span className="text-gray-600">|</span>
-                  <span>Self-funded nonprofit newsroom</span>
+                  <span>Ozone Network News LLC</span>
+                  <span className="text-gray-600">|</span>
+                  <span>Verified News Network</span>
                   <span className="text-gray-600">|</span>
                   <span>Austin, Texas</span>
-                  <span className="text-gray-600">|</span>
-                  <span>Verified reporting. Primary sources only.</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-gray-400">
                   <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
                   <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms</Link>
+                  <Link href="/copyright" className="hover:text-white transition-colors">Copyright</Link>
                   <Link href="/corrections" className="hover:text-white transition-colors">Corrections</Link>
                   <span className="flex items-center gap-1.5 ml-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />

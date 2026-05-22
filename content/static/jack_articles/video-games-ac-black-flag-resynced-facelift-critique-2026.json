@@ -1,0 +1,153 @@
+{
+  "id": "ac-black-flag-resynced-facelift-critique-may2026-001",
+  "slug": "video-games-ac-black-flag-resynced-facelift-critique-2026",
+  "layout": "news",
+  "title": "AC Black Flag Resynced Is a Glorified Facelift | The Case Against Calling It a Remake",
+  "subtitle": "Strip away the ray-traced lighting and the PR buzzwords and what remains is the 2013 skeleton with button remappings, cut multiplayer, no Freedom Cry, no modern-day framing, and enemy AI that still folds to the same tricks it did 13 years ago.",
+  "subject": "Assassin's Creed Black Flag Resynced (2026)",
+  "description": "Ubisoft's Black Flag Resynced adds ray-tracing, new historical chapters, and QoL imports from AC Shadows, but cuts multiplayer, Freedom Cry, and the Abstergo modern-day layer. Here is the full critical breakdown.",
+  "category_label": "Gaming",
+  "categories": [
+    { "color": "orange", "label": "ANALYSIS" },
+    { "color": "blue", "label": "UBISOFT" }
+  ],
+  "publish_date": "May 21, 2026",
+  "published_at": "2026-05-21T23:00:00-05:00",
+  "publish_date_iso": "2026-05-21T23:00:00-05:00",
+  "modified_date_iso": "2026-05-21T23:00:00-05:00",
+  "read_time": "8 min read",
+  "hero_image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonenetwork.news/api/og?title=AC+Black+Flag+Resynced+%7C+Glorified+Facelift%2C+Not+a+Remake&category=Gaming&desc=Ubisoft+cuts+multiplayer%2C+Freedom+Cry%2C+and+Abstergo+for+ray-tracing+and+QoL+tweaks+from+AC+Shadows&author=Jack+Sterling&date=May+21%2C+2026",
+  "thumbnail_alt": "Assassin's Creed Black Flag Resynced 2026 review | facelift vs remake critique",
+  "accentColor": "orange",
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/video-games", "label": "Video Games" },
+    { "href": "/video-games/ac-black-flag-resynced-facelift-critique-2026", "label": "AC Black Flag Resynced Critique" }
+  ],
+  "author": {
+    "name": "Jack Sterling",
+    "slug": "jack-sterling",
+    "department": "Gaming Correspondent"
+  },
+  "tags": ["Assassin's Creed Black Flag Resynced", "Ubisoft", "AC Black Flag 2026", "Game Remakes", "Gaming Analysis", "Anvil Engine", "Freedom Cry", "PlayStation Plus"],
+  "article_url": "/video-games/ac-black-flag-resynced-facelift-critique-2026",
+  "section": "Gaming",
+  "keywords": [
+    "AC Black Flag Resynced review",
+    "Black Flag Resynced facelift not remake",
+    "Assassin's Creed Black Flag 2026",
+    "Black Flag Resynced multiplayer cut",
+    "Black Flag Resynced Freedom Cry removed",
+    "Black Flag Resynced Abstergo cut",
+    "Black Flag Resynced vs original 2013",
+    "Ubisoft Black Flag remake critique",
+    "Black Flag Resynced ray tracing review",
+    "AC Black Flag Resynced Blackbeard Stede Bonnet chapters",
+    "Black Flag Resynced enemy AI",
+    "Black Flag Resynced parkour jank",
+    "Ubisoft Anvil engine remake 2026",
+    "AC Black Flag Resynced is it worth it",
+    "game remake vs remaster 2026"
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "title": "Assassin's Creed Black Flag Resynced - Official Gameplay Trailer",
+      "url": "https://www.youtube.com/watch?v=tmcJV6lsMzA",
+      "author": "Ubisoft",
+      "date": "2026",
+      "description": "Official Ubisoft gameplay trailer for AC Black Flag Resynced, showcasing the updated Anvil engine visuals, ray-traced lighting, new Blackbeard and Stede Bonnet chapters, and revised HUD elements."
+    },
+    {
+      "number": 2,
+      "title": "Assassin's Creed Shadows - Feature Overview",
+      "url": "https://www.ubisoft.com/en-us/game/assassins-creed/shadows",
+      "author": "Ubisoft",
+      "date": "2025",
+      "description": "Official feature documentation for AC Shadows, whose QoL mechanics including dedicated crouch button and Observe tagging system were imported into Black Flag Resynced."
+    },
+    {
+      "number": 3,
+      "title": "Black Flag Resynced Preview Roundup",
+      "url": "https://www.ign.com/articles/assassins-creed-black-flag-resynced-preview",
+      "author": "IGN",
+      "date": "May 2026",
+      "description": "Multi-outlet hands-on preview coverage documenting parkour legacy issues, AI behavior, the confirmed removal of multiplayer and Freedom Cry, and the new story content."
+    }
+  ],
+  "timeline": [
+    {
+      "date": "September 2013",
+      "description": "Assassin's Creed IV: Black Flag launches on PS3 and Xbox 360, later PS4 and Xbox One. Multiplayer included at launch. Freedom Cry DLC ships December 2013. Modern-day Abstergo framing is a central narrative layer."
+    },
+    {
+      "date": "2015 to 2024",
+      "description": "AC franchise evolves significantly across Origins, Odyssey, Valhalla, and Mirage. Anvil engine is repeatedly updated. Series moves toward open-world RPG conventions. Multiplayer abandoned across the franchise after Unity."
+    },
+    {
+      "date": "2025",
+      "description": "Assassin's Creed Shadows launches, introducing dedicated crouch, Observe tagging, and refined parkour adjustments. These QoL features become the baseline expectation for Ubisoft game feel."
+    },
+    {
+      "date": "Early 2026",
+      "highlight": true,
+      "description": "Ubisoft announces AC Black Flag Resynced, marketed as a ground-up rebuild on the updated Anvil engine with ray-traced global illumination, new story chapters featuring Blackbeard and Stede Bonnet, and three new recruitable officers."
+    },
+    {
+      "date": "May 2026",
+      "highlight": true,
+      "description": "Pre-release hands-on previews go live. Previewers note persistent parkour legacy issues, brain-dead enemy AI, confirmed removal of multiplayer and Freedom Cry DLC, and the full excision of the Abstergo modern-day framing. Critical discourse intensifies."
+    }
+  ],
+  "related_articles": [
+    {
+      "href": "/video-games/news/destiny-2-ends-development-bungie-layoffs-2026",
+      "category": "Gaming",
+      "categoryColor": "blue",
+      "title": "Destiny 2 Ends Active Development | Bungie Layoffs and Monument of Triumph"
+    },
+    {
+      "href": "/video-games/forza-horizon6/leak-ban-may-2026",
+      "category": "Gaming",
+      "categoryColor": "orange",
+      "title": "Forza Horizon 6 Leak | Playground Games Issues Franchise-Wide Bans"
+    },
+    {
+      "href": "/video-games/gta-6/release-date",
+      "category": "Gaming",
+      "categoryColor": "blue",
+      "title": "GTA 6 Release Date | Everything Confirmed for 2026"
+    },
+    {
+      "href": "/video-games",
+      "category": "Hub",
+      "categoryColor": "gray",
+      "title": "Video Games Hub | OzoneNews Gaming Coverage"
+    },
+    {
+      "href": "/authors/jack-sterling",
+      "category": "Author",
+      "categoryColor": "gray",
+      "title": "Jack Sterling | Gaming Correspondent at OzoneNews"
+    }
+  ],
+  "show_newsletter": true,
+  "newsletter_title": "Get Gaming Coverage Delivered",
+  "newsletter_description": "OzoneNews gaming analysis, reviews, and industry news sent directly to your inbox.",
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "footer_tagline": "OzoneNews | Gaming analysis sourced from hands-on preview access and official Ubisoft materials.",
+  "footer_links": [
+    { "href": "/video-games", "label": "Video Games" },
+    { "href": "/authors/jack-sterling", "label": "Jack Sterling" },
+    { "href": "/editorial-standards", "label": "Editorial Standards" },
+    { "href": "/corrections", "label": "Corrections" }
+  ],
+  "content_html": "<div class=\"prose prose-lg max-w-none\">\n\n<div class=\"direct-answer bg-orange-950 border border-orange-700 rounded-lg p-5 mb-8\">\n  <h2 class=\"text-orange-300 text-sm font-bold uppercase tracking-widest mb-2\">The Verdict</h2>\n  <p class=\"text-white text-base leading-relaxed\"><strong>AC Black Flag Resynced</strong> is not a remake. It is the 2013 skeleton running on a modern graphics pipeline, with QoL imports from AC Shadows, six hours of new historical narrative, and three features that defined the original game's identity quietly removed: <strong>multiplayer, Freedom Cry, and the Abstergo modern-day framing</strong>. The ray-traced Caribbean sunsets are genuinely beautiful. The game underneath them is frozen in 2013.<sup id=\"cite-ref-1\"><a href=\"#source-3\" class=\"text-orange-400 underline font-mono text-[10px]\">[3]</a></sup></p>\n</div>\n\n<div class=\"key-takeaways bg-gray-900 border border-gray-700 rounded-lg p-5 mb-8\">\n  <h2 class=\"text-gray-300 text-sm font-bold uppercase tracking-widest mb-3\">Key Takeaways</h2>\n  <ul class=\"text-gray-200 space-y-2 text-sm\">\n    <li><strong>Rebuilt on Anvil</strong> in marketing. In practice: same traversal jank, same AI density, structurally identical city layouts from 2013.</li>\n    <li><strong>Multiplayer removed entirely.</strong> No replacement mode. Gone.</li>\n    <li><strong>Freedom Cry DLC cut.</strong> The critically praised expansion is not included.</li>\n    <li><strong>Abstergo modern-day layer excised.</strong> Six hours of new Blackbeard and Stede Bonnet content replaces it, narrowing the game's identity.</li>\n    <li>QoL additions (crouch button, Observe tag, rope-dart repositioned) are imports from <strong>AC Shadows</strong>, not original design work.</li>\n    <li>Enemy AI is unchanged. Stealth is still trivially easy.</li>\n    <li>Ray-traced global illumination and real-time weather are the genuine standout upgrades.</li>\n  </ul>\n</div>\n\n<div class=\"mb-8 rounded-xl overflow-hidden aspect-video\">\n  <iframe\n    width=\"100%\"\n    height=\"100%\"\n    src=\"https://www.youtube.com/embed/tmcJV6lsMzA\"\n    title=\"Assassin's Creed Black Flag Resynced - Official Gameplay Trailer\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n    allowfullscreen\n    class=\"w-full h-full\"\n  ></iframe>\n</div>\n<p class=\"text-sm text-gray-500 -mt-4 mb-8 text-center\">Official Ubisoft gameplay trailer for AC Black Flag Resynced. Source: <a href=\"https://www.youtube.com/watch?v=tmcJV6lsMzA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">YouTube</a></p>\n\n<JackSection number=\"1\" heading=\"Rebaked Mechanics, Not Rebuilt Ones | The Jank That Survived 13 Years\">\n  <p>Ubisoft's marketing positions Resynced as a ground-up rebuild on the updated Anvil engine. The hands-on preview tells a more constrained story. Fundamental traversal elements retain the exact same failure modes as the 2013 original. Vertical climbing still hemorrhages momentum on uneven multi-story buildings. Parkour retains its distinctive legacy stickiness: the sense that Edward is magnetically attached to geometry rather than dynamically navigating it. These are not cosmetic issues. They are the structural feel of the movement system, and they are unchanged.<sup id=\"cite-ref-2\"><a href=\"#source-3\" class=\"text-orange-400 underline font-mono text-[10px]\">[3]</a></sup></p>\n  <p>The additions that Ubisoft does count as mechanical upgrades are imported wholesale from <a href=\"https://www.ubisoft.com/en-us/game/assassins-creed/shadows\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">AC Shadows</a>: a dedicated crouch button, an on-screen Observe contextual tag, and the rope-dart moved to an earlier chapter unlock. These are quality-of-life adjustments that any modder with access to the original PC build could have implemented. They do not constitute structural redesign. They are a mod pack applied to a legacy codebase, and calling them 'rebuilt mechanics' stretches the definition to its breaking point.</p>\n  <p>For context, consider what a genuine ground-up remake of this game's traversal would look like. <strong>AC Shadows</strong>' parkour is meaningfully different from Black Flag's in terms of how momentum is preserved through vertical obstacles and how the character reads environmental affordances. None of that work appears to have been back-ported to Edward's movement. The engine update brought the renderer. The gameplay loop did not come with it.</p>\n</JackSection>\n\n<JackStats>\n  <JackStat label=\"New Story Content\" value=\"6 Hours\" description=\"New single-player narrative chapters featuring Blackbeard and Stede Bonnet, plus three new recruitable officers: Lucy, Deadman, and The Padre\" />\n  <JackStat label=\"Features Removed\" value=\"3 Major\" description=\"Multiplayer mode, Freedom Cry DLC, and the Abstergo modern-day office exploration and framing layer, all absent from Resynced\" />\n  <JackStat label=\"Original Launch Year\" value=\"2013\" description=\"Thirteen years since the original Black Flag. The city layouts, AI behavior, and core traversal physics remain structurally identical\" />\n</JackStats>\n\n<JackSection number=\"2\" heading=\"The Illusion of New Content | What Was Added vs What Was Cut\">\n  <p>The preview highlights are genuinely appealing on their face. Six hours of extra narrative content built around Blackbeard and Stede Bonnet is a real addition for players who love the franchise's historical piracy fiction. Three new recruitable officers expand crew customization in ways fans had requested since 2013. These additions are not nothing. But they do not exist in isolation. They exist in the context of what Ubisoft chose to remove to make room for them, or simply chose not to preserve.<sup id=\"cite-ref-3\"><a href=\"#source-1\" class=\"text-orange-400 underline font-mono text-[10px]\">[1]</a></sup></p>\n  <p>The full accounting of what Resynced adds against what it removes makes for uncomfortable reading for anyone who spent time with the 2013 game at launch:</p>\n  <table class=\"w-full text-sm border-collapse mb-4\">\n    <thead>\n      <tr class=\"bg-orange-900 text-orange-100\">\n        <th class=\"text-left p-3 font-bold border border-orange-700\">What Was Added</th>\n        <th class=\"text-left p-3 font-bold border border-orange-700\">What Was Cut</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class=\"border border-gray-700\">\n        <td class=\"p-3 align-top\">Six hours of extra historical narrative</td>\n        <td class=\"p-3 align-top\">The entire <strong>Abstergo modern-day office exploration</strong> and lore layer</td>\n      </tr>\n      <tr class=\"bg-gray-800 border border-gray-700\">\n        <td class=\"p-3 align-top\">3 new recruitable officers (Lucy, Deadman, The Padre)</td>\n        <td class=\"p-3 align-top\">The beloved <strong>multiplayer mode</strong>, entirely removed</td>\n      </tr>\n      <tr class=\"border border-gray-700\">\n        <td class=\"p-3 align-top\">Free-aiming swivel guns</td>\n        <td class=\"p-3 align-top\">Integration of the <strong>Freedom Cry DLC</strong></td>\n      </tr>\n      <tr class=\"bg-gray-800 border border-gray-700\">\n        <td class=\"p-3 align-top\">QoL imports from AC Shadows (crouch, Observe, rope-dart)</td>\n        <td class=\"p-3 align-top\">Offline co-op social features from original launch</td>\n      </tr>\n    </tbody>\n  </table>\n  <p>The modern-day Abstergo layer was divisive in 2013, but it was structurally significant. It gave Black Flag a second identity beyond the piracy sandbox, positioning the player as both Edward Kenway navigating the Golden Age of Piracy and an unnamed Abstergo employee uncovering Assassin history through corporate espionage. Removing it entirely collapses the game into a single-register piracy adventure, which is a legitimate creative choice, but it is a <em>narrowing</em> of the original, not an expansion of it.</p>\n</JackSection>\n\n<JackCallout heading=\"The Net Negative Argument\" color=\"orange\">\n  By removing multiplayer, Freedom Cry, and the Abstergo framing, Ubisoft did not expand Black Flag. They streamlined it into a narrower experience, trading the eccentric multi-layered identity of the 2013 launch for a cleaner, more marketable single-player narrative package. Whether that trade-off is worth a full 2026 release price is the central question every buyer should be asking before they pre-order.\n</JackCallout>\n\n<JackSection number=\"3\" heading=\"A Graphical Mask Over 2013 AI | Where the Visuals End and the Age Shows\">\n  <p>The visual upgrade is not being undersold. Ray-traced global illumination transforms Havana's colonial architecture in ways that genuine screenshot comparisons make inarguable. The way late-afternoon Caribbean light catches the stone facades of the Plaza de Armas, or the way storm-system cloud formations in open-ocean sequences interact with real-time wave simulation, represents a genuine generational step in how this world looks. On a modern display at native 4K, the game is routinely stunning.</p>\n  <p>The problem is that the world it looks stunning <em>at</em> is 13 years old. <strong>Enemy AI remains trivially dense.</strong> Guards who should logically cover escape routes do not. Patrol patterns can be read and exploited with the same two-step social blending approach that players documented in 2013 walkthroughs. Stealth, which should be the backbone of an Assassin's Creed title, has no genuine tension because the NPCs populating the world do not create any. A beautiful environment is not the same as a reactive one.</p>\n  <p>The city structure amplifies this. Havana, Nassau, and Kingston are structurally identical to their 13-year-old blueprints. The NPC populations in the background, the civilians filling market spaces and dockside areas, lack the animation fidelity and behavioral variety given to Edward himself. The protagonist is next-generation. The world he inhabits is a theater set from 2013 with new lighting rigged above it. The dissonance between foreground and background quality becomes increasingly difficult to ignore the longer you play.</p>\n</JackSection>\n\n<JackCardGrid>\n  <JackCard title=\"Ray-Traced Global Illumination\" subtitle=\"Genuine Upgrade\" description=\"Havana and open-ocean environments are legitimately transformed by the updated renderer. Caribbean lighting, storm systems, and real-time weather are the standout technical achievement of Resynced.\" color=\"green\" />\n  <JackCard title=\"Enemy AI\" subtitle=\"Unchanged from 2013\" description=\"Guards fold to the same patrol exploitation that players documented in launch-week walkthroughs. Stealth has no tension because the NPCs do not generate any. The combat AI is equally unchanged.\" color=\"red\" />\n  <JackCard title=\"City Layouts\" subtitle=\"2013 Blueprints\" description=\"Havana, Nassau, and Kingston are structurally identical to the originals. Background NPC animation and behavioral variety lag visibly behind Edward's updated character model fidelity.\" color=\"orange\" />\n</JackCardGrid>\n\n<JackQuote text=\"Calling it Resynced feels entirely accurate. It is the exact same 2013 skeleton, hooked up to a modern graphics monitor and given a few button remappings. For a full-priced 2026 release, a shiny new coat of paint and some cut features make it look less like a true remake and much more like a glorified facelift.\" attribution=\"OzoneNews Gaming Analysis, May 21, 2026\" />\n\n<JackSection number=\"4\" heading=\"Why This Matters | The Remake Economy and What Players Deserve in 2026\">\n  <p>The Black Flag Resynced situation is not isolated. It is the clearest recent example of a broader industry pattern in which publishers leverage the commercial nostalgia power of beloved catalog titles to generate revenue without committing to the investment a genuine remake requires. The formula is consistent: take a game with strong brand recognition, update the renderer to current-generation standards, import a handful of QoL features from recent entries, add modest new content, cut expensive features like multiplayer that require ongoing server infrastructure, and ship it at full price under the word 'Resynced' or 'Remake.'</p>\n  <p>The standard for what a genuine rebuild looks like exists and is not contested. The Resident Evil 2 Remake fundamentally reconceived the game's structure, camera, and moment-to-moment play in ways that made it a different experience from the 1998 original while honoring its spirit. The Dead Space remake rebuilt the Ishimura from zero while preserving the atmospheric core. These projects took years and required genuine creative risk. They are more expensive to make and more expensive to buy, but they deliver something that did not exist before.</p>\n  <p>Resynced delivers something that did exist before, running on a better GPU. For players who never played the original and want to experience Black Flag's piracy sandbox with modern visuals, it will likely be a satisfying product. For players who own the 2013 version and are evaluating whether a full-price double-dip is warranted, the honest answer based on what hands-on preview access has shown is that it is not, unless the ray-tracing is the specific thing you have been waiting 13 years for. Keep up with all 2026 gaming industry analysis at the <a href=\"/video-games\" class=\"text-blue-600 hover:text-blue-800 underline\">OzoneNews video games hub</a>, including coverage of <a href=\"/video-games/news/destiny-2-ends-development-bungie-layoffs-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Bungie's simultaneous Destiny 2 wind-down</a> and <a href=\"/video-games/forza-horizon6/leak-ban-may-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Playground Games' Forza Horizon 6 pre-launch leak crisis</a>.</p>\n</JackSection>\n\n<JackIndicatorGrid heading=\"AC Black Flag Resynced | At a Glance\">\n  <JackIndicator label=\"Visual Upgrade\" value=\"Genuine\" trend=\"positive\" />\n  <JackIndicator label=\"Mechanics Rebuilt\" value=\"No\" trend=\"negative\" />\n  <JackIndicator label=\"Multiplayer Included\" value=\"No\" trend=\"negative\" />\n  <JackIndicator label=\"Freedom Cry Included\" value=\"No\" trend=\"negative\" />\n  <JackIndicator label=\"New Story Content\" value=\"6 Hours\" trend=\"neutral\" />\n  <JackIndicator label=\"Enemy AI Updated\" value=\"No\" trend=\"negative\" />\n</JackIndicatorGrid>\n\n<SourcesInterlink sources={[{\"number\":1,\"url\":\"https://www.youtube.com/watch?v=tmcJV6lsMzA\",\"title\":\"Assassin's Creed Black Flag Resynced - Official Gameplay Trailer\",\"author\":\"Ubisoft\",\"date\":\"2026\",\"description\":\"Official Ubisoft gameplay trailer showcasing the updated Anvil engine visuals, ray-traced lighting, new Blackbeard and Stede Bonnet chapters, and revised HUD elements.\"},{\"number\":2,\"url\":\"https://www.ubisoft.com/en-us/game/assassins-creed/shadows\",\"title\":\"Assassin's Creed Shadows - Feature Overview\",\"author\":\"Ubisoft\",\"date\":\"2025\",\"description\":\"Official documentation for AC Shadows whose QoL features including dedicated crouch and Observe tagging were imported into Black Flag Resynced.\"},{\"number\":3,\"url\":\"https://www.ign.com/articles/assassins-creed-black-flag-resynced-preview\",\"title\":\"Black Flag Resynced Preview Roundup\",\"author\":\"IGN\",\"date\":\"May 2026\",\"description\":\"Multi-outlet hands-on preview coverage documenting parkour legacy issues, unchanged AI behavior, removed multiplayer and Freedom Cry, and new story content.\"}]} internalLinks={[{\"href\":\"/video-games\",\"label\":\"Video Games Hub\",\"description\":\"All gaming news, analysis, and coverage at OzoneNews\",\"category\":\"Hub\"},{\"href\":\"/video-games/news/destiny-2-ends-development-bungie-layoffs-2026\",\"label\":\"Destiny 2 Ends Active Development | Bungie Layoffs\",\"description\":\"Bungie winds down Destiny 2 alongside Sony asset write-downs exceeding $700M\",\"category\":\"Gaming\"},{\"href\":\"/video-games/forza-horizon6/leak-ban-may-2026\",\"label\":\"Forza Horizon 6 Leak | Playground Games Issues Bans\",\"description\":\"155GB Forza Horizon 6 build leaked four days before Premium early access\",\"category\":\"Gaming\"},{\"href\":\"/video-games/gta-6/release-date\",\"label\":\"GTA 6 Release Date | Everything Confirmed\",\"description\":\"Full breakdown of GTA 6 release timeline for 2026\",\"category\":\"Gaming\"},{\"href\":\"/authors/jack-sterling\",\"label\":\"Jack Sterling | Gaming Correspondent\",\"description\":\"Author profile\",\"category\":\"Author\"}]} accentColor=\"orange\" />\n\n</div>",
+  "uuid": "ac-black-flag-resynced-facelift-critique-may2026-001",
+  "version": "1.0",
+  "created_at": "2026-05-21T23:00:00-05:00",
+  "updated_at": "2026-05-21T23:00:00-05:00",
+  "view_count": 0
+}

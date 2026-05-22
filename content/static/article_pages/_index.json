@@ -1,5 +1,24 @@
 [
   {
+    "slug": "anime-jujutsu-kaisen",
+    "title": "Jujutsu Kaisen | Series Guide, Arc Breakdown & Anime 2026",
+    "url": "/anime/jujutsu-kaisen",
+    "category": "Entertainment",
+    "publish_date": "May 21, 2026",
+    "published_at": "2026-05-21T22:00:00-05:00",
+    "thumbnail_src": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200&h=675&fit=crop",
+    "status": "published"
+  },
+  {
+    "slug": "youtube",
+    "title": "YouTube | Platform Overview, Creator Economy & History 2026",
+    "url": "/youtube",
+    "category": "Tech",
+    "publish_date": "May 21, 2026",
+    "published_at": "2026-05-21T20:00:00-05:00",
+    "status": "published"
+  },
+  {
     "slug": "open-ai-helion-energy",
     "title": "Helion Energy | Sam Altman $1.65B Stake, Polaris Milestone 2026",
     "url": "/open-ai/helion-energy",
@@ -180,16 +199,6 @@
     "status": null
   },
   {
-    "slug": "influencer-daddywellness",
-    "title": "Richie Lovelace (Daddy Wellness)",
-    "url": "/influencer/daddywellness",
-    "category": "Influencer",
-    "publish_date": null,
-    "published_at": null,
-    "thumbnail_src": null,
-    "status": null
-  },
-  {
     "slug": "artists-yeat-adl-26",
     "title": "Yeat ADL Album | Cinematic Shift, Elton John, Kid Cudi",
     "url": "/artists/yeat/adl-26",
@@ -344,16 +353,6 @@
     "title": "TerraPower | Bill Gates Nuclear Company, Natrium Reactor 2026",
     "url": "/technology/terrapower",
     "category": "Technology",
-    "publish_date": null,
-    "published_at": null,
-    "thumbnail_src": null,
-    "status": null
-  },
-  {
-    "slug": "influencer-mrbeast",
-    "title": "MrBeast | Jimmy Donaldson, YouTube, Age, Bio 2026",
-    "url": "/influencer/mrbeast",
-    "category": "Influencer",
     "publish_date": null,
     "published_at": null,
     "thumbnail_src": null,

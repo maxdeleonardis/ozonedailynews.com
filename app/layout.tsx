@@ -15,7 +15,7 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-9FM4W3K6GV';
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-D1WTH99P8S';
 
 // =============================================================================
 // FONT OPTIMIZATION - Prevents layout shift (CLS)

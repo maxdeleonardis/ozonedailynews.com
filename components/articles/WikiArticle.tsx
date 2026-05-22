@@ -187,7 +187,7 @@ export async function WikiArticle({ slug }: WikiArticleProps) {
         <div className="container mx-auto px-4 max-w-6xl">
           <h1 className="text-4xl font-serif mb-2">{h1Title}</h1>
           <p className="text-gray-600 italic">
-            From OzoneNews, the verification-first intelligence platform
+            From ObjectWire, the verification-first intelligence platform
           </p>
         </div>
       </header>

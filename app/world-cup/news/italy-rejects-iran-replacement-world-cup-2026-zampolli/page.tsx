@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/world-cup/news/italy-rejects-iran-replacement-world-cup-2026-zampolli';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Italy\'s government calls a U.S. backdoor entry proposal "shameful." With Iran\'s security status unresolved 50 days out, the 2026 World Cup faces its biggest geopolitical crisis yet.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T16:00:00Z',
     modifiedTime: '2026-04-23T16:00:00Z',

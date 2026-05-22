@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/nvidia/news/nvidia-earth-day-2026-ai-climate-initiatives';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     description: 'From kilometer-scale storm forecasts to orangutan bioacoustics and recycling robots, NVIDIA is deploying Physical AI across 5 major environmental fronts.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Tech Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Tech Desk'],
     publishedTime: '2026-04-23T10:00:00Z',
     modifiedTime: '2026-04-23T10:00:00Z',
     section: 'Tech',

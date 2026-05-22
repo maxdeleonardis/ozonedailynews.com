@@ -5,12 +5,12 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service';
+const PAGE_URL = 'https://www.objectwire.org/service';
 
 export const metadata: Metadata = {
-  title: 'Investigative Services Austin TX | OzoneNews',
+  title: 'Investigative Services Austin TX | ObjectWire',
   description:
-    'OzoneNews is an Austin-based investigative media company. Licensed PI services, investigative journalism, document review, and newsroom tips. Serving Travis County and Central Texas.',
+    'ObjectWire is an Austin-based investigative media company. Licensed PI services, investigative journalism, document review, and newsroom tips. Serving Travis County and Central Texas.',
   keywords: [
     'investigative services Austin TX',
     'private investigator Austin Texas',
@@ -24,20 +24,20 @@ export const metadata: Metadata = {
     'skip tracing Austin Texas',
     'tip the newsroom Austin',
     'FOIA Austin Texas',
-    'OzoneNews investigative services',
+    'ObjectWire investigative services',
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Investigative Services Austin TX | OzoneNews',
+    title: 'Investigative Services Austin TX | ObjectWire',
     description:
       'Austin investigative media company. Licensed PI services and investigative journalism. Surveillance, missing persons, digital forensics, background checks, corporate investigations, FOIA, and newsroom tips.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Investigative Services Austin TX | OzoneNews',
+    title: 'Investigative Services Austin TX | ObjectWire',
     description:
       'Austin PI and investigative journalism services. Surveillance, missing persons, digital forensics, and newsroom tips.',
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'ProfessionalService'],
-  name: 'OzoneNews Investigative Services',
+  name: 'ObjectWire Investigative Services',
   description:
     'Austin-based investigative media company offering licensed private investigator services including surveillance, missing persons, digital forensics, background checks, infidelity investigations, skip tracing, child custody, workers compensation fraud, and corporate investigations.',
   url: PAGE_URL,
@@ -84,28 +84,28 @@ const LOCAL_BUSINESS_SCHEMA = {
     '@type': 'OfferCatalog',
     name: 'Investigative Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Surveillance Investigations', url: 'https://www.ozonenetwork.news/service/surveillance' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Infidelity Investigations', url: 'https://www.ozonenetwork.news/service/infidelity-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Missing Persons Investigations', url: 'https://www.ozonenetwork.news/service/missing-persons' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Background Check Investigations', url: 'https://www.ozonenetwork.news/service/background-checks' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skip Tracing', url: 'https://www.ozonenetwork.news/service/skip-tracing' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Child Custody Investigations', url: 'https://www.ozonenetwork.news/service/child-custody-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workers Compensation Fraud', url: 'https://www.ozonenetwork.news/service/workers-compensation-fraud' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Investigations', url: 'https://www.ozonenetwork.news/service/corporate-investigations' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Forensics', url: 'https://www.ozonenetwork.news/service/digital-forensics' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Investigative Reporting', url: 'https://www.ozonenetwork.news/service/investigative-reporting' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newsroom Tip Submission', url: 'https://www.ozonenetwork.news/service/tip-the-newsroom' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Document Review and FOIA', url: 'https://www.ozonenetwork.news/service/document-review' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Surveillance Investigations', url: 'https://www.objectwire.org/service/surveillance' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Infidelity Investigations', url: 'https://www.objectwire.org/service/infidelity-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Missing Persons Investigations', url: 'https://www.objectwire.org/service/missing-persons' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Background Check Investigations', url: 'https://www.objectwire.org/service/background-checks' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skip Tracing', url: 'https://www.objectwire.org/service/skip-tracing' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Child Custody Investigations', url: 'https://www.objectwire.org/service/child-custody-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workers Compensation Fraud', url: 'https://www.objectwire.org/service/workers-compensation-fraud' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Investigations', url: 'https://www.objectwire.org/service/corporate-investigations' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Forensics', url: 'https://www.objectwire.org/service/digital-forensics' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Investigative Reporting', url: 'https://www.objectwire.org/service/investigative-reporting' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newsroom Tip Submission', url: 'https://www.objectwire.org/service/tip-the-newsroom' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Document Review and FOIA', url: 'https://www.objectwire.org/service/document-review' } },
     ],
   },
-  sameAs: ['https://www.ozonenetwork.news'],
+  sameAs: ['https://www.objectwire.org'],
 };
 
 const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
     { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: PAGE_URL },
   ],
 };
@@ -140,8 +140,8 @@ export default function ServicesHubPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <ArticlePage
-        title="Investigative Services | OzoneNews Austin"
-        subtitle="OzoneNews is an Austin-based investigative media company. We publish accountability journalism and take private cases, applying the same investigative discipline to both."
+        title="Investigative Services | ObjectWire Austin"
+        subtitle="ObjectWire is an Austin-based investigative media company. We publish accountability journalism and take private cases, applying the same investigative discipline to both."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
         slug="service"
@@ -151,7 +151,7 @@ export default function ServicesHubPage() {
           { href: '/service', label: 'Investigative Services' },
         ]}
         infoBox={{
-          title: 'OzoneNews Investigations',
+          title: 'ObjectWire Investigations',
           sections: [
             {
               heading: 'Agency',
@@ -189,11 +189,11 @@ export default function ServicesHubPage() {
           ...JOURNALISM_SERVICES.map((s) => ({ href: s.href, label: s.label, description: s.desc })),
           ...SERVICES.map((s) => ({ href: s.href, label: s.label, description: s.desc })),
         ]}
-        backLink={{ href: '/', label: 'OzoneNews' }}
+        backLink={{ href: '/', label: 'ObjectWire' }}
       >
         <Section id="who-we-are" title="Who We Are | Investigative Media Company">
           <p>
-            OzoneNews is an Austin-based investigative media company. Our primary mission is publishing
+            ObjectWire is an Austin-based investigative media company. Our primary mission is publishing
             source-cited accountability journalism on public figures, institutions, and stories the public
             deserves to know. We also take private cases, applying the same investigative discipline we bring
             to journalism to matters for individuals, attorneys, insurers, and businesses.
@@ -219,7 +219,7 @@ export default function ServicesHubPage() {
 
         <Section id="journalism-services" title="Media and Journalism Services | Public Interest Reporting">
           <p>
-            OzoneNews's primary identity is investigative journalism. We investigate, verify, and publish
+            ObjectWire's primary identity is investigative journalism. We investigate, verify, and publish
             stories that hold people in power accountable. Our journalism services are available to sources,
             whistleblowers, and members of the public who have information that belongs in the public record.
           </p>

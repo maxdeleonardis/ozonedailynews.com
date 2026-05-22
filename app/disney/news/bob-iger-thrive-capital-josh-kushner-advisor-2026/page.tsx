@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/disney/news/bob-iger-thrive-capital-josh-kushner-advisor-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'One month after exiting Disney, Bob Iger returns to Thrive Capital to guide investments in OpenAI, A24, Spotify, and the generative AI era.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T14:00:00Z',
     modifiedTime: '2026-04-23T14:00:00Z',

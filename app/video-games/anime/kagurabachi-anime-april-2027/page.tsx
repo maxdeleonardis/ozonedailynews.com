@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/anime/kagurabachi-anime-april-2027';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Kagurabachi Anime | April 2027 Premiere, CygamesPictures',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
       'Official teaser trailer dropped. CygamesPictures producing. April 2027 premiere window confirmed for the hit Weekly Shonen Jump revenge-action manga.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Gaming Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-05-04T12:00:00Z',
     modifiedTime: '2026-05-04T12:00:00Z',
     section: 'Gaming',

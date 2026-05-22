@@ -364,7 +364,7 @@ function checkManualSteps() {
   manual('MAN4', 'Apple News Publisher — apply',
     'https://news.apple.com/publisher — submit /rss.xml as your feed URL');
   manual('MAN5', 'W3C Feed Validator — validate RSS before submitting to Apple/Bing',
-    'https://validator.w3.org/feed/ → enter https://www.ozonenetwork.news/rss.xml');
+    'https://validator.w3.org/feed/ → enter https://www.objectwire.org/rss.xml');
   manual('MAN6', 'Google Search Console — submit news sitemap',
     'https://search.google.com/search-console → Sitemaps → submit /news-sitemap.xml');
   manual('MAN7', 'Online News Association membership',
@@ -372,7 +372,7 @@ function checkManualSteps() {
   manual('MAN8', 'Society of Professional Journalists membership (key authors)',
     'https://spj.org/join.asp — ~$75/person/year — link from author pages after joining');
   manual('MAN9', 'WHOIS transparency check',
-    'https://whois.domaintools.com/ozonenetwork.news — registrant should show org name, not privacy protect');
+    'https://whois.domaintools.com/objectwire.org — registrant should show org name, not privacy protect');
   manual('MAN10', 'Perplexity — no submission needed, crawls automatically',
     'Ensure top articles have DirectAnswer + KeyTakeaways GEO components for citation eligibility');
 }
@@ -381,7 +381,7 @@ function checkManualSteps() {
 
 function main() {
   console.log(c.bold(c.cyan('\n╔══════════════════════════════════════════════════════╗')));
-  console.log(c.bold(c.cyan('║   OzoneNews — News Publisher Pre-Submission Check   ║')));
+  console.log(c.bold(c.cyan('║   ObjectWire — News Publisher Pre-Submission Check   ║')));
   console.log(c.bold(c.cyan('╚══════════════════════════════════════════════════════╝')));
   console.log(c.gray(`   Date: ${new Date().toISOString().split('T')[0]}`));
   console.log(c.gray('   Target: Google News, Bing News, Apple News\n'));

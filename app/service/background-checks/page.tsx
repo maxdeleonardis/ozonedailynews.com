@@ -5,10 +5,10 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/background-checks';
+const PAGE_URL = 'https://www.objectwire.org/service/background-checks';
 
 export const metadata: Metadata = {
-  title: 'Background Check Investigations Austin TX | OzoneNews',
+  title: 'Background Check Investigations Austin TX | ObjectWire',
   description:
     'Licensed background check investigations in Austin, Texas. Criminal history, employment verification, identity research, and address history for individuals and businesses across Travis County.',
   keywords: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Background Check Investigations Austin TX | OzoneNews',
+    title: 'Background Check Investigations Austin TX | ObjectWire',
     description: 'Criminal history, employment verification, and identity research in Austin, TX. Deeper than consumer background checks.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Background Check Investigations Austin TX | OzoneNews',
+    title: 'Background Check Investigations Austin TX | ObjectWire',
     description: 'Deep background checks in Austin, TX. Criminal, employment, identity, address history.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed criminal history, employment verification, and identity investigation services in Austin, Texas.',
   serviceType: 'Private Investigation — Background Check',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Background Checks', item: PAGE_URL },
   ],
 };
@@ -63,7 +63,7 @@ export default function BackgroundChecksPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Background Check Investigations Austin TX | OzoneNews"
+        title="Background Check Investigations Austin TX | ObjectWire"
         subtitle="Criminal history, employment verification, identity research, and address history for individuals and businesses across Austin and Travis County."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -115,7 +115,7 @@ export default function BackgroundChecksPage() {
         <Section id="what-is" title="What Background Investigation Covers">
           <p>
             A background investigation is a deep, manual research process conducted by a licensed
-            investigator. OzoneNews handles background checks for individuals vetting new relationships
+            investigator. ObjectWire handles background checks for individuals vetting new relationships
             or business partners, businesses conducting pre-hire due diligence, landlords screening tenants,
             and attorneys investigating opposing parties.
           </p>

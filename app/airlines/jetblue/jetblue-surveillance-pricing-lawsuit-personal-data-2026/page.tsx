@@ -6,7 +6,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/airlines/jetblue/jetblue-surveillance-pricing-lawsuit-personal-data-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'A viral X post, a $230 single-day fare jump, and a deleted JetBlue reply have ignited a federal class action lawsuit and congressional scrutiny over whether airlines use your browsing history to charge you more.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T22:00:00Z',
     modifiedTime: '2026-04-23T22:00:00Z',

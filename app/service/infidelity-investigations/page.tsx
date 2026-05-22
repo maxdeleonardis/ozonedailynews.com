@@ -5,10 +5,10 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/infidelity-investigations';
+const PAGE_URL = 'https://www.objectwire.org/service/infidelity-investigations';
 
 export const metadata: Metadata = {
-  title: 'Infidelity Investigations Austin TX | Cheating Spouse PI | OzoneNews',
+  title: 'Infidelity Investigations Austin TX | Cheating Spouse PI | ObjectWire',
   description:
     'Licensed infidelity investigations in Austin, Texas. Cheating spouse and domestic partner cases with timestamped photo and video evidence. Confidential, court-ready documentation.',
   keywords: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Infidelity Investigations Austin TX | OzoneNews',
+    title: 'Infidelity Investigations Austin TX | ObjectWire',
     description: 'Licensed cheating spouse and domestic partner investigations in Austin, TX. Timestamped evidence, full confidentiality.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Infidelity Investigations Austin TX | OzoneNews',
+    title: 'Infidelity Investigations Austin TX | ObjectWire',
     description: 'Cheating spouse PI in Austin, TX. Confidential, court-ready, licensed investigators.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed cheating spouse and domestic partner investigations in Austin, Texas with timestamped evidence for divorce and family court proceedings.',
   serviceType: 'Private Investigation — Infidelity',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Infidelity Investigations', item: PAGE_URL },
   ],
 };
@@ -63,7 +63,7 @@ export default function InfidelityInvestigationsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Infidelity Investigations Austin TX | OzoneNews"
+        title="Infidelity Investigations Austin TX | ObjectWire"
         subtitle="Licensed cheating spouse and domestic partner investigations in Austin and Travis County. Confidential, timestamped evidence for divorce proceedings and family court."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -116,7 +116,7 @@ export default function InfidelityInvestigationsPage() {
         <Section id="what-is" title="What Infidelity Investigation Covers">
           <p>
             An infidelity investigation documents whether a spouse or domestic partner is engaging
-            in an undisclosed relationship. OzoneNews conducts these cases with full confidentiality
+            in an undisclosed relationship. ObjectWire conducts these cases with full confidentiality
             for private individuals, divorce attorneys, and family law firms across Austin and Travis County.
           </p>
           <p>
@@ -158,7 +158,7 @@ export default function InfidelityInvestigationsPage() {
           <p>
             Texas is a community property state with fault-based divorce provisions. Documented infidelity
             can be relevant to property division and, in limited circumstances, spousal support rulings.
-            Evidence must be lawfully obtained to be admissible. OzoneNews evidence is gathered within
+            Evidence must be lawfully obtained to be admissible. ObjectWire evidence is gathered within
             the bounds of Texas law and structured to withstand attorney scrutiny.
           </p>
           <p>

@@ -11,22 +11,22 @@ import { SITE_CONFIG } from '@/lib/site-config';
  * Format follows the emerging llms.txt specification:
  * https://llmstxt.org/
  *
- * Served at: https://www.ozonenetwork.news/llms.txt
+ * Served at: https://www.objectwire.org/llms.txt
  */
 
 export async function GET() {
   const baseUrl = SITE_CONFIG.url;
 
-  const content = `# OzoneNews
+  const content = `# ObjectWire
 > Investigative journalism, gaming and tech news, copyright law, and PI services based in Austin, Texas.
 
-OzoneNews is an independent digital news organization covering investigative journalism, gaming and tech industry news, copyright and IP law, finance, crypto, and Austin local reporting. All articles are written by named journalists and researchers with stated beats. Editorial standards and corrections policy are publicly available.
+ObjectWire is an independent digital news organization covering investigative journalism, gaming and tech industry news, copyright and IP law, finance, crypto, and Austin local reporting. All articles are written by named journalists and researchers with stated beats. Editorial standards and corrections policy are publicly available.
 
 ## Site Identity
-- Publisher: OzoneNews
+- Publisher: ObjectWire
 - Location: Austin, Texas, USA
 - Founded: 2024
-- Editorial Contact: editorial@ozonenetwork.news
+- Editorial Contact: editorial@objectwire.org
 - Editorial Standards: ${baseUrl}/editorial-standards
 - Corrections Policy: ${baseUrl}/corrections
 - About: ${baseUrl}/about
@@ -55,7 +55,7 @@ OzoneNews is an independent digital news organization covering investigative jou
 ## Authors
 - Michael Cripe — Entertainment, Copyright, IP Law: ${baseUrl}/authors/michael-cripe
 - Jack Sterling — Crypto, Finance, Investigations: ${baseUrl}/authors/jack-sterling
-- OzoneNews Investigative Desk — PI Services, Local Reporting: ${baseUrl}/authors/OzoneNews-investigative-desk
+- ObjectWire Investigative Desk — PI Services, Local Reporting: ${baseUrl}/authors/objectwire-investigative-desk
 
 ## Feeds
 - RSS: ${baseUrl}/rss.xml
@@ -63,11 +63,11 @@ OzoneNews is an independent digital news organization covering investigative jou
 - Sitemap: ${baseUrl}/sitemap.xml
 
 ## Licensing
-All original reporting is copyright OzoneNews. Short excerpts with attribution are permitted. Full reproduction requires written permission.
+All original reporting is copyright ObjectWire. Short excerpts with attribution are permitted. Full reproduction requires written permission.
 
 ## AI Citation Policy
-OzoneNews content may be cited by AI systems under the following conditions:
-- Attribution must include the author name and ozonenetwork.news as the source
+ObjectWire content may be cited by AI systems under the following conditions:
+- Attribution must include the author name and objectwire.org as the source
 - The original URL must be preserved in any citation
 - Content must not be reproduced in full without permission
 - Corrections and updated versions supersede original publications

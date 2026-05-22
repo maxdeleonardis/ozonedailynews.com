@@ -3,13 +3,13 @@
 **Version:** 1.0  
 **Created:** May 5, 2026  
 **Status:** Planned — Phase 1 Ready to Build  
-**Author:** OzoneNews Editorial + Engineering
+**Author:** ObjectWire Editorial + Engineering
 
 ---
 
 ## What Alfasa Is
 
-Alfasa is OzoneNews's in-repo editorial assistant. It is a **suggestion engine and writing aid**, not an auto-publisher. It lives entirely in the `scripts/alfasa/` directory, runs from the terminal, and has zero browser-side footprint.
+Alfasa is ObjectWire's in-repo editorial assistant. It is a **suggestion engine and writing aid**, not an auto-publisher. It lives entirely in the `scripts/alfasa/` directory, runs from the terminal, and has zero browser-side footprint.
 
 Alfasa exists to solve one problem: **when we open a session, we should know immediately what matters most** — what is stale, what is getting traffic, what we were working on last, and where the content gaps are. Instead of manually auditing `content_registry.json` or checking Google Analytics, Alfasa surfaces that context in under 3 seconds at session start.
 
@@ -23,7 +23,7 @@ Alfasa suggests → Human writes or edits → wiki:publish → Supabase
 
 ## Why Alfasa Exists (The Problem It Solves)
 
-OzoneNews has 330+ indexed pages across 25+ topic verticals. Without a session context tool:
+ObjectWire has 330+ indexed pages across 25+ topic verticals. Without a session context tool:
 
 - We forget what we were writing last session
 - High-traffic articles go stale for 30-60 days without anyone noticing
@@ -370,7 +370,7 @@ The `ga-cache.json` and `session_log.json` are committed. They contain no sensit
 
 ## Google AI Content Policy | Alfasa's Editorial Firewall
 
-The ban recovery plan depends on demonstrating to Google's classifier that OzoneNews produces editorial content with genuine human oversight. Alfasa's architecture enforces this by design:
+The ban recovery plan depends on demonstrating to Google's classifier that ObjectWire produces editorial content with genuine human oversight. Alfasa's architecture enforces this by design:
 
 1. **Alfasa never calls `wiki:publish`** — only a human running the command in the terminal can publish
 2. **Briefs are saved as `.md` files** — they are input documents, not publishable content

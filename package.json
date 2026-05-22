@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "npx tsx scripts/validate-public.ts && npx tsx scripts/validate-canonicals.ts && npx tsx scripts/validate-eeat.ts && npx tsx scripts/validate-ai-footprint.ts",
-    "validate:ai-footprint": "npx tsx scripts/validate-ai-footprint.ts",
+    "prebuild": "npx tsx scripts/validate-public.ts && npx tsx scripts/validate-canonicals.ts && npx tsx scripts/validate-eeat.ts && npx tsx scripts/sync-registry.ts --write",
     "build": "next build --turbopack",
     "start": "next start",
     "import-blogs": "npx tsx scripts/import-rss-to-blocks.ts",

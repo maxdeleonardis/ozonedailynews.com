@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/007-first-light/campaign-20-hours';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: '007 First Light Campaign Length | 20 Hours Average Playthrough',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
       'IO Interactive\'s Bond origin story targets 20 hours for a standard run. Tactical Simulator mode and post-launch missions extend total playtime. Launches May 27, 2026.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Gaming Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-05-04T13:00:00Z',
     modifiedTime: '2026-05-04T13:00:00Z',
     section: 'Gaming',

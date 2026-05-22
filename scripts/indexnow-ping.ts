@@ -5,7 +5,7 @@
  * of new or updated URLs. One API call covers all participating engines.
  *
  * Usage:
- *   npm run indexnow -- --url https://www.ozonenetwork.news/your/article/path
+ *   npm run indexnow -- --url https://www.objectwire.org/your/article/path
  *   npm run indexnow:bulk                    ← pings last 50 registry entries
  *   npm run indexnow:all                     ← pings ALL registry entries (use sparingly)
  *
@@ -14,7 +14,7 @@
  *
  * How IndexNow works:
  *   1. You generate a random key (hex, 8-128 chars)
- *   2. You host that key at https://www.ozonenetwork.news/{key}.txt
+ *   2. You host that key at https://www.objectwire.org/{key}.txt
  *   3. You POST URLs + key to api.indexnow.org
  *   4. Bing, Yandex, Seznam, Naver, Mojeek all crawl within minutes
  *
@@ -29,7 +29,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const SITE_URL = 'https://www.ozonenetwork.news';
+const SITE_URL = 'https://www.objectwire.org';
 const INDEXNOW_HOST = 'https://api.indexnow.org/indexnow';
 // Alternate endpoints (all accept the same payload and share submissions):
 // https://www.bing.com/indexnow
@@ -91,7 +91,7 @@ export async function pingIndexNow(urls: string[]): Promise<void> {
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
     const payload: IndexNowPayload = {
-      host: 'www.ozonenetwork.news',
+      host: 'www.objectwire.org',
       key: KEY,
       keyLocation,
       urlList: chunk,
@@ -194,7 +194,7 @@ async function main() {
   let urlsToSubmit: string[] = [];
 
   if (urlFlagIndex !== -1) {
-    // Single URL mode: npm run indexnow -- --url https://www.ozonenetwork.news/...
+    // Single URL mode: npm run indexnow -- --url https://www.objectwire.org/...
     const url = args[urlFlagIndex + 1];
     if (!url || !url.startsWith('http')) {
       console.error('  ❌  --url must be a full URL starting with https://');
@@ -215,7 +215,7 @@ async function main() {
   IndexNow Ping — Bing / Yandex / Seznam / Naver / Mojeek
 
   Usage:
-    npm run indexnow -- --url https://www.ozonenetwork.news/your/article
+    npm run indexnow -- --url https://www.objectwire.org/your/article
     npm run indexnow:bulk          (last 50 from registry)
     npm run indexnow:all           (all registry URLs — use sparingly)
     `);

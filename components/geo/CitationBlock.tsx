@@ -9,7 +9,7 @@
  * marked up with semantic HTML and schema.org markup so AI systems can:
  *   1. Identify it as a definitive answer
  *   2. Extract the key facts without ambiguity
- *   3. Attribute it correctly to OzoneNews
+ *   3. Attribute it correctly to ObjectWire
  *
  * Usage in content_html (static JSON):
  *   <CitationBlock

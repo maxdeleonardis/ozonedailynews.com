@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/news/tesla-fsd-nyc-la-cannonball-zero-interventions-may-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1772171386187-bc14e6cd7804?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       '2,833 miles. 49 hours 55 minutes. Zero human interventions. Tesla FSD 14.3.2 completes the full Cannonball Run coast to coast — and what it reveals about the state of self-driving in 2026.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-12T10:00:00Z',
     modifiedTime: '2026-05-12T10:00:00Z',

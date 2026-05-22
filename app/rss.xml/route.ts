@@ -76,12 +76,12 @@ export async function GET() {
     <description>${escapeXml(SITE_CONFIG.description)}</description>
     <language>${SITE_CONFIG.locale.replace('_', '-').toLowerCase()}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <managingEditor>${SITE_CONFIG.email} (OzoneNews Editorial Team)</managingEditor>
-    <webMaster>${SITE_CONFIG.email} (OzoneNews)</webMaster>
+    <managingEditor>${SITE_CONFIG.email} (ObjectWire Editorial Team)</managingEditor>
+    <webMaster>${SITE_CONFIG.email} (ObjectWire)</webMaster>
     <ttl>60</ttl>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
-      <url>${baseUrl}/OzoneNews-logo.png</url>
+      <url>${baseUrl}/objectwire-logo.png</url>
       <title>${escapeXml(SITE_CONFIG.name)}</title>
       <link>${baseUrl}</link>
       <width>144</width>
@@ -92,7 +92,7 @@ export async function GET() {
       // Prefer ISO published_at for precise pubDate; fall back to display string
       const pubDateRaw = row.published_at || row.publish_date || '';
       const pubDate = pubDateRaw ? new Date(pubDateRaw).toUTCString() : new Date().toUTCString();
-      const author = row.author || 'OzoneNews Editorial Team';
+      const author = row.author || 'ObjectWire Editorial Team';
       const tags = Array.isArray(row.tags) ? row.tags : [];
       const imgUrl = row.image_url ? escapeXml(row.image_url) : '';
       const imgWidth = row.image_width || 1200;
@@ -103,7 +103,7 @@ export async function GET() {
       const contentEncoded = `<![CDATA[${
         row.description || ''
       }${imgUrl ? `<br/><img src="${imgUrl}" alt="${escapeXml(row.title)}" width="${imgWidth}" height="${imgHeight}"/>` : ''}
-<p><a href="${articleUrl}">Read the full article on OzoneNews</a></p>]]>`;
+<p><a href="${articleUrl}">Read the full article on ObjectWire</a></p>]]>`;
       return `
     <item>
       <title><![CDATA[${row.title}]]></title>

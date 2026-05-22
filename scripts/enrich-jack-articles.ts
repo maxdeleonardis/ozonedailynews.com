@@ -7,7 +7,7 @@
  * Reads every static JSON file in content/static/jack_articles/ and enriches:
  *   1. breadcrumbs  — auto-generated from article_url path
  *   2. related_articles — auto-selected from content_registry.json by category match
- *   3. footer_links — standard OzoneNews footer nav
+ *   3. footer_links — standard ObjectWire footer nav
  *
  * Writes files in-place. Safe to re-run — only updates fields that are empty/missing.
  *
@@ -22,7 +22,7 @@ import path from 'path';
 
 const JACK_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
 const REGISTRY_PATH = path.join(process.cwd(), 'content', 'static', 'content_registry.json');
-const BASE_URL = 'https://www.ozonenetwork.news';
+const BASE_URL = 'https://www.objectwire.org';
 const FORCE = process.argv.includes('--force');
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -257,7 +257,7 @@ function findOwireLink(article: Record<string, unknown>) {
 const STANDARD_FOOTER_LINKS = [
   { href: '/editorial-standards', label: 'Editorial Standards' },
   { href: '/corrections',         label: 'Corrections Policy' },
-  { href: '/about',               label: 'About OzoneNews' },
+  { href: '/about',               label: 'About ObjectWire' },
 ];
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

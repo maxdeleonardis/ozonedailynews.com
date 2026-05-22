@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/switch2/switch-2-vs-steam-deck-oled-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Switch 2 launches June 5 at $449.99. Steam Deck OLED is $549. Both are handheld consoles, but they serve completely different players. Full comparison: specs, games, display, and price.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T14:00:00Z',
     modifiedTime: '2026-05-11T14:00:00Z',

@@ -1,7 +1,7 @@
-# OzoneNews | NEXT-STEPS.md
+# ObjectWire | NEXT-STEPS.md
 
 **Last Updated:** May 16, 2026
-**Owner:** OzoneNews Engineering + Editorial
+**Owner:** ObjectWire Engineering + Editorial
 **Purpose:** Single source of truth for every active task. Update this file at the start and end of every work session.
 
 ---
@@ -26,7 +26,7 @@
 ### 🔴 P0 — Do These Before Anything Else
 
 #### 1. Submit News Sitemap to Google Search Console
-- **Action:** GSC → Sitemaps → Add `https://www.OzoneNews.org/news-sitemap.xml`
+- **Action:** GSC → Sitemaps → Add `https://www.objectwire.org/news-sitemap.xml`
 - **Why:** Required for Google News indexing. Not yet submitted per May 12 audit.
 - **Time:** 10 minutes
 - **Who:** Manual — needs GSC access
@@ -39,7 +39,7 @@
 - **Who:** Manual — needs BWT access
 
 #### 3. Validate RSS Feed (W3C)
-- **URL:** `https://validator.w3.org/feed/check.cgi?url=https://www.OzoneNews.org/rss.xml`
+- **URL:** `https://validator.w3.org/feed/check.cgi?url=https://www.objectwire.org/rss.xml`
 - **Why:** RSS was fixed May 12 (content:encoded, media:thumbnail, dc:creator, enclosure length). Confirm the fix passes W3C before applying for Bing News and Apple News.
 - **Time:** 15 minutes
 - **Who:** Manual — open URL, check for errors
@@ -113,7 +113,7 @@ Publish findings as full investigation (1,200+ words, 2+ named sources)
         ↓
 Submit tip to Austin Chronicle / Austin American-Statesman / KXAN / KUT
         ↓
-If they cite OzoneNews → legitimate editorial backlink (highest-value SEO signal possible)
+If they cite ObjectWire → legitimate editorial backlink (highest-value SEO signal possible)
 ```
 
 **Investigation ideas:**
@@ -124,19 +124,19 @@ If they cite OzoneNews → legitimate editorial backlink (highest-value SEO sign
 
 #### 9. Fix All Author Pages — External Credential Links
 
-**Why:** Google quality raters look for author credentials verifiable **outside** the site. A bio referencing only OzoneNews is a weak E-E-A-T signal. A bio linking to prior publication bylines, LinkedIn, or journalism portfolios is a strong one.
+**Why:** Google quality raters look for author credentials verifiable **outside** the site. A bio referencing only ObjectWire is a weak E-E-A-T signal. A bio linking to prior publication bylines, LinkedIn, or journalism portfolios is a strong one.
 
 **Each `/authors/[slug]` page needs:**
 - [ ] Real photo consistent with any external social profile
 - [ ] Specific expertise statement: "covers Austin local government and Travis County courts since 2024" — not generic
 - [ ] At least one link to external work (prior publication, LinkedIn, journalism portfolio)
-- [ ] List of their most recent OzoneNews articles, linked
+- [ ] List of their most recent ObjectWire articles, linked
 - [ ] Beat clearly defined
 
 **Authors to prioritize:**
 - [ ] `jack-sterling` — crypto / finance / tech / autonomous vehicles
 - [ ] `michael-cripe` — entertainment / IP / copyright
-- [ ] `OzoneNews-investigative-desk` — PI services / local reporting
+- [ ] `objectwire-investigative-desk` — PI services / local reporting
 
 #### 10. Noindex Thin Pages
 
@@ -224,16 +224,16 @@ node -e "const r = require('./content/static/content_registry.json'); console.lo
 
 ### 🔵 P3 — owire.org Launch (Parallel Track)
 
-Creator/influencer content separated from OzoneNews.org to resolve topical incoherence (HCU signal).
+Creator/influencer content separated from objectwire.org to resolve topical incoherence (HCU signal).
 
 **Technical checklist:**
-- [ ] Domain verified in Railway (separate from OzoneNews.org)
+- [ ] Domain verified in Railway (separate from objectwire.org)
 - [ ] Next.js project scaffolded — separate repo
-- [ ] Supabase project created — separate from OzoneNews.org Supabase
+- [ ] Supabase project created — separate from objectwire.org Supabase
 - [ ] Separate GA4 property + measurement ID
 - [ ] Separate Search Console property verified
 - [ ] `robots.ts` and `sitemap.ts` configured for owire.org domain
-- [ ] No mention of OzoneNews.org in nav, footer, or metadata
+- [ ] No mention of objectwire.org in nav, footer, or metadata
 
 **Editorial checklist:**
 - [ ] Distinct site name, tagline, About page
@@ -243,9 +243,9 @@ Creator/influencer content separated from OzoneNews.org to resolve topical incoh
 
 **Content migration:**
 - [ ] All creator/influencer `content/static/creator_articles/` pages inventoried
-- [ ] `noindex` added to OzoneNews.org versions before owire.org versions go live
+- [ ] `noindex` added to objectwire.org versions before owire.org versions go live
 - [ ] owire.org versions published with canonical pointing to owire.org URLs
-- [ ] Redirect OzoneNews.org → owire.org versions after 90 days
+- [ ] Redirect objectwire.org → owire.org versions after 90 days
 
 ---
 
@@ -326,7 +326,7 @@ lib/content-registry.ts  ← last resort sync fallback (empty / stale)
 | Increase publishing volume without quality gate | More marginal content makes the classifier worse. |
 | Change domain or redirect | Destroys all existing indexing, backlinks, and SC history. |
 | Bulk-delete thin pages | Irreversible. Use `noindex` instead — it is reversible. |
-| Cross-link OzoneNews.org ↔ owire.org in nav | Signals same operation to Google, undermines separation. |
+| Cross-link objectwire.org ↔ owire.org in nav | Signals same operation to Google, undermines separation. |
 | Push to Railway without running `npm run build` first | Build guard catches em dashes, missing canonicals, bad imports. |
 
 ---

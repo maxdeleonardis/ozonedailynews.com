@@ -5,12 +5,12 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/investigative-reporting';
+const PAGE_URL = 'https://www.objectwire.org/service/investigative-reporting';
 
 export const metadata: Metadata = {
-  title: 'Investigative Reporting Austin TX | OzoneNews',
+  title: 'Investigative Reporting Austin TX | ObjectWire',
   description:
-    'OzoneNews is an Austin-based investigative media company. We publish source-cited, fact-checked reporting on public figures, institutions, and stories the public deserves to know. Submit a tip or commission a story.',
+    'ObjectWire is an Austin-based investigative media company. We publish source-cited, fact-checked reporting on public figures, institutions, and stories the public deserves to know. Submit a tip or commission a story.',
   keywords: [
     'investigative reporting Austin TX',
     'investigative journalism Austin Texas',
@@ -19,22 +19,22 @@ export const metadata: Metadata = {
     'Austin news investigation',
     'investigative news Austin TX',
     'local investigative journalism Austin',
-    'OzoneNews investigative reporting',
+    'ObjectWire investigative reporting',
     'submit news tip Austin',
     'whistleblower Austin Texas',
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Investigative Reporting Austin TX | OzoneNews',
-    description: 'Source-cited, fact-checked accountability journalism from Austin. Submit a tip or learn how OzoneNews investigates.',
+    title: 'Investigative Reporting Austin TX | ObjectWire',
+    description: 'Source-cited, fact-checked accountability journalism from Austin. Submit a tip or learn how ObjectWire investigates.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Investigative Reporting Austin TX | OzoneNews',
-    description: 'Accountability journalism from Austin, TX. How OzoneNews investigates and how to submit a tip.',
+    title: 'Investigative Reporting Austin TX | ObjectWire',
+    description: 'Accountability journalism from Austin, TX. How ObjectWire investigates and how to submit a tip.',
   },
 };
 
@@ -47,8 +47,8 @@ const SERVICE_SCHEMA = {
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
   provider: {
     '@type': ['LocalBusiness', 'NewsMediaOrganization'],
-    name: 'OzoneNews',
-    url: 'https://www.ozonenetwork.news',
+    name: 'ObjectWire',
+    url: 'https://www.objectwire.org',
   },
   url: PAGE_URL,
 };
@@ -57,8 +57,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Investigative Reporting', item: PAGE_URL },
   ],
 };
@@ -69,8 +69,8 @@ export default function InvestigativeReportingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Investigative Reporting | OzoneNews Austin"
-        subtitle="OzoneNews is an Austin-based investigative media company. We publish source-cited accountability journalism on public figures, institutions, and stories the public deserves to know."
+        title="Investigative Reporting | ObjectWire Austin"
+        subtitle="ObjectWire is an Austin-based investigative media company. We publish source-cited accountability journalism on public figures, institutions, and stories the public deserves to know."
         category="Media Services"
         lastUpdated="May 4, 2026"
         slug="service-investigative-reporting"
@@ -130,9 +130,9 @@ export default function InvestigativeReportingPage() {
         ]}
         backLink={{ href: '/service', label: 'Services' }}
       >
-        <Section id="what-is" title="What We Investigate | Scope of OzoneNews Reporting">
+        <Section id="what-is" title="What We Investigate | Scope of ObjectWire Reporting">
           <p>
-            OzoneNews investigates people in power, institutions that affect the public, and stories
+            ObjectWire investigates people in power, institutions that affect the public, and stories
             that would otherwise go untold. Our reporting covers Austin and Texas, with national stories
             when the evidence and public interest warrant it.
           </p>
@@ -153,9 +153,9 @@ export default function InvestigativeReportingPage() {
           </p>
         </Section>
 
-        <Section id="how-we-work" title="How We Investigate | The OzoneNews Method">
+        <Section id="how-we-work" title="How We Investigate | The ObjectWire Method">
           <p>
-            Every OzoneNews investigation begins with a verifiable tip, document, or public record.
+            Every ObjectWire investigation begins with a verifiable tip, document, or public record.
             We do not publish based on rumor, single anonymous sources, or unverified claims. The
             investigation methodology borrows directly from licensed PI practice: establish facts first,
             document everything, corroborate independently, and build toward a claim that can withstand
@@ -182,7 +182,7 @@ export default function InvestigativeReportingPage() {
 
         <Section id="standards" title="Editorial Standards | Accuracy Over Speed">
           <p>
-            OzoneNews publishes when a story is verifiable, not when it is first. We do not chase
+            ObjectWire publishes when a story is verifiable, not when it is first. We do not chase
             breaking news without primary sourcing. Every factual claim in a published investigation
             is attributed to a named source, a document, or a verified public record.
           </p>
@@ -198,7 +198,7 @@ export default function InvestigativeReportingPage() {
 
         <Section id="sources" title="Working With Sources | Confidentiality and Protection">
           <p>
-            Sources who provide information to OzoneNews under an expectation of confidentiality are
+            Sources who provide information to ObjectWire under an expectation of confidentiality are
             protected. We do not disclose source identities without explicit permission. We do not
             store identifying source information in systems that could be compelled in discovery without
             legal counsel review.
@@ -214,7 +214,7 @@ export default function InvestigativeReportingPage() {
 
         <Section id="pi-vs-journalism" title="PI Services vs. Journalism | Understanding the Difference">
           <p>
-            OzoneNews offers both licensed PI services and investigative journalism. These are distinct
+            ObjectWire offers both licensed PI services and investigative journalism. These are distinct
             engagements with different outcomes, obligations, and costs.
           </p>
           <p>
@@ -223,7 +223,7 @@ export default function InvestigativeReportingPage() {
           </p>
           <p>
             <strong>Investigative journalism</strong> results in published reporting. The story belongs
-            to the public record. Sources are protected but the findings become public. OzoneNews
+            to the public record. Sources are protected but the findings become public. ObjectWire
             decides editorially what to publish and when. Journalism is not commissioned — we pursue
             stories based on public interest, not client payment.
           </p>
@@ -242,7 +242,7 @@ export default function InvestigativeReportingPage() {
 
         <Section id="contact" title="Submit a Tip or Story Lead">
           <p>
-            If you have a tip, document, or story lead for OzoneNews's investigative team, visit the{' '}
+            If you have a tip, document, or story lead for ObjectWire's investigative team, visit the{' '}
             <Link href="/service/tip-the-newsroom" className="text-blue-600 hover:text-blue-800 underline">
               tip the newsroom page
             </Link>

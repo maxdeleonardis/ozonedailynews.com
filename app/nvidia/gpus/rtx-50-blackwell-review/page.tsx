@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/nvidia/gpus/rtx-50-blackwell-review';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop';
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'RTX 5090 hits 2x RTX 4090 in ray tracing and AI workloads. DLSS 4 Multi Frame Generation doubles frame rates. Full tier-by-tier verdict on the Blackwell GPU lineup for 2026.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T22:00:00Z',
     modifiedTime: '2026-05-11T22:00:00Z',

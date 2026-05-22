@@ -1,0 +1,9 @@
+/* =============================================================================
+   BOOK READER — scroll-margin only. No animations.
+   The JS scroll-snap that pulls each H2 to the top lives in BookFlipReader.tsx.
+   This scroll-margin keeps the heading clear of the sticky nav when it snaps.
+   ============================================================================= */
+
+[data-article-body="true"] h2 {
+  scroll-margin-top: 5.5rem;
+}

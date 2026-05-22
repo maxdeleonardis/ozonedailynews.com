@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/news/samsung-labor-crisis-pyeongtaek-protest-hbm-chips-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1591189824294-f9a64b5e5d15?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: '40,000 Samsung workers flooded Pyeongtaek demanding triple bonuses matching SK Hynix. An 18-day strike threat could cost $676M/day and delay AI servers for months.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T21:00:00Z',
     modifiedTime: '2026-04-23T21:00:00Z',

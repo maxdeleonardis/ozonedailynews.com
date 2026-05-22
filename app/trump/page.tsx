@@ -11,7 +11,7 @@ const SLUG = '/trump';
 export const metadata: Metadata = {
   title: 'Trump | Politics, Policy & Executive Actions 2026',
   description:
-    'OzoneNews coverage of Donald Trump, White House policy, executive orders, tariffs, immigration enforcement, and U.S. political news. Primary sources only.',
+    'ObjectWire coverage of Donald Trump, White House policy, executive orders, tariffs, immigration enforcement, and U.S. political news. Primary sources only.',
   keywords: [
     'Trump news 2026',
     'Trump executive orders',
@@ -26,20 +26,20 @@ export const metadata: Metadata = {
     'Trump trade war',
     'Trump ICE',
   ],
-  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
+  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
     title: 'Trump | Politics, Policy & Executive Actions 2026',
     description:
       'Comprehensive coverage of Trump White House actions: tariffs, immigration enforcement, crypto policy, DOGE, and executive orders. Verified reporting.',
     type: 'website',
-    url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'OzoneNews',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trump | Politics & Policy 2026',
     description:
-      'OzoneNews politics hub: Trump executive orders, tariffs, immigration, DOGE, and U.S. policy coverage from primary sources.',
+      'ObjectWire politics hub: Trump executive orders, tariffs, immigration, DOGE, and U.S. policy coverage from primary sources.',
   },
 };
 

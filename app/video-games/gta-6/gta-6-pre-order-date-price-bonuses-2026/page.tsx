@@ -4,7 +4,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/gta-6/gta-6-pre-order-date-price-bonuses-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Pre-orders expected before November 19 launch. $70-$80 price range confirmed by Take-Two earnings. Editions and bonus content breakdown.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Michael Cripe'],
     publishedTime: '2026-05-12T10:00:00Z',
     modifiedTime: '2026-05-12T10:00:00Z',

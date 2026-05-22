@@ -5,10 +5,10 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/corporate-investigations';
+const PAGE_URL = 'https://www.objectwire.org/service/corporate-investigations';
 
 export const metadata: Metadata = {
-  title: 'Corporate Investigations Austin TX | OzoneNews',
+  title: 'Corporate Investigations Austin TX | ObjectWire',
   description:
     'Licensed corporate investigations in Austin, Texas. Employee misconduct, IP theft, fraud, executive due diligence, and internal threat assessment across Travis County.',
   keywords: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Corporate Investigations Austin TX | OzoneNews',
+    title: 'Corporate Investigations Austin TX | ObjectWire',
     description: 'Employee misconduct, IP theft, fraud, and executive due diligence investigations in Austin, TX.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Corporate Investigations Austin TX | OzoneNews',
+    title: 'Corporate Investigations Austin TX | ObjectWire',
     description: 'Corporate fraud, employee misconduct, and IP theft investigations in Austin, TX.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed employee misconduct, IP theft, fraud, and executive due diligence investigations for Austin, Texas businesses.',
   serviceType: 'Private Investigation — Corporate',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Corporate Investigations', item: PAGE_URL },
   ],
 };
@@ -63,7 +63,7 @@ export default function CorporateInvestigationsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Corporate Investigations Austin TX | OzoneNews"
+        title="Corporate Investigations Austin TX | ObjectWire"
         subtitle="Employee misconduct, IP theft, fraud, and executive due diligence investigations for Austin-area businesses and legal teams."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -117,7 +117,7 @@ export default function CorporateInvestigationsPage() {
         <Section id="what-is" title="What Corporate Investigation Covers">
           <p>
             Corporate investigations address internal misconduct, fraud, intellectual property theft,
-            and executive or vendor due diligence for Austin-area businesses and legal teams. OzoneNews
+            and executive or vendor due diligence for Austin-area businesses and legal teams. ObjectWire
             applies the same investigative discipline it uses in its public-interest journalism to private
             corporate engagements.
           </p>
@@ -147,7 +147,7 @@ export default function CorporateInvestigationsPage() {
 
         <Section id="journalism-connection" title="Investigative Journalism | When Corporate Misconduct Is a Public Matter">
           <p>
-            OzoneNews is an investigative media company as well as a PI agency. When corporate
+            ObjectWire is an investigative media company as well as a PI agency. When corporate
             misconduct has public significance, including fraud affecting consumers, environmental
             violations, or systemic labor abuses, we may pursue the story as journalism in addition
             to or separately from a private case.

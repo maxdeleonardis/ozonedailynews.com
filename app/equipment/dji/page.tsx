@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const revalidate = 3600;
 
 const SLUG = '/equipment/dji';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-drone-gimbal-placeholder.jpg';
 
 export const metadata: Metadata = {
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
       'The DJI Ronin 4D integrates a full-frame sensor, 4-axis gimbal, LiDAR focus, and O3 Pro wireless transmission into one modular cinema platform. Available',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Tech Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Tech Desk'],
     publishedTime: '2026-03-31T14:00:00Z',
     modifiedTime: '2026-03-31T14:00:00Z',
     section: 'Tech',

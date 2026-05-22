@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/gta-6/news/rockstar-gta5-crunch-overtime-pay';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Rockstar GTA 5 Crunch | Developers Were Never Paid Overtime',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'GTA 5 generated $8 billion. The developers who crunched 100-hour weeks to build it say they were never compensated.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-04T10:00:00Z',
     modifiedTime: '2026-05-04T10:00:00Z',

@@ -4,12 +4,12 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/infamous-remake-collection';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 // TODO: replace BG_IMAGE with official inFamous press art uploaded to Supabase Storage
 // Workflow: press kit screenshot → upload to blog-images/og-backgrounds/infamous-remake-collection.jpg
 // Then set: const BG_IMAGE = 'https://kzcwclprrtonpsnownbl.supabase.co/storage/v1/object/public/blog-images/og-backgrounds/infamous-remake-collection.jpg';
 const BG_IMAGE = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=675&fit=crop'; // neon city cyberpunk placeholder
-const OG_IMAGE = `https://www.ozonenetwork.news/api/og?title=PlayStation+Working+on+inFamous+Remake+Collection&category=Gaming&author=Max+DeLeonardis&date=May+16+2026&bg=${encodeURIComponent(BG_IMAGE)}`;
+const OG_IMAGE = `https://www.objectwire.org/api/og?title=PlayStation+Working+on+inFamous+Remake+Collection&category=Gaming&author=Max+DeLeonardis&date=May+16+2026&bg=${encodeURIComponent(BG_IMAGE)}`;
 
 export const metadata: Metadata = {
   title: 'inFamous Remake Collection | PlayStation Studios, Not Sucker Punch',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'VGC journalist Jordan Middler says a separate PlayStation Studios team, not Sucker Punch, has an inFamous project underway.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Max DeLeonardis'],
     publishedTime: '2026-05-16T08:00:00Z',
     modifiedTime: '2026-05-16T08:00:00Z',

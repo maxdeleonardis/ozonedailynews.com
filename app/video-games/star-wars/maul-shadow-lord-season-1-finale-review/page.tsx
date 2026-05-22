@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 export const revalidate = false;
 
 const SLUG = '/video-games/star-wars/maul-shadow-lord-season-1-finale-review';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Maul Shadow Lord Season 1 Finale Review | Episodes 9 and 10',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
       'The Season 1 finale kills off its supporting cast and closes on a Dark Side confrontation. A confident cap to the most action-dense Star Wars series on Disney Plus.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Gaming Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Gaming Desk'],
     publishedTime: '2026-05-04T11:00:00Z',
     modifiedTime: '2026-05-04T11:00:00Z',
     section: 'Gaming',

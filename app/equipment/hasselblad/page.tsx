@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const revalidate = 3600;
 
 const SLUG = '/equipment/hasselblad';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = '/equipment-camera-placeholder.jpg';
 
 export const metadata: Metadata = {
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
       'The Hasselblad 907X and CFV 100C combine a 100MP BSI sensor, 15 stops of dynamic range, 1TB built-in SSD, and V-system compatibility into a compact',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Tech Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Tech Desk'],
     publishedTime: '2026-03-31T14:00:00Z',
     modifiedTime: '2026-03-31T14:00:00Z',
     section: 'Tech',

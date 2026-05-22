@@ -5,12 +5,12 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/surveillance';
+const PAGE_URL = 'https://www.objectwire.org/service/surveillance';
 
 export const metadata: Metadata = {
-  title: 'Surveillance Investigations Austin TX | OzoneNews',
+  title: 'Surveillance Investigations Austin TX | ObjectWire',
   description:
-    'Licensed surveillance investigations in Austin, Texas. Covert photo and video documentation for domestic, legal, and corporate cases across Travis County. OzoneNews PI services.',
+    'Licensed surveillance investigations in Austin, Texas. Covert photo and video documentation for domestic, legal, and corporate cases across Travis County. ObjectWire PI services.',
   keywords: [
     'surveillance investigations Austin TX',
     'covert surveillance Austin Texas',
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Surveillance Investigations Austin TX | OzoneNews',
+    title: 'Surveillance Investigations Austin TX | ObjectWire',
     description:
       'Licensed covert surveillance for domestic, legal, and corporate cases in Austin, Texas. Timestamped photo and video documentation.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Surveillance Investigations Austin TX | OzoneNews',
+    title: 'Surveillance Investigations Austin TX | ObjectWire',
     description: 'Covert surveillance investigations in Austin, TX. Domestic, legal, and corporate cases.',
   },
 };
@@ -47,8 +47,8 @@ const SERVICE_SCHEMA = {
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
   provider: {
     '@type': 'LocalBusiness',
-    name: 'OzoneNews Investigative Services',
-    url: 'https://www.ozonenetwork.news/service',
+    name: 'ObjectWire Investigative Services',
+    url: 'https://www.objectwire.org/service',
   },
   url: PAGE_URL,
 };
@@ -57,8 +57,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Surveillance', item: PAGE_URL },
   ],
 };
@@ -69,7 +69,7 @@ export default function SurveillancePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Surveillance Investigations Austin TX | OzoneNews"
+        title="Surveillance Investigations Austin TX | ObjectWire"
         subtitle="Licensed covert surveillance for domestic, legal, and corporate cases across Austin and Travis County. Timestamped photo and video documentation."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -124,7 +124,7 @@ export default function SurveillancePage() {
         <Section id="what-is" title="What Surveillance Investigation Covers">
           <p>
             Surveillance investigation is the systematic, covert observation and documentation of a
-            subject's activities, movements, and behavior. OzoneNews conducts surveillance for private
+            subject's activities, movements, and behavior. ObjectWire conducts surveillance for private
             individuals, law firms, insurance companies, and corporations across Austin and Travis County.
           </p>
           <p>
@@ -186,7 +186,7 @@ export default function SurveillancePage() {
         <Section id="evidence" title="Evidence Standards | Court-Ready Documentation">
           <p>
             Texas courts require that evidence be lawfully obtained, authenticated, and presented with
-            a clear chain of custody to be admissible. Every OzoneNews surveillance report is structured
+            a clear chain of custody to be admissible. Every ObjectWire surveillance report is structured
             to meet this standard. We document investigator identity, timestamps, observation locations,
             and equipment used.
           </p>

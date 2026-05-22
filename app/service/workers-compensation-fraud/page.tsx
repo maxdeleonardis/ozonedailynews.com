@@ -5,10 +5,10 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/workers-compensation-fraud';
+const PAGE_URL = 'https://www.objectwire.org/service/workers-compensation-fraud';
 
 export const metadata: Metadata = {
-  title: 'Workers Compensation Fraud Investigation Austin TX | OzoneNews',
+  title: 'Workers Compensation Fraud Investigation Austin TX | ObjectWire',
   description:
     'Licensed workers compensation fraud surveillance in Austin, Texas. Claimant documentation for insurers, TPAs, and defense attorneys across Travis County. Admissible, timestamped evidence.',
   keywords: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Workers Compensation Fraud Investigation Austin TX | OzoneNews',
+    title: 'Workers Compensation Fraud Investigation Austin TX | ObjectWire',
     description: 'Claimant surveillance for insurers and defense attorneys in Austin, TX. Admissible, timestamped documentation.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Workers Comp Fraud Investigation Austin TX | OzoneNews',
+    title: 'Workers Comp Fraud Investigation Austin TX | ObjectWire',
     description: 'Workers comp fraud surveillance in Austin, TX. Licensed PI, court-ready documentation.',
   },
 };
@@ -43,7 +43,7 @@ const SERVICE_SCHEMA = {
   description: 'Licensed claimant surveillance for workers compensation fraud cases in Austin, Texas, for insurers, TPAs, and defense attorneys.',
   serviceType: 'Private Investigation — Insurance Fraud',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  provider: { '@type': 'LocalBusiness', name: 'OzoneNews Investigative Services', url: 'https://www.ozonenetwork.news/service' },
+  provider: { '@type': 'LocalBusiness', name: 'ObjectWire Investigative Services', url: 'https://www.objectwire.org/service' },
   url: PAGE_URL,
 };
 
@@ -51,8 +51,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Investigative Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Workers Compensation Fraud', item: PAGE_URL },
   ],
 };
@@ -63,7 +63,7 @@ export default function WorkersCompFraudPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
-        title="Workers Compensation Fraud Investigation Austin TX | OzoneNews"
+        title="Workers Compensation Fraud Investigation Austin TX | ObjectWire"
         subtitle="Licensed claimant surveillance for insurers, TPAs, and defense attorneys across Austin and Travis County. Admissible, timestamped photo and video documentation."
         category="Investigative Services"
         lastUpdated="May 4, 2026"
@@ -115,7 +115,7 @@ export default function WorkersCompFraudPage() {
         <Section id="what-is" title="What Workers Comp Fraud Investigation Covers">
           <p>
             Workers compensation fraud investigation documents whether a claimant is engaging in physical
-            activities inconsistent with their stated injury or disability. OzoneNews conducts these
+            activities inconsistent with their stated injury or disability. ObjectWire conducts these
             cases for insurance carriers, third-party administrators, and defense attorneys handling
             workers compensation litigation in Texas.
           </p>
@@ -158,7 +158,7 @@ export default function WorkersCompFraudPage() {
         <Section id="documentation" title="Documentation Standards | Texas DWC Proceedings">
           <p>
             Evidence presented in Texas workers compensation contested case hearings must be lawfully
-            obtained and authenticated. OzoneNews surveillance reports are structured to meet these
+            obtained and authenticated. ObjectWire surveillance reports are structured to meet these
             requirements. We document investigator identity, equipment used, observation method,
             timestamps, and location for every recorded event.
           </p>

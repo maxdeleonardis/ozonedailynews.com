@@ -1,4 +1,4 @@
-# OzoneNews Content Plan | Tech, Gaming & Anime Verticals
+# ObjectWire Content Plan | Tech, Gaming & Anime Verticals
 
 **Version:** 1.0  
 **Date:** May 4, 2026  
@@ -16,7 +16,7 @@ This is one of the best articles on the site. Deep technical content, spec compa
 What it's missing:
 - Hub backlink to `/tech/newegg` or `/tech` is text-only, buried at the bottom of Section 5. Should be a prominent link in the first paragraph.
 - No cluster siblings — needs 2-3 more AMD/CPU articles it can link to
-- No `meta_title` override — default `title + " | OzoneNews"` is 72 chars, over the 60-char limit
+- No `meta_title` override — default `title + " | ObjectWire"` is 72 chars, over the 60-char limit
 
 ---
 
@@ -83,7 +83,7 @@ Slug:  video-games-gta-6-release-date-everything-confirmed-2026
 URL:   /video-games/gta-6/release-date
 Type:  JackArticleDB (static JSON)
 ```
-This is the highest-value single article OzoneNews can write. "GTA 6 release date" gets 5M+ searches/month. A comprehensive hub JackArticle covering: release date, platforms, Vice City map, protagonist Lucia, online mode, price, system requirements, Take-Two statements, delay history. Target: 2,500 words, 6 numbered sections, spec comparison table, timeline.
+This is the highest-value single article ObjectWire can write. "GTA 6 release date" gets 5M+ searches/month. A comprehensive hub JackArticle covering: release date, platforms, Vice City map, protagonist Lucia, online mode, price, system requirements, Take-Two statements, delay history. Target: 2,500 words, 6 numbered sections, spec comparison table, timeline.
 
 **Spoke NewsArticles (write after hub):**
 - GTA 6 trailer breakdown | Every confirmed detail from Trailers 1 and 2
@@ -162,7 +162,7 @@ Covers everything confirmed: Age 1000 setting, West City destructible environmen
 
 ### Vertical 2 — ANIME GAMES (Priority: 🟡 High)
 
-Anime gaming is one of the fastest-growing segments on YouTube and TikTok. OzoneNews has an `/anime` route but almost no content in it. This is a wide-open gap.
+Anime gaming is one of the fastest-growing segments on YouTube and TikTok. ObjectWire has an `/anime` route but almost no content in it. This is a wide-open gap.
 
 #### Anime Games Hub
 
@@ -213,7 +213,7 @@ The AMD Ryzen article proves there's a real hardware-enthusiast audience on the 
 
 These articles should include `SisterSiteCallout` pointing to owire.org:
 
-| OzoneNews Article | owire.org Link | Context |
+| ObjectWire Article | owire.org Link | Context |
 |---|---|---|
 | MHA Ultra Rumble hub | `owire.org/anime/my-hero-academia` | Anime culture |
 | Dragon Ball Xenoverse 3 hub | `owire.org/anime/dragon-ball` | Anime culture |
@@ -294,4 +294,4 @@ npm run wiki:status
 
 ---
 
-*OzoneNews Content Plan v1.0 — Tech, Gaming, Anime Verticals — May 2026*
+*ObjectWire Content Plan v1.0 — Tech, Gaming, Anime Verticals — May 2026*

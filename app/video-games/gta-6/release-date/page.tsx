@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/video-games/gta-6/release-date';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       'Rockstar confirmed Fall 2026. Dual protagonists Jason Duval and Lucia Caminos, the State of Leonida open world, expected $80 pricing, and no PC date yet.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T12:00:00Z',
     modifiedTime: '2026-05-11T12:00:00Z',

@@ -1,58 +1,64 @@
 // NewsArticle Schema Component for Google News, Perplexity, and MSN
-// Add this to your article pages for proper indexing
-// IMPORTANT: All URLs must use https://www.ozonenetwork.news (canonical www domain)
+// Add this to your article pages for proper indexing.
+// IMPORTANT: All URLs must use https://www.ozonenetwork.news (canonical www domain).
 //
 // Google Top Stories image requirement: minimum 1200x675 (16:9 ratio).
 // 1200x630 fails the Top Stories eligibility check.
+//
+// March 2026 Core Update compliance:
+//  - NewsMediaOrganization publisher block carries publishingPrinciples,
+//    correctionsPolicy, actionableFeedbackPolicy, and ethicsPolicy URLs.
+//  - Article-level author is a Person object with a sameAs array (Twitter/LinkedIn)
+//    sourced from `lib/author-profiles.ts`. Bylines with no external footprint must
+//    use the "OzoneNews Editorial Team" house byline.
 
-/**
- * Author → external profile sameAs lookup map.
- *
- * When `authorSameAs` is NOT passed to NewsArticleSchema, the component
- * falls back to this map keyed by `author` display name. This means all
- * existing article pages get correct Person sameAs in schema automatically.
- *
- * Rules (post-March-2026 Core Update):
- *  - Only list verified, live external profiles (Twitter, LinkedIn, Facebook).
- *  - Entries with no real external footprint get an empty array.
- *  - An empty array means the sameAs key is omitted from the Person object.
- *  - Update this map when a real external profile is created for any author.
- */
-const AUTHOR_SAME_AS: Record<string, string[]> = {
-  // Max DeLeonardis — 70% founding member. Real verified profiles:
-  'Max DeLeonardis': [
-    'https://x.com/ozonedailynews',
-    'https://www.linkedin.com/in/maximillion-deleonardis',
-    'https://www.facebook.com/don.deleonardis/',
-  ],
-  // Jack Sterling — 30% founding member. Profiles pending account creation.
-  // TODO: add https://x.com/[handle] and https://www.linkedin.com/in/[slug] once created.
-  'Jack Sterling': [],
-  // Tina Boyle — Investigations Reporter. Public Facebook profile:
-  'Tina Boyle': [
-    'https://www.facebook.com/tina.b.deleonardis',
-  ],
-  // Alfasa Chillingsworth — Finance & Markets / Anime & Gaming. Profiles pending.
-  // TODO: add social profiles once created.
-  'Alfasa Chillingsworth': [],
-  // Legacy byline still referenced in some article JSON files:
-  'Alfansa': [],
-  // Jack Brennan — Creator & Influencer Reporter. Profiles pending.
-  // TODO: add social profiles once created.
-  'Jack Brennan': [],
+import { getAuthorSameAs, getAuthorUrl } from "@/lib/author-profiles";
+
+const SITE_URL = "https://www.ozonenetwork.news";
+const SITE_NAME = "OzoneNews";
+const PUBLISHER_NAME = "Ozone Network News";
+const LEGAL_NAME = "Ozone Network News LLC";
+const LOGO_URL = `${SITE_URL}/ozonenews-logo.png`;
+const PUBLISHER_SAME_AS = [
+  "https://twitter.com/ozonenetwork",
+  "https://www.linkedin.com/company/ozonenetwork",
+];
+
+const POLICY_URLS = {
+  publishingPrinciples: `${SITE_URL}/editorial-standards`,
+  ethicsPolicy: `${SITE_URL}/editorial-standards`,
+  correctionsPolicy: `${SITE_URL}/corrections`,
+  actionableFeedbackPolicy: `${SITE_URL}/corrections`,
+  verificationFactCheckingPolicy: `${SITE_URL}/editorial-standards`,
+  diversityPolicy: `${SITE_URL}/editorial-standards`,
+  unnamedSourcesPolicy: `${SITE_URL}/editorial-standards`,
+  masthead: `${SITE_URL}/authors`,
+  ownershipFundingInfo: `${SITE_URL}/about`,
 };
+
+function publisherBlock() {
+  return {
+    "@type": "NewsMediaOrganization",
+    "@id": `${SITE_URL}#publisher`,
+    name: PUBLISHER_NAME,
+    legalName: LEGAL_NAME,
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: LOGO_URL,
+      width: 600,
+      height: 60,
+    },
+    sameAs: PUBLISHER_SAME_AS,
+    ...POLICY_URLS,
+  };
+}
 
 export interface ArticleSchemaProps {
   title: string;
   description: string;
   author: string;
   authorUrl?: string;
-  /**
-   * Author's external profile URLs (Twitter, LinkedIn, Medium, prior outlet bylines).
-   * Required by the post-March-2026 Core Update author footprint rule.
-   * If an author has no external sameAs entries, use the "OzoneNews Editorial Team" house byline instead.
-   */
-  authorSameAs?: string[];
   publishedTime: string;
   modifiedTime?: string;
   imageUrl?: string;
@@ -69,7 +75,6 @@ export function NewsArticleSchema({
   description,
   author,
   authorUrl,
-  authorSameAs,
   publishedTime,
   modifiedTime,
   imageUrl,
@@ -80,12 +85,6 @@ export function NewsArticleSchema({
   keywords = [],
   wordCount,
 }: ArticleSchemaProps) {
-  // Resolve sameAs: prefer explicitly-passed prop, fall back to the lookup
-  // map so all existing articles get correct Person sameAs without page edits.
-  const resolvedSameAs = (authorSameAs && authorSameAs.length > 0)
-    ? authorSameAs
-    : (AUTHOR_SAME_AS[author] ?? []);
-
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -107,27 +106,10 @@ export function NewsArticleSchema({
     "author": {
       "@type": "Person",
       "name": author,
-      "url": authorUrl || `https://www.ozonenetwork.news/authors/${author.toLowerCase().replace(/\s+/g, '-')}`,
-      ...(resolvedSameAs.length > 0 ? { "sameAs": resolvedSameAs } : {}),
+      "url": authorUrl || getAuthorUrl(author, SITE_URL),
+      "sameAs": getAuthorSameAs(author),
     },
-    "publisher": {
-      "@type": "NewsMediaOrganization",
-      "name": "OzoneNews",
-      "legalName": "Ozone Network News LLC",
-      "logo": {
-        "@type": "ImageObject",
-        // objectwire-logo.png is the current live logo in /public.
-        // Replace with /ozonenetwork-logo.png once the OzoneNews brand asset is ready.
-        "url": "https://www.ozonenetwork.news/objectwire-logo.png",
-        "width": 600,
-        "height": 60
-      },
-      "url": "https://www.ozonenetwork.news",
-      "sameAs": [
-        "https://x.com/ozonedailynews",
-        "https://www.linkedin.com/company/ozonenetworknews"
-      ]
-    },
+    "publisher": publisherBlock(),
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": articleUrl
@@ -137,7 +119,7 @@ export function NewsArticleSchema({
     "isAccessibleForFree": true,
     "inLanguage": "en-US",
     "copyrightYear": new Date(publishedTime).getFullYear(),
-    "copyrightHolder": { "@type": "Organization", "name": "Ozone Network News LLC", "url": "https://www.ozonenetwork.news" },
+    "copyrightHolder": { "@type": "Organization", "name": PUBLISHER_NAME, "url": SITE_URL },
     // speakable — voice assistants (Google Assistant, Siri) and AI systems read these selectors.
     // Using specific selectors targets the actual answer content, not nav/footer noise.
     "speakable": {
@@ -160,68 +142,62 @@ export function NewsArticleSchema({
   );
 }
 
-// NewsMediaOrganization schema for the main site
-// Post-March-2026 Core Update: this is the entity footprint Google and Bing use to
-// verify OzoneNews is a real newsroom, not a blog. Every policy URL must resolve
-// to a real, populated trust page, missing pages cause schema validation failures.
+// Organization Schema for the main site
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
-    "name": "OzoneNews",
-    "legalName": "Ozone Network News LLC",
-    "alternateName": ["The Ozone Network", "Ozone Network News", "ONN"],
-    "url": "https://www.ozonenetwork.news",
+    "@id": `${SITE_URL}#publisher`,
+    "additionalType": "https://schema.org/Organization",
+    "name": PUBLISHER_NAME,
+    "alternateName": [SITE_NAME, "Ozone Network", "OzoneNews News Network"],
+    "legalName": LEGAL_NAME,
+    "url": SITE_URL,
     "logo": {
       "@type": "ImageObject",
-      // objectwire-logo.png is the current live logo in /public.
-      // Replace with /ozonenetwork-logo.png once the OzoneNews brand asset is ready.
-      "url": "https://www.ozonenetwork.news/objectwire-logo.png",
+      "url": LOGO_URL,
       "width": 600,
       "height": 60
     },
-    "description": "OzoneNews is an independent newsroom delivering verified, source-cited reporting on technology, finance, gaming, and digital culture. We do not accept advertising, sponsored content, or political donations.",
-    "foundingDate": "2026",
+    "description": "OzoneNews is an independent newsroom delivering verified, source-cited reporting on technology, finance, politics, gaming, and global affairs.",
+    "foundingDate": "2024",
     "founders": [
       {
         "@type": "Person",
-        "name": "OzoneNews Editorial Team"
+        "name": "OzoneNews Editorial Team",
+        "url": `${SITE_URL}/about`
       }
     ],
-    "sameAs": [
-      "https://x.com/ozonedailynews",
-      "https://www.linkedin.com/company/ozonenetworknews"
-    ],
+    "sameAs": PUBLISHER_SAME_AS,
     "contactPoint": [
       {
         "@type": "ContactPoint",
         "contactType": "editorial",
-        "email": "editorial@ozonenetwork.news"
+        "email": "editorial@ozonenetwork.news",
+        "url": `${SITE_URL}/contact`,
+        "availableLanguage": ["en"]
       },
       {
         "@type": "ContactPoint",
         "contactType": "corrections",
-        "email": "corrections@ozonenetwork.news"
-      },
-      {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "contact@ozonenetwork.news"
+        "email": "corrections@ozonenetwork.news",
+        "url": `${SITE_URL}/corrections`,
+        "availableLanguage": ["en"]
       }
     ],
-    "publishingPrinciples": "https://www.ozonenetwork.news/editorial-standards",
-    "ethicsPolicy": "https://www.ozonenetwork.news/editorial-standards",
-    "correctionsPolicy": "https://www.ozonenetwork.news/corrections",
-    "actionableFeedbackPolicy": "https://www.ozonenetwork.news/contact",
-    "verificationFactCheckingPolicy": "https://www.ozonenetwork.news/editorial-standards",
-    "diversityPolicy": "https://www.ozonenetwork.news/editorial-standards",
-    "unnamedSourcesPolicy": "https://www.ozonenetwork.news/editorial-standards",
-    "masthead": "https://www.ozonenetwork.news/authors",
-    "ownershipFundingInfo": "https://www.ozonenetwork.news/about",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2921 E 17th St Bldg 3",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "postalCode": "78702",
+      "addressCountry": "US"
+    },
+    ...POLICY_URLS,
     "funder": {
       "@type": "Organization",
-      "name": "Ozone Network News LLC (self-funded)",
-      "description": "Self-funded by the founders of Ozone Network News LLC. No advertising, sponsored content, or political donations accepted."
+      "name": `${LEGAL_NAME} (self-funded)`,
+      "description": "Self-funded by the OzoneNews editorial team. No advertising, sponsored content, or political donations accepted."
     }
   };
 
@@ -238,13 +214,17 @@ export function WebSiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "OzoneNews",
-    "url": "https://www.ozonenetwork.news",
+    "@id": `${SITE_URL}#website`,
+    "name": SITE_NAME,
+    "alternateName": PUBLISHER_NAME,
+    "url": SITE_URL,
+    "publisher": { "@id": `${SITE_URL}#publisher` },
+    "inLanguage": "en-US",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.ozonenetwork.news/search?q={search_term_string}"
+        "urlTemplate": `${SITE_URL}/search?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
@@ -257,3 +237,4 @@ export function WebSiteSchema() {
     />
   );
 }
+

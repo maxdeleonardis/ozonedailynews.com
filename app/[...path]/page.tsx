@@ -118,7 +118,7 @@ export async function generateMetadata({
     (data.description as string) ||
     (data.excerpt as string) ||
     '';
-  const canonical = `https://www.ozonenetwork.news/${segments.join('/')}`;
+  const canonical = `https://www.objectwire.org/${segments.join('/')}`;
 
   return {
     title,
@@ -129,7 +129,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       url: canonical,
-      siteName: 'OzoneNews',
+      siteName: 'ObjectWire',
     },
   };
 }

@@ -1,8 +1,8 @@
-# Satori Premium Thumbnail Pipeline | OzoneNews
+# Satori Premium Thumbnail Pipeline | ObjectWire
 
 **Created:** May 16, 2026
 **Scope:** Forward-only. Every NEW article published from terminal/code gets a premium, unique, branded 1200×675 thumbnail automatically. No backfill of legacy articles.
-**Assets:** OzoneNews logo (export from Canva as SVG + PNG) + Unsplash API (`Xf48MkOY-E_ughjz6FJ1d_heBKDy0YcF_qpIDoVi1FQ`) + Canva for brand kit design source.
+**Assets:** ObjectWire logo (export from Canva as SVG + PNG) + Unsplash API (`Xf48MkOY-E_ughjz6FJ1d_heBKDy0YcF_qpIDoVi1FQ`) + Canva for brand kit design source.
 **Status:** Planning → Implementation
 
 ---
@@ -29,7 +29,7 @@ Solid `#0a0a0a` background + white text. Clean but flat. Identifiable as auto-ge
 ### With these assets (upgraded plan)
 1. **Unsplash** — every article gets a contextually relevant real photograph as the full-bleed background, auto-queried by article title + category at publish time. The image fills 100% of the 1200×675 canvas.
 2. **Dark gradient overlay** — a `linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.15) 100%)` overlay sits over the photo. Text anchored at the bottom reads over the darkest zone. Photography bleeds through at the top.
-3. **Real OzoneNews logo** — exported from Canva as a white-on-transparent SVG, encoded as base64 and embedded directly into Satori. The actual brand mark, not a text substitute.
+3. **Real ObjectWire logo** — exported from Canva as a white-on-transparent SVG, encoded as base64 and embedded directly into Satori. The actual brand mark, not a text substitute.
 4. **Canva as design source** — design the exact OG card layout, typography, spacing, and color system inside Canva first. Get it pixel-perfect visually. Then translate those exact measurements into Satori JSX. Canva is the mockup tool, Satori is the renderer. Canva's API is **not** used programmatically — it is gated behind Enterprise and autofill is still in preview. Use Canva for what it does best: visual design decisions.
 
 ### Result
@@ -67,12 +67,12 @@ npm install satori @vercel/og
 1. Create a new design at **1200 × 675px** (custom size)
 2. Set background to a placeholder dark photo
 3. Apply the gradient overlay (bottom 60% darkens to `rgba(0,0,0,0.90)`)
-4. Place the OzoneNews logo (white version) — decide exact position and size
+4. Place the ObjectWire logo (white version) — decide exact position and size
 5. Place a mock category badge (◆ GAMING in the category accent color)
 6. Place a mock headline in your chosen font — decide size, line height, margin
 7. Place mock subtitle, byline, date
 8. Get it exactly right visually — screenshot or export as reference PNG
-9. **Export the OzoneNews logo** as `SVG` (white on transparent) — this goes into `public/og-assets/`
+9. **Export the ObjectWire logo** as `SVG` (white on transparent) — this goes into `public/og-assets/`
 10. Those exact pixel measurements become the Satori JSX
 
 This is the highest-leverage 30 minutes: nail the design in Canva so the code matches it exactly.
@@ -98,8 +98,8 @@ public/fonts/
   Inter-Medium.ttf        ← metadata
 
 public/og-assets/
-  OzoneNews-logo-white.svg   ← exported from Canva, white on transparent
-  OzoneNews-logo-black.svg   ← for light backgrounds (future use)
+  objectwire-logo-white.svg   ← exported from Canva, white on transparent
+  objectwire-logo-black.svg   ← for light backgrounds (future use)
   grain.svg                   ← optional noise texture overlay at 2% opacity
 ```
 
@@ -111,7 +111,7 @@ public/og-assets/
 │                                                          │
 │  ░░░░░░░░░░░░░░░░░░░░░ gradient overlay ░░░░░░░░░░░░░░  │  Layer 2
 │                                                          │
-│  [OzoneNews logo SVG]               ◆ GAMING           │  Layer 3 — top
+│  [ObjectWire logo SVG]               ◆ GAMING           │  Layer 3 — top
 │                                                          │
 │                                                          │
 │  Subnautica 2 Early Access                               │  Fraunces Black 84px
@@ -120,7 +120,7 @@ public/og-assets/
 │  UE5 underwater survival sequel shatters                 │  Fraunces Semi 30px
 │  Steam early-access record                               │  gray-300
 │                                                          │
-│  Max DeLeonardis · May 15, 2026 · OzoneNews.org         │  Inter Medium 15px
+│  Max DeLeonardis · May 15, 2026 · objectwire.org         │  Inter Medium 15px
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -222,7 +222,7 @@ app/api/og/route.tsx                          ← Edge function, returns PNG
 lib/og/
   ├── unsplash.ts                             ← Unsplash photo fetch + query builder + fallback
   ├── load-fonts.ts                           ← Edge-safe font loader (fetch + module-level cache)
-  ├── load-logo.ts                            ← Reads OzoneNews-logo-white.svg → base64
+  ├── load-logo.ts                            ← Reads objectwire-logo-white.svg → base64
   ├── theme.ts                                ← Category accent resolver
   ├── truncate.ts                             ← Smart headline truncation, no orphans
   ├── url.ts                                  ← getOGImageUrl(slug, modifiedAt?)
@@ -239,8 +239,8 @@ public/fonts/
   Inter-Medium.ttf
 
 public/og-assets/
-  OzoneNews-logo-white.svg     ← EXPORT FROM CANVA — actual brand logo, white on transparent
-  OzoneNews-logo-black.svg     ← EXPORT FROM CANVA — for future light-bg variants
+  objectwire-logo-white.svg     ← EXPORT FROM CANVA — actual brand logo, white on transparent
+  objectwire-logo-black.svg     ← EXPORT FROM CANVA — for future light-bg variants
   fallback-dark.jpg             ← Used if Unsplash API is down (dark texture, 1200×675)
   grain.svg                     ← Optional 2% opacity noise overlay
 ```
@@ -354,7 +354,7 @@ export function HeadlineCard({ entry, bgImage, logo, accent }) {
             </div>
           )}
           <div style={{ fontFamily: 'Inter', fontWeight: 500, fontSize: 15, color: '#9ca3af', letterSpacing: 0.3 }}>
-            {entry.author_name}  ·  {entry.publish_date}  ·  OzoneNews.org
+            {entry.author_name}  ·  {entry.publish_date}  ·  objectwire.org
           </div>
         </div>
       </div>
@@ -381,7 +381,7 @@ Every new article published from terminal/code gets the premium thumbnail automa
 |---|---|---|
 | **Unsplash contextual photography** | Real imagery matched to article topic. Indistinguishable from human-designed cards. | 1 hr |
 | **Bottom-heavy gradient overlay** | Text always readable over any photo. Photo bleeds through at top for visual depth. | 30 min |
-| **Real OzoneNews logo (from Canva)** | Actual brand mark, not text substitute. Embedded as base64 SVG, renders crisp at all sizes. | 30 min (export from Canva) |
+| **Real ObjectWire logo (from Canva)** | Actual brand mark, not text substitute. Embedded as base64 SVG, renders crisp at all sizes. | 30 min (export from Canva) |
 | **Editorial serif typography (Fraunces)** | Magazine gravitas. NYT / Atlantic feel, not generic tech blog. | 30 min |
 | **Canva as design source** | Every pixel measurement in the Satori JSX matches an approved visual design. No guessing. | 30 min design session |
 | **Three smart variants** | Default / Pull quote / Stat — article type drives the strongest visual | 2 hrs |
@@ -401,7 +401,7 @@ Total build time: **~8–10 hours** for the full premium pipeline.
 
 | Phase | Build | Time |
 |---|---|---|
-| **0 — Pre-code** | Design the exact OG card in Canva at 1200×675. Export the OzoneNews logo as white SVG. Screenshot approved design as spec reference. | 30 min |
+| **0 — Pre-code** | Design the exact OG card in Canva at 1200×675. Export the ObjectWire logo as white SVG. Screenshot approved design as spec reference. | 30 min |
 | **1** | `/api/og` Edge route + `HeadlineCard` + Unsplash integration + fonts + logo | 4 hrs |
 | **2** | Wire into `generateArticleMetadata` so all new articles use it by default | 30 min |
 | **3** | Add `QuoteCard` + `StatCard` variants | 2 hrs |
@@ -428,14 +428,14 @@ Canva is used for visual design decisions only (Phase 0). Satori + Unsplash + re
 1. New Canva design → Custom size → 1200 × 675px
 2. Add a placeholder dark photo as background
 3. Apply the gradient overlay (use Canva's gradient tool, bottom-heavy)
-4. Place your OzoneNews logo top-left — decide exact size and position
+4. Place your ObjectWire logo top-left — decide exact size and position
 5. Add a mock `◆ GAMING` badge top-right
 6. Add a mock headline in Fraunces Black — decide font size, line height, margin from bottom
 7. Add mock subtitle in Fraunces Semibold — decide size, color (`#d1d5db`)
 8. Add mock byline in Inter Medium — decide size, color (`#9ca3af`)
 9. Get it exactly right. Screenshot as spec.
-10. Export OzoneNews logo as **SVG** (white on transparent) → save to `public/og-assets/OzoneNews-logo-white.svg`
-11. Export OzoneNews logo as **PNG** (white on transparent, 2x resolution) → save to `public/og-assets/OzoneNews-logo-white@2x.png`
+10. Export ObjectWire logo as **SVG** (white on transparent) → save to `public/og-assets/objectwire-logo-white.svg`
+11. Export ObjectWire logo as **PNG** (white on transparent, 2x resolution) → save to `public/og-assets/objectwire-logo-white@2x.png`
 
 **Step 2 — Download fonts**
 ```bash
@@ -454,7 +454,7 @@ Once these three pre-code steps are done, Phase 1 implementation starts.
 
 After Phases 1–5 ship, every new article published from terminal/code:
 
-- ✅ Has a unique 1200×675 thumbnail at `https://www.OzoneNews.org/api/og?slug={slug}`
+- ✅ Has a unique 1200×675 thumbnail at `https://www.objectwire.org/api/og?slug={slug}`
 - ✅ Renders in <150ms on Edge, <10ms cached
 - ✅ Looks designed, not generated
 - ✅ Eligible for Google Top Stories carousel
@@ -468,8 +468,8 @@ After Phases 1–5 ship, every new article published from terminal/code:
 
 **Phase 0 — Pre-code (Canva + assets)**
 - [ ] Design OG card spec in Canva at 1200×675 — get it visually perfect
-- [ ] Export OzoneNews logo white SVG → `public/og-assets/OzoneNews-logo-white.svg`
-- [ ] Export OzoneNews logo white PNG @2x → `public/og-assets/OzoneNews-logo-white@2x.png`
+- [ ] Export ObjectWire logo white SVG → `public/og-assets/objectwire-logo-white.svg`
+- [ ] Export ObjectWire logo white PNG @2x → `public/og-assets/objectwire-logo-white@2x.png`
 - [ ] Download Fraunces Black + Semibold TTF → `public/fonts/`
 - [ ] Download Inter Bold + Medium TTF → `public/fonts/`
 - [ ] Add `UNSPLASH_ACCESS_KEY` to `.env.local` + Railway env vars
@@ -505,4 +505,4 @@ After Phases 1–5 ship, every new article published from terminal/code:
 
 ---
 
-*Forward-only, magazine-quality, powered by Unsplash + OzoneNews logo + Satori. No AI, no bulk scripts, no backfill.*
+*Forward-only, magazine-quality, powered by Unsplash + ObjectWire logo + Satori. No AI, no bulk scripts, no backfill.*

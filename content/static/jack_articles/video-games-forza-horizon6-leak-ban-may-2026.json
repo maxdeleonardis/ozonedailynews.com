@@ -109,15 +109,15 @@
       "href": "/authors/jack-sterling",
       "category": "Author",
       "categoryColor": "gray",
-      "title": "Jack Sterling | Gaming Correspondent at OzoneNews"
+      "title": "Jack Sterling | Gaming Correspondent at ObjectWire"
     }
   ],
   "show_newsletter": true,
   "newsletter_title": "Get Gaming Coverage Delivered",
-  "newsletter_description": "OzoneNews gaming news, leak reports, and analysis sent directly to your inbox.",
+  "newsletter_description": "ObjectWire gaming news, leak reports, and analysis sent directly to your inbox.",
   "show_corrections": true,
   "show_editorial_standards": true,
-  "footer_tagline": "OzoneNews | Verified gaming news, sourced from primary records.",
+  "footer_tagline": "ObjectWire | Verified gaming news, sourced from primary records.",
   "footer_links": [
     { "href": "/video-games", "label": "Video Games" },
     { "href": "/editorial-standards", "label": "Editorial Standards" },

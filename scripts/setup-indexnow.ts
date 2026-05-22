@@ -15,7 +15,7 @@
  * After running:
  *   - Commit public/{key}.txt to the repo (it is safe to commit — it's a public key)
  *   - Deploy
- *   - Verify at https://www.ozonenetwork.news/{key}.txt shows the key
+ *   - Verify at https://www.objectwire.org/{key}.txt shows the key
  *   - Then submit sitemaps in Bing Webmaster Tools
  */
 
@@ -77,16 +77,16 @@ function main() {
   2. Deploy to Railway (so the file is live)
 
   3. Verify the file is accessible:
-     curl https://www.ozonenetwork.news/${key}.txt
+     curl https://www.objectwire.org/${key}.txt
      (should return: ${key})
 
   4. Go to Bing Webmaster Tools:
      https://www.bing.com/webmasters
-     → Add site: https://www.ozonenetwork.news
+     → Add site: https://www.objectwire.org
      → Verify ownership (DNS TXT or meta tag)
      → Submit sitemaps:
-        https://www.ozonenetwork.news/sitemap.xml
-        https://www.ozonenetwork.news/news-sitemap.xml
+        https://www.objectwire.org/sitemap.xml
+        https://www.objectwire.org/news-sitemap.xml
 
   5. First IndexNow ping (bulk):
      npm run indexnow:bulk

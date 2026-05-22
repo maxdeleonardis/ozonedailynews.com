@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/forza-horizon6/leak-ban-may-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues Franchise Bans',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: '155GB full build leaked May 11. Playground Games confirmed permanent franchise-wide and hardware-level bans. Launch: May 19, 2026 on Xbox, PC, and Game Pass.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T16:00:00Z',
     modifiedTime: '2026-05-11T16:00:00Z',

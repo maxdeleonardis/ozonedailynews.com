@@ -6,7 +6,7 @@ import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 export const revalidate = 3600;
 
 const SLUG = '/technology/terrapower';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     description: 'Full profile of TerraPower: Bill Gates\'s nuclear company building America\'s first advanced sodium-cooled reactor in Kemmerer, Wyoming.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
-    authors: ['OzoneNews Tech Desk'],
+    siteName: 'ObjectWire',
+    authors: ['ObjectWire Tech Desk'],
     section: 'Technology',
     images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Nuclear power plant representing TerraPower Natrium reactor Kemmerer Wyoming 2026' }],
     tags: ['TerraPower', 'Bill Gates', 'Nuclear Energy', 'Natrium'],

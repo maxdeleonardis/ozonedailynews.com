@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     'GitLab fiscal 2027 guidance',
     'GitLab voluntary separation May 18',
   ],
-  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
+  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
     title: 'GitLab Restructuring May 2026 | 60 Autonomous Teams, Agentic AI Pivot',
     description:
       'GitLab flattens three management layers, cuts operating countries by up to 30%, doubles R&D into 60 autonomous teams, and retires CREDIT values to reposition for agentic AI. Voluntary separation closes May 18. Final structure June 1.',
     type: 'article',
-    url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'OzoneNews',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T23:00:00Z',
     modifiedTime: '2026-05-11T23:00:00Z',

@@ -9,19 +9,19 @@ const SLUG = '/news';
 
 export const metadata: Metadata = {
   title: 'News | Breaking Stories & Analysis 2026',
-  description: 'Breaking news, investigative reports, and in-depth analysis from OzoneNews.',
-  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
+  description: 'Breaking news, investigative reports, and in-depth analysis from ObjectWire.',
+  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
     title: 'News | Breaking Stories & Analysis 2026',
-    description: 'Breaking news, investigative reports, and in-depth analysis from OzoneNews.',
+    description: 'Breaking news, investigative reports, and in-depth analysis from ObjectWire.',
     type: 'website',
-    url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'OzoneNews',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'News | Breaking Stories & Analysis 2026',
-    description: 'Breaking news, investigative reports, and in-depth analysis from OzoneNews.',
+    description: 'Breaking news, investigative reports, and in-depth analysis from ObjectWire.',
   },
 };
 
@@ -106,7 +106,7 @@ export default async function Page() {
                       {article.category}
                     </span>
                     <h2 className="font-serif text-base font-black leading-snug group-hover:underline line-clamp-3 flex-1">
-                      {article.title.replace(/\s*[|]\s*OzoneNews.*$/i, '')}
+                      {article.title.replace(/\s*[|]\s*ObjectWire.*$/i, '')}
                     </h2>
                     <p className="text-[10px] text-gray-500 font-mono mt-3 pt-2 border-t border-gray-100">
                       {article.author} · {new Date(article.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}

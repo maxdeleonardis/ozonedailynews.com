@@ -20,10 +20,10 @@
  *     headline="GTA 6 Release Date | Everything Confirmed by Rockstar"
  *     description="Rockstar confirmed fall 2025..."
  *     authorName="Michael Cripe"
- *     authorUrl="https://www.ozonenetwork.news/authors/michael-cripe"
+ *     authorUrl="https://www.objectwire.org/authors/michael-cripe"
  *     publishedAt="2026-05-01T12:00:00Z"
- *     articleUrl="https://www.ozonenetwork.news/video-games/gta-6/release-date"
- *     imageUrl="https://www.ozonenetwork.news/images/gta6-hero.jpg"
+ *     articleUrl="https://www.objectwire.org/video-games/gta-6/release-date"
+ *     imageUrl="https://www.objectwire.org/images/gta6-hero.jpg"
  *     section="Gaming"
  *     keywords={['GTA 6', 'GTA 6 release date', 'Rockstar Games']}
  *     speakableSelectors={['h1', '.direct-answer', '.key-takeaways']}
@@ -81,11 +81,11 @@ export function GEOArticleWrapper({
     },
     'publisher': {
       '@type': 'NewsMediaOrganization',
-      'name': 'OzoneNews',
-      'url': 'https://www.ozonenetwork.news',
+      'name': 'ObjectWire',
+      'url': 'https://www.objectwire.org',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://www.ozonenetwork.news/OzoneNews-logo.png',
+        'url': 'https://www.objectwire.org/objectwire-logo.png',
         'width': 600,
         'height': 60,
       },

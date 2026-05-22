@@ -6,7 +6,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const revalidate = 3600;
 
 const SLUG = '/technology/terrapower/natrium-kemmerer-groundbreaking-wyoming-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:publish
 const OG_IMAGE = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Bill Gates\'s TerraPower breaks ground on nuclear components of the Natrium reactor in Wyoming — the first non-LWR construction permit in U.S. history, and a new chapter for clean baseload power.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Wang'],
     publishedTime: '2026-04-23T19:00:00Z',
     modifiedTime: '2026-04-23T19:00:00Z',

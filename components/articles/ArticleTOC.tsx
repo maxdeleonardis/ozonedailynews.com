@@ -99,6 +99,10 @@ export default function ArticleTOC() {
                   e.preventDefault();
                   const target = document.getElementById(h.id);
                   if (target) {
+                    // Tell BookFlipReader to pause its proximity snap while the
+                    // click-triggered smooth scroll is in flight — otherwise the
+                    // two scroll animations fight each other.
+                    window.dispatchEvent(new CustomEvent('book-flip:suppress-snap', { detail: 1100 }));
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     history.replaceState(null, '', `#${h.id}`);
                     setActiveId(h.id);

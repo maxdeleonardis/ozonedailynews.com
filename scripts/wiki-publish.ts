@@ -153,7 +153,7 @@ function extractJSXPropValue(source: string, propName: string): unknown | null {
   // Resolve common variable references (SLUG, ARTICLE_URL)
   const slugConstMatch = source.match(/const\s+SLUG\s*=\s*['"`]([^'"`]+)['"`]/);
   const slugVal = slugConstMatch ? slugConstMatch[1] : '';
-  const articleUrlVal = `https://www.ozonenetwork.news${slugVal}`;
+  const articleUrlVal = `https://www.objectwire.org${slugVal}`;
 
   // eslint-disable-next-line no-new-func
   try { return new Function('SLUG', 'ARTICLE_URL', `return (${raw})`)(slugVal, articleUrlVal); }
@@ -187,7 +187,7 @@ function extractJackContent(source: string): Record<string, unknown> {
   // ── Metadata-derived fields ──────────────────────────────────────────────
   row.title = extractMetaProp(source, 'title') ?? '';
   if (typeof row.title === 'string') {
-    row.title = (row.title as string).replace(/\s*\|\s*OzoneNews\s*$/, '');
+    row.title = (row.title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
   row.description   = extractMetaProp(source, 'description') ?? '';
 
@@ -359,7 +359,7 @@ function extractPageContent(source: string): Record<string, unknown> {
 
   row.title       = extractMetaProp(source, 'title') ?? '';
   if (typeof row.title === 'string') {
-    row.title = (row.title as string).replace(/\s*\|\s*OzoneNews\s*$/, '');
+    row.title = (row.title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
   // article_pages has no description column — omit it
   row.category    = extractProp(source, 'category') ?? null;
@@ -370,7 +370,7 @@ function extractPageContent(source: string): Record<string, unknown> {
   if (subtitleMatch) row.subtitle = subtitleMatch[1];
 
   // url — from the canonical alternates in metadata
-  const canonicalMatch = source.match(/canonical:\s*['"`]https:\/\/www\.OzoneNews\.org([^'"`]+)['"`]/);
+  const canonicalMatch = source.match(/canonical:\s*['"`]https:\/\/www\.objectwire\.org([^'"`]+)['"`]/);
   if (canonicalMatch) row.url = canonicalMatch[1];
 
   // back_link — backLink={{ href: '...', label: '...' }}
@@ -461,14 +461,14 @@ function extractCreatorContent(source: string, componentTag: string): Record<str
   const schemaTitleMatch = schemaBlock.match(/title:\s*["'`]([^"'`]+)["'`]/);
   row.schema_title = schemaTitleMatch ? schemaTitleMatch[1] : (extractMetaProp(source, 'title') ?? '');
   if (typeof row.schema_title === 'string') {
-    row.schema_title = (row.schema_title as string).replace(/\s*\|\s*OzoneNews\s*$/, '');
+    row.schema_title = (row.schema_title as string).replace(/\s*\|\s*ObjectWire\s*$/, '');
   }
 
   const schemaDescMatch = schemaBlock.match(/description:\s*["'`]([^"'`]+)["'`]/);
   row.schema_description = schemaDescMatch ? schemaDescMatch[1] : (extractMetaProp(source, 'description') ?? '');
 
   const schemaAuthorMatch = schemaBlock.match(/author:\s*["'`]([^"'`]+)["'`]/);
-  row.schema_author = schemaAuthorMatch ? schemaAuthorMatch[1] : 'OzoneNews';
+  row.schema_author = schemaAuthorMatch ? schemaAuthorMatch[1] : 'ObjectWire';
 
   const schemaSectionMatch = schemaBlock.match(/section:\s*["'`]([^"'`]+)["'`]/);
   row.schema_section = schemaSectionMatch ? schemaSectionMatch[1] : '';
@@ -557,7 +557,7 @@ function extractCreatorContent(source: string, componentTag: string): Record<str
   // ── Defaults for required NOT NULL columns ────────────────────────────────
   row.schema_title          = row.schema_title          || '';
   row.schema_description    = row.schema_description    || '';
-  row.schema_author         = row.schema_author         || 'OzoneNews';
+  row.schema_author         = row.schema_author         || 'ObjectWire';
   row.schema_article_url    = row.schema_article_url    || '';
   row.schema_section        = row.schema_section        || '';
   row.schema_published_time = row.schema_published_time || new Date().toISOString();
@@ -578,7 +578,7 @@ function extractCreatorContent(source: string, componentTag: string): Record<str
   row.sidebar_timeline           = row.sidebar_timeline           ?? [];
   row.sidebar_related_links      = row.sidebar_related_links      ?? [];
   row.sidebar_meta_published_date= row.sidebar_meta_published_date|| '';
-  row.sidebar_meta_author        = row.sidebar_meta_author        || 'OzoneNews';
+  row.sidebar_meta_author        = row.sidebar_meta_author        || 'ObjectWire';
   row.sidebar_meta_category      = row.sidebar_meta_category      || '';
   row.tiktok_embed               = row.tiktok_embed               ?? false;
 
@@ -602,7 +602,7 @@ function buildStub(
   const slugConst    = slugConstMatch    ? slugConstMatch[0]    : `const SLUG = '/${slug.replace(/-/g, '/')}';`;
   const ogImageConst = ogImageConstMatch ? ogImageConstMatch[0] : `const OG_IMAGE = '';`;
   // Always regenerate ARTICLE_URL from SLUG so it's never missing in the stub
-  const articleUrlConst = `const ARTICLE_URL = \`https://www.ozonenetwork.news\${SLUG}\`; // restored by wiki:publish`;
+  const articleUrlConst = `const ARTICLE_URL = \`https://www.objectwire.org\${SLUG}\`; // restored by wiki:publish`;
 
   const imports: Record<string, string> = {
     JackArticle:    "import { JackArticleDB } from '@/components/articles/JackArticleDB';",
@@ -858,7 +858,7 @@ async function main() {
     modifiedDate: ${JSON.stringify(new Date().toISOString().split('T')[0])},
     category: ${JSON.stringify(registryCategory)},
     tags: ${JSON.stringify(registryTags)},
-    author: ${JSON.stringify(String(row.author_name ?? 'OzoneNews Editorial'))},
+    author: ${JSON.stringify(String(row.author_name ?? 'ObjectWire Editorial'))},
     priority: 0.7,
     changeFrequency: "weekly",${imageUrl ? `\n    imageUrl: ${JSON.stringify(imageUrl)},\n    imageWidth: 1200,\n    imageHeight: 675,` : ''}
   },
@@ -928,7 +928,7 @@ async function main() {
 
   // ── IndexNow — instantly notify Bing, Yandex, Seznam, Naver, Mojeek ──────
   if (!isDryRun && process.env.INDEXNOW_KEY) {
-    const fullUrl = `https://www.ozonenetwork.news${route}`;
+    const fullUrl = `https://www.objectwire.org${route}`;
     console.log(c.gray(`  📡  Pinging IndexNow for ${fullUrl}...`));
     await pingIndexNow([fullUrl]).catch(err => {
       // Non-fatal — log but don't fail the publish

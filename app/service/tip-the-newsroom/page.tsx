@@ -5,19 +5,19 @@ import { ArticlePage, Section } from '@/components/articles/ArticlePage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const PAGE_URL = 'https://www.ozonenetwork.news/service/tip-the-newsroom';
+const PAGE_URL = 'https://www.objectwire.org/service/tip-the-newsroom';
 
 export const metadata: Metadata = {
   title: 'Tip the Newsroom | Submit a Confidential News Tip',
   description:
-    'Submit a confidential news tip to OzoneNews. We protect sources. Share documents, whistleblower information, or story leads about wrongdoing, fraud, or public interest matters in Austin and Texas.',
+    'Submit a confidential news tip to ObjectWire. We protect sources. Share documents, whistleblower information, or story leads about wrongdoing, fraud, or public interest matters in Austin and Texas.',
   keywords: [
     'tip the newsroom Austin',
     'submit news tip Austin TX',
     'confidential news tip Texas',
     'whistleblower Austin Texas',
     'anonymous news tip Austin',
-    'OzoneNews news tip',
+    'ObjectWire news tip',
     'report wrongdoing Austin',
     'investigative tip Austin',
     'source protection news Texas',
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Tip the Newsroom | Submit a Confidential News Tip',
-    description: 'Submit a tip to OzoneNews\'s investigative team. We protect sources and pursue stories the public deserves to know.',
+    description: 'Submit a tip to ObjectWire\'s investigative team. We protect sources and pursue stories the public deserves to know.',
     type: 'website',
     url: PAGE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tip the Newsroom | OzoneNews',
-    description: 'Submit a confidential tip to OzoneNews. Source protection guaranteed.',
+    title: 'Tip the Newsroom | ObjectWire',
+    description: 'Submit a confidential tip to ObjectWire. Source protection guaranteed.',
   },
 };
 
@@ -42,13 +42,13 @@ const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Tip the Newsroom',
-  description: 'Secure and confidential news tip submission for OzoneNews\'s investigative journalism team. Source protection guaranteed.',
+  description: 'Secure and confidential news tip submission for ObjectWire\'s investigative journalism team. Source protection guaranteed.',
   serviceType: 'Newsroom Tip Submission',
   areaServed: { '@type': 'City', name: 'Austin', containedInPlace: { '@type': 'State', name: 'Texas' } },
   provider: {
     '@type': ['LocalBusiness', 'NewsMediaOrganization'],
-    name: 'OzoneNews',
-    url: 'https://www.ozonenetwork.news',
+    name: 'ObjectWire',
+    url: 'https://www.objectwire.org',
   },
   url: PAGE_URL,
 };
@@ -57,8 +57,8 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ozonenetwork.news' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.ozonenetwork.news/service' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.objectwire.org' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.objectwire.org/service' },
     { '@type': 'ListItem', position: 3, name: 'Tip the Newsroom', item: PAGE_URL },
   ],
 };
@@ -70,7 +70,7 @@ export default function TipTheNewsroomPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
       <ArticlePage
         title="Tip the Newsroom | Submit a Confidential News Tip"
-        subtitle="OzoneNews protects sources. If you have information about wrongdoing, fraud, or a story the public deserves to know, we want to hear from you."
+        subtitle="ObjectWire protects sources. If you have information about wrongdoing, fraud, or a story the public deserves to know, we want to hear from you."
         category="Media Services"
         lastUpdated="May 4, 2026"
         slug="service-tip-the-newsroom"
@@ -122,7 +122,7 @@ export default function TipTheNewsroomPage() {
         ]}
         relatedLinks={[
           { href: '/service', label: 'All Services', description: 'PI and media services' },
-          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How OzoneNews investigates' },
+          { href: '/service/investigative-reporting', label: 'Investigative Reporting', description: 'How ObjectWire investigates' },
           { href: '/service/document-review', label: 'Document Review', description: 'Submit records for analysis' },
           { href: '/investigations', label: 'Our Investigations', description: 'Published investigative reporting' },
           { href: '/editorial-standards', label: 'Editorial Standards', description: 'Our accuracy and ethics policy' },
@@ -131,7 +131,7 @@ export default function TipTheNewsroomPage() {
       >
         <Section id="what-we-need" title="What We Need From You | Starting a Tip">
           <p>
-            OzoneNews investigates matters of genuine public interest. To begin an investigation we
+            ObjectWire investigates matters of genuine public interest. To begin an investigation we
             need more than a vague concern. The stronger your tip, the faster and more thoroughly we
             can act on it. Anonymous tips are accepted, but named sources with supporting documentation
             allow us to move faster and publish more.
@@ -160,9 +160,9 @@ export default function TipTheNewsroomPage() {
           </p>
         </Section>
 
-        <Section id="source-protection" title="Source Protection Policy | OzoneNews's Commitment">
+        <Section id="source-protection" title="Source Protection Policy | ObjectWire's Commitment">
           <p>
-            OzoneNews does not disclose source identities without explicit permission from the source.
+            ObjectWire does not disclose source identities without explicit permission from the source.
             This commitment is unconditional for sources who request confidentiality at the time of
             submission. We do not negotiate source identities with subjects of stories, law enforcement,
             or legal counsel absent a valid court order.
@@ -175,7 +175,7 @@ export default function TipTheNewsroomPage() {
           </p>
           <p>
             If you are a whistleblower in an employment context, we recommend consulting an employment
-            attorney before submission. OzoneNews can provide information about federal and Texas
+            attorney before submission. ObjectWire can provide information about federal and Texas
             whistleblower protection statutes on request.
           </p>
         </Section>
@@ -203,7 +203,7 @@ export default function TipTheNewsroomPage() {
 
         <Section id="what-happens" title="What Happens After You Tip | The Follow-Up Process">
           <p>
-            Every tip received by OzoneNews is logged and reviewed by the editorial team within 5
+            Every tip received by ObjectWire is logged and reviewed by the editorial team within 5
             business days. We evaluate the public interest angle, the quality of supporting evidence,
             and the feasibility of independent verification.
           </p>
@@ -221,7 +221,7 @@ export default function TipTheNewsroomPage() {
 
         <Section id="documents" title="Sharing Documents | Records, FOIA Files, and Leaked Materials">
           <p>
-            OzoneNews accepts documents, filings, financial records, photographs, and other materials
+            ObjectWire accepts documents, filings, financial records, photographs, and other materials
             relevant to matters of public interest. For full guidance on document submission, metadata
             stripping, and how we handle third-party records legally, visit the{' '}
             <Link href="/service/document-review" className="text-blue-600 hover:text-blue-800 underline">

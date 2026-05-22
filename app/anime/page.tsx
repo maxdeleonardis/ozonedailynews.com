@@ -4,15 +4,15 @@ import Link from 'next/link';
 const SLUG = '/anime';
 
 export const metadata: Metadata = {
-  title: 'Anime News | Coverage Coming Soon | OzoneNews 2026',
-  description: 'OzoneNews anime coverage is coming soon. In the meantime, explore our tech, gaming, and science verticals.',
-  alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
+  title: 'Anime News | Coverage Coming Soon | ObjectWire 2026',
+  description: 'ObjectWire anime coverage is coming soon. In the meantime, explore our tech, gaming, and science verticals.',
+  alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Anime News | OzoneNews 2026',
-    description: 'OzoneNews anime coverage coming soon.',
+    title: 'Anime News | ObjectWire 2026',
+    description: 'ObjectWire anime coverage coming soon.',
     type: 'website',
-    url: `https://www.ozonenetwork.news${SLUG}`,
-    siteName: 'OzoneNews',
+    url: `https://www.objectwire.org${SLUG}`,
+    siteName: 'ObjectWire',
   },
 };
 
@@ -20,7 +20,7 @@ export default function AnimePage() {
   return (
     <div className="min-h-screen bg-white">
       <main className="container mx-auto px-4 py-16 text-center">
-        <p className="text-[9px] font-black tracking-[.4em] uppercase text-gray-400 mb-4">OzoneNews</p>
+        <p className="text-[9px] font-black tracking-[.4em] uppercase text-gray-400 mb-4">ObjectWire</p>
         <h1 className="font-serif text-4xl font-black mb-4">Anime</h1>
         <p className="text-gray-500 text-sm mb-8 max-w-md mx-auto">
           Anime coverage is coming soon. Explore our other verticals in the meantime.

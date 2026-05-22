@@ -4,6 +4,7 @@
    ============================================================================= */
 
 @import "tailwindcss";
+@import "./book-flip.css";
 
 /* Enable class-based dark mode for Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -38,8 +39,11 @@
     background: #faf9f6;
     -webkit-text-size-adjust: 100%;
     /* `clip` (not `hidden`) so descendants can use position: sticky.
-       `hidden` would make <html> a scroll container and break sticky. */
+       `hidden` would make <html> a scroll container and break sticky.
+       `scrollbar-gutter: stable` reserves the scrollbar lane without forcing
+       body into a scroll container (which would also break sticky). */
     overflow-x: clip;
+    scrollbar-gutter: stable;
   }
 
   html.dark {
@@ -54,8 +58,9 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-y: scroll;
-    /* See html note above — `clip` preserves position: sticky in children. */
+    /* Do NOT set overflow-y: scroll here — that makes <body> a scroll container
+       and position: sticky on the article TOC stops tracking the viewport.
+       Scrollbar lane is reserved via `scrollbar-gutter: stable` on <html>. */
     overflow-x: clip;
   }
 

@@ -4,7 +4,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/switch2/price-hike-september-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1749264292585-858660898055?w=1200&h=675&fit=crop';
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Nintendo raises Switch 2 to $499.99 September 1. Star Fox launches June 25. Furukawa confirms multiple unannounced H2 titles. Nintendo stock fell 8% on announcement.',
     type: 'article',
     url: ARTICLE_URL,
-    siteName: 'OzoneNews',
+    siteName: 'ObjectWire',
     authors: ['Jack Sterling'],
     publishedTime: '2026-05-11T18:00:00Z',
     modifiedTime: '2026-05-11T18:00:00Z',

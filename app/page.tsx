@@ -11,33 +11,32 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
-  title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+  title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
   description:
-    'ObjectWire is a verified news platform covering tech, gaming, crypto, entertainment, esports, and culture. Every article is source-cited, fact-checked, and written for real search intent. No aggregation, no filler.',
+    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, and culture. Every article is source-cited, fact-checked, and written for real search intent.',
   keywords: [
     'tech news 2026',
     'gaming news',
     'crypto news',
     'entertainment news',
-    'esports news',
     'culture news',
     'investigative journalism',
-    'ObjectWire',
+    'OzoneNews',
   ],
-  alternates: { canonical: 'https://www.objectwire.org' },
+  alternates: { canonical: 'https://www.OzoneNews.org' },
   openGraph: {
-    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
     description:
-      'Verified news across tech, gaming, crypto, entertainment, esports, and culture. Source-cited, fact-checked, written with depth.',
-    url: 'https://www.objectwire.org',
-    siteName: 'ObjectWire',
+      'Verified news across tech, gaming, crypto, entertainment, and culture. Source-cited, fact-checked, written with depth.',
+    url: 'https://www.OzoneNews.org',
+    siteName: 'OzoneNews',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ObjectWire | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
     description:
-      'Tech, gaming, crypto, esports, and culture. Verified news, no aggregation, no filler.',
+      'Tech, gaming, crypto, and culture. Verified news, no aggregation, no filler.',
   },
 };
 

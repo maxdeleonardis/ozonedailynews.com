@@ -90,7 +90,7 @@ function FeaturedPanel({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gray-900">
-            <span className="text-white text-6xl font-black tracking-tighter opacity-10">OW</span>
+            <span className="text-white text-6xl font-black tracking-tighter opacity-10">ONN</span>
           </div>
         )}
         {/* gradient */}

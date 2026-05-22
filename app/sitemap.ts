@@ -18,7 +18,7 @@ const SITEMAP_BLOCKLIST = [
 const VALID_SLUG_PREFIXES = [
   '/', '/news', '/define/', '/youtube/', '/microsoft/', '/google/',
   '/redbull', '/video-games/', '/apple', '/entertainment/',
-  '/influencer/', '/technology/', '/tech/', '/bio-hacking/',
+  '/anime/', '/technology/', '/tech/', '/bio-hacking/',
   '/saas/', '/open-ai/', '/austin-private-detective-agency',
   '/nvidia/', '/california/', '/copyright/', '/cloudflare/',
   '/events/', '/fortnite/', '/nasa/', '/github', '/disney',

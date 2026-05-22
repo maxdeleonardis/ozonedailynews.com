@@ -77,11 +77,11 @@ export async function GET() {
     <language>${SITE_CONFIG.locale.replace('_', '-').toLowerCase()}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <managingEditor>${SITE_CONFIG.email} (ObjectWire Editorial Team)</managingEditor>
-    <webMaster>${SITE_CONFIG.email} (ObjectWire)</webMaster>
+    <webMaster>${SITE_CONFIG.email} (OzoneNews)</webMaster>
     <ttl>60</ttl>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
-      <url>${baseUrl}/objectwire-logo.png</url>
+      <url>${baseUrl}/ozonenews-logo.png</url>
       <title>${escapeXml(SITE_CONFIG.name)}</title>
       <link>${baseUrl}</link>
       <width>144</width>

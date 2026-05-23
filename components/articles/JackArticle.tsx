@@ -338,11 +338,17 @@ export function JackCallout({
 
 export function JackCard({
   title,
+  subtitle,
+  description,
+  color,
   children,
   variant = 'white',
 }: {
   title: string;
-  children: React.ReactNode;
+  subtitle?: string;
+  description?: string;
+  color?: JackAccentColor;
+  children?: React.ReactNode;
   variant?: 'white' | 'gray';
 }) {
   const bg =
@@ -350,14 +356,23 @@ export function JackCard({
       ? 'bg-gray-50 border-gray-100'
       : 'bg-white border-gray-200 shadow-sm';
 
+  const colorText = color ? accentTextMap[color] ?? '' : '';
+
   return (
     <div className={`border ${bg} p-8 rounded-sm`}>
-      <h4 className="font-black text-gray-900 mb-4 uppercase tracking-tight text-lg">
+      <h4 className="font-black text-gray-900 mb-1 uppercase tracking-tight text-lg">
         {title}
       </h4>
-      <div className="text-sm text-gray-700 leading-relaxed font-serif space-y-3">
-        {children}
-      </div>
+      {subtitle && (
+        <p className={`text-sm font-semibold mb-3 ${colorText}`}>{subtitle}</p>
+      )}
+      {description ? (
+        <p className="text-sm text-gray-700 leading-relaxed">{description}</p>
+      ) : (
+        <div className="text-sm text-gray-700 leading-relaxed font-serif space-y-3">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
@@ -385,16 +400,24 @@ export function JackCardGrid({
 
 export interface JackIndicator {
   label: string;
-  description: string;
+  /** Display value (e.g. "May 27, 2026"). Used when rendering with `value`+`trend` format. */
+  value?: string;
+  /** Description text. Used with the original `items` array format. */
+  description?: string;
+  trend?: 'positive' | 'neutral' | 'negative';
 }
 
 export function JackIndicatorGrid({
-  title = 'Strategic Indicators',
+  title,
+  heading: headingAlias,
   items,
 }: {
   title?: string;
+  /** Alias for `title` — used when content_html stores the prop as `heading`. */
+  heading?: string;
   items: JackIndicator[];
 }) {
+  const gridTitle = headingAlias ?? title ?? 'Strategic Indicators';
   const cols =
     items.length <= 2
       ? 'md:grid-cols-2'
@@ -402,20 +425,38 @@ export function JackIndicatorGrid({
         ? 'md:grid-cols-3'
         : 'md:grid-cols-4';
 
+  const trendIcon: Record<string, string> = {
+    positive: '▲',
+    negative: '▼',
+    neutral: '–',
+  };
+
   return (
     <div className="bg-gray-50 border border-gray-200 p-12 mt-12 mb-8">
-      {title && (
+      {gridTitle && (
         <h4 className="text-[10px] uppercase font-black tracking-widest text-gray-400 mb-8">
-          {title}
+          {gridTitle}
         </h4>
       )}
       <div className={`grid grid-cols-1 ${cols} gap-12`}>
         {items.map((item) => (
           <div key={item.label}>
-            <span className="block font-black text-gray-900 uppercase text-xs mb-2">
+            <span className="block font-black text-gray-900 uppercase text-xs mb-1">
               {item.label}
             </span>
-            <p className="text-sm text-gray-600">{item.description}</p>
+            {item.value && (
+              <span className="block text-xl font-black text-gray-800 mb-1">
+                {item.value}
+                {item.trend && (
+                  <span className={`ml-2 text-sm ${item.trend === 'positive' ? 'text-green-600' : item.trend === 'negative' ? 'text-red-600' : 'text-gray-400'}`}>
+                    {trendIcon[item.trend]}
+                  </span>
+                )}
+              </span>
+            )}
+            {item.description && (
+              <p className="text-sm text-gray-600">{item.description}</p>
+            )}
           </div>
         ))}
       </div>
@@ -429,17 +470,21 @@ export function JackIndicatorGrid({
 
 export function JackSideBlock({
   title,
+  heading: headingAlias,
   children,
   accentColor = 'gray',
 }: {
-  title: string;
+  title?: string;
+  /** Alias for `title` — used when content_html stores the prop as `heading`. */
+  heading?: string;
   children: React.ReactNode;
   accentColor?: JackAccentColor;
 }) {
+  const blockTitle = headingAlias ?? title ?? '';
   return (
     <div className={`border-l-[12px] ${accentBorderMutedMap[accentColor] || 'border-gray-100'} pl-10 mb-8`}>
       <h4 className="text-xl font-black text-gray-900 mb-4 tracking-tight uppercase">
-        {title}
+        {blockTitle}
       </h4>
       <div className="text-lg leading-relaxed text-gray-700">{children}</div>
     </div>
@@ -453,15 +498,26 @@ export function JackSideBlock({
 export function JackSection({
   number,
   title,
+  heading: headingAlias,
+  image,
+  imageAlt,
   children,
   accentColor = 'gray',
 }: {
   number?: number | string;
-  title: string;
+  /** Section title. Can also be passed as `heading` (alias). */
+  title?: string;
+  /** Alias for `title` — used when content_html stores the prop as `heading`. */
+  heading?: string;
+  /** Optional section thumbnail image URL. */
+  image?: string;
+  /** Alt text for the section thumbnail. */
+  imageAlt?: string;
   children: React.ReactNode;
   accentColor?: JackAccentColor;
 }) {
-  const heading = number ? `${number}. ${title}` : title;
+  const sectionTitle = headingAlias ?? title ?? '';
+  const sectionHeading = number ? `${number}. ${sectionTitle}` : sectionTitle;
 
   return (
     <section className="mb-24">
@@ -470,8 +526,17 @@ export function JackSection({
           accentBorderMap[accentColor] || 'border-gray-900'
         } pb-4 tracking-tight uppercase`}
       >
-        {heading}
+        {sectionHeading}
       </h2>
+      {image && (
+        <figure className="mb-8 overflow-hidden rounded-sm border border-gray-100">
+          <img
+            src={image}
+            alt={imageAlt ?? sectionTitle}
+            className="w-full h-48 md:h-64 object-cover object-center"
+          />
+        </figure>
+      )}
       {children}
     </section>
   );
@@ -531,7 +596,7 @@ export function JackStats({
   accentColor = 'gray',
 }: {
   title?: string;
-  stats: Array<{ value: string; label: string }>;
+  stats: Array<{ value: string; label: string; description?: string }>;
   accentColor?: JackAccentColor;
 }) {
   const statsBgMap: Record<string, string> = {
@@ -554,6 +619,9 @@ export function JackStats({
               {stat.value}
             </p>
             <p className="text-xs text-gray-500">{stat.label}</p>
+            {stat.description && (
+              <p className="text-xs text-gray-400 mt-1 leading-snug">{stat.description}</p>
+            )}
           </div>
         ))}
       </div>

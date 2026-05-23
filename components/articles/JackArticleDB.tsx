@@ -70,7 +70,13 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       publishDateISO={row.publish_date_iso ?? undefined}
       modifiedDateISO={row.modified_date_iso ?? undefined}
       readTime={row.read_time ?? undefined}
-      heroImage={row.hero_image ?? undefined}
+      heroImage={
+        row.hero_image
+          ? typeof row.hero_image === 'string'
+            ? { src: row.hero_image as string, alt: (row.thumbnail_alt as string) ?? (row.title as string) ?? '' }
+            : row.hero_image
+          : undefined
+      }
       breadcrumbs={row.breadcrumbs ?? undefined}
       author={row.author ?? undefined}
       relatedArticles={row.related_articles ?? undefined}

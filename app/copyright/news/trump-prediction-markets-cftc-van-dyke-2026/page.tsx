@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:publish -- --file <path>' to update content in Supabase.
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 const SLUG = '/copyright/news/trump-prediction-markets-cftc-van-dyke-2026';
 const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`; // restored by wiki:publish

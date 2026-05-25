@@ -63,7 +63,7 @@ export interface ArticleFull {
   };
 }
 
-// ─── JackArticleDB ────────────────────────────────────────────────────────────
+// ─── SterlingArticleDB ──────────────────────────────────────────────────────
 export interface TimelineItem {
   date: string;
   event: string;
@@ -82,7 +82,7 @@ export interface RelatedArticle {
   categoryColor?: string;
 }
 
-export interface JackArticleFull {
+export interface SterlingArticleFull {
   id?: string;
   slug: string;
   url: string;
@@ -205,7 +205,7 @@ export interface ContentEntry {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
-  articleType?: 'NewsArticle' | 'JackArticle' | 'ArticlePage' | 'CreatorArticle' | 'WikiArticle';
+  articleType?: 'NewsArticle' | 'SterlingArticle' | 'ArticlePage' | 'CreatorArticle' | 'WikiArticle';
   lifecycle?: Lifecycle;
   breaking?: boolean;
 }

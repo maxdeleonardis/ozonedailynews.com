@@ -15,7 +15,7 @@ const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 
 const STORES: Array<{ table: string; articleType: ContentEntry['articleType'] }> = [
   { table: 'articles',         articleType: 'NewsArticle'    },
-  { table: 'jack_articles',    articleType: 'JackArticle'    },
+  { table: 'sterling_articles', articleType: 'SterlingArticle' },
   { table: 'article_pages',    articleType: 'ArticlePage'    },
   { table: 'creator_articles', articleType: 'CreatorArticle' },
   { table: 'wiki_articles',    articleType: 'WikiArticle'    },

@@ -9,7 +9,7 @@
 // =============================================================================
 
 export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'G-9FM4W3K6GV';
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'G-2JRQ9VQWSW';
 
 // ── Visitor identity store ────────────────────────────────────────────────────
 const VISITOR_KEY = 'ow_visitor';

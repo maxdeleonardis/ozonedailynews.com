@@ -4,7 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { ArticleFull, JackArticleFull, ArticlePageFull, CreatorArticleFull, WikiArticleFull } from './types';
+import type { ArticleFull, SterlingArticleFull, ArticlePageFull, CreatorArticleFull, WikiArticleFull } from './types';
 
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 
@@ -89,10 +89,10 @@ export async function getBreakingHeadlines(): Promise<ArticleFull[]> {
   return (data ?? []) as ArticleFull[];
 }
 
-// ─── Jack Articles (JackArticleDB) ────────────────────────────────────────────
+// ─── Sterling Articles (SterlingArticleDB) ──────────────────────────────────
 
-export async function getAllJackArticles(): Promise<JackArticleFull[]> {
-  const local = readStaticDir<JackArticleFull>('jack_articles');
+export async function getAllSterlingArticles(): Promise<SterlingArticleFull[]> {
+  const local = readStaticDir<SterlingArticleFull>('sterling_articles');
   if (local.length > 0) {
     return local.sort((a, b) =>
       new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
@@ -103,27 +103,27 @@ export async function getAllJackArticles(): Promise<JackArticleFull[]> {
   const supabase = await createClient();
   if (!supabase) return [];
   const { data } = await supabase
-    .from('jack_articles')
+    .from('sterling_articles')
     .select('*')
     .eq('status', 'published')
     .order('published_at', { ascending: false });
-  return (data ?? []) as JackArticleFull[];
+  return (data ?? []) as SterlingArticleFull[];
 }
 
-export async function getJackArticleBySlug(slug: string): Promise<JackArticleFull | null> {
-  const local = readStaticRow<JackArticleFull>('jack_articles', slug);
+export async function getSterlingArticleBySlug(slug: string): Promise<SterlingArticleFull | null> {
+  const local = readStaticRow<SterlingArticleFull>('sterling_articles', slug);
   if (local) return local;
 
   const { createClient } = await import('./supabase/server');
   const supabase = await createClient();
   if (!supabase) return null;
   const { data } = await supabase
-    .from('jack_articles')
+    .from('sterling_articles')
     .select('*')
     .eq('slug', slug)
     .eq('status', 'published')
     .single();
-  return (data as JackArticleFull | null) ?? null;
+  return (data as SterlingArticleFull | null) ?? null;
 }
 
 // ─── Article Pages (ArticlePageDB) ────────────────────────────────────────────

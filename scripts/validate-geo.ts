@@ -58,7 +58,7 @@ function readArticleStore(table: string): GEOResult[] {
 
 // ─── Run ──────────────────────────────────────────────────────────────────────
 
-const stores = ['articles', 'jack_articles', 'article_pages'];
+const stores = ['articles', 'sterling_articles', 'article_pages'];
 const allResults: GEOResult[] = [];
 
 for (const store of stores) {

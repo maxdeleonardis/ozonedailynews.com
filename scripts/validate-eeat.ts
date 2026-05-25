@@ -86,7 +86,7 @@ function scanPage(filePath: string) {
   }
 
   // W5: No openGraph on article pages
-  if (content.includes('NewsArticleDB') || content.includes('JackArticleDB')) {
+  if (content.includes('NewsArticleDB') || content.includes('SterlingArticleDB')) {
     if (!content.includes('openGraph')) {
       warnings.push('Article page missing openGraph block');
     }

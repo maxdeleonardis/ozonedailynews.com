@@ -13503,5 +13503,40 @@
     "change_frequency": "weekly",
     "image_width": 1200,
     "image_height": 675
+  },
+  {
+    "slug": "/anime/jujutsu-kaisen/season-3",
+    "title": "JJK Season 3 | Culling Game Arc, Episode Guide, Where to Watch",
+    "description": "Jujutsu Kaisen Season 3 is airing Spring 2026. Full Culling Game arc guide: new characters Higuruma, Kashimo, Hakari, colony assignments, episode breakdown, whe",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/gta-6/characters",
+    "title": "GTA 6 Characters | Jason Duval, Lucia Caminos, Every Confirmed Detail",
+    "description": "Full breakdown of GTA 6 characters: Jason Duval and Lucia Caminos confirmed by Rockstar. Lucia is the first female protagonist in mainline GTA history. Dual pro",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Gta 6",
+      "Characters"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

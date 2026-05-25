@@ -13484,5 +13484,24 @@
     "priority": 0.8,
     "change_frequency": "weekly",
     "image_url": "https://www.ozonenetwork.news"
+  },
+  {
+    "slug": "/video-games/gta-6/map",
+    "title": "GTA 6 Map | State of Leonida, Vice City, and Every Confirmed Region",
+    "description": "Full breakdown of the GTA 6 map: State of Leonida spans Vice City, the Florida Everglades, beach towns, causeways, and inland communities. Every confirmed locat",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Gta 6",
+      "Map"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

@@ -143,10 +143,10 @@ export default function AboutPage() {
           <div className="border-t-4 border-gray-900 dark:border-white pt-5">
             <h2 className="text-sm font-black uppercase tracking-widest text-gray-900 dark:text-white mb-3">Our Mission</h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              OzoneNews publishes verified reporting on technology, finance, politics, gaming, and global
-              affairs. Every article is produced by a named reporter and traced to a primary source:
-              court filings, SEC disclosures, government records, peer-reviewed research, or a named
-              on-record source. We do not aggregate or rewrite other outlets&rsquo; work as our own.
+              OzoneNews covers three niches: video games, startup companies, and finance. Every article
+              is produced by a named reporter and traced to a primary source: SEC disclosures,
+              company earnings, game studio announcements, or named on-record sources. We are the
+              intel desk for builders, investors, and players.
             </p>
           </div>
           <div className="border-t-4 border-gray-900 dark:border-white pt-5">
@@ -230,7 +230,7 @@ export default function AboutPage() {
             <Link href="/authors/max-deleonardis" className="group border border-gray-200 dark:border-gray-800 p-5 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
               <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-mono">Founding Writer</p>
               <p className="font-black text-gray-900 dark:text-white text-lg group-hover:underline">Max DeLeonardis</p>
-              <p className="text-xs text-gray-500 mt-1 leading-relaxed">Science, biotechnology, AI hardware, video games</p>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">Gaming, Finance &amp; Startups Desk</p>
               <div className="flex items-center gap-3 mt-2">
                 <a href="https://x.com/ozonedailynews" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 underline">@ozonedailynews</a>
                 <a href="https://www.linkedin.com/in/maximillion-deleonardis" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:text-blue-800 underline">LinkedIn</a>
@@ -244,6 +244,25 @@ export default function AboutPage() {
               View full masthead
             </Link>
           </div>
+        </div>
+
+        {/* ONN Network teaser */}
+        <div className="mb-16 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8">
+          <p className="text-[10px] uppercase tracking-widest text-gray-500 font-bold font-mono mb-3">Ozone Network News LLC</p>
+          <h2 className="text-xl font-black tracking-tight text-gray-900 dark:text-white mb-3">The ONN Media Network</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-5">
+            ONN operates 11 niche editorial brands. Each domain covers one vertical with a dedicated Chief of Staff.
+            The flagship aggregates across the network without duplicating content.
+            Three brands are live. Eight are in the launch pipeline.
+          </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {['OzoneNews', 'OzoneDaily', 'ObjectiveWire', 'BasilNews', 'MicaNewspaper', 'CloverHeadlines', 'ObsidianPaper', 'OnyxTimes', 'StatusNews', 'SageNews', 'GroveNews'].map(b => (
+              <span key={b} className="text-xs bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 font-bold">{b}</span>
+            ))}
+          </div>
+          <Link href="/network" className="inline-block px-5 py-2.5 bg-gray-950 dark:bg-white text-white dark:text-gray-950 text-sm font-bold hover:opacity-90 transition-opacity">
+            View all 11 brands and open roles
+          </Link>
         </div>
 
         {/* AI policy */}

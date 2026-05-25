@@ -13469,5 +13469,20 @@
     "priority": 0.6,
     "change_frequency": "weekly",
     "image_url": "https://www.ozonenetwork.news${SLUG}"
+  },
+  {
+    "slug": "/network",
+    "title": "ONN Media Network | 11 Editorial Brands by Ozone Network News",
+    "description": "Ozone Network News LLC operates 11 niche editorial brands covering gaming, finance, startups, cybersecurity, health, science, creator economy, and more. Each br",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Network",
+    "tags": [
+      "Network"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.8,
+    "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news"
   }
 ]

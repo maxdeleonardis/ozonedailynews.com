@@ -8,18 +8,29 @@
 ## Network Overview
 
 ```
-ozonenetwork.news        ← FLAGSHIP: all verticals, aggregates the network
-    ├── ozonedailynews.com     ← YouTube, creator economy, viral content news
-    ├── objectivewire.org      ← Investigations, private intelligence, civic watchdog
-    ├── basilnews.com          ← Food, restaurants, food tech, agriculture
-    ├── clovernews.com         ← Personal finance, consumer money, deals
-    ├── grovenews.com          ← Local news, real estate, city development
-    ├── sagenews.com           ← Health, wellness, longevity, biohacking
-    ├── halonews.com           ← Cybersecurity, privacy, data protection
-    ├── statusnews.com         ← Business, markets, executive, luxury
-    ├── micanews.com           ← Science, climate, space, research
-    └── onyxnews.com           ← Luxury lifestyle, fashion, art, premium entertainment
+ozonenetwork.news          ← FLAGSHIP: Gaming · Finance · Startups (niched flagship)
+    │
+    │  Overflow verticals — each niche housed on a dedicated authority domain:
+    │
+    │  ── PURCHASED ──────────────────────────────────────────────────────────
+    ├── ozonedailynews.com     ← YouTube, creator economy, viral content news  [LIVE]
+    ├── objectivewire.org      ← Investigations, private intelligence, civic watchdog  [LIVE]
+    ├── basilnews.com          ← Foodtech, restaurants - local resuratn directories , food tech, agriculture  [Purchased]
+    ├── micanewspaper.com      ← Science, climate, space exploration, research  [Purchased]
+    ├── cloverheadlines.com    ← Personal finance, consumer money, deals  [Purchased]
+    ├── obsidianpaper.com      ← Niche TBD  [Purchased]
+    ├── onyxtimes.org          ← Luxury lifestyle, fashion, art, premium entertainment  [Purchased]
+    │
+    │  ── ON HOLD ─────────────────────────────────────────────────────────────
+    ├── halonews.com           ← Cybersecurity / Niche under review  [On Hold]
+    │
+    │  ── NEED TO PURCHASE ───────────────────────────────────────────────────
+    ├── statusnews.com         ← Business earnings, markets, executive profiles  [Buy next]
+    ├── sagenews.com           ← Health, wellness, longevity, biohacking  [Buy next]
+    └── grovenews.com          ← Local news, real estate, city development  [Buy later]
 ```
+
+**Flagship niche rule (post-March 2026 Core Update):** `ozonenetwork.news` is no longer a generalist site. It publishes original content only within three pillars: **Gaming**, **Finance**, and **Startups**. All other verticals (health, cybersecurity, food, science, local, luxury) are covered exclusively on their dedicated sub-brand domains. The flagship aggregates those verticals via hub cards that link out — no body text duplication.
 
 **Google's March 2026 Core Update directive: niche down.** Broad generalist sites are penalized. The network model answers this by housing topical authority on dedicated domains while the flagship aggregates and cross-links. Authority flows bidirectionally: sub-brand articles link to the flagship hub, flagship hubs link to the sub-brand.
 
@@ -191,14 +202,35 @@ Script: `scripts/lifecycle-manager.ts`
 ## Domain 1 | ozonenetwork.news
 
 **Role:** Flagship. Covers all verticals. Aggregates the sub-brand network.
-**Repo:** This repo (`aMarketology/ozonedailynews`)
+**Repo:** Separate repo (to be scaffolded — `Autolab350/OzoneDailyNews`)
 **Live:** `https://www.ozonenetwork.news`
 **Site config:** `lib/site-config.ts` — already set correctly
 
 ### What it covers
 
-Everything. All 10 `category` values are in play:
-`News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Crypto`, `Gaming`
+**Three niched pillars — original content published only within these:**
+
+| Pillar | Hub | Category values in play |
+|---|---|---|
+| Gaming | `/video-games` | `Gaming`, `Entertainment` |
+| Finance | `/finance`, `/crypto` | `Finance`, `Crypto`, `News` |
+| Startups | `/tech` | `Tech`, `News` |
+
+**Overflow verticals** — the flagship publishes aggregate hub cards linking to sub-brand articles. No original body content on these topics at `ozonenetwork.news`:
+
+| Topic | Sub-brand that owns it | Flagship hub (aggregate only) |
+|---|---|---|
+| Company earnings, markets | `statusnews.com` _(buy next)_ | `/finance` aggregate card |
+| Cybersecurity, privacy | `halonews.com` _(on hold)_ | `/security` aggregate card |
+| Health, wellness | `sagenews.com` _(buy next)_ | `/health` aggregate card |
+| Science, space exploration | `micanewspaper.com` | `/science` aggregate card |
+| Creator economy, YouTube | `ozonedailynews.com` | `/creators` aggregate card |
+| Investigations, civic | `objectivewire.org` | `/investigations` aggregate card |
+| Personal finance | `cloverheadlines.com` | `/personal-finance` aggregate card |
+| Food | `basilnews.com` | `/food` aggregate card |
+| Local / real estate | `grovenews.com` _(buy later)_ | `/local` aggregate card |
+| Luxury, fashion | `onyxtimes.org` | `/luxury` aggregate card |
+| Niche TBD | `obsidianpaper.com` | TBD |
 
 ### How to show sub-brand content WITHOUT cannibalizing
 
@@ -219,11 +251,11 @@ The cannibalization risk is real: if `ozonenetwork.news` and `sagenews.com` publ
 | `/health` | sagenews.com | Planned |
 | `/security` | halonews.com | Planned |
 | `/food` | basilnews.com | Planned |
-| `/personal-finance` | clovernews.com | Planned |
+| `/personal-finance` | cloverheadlines.com | Planned |
 | `/local` | grovenews.com | Planned |
 | `/markets` | statusnews.com | Planned |
-| `/science` | micanews.com | Planned |
-| `/luxury` | onyxnews.com | Planned |
+| `/science` | micanewspaper.com | Planned |
+| `/luxury` | onyxtimes.org | Planned |
 | `/creators` | ozonedailynews.com | Planned |
 | `/investigations` | objectivewire.org | Planned |
 
@@ -409,12 +441,12 @@ Full niche detail for each sub-brand is in `Docs/NEWSNETWORK.md`. This section c
 
 ---
 
-### clovernews.com — Personal Finance, Consumer Money
+### cloverheadlines.com — Personal Finance, Consumer Money
 
 **Component:** `NewsArticleDB` (rate news, deal alerts) + `JackArticleDB` (deep policy analysis)
 **Slug prefix:** `finance-`, `debt-`, `deals-`, `rates-`
 **Topic tag:** `"finance"` — nearly all content
-**SITE_CONFIG name:** `CloverNews`
+**SITE_CONFIG name:** `CloverHeadlines`
 **Sitemap prefixes:** `/finance/`, `/deals/`, `/rates/`, `/debt/`, `/investing/`
 **YMYL note:** Personal finance is YMYL. All articles require named authors with real `sameAs` profiles. No generic advice — only reported news and data.
 
@@ -462,24 +494,35 @@ Full niche detail for each sub-brand is in `Docs/NEWSNETWORK.md`. This section c
 
 ---
 
-### micanews.com — Science, Climate, Space, Research
+### micanewspaper.com — Science, Climate, Space, Research
 
 **Component:** `JackArticleDB` (deep research analysis) + `NewsArticleDB` (breaking findings)
 **Slug prefix:** `climate-`, `space-`, `research-`, `nasa-`, `science-`
 **Topic tag:** `"science"` — all content
-**SITE_CONFIG name:** `MicaNews`
+**SITE_CONFIG name:** `MicaNewspaper`
 **Sitemap prefixes:** `/science/`, `/climate/`, `/space/`, `/research/`
 **Note:** Every article citing a study must include the DOI or PubMed link in the `sources` array of the JackArticle JSON.
 
 ---
 
-### onyxnews.com — Luxury Lifestyle, Fashion, Art, Premium Entertainment
+### onyxtimes.org — Luxury Lifestyle, Fashion, Art, Premium Entertainment
 
 **Component:** `NewsArticleDB` (fashion week, auction results, film festival) + `ArticlePageDB` (designer profiles, venue guides)
 **Slug prefix:** `fashion-`, `art-`, `film-`, `luxury-travel-`, `auction-`
 **Topic tag:** `"entertainment"` for film/fashion, `"culture"` for art/design
-**SITE_CONFIG name:** `OnyxNews`
+**SITE_CONFIG name:** `OnyxTimes`
 **Sitemap prefixes:** `/fashion/`, `/art/`, `/film/`, `/luxury-travel/`, `/auctions/`
+
+---
+
+### obsidianpaper.com — Niche TBD
+
+**Status:** Domain purchased. Vertical not yet assigned. Do not deploy until niche is decided.
+**Component:** TBD
+**Slug prefix:** TBD
+**Topic tag:** TBD
+**SITE_CONFIG name:** `ObsidianPaper`
+**Note:** When niche is assigned, update this section, the Domain Registry Table, the Network Overview tree, and `app/network/page.tsx` BRANDS array entry.
 
 ---
 
@@ -491,13 +534,14 @@ Full niche detail for each sub-brand is in `Docs/NEWSNETWORK.md`. This section c
 | `ozonedailynews.com` | `OzoneDaily` | `NewsArticleDB` | `content/static/articles/` | `onn-daily` |
 | `objectivewire.org` | `ObjectiveWire` | `JackArticleDB` + `ArticlePageDB` | `content/static/jack_articles/` + `article_pages/` | `onn-wire` |
 | `basilnews.com` | `BasilNews` | `NewsArticleDB` | `content/static/articles/` | `onn-basil` |
-| `clovernews.com` | `CloverNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-clover` |
-| `grovenews.com` | `GroveNews` | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-grove` |
-| `sagenews.com` | `SageNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-sage` |
-| `halonews.com` | `HaloNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-halo` |
-| `statusnews.com` | `StatusNews` | `JackArticleDB` + `NewsArticleDB` | `content/static/jack_articles/` + `articles/` | `onn-status` |
-| `micanews.com` | `MicaNews` | `JackArticleDB` | `content/static/jack_articles/` | `onn-mica` |
-| `onyxnews.com` | `OnyxNews` | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-onyx` |
+| `micanewspaper.com` | `MicaNewspaper` | `JackArticleDB` | `content/static/jack_articles/` | `onn-mica` |
+| `cloverheadlines.com` | `CloverHeadlines` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-clover` |
+| `obsidianpaper.com` | `ObsidianPaper` | TBD — niche not yet assigned | TBD | `onn-obsidian` |
+| `onyxtimes.org` | `OnyxTimes` | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-onyx` |
+| `halonews.com` | `HaloNews` _(on hold)_ | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-halo` |
+| `statusnews.com` | `StatusNews` _(buy next)_ | `JackArticleDB` + `NewsArticleDB` | `content/static/jack_articles/` + `articles/` | `onn-status` |
+| `sagenews.com` | `SageNews` _(buy next)_ | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-sage` |
+| `grovenews.com` | `GroveNews` _(buy later)_ | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-grove` |
 
 ---
 
@@ -561,17 +605,18 @@ All domains should be registered through the same registrar for unified DNS mana
 
 | Domain | Status | Notes |
 |---|---|---|
-| `ozonenetwork.news` | Live | Primary flagship — already deployed |
-| `ozonedailynews.com` | Live | This repo — already deployed |
-| `objectivewire.org` | Live | Original site — preserve existing routes |
-| `sagenews.com` | Register first | Phase 1 launch — highest search volume opportunity |
-| `halonews.com` | Register first | Phase 1 launch — cybersecurity gap in market |
-| `statusnews.com` | Register second | Phase 2 launch — high CPM vertical |
-| `clovernews.com` | Register second | Phase 2 launch — high affiliate revenue |
-| `basilnews.com` | Register third | Phase 3 launch |
-| `onyxnews.com` | Register third | Phase 3 launch |
-| `micanews.com` | Register fourth | Phase 4 launch |
-| `grovenews.com` | Register fourth | Phase 4 launch — requires local editorial investment |
+| `ozonenetwork.news` | **Live** | Primary flagship — deployed |
+| `ozonedailynews.com` | **Live** | Creator economy desk — deployed |
+| `objectivewire.org` | **Live** | Investigations — preserve existing routes |
+| `basilnews.com` | **Purchased** | Food & Agriculture — configure and launch |
+| `micanewspaper.com` | **Purchased** | Science & Space — configure and launch |
+| `cloverheadlines.com` | **Purchased** | Personal Finance — configure and launch |
+| `obsidianpaper.com` | **Purchased** | Niche TBD — do not deploy until niche is decided |
+| `onyxtimes.org` | **Purchased** | Luxury & Fashion — configure and launch |
+| `halonews.com` | **On Hold** | Cybersecurity niche under review — do not deploy |
+| `statusnews.com` | Buy next | Phase 2 — Business & Markets, high CPM vertical |
+| `sagenews.com` | Buy next | Phase 2 — Health & Longevity, high search volume |
+| `grovenews.com` | Buy later | Phase 3 — Local news, requires local editorial investment |
 
 ---
 

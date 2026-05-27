@@ -28,7 +28,6 @@ const NAV_HUBS: NavHub[] = [
       { label: 'DraftKings', href: '/finance/draftkings' },
       { label: 'PrizePicks', href: '/finance/prizepicks' },
       { label: 'Crypto', href: '/crypto' },
-      { label: 'BlackRock', href: '/blackrock' },
     ],
   },
   {
@@ -44,16 +43,6 @@ const NAV_HUBS: NavHub[] = [
       { label: 'xAI', href: '/elon-musk/xai' },
       { label: 'Cloudflare', href: '/cloudflare' },
       { label: 'Cursor AI', href: '/technology/cursor' },
-    ],
-  },
-  {
-    label: 'News', href: '/news',
-    items: [
-      { label: 'All News', href: '/news' },
-      { label: 'Texas', href: '/texas' },
-      { label: 'California', href: '/california' },
-      { label: 'Copyright & Law', href: '/copyright' },
-      { label: 'YouTube', href: '/youtube' },
     ],
   },
 ];

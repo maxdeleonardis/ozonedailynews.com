@@ -35,8 +35,6 @@ const HUBS: Hub[] = [
       { label: 'DraftKings', href: '/finance/draftkings' },
       { label: 'PrizePicks', href: '/finance/prizepicks' },
       { label: 'Crypto', href: '/crypto' },
-      { label: 'BlackRock', href: '/blackrock' },
-      { label: 'Prediction Markets', href: '/copyright/news/trump-prediction-markets-cftc-van-dyke-2026' },
     ],
   },
   {
@@ -56,17 +54,6 @@ const HUBS: Hub[] = [
       { label: 'GitHub', href: '/github' },
       { label: 'xAI', href: '/elon-musk/xai' },
       { label: 'Intel', href: '/intel' },
-    ],
-  },
-  {
-    label: 'News',
-    href: '/news',
-    items: [
-      { label: 'All News', href: '/news' },
-      { label: 'Texas', href: '/texas' },
-      { label: 'California', href: '/california' },
-      { label: 'Copyright & Law', href: '/copyright' },
-      { label: 'YouTube', href: '/youtube' },
     ],
   },
 ]

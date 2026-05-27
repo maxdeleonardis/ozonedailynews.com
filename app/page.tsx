@@ -11,32 +11,33 @@ import { MoreStoriesSection } from '@/components/discovery/MoreStoriesSection';
 import PopularCarousel from '@/components/discovery/PopularCarousel';
 
 export const metadata: Metadata = {
-  title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+  title: 'OzoneNews | Gaming, Tech & Finance News 2026',
   description:
-    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, and culture. Every article is source-cited, fact-checked, and written for real search intent.',
+    'OzoneNews covers gaming, tech, and finance news. Source-cited reporting on video games, startups, crypto, and the companies shaping 2026.',
   keywords: [
+    'gaming news 2026',
     'tech news 2026',
-    'gaming news',
+    'finance news 2026',
     'crypto news',
-    'entertainment news',
-    'culture news',
-    'investigative journalism',
+    'video game news',
+    'startup news',
+    'nvidia news',
     'OzoneNews',
   ],
-  alternates: { canonical: 'https://www.OzoneNews.org' },
+  alternates: { canonical: 'https://www.ozonenetwork.news' },
   openGraph: {
-    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Gaming, Tech & Finance News 2026',
     description:
-      'Verified news across tech, gaming, crypto, entertainment, and culture. Source-cited, fact-checked, written with depth.',
-    url: 'https://www.OzoneNews.org',
+      'Source-cited news on gaming, tech, and finance. Video games, startups, crypto, and the companies driving 2026.',
+    url: 'https://www.ozonenetwork.news',
     siteName: 'OzoneNews',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
+    title: 'OzoneNews | Gaming, Tech & Finance News 2026',
     description:
-      'Tech, gaming, crypto, and culture. Verified news, no aggregation, no filler.',
+      'Gaming, tech, and finance. Verified reporting, no filler.',
   },
 };
 

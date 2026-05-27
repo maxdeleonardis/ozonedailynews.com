@@ -15,6 +15,17 @@ export const SITE_CONFIG = {
     process.env.NEXT_PUBLIC_SITE_TWITTER_URL  ?? 'https://twitter.com/ozonedailynews',
     process.env.NEXT_PUBLIC_SITE_LINKEDIN_URL ?? 'https://www.linkedin.com/company/ozonedailynews',
   ],
+  // Sitemap scope guards — sub-brands set these to prevent cross-contamination.
+  // null = no filter (flagship default — all categories and all URL prefixes allowed).
+  // Examples:
+  //   NEXT_PUBLIC_SITE_CATEGORIES=Finance,News,Crypto
+  //   NEXT_PUBLIC_SITE_SLUG_PREFIXES=/finance,/jobs,/markets
+  validCategories: process.env.NEXT_PUBLIC_SITE_CATEGORIES
+    ? process.env.NEXT_PUBLIC_SITE_CATEGORIES.split(',').map((s) => s.trim()).filter(Boolean)
+    : null,
+  slugPrefixes: process.env.NEXT_PUBLIC_SITE_SLUG_PREFIXES
+    ? process.env.NEXT_PUBLIC_SITE_SLUG_PREFIXES.split(',').map((s) => s.trim()).filter(Boolean)
+    : null,
   // Trust policy pages (all required for NewsMediaOrganization schema)
   publishingPrinciples:       '/editorial-standards',
   correctionsPolicy:          '/corrections',

@@ -1,0 +1,182 @@
+// app/[...slug]/page.tsx
+// Universal article catchall. Handles both flat (/article-slug) and nested
+// (/category/sub/article-slug) paths without needing individual page.tsx stubs.
+// Specific stubs (e.g. app/google/news/article/page.tsx) always win in Next.js routing.
+
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import { getArticleByUrlSegments, getAllArticles } from '@/lib/article-service';
+import { getAllEntries } from '@/lib/registry-service';
+import { SITE_CONFIG } from '@/lib/site-config';
+import { NewsArticle } from '@/components/articles/NewsArticle';
+import type { TopicTagType } from '@/components/articles/NewsArticle';
+
+export async function generateStaticParams() {
+  const registry = await getAllEntries();
+  const params: { slug: string[] }[] = [];
+
+  // Derive path segments from each registry entry's full URL slug
+  for (const entry of registry) {
+    if (entry.lifecycle === 'pruned') continue;
+    try {
+      const rawUrl = entry.slug; // e.g. "https://www.ozonenetwork.news/google/news/article"
+      const pathname = rawUrl.startsWith('http')
+        ? new URL(rawUrl).pathname
+        : rawUrl;
+      const segments = pathname.split('/').filter(Boolean);
+      if (segments.length > 0) params.push({ slug: segments });
+    } catch {
+      // skip malformed registry entries
+    }
+  }
+
+  // Also include flat-slug articles from article-service
+  const articles = await getAllArticles();
+  for (const a of articles) {
+    if (a.slug && !a.slug.includes('/')) {
+      params.push({ slug: [a.slug] });
+    }
+  }
+
+  return params;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticleByUrlSegments(slug);
+  if (!article) return {};
+
+  const canonicalUrl = article.metadata?.alternates?.canonical
+    ?? article.url
+    ?? `${SITE_CONFIG.url}/${slug.join('/')}`;
+
+  return {
+    title: article.metadata?.title ?? article.title,
+    description: article.metadata?.description ?? article.subtitle ?? '',
+    keywords: article.metadata?.keywords ?? article.tags ?? [],
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      type: 'article',
+      title: article.metadata?.openGraph?.title ?? article.metadata?.title ?? article.title,
+      description: article.metadata?.openGraph?.description ?? article.metadata?.description ?? article.subtitle ?? '',
+      url: canonicalUrl,
+      siteName: SITE_CONFIG.name,
+      images: article.thumbnail_src ? [{ url: article.thumbnail_src, width: 1200, height: 675, alt: article.thumbnail_alt ?? article.title }] : [],
+      publishedTime: article.published_at,
+      authors: article.author_name ? [article.author_name] : [],
+      section: article.category,
+      tags: article.tags ?? [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.metadata?.title ?? article.title,
+      description: article.metadata?.description ?? article.subtitle ?? '',
+      images: article.thumbnail_src ? [article.thumbnail_src] : [],
+    },
+  };
+}
+
+export default async function ArticleCatchallPage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug } = await params;
+  const article = await getArticleByUrlSegments(slug);
+  if (!article) notFound();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const articleAny = article as any;
+  const htmlContent: string =
+    articleAny.content_html ??
+    (Array.isArray(articleAny.content)
+      ? (articleAny.content.find((b: { type: string; content?: string }) => b.type === 'html')?.content ?? '')
+      : '');
+
+  const canonicalUrl = article.metadata?.alternates?.canonical
+    ?? article.url
+    ?? `${SITE_CONFIG.url}/${slug.join('/')}`;
+
+  // NewsArticle JSON-LD — read by Google News, Bing News, and all major aggregators
+  // before they read the HTML. dateModified falls back to datePublished.
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: article.title,
+    description: article.metadata?.description ?? article.subtitle ?? '',
+    image: article.thumbnail_src ? [article.thumbnail_src] : [],
+    datePublished: article.published_at,
+    dateModified: articleAny.modified_at ?? article.published_at,
+    author: {
+      '@type': 'Person',
+      name: article.author_name,
+      url: `${SITE_CONFIG.url}/authors/${article.author_slug}`,
+    },
+    publisher: {
+      '@type': 'NewsMediaOrganization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: SITE_CONFIG.logo,
+        width: 600,
+        height: 60,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    isAccessibleForFree: true,
+    ...(article.tags?.length ? { keywords: article.tags.join(', ') } : {}),
+    ...(article.category ? { articleSection: article.category } : {}),
+  };
+
+  // Build breadcrumbs from URL segments
+  const breadcrumbs = [{ name: 'Home', item: '/' }];
+  let cumPath = '';
+  for (let i = 0; i < slug.length - 1; i++) {
+    cumPath += '/' + slug[i];
+    breadcrumbs.push({
+      name: slug[i].charAt(0).toUpperCase() + slug[i].slice(1).replace(/-/g, ' '),
+      item: cumPath,
+    });
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <NewsArticle
+      title={article.title}
+      subtitle={article.subtitle ?? undefined}
+      category={article.category}
+      publishDate={new Date(article.published_at).toLocaleDateString('en-US', {
+        month: 'long', day: 'numeric', year: 'numeric',
+      })}
+      readTime={articleAny.read_time ?? undefined}
+      topicTag={articleAny.topic_tag as TopicTagType | undefined}
+      author={article.author_name ? {
+        name: article.author_name,
+        role: articleAny.author_role ?? undefined,
+        avatar: articleAny.author_avatar ?? undefined,
+        authorSlug: article.author_slug ?? undefined,
+      } : undefined}
+      heroImage={article.thumbnail_src ? {
+        src: article.thumbnail_src,
+        alt: article.thumbnail_alt ?? article.title,
+      } : undefined}
+      tags={article.tags ?? []}
+      breaking={article.breaking ?? false}
+      trending={articleAny.trending ?? false}
+      slug={slug.join('-')}
+      url={canonicalUrl}
+      breadcrumbs={breadcrumbs}
+    >
+      {htmlContent ? (
+        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      ) : (
+        <p className="text-gray-500 italic">Content coming soon.</p>
+      )}
+    </NewsArticle>
+    </>
+  );
+}

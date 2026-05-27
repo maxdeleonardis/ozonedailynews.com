@@ -39,7 +39,8 @@ export interface ArticleFull {
   title: string;
   subtitle?: string;
   category: Category;
-  status: 'published' | 'draft';
+  status: 'published' | 'draft' | 'review';
+  brand_slug?: string;
   breaking?: boolean;
   trending?: boolean;
   exclusive?: boolean;
@@ -92,7 +93,7 @@ export interface SterlingArticleFull {
   category: Category;
   accentColor?: string;
   layout?: 'news' | 'report' | 'investigation';
-  status: 'published' | 'draft';
+  status: 'published' | 'draft' | 'review';
   content_html: string;
   publish_date: string;
   published_at: string;
@@ -117,7 +118,7 @@ export interface ArticlePageFull {
   title: string;
   subtitle?: string;
   category: Category;
-  status: 'published' | 'draft';
+  status: 'published' | 'draft' | 'review';
   content_html: string;
   publish_date: string;
   published_at: string;
@@ -148,7 +149,7 @@ export interface CreatorArticleFull {
   url: string;
   title: string;
   subtitle?: string;
-  status: 'published' | 'draft';
+  status: 'published' | 'draft' | 'review';
   content_html: string;
   publish_date: string;
   published_at: string;
@@ -175,7 +176,7 @@ export interface WikiArticleFull {
   title: string;
   subtitle?: string;
   category: Category;
-  status: 'published' | 'draft';
+  status: 'published' | 'draft' | 'review';
   content_html: string;
   publish_date: string;
   published_at: string;

@@ -13,8 +13,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const entries = await getAllEntries();
 
+  // Sub-brand scope filters — skipped when null (flagship default)
+  const { validCategories, slugPrefixes } = SITE_CONFIG;
+
   const articleUrls: MetadataRoute.Sitemap = entries
     .filter((e) => e.lifecycle !== 'pruned')
+    .filter((e) => {
+      if (!validCategories) return true;
+      return validCategories.includes(e.category);
+    })
+    .filter((e) => {
+      if (!slugPrefixes) return true;
+      try {
+        const pathname = e.slug.startsWith('http') ? new URL(e.slug).pathname : e.slug;
+        return slugPrefixes.some((prefix) => pathname.startsWith(prefix));
+      } catch {
+        return true;
+      }
+    })
     .map((entry) => ({
       url: `${baseUrl}${entry.slug}`,
       lastModified: new Date(entry.modifiedDate || entry.publishDate),

@@ -399,3 +399,47 @@ create or replace trigger wiki_articles_updated_at
 create or replace trigger content_registry_updated_at
   before update on content_registry
   for each row execute function set_updated_at();
+
+
+-- ============================================================================
+-- STORAGE — Media bucket (thumbnails, OG images, author avatars)
+-- Run AFTER the schema above. Supabase Storage must be enabled on the project.
+-- ============================================================================
+
+-- Create the public media bucket
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values (
+  'media',
+  'media',
+  true,
+  10485760,  -- 10 MB per file
+  array['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml']
+)
+on conflict (id) do nothing;
+
+-- Public read: anyone can access published media (needed for OG images + Google crawlers)
+create policy "media public read"
+  on storage.objects for select
+  using (bucket_id = 'media');
+
+-- Upload: service_role only (server-side publish scripts, never the browser)
+create policy "media service upload"
+  on storage.objects for insert
+  with check (bucket_id = 'media' and auth.role() = 'service_role');
+
+-- Replace / update: service_role only
+create policy "media service update"
+  on storage.objects for update
+  using (bucket_id = 'media' and auth.role() = 'service_role');
+
+-- Delete: service_role only
+create policy "media service delete"
+  on storage.objects for delete
+  using (bucket_id = 'media' and auth.role() = 'service_role');
+
+-- Naming convention for uploaded assets:
+--   thumbnails/{slug}.webp            ← article hero / OG image (1200x675)
+--   thumbnails/{slug}-thumb.webp      ← card thumbnail (400x225)
+--   authors/{author-slug}.webp        ← author avatar (200x200)
+--   logos/{brand-slug}.webp           ← per-brand logo
+-- Access URL: {SUPABASE_URL}/storage/v1/object/public/media/{path}

@@ -74,6 +74,49 @@ export async function getArticleBySlug(slug: string): Promise<ArticleFull | null
   return (data as ArticleFull | null) ?? null;
 }
 
+/**
+ * Resolves an article from a URL path segment array (used by the [...slug] catchall).
+ * Try order:
+ *   1. Join all segments with hyphens — matches the existing naming convention
+ *      e.g. ['google','news','google-samsung-ai-...'] → 'google-news-google-samsung-ai-...'
+ *   2. Last segment only — for articles that don't embed the category prefix
+ *   3. Full URL scan — scans all articles and matches by the `url` field path suffix
+ */
+export async function getArticleByUrlSegments(segments: string[]): Promise<ArticleFull | null> {
+  // Try 1: joined slug (existing naming convention)
+  const joinedSlug = segments.join('-');
+  const byJoined = readStaticRow<ArticleFull>('articles', joinedSlug);
+  if (byJoined) return byJoined;
+
+  // Try 2: last segment only
+  const lastSegment = segments[segments.length - 1];
+  if (lastSegment !== joinedSlug) {
+    const byLast = readStaticRow<ArticleFull>('articles', lastSegment);
+    if (byLast) return byLast;
+  }
+
+  // Try 3: scan all articles and match by url field path
+  const fullPath = '/' + segments.join('/');
+  const all = readStaticDir<ArticleFull>('articles');
+  const byUrl = all.find((a) => {
+    if (!a.url) return false;
+    try { return new URL(a.url).pathname === fullPath; } catch { return a.url === fullPath; }
+  });
+  if (byUrl) return byUrl;
+
+  // Try 4: Supabase fallback
+  const { createClient } = await import('./supabase/server');
+  const supabase = await createClient();
+  if (!supabase) return null;
+  const { data } = await supabase
+    .from('articles')
+    .select('*')
+    .ilike('url', `%${fullPath}`)
+    .eq('status', 'published')
+    .single();
+  return (data as ArticleFull | null) ?? null;
+}
+
 export async function getBreakingHeadlines(): Promise<ArticleFull[]> {
   // Breaking headlines always read from Supabase (live inserts)
   const { createClient } = await import('./supabase/server');

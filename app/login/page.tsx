@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, Suspense } from 'react';
-import { createBrowserClient } from '@/lib/supabase/client';
+import { createAuthBrowserClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -35,7 +35,7 @@ function LoginContent() {
   const handleGoogleSignIn = async () => {
     setGoogleLoading(true);
     setError('');
-    const supabase = createBrowserClient();
+    const supabase = createAuthBrowserClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -59,7 +59,7 @@ function LoginContent() {
     }
 
     setLoading(true);
-    const supabase = createBrowserClient();
+    const supabase = createAuthBrowserClient();
 
     if (mode === 'signup') {
       const { error: signUpError } = await supabase.auth.signUp({ email, password });
@@ -75,15 +75,15 @@ function LoginContent() {
         setLoading(false);
         return;
       }
-      router.push(redirectTo);
-      router.refresh();
+      setSuccess(`Signed in as ${email}. Redirecting to ${redirectTo}…`);
+      setTimeout(() => { window.location.href = redirectTo; }, 800);
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setError(error.message);
       } else {
-        router.push(redirectTo);
-        router.refresh();
+        setSuccess(`Signed in as ${email}. Redirecting to ${redirectTo}…`);
+        setTimeout(() => { window.location.href = redirectTo; }, 800);
       }
     }
     setLoading(false);

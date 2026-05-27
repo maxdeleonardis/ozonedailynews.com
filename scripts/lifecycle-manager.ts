@@ -65,10 +65,11 @@ if (CHECK) {
 // ─── --promote: feature ranked articles via GSC API ──────────────────────────
 
 if (PROMOTE) {
-  const GSC_SITE_URL = process.env.GSC_SITE_URL;
-  const GSC_API_KEY  = process.env.GSC_API_KEY;
+  const GSC_SITE_URL    = process.env.GSC_SITE_URL;
+  const GOOGLE_SA_EMAIL = process.env.GOOGLE_SA_EMAIL;
+  const GOOGLE_SA_KEY   = process.env.GOOGLE_SA_PRIVATE_KEY;
 
-  const registry = loadRegistry();
+  const registry    = loadRegistry();
   const reviewItems = registry.filter((e) => e.lifecycle === 'review');
 
   if (reviewItems.length === 0) {
@@ -76,17 +77,76 @@ if (PROMOTE) {
     process.exit(0);
   }
 
-  if (!GSC_SITE_URL || !GSC_API_KEY) {
+  // ── Manual mode: no GSC credentials ──────────────────────────────────────
+  if (!GSC_SITE_URL || !GOOGLE_SA_EMAIL || !GOOGLE_SA_KEY) {
     console.log('\n  lifecycle:promote — GSC env vars not set. Running in manual mode.');
-    console.log('  Articles in review state (set lifecycle manually):');
-    reviewItems.forEach((e) => console.log(`    • ${e.slug} (published: ${e.publishDate})`));
-    console.log('\n  Set GSC_SITE_URL and GSC_API_KEY for automatic rank-based promotion.\n');
+    console.log('  Set GOOGLE_SA_EMAIL + GOOGLE_SA_PRIVATE_KEY + GSC_SITE_URL to enable auto-promotion.');
+    console.log('\n  Articles in review (promote manually by setting lifecycle: "feature" in JSON):');
+    reviewItems.forEach((e) => console.log(`    • ${e.slug}  (published: ${e.publishDate})`));
+    console.log('');
     process.exit(0);
   }
 
-  console.log('\n  lifecycle:promote — Checking GSC for rank data...');
-  // GSC API integration point (requires OAuth — implement when credentials available)
-  console.log('  GSC API integration: Set up OAuth credentials in scripts/gsc-client.ts to enable auto-promotion.\n');
+  // ── Auto mode: GSC Search Analytics ──────────────────────────────────────
+  console.log(`\n  lifecycle:promote — Querying GSC for rank data (last 7 days)...`);
+
+  const { querySearchAnalytics } = await import('./gsc-client');
+
+  let gscRows;
+  try {
+    // Pass full article URLs so GSC filters to only our review items
+    const reviewUrls = reviewItems.map((e) => e.slug);
+    gscRows = await querySearchAnalytics(GSC_SITE_URL, 7, reviewUrls);
+  } catch (err) {
+    console.error(`  GSC query failed: ${err instanceof Error ? err.message : String(err)}`);
+    console.log('  Falling back to manual mode — set lifecycle manually in JSON files.\n');
+    process.exit(1);
+  }
+
+  // Build a lookup map: full URL → GSC row
+  const gscMap = new Map(gscRows.map((r) => [r.slug, r]));
+
+  let promoted = 0;
+  let noData   = 0;
+
+  for (const entry of registry) {
+    if (entry.lifecycle !== 'review') continue;
+
+    const row = gscMap.get(entry.slug);
+
+    if (!row) {
+      noData++;
+      continue; // no GSC data yet — too new or not yet crawled
+    }
+
+    const shouldFeature =
+      row.clicks      >= 5   ||
+      row.impressions >= 100 ||
+      row.position    <= 30;
+
+    if (shouldFeature) {
+      entry.lifecycle = 'feature' as Lifecycle;
+      promoted++;
+      console.log(
+        `    ✔ FEATURE  ${entry.slug}` +
+        `  clicks:${row.clicks}  impressions:${row.impressions}  pos:${row.position.toFixed(1)}`
+      );
+    } else {
+      console.log(
+        `    –  review   ${entry.slug}` +
+        `  clicks:${row.clicks}  impressions:${row.impressions}  pos:${row.position.toFixed(1)}`
+      );
+    }
+  }
+
+  if (promoted > 0) {
+    saveRegistry(registry);
+    console.log(`\n  ✔ Promoted ${promoted} article(s) to feature. Registry saved.`);
+    console.log('  Run: git add -A && git commit -m "lifecycle: promote featured articles" && git push\n');
+  } else {
+    console.log(`\n  No articles met promotion thresholds yet.`);
+    if (noData > 0) console.log(`  ${noData} article(s) have no GSC data yet (may be too new).\n`);
+  }
 }
 
 // ─── --prune: delete lifecycle:"pruned" articles ─────────────────────────────

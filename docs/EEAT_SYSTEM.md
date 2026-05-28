@@ -1,9 +1,10 @@
-# ObjectWire | E-E-A-T System — Complete Architecture
+# OzoneNews | E-E-A-T System — Complete Architecture
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Created:** May 5, 2026  
+**Updated:** May 27, 2026  
 **Status:** Active — fully integrated into publish pipeline  
-**Purpose:** This document defines how E-E-A-T quality enforcement is embedded across every layer of the ObjectWire codebase.
+**Purpose:** This document defines how E-E-A-T quality enforcement is embedded across every layer of the OzoneNews codebase.
 
 ---
 
@@ -11,7 +12,7 @@
 
 E-E-A-T stands for **Experience, Expertise, Authoritativeness, and Trustworthiness**. It is the primary framework Google's quality raters use to evaluate content, and it is the signal that Google's HCU (Helpful Content Update) classifier uses at the domain level.
 
-The HCU classifier is **site-level**, not page-level. When it fires, it suppresses ALL pages on a domain — including the good ones — until the classifier re-evaluates during a future core update. ObjectWire experienced this in April 2026.
+The HCU classifier is **site-level**, not page-level. When it fires, it suppresses ALL pages on a domain — including the good ones — until the classifier re-evaluates during a future core update. For science and environmental news, the bar is even higher: content touching health, climate, or public safety is treated as YMYL-adjacent, and Google's trust signals are weighted more heavily.
 
 This means:
 - One bad page does not just fail on its own. It pulls down every other page on the domain.
@@ -128,7 +129,7 @@ Every `page.tsx` in `app/` with a `metadata` export is checked for:
 - Description under 130 chars
 - No `keywords` array
 - No `openGraph` block on article pages
-- Brand suffix "ObjectWire" still in title
+- Wrong brand suffix in title (must be empty or match `NEXT_PUBLIC_SITE_NAME`)
 
 ### Strict Mode
 
@@ -214,11 +215,11 @@ This is answered by **page purpose classification**, which happens in `alfasa-se
 
 | Component | Purpose | Supabase Table |
 |-----------|---------|----------------|
-| `NewsArticle` | Breaking news, gaming, tech news | `articles` |
+| `NewsArticle` | Breaking news, science news, tech news | `articles` |
 | `JackArticle` | Research, investigations, premium long-form | `jack_articles` |
-| `ArticlePage` | Evergreen reference, profiles, wiki-style | `article_pages` |
+| `ArticlePage` | Evergreen reference, explainers, wiki-style | `article_pages` |
 | `CreatorArticle` | Creator/influencer profiles | `creator_articles` |
-| `AlysaArticle` | Winter Olympics / athlete legacy profiles | `alysa_articles` |
+| `WikiArticle` | Deep-reference encyclopedia entries | `wiki_articles` |
 
 A "deceptive" page is one that:
 - Has a news-style headline but no sourcing
@@ -246,18 +247,68 @@ The sentinel validates `author_slug` against this list. Add new authors here whe
 ```typescript
 // scripts/alfasa-sentinel.ts — KNOWN_AUTHORS array
 const KNOWN_AUTHORS: string[] = [
-  'michael-cripe',
-  'jack-sterling',
-  'objectwire-investigative-desk',
-  'objectwire-influencer-desk',
-  'objectwire-editorial',
-  'alysa-rose',
+  'alfred-minter',
+  'max-deleonardis',
+  'ozonedailynews-editorial-team',
 ];
 ```
 
-Adding a new author requires:
-1. Creating `app/authors/[slug]/page.tsx` with full E-E-A-T signals (photo, bio, external credentials)
-2. Adding `slug` to `KNOWN_AUTHORS` in `alfasa-sentinel.ts`
+### Current Author Roster
+
+| Slug | Name | Role | Beat |
+|---|---|---|---|
+| `alfred-minter` | Alfred Minter | Science & Technology Correspondent | Space, Climate, AI, Atmospheric Science |
+| `max-deleonardis` | Max DeLeonardis | Founder & Publisher | Editorial oversight, not a byline |
+| `ozonedailynews-editorial-team` | OzoneNews Editorial Team | Desk byline | Data reports, wire stories |
+
+### Adding a New Author
+
+1. Create `app/authors/[slug]/page.tsx` — must include Person JSON-LD schema, sameAs links, beat description, and recent article list (see Author Standards below)
+2. Add `slug` to `KNOWN_AUTHORS` in `scripts/alfasa-sentinel.ts`
+3. Add a row to the roster table above
+
+---
+
+## Author Page Standards (Science News)
+
+For YMYL-adjacent content (climate, health, space, environmental science), Google's quality rater guidelines require author pages to demonstrate real-world expertise. A bare name and job title is not sufficient.
+
+### Minimum Requirements for a Valid Author Page
+
+Every `/authors/[slug]/page.tsx` must include:
+
+| Requirement | Why |
+|---|---|
+| Person JSON-LD schema | Allows Google to disambiguate the author against known entities |
+| `sameAs` with at least one external profile (Twitter or LinkedIn) | Establishes external footprint — Google cannot verify an author who exists only on your own domain |
+| Beat/expertise paragraph | Explains what makes this author qualified to cover science, space, or climate topics |
+| Beat label tags (visible) | Quick trust signal for readers and schema parsers |
+| Article list (3+ recent bylines) | Demonstrates active authorship — not a shell profile |
+| Link to editorial standards | Reinforces institutional trust |
+
+### What Google's Quality Raters Check
+
+For science and environmental topics, raters are specifically instructed to look for:
+- Does the author have credentials or demonstrable experience in the subject?
+- Is there any external evidence this person exists and writes about this topic?
+- Is the publication transparent about who is responsible for its content?
+
+A reporter who has covered space exploration for 2 years with a visible Twitter/LinkedIn presence scores significantly higher than an identical reporter with no external footprint — even if their articles are equally good.
+
+### The sameAs Requirement
+
+```tsx
+// In every author page JSON-LD — REQUIRED
+"sameAs": [
+  "https://twitter.com/[handle]",         // At minimum, one of these must be real
+  "https://www.linkedin.com/in/[profile]"
+]
+```
+
+If a writer does not have a public social profile, consider:
+- Using the OzoneNews Twitter account as a proxy (`sameAs: [SITE_CONFIG.sameAs[0]]`)
+- Creating a Twitter account before publishing under their byline
+- Using the `ozonedailynews-editorial-team` byline until a real profile exists
 
 ---
 
@@ -288,21 +339,23 @@ npm run build
 
 ---
 
-## HCU Recovery Context
+## Domain Authority Strategy
 
-ObjectWire is recovering from a Google Helpful Content Update algorithmic penalty (April 2026). The E-E-A-T system is part of the domain-level rehabilitation strategy documented in `Docs/RECOVERY_PLAN.md`.
+OzoneNews launched in 2026 on a clean domain with the E-E-A-T system active from day one. The goal is not recovery but prevention: every publish must meet quality standards before it goes live so the domain never accumulates HCU risk.
 
-Recovery target: partial recovery at Aug/Sep 2026 core update. Full recovery by Mar 2027.
+Science and environmental content is among the most scrutinized by Google's quality raters. The HCU classifier specifically targets:
+- Thin rewrites of press releases with no added analysis
+- Anonymous or barely-credentialed bylines on health/climate topics
+- Articles that lack primary sources or original data
+- AI-generated content without verifiable human editorial review
 
-The E-E-A-T system alone does not guarantee recovery. It is the quality floor — the minimum standard every new publish must clear. Recovery also requires:
+The E-E-A-T system blocks all four patterns at the publish gate. For long-term domain authority:
 
-1. **Author page depth** — `/authors/[slug]` pages with verifiable external credentials
-2. **Original reporting** — articles with named sources, original data, unique angles
-3. **Noindex for thin pages** — pages that cannot be made substantial should be noindexed, not deleted
-4. **News network presence** — Google News, Bing News, Apple News (see `Docs/alfasa_credibility.md`)
-5. **Topical coherence** — creator content moving to owire.org, objectwire.org as journalism + gaming
-
-The classifier re-evaluates at core algorithm updates only. The window is approximately every 3-6 months. Every publish between now and August 2026 either builds toward recovery or delays it.
+1. **Author page depth** — `/authors/[slug]` pages with verifiable external credentials and real sameAs links
+2. **Original data points** — cite primary sources (NASA, NOAA, IPCC, ESA, peer-reviewed journals)
+3. **Google News inclusion** — submit once 15+ articles are published. Approved publishers get a strong trust signal.
+4. **Topical coherence** — ozonedailynews.com should stay tightly scoped: science, climate, space, sustainability. Scope dilution hurts topical authority.
+5. **Link acquisition** — science bloggers, climate journalists, university press offices are credible linking domains for this vertical
 
 ---
 

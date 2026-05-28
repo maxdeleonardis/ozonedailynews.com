@@ -166,30 +166,26 @@ export default function AdminArticleList({ articles }: Props) {
                       : '—'}
                   </td>
                   <td className="px-4 py-3 text-right space-x-2">
-                    {article.status !== 'published' && (
-                      <>
-                        <a
-                          href={`/admin/articles/edit/${article.slug}`}
-                          className="text-blue-600 hover:text-blue-800 underline text-xs"
-                        >
-                          Edit
-                        </a>
-                        <button
-                          onClick={() => handlePublish(article.slug, article.title)}
-                          disabled={publishing === article.slug}
-                          className="text-green-700 hover:text-green-900 underline text-xs disabled:opacity-50"
-                        >
-                          {publishing === article.slug ? 'Publishing...' : 'Publish'}
-                        </button>
-                        <button
-                          onClick={() => handleDelete(article.slug, article.title)}
-                          disabled={deleting === article.slug}
-                          className="text-red-600 hover:text-red-800 underline text-xs disabled:opacity-50"
-                        >
-                          {deleting === article.slug ? 'Deleting...' : 'Delete'}
-                        </button>
-                      </>
-                    )}
+                    <a
+                      href={`/admin/articles/edit/${article.slug}`}
+                      className="text-blue-600 hover:text-blue-800 underline text-xs"
+                    >
+                      Edit
+                    </a>
+                    <button
+                      onClick={() => handlePublish(article.slug, article.title)}
+                      disabled={publishing === article.slug}
+                      className="text-green-700 hover:text-green-900 underline text-xs disabled:opacity-50"
+                    >
+                      {publishing === article.slug ? 'Publishing...' : article.status === 'published' ? 'Republish' : 'Publish'}
+                    </button>
+                    <button
+                      onClick={() => handleDelete(article.slug, article.title)}
+                      disabled={deleting === article.slug}
+                      className="text-red-600 hover:text-red-800 underline text-xs disabled:opacity-50"
+                    >
+                      {deleting === article.slug ? 'Deleting...' : 'Delete'}
+                    </button>
                     {article.status === 'published' && (
                       <a
                         href={`/${article.slug}`}
@@ -197,7 +193,7 @@ export default function AdminArticleList({ articles }: Props) {
                         rel="noopener noreferrer"
                         className="text-gray-500 hover:text-gray-700 underline text-xs"
                       >
-                        View live
+                        View live ↗
                       </a>
                     )}
                   </td>

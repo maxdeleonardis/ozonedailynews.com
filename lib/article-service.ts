@@ -4,7 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { ArticleFull, SterlingArticleFull, ArticlePageFull, CreatorArticleFull, WikiArticleFull } from './types';
+import type { ArticleFull, JackArticleFull, SterlingArticleFull, ArticlePageFull, CreatorArticleFull, WikiArticleFull } from './types';
 
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 
@@ -231,6 +231,24 @@ export async function getCreatorBySlug(slug: string): Promise<CreatorArticleFull
     .eq('status', 'published')
     .single();
   return (data as CreatorArticleFull | null) ?? null;
+}
+
+// ─── Jack Articles (long-form / investigation) ───────────────────────────────
+
+export async function getJackArticleBySlug(slug: string): Promise<JackArticleFull | null> {
+  const local = readStaticRow<JackArticleFull>('jack_articles', slug);
+  if (local) return local;
+
+  const { createClient } = await import('./supabase/server');
+  const supabase = await createClient();
+  if (!supabase) return null;
+  const { data } = await supabase
+    .from('jack_articles')
+    .select('*')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .single();
+  return (data as JackArticleFull | null) ?? null;
 }
 
 // ─── Wiki Articles ────────────────────────────────────────────────────────────

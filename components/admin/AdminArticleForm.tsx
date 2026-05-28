@@ -65,6 +65,7 @@ interface InitialData {
   subtitle?:     string;
   category?:     string;
   brand_slug?:   string;
+  article_type?: string;
   author_name?:  string;
   author_slug?:  string;
   content_html?: string;
@@ -96,6 +97,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const [slug,            setSlug]          = useState(initialData?.slug ?? '');
   const [category,        setCategory]      = useState(initialData?.category ?? 'News');
   const [brandSlug,       setBrandSlug]     = useState(initialData?.brand_slug ?? 'ozone');
+  const [articleType,     setArticleType]   = useState(initialData?.article_type ?? 'news_article');
   const [authorName,      setAuthorName]    = useState(initialData?.author_name ?? KNOWN_AUTHORS[0].name);
   const [authorSlug,      setAuthorSlug]    = useState(initialData?.author_slug ?? KNOWN_AUTHORS[0].slug);
   const [contentHtml,     setContentHtml]   = useState(initialData?.content_html ?? '');
@@ -137,8 +139,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       title,
       subtitle,
       category,
-      brand_slug: brandSlug,
-      author_name: authorName,
+      brand_slug:   brandSlug,
+      article_type: articleType,
+      author_name:  authorName,
       author_slug: authorSlug,
       content_html: contentHtml,
       tags:         tags.split(',').map((t) => t.trim()).filter(Boolean),
@@ -318,6 +321,20 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                 {BRANDS.map((b) => (
                   <option key={b.value} value={b.value}>{b.label}</option>
                 ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Content Type</label>
+              <select
+                value={articleType}
+                onChange={(e) => setArticleType(e.target.value)}
+                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
+              >
+                <option value="news_article">News Article (Standard)</option>
+                <option value="jack_article">Jack Article (Long-form / Investigation)</option>
+                <option value="article_page">Article Page (Evergreen Guide)</option>
+                <option value="creator_article">Creator Article (Influencer Profile)</option>
+                <option value="wiki_article">Wiki Article (Glossary / Definition)</option>
               </select>
             </div>
           </div>

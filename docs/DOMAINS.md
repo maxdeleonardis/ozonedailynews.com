@@ -7,24 +7,20 @@
 
 ## Network Overview
 
-```
-ozonenetwork.news          ← FLAGSHIP: Gaming · Finance · Startups (niched flagship)
-    │
-    │  Overflow verticals — each niche housed on a dedicated authority domain:
-    │
-    │  ── PURCHASED ──────────────────────────────────────────────────────────
-    ├── ozonedailynews.com     ← Science, space exploration, global sustainability, planet health  [LIVE]
-    ├── objectivewire.org      ← Investigations, private intelligence, civic watchdog  [LIVE]
-    ├── basilnews.com          ← Personal finance hub, major market movements, job listings, restaurant and hospitality hiring  [Purchased]
-    ├── honeynewspaper.com     ← Human-centered journalism, truth and ethics, real-world impact, environment (save the bees, etc.)  [Purchased May 26, 2026 - replaces micanewspaper.com]
-    ├── cloverheadlines.com    ← Luxury lifestyle, fashion, travel, premium culture  [Purchased May 26, 2026]
-    ├── obsidianpaper.com      ← Cybersecurity, privacy, data breaches, digital security  [Purchased May 26, 2026]
-    ├── onyxtimes.org          ← Premium institutional newspaper, world events, politics, governance, high-traffic serious topics  [Purchased May 26, 2026]
-    ├── contentnewsnow.com     ← Content creators, YouTube, OnlyFans events and drama (no explicit content)  [Purchased May 26, 2026]
-    │
-```
+**ozonenetwork.news** — FLAGSHIP: Gaming, Finance, Startups
 
-**Flagship niche rule (post-March 2026 Core Update):** `ozonenetwork.news` is no longer a generalist site. It publishes original content only within three pillars: **GamingAnime**, **youtube enteraimenet**, and **Startups and tech**. All other verticals (health, cybersecurity, food, science, local, luxury) are covered exclusively on their dedicated sub-brand domains. The flagship aggregates those verticals via hub cards that link out — no body text duplication.
+Overflow verticals, each housed on a dedicated authority domain:
+
+- **ozonedailynews.com** — Science, space exploration, global sustainability, planet health [LIVE]
+- **objectivewire.org** — Investigations, private intelligence, civic watchdog [LIVE]
+- **basilnews.com** — Personal finance, market movements, job listings, restaurant and hospitality hiring [Purchased]
+- **honeynewspaper.com** — Human-centered journalism, truth and ethics, real-world impact, environment [Purchased May 26, 2026, replaces micanewspaper.com]
+- **cloverheadlines.com** — Luxury lifestyle, fashion, travel, premium culture [Purchased May 26, 2026]
+- **obsidianpaper.com** — Cybersecurity, privacy, data breaches, digital security [Purchased May 26, 2026]
+- **onyxtimes.org** — Premium institutional newspaper, world events, politics, governance [Purchased May 26, 2026]
+- **contentnewsnow.com** — Content creators, YouTube, OnlyFans events and drama (no explicit content) [Purchased May 26, 2026]
+
+**Flagship niche rule (post-March 2026 Core Update):** `ozonenetwork.news` is no longer a generalist site. It publishes original content only within three pillars: **Gaming**, **Entertainment**, and **Startups and Tech**. All other verticals (health, cybersecurity, food, science, local, luxury) are covered exclusively on their dedicated sub-brand domains. The flagship aggregates those verticals via hub cards that link out, no body text duplication.
 
 **Google's March 2026 Core Update directive: niche down.** Broad generalist sites are penalized. The network model answers this by housing topical authority on dedicated domains while the flagship aggregates and cross-links. Authority flows bidirectionally: sub-brand articles link to the flagship hub, flagship hubs link to the sub-brand.
 
@@ -94,12 +90,12 @@ New articles default to `news`. After 48 hours they move to `review`. High-perfo
 |---|---|---|
 | Science, space, sustainability | `ozonedailynews.com` | `/science` aggregate card |
 | Cybersecurity, privacy, startups, tech | `obsidianpaper.com` | `/security` aggregate card |
-| honest reporting Health wellnes , ethics, environment | `honeynewspaper.com` | `/health` aggregate card |
+| Health, ethics, environment | `honeynewspaper.com` | `/health` aggregate card |
 | Content creators, YouTube | `contentnewsnow.com` | `/creators` aggregate card |
-| Personal finance, job listings, resuturant finace | `basilnews.com` | `/finance` aggregate card |
-| Investigations, civic | `objectivewire.org` | `/investigations` aggregate card |
-| Us events, global news, governance | `onyxtimes.org` | `/world` aggregate card |
-| Carsr Luxury lifestyle, fashion, travel | `cloverheadlines.com` | `/lifestyle` aggregate card |
+| Personal finance, job listings, restaurant industry | `basilnews.com` | `/finance` aggregate card |
+| Investigations, civic watchdog | `objectivewire.org` | `/investigations` aggregate card |
+| US events, global news, governance | `onyxtimes.org` | `/world` aggregate card |
+| Luxury lifestyle, fashion, travel | `cloverheadlines.com` | `/lifestyle` aggregate card |
 
 ### How the network avoids content cannibalization
 

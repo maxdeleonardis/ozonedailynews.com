@@ -227,10 +227,8 @@ export async function POST(req: NextRequest) {
   }
 
   if (article.status === 'published') {
-    return NextResponse.json(
-      { error: 'Article is already published. Edit the static JSON file in Git if changes are needed.' },
-      { status: 409 }
-    );
+    // Allow re-publishing — this will overwrite the existing static JSON on GitHub.
+    // Intentional: editors can update live articles through the CMS.
   }
 
   // Check brand access

@@ -189,6 +189,33 @@ export interface WikiArticleFull {
   lifecycle?: Lifecycle;
 }
 
+// ─── JackArticleFull (long-form / investigation) ────────────────────────────
+export interface JackArticleFull {
+  id?: string;
+  slug: string;
+  url: string;
+  title: string;
+  subtitle?: string;
+  department?: string;
+  category: Category;
+  accentColor?: string;
+  status: 'published' | 'draft' | 'review';
+  content_html: string;
+  publish_date: string;
+  published_at: string;
+  author_name: string;
+  author_slug: string;
+  read_time?: string;
+  thumbnail_src?: string;
+  thumbnail_alt?: string;
+  tags: string[];
+  lifecycle?: Lifecycle;
+  sources?: Array<{ url: string; title: string; publisher?: string }>;
+  timeline?: Array<{ date: string; event: string }>;
+  relatedArticles?: Array<{ url: string; title: string; category?: string }>;
+  breadcrumbs?: Array<{ href: string; label: string }>;
+}
+
 // ─── Content Registry ─────────────────────────────────────────────────────────
 export interface ContentEntry {
   slug: string;

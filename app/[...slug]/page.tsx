@@ -9,6 +9,11 @@ import { getArticleByUrlSegments, getAllArticles } from '@/lib/article-service';
 import { getAllEntries } from '@/lib/registry-service';
 import { SITE_CONFIG } from '@/lib/site-config';
 import { NewsArticle } from '@/components/articles/NewsArticle';
+import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
+import { JackArticleDB } from '@/components/articles/JackArticleDB';
+import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
+import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
+import { WikiArticle } from '@/components/articles/WikiArticle';
 import type { TopicTagType } from '@/components/articles/NewsArticle';
 
 export async function generateStaticParams() {
@@ -57,8 +62,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: canonicalUrl },
     openGraph: {
       type: 'article',
-      title: article.metadata?.openGraph?.title ?? article.metadata?.title ?? article.title,
-      description: article.metadata?.openGraph?.description ?? article.metadata?.description ?? article.subtitle ?? '',
+      title: (article.metadata?.openGraph?.title as string | undefined) ?? article.metadata?.title ?? article.title,
+      description: (article.metadata?.openGraph?.description as string | undefined) ?? article.metadata?.description ?? article.subtitle ?? '',
       url: canonicalUrl,
       siteName: SITE_CONFIG.name,
       images: article.thumbnail_src ? [{ url: article.thumbnail_src, width: 1200, height: 675, alt: article.thumbnail_alt ?? article.title }] : [],
@@ -145,38 +150,55 @@ export default async function ArticleCatchallPage({ params }: { params: Promise<
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <NewsArticle
-      title={article.title}
-      subtitle={article.subtitle ?? undefined}
-      category={article.category}
-      publishDate={new Date(article.published_at).toLocaleDateString('en-US', {
-        month: 'long', day: 'numeric', year: 'numeric',
-      })}
-      readTime={articleAny.read_time ?? undefined}
-      topicTag={articleAny.topic_tag as TopicTagType | undefined}
-      author={article.author_name ? {
-        name: article.author_name,
-        role: articleAny.author_role ?? undefined,
-        avatar: articleAny.author_avatar ?? undefined,
-        authorSlug: article.author_slug ?? undefined,
-      } : undefined}
-      heroImage={article.thumbnail_src ? {
-        src: article.thumbnail_src,
-        alt: article.thumbnail_alt ?? article.title,
-      } : undefined}
-      tags={article.tags ?? []}
-      breaking={article.breaking ?? false}
-      trending={articleAny.trending ?? false}
-      slug={slug.join('-')}
-      url={canonicalUrl}
-      breadcrumbs={breadcrumbs}
-    >
-      {htmlContent ? (
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      ) : (
-        <p className="text-gray-500 italic">Content coming soon.</p>
-      )}
-    </NewsArticle>
+      {(() => {
+        const articleType = (articleAny.article_type as string | undefined) ?? 'news_article';
+        switch (articleType) {
+          case 'jack_article':
+            return <JackArticleDB slug={article.slug} />;
+          case 'article_page':
+            return <ArticlePageDB slug={article.slug} />;
+          case 'creator_article':
+            return <CreatorArticleDB slug={article.slug} />;
+          case 'wiki_article':
+            return <WikiArticle slug={article.slug} />;
+          case 'news_article':
+          default:
+            return (
+              <NewsArticle
+                title={article.title}
+                subtitle={article.subtitle ?? undefined}
+                category={article.category}
+                publishDate={new Date(article.published_at).toLocaleDateString('en-US', {
+                  month: 'long', day: 'numeric', year: 'numeric',
+                })}
+                readTime={articleAny.read_time ?? undefined}
+                topicTag={articleAny.topic_tag as TopicTagType | undefined}
+                author={article.author_name ? {
+                  name: article.author_name,
+                  role: articleAny.author_role ?? undefined,
+                  avatar: articleAny.author_avatar ?? undefined,
+                  authorSlug: article.author_slug ?? undefined,
+                } : undefined}
+                heroImage={article.thumbnail_src ? {
+                  src: article.thumbnail_src,
+                  alt: article.thumbnail_alt ?? article.title,
+                } : undefined}
+                tags={article.tags ?? []}
+                breaking={article.breaking ?? false}
+                trending={articleAny.trending ?? false}
+                slug={slug.join('-')}
+                url={canonicalUrl}
+                breadcrumbs={breadcrumbs}
+              >
+                {htmlContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                ) : (
+                  <p className="text-gray-500 italic">Content coming soon.</p>
+                )}
+              </NewsArticle>
+            );
+        }
+      })()}
     </>
   );
 }

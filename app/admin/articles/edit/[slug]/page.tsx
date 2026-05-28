@@ -47,9 +47,8 @@ export default async function EditArticlePage({
       </div>
 
       {article.status === 'published' && (
-        <div className="mb-6 px-4 py-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800">
-          This article is published. Changes here will only update the Supabase record (not the live site).
-          To update the live site, edit the static JSON file in Git directly and redeploy.
+        <div className="mb-6 px-4 py-3 bg-blue-50 border border-blue-200 rounded text-sm text-blue-800">
+          This article is live. Edit any fields below, then click <strong>Publish to GitHub</strong> to overwrite the static JSON and redeploy.
         </div>
       )}
 

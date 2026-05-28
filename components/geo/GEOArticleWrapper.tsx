@@ -2,7 +2,7 @@
 // G6 GEO signal: Enhanced NewsArticle schema with speakable specification.
 // Drop-in wrapper for any article page. Adds mentions array for entity disambiguation.
 
-import type { ArticleFull, JackArticleFull } from '@/lib/types';
+import type { ArticleFull } from '@/lib/types';
 import { SITE_CONFIG } from '@/lib/site-config';
 
 interface MentionEntity {
@@ -12,7 +12,7 @@ interface MentionEntity {
 }
 
 interface GEOArticleWrapperProps {
-  article: Pick<ArticleFull | JackArticleFull, 'title' | 'url' | 'published_at' | 'author_name' | 'author_slug' | 'tags'> & {
+  article: Pick<ArticleFull, 'title' | 'url' | 'published_at' | 'author_name' | 'author_slug' | 'tags'> & {
     subtitle?: string;
   };
   speakableSelectors?: string[];

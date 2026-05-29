@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`
   },
   description: SITE_CONFIG.description,
-  keywords: ["video games news", "gaming news", "startup company news", "finance news", "gaming industry", "tech startups", "crypto", "daily fantasy sports", "verified reporting"],
+  keywords: ["news", "intelligence", "journalism", "business news", "technology news", "verified news", "fact-checked reporting"],
   authors: [{ name: "OzoneNews Editorial Team" }],
   creator: SITE_CONFIG.name,
   publisher: `${SITE_CONFIG.name} News Network`,
@@ -161,7 +161,7 @@ export default async function RootLayout({
                   <div className="flex items-center justify-center gap-4 mt-1.5">
                     <div className="h-px w-10 md:w-28 bg-black" />
                     <p className="text-[8px] tracking-[.25em] uppercase text-gray-500 font-mono whitespace-nowrap">
-                      Gaming · Finance · Startups
+                      Independent · Verified · In-Depth
                     </p>
                     <div className="h-px w-10 md:w-28 bg-black" />
                   </div>
@@ -194,9 +194,9 @@ export default async function RootLayout({
                 {/* Brand */}
                 <div className="col-span-2 md:col-span-1">
                   <div className="font-black text-lg tracking-tight text-white mb-1">OzoneNews</div>
-                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">Gaming · Finance · Startups</p>
+                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">Verified News Network</p>
                   <p className="text-xs text-gray-400 leading-relaxed max-w-[220px] mb-4">
-                    Verified reporting on video games, startup companies, and finance. The intel desk for builders, investors, and players.
+                    Independent nonprofit newsroom delivering verified, source-cited reporting on technology, finance, gaming, and global affairs.
                   </p>
                   <div className="flex flex-col gap-1 text-xs text-gray-500 mb-4">
                     <span>2921 E 17th St Bldg 3, Austin, TX 78702</span>
@@ -221,13 +221,13 @@ export default async function RootLayout({
                 <div>
                   <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-500 mb-4">Coverage</h4>
                   <div className="flex flex-col gap-2.5">
-                    <Link href="/video-games" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Gaming</Link>
-                    <Link href="/finance" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Finance</Link>
-                    <Link href="/open-ai" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Startups</Link>
-                    <Link href="/crypto" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Crypto</Link>
-                    <Link href="/finance/draftkings" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">DraftKings</Link>
-                    <Link href="/finance/prizepicks" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">PrizePicks</Link>
                     <Link href="/news" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">News</Link>
+                    <Link href="/tech" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Tech</Link>
+                    <Link href="/finance" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Finance</Link>
+                    <Link href="/entertainment" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Entertainment</Link>
+                    <Link href="/video-games" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Gaming</Link>
+                    <Link href="/crypto" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Crypto</Link>
+                    <Link href="/science" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Science</Link>
                   </div>
                 </div>
 
@@ -287,7 +287,7 @@ export default async function RootLayout({
                   >
                     <div>
                       <div className="font-bold text-sm text-white">Max DeLeonardis</div>
-                      <div className="text-xs text-gray-400 mt-0.5">Gaming, Finance &amp; Startups Desk</div>
+                      <div className="text-xs text-gray-400 mt-0.5">Founding Writer, Science &amp; Technology</div>
                     </div>
                     <span className="text-gray-500 group-hover:text-gray-200 ml-4 transition-colors">→</span>
                   </Link>
@@ -299,7 +299,6 @@ export default async function RootLayout({
                 <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-400 mb-3">Newsroom Policies</h4>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
                   <Link href="/about" className="text-blue-400 hover:text-blue-300 underline font-medium">About</Link>
-                  <Link href="/network" className="text-blue-400 hover:text-blue-300 underline font-medium">Our Network</Link>
                   <Link href="/editorial-standards" className="text-blue-400 hover:text-blue-300 underline font-medium">Editorial Standards</Link>
                   <Link href="/corrections" className="text-blue-400 hover:text-blue-300 underline font-medium">Corrections Policy</Link>
                   <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">Contact</Link>
@@ -314,10 +313,11 @@ export default async function RootLayout({
                   <div>
                     <h4 className="font-bold text-xs uppercase tracking-widest text-gray-300 mb-3">Our Mission</h4>
                     <p className="text-xs text-gray-400 leading-relaxed">
-                      OzoneNews is an independent, self-funded newsroom based in Austin, Texas. We cover
-                      three niches: video games, startup companies, and finance. Every article is
-                      produced by a named reporter, sourced to primary documents, and published without
-                      advertiser influence. Built for builders, investors, and players.
+                      OzoneNews is an independent, self-funded newsroom based in Austin, Texas. We deliver
+                      verified, source-cited reporting on technology, finance, politics, gaming, and global
+                      affairs. Every article is produced by a named reporter, sourced to primary documents,
+                      and published without advertiser influence. We do not aggregate or rewrite
+                      competitors&rsquo; work as our own.
                     </p>
                   </div>
 

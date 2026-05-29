@@ -13422,6 +13422,72 @@
     "image_height": 675
   },
   {
+    "slug": "/anime/jujutsu-kaisen/season-3",
+    "title": "JJK Season 3 | Culling Game Arc, Episode Guide, Where to Watch",
+    "description": "Jujutsu Kaisen Season 3 is airing Spring 2026. Full Culling Game arc guide: new characters Higuruma, Kashimo, Hakari, colony assignments, episode breakdown, whe",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/anime/news/baki-dou-part-2-netflix-june-18-2026",
+    "title": "BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes 14-25",
+    "description": "BAKI-DOU Part 2 premieres June 18, 2026 on Netflix. All 12 episodes (14 through 25) drop simultaneously. Musashi Miyamoto faces Baki, Hanayama, Pickle, and Moto",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/anime/news/the-one-piece-wit-studio-netflix-february-2027",
+    "title": "THE ONE PIECE Remake | WIT Studio Netflix February 2027, 7-Episode East Blue",
+    "description": "WIT Studio\\",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/anime/witch-hat-atelier",
+    "title": "Witch Hat Atelier | Review, Staff, Season 2 News 2026",
+    "description": "Witch Hat Atelier (Tongari Boushi no Atelier) is the Spring 2026 AotY frontrunner. BUG FILMS, director Ayumu Watanabe, composer Yuka Kitamura. 13 episodes now a",
+    "publish_date": "2026-05-25",
+    "modified_date": "2026-05-25",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
     "slug": "/finance/draftkings",
     "title": "DraftKings | Sports Betting, DFS & Company Profile 2026",
     "description": "DraftKings (DKNG) is a $4.77B online sportsbook and daily fantasy platform active in 25 states. Company profile, revenue, legal status, and Texas DFS access.",
@@ -13456,26 +13522,11 @@
     "image_url": "https://www.ozonenetwork.news${SLUG}"
   },
   {
-    "slug": "/texas/news/draftkings-prizepicks-legal-texas-2026",
-    "title": "DraftKings & PrizePicks Legal in Texas | Daily Fantasy Law 2026",
-    "description": "Texas has not legalized sports betting, yet DraftKings and PrizePicks operate legally via a skill-game carve-out in the Texas Penal Code. Full legal explainer.",
-    "publish_date": "2026-05-22",
-    "modified_date": "2026-05-22",
-    "category": "Texas",
-    "tags": [
-      "Texas"
-    ],
-    "author": "OzoneNews Editorial",
-    "priority": 0.6,
-    "change_frequency": "weekly",
-    "image_url": "https://www.ozonenetwork.news${SLUG}"
-  },
-  {
     "slug": "/network",
     "title": "ONN Media Network | 11 Editorial Brands by Ozone Network News",
     "description": "Ozone Network News LLC operates 11 niche editorial brands covering gaming, finance, startups, cybersecurity, health, science, creator economy, and more. Each br",
-    "publish_date": "2026-05-25",
-    "modified_date": "2026-05-25",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
     "category": "Network",
     "tags": [
       "Network"
@@ -13486,33 +13537,55 @@
     "image_url": "https://www.ozonenetwork.news"
   },
   {
-    "slug": "/video-games/gta-6/map",
-    "title": "GTA 6 Map | State of Leonida, Vice City, and Every Confirmed Region",
-    "description": "Full breakdown of the GTA 6 map: State of Leonida spans Vice City, the Florida Everglades, beach towns, causeways, and inland communities. Every confirmed locat",
-    "publish_date": "2026-05-25",
-    "modified_date": "2026-05-25",
-    "category": "Gaming",
+    "slug": "/tech/hardware/ddr5-memory-guide-best-kits-2026",
+    "title": "DDR5 Memory Guide | Best Kits for AMD AM5 & Intel LGA1851 2026",
+    "description": "DDR5 is mandatory on AMD AM5 and Intel LGA1851. This guide explains the 4 core engineering changes from DDR4, then reviews the G.Skill Trident Z5 Neo, Corsair D",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
+    "category": "Technology",
     "tags": [
-      "Video Games",
-      "Gaming",
-      "Gta 6",
-      "Map"
+      "Technology",
+      "Hardware",
+      "Ddr5 Memory Guide Best Kits 2026"
     ],
     "author": "OzoneNews Editorial",
-    "priority": 0.6,
+    "priority": 0.7,
     "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 1200,
     "image_height": 675
   },
   {
-    "slug": "/anime/jujutsu-kaisen/season-3",
-    "title": "JJK Season 3 | Culling Game Arc, Episode Guide, Where to Watch",
-    "description": "Jujutsu Kaisen Season 3 is airing Spring 2026. Full Culling Game arc guide: new characters Higuruma, Kashimo, Hakari, colony assignments, episode breakdown, whe",
-    "publish_date": "2026-05-25",
-    "modified_date": "2026-05-25",
-    "category": "Anime",
+    "slug": "/tech/news/computex-2026-preview-ai-together-taipei",
+    "title": "Computex 2026 Preview | Jensen Huang, Intel 18A, AMD CUDIMM & AI Together",
+    "description": "Computex 2026 runs June 2 to 5 in Taipei with 1,500 exhibitors and 80,000 professionals. Jensen Huang introduces Vera Rubin, Intel previews Nova Lake on 18A wit",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
+    "category": "Technology",
     "tags": [
-      "Anime"
+      "Technology",
+      "News",
+      "Computex 2026 Preview Ai Together Taipei"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/007-first-light/review-best-bond-game-since-goldeneye-2026",
+    "title": "007 First Light Review | Best Bond Game Since GoldenEye 1997",
+    "description": "IO Interactive delivers the best James Bond game since GoldenEye 64. 007 First Light earns a 9/10 from IGN, a Metacritic 91, and a legitimate 2026 Game of the Y",
+    "publish_date": "2026-05-29",
+    "modified_date": "2026-05-29",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "007 First Light",
+      "Review Best Bond Game Since Goldeneye 2026"
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,
@@ -13540,14 +13613,17 @@
     "image_height": 675
   },
   {
-    "slug": "/anime/witch-hat-atelier",
-    "title": "Witch Hat Atelier | Review, Staff, Season 2 News 2026",
-    "description": "Witch Hat Atelier (Tongari Boushi no Atelier) is the Spring 2026 AotY frontrunner. BUG FILMS, director Ayumu Watanabe, composer Yuka Kitamura. 13 episodes now a",
+    "slug": "/video-games/gta-6/map",
+    "title": "GTA 6 Map | State of Leonida, Vice City, and Every Confirmed Region",
+    "description": "Full breakdown of the GTA 6 map: State of Leonida spans Vice City, the Florida Everglades, beach towns, causeways, and inland communities. Every confirmed locat",
     "publish_date": "2026-05-25",
     "modified_date": "2026-05-25",
-    "category": "Anime",
+    "category": "Gaming",
     "tags": [
-      "Anime"
+      "Video Games",
+      "Gaming",
+      "Gta 6",
+      "Map"
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,

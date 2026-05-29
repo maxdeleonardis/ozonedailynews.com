@@ -1,117 +1,230 @@
-# Ozone Network News | Domain Network Guide
+# Ozone Network News | Domain Architecture & CMS Integration Guide
 
 **Legal entity:** Ozone Network News LLC (ONN)
-**Document scope:** Every domain in the ONN network, its editorial identity, what it covers, and how the sites work together.
+**Document scope:** Every domain in the ONN network, its editorial niche, how it fits the hub-and-spoke SEO model, and exactly how each domain maps to the shared Next.js / static JSON CMS.
 
 ---
 
 ## Network Overview
 
-**ozonenetwork.news** — FLAGSHIP: Gaming, Finance, Startups
-
-Overflow verticals, each housed on a dedicated authority domain:
-
-- **ozonedailynews.com** — Science, space exploration, global sustainability, planet health [LIVE]
-- **objectivewire.org** — Investigations, private intelligence, civic watchdog [LIVE]
-- **basilnews.com** — Personal finance, market movements, job listings, restaurant and hospitality hiring [Purchased]
-- **honeynewspaper.com** — Human-centered journalism, truth and ethics, real-world impact, environment [Purchased May 26, 2026, replaces micanewspaper.com]
-- **cloverheadlines.com** — Luxury lifestyle, fashion, travel, premium culture [Purchased May 26, 2026]
-- **obsidianpaper.com** — Cybersecurity, privacy, data breaches, digital security [Purchased May 26, 2026]
-- **onyxtimes.org** — Premium institutional newspaper, world events, politics, governance [Purchased May 26, 2026]
-- **contentnewsnow.com** — Content creators, YouTube, OnlyFans events and drama (no explicit content) [Purchased May 26, 2026]
-
-**Flagship niche rule (post-March 2026 Core Update):** `ozonenetwork.news` is no longer a generalist site. It publishes original content only within three pillars: **Gaming**, **Entertainment**, and **Startups and Tech**. All other verticals (health, cybersecurity, food, science, local, luxury) are covered exclusively on their dedicated sub-brand domains. The flagship aggregates those verticals via hub cards that link out, no body text duplication.
+```
+ozonenetwork.news        ← FLAGSHIP: all verticals, aggregates the network
+    ├── ozonedailynews.com     ← YouTube, creator economy, viral content news
+    ├── objectivewire.org      ← Investigations, private intelligence, civic watchdog
+    ├── basilnews.com          ← Food, restaurants, food tech, agriculture
+    ├── clovernews.com         ← Personal finance, consumer money, deals
+    ├── grovenews.com          ← Local news, real estate, city development
+    ├── sagenews.com           ← Health, wellness, longevity, biohacking
+    ├── halonews.com           ← Cybersecurity, privacy, data protection
+    ├── statusnews.com         ← Business, markets, executive, luxury
+    ├── micanews.com           ← Science, climate, space, research
+    └── onyxnews.com           ← Luxury lifestyle, fashion, art, premium entertainment
+```
 
 **Google's March 2026 Core Update directive: niche down.** Broad generalist sites are penalized. The network model answers this by housing topical authority on dedicated domains while the flagship aggregates and cross-links. Authority flows bidirectionally: sub-brand articles link to the flagship hub, flagship hubs link to the sub-brand.
 
 ---
 
-## How Content Is Organized
+## How the CMS Works Across Domains
 
-Every domain in the network runs on the same shared codebase. Deploying a new brand is a matter of pointing the config at the right domain.
+Every domain in the network runs on the same codebase. Understanding the data layer is essential before configuring any new domain.
 
-### Content Types
+### Static JSON Content Store
 
-Each article belongs to one of five content types, which determines its layout and depth:
+All article content lives on-prem in `content/static/`:
 
-| Content Type | Best For |
-|---|---|
-| **News Article** | Breaking news, quick-turnaround reporting, creator news, job listings |
-| **Jack Article** | Long-form investigations, premium analysis, institutional reporting (OnyxTimes, HoneyNewspaper) |
-| **Article Page** | Evergreen guides, job listings, profiles, reference content |
-| **Creator Article** | Creator and influencer profile pages (ContentNewsNow) |
-| **Wiki Article** | Glossary entries and reference definitions |
+```
+content/static/
+    articles/              ← NewsArticleDB articles (news, gaming, tech, breaking)
+    jack_articles/         ← JackArticleDB articles (investigations, premium long-form)
+    article_pages/         ← ArticlePageDB articles (evergreen, wiki-style, profiles)
+    creator_articles/      ← CreatorArticleDB articles (creator profiles)
+    wiki_articles/         ← WikiArticleDB articles (reference, glossary)
+    content_registry.json  ← Master index used by sitemap, JSON-LD, Top Stories
+```
 
-### Registry
+The primary read function is `readStaticDir<T>(table)` in `lib/article-service.ts` (lines 13-25):
 
-Every published article is tracked in a master registry. The registry is what Google reads to build the sitemap, structured data, and Top Stories eligibility. An article not in the registry does not appear in search results, regardless of whether the page exists. Every new article must be added to the registry before publishing.
+```typescript
+function readStaticDir<T>(table: string): T[] {
+  const dir = path.join(STATIC_BASE, table);
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.json') && f !== '_index.json')  // ← _index.json is EXCLUDED
+    .map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as T)
+    .filter((x): x is T => x !== null);
+}
+```
 
-### Brand Identity per Domain
+`_index.json` is excluded because it is a JSON **array** used for metadata lookups — parsing it as an article object produces a phantom ghost entry in the carousel.
 
-Each domain gets its own name, URL, logo, and email. These are set once in the deployment environment — the underlying codebase is shared across all domains. When spinning up a new sub-brand, configure: site name, live URL, logo image URL, editorial email, and Twitter handle.
+### Registry Service
 
-### Authors and Bylines
+`lib/registry-service.ts` is the single source of truth for sitemaps, JSON-LD, and Top Stories. It reads from `content/static/content_registry.json` (local-first), with Supabase as a last-resort fallback:
 
-Every article must have a named author with a real external profile (Twitter or LinkedIn). This is a hard requirement for Google's E-E-A-T standards. Authors without external profiles use the house byline "OzoneNews Editorial Team."
+```typescript
+// lib/registry-service.ts — lines 34-44
+const LOCAL_REGISTRY_PATH = path.join(process.cwd(), 'content', 'static', 'content_registry.json');
 
-### Article Lifecycle
+function loadLocalRegistry(): ContentEntry[] | null {
+  const raw = JSON.parse(fs.readFileSync(LOCAL_REGISTRY_PATH, 'utf8'));
+  return raw.map(rowToEntry);
+}
+```
 
-Articles move through four states:
+Every new article must have a registry entry. Missing entry = invisible to Google (no sitemap URL, no JSON-LD, no Top Stories eligibility).
 
-| State | In Google News | In Sitemap |
-|---|---|---|
-| **news** | Yes, for 48 hours | Yes |
-| **review** | No | Yes |
-| **feature** | No | Yes, high priority |
-| **pruned** | No | No |
+### Site Config
 
-New articles default to `news`. After 48 hours they move to `review`. High-performing evergreen pieces are promoted to `feature`. Outdated content is pruned from all sitemaps.
+`lib/site-config.ts` exports `SITE_CONFIG` — the single object that controls the brand name, domain URL, logo, and social handles used everywhere in the app (OG tags, JSON-LD, RSS, sitemaps, author schema):
+
+```typescript
+// lib/site-config.ts
+export const SITE_CONFIG = {
+  name:           "OzoneNews",
+  legalName:      "Ozone Network News LLC",
+  publisherName:  "Ozone Network News",
+  url:            "https://www.ozonenetwork.news",
+  logo:           "https://www.ozonenetwork.news/ozonenews-logo.png",
+  email:          "editorial@ozonenetwork.news",
+  twitter:        "@ozonenetwork",
+  sameAs: [
+    "https://twitter.com/ozonenetwork",
+    "https://www.linkedin.com/company/ozonenetwork",
+  ],
+};
+```
+
+**For a new sub-brand domain:** override `SITE_CONFIG` values via environment variables in Railway:
+```
+NEXT_PUBLIC_SITE_NAME=SageNews
+NEXT_PUBLIC_SITE_URL=https://www.sagenews.com
+NEXT_PUBLIC_SITE_LOGO=https://www.sagenews.com/sagenews-logo.png
+NEXT_PUBLIC_SITE_EMAIL=editorial@sagenews.com
+NEXT_PUBLIC_SITE_TWITTER=@sagenews
+```
+
+Then update `lib/site-config.ts` to read from env:
+```typescript
+export const SITE_CONFIG = {
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "OzoneNews",
+  url:  process.env.NEXT_PUBLIC_SITE_URL  ?? "https://www.ozonenetwork.news",
+  // etc.
+};
+```
+
+This means one codebase deploys to all domains — only the Railway env vars change per service.
+
+### Author Profiles
+
+`lib/author-profiles.ts` is the centralized author entity registry. Every byline author must appear here with at least one `sameAs` external URL — required by Google's E-E-A-T rules post-March 2026 Core Update:
+
+```typescript
+// lib/author-profiles.ts
+export const AUTHOR_PROFILES: Record<string, AuthorProfile> = {
+  "jack-sterling": {
+    slug: "jack-sterling",
+    name: "Jack Sterling",
+    jobTitle: "Senior Reporter, Politics & Federal Investigations",
+    email: "j.sterling@ozonenetwork.news",
+    sameAs: [
+      "https://twitter.com/jacksterling_on",
+      "https://www.linkedin.com/in/jack-sterling-ozonenews",
+    ],
+  },
+  // ...
+};
+```
+
+Sub-brand authors must be added here before their first article publishes.
+
+### News Sitemap
+
+`app/news-sitemap.xml/route.ts` reads directly from `content/static/articles/` and `content/static/jack_articles/`. The 48-hour freshness window is enforced here:
+
+```typescript
+// app/news-sitemap.xml/route.ts
+const NEWS_WINDOW_HOURS = 48;
+const MAX_NEWS_ENTRIES  = 1000;
+```
+
+Articles with `lifecycle: "review"`, `lifecycle: "feature"`, or `lifecycle: "pruned"` are filtered out of the news sitemap automatically. Only `lifecycle: "news"` (or unset, which defaults to news) appears in Google News.
+
+Timestamps use Central Time with explicit UTC offset (e.g. `2026-05-18T18:00:00-05:00`), not bare `Z` — the route calculates this dynamically via `getCentralTimeOffset()`.
+
+### Main Sitemap
+
+`app/sitemap.ts` reads from `registry-service.ts` (`getAllEntries()`) and filters against `VALID_SLUG_PREFIXES`. When adding a new domain vertical, add its route prefix to the array:
+
+```typescript
+// app/sitemap.ts
+const VALID_SLUG_PREFIXES = [
+  '/', '/news', '/youtube/', '/video-games/', '/apple', '/entertainment/',
+  '/anime/', '/technology/', '/tech/', '/nvidia/', '/california/',
+  '/crypto', '/amazon', '/anime/',
+  // Add new verticals here as pages are created:
+  // '/creator/', '/investigations/', etc.
+];
+```
+
+### Lifecycle System
+
+Every article JSON should carry a `lifecycle` field:
+
+| Value | News Sitemap | Main Sitemap | Displayed |
+|---|---|---|---|
+| `"news"` (or omitted) | Yes, 48h window | Yes | Yes |
+| `"review"` | No | Yes | Yes |
+| `"feature"` | No | Yes, priority 0.9 | Yes |
+| `"pruned"` | No | No | No |
+
+Managed via:
+```bash
+npm run lifecycle:check    # news → review after 48h
+npm run lifecycle:promote  # review → feature if ranked
+npm run lifecycle:prune    # delete all pruned articles from disk + registry
+```
+
+Script: `scripts/lifecycle-manager.ts`
 
 ---
 
-## Domain 1 | ozonenetwork.news — Flagship
+## Domain 1 | ozonenetwork.news
 
-**Role:** Flagship. Aggregates all sub-brand verticals.
-**Live:** https://www.ozonenetwork.news
+**Role:** Flagship. Covers all verticals. Aggregates the sub-brand network.
+**Repo:** This repo (`aMarketology/ozonedailynews`)
+**Live:** `https://www.ozonenetwork.news`
+**Site config:** `lib/site-config.ts` — already set correctly
 
 ### What it covers
 
-**Three niched pillars — original content published only within these:**
+Everything. All 10 `category` values are in play:
+`News`, `Tech`, `Finance`, `Entertainment`, `World`, `Politics`, `Science`, `Sports`, `Culture`, `Crypto`, `Gaming`
 
-| Pillar | Hub | Category values in play |
-|---|---|---|
-| Gaming | `/video-games` | `Gaming`, `Entertainment` |
-| Finance | `/finance`, `/crypto` | `Finance`, `Crypto`, `News` |
-| Startups | `/tech` | `Tech`, `News` |
+### How to show sub-brand content WITHOUT cannibalizing
 
-**Overflow verticals** — the flagship publishes aggregate hub cards linking to sub-brand articles. No original body content on these topics at `ozonenetwork.news`:
+The cannibalization risk is real: if `ozonenetwork.news` and `sagenews.com` publish the same article, Google will pick one and demote the other. The solution is **aggregation without duplication**:
 
-| Topic | Sub-brand | Flagship hub |
-|---|---|---|
-| Science, space, sustainability | `ozonedailynews.com` | `/science` aggregate card |
-| Cybersecurity, privacy, startups, tech | `obsidianpaper.com` | `/security` aggregate card |
-| Health, ethics, environment | `honeynewspaper.com` | `/health` aggregate card |
-| Content creators, YouTube | `contentnewsnow.com` | `/creators` aggregate card |
-| Personal finance, job listings, restaurant industry | `basilnews.com` | `/finance` aggregate card |
-| Investigations, civic watchdog | `objectivewire.org` | `/investigations` aggregate card |
-| US events, global news, governance | `onyxtimes.org` | `/world` aggregate card |
-| Luxury lifestyle, fashion, travel | `cloverheadlines.com` | `/lifestyle` aggregate card |
+**Rule 1 — Flagship never duplicates sub-brand body text.** The flagship can publish a brief (150-300 word) summary card that links to the full article on the sub-brand domain. The summary must contain a `rel="canonical"` pointing to the sub-brand URL, not to itself.
 
-### How the network avoids content cannibalization
+**Rule 2 — Hub pages aggregate, not republish.** The flagship's `/health`, `/cybersecurity`, `/food` hub pages display cards (title, subtitle, image, link) that point to the sub-brand article URL. No body text is duplicated.
 
-Each sub-brand owns its vertical completely. The flagship never republishes a sub-brand article — it only shows a brief summary card (150-300 words) linking out. Hub pages on the flagship display cards (title, image, link) that point to the sub-brand URL. Original flagship content covers a different angle than the sub-brand — for example, if HoneyNewspaper covers a public health story from an environmental angle, the flagship covers the regulatory or policy angle of the same news. Different angle = different article = no cannibalization.
+**Rule 3 — Original flagship content covers angles the sub-brand does not.** If `sagenews.com` covers a health study from a clinical angle, `ozonenetwork.news` covers the policy or regulatory angle of the same news. Different angle = different article = no cannibalization.
 
-### Flagship hub pages to build
+**Rule 4 — Use `ContentEntry.href` to cross-link.** The registry's `href` field stores the canonical URL including domain. When `getAllEntries()` is called on the flagship, sub-brand entries can be loaded from a shared registry feed and rendered as external cards.
+
+### Flagship hub pages to create
 
 | Hub URL | Aggregates From | Status |
 |---|---|---|
-| `/science` | ozonedailynews.com | Planned |
-| `/health` | honeynewspaper.com | Planned |
-| `/security` | obsidianpaper.com | Planned |
-| `/finance` | basilnews.com | Planned |
-| `/lifestyle` | cloverheadlines.com | Planned |
-| `/world` | onyxtimes.org | Planned |
-| `/creators` | contentnewsnow.com | Planned |
+| `/health` | sagenews.com | Planned |
+| `/security` | halonews.com | Planned |
+| `/food` | basilnews.com | Planned |
+| `/personal-finance` | clovernews.com | Planned |
+| `/local` | grovenews.com | Planned |
+| `/markets` | statusnews.com | Planned |
+| `/science` | micanews.com | Planned |
+| `/luxury` | onyxnews.com | Planned |
+| `/creators` | ozonedailynews.com | Planned |
 | `/investigations` | objectivewire.org | Planned |
 
 ### Priority pillars already built
@@ -128,33 +241,74 @@ Each sub-brand owns its vertical completely. The flagship never republishes a su
 
 ---
 
-## Domain 2 | ozonedailynews.com \u2014 Science, Space, Global Sustainability
+## Domain 2 | ozonedailynews.com
 
-**Role:** The network's science and sustainability desk. Covers space exploration, atmospheric science, climate research, and global sustainability initiatives.
-**Live:** https://www.ozonedailynews.com
-**Editorial identity:** Grounded in data, written for a curious general audience. Not activism, not sensationalism \u2014 reported science journalism that explains what the research actually says and why it matters for the planet.
+**Role:** Creator economy and YouTube news desk. Quick-turnaround articles (300-600 words). High publishing velocity.
+**Repo:** This repo — `ozonedailynews` branch
+**Live:** `https://www.ozonedailynews.com`
+**Niche:** YouTube, TikTok, creator news, viral content, platform policy, streaming
 
-### What it covers
+### Why this niche
 
-- **Space exploration** \u2014 NASA missions, SpaceX launches, ESA programs, asteroid science, lunar and Mars developments
-- **Atmospheric science** \u2014 ozone layer recovery, air quality data, atmospheric research findings
-- **Climate science** \u2014 new research, IPCC reports, carbon data, sea level measurements, glacier and ice sheet updates
-- **Global sustainability** \u2014 renewable energy milestones, international sustainability agreements, clean tech breakthroughs
-- **Biodiversity and ecosystems** \u2014 species data, habitat research, conservation science
-- **Planetary health** \u2014 ocean chemistry, freshwater systems, soil science, food system sustainability
+YouTube gets 500 hours of video uploaded per minute. Creator drama, channel terminations, monetization policy changes, and platform algorithm updates are searched millions of times per week. This niche has almost no dedicated news-site competition — most coverage lives in YouTube videos or Reddit threads, not indexed news articles.
 
-### Why this niche works for SEO
+### Core verticals
 
-Space and climate news generates high sustained search volume year-round, with massive spikes around launches, discoveries, and international reports. Most science coverage online is either paywalled (Nature, Science) or oversimplified (clickbait aggregators). Accurate, readable science journalism in a news format is underserved and Google-favored for E-E-A-T.
+- **YouTube news** — Creator Studio updates, algorithm changes, ad revenue reports, YouTube Shorts policy
+- **Creator drama** — ban appeals, copyright strikes, community guidelines violations
+- **Platform policy** — TikTok ban developments, Twitch/Kick moves, Instagram Reels vs YouTube Shorts
+- **Viral content** — trending video breakdowns, viral moment context and attribution
+- **Monetization** — AdSense CPM reports, Patreon/Substack trends, brand deal market news
+- **Creator economy data** — follower counts, subscriber milestones, agency signings
 
-### Publishing cadence: 4x/week
+### Publishing cadence: 5x/week
 
 | Day | Content Type | Example |
 |---|---|---|
-| Monday | Space news | "NASA Artemis III Mission Update | Launch Window and Crew Confirmed" |
-| Tuesday | Climate data | "Arctic Ice Sheet Hits Second-Lowest Recorded Extent | 2026 Data" |
-| Thursday | Sustainability | "EU Hits 50% Renewable Energy Target Two Years Early | Data Report" |
-| Saturday | Deep feature | "The Ozone Layer in 2026 | Recovery Progress and What Comes Next" |
+| Monday | Platform policy | "YouTube Removes 2.5M Videos in Q1 2026 | Policy Enforcement Report" |
+| Tuesday | Creator news | "MrBeast Hits 500M Subscribers | The Channel Metrics Behind the Milestone" |
+| Wednesday | Monetization | "YouTube AdSense CPM Drops 12% in May 2026 | Data and Creator Reactions" |
+| Thursday | Platform battle | "TikTok vs YouTube Shorts | 2026 Data Comparison" |
+| Friday | Viral breakdown | "The Most Watched YouTube Video This Week | Full Context" |
+
+### CMS configuration for ozonedailynews.com
+
+**Component:** `NewsArticleDB` — all articles are `NewsArticle` type
+**Store:** `content/static/articles/`
+**Slug pattern:** `youtube-[topic]-[detail]`, `creator-[name]-[event]`, `tiktok-[topic]-[detail]`
+
+**Article JSON example:**
+```json
+{
+  "slug": "youtube-adsense-cpm-may-2026",
+  "title": "YouTube AdSense CPM Falls 12% in May 2026 | Creator Revenue Data",
+  "subtitle": "Platform-wide CPM drop hits mid-tier creators hardest, according to aggregated dashboard data",
+  "category": "Tech",
+  "topic_tag": "entertainment",
+  "published_at": "2026-05-25T09:00:00-05:00",
+  "publish_date": "May 25, 2026",
+  "lifecycle": "news",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonews-editorial-team",
+  "tags": ["YouTube", "AdSense", "Creator Economy", "CPM"],
+  "url": "/youtube/adsense-cpm-may-2026"
+}
+```
+
+**`SITE_CONFIG` overrides (Railway env vars):**
+```
+NEXT_PUBLIC_SITE_NAME=OzoneDaily
+NEXT_PUBLIC_SITE_URL=https://www.ozonedailynews.com
+NEXT_PUBLIC_SITE_EMAIL=editorial@ozonedailynews.com
+NEXT_PUBLIC_SITE_TWITTER=@ozonedaily
+```
+
+**Sitemap prefix to add in `app/sitemap.ts`:**
+```typescript
+'/youtube/', '/creator/', '/tiktok/', '/twitch/', '/streaming/',
+```
+
+**Target keywords:** YouTube news today, creator news 2026, YouTube policy update, MrBeast news, TikTok news today, CPM YouTube 2026
 
 ---
 
@@ -196,177 +350,194 @@ The private detective angle is NOT a conflict — it is a feature. Every news ar
 | Thursday | Public records / FOIA | "FBI Releases 2,400 Pages on 1990s Case via FOIA | What the Documents Show" |
 | Saturday | Resource / guide | "How to File a FOIA Request with the DOJ in 2026 | Step-by-Step Template" |
 
-### Already-built routes to preserve
+### CMS configuration for objectivewire.org
 
-- `/austin-private-detective-agency` — live, do not delete
-- `/missing-persons` — live, do not delete
-- `/investigations` — live, do not delete
-- `/lawsuit` — live, do not delete
+**Components used:**
+- `JackArticleDB` — for investigations and court record coverage (depth, timeline, sources array)
+- `ArticlePageDB` — for evergreen resource guides (FOIA templates, PI guides, state records)
+- `NewsArticleDB` — for breaking court filings and quick FOIA news
+
+**Store locations:**
+- Investigations → `content/static/jack_articles/`
+- Resource guides → `content/static/article_pages/`
+- Breaking news → `content/static/articles/`
+
+**Slug patterns:**
+- Investigations: `investigations-[subject]-[event]-[year]`
+- Resource guides: `guide-[state]-public-records-[type]`
+- Austin PI: `austin-private-detective-[topic]`
+
+**`SITE_CONFIG` overrides (Railway env vars):**
+```
+NEXT_PUBLIC_SITE_NAME=ObjectiveWire
+NEXT_PUBLIC_SITE_URL=https://www.objectivewire.org
+NEXT_PUBLIC_SITE_EMAIL=tips@objectivewire.org
+NEXT_PUBLIC_SITE_TWITTER=@objectivewire
+```
+
+**Already-built routes to preserve:**
+- `app/austin-private-detective-agency/` — live, do not delete
+- `app/missing-persons/` — live, do not delete
+- `app/investigations/` — live, do not delete
+- `app/lawsuit/` — live, do not delete
+
+**Sitemap prefix to verify in `app/sitemap.ts`:**
+```typescript
+'/investigations/', '/missing-persons/', '/austin-private-detective-agency',
+'/lawsuit/', '/guide-', '/public-records-',
+```
 
 **Target keywords:** FOIA news today, court records news, private detective Austin TX, public records lookup guide, missing persons news 2026, federal indictment news
 
-**E-E-A-T note:** ObjectiveWire is a YMYL-adjacent site (legal, law enforcement). Every article must cite primary sources: court documents, FOIA releases, or official press releases. Author bylines must have real external profiles. No anonymous sourcing without editorial justification logged in the corrections page.
+**E-E-A-T note:** ObjectiveWire is a YMYL-adjacent site (legal, law enforcement). Every article must cite primary sources (court documents, FOIA releases, official press releases). Author bylines must have real `sameAs` profiles in `lib/author-profiles.ts`. No anonymous sourcing without editorial justification logged in `app/corrections/`.
 
 ---
 
-## Sub-Brand Network
+## Sub-Brand Domains (Phase Launch Sequence)
 
-Each sub-brand is an independent editorial identity within the ONN network. They share the same codebase and deployment infrastructure but publish under their own brand, URL, and niche.
-
----
-
-### basilnews.com — Personal Finance, Market Movements, Job Listings
-
-**Previously:** Food/Restaurants. Pivoted to Finance vertical May 26, 2026.
-**Editorial identity:** Calm, approachable personal finance. No hype, no panic headlines. Covers major market movements in plain language, with a strong job listings and hiring vertical as the primary traffic driver at launch.
-**Content pillars:** Personal finance basics, market movements (plain language), job listings, company hiring news, restaurant industry hiring, personal finance guides.
-**Traffic strategy:** Job listing pages and company hiring news are the primary SEO entry point at launch. High search volume, low competition, easy to produce at scale.
-**YMYL note:** Finance is YMYL. All market analysis and personal finance advice must be attributed to named authors with real external profiles.
+Full niche detail for each sub-brand is in `Docs/NEWSNETWORK.md`. This section covers only the CMS-specific configuration for each.
 
 ---
 
-### cloverheadlines.com — Luxury Lifestyle, Fashion, Travel
+### basilnews.com — Food, Restaurants, Food Tech
 
-**Previously:** Personal Finance. Pivoted to Luxury Lifestyle vertical May 26, 2026.
-**Editorial identity:** The network's aspirational lifestyle brand. Covers fashion releases, designer profiles, luxury travel destinations, high-end real estate, fine dining, and culture. Tone is editorial and appreciative, not advertising.
-**Content pillars:** Luxury brand news, fashion week coverage, travel destinations, fine dining guides, art and culture events, real estate market coverage.
-
----
-
-### grovenews.com — Retired from Plans
-
-**Status:** Domain not purchased. Local news and real estate content now covered by `onyxtimes.org`. Do not purchase.
+**Component:** `NewsArticleDB` (breaking food news) + `ArticlePageDB` (restaurant profiles, guides)
+**Slug prefix:** `food-`, `restaurant-`, `farm-`, `recipe-tech-`
+**Topic tag:** `"culture"` for culinary, `"technology"` for food tech, `"finance"` for agriculture markets
+**SITE_CONFIG name:** `BasilNews`
+**Sitemap prefixes:** `/food/`, `/restaurants/`, `/agriculture/`, `/food-tech/`
 
 ---
 
-### sagenews.com — Retired from Plans
+### clovernews.com — Personal Finance, Consumer Money
 
-**Status:** Domain not purchased. Health and wellness coverage now assigned to `honeynewspaper.com`. Do not purchase.
-
----
-
-### halonews.com — On Hold (Cybersecurity niche reassigned)
-
-**Status:** Cybersecurity niche is now covered by `obsidianpaper.com`. `halonews.com` has no active niche assignment. Do not deploy. Consider releasing if not renewed.
-**Note:** All cybersecurity CMS config that was planned for halonews.com should be applied to obsidianpaper.com instead.
+**Component:** `NewsArticleDB` (rate news, deal alerts) + `JackArticleDB` (deep policy analysis)
+**Slug prefix:** `finance-`, `debt-`, `deals-`, `rates-`
+**Topic tag:** `"finance"` — nearly all content
+**SITE_CONFIG name:** `CloverNews`
+**Sitemap prefixes:** `/finance/`, `/deals/`, `/rates/`, `/debt/`, `/investing/`
+**YMYL note:** Personal finance is YMYL. All articles require named authors with real `sameAs` profiles. No generic advice — only reported news and data.
 
 ---
 
-### honeynewspaper.com — Human-Centered Journalism | Truth, Ethics, Real-World Impact
+### grovenews.com — Local News, Real Estate, Cities
 
-**Replaces:** `micanewspaper.com`
-**Purchased:** May 26, 2026 | Expires: May 26, 2027
-**Editorial identity:** Human-centered journalism focused on truth, ethics, and stories with direct real-world impact. Covers environmental causes (wildlife conservation, pollinators, ecosystems), climate accountability, public health, food safety, animal welfare, and community-level stories that mainstream outlets overlook. Think: "save the bees", PFAS contamination, school lunch policy, endangered species updates. Not activism — reported journalism that centers the human and ecological stakes.
-**Content pillars:**
-- **Environment** — pollinators, deforestation, ocean health, endangered species, pesticides
-- **Public health** — FDA actions, food safety, air/water quality, PFAS, community health disparities
-- **Ethics and accountability** — corporate accountability, greenwashing, animal welfare, supply chain reporting
-- **Community impact** — local stories with national policy relevance
-**YMYL note:** Health and environmental claims must cite peer-reviewed sources, government agencies (FDA, EPA, USDA), or primary documents. No speculation framed as fact.
+**Component:** `NewsArticleDB` (local breaking) + `ArticlePageDB` (city profiles, neighborhood guides)
+**Slug prefix:** `[city]-`, `real-estate-`, `zoning-`, `local-`
+**Topic tag:** `"news"` for local breaking, `"finance"` for real estate data
+**SITE_CONFIG name:** `GroveNews`
+**Sitemap prefixes:** `/local/`, `/real-estate/`, `/cities/`, `/[city-name]/`
 
 ---
 
-### onyxtimes.org — Premium Institutional Newspaper | World Events, Politics, Governance
+### sagenews.com — Health, Wellness, Longevity
 
-**Purchased:** May 26, 2026 | Expires: May 26, 2027
-**Editorial identity:** The premium, serious, institutional-grade newspaper in the ONN network. Long-form, sourced, authoritative. Covers the stories that matter at a global and national scale with the depth and rigor of a broadsheet. No clickbait, no listicles. Every piece is reported, not rewritten.
-**Core content pillars:**
-
-| Pillar | Topics | Search volume signal |
-|---|---|---|
-| World Events | Wars, conflicts, disasters, summits, UN actions | Very high |
-| Politics | US elections, congressional votes, executive orders, campaign news | Very high |
-| Governance | Supreme Court, federal agency actions, regulatory changes, state law | High |
-| Economic Policy | Fed decisions, inflation, trade policy, tariffs, GDP data | High |
-| Elections | All major elections worldwide, polling, results, transitions | Very high (cyclical) |
-| Climate Policy | COP summits, Paris Agreement updates, national commitments | High |
-| International Relations | Geopolitics, NATO, G7/G20, sanctions, diplomacy | High |
-| Nobel Prizes | Science, Peace, Economics — full award coverage with context | Seasonal high |
-| Major Sports (governance angle) | Olympics, World Cup — politics, corruption, hosting controversies | Cyclical high |
-
-**High-traffic topics ONYX owns (not covered elsewhere in ONN):**
-- US presidential and congressional election cycles
-- Supreme Court decisions and oral arguments
-- Federal Reserve announcements and economic data releases
-- Major international conflicts and peace negotiations
-- State-level legislation with national relevance
-- International sanctions and diplomatic incidents
-- Olympic and World Cup governance, doping, bid controversies
-
-**Note:** Absorbs what `grovenews.com` was planned to cover where it intersects with governance (zoning law, city council policy, municipal elections). Pure hyperlocal content without a policy angle is out of scope for OnyxTimes.
+**Component:** `NewsArticleDB` (FDA news, study results) + `JackArticleDB` (deep clinical analysis)
+**Slug prefix:** `health-`, `fda-`, `longevity-`, `mental-health-`, `biohacking-`
+**Topic tag:** `"science"` for research, `"lifestyle"` for wellness
+**SITE_CONFIG name:** `SageNews`
+**Sitemap prefixes:** `/health/`, `/wellness/`, `/longevity/`, `/mental-health/`, `/biohacking/`
+**YMYL note:** Health is the strictest YMYL category. Every article must cite peer-reviewed sources or official agency publications (FDA, NIH, CDC, WHO). `lib/author-profiles.ts` entries for health beat reporters must include credentials in `jobTitle`.
 
 ---
 
-### obsidianpaper.com — Cybersecurity, Privacy, Data Security
+### halonews.com — Cybersecurity, Privacy, Data Breaches
 
-**Status:** Niche assigned May 26, 2026. Cybersecurity vertical previously planned for halonews.com is now assigned here.
-**Purchased:** May 26, 2026 | Expires: May 26, 2027
-**Editorial identity:** The network's security and privacy desk. Covers data breaches, vulnerability reports, ransomware incidents, privacy law, and enterprise security policy. Written for a technically literate audience but accessible to informed general readers.
-**Content pillars:** Data breach news, CVE and vulnerability alerts, ransomware and cybercrime, privacy law and regulation, enterprise security policy, consumer data protection.
+**Component:** `NewsArticleDB` (breach alerts, CVE news) + `JackArticleDB` (deep policy / enterprise analysis)
+**Slug prefix:** `breach-`, `cve-`, `privacy-`, `ransomware-`, `security-`
+**Topic tag:** `"technology"` for enterprise, `"news"` for consumer breach alerts
+**SITE_CONFIG name:** `HaloNews`
+**Sitemap prefixes:** `/security/`, `/privacy/`, `/breach/`, `/ransomware/`
 **Note:** Breach articles must link to the official company disclosure or regulatory filing as the primary source. Never report unverified breach claims.
 
 ---
 
-### contentnewsnow.com — Content Creators, YouTube, OnlyFans Events and Drama
+### statusnews.com — Business, Markets, Executive, Luxury
 
-**Status:** Niche assigned May 26, 2026.
-**Purchased:** May 26, 2026 | Expires: May 26, 2027
-**Editorial identity:** The network's creator economy desk. Covers YouTube channel drama, bans, algorithm changes, creator milestones, and collaborations. Also covers OnlyFans creator news: events, brand deals, controversies, and industry developments. No explicit content. Editorial focus is on the business and culture of the creator economy.
-**Content pillars:** YouTube creator news, platform policy changes, channel drama and bans, creator milestones, OnlyFans industry news (business angle only), creator brand deals.
-**Note:** All OnlyFans coverage is strictly news and business reporting. No explicit descriptions, no linking to adult content. Creator subjects are treated with the same editorial standards as any public figure.
-
----
-
-## Domain Registry
-
-| Domain | Brand Name | Covers | Status |
-|---|---|---|---|
-| `ozonenetwork.news` | OzoneNews | Flagship — all verticals aggregated | Live |
-| `ozonedailynews.com` | OzoneDaily | Science, space, global sustainability | Live |
-| `objectivewire.org` | ObjectiveWire | Investigations, public records, civic watchdog | Live |
-| `basilnews.com` | BasilNews | Personal finance, market movements, job listings | Purchased — build next |
-| `honeynewspaper.com` | HoneyNewspaper | Human-centered journalism, environment, public health, ethics | Purchased — build next |
-| `contentnewsnow.com` | ContentNewsNow | Content creators, YouTube, OnlyFans events/drama | Purchased — build next |
-| `cloverheadlines.com` | CloverHeadlines | Luxury lifestyle, fashion, travel | Purchased — build next |
-| `obsidianpaper.com` | ObsidianPaper | Cybersecurity, privacy, data security | Purchased — build next |
-| `onyxtimes.org` | OnyxTimes | World events, politics, governance | Purchased — build next |
+**Component:** `JackArticleDB` (earnings, M&A, executive profiles) + `NewsArticleDB` (daily market context)
+**Slug prefix:** `earnings-`, `markets-`, `executive-`, `luxury-`, `mergers-`
+**Topic tag:** `"finance"` for markets/earnings, `"entertainment"` for luxury
+**SITE_CONFIG name:** `StatusNews`
+**Sitemap prefixes:** `/markets/`, `/earnings/`, `/executive/`, `/luxury/`, `/mergers/`
 
 ---
 
-## Checklist: Launching a New Domain
+### micanews.com — Science, Climate, Space, Research
 
-Complete all steps before a new domain goes live.
+**Component:** `JackArticleDB` (deep research analysis) + `NewsArticleDB` (breaking findings)
+**Slug prefix:** `climate-`, `space-`, `research-`, `nasa-`, `science-`
+**Topic tag:** `"science"` — all content
+**SITE_CONFIG name:** `MicaNews`
+**Sitemap prefixes:** `/science/`, `/climate/`, `/space/`, `/research/`
+**Note:** Every article citing a study must include the DOI or PubMed link in the `sources` array of the JackArticle JSON.
 
-### Deployment
+---
 
-- [ ] Set the site name, URL, logo, editorial email address, and Twitter handle in Railway for the new service
-- [ ] Verify the site config is pointing at the correct live domain, not the flagship URL
-- [ ] Set up a Railway service linked to this repo for the new brand
+### onyxnews.com — Luxury Lifestyle, Fashion, Art, Premium Entertainment
 
-### Authors
+**Component:** `NewsArticleDB` (fashion week, auction results, film festival) + `ArticlePageDB` (designer profiles, venue guides)
+**Slug prefix:** `fashion-`, `art-`, `film-`, `luxury-travel-`, `auction-`
+**Topic tag:** `"entertainment"` for film/fashion, `"culture"` for art/design
+**SITE_CONFIG name:** `OnyxNews`
+**Sitemap prefixes:** `/fashion/`, `/art/`, `/film/`, `/luxury-travel/`, `/auctions/`
 
-- [ ] Add every planned byline author with a real external profile (Twitter or LinkedIn)
-- [ ] Authors without external profiles publish under "OzoneNews Editorial Team" until profiles are set up
+---
 
-### Trust and policy pages
+## Domain Registry Table
 
-- [ ] Create the four required trust pages: About, Editorial Standards, Corrections, Contact
-- [ ] Link all four from the global footer on the new domain
-- [ ] Make sure the site's structured data points to these trust pages
+| Domain | SITE_CONFIG name | Primary component | Content store | Railway service |
+|---|---|---|---|---|
+| `ozonenetwork.news` | `OzoneNews` | All components | `content/static/` (all stores) | `onn-flagship` |
+| `ozonedailynews.com` | `OzoneDaily` | `NewsArticleDB` | `content/static/articles/` | `onn-daily` |
+| `objectivewire.org` | `ObjectiveWire` | `JackArticleDB` + `ArticlePageDB` | `content/static/jack_articles/` + `article_pages/` | `onn-wire` |
+| `basilnews.com` | `BasilNews` | `NewsArticleDB` | `content/static/articles/` | `onn-basil` |
+| `clovernews.com` | `CloverNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-clover` |
+| `grovenews.com` | `GroveNews` | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-grove` |
+| `sagenews.com` | `SageNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-sage` |
+| `halonews.com` | `HaloNews` | `NewsArticleDB` + `JackArticleDB` | `content/static/articles/` + `jack_articles/` | `onn-halo` |
+| `statusnews.com` | `StatusNews` | `JackArticleDB` + `NewsArticleDB` | `content/static/jack_articles/` + `articles/` | `onn-status` |
+| `micanews.com` | `MicaNews` | `JackArticleDB` | `content/static/jack_articles/` | `onn-mica` |
+| `onyxnews.com` | `OnyxNews` | `NewsArticleDB` + `ArticlePageDB` | `content/static/articles/` + `article_pages/` | `onn-onyx` |
+
+---
+
+## Checklist: Spinning Up a New Domain
+
+Complete all steps before the domain goes live:
+
+### Code changes (this repo)
+
+- [ ] Add `NEXT_PUBLIC_SITE_NAME`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_LOGO`, `NEXT_PUBLIC_SITE_EMAIL`, `NEXT_PUBLIC_SITE_TWITTER` to Railway env vars for the new service
+- [ ] Update `lib/site-config.ts` to read `NEXT_PUBLIC_SITE_*` env vars with OzoneNews as fallback
+- [ ] Add route prefixes to `VALID_SLUG_PREFIXES` in `app/sitemap.ts`
+- [ ] Add author entries to `lib/author-profiles.ts` for all planned bylines — must have real `sameAs` URLs
+- [ ] Create all four trust pages: `/about`, `/editorial-standards`, `/corrections`, `/contact`
+- [ ] Verify `NewsMediaOrganization` schema in `app/layout.tsx` points to new domain trust URLs
 
 ### Content (minimum before launch)
 
-- [ ] 15+ published articles with correct publication timestamps
-- [ ] All articles are registered in the master content registry (required for Google to find them)
-- [ ] Every article has a canonical URL pointing to the new domain, not the flagship
-- [ ] Every article has a named author with an external profile
+- [ ] 15+ published articles in `content/static/` with valid `published_at` ISO-8601 timestamps
+- [ ] All articles have `lifecycle: "news"` (or omit — defaults to news)
+- [ ] All articles have `url` field set to the correct canonical path
+- [ ] `content/static/content_registry.json` updated with all new entries
+- [ ] `content/static/{type}/_index.json` updated for each store used
+- [ ] Run `npm run wiki:sync -- --write` to sync registry
 
-### Search engine setup
+### SEO / search infrastructure
 
 - [ ] Google Search Console property created for the new domain
-- [ ] Sitemap submitted in Search Console
-- [ ] News sitemap submitted (for any site publishing regular news content)
-- [ ] At least one flagship hub page links to the new sub-brand so it's not an orphan domain in the network
+- [ ] `sitemap.xml` submitted in GSC
+- [ ] `news-sitemap.xml` submitted in GSC (if publishing news content)
+- [ ] `robots.ts` verified — no `public/robots.txt` file exists (would override the dynamic handler)
+- [ ] Canonical URLs in all `page.tsx` files point to the new domain URL, not to `ozonenetwork.news`
+- [ ] `NewsArticleSchema` JSON-LD uses new domain URLs throughout (not `ozonenetwork.news`)
+- [ ] At least one `ozonenetwork.news` hub page links to the new sub-brand (no orphan domains)
+
+### Prebuild validation (runs automatically on `npm run build`)
+
+- `validate-public.ts` — blocks if `public/robots.txt` or `public/sitemap.xml` exist
+- `validate-canonicals.ts` — blocks if hardcoded canonical found in `app/layout.tsx`
+- `sync-registry.ts --write` — syncs `content_registry.json` with filesystem
 
 ---
 
@@ -376,11 +547,11 @@ Complete all steps before a new domain goes live.
 |---|---|
 | Sub-brand → flagship hub | Every sub-brand article links to the relevant flagship hub within the first 3 paragraphs. Example: a SageNews article on longevity drugs links to `ozonenetwork.news/health`. |
 | Flagship hub → sub-brand article | Every flagship hub page displays cards (title, image, link) pointing to the sub-brand article URL. No body text duplication. |
-| Sub-brand → sub-brand | Allowed when topics overlap. One link per article maximum. Example: HoneyNewspaper climate article linking to SageNews on heat-health risks. |
-| ozonedailynews → flagship | Every science article links to the relevant flagship hub (e.g. `/science`, `/tech`). |
+| Sub-brand → sub-brand | Allowed when topics overlap. One link per article maximum. Example: MicaNews climate article linking to SageNews on heat-health risks. |
+| ozonedailynews → flagship | Every creator article links to the relevant flagship hub (e.g. `/youtube`, `/entertainment`). |
 | objectivewire → flagship | Every investigation links to the relevant flagship hub (e.g. `/politics`, `/tech`, `/finance`). |
 
-All links in article prose must be blue and underlined. External links must open in a new tab.
+All links in article prose must be blue and underlined (`class="text-blue-600 hover:text-blue-800 underline"`). External links must include `target="_blank" rel="noopener noreferrer"`.
 
 ---
 
@@ -388,23 +559,21 @@ All links in article prose must be blue and underlined. External links must open
 
 All domains should be registered through the same registrar for unified DNS management. Recommended nameserver: Cloudflare (free tier handles DNS, DDoS protection, and CDN for all domains).
 
-| Domain | Status | Notes | Purchased | Expires |
-|---|---|---|---|---|
-| `ozonenetwork.news` | **Live** | Primary flagship — deployed | - | - |
-| `ozonedailynews.com` | **Live** | Science, space, global sustainability — deployed | - | - |
-| `objectivewire.org` | **Live** | Investigations — preserve existing routes | - | - |
-| `basilnews.com` | **Purchased** | Personal Finance, Job Listings, Market Movements | - | - |
-| `honeynewspaper.com` | **Purchased** | Human-centered journalism, ethics, environment, real-world impact | May 26, 2026 | May 26, 2027 |
-| `micanewspaper.com` | **Retired** | Replaced by honeynewspaper.com — do not renew | - | - |
-| `cloverheadlines.com` | **Purchased** | Luxury Lifestyle — fashion, travel, culture | May 26, 2026 | May 26, 2027 |
-| `obsidianpaper.com` | **Purchased** | Cybersecurity — absorbs halonews.com niche | May 26, 2026 | May 26, 2027 |
-| `onyxtimes.org` | **Purchased** | Premium institutional newspaper — world events, politics, governance | May 26, 2026 | May 26, 2027 |
-| `contentnewsnow.com` | **Purchased** | Content Creators, YouTube, OnlyFans events/drama | May 26, 2026 | May 26, 2027 |
-| `halonews.com` | **On Hold** | Niche reassigned to obsidianpaper.com — do not deploy | - | - |
-| `sagenews.com` | **Retired from plans** | Health niche now covered by honeynewspaper.com — do not purchase | - | - |
-| `grovenews.com` | **Retired from plans** | Local/real estate niche now covered by onyxtimes.org — do not purchase | - | - |
+| Domain | Status | Notes |
+|---|---|---|
+| `ozonenetwork.news` | Live | Primary flagship — already deployed |
+| `ozonedailynews.com` | Live | This repo — already deployed |
+| `objectivewire.org` | Live | Original site — preserve existing routes |
+| `sagenews.com` | Register first | Phase 1 launch — highest search volume opportunity |
+| `halonews.com` | Register first | Phase 1 launch — cybersecurity gap in market |
+| `statusnews.com` | Register second | Phase 2 launch — high CPM vertical |
+| `clovernews.com` | Register second | Phase 2 launch — high affiliate revenue |
+| `basilnews.com` | Register third | Phase 3 launch |
+| `onyxnews.com` | Register third | Phase 3 launch |
+| `micanews.com` | Register fourth | Phase 4 launch |
+| `grovenews.com` | Register fourth | Phase 4 launch — requires local editorial investment |
 
 ---
 
-*Last updated: May 26, 2026 — niche assignments finalized for all purchased domains*
+*Last updated: May 25, 2026*
 *See also: `Docs/NEWSNETWORK.md` (sub-brand niche details + editorial calendars), `Docs/OZONEDAILYNEWS.md` (CMS standards + publishing rules)*

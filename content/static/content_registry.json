@@ -13602,5 +13602,24 @@
     "change_frequency": "weekly",
     "image_width": 1200,
     "image_height": 675
+  },
+  {
+    "slug": "/youtube/adsense-cpm-rates-may-2026",
+    "title": "YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM Data",
+    "description": "YouTube AdSense CPM rates for May 2026 by niche. Personal finance leads at $42 to $68 CPM. Tech spiked on Computex ad spend. Full RPM data, Premium impact, and ",
+    "publish_date": "May 29, 2026",
+    "modified_date": "May 29, 2026",
+    "category": "YouTube",
+    "tags": [
+      "YouTube",
+      "Creator Economy",
+      "Adsense Cpm Rates May 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.ozonenetwork.news${SLUG}",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

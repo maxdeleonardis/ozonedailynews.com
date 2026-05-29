@@ -13618,7 +13618,6 @@
     "author": "OzoneNews Editorial",
     "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.ozonenetwork.news${SLUG}",
     "image_width": 1200,
     "image_height": 675
   }

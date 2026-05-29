@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from '@/lib/auth';
-import { createBlogPost, generateSlug, calculateReadTime } from '@/lib/blog-service-client';
+import { generateSlug, calculateReadTime } from '@/lib/blog-service-client';
 import { ArticleBlock } from '@/lib/article-types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -308,11 +308,12 @@ export default function BlogEditor() {
     setIsLoading(true);
 
     try {
-      await createBlogPost({
+      const content = {
         title,
         slug,
         excerpt,
-        author,
+        author_name: author,
+        author_slug: author.toLowerCase().replace(/\s+/g, '-'),
         category,
         tags,
         read_time: calculateReadTime(blocks),
@@ -321,13 +322,42 @@ export default function BlogEditor() {
         layout_columns: layoutColumns,
         status,
         featured_image: featuredImage,
+        published_at: status === 'published' ? new Date().toISOString() : null,
+        updated_at: new Date().toISOString(),
+      };
+
+      const res = await fetch('/admin/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'articles', slug, content }),
       });
 
-      alert(`Post ${status === 'published' ? 'published' : 'saved as draft'} successfully!`);
+      const data = await res.json() as {
+        ok?: boolean;
+        error?: string;
+        errors?: string[];
+        warnings?: string[];
+        commitSha?: string;
+        message?: string;
+      };
+
+      if (!res.ok) {
+        const detail = data.errors?.length
+          ? `\n\n${data.errors.join('\n')}`
+          : data.error ?? 'Unknown error';
+        alert(`Save failed (${res.status}):${detail}`);
+        return;
+      }
+
+      if (data.warnings?.length) {
+        console.warn('[editor] editorial warnings:', data.warnings);
+      }
+
+      alert(`Post ${status === 'published' ? 'published' : 'saved as draft'} successfully!\nCommit: ${data.commitSha ?? 'n/a'}`);
       router.push('/admin/dashboard');
     } catch (error) {
       console.error('Error saving post:', error);
-      alert('Error saving post. Check Supabase configuration.');
+      alert('Error saving post. Check console for details.');
     } finally {
       setIsLoading(false);
     }

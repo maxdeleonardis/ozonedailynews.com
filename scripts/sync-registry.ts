@@ -307,9 +307,9 @@ interface RegistryRow {
 function buildEntryObject(meta: PageMeta): RegistryRow {
   const { category, tags } = detectCategory(meta.slug);
   // Use the real publishedTime from openGraph if available; fall back to today with a clear log
-  const publishDate = meta.publishedTime
-    ? meta.publishedTime.split('T')[0]
-    : TODAY;
+  const publishDate = toDisplayDate(
+    meta.publishedTime ?? TODAY
+  );
   return {
     slug: meta.slug,
     title: meta.title.slice(0, 300),
@@ -363,6 +363,105 @@ async function mirrorToSupabase(rows: RegistryRow[]): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
+// Helpers for date formatting
+// ---------------------------------------------------------------------------
+const MONTH_NAMES = [
+  'January','February','March','April','May','June',
+  'July','August','September','October','November','December',
+];
+
+/**
+ * Convert any date string to the display format "Month DD, YYYY".
+ * Accepts ISO dates ("2026-05-29"), ISO timestamps ("2026-05-29T16:00:00-05:00"),
+ * or already-formatted strings ("May 29, 2026" — returned unchanged).
+ */
+function toDisplayDate(raw: string): string {
+  if (!raw) return raw;
+  // Already display format — e.g. "May 29, 2026"
+  if (/^[A-Za-z]/.test(raw)) return raw;
+  // ISO date or timestamp
+  const match = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) return raw;
+  const [, year, month, day] = match;
+  const m = parseInt(month, 10);
+  const d = parseInt(day, 10);
+  if (m < 1 || m > 12) return raw;
+  return `${MONTH_NAMES[m - 1]} ${d}, ${year}`;
+}
+
+// ---------------------------------------------------------------------------
+// Repair pass — fixes broken fields in EXISTING registry entries
+// ---------------------------------------------------------------------------
+/**
+ * Scans every existing registry row and patches fields that have known bad values:
+ *   • image_url containing literal "${SLUG}" (unevaluated template)
+ *   • publish_date / modified_date in YYYY-MM-DD ISO format (should be "Month DD, YYYY")
+ *   • description ending with a backslash (truncated JSON escape artifact)
+ *   • generic auto-generated tags (Title-Cased slug segments)
+ *
+ * For each broken row we look up the matching page.tsx via the allPages scan
+ * and pull the correct values from it.
+ */
+function repairExistingEntries(rows: RegistryRow[], allPages: PageMeta[]): { rows: RegistryRow[]; repaired: number } {
+  const pageBySlug = new Map<string, PageMeta>(allPages.map(p => [p.slug, p]));
+
+  let repaired = 0;
+  const fixed = rows.map(row => {
+    let changed = false;
+    const updated = { ...row };
+
+    // --- Fix publish_date / modified_date ---
+    if (updated.publish_date && /^\d{4}-\d{2}-\d{2}/.test(updated.publish_date)) {
+      // Try to get the real publishedTime from the page.tsx first
+      const page = pageBySlug.get(row.slug);
+      const real = page?.publishedTime ?? updated.publish_date;
+      updated.publish_date = toDisplayDate(real);
+      updated.modified_date = toDisplayDate(updated.modified_date && /^\d{4}-\d{2}-\d{2}/.test(updated.modified_date)
+        ? updated.modified_date : real);
+      changed = true;
+    }
+
+    // --- Fix broken image_url (unevaluated ${SLUG} template) ---
+    if (updated.image_url && updated.image_url.includes('${SLUG}')) {
+      const page = pageBySlug.get(row.slug);
+      if (page?.imageUrl && !page.imageUrl.includes('${')) {
+        updated.image_url = page.imageUrl;
+        if (page.imageWidth)  updated.image_width  = page.imageWidth;
+        if (page.imageHeight) updated.image_height = page.imageHeight;
+      } else {
+        // Remove the broken value entirely rather than leave garbage
+        delete updated.image_url;
+      }
+      changed = true;
+    }
+
+    // --- Fix truncated description (ends with backslash artifact) ---
+    if (updated.description && (updated.description.endsWith('\\') || updated.description.endsWith('\\"'))) {
+      const page = pageBySlug.get(row.slug);
+      if (page?.description && page.description.length > updated.description.length - 5) {
+        updated.description = page.description.slice(0, 500);
+        changed = true;
+      }
+    }
+
+    // --- Fix auto-generated Title-Case slug tags (e.g. "Ddr5 Memory Guide Best Kits 2026") ---
+    if (updated.tags) {
+      const slugSegmentPattern = /^[A-Z][a-z0-9]+([ ][A-Z][a-z0-9]+){3,}$/;
+      const hasBadTags = updated.tags.some(t => slugSegmentPattern.test(t));
+      if (hasBadTags) {
+        updated.tags = updated.tags.filter(t => !slugSegmentPattern.test(t));
+        changed = true;
+      }
+    }
+
+    if (changed) repaired++;
+    return updated;
+  });
+
+  return { rows: fixed, repaired };
+}
+
+// ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
 async function main() {
@@ -372,26 +471,39 @@ async function main() {
 
   // Source of truth: local JSON file
   const registeredSlugs = getRegisteredSlugs();
-  const existing = loadLocalRegistry();
+  let existing = loadLocalRegistry();
   console.log(`📋  Currently registered (local): ${registeredSlugs.size} entries\n`);
+
+  // --- REPAIR PASS: fix broken fields in existing entries ---
+  const { rows: repaired, repaired: repairCount } = repairExistingEntries(existing, allPages);
+  if (repairCount > 0) {
+    if (WRITE_FLAG) {
+      existing = repaired;
+      console.log(`🔧  Repaired ${repairCount} existing entries (bad image_url, ISO dates, truncated descriptions)\n`);
+    } else {
+      console.log(`🔧  Would repair ${repairCount} existing entries (run with --write to apply)\n`);
+    }
+  }
 
   const missing = allPages.filter(p => !registeredSlugs.has(p.slug));
   console.log(`➕  Missing from registry: ${missing.length} pages\n`);
 
-  if (missing.length === 0) {
+  if (missing.length === 0 && repairCount === 0) {
     console.log('✅  Registry is fully up to date!');
     return;
   }
 
   if (!WRITE_FLAG) {
-    console.log('--- PREVIEW (pass --write to apply) ---\n');
-    for (const page of missing.slice(0, 20)) {
-      const hasTime = page.publishedTime ? '✓' : '⚠️  no publishedTime';
-      const hasImg  = page.imageUrl ? (page.imageWidth && page.imageHeight ? '✓ img+dims' : '⚠️  img no dims') : 'no img';
-      console.log(`  ${page.slug}  [${hasTime}] [${hasImg}]`);
+    if (missing.length > 0) {
+      console.log('--- PREVIEW (pass --write to apply) ---\n');
+      for (const page of missing.slice(0, 20)) {
+        const hasTime = page.publishedTime ? '✓' : '⚠️  no publishedTime';
+        const hasImg  = page.imageUrl ? (page.imageWidth && page.imageHeight ? '✓ img+dims' : '⚠️  img no dims') : 'no img';
+        console.log(`  ${page.slug}  [${hasTime}] [${hasImg}]`);
+      }
+      if (missing.length > 20) console.log(`  … and ${missing.length - 20} more`);
+      console.log('\n--- END PREVIEW ---');
     }
-    if (missing.length > 20) console.log(`  … and ${missing.length - 20} more`);
-    console.log('\n--- END PREVIEW ---');
     console.log('\nRun:  npm run registry:sync -- --write');
     return;
   }

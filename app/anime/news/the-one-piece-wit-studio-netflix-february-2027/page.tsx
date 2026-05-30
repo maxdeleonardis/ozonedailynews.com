@@ -4,7 +4,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/anime/news/the-one-piece-wit-studio-netflix-february-2027';
-const OG_IMAGE = 'https://images.unsplash.com/photo-1541562232579-512a21360020?w=1200&h=675&fit=crop&q=80';
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?slug=${encodeURIComponent('/anime/news/the-one-piece-wit-studio-netflix-february-2027')}&category=Entertainment`;
 
 export const metadata: Metadata = {
   title: 'THE ONE PIECE Remake | WIT Studio Netflix February 2027, 7-Episode East Blue',

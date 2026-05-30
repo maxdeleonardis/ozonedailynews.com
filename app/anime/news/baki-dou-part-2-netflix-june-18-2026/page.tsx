@@ -4,7 +4,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/anime/news/baki-dou-part-2-netflix-june-18-2026';
-const OG_IMAGE = 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200&h=675&fit=crop&q=80';
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?slug=${encodeURIComponent('/anime/news/baki-dou-part-2-netflix-june-18-2026')}&category=Entertainment`;
 
 export const metadata: Metadata = {
   title: 'BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes 14-25',

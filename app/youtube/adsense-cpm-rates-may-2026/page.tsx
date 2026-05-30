@@ -4,7 +4,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/youtube/adsense-cpm-rates-may-2026';
-const OG_IMAGE = 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop&q=80';
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?slug=${encodeURIComponent('/youtube/adsense-cpm-rates-may-2026')}&category=Tech`;
 
 export const metadata: Metadata = {
   title: 'YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM Data',

@@ -4,6 +4,7 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/tech/news/computex-2026-preview-ai-together-taipei';
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?slug=${encodeURIComponent('/tech/news/computex-2026-preview-ai-together-taipei')}&category=Tech`;
 
 export const metadata: Metadata = {
   title: 'Computex 2026 Preview | Jensen Huang, Intel 18A, AMD CUDIMM & AI Together',
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     section: 'Tech',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop&q=80',
+        url: OG_IMAGE,
         width: 1200,
         height: 675,
         alt: 'Computex 2026 Taipei AI Together semiconductor hardware conference',
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     title: 'Computex 2026 | Jensen Huang, Intel 18A, AMD $10B, AI Together',
     description:
       'Vera Rubin, Nova Lake on Intel 18A, AMD CUDIMM DDR5, Qualcomm automotive. The full Computex 2026 preview with keynote schedule and architecture breakdown.',
-    images: ['https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=675&fit=crop&q=80'],
+    images: [OG_IMAGE],
   },
 };
 

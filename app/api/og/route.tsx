@@ -112,7 +112,7 @@ function buildUnsplashQuery(title: string, category: string): string {
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const siteUrl  = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.objectwire.org';
+    const siteUrl  = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonenetwork.news';
 
     const slug      = searchParams.get('slug');
     let title       = searchParams.get('title')    ?? 'ObjectWire';
@@ -284,7 +284,7 @@ export async function GET(req: NextRequest) {
                   {byline}
                 </span>
                 <span style={{ fontFamily: 'Inter', fontWeight: 500, fontSize: 14, color: '#6b7280', letterSpacing: 0.8 }}>
-                  objectwire.org
+                  ozonenetwork.news
                 </span>
               </div>
             </div>
@@ -305,7 +305,7 @@ export async function GET(req: NextRequest) {
     return new ImageResponse(
       (
         <div style={{ width: 1200, height: 675, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', fontSize: 56, fontWeight: 800, color: '#ffffff', fontFamily: 'system-ui' }}>
-          OBJECTWIRE
+          OZONENETWORK.NEWS
         </div>
       ),
       { width: 1200, height: 675 },

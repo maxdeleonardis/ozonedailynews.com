@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/007-first-light/review-best-bond-game-since-goldeneye-2026';
 const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
-const OG_IMAGE = 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=1200&h=675&fit=crop&q=80';
+const OG_IMAGE = `https://www.ozonenetwork.news/api/og?slug=${encodeURIComponent('/video-games/007-first-light/review-best-bond-game-since-goldeneye-2026')}&category=Gaming`;
 
 export const metadata: Metadata = {
   title: '007 First Light Review | Best Bond Game Since GoldenEye 1997',

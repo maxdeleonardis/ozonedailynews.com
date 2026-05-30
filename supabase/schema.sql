@@ -322,7 +322,26 @@ alter table topic_clusters enable row level security;
 alter table article_cluster_map enable row level security;
 alter table search_performance  enable row level security;
 
--- Public read policies
+-- Public read policies (drop first so this file is safe to re-run)
+drop policy if exists "anon read published articles"     on articles;
+drop policy if exists "anon read published jack_articles" on jack_articles;
+drop policy if exists "anon read published article_pages" on article_pages;
+drop policy if exists "anon read published creator_articles" on creator_articles;
+drop policy if exists "anon read published wiki_articles" on wiki_articles;
+drop policy if exists "anon read content_registry"       on content_registry;
+drop policy if exists "anon read topic_clusters"         on topic_clusters;
+drop policy if exists "anon read article_cluster_map"    on article_cluster_map;
+drop policy if exists "anon read reactions"              on reactions;
+drop policy if exists "anon insert reactions"            on reactions;
+drop policy if exists "auth read own saves"              on saves;
+drop policy if exists "auth insert own saves"            on saves;
+drop policy if exists "auth delete own saves"            on saves;
+drop policy if exists "anon deny search_performance"     on search_performance;
+drop policy if exists "media public read"                on storage.objects;
+drop policy if exists "media service upload"             on storage.objects;
+drop policy if exists "media service update"             on storage.objects;
+drop policy if exists "media service delete"             on storage.objects;
+
 create policy "anon read published articles"
   on articles for select using (status = 'published');
 

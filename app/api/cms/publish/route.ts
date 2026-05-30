@@ -29,7 +29,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
+import { upsertRegistryEntry } from '@/lib/registry-service';
 import type { ArticleFull } from '@/lib/types';
+import type { ContentEntry } from '@/lib/types';
 
 // ─── Brand → Git branch map ───────────────────────────────────────────────────
 
@@ -396,8 +398,38 @@ export async function POST(req: NextRequest) {
     ? `app/${routePath}/page.tsx`
     : null;
 
+  // 9a. Build the registry entry for this article
+  const registryEntry: ContentEntry = {
+    slug:            `/${routePath}`,
+    title:           finalArticle.title ?? '',
+    description:     finalArticle.metadata?.description ?? '',
+    publishDate:     finalArticle.published_at ?? new Date().toISOString(),
+    modifiedDate:    finalArticle.published_at ?? new Date().toISOString(),
+    category:        finalArticle.category ?? 'News',
+    tags:            finalArticle.tags ?? [],
+    author:          finalArticle.author_name ?? '',
+    authorSlug:      finalArticle.author_slug ?? undefined,
+    priority:        0.8,
+    changeFrequency: 'daily',
+    imageUrl:        finalArticle.thumbnail_src ?? undefined,
+    imageAlt:        finalArticle.thumbnail_alt ?? undefined,
+    articleType:     'NewsArticle',
+    lifecycle:       finalArticle.lifecycle ?? 'news',
+    breaking:        finalArticle.breaking ?? false,
+  };
+
+  // 9b. Upsert into the local registry file so the in-process cache is fresh
+  upsertRegistryEntry(registryEntry);
+
+  // 9c. Read the updated registry JSON to include in the atomic commit
+  const { default: fs } = await import('fs');
+  const { default: path } = await import('path');
+  const registryPath = path.join(process.cwd(), 'content', 'static', 'content_registry.json');
+  const registryContent = fs.readFileSync(registryPath, 'utf8');
+
   const filesToCommit: Array<{ path: string; content: string }> = [
     { path: jsonFilePath, content: jsonContent },
+    { path: 'content/static/content_registry.json', content: registryContent },
   ];
 
   if (needsPageStub && pageFilePath) {

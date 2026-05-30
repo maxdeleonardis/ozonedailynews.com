@@ -5,6 +5,7 @@
 // Saves draft to Supabase. Publish button calls the Git bridge API.
 
 import { useState, useEffect } from 'react';
+import MediaUpload from '@/components/admin/MediaUpload';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -398,19 +399,54 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
         {/* Section: Media */}
         <section className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
           <h2 className="font-semibold text-gray-800 text-sm uppercase tracking-wide">Thumbnail</h2>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">Thumbnail URL</label>
-              <input
-                type="url"
-                value={thumbnailSrc}
-                onChange={(e) => setThumbnailSrc(e.target.value)}
-                placeholder="https://...supabase.../storage/v1/object/public/media/thumbnails/slug.webp"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
-              />
+
+          {/* Upload widget — uploads to Supabase Storage media/thumbnails/{slug}/ */}
+          <MediaUpload
+            articleSlug={slug || 'draft'}
+            currentUrl={thumbnailSrc}
+            onUpload={(url) => {
+              setThumbnailSrc(url);
+              // Auto-fill alt text from slug if empty
+              if (!thumbnailAlt && slug) {
+                setThumbnailAlt(slug.replace(/-/g, ' '));
+              }
+            }}
+          />
+
+          {/* Manual URL override (Unsplash, external CDN, etc.) */}
+          <details className="group">
+            <summary className="text-xs text-gray-400 cursor-pointer select-none hover:text-gray-600 list-none flex items-center gap-1">
+              <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
+              Or paste a URL manually
+            </summary>
+            <div className="mt-3 grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">Thumbnail URL</label>
+                <input
+                  type="url"
+                  value={thumbnailSrc}
+                  onChange={(e) => setThumbnailSrc(e.target.value)}
+                  placeholder="https://...supabase.../storage/v1/object/public/media/thumbnails/..."
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">Alt text</label>
+                <input
+                  type="text"
+                  value={thumbnailAlt}
+                  onChange={(e) => setThumbnailAlt(e.target.value)}
+                  placeholder="Descriptive alt text for the image"
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
+                />
+              </div>
             </div>
+          </details>
+
+          {/* Alt text (always visible when a thumbnail is set) */}
+          {thumbnailSrc && (
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">Alt text</label>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Alt text *</label>
               <input
                 type="text"
                 value={thumbnailAlt}
@@ -419,7 +455,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                 className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
               />
             </div>
-          </div>
+          )}
         </section>
 
         {/* Section: Content */}

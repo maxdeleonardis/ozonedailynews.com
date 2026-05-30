@@ -95,3 +95,33 @@ export async function getNewsSitemapEntries(): Promise<ContentEntry[]> {
   const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000);
   return all.filter((e) => new Date(e.publishDate) > cutoff);
 }
+
+// ─── Registry upsert (called by publish API) ──────────────────────────────────
+// Updates content_registry.json on disk so sitemaps and JSON-LD are current
+// immediately after a publish — no manual wiki:sync step required.
+
+export function upsertRegistryEntry(entry: ContentEntry): void {
+  // Read current registry (bypass cache to get fresh disk state)
+  let entries: ContentEntry[] = [];
+  if (fs.existsSync(LOCAL_REGISTRY_PATH)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(LOCAL_REGISTRY_PATH, 'utf8')) as Record<string, unknown>[];
+      entries = raw.map(rowToEntry);
+    } catch {
+      entries = [];
+    }
+  }
+
+  // Upsert: replace existing entry by slug, or prepend if new
+  const idx = entries.findIndex((e) => e.slug === entry.slug);
+  if (idx >= 0) {
+    entries[idx] = entry;
+  } else {
+    entries.unshift(entry); // newest first
+  }
+
+  fs.writeFileSync(LOCAL_REGISTRY_PATH, JSON.stringify(entries, null, 2) + '\n', 'utf8');
+
+  // Bust the in-memory cache so next request sees the fresh data
+  _localCache = null;
+}

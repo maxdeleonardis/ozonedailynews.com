@@ -216,9 +216,11 @@ create table if not exists content_registry (
   updated_at       timestamptz not null default now()
 );
 
-create index if not exists content_registry_category_idx  on content_registry (category);
-create index if not exists content_registry_lifecycle_idx on content_registry (lifecycle);
-create index if not exists content_registry_breaking_idx  on content_registry (breaking) where breaking = true;
+create index if not exists content_registry_category_idx    on content_registry (category);
+create index if not exists content_registry_lifecycle_idx   on content_registry (lifecycle);
+create index if not exists content_registry_breaking_idx    on content_registry (breaking) where breaking = true;
+-- Covers the live registry query: SELECT * FROM content_registry ORDER BY publish_date DESC LIMIT n
+create index if not exists content_registry_publish_date_idx on content_registry (publish_date desc);
 
 
 -- ============================================================================

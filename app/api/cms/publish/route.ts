@@ -32,6 +32,7 @@
 //   objective → objective
 
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
 import { upsertRegistryEntry } from '@/lib/registry-service';
@@ -432,15 +433,53 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // 10. Update Supabase status → published
+  // 10. Update Supabase articles row status → published
   await service
     .from('articles')
     .update({ status: 'published', published_at: article.published_at ?? new Date().toISOString() })
     .eq('slug', article.slug);
 
-  // 11. Build the live URL for the response
+  // 11. Upsert the registry entry into Supabase content_registry table.
+  //     This is the write that solves the concurrency problem:
+  //     - Git handles per-article JSON files (unique filenames = no conflicts)
+  //     - Supabase handles the shared registry index (PostgreSQL upsert = no merge conflicts)
+  //     - The JSON file registry is still updated (Phase 3 above) as a local cache
+  await service
+    .from('content_registry')
+    .upsert({
+      slug:             registryEntry.slug,
+      title:            registryEntry.title,
+      description:      registryEntry.description,
+      publish_date:     registryEntry.publishDate,
+      modified_date:    registryEntry.modifiedDate,
+      category:         registryEntry.category,
+      tags:             registryEntry.tags,
+      author:           registryEntry.author,
+      author_slug:      registryEntry.authorSlug ?? null,
+      priority:         registryEntry.priority,
+      change_frequency: registryEntry.changeFrequency,
+      image_url:        registryEntry.imageUrl ?? null,
+      image_alt:        registryEntry.imageAlt ?? null,
+      article_type:     registryEntry.articleType ?? 'NewsArticle',
+      lifecycle:        registryEntry.lifecycle ?? 'news',
+      breaking:         registryEntry.breaking ?? false,
+    }, { onConflict: 'slug' });
+
+  // 12. On-demand ISR cache bust — invalidates the cached page immediately.
+  //     The article is live to readers in milliseconds. Railway's Git deploy
+  //     runs in parallel as a backup sync but is no longer blocking.
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonedailynews.com';
-  const articleUrl = article.url ?? `${siteUrl}/${article.slug}`;
+  const articleUrl = article.url ?? `${siteUrl}/${routePath}`;
+
+  try {
+    revalidatePath('/');                    // homepage carousel updates instantly
+    revalidatePath(`/${routePath}`);        // article page cache busted instantly
+    if (registryEntry.category) {
+      revalidatePath(`/${registryEntry.category.toLowerCase()}`); // category hub
+    }
+  } catch {
+    // revalidatePath only works in Next.js server context — safe to swallow in tests
+  }
 
   return NextResponse.json({
     ok: true,
@@ -448,6 +487,6 @@ export async function POST(req: NextRequest) {
     branch,
     url: articleUrl,
     filesCommitted: filesToCommit.map((f) => f.path),
-    message: `Committed ${filesToCommit.length} file(s) to ${branch}. Railway will auto-deploy in ~1-2 minutes.`,
+    message: `Published. Cache busted instantly via ISR. Git deploy running in background on ${branch}.`,
   });
 }

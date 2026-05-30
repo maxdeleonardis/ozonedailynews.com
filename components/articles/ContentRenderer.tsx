@@ -52,6 +52,7 @@ import {
 } from '@/components/articles/CreatorArticle';
 import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorGalleryImage } from '@/components/articles/CreatorArticle';
 import { TweetEmbed } from '@/components/articles/TweetEmbed';
+import { YouTubeEmbed } from '@/components/articles/YouTubeEmbed';
 import FAQAccordion from '@/components/FAQAccordion';
 import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 import type { SourceItem, InternalLinkItem } from '@/components/articles/SourcesInterlink';
@@ -326,6 +327,17 @@ const COMPONENTS: Record<string, ComponentDef> = {
         tweetId={(props.tweetId as string) ?? ''}
         handle={props.handle as string | undefined}
         mediaMaxWidth={props.mediaMaxWidth as number | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  YouTubeEmbed: {
+    render: (props) => (
+      <YouTubeEmbed
+        videoId={props.videoId as string | undefined}
+        url={props.url as string | undefined}
+        caption={props.caption as string | undefined}
+        title={props.title as string | undefined}
       />
     ),
     selfClosing: true,

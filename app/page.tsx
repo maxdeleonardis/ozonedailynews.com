@@ -125,7 +125,7 @@ export default async function HomePage() {
                       <CategoryBadge category={hero.category} />
                       {hero.breaking && <span className="text-[10px] font-bold uppercase tracking-widest text-red-600">Breaking</span>}
                     </div>
-                    <Link href={`/${hero.slug}`}>
+                    <Link href={hero.url ? new URL(hero.url).pathname : `/${hero.slug}`}>
                       <h1 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-gray-900 hover:text-gray-700 transition-colors mb-3">
                         {hero.title}
                       </h1>
@@ -154,7 +154,7 @@ export default async function HomePage() {
                     )}
                     <div className="min-w-0">
                       <CategoryBadge category={a.category} />
-                      <Link href={`/${a.slug}`}>
+                      <Link href={a.url ? new URL(a.url).pathname : `/${a.slug}`}>
                         <h3 className="font-serif font-bold text-sm leading-snug text-gray-900 hover:text-gray-700 mt-1.5 line-clamp-3">
                           {a.title}
                         </h3>
@@ -184,7 +184,7 @@ export default async function HomePage() {
                       )}
                       <div className="p-4">
                         <CategoryBadge category={a.category} />
-                        <Link href={`/${a.slug}`}>
+                        <Link href={a.url ? new URL(a.url).pathname : `/${a.slug}`}>
                           <h3 className="font-serif font-bold text-base leading-snug text-gray-900 group-hover:text-gray-700 transition-colors mt-2 mb-2 line-clamp-3">
                             {a.title}
                           </h3>

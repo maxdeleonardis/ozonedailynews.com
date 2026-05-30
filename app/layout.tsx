@@ -12,10 +12,10 @@ const merriweather = Merriweather({ subsets: ['latin'], weight: ['400', '700', '
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} | Objective News Network`,
+    default: `${SITE_CONFIG.name} | Space & Engineering Intelligence`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: 'Objective, sourced, verified news from the Ozone Network News.',
+  description: 'Authoritative coverage of space exploration, rocket technology, and engineering from Ozone Network News.',
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',

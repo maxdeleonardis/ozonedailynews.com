@@ -163,23 +163,45 @@ create index if not exists redirects_new_path_idx on redirects (new_path);
 
 
 -- ============================================================================
+-- TABLE 5: discord_comments
+-- Reader comments — posted by signed-in (Discord OAuth) or anonymous users.
+-- Each row is also forwarded to a Discord webhook (DISCORD_COMMENTS_WEBHOOK_URL).
+-- ============================================================================
+create table if not exists discord_comments (
+  id               uuid        primary key default gen_random_uuid(),
+  slug             text        not null,
+  discord_id       text        not null,
+  discord_username text        not null,
+  discord_avatar   text,
+  body             text        not null,
+  created_at       timestamptz not null default now()
+);
+
+create index if not exists discord_comments_slug_idx on discord_comments (slug);
+create index if not exists discord_comments_created_idx on discord_comments (created_at desc);
+
+
+-- ============================================================================
 -- ROW LEVEL SECURITY
 -- ============================================================================
-alter table articles      enable row level security;
-alter table profiles      enable row level security;
-alter table routing_table enable row level security;
-alter table redirects     enable row level security;
+alter table articles         enable row level security;
+alter table profiles         enable row level security;
+alter table routing_table    enable row level security;
+alter table redirects        enable row level security;
+alter table discord_comments enable row level security;
 
 -- Drop all policies first so this file is safe to re-run
-drop policy if exists "anon read published articles"  on articles;
-drop policy if exists "editors read own drafts"       on articles;
-drop policy if exists "editors insert drafts"         on articles;
-drop policy if exists "editors update own drafts"     on articles;
-drop policy if exists "users read own profile"        on profiles;
-drop policy if exists "routing_table_public_read"     on routing_table;
-drop policy if exists "routing_table_service_write"   on routing_table;
-drop policy if exists "redirects_public_read"         on redirects;
-drop policy if exists "redirects_service_write"       on redirects;
+drop policy if exists "anon read published articles"    on articles;
+drop policy if exists "editors read own drafts"         on articles;
+drop policy if exists "editors insert drafts"           on articles;
+drop policy if exists "editors update own drafts"       on articles;
+drop policy if exists "users read own profile"          on profiles;
+drop policy if exists "routing_table_public_read"       on routing_table;
+drop policy if exists "routing_table_service_write"     on routing_table;
+drop policy if exists "redirects_public_read"           on redirects;
+drop policy if exists "redirects_service_write"         on redirects;
+drop policy if exists "discord_comments_public_read"    on discord_comments;
+drop policy if exists "discord_comments_service_write"  on discord_comments;
 
 -- articles: public reads published, editors read/write drafts, service_role does everything
 create policy "anon read published articles"
@@ -225,6 +247,15 @@ create policy "redirects_public_read"
 
 create policy "redirects_service_write"
   on redirects for all
+  using (auth.role() = 'service_role');
+
+-- discord_comments: anyone can read; service_role writes (API route uses service key)
+create policy "discord_comments_public_read"
+  on discord_comments for select
+  using (true);
+
+create policy "discord_comments_service_write"
+  on discord_comments for all
   using (auth.role() = 'service_role');
 
 

@@ -1,28 +1,30 @@
-import Link from 'next/link';
-import { SITE_CONFIG } from '@/lib/site-config';
+import Logo from '@/components/nav/Logo';
 import AuthNav from '@/components/nav/AuthNav';
+import Link from 'next/link';
 
-const NAV_CATEGORIES = ['News', 'Finance', 'Tech', 'World', 'Politics', 'Crypto'] as const;
+const NAV_LINKS = [
+  { label: 'Space',       href: '/space' },
+  { label: 'Rockets',     href: '/rockets' },
+  { label: 'Engineering', href: '/engineering' },
+  { label: 'Science',     href: '/science' },
+  { label: 'Defense',     href: '/defense' },
+  { label: 'Policy',      href: '/policy' },
+] as const;
 
 export default function SiteHeader() {
   return (
     <div className="border-b border-gray-200 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-        <Link
-          href="/"
-          className="font-serif font-black text-2xl sm:text-3xl tracking-tight text-gray-900 hover:text-gray-700 shrink-0"
-        >
-          {SITE_CONFIG.name}
-        </Link>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+        <Logo />
 
-        <nav className="hidden md:flex items-center gap-5 text-xs font-bold uppercase tracking-widest text-gray-600">
-          {NAV_CATEGORIES.map((c) => (
+        <nav className="hidden md:flex items-center gap-5 text-[0.7rem] font-bold uppercase tracking-widest text-gray-500">
+          {NAV_LINKS.map(({ label, href }) => (
             <Link
-              key={c}
-              href={`/${c.toLowerCase()}`}
+              key={href}
+              href={href}
               className="hover:text-gray-900 transition-colors"
             >
-              {c}
+              {label}
             </Link>
           ))}
         </nav>

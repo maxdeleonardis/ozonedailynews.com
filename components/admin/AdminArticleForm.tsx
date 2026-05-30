@@ -14,16 +14,11 @@ const CATEGORIES = [
   'Politics', 'Science', 'Sports', 'Culture', 'Crypto', 'Gaming',
 ];
 
-const BRANDS = [
-  { value: 'ozone',     label: 'OzoneDaily (master)' },
-  { value: 'basil',     label: 'BasilNews (basil)' },
-  { value: 'obsidian',  label: 'ObsidianPaper (obsidian)' },
-  { value: 'honey',     label: 'HoneyNewspaper (honey)' },
-  { value: 'onyx',      label: 'OnyxTimes (onyx)' },
-  { value: 'clover',    label: 'CloverHeadlines (clover)' },
-  { value: 'content',   label: 'ContentNewsNow (content)' },
-  { value: 'objective', label: 'ObjectiveWire (objective)' },
-];
+// Brand is locked to whichever site the admin panel is deployed on.
+// NEXT_PUBLIC_BRAND_SLUG is set per-deployment (e.g. "ozone", "basil").
+// Editors on ozonedailynews.com cannot publish to another brand's content.
+const SITE_BRAND_SLUG  = process.env.NEXT_PUBLIC_BRAND_SLUG  ?? 'ozone';
+const SITE_BRAND_LABEL = process.env.NEXT_PUBLIC_SITE_NAME   ?? 'OzoneDaily';
 
 const KNOWN_AUTHORS = [
   { name: 'Max DeLeonardis',         slug: 'max-deleonardis' },
@@ -97,7 +92,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const [subtitle,        setSubtitle]      = useState(initialData?.subtitle ?? '');
   const [slug,            setSlug]          = useState(initialData?.slug ?? '');
   const [category,        setCategory]      = useState(initialData?.category ?? 'News');
-  const [brandSlug,       setBrandSlug]     = useState(initialData?.brand_slug ?? 'ozone');
+  const [brandSlug,       setBrandSlug]     = useState(initialData?.brand_slug ?? SITE_BRAND_SLUG);
   const [articleType,     setArticleType]   = useState(initialData?.article_type ?? 'news_article');
   const [authorName,      setAuthorName]    = useState(initialData?.author_name ?? KNOWN_AUTHORS[0].name);
   const [authorSlug,      setAuthorSlug]    = useState(initialData?.author_slug ?? KNOWN_AUTHORS[0].slug);

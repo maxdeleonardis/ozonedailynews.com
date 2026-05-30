@@ -109,14 +109,10 @@ function CommentCard({ comment }: { comment: Comment }) {
 
 function SignInGate({
   onDiscord,
-  onGoogle,
   discordLoading,
-  googleLoading,
 }: {
   onDiscord: () => void;
-  onGoogle: () => void;
   discordLoading: boolean;
-  googleLoading: boolean;
 }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center mb-8">
@@ -124,11 +120,10 @@ function SignInGate({
         <DiscordIcon className="w-5 h-5 text-[#5865F2]" />
       </div>
       <h3 className="text-sm font-bold text-gray-900 mb-1">Join the discussion</h3>
-      <p className="text-xs text-gray-500 mb-1">Sign in for a verified badge, or scroll down to comment as a guest.</p>
+      <p className="text-xs text-gray-500 mb-1">Sign in with Discord for a verified badge, or scroll down to comment as a guest.</p>
       <p className="text-xs text-gray-400 mb-5">Every comment appears live in our Discord server.</p>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-        {/* Discord — preferred */}
+      <div className="flex items-center justify-center">
         <button
           onClick={onDiscord}
           disabled={discordLoading}
@@ -136,16 +131,6 @@ function SignInGate({
         >
           <DiscordIcon className="w-4 h-4" />
           {discordLoading ? 'Connecting…' : 'Sign in with Discord'}
-        </button>
-
-        {/* Google account */}
-        <button
-          onClick={onGoogle}
-          disabled={googleLoading}
-          className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-lg border border-gray-300 transition-colors disabled:opacity-60 w-full sm:w-auto justify-center shadow-sm"
-        >
-          <GoogleIcon className="w-4 h-4" />
-          {googleLoading ? 'Connecting…' : 'Sign in with Google'}
         </button>
       </div>
       <p className="text-xs text-gray-400 mt-4">
@@ -452,9 +437,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         /* ── Locked: must sign in ── */
         <SignInGate
           onDiscord={handleDiscordLogin}
-          onGoogle={handleGoogleLogin}
           discordLoading={discordLoading}
-          googleLoading={googleLoading}
         />
       ) : (
         /* ── Comment form (logged in OR anon mode) ── */

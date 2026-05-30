@@ -136,10 +136,20 @@ export async function getArticleBySlug(slug: string): Promise<ArticleFull | null
 export async function getArticleByUrlSegments(segments: string[]): Promise<ArticleFull | null> {
   const fullPath = '/' + segments.join('/');
 
+  // Try 1: joined slug (static JSON — fast path, no network)
+  // Checked BEFORE routing_table so a static file always wins without a Supabase round-trip.
+  const joinedSlug = segments.join('-');
+  const byJoined = readStaticRow<ArticleFull>('articles', joinedSlug);
+  if (byJoined) return byJoined;
+
   // Try 0: routing_table lookup (new ID-addressed storage, zero file renames)
+  // Guarded by a 2 s timeout so a slow Supabase connection never hangs the page.
   try {
     const { resolveUrlPath } = await import('./routing-service');
-    const route = await resolveUrlPath(fullPath);
+    const route = await Promise.race([
+      resolveUrlPath(fullPath),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 2000)),
+    ]);
     if (route) {
       const byId = await getArticleByContentId(route.content_id, route.content_store);
       if (byId) return byId;
@@ -147,11 +157,6 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
   } catch {
     // routing-service unavailable (e.g. no Supabase in local dev) — fall through
   }
-
-  // Try 1: joined slug (existing naming convention)
-  const joinedSlug = segments.join('-');
-  const byJoined = readStaticRow<ArticleFull>('articles', joinedSlug);
-  if (byJoined) return byJoined;
 
   // Try 2: last segment only
   const lastSegment = segments[segments.length - 1];

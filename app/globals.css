@@ -11,8 +11,8 @@
   --ozone-canvas:  #f6f5f2;        /* warm off-white — never pure white */
   --ozone-ink:     #1c1c2e;        /* deep navy-slate */
 
-  /* Accent — dark crimson, reserved for breaking news / badges */
-  --ozone-accent:  #8b1a1a;
+  /* Accent — deep aerospace blue, reserved for breaking news / badges / logo mark */
+  --ozone-accent:  #0a3272;
 
   /* Footer */
   --ozone-footer:           #12121e;

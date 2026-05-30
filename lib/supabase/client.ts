@@ -13,10 +13,14 @@ import { createBrowserClient as createSSRBrowserClient } from '@supabase/ssr';
 export function createBrowserClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
+  if (!url || !key) {
+    console.warn('[createBrowserClient] Missing env vars — url:', !!url, 'key:', !!key);
+    return null;
+  }
   try {
     return createClient(url, key);
-  } catch {
+  } catch (err) {
+    console.error('[createBrowserClient] createClient threw:', err);
     return null;
   }
 }
@@ -24,10 +28,14 @@ export function createBrowserClient() {
 export function createAuthBrowserClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
+  if (!url || !key) {
+    console.warn('[createAuthBrowserClient] Missing env vars — url:', !!url, 'key:', !!key);
+    return null;
+  }
   try {
     return createSSRBrowserClient(url, key);
-  } catch {
+  } catch (err) {
+    console.error('[createAuthBrowserClient] createSSRBrowserClient threw:', err);
     return null;
   }
 }

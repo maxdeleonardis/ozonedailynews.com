@@ -236,8 +236,9 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
           unsubscribe = () => subscription.unsubscribe();
         }
       }
-    } catch {
+    } catch (err) {
       // Auth initialisation failed — fall back to unauthenticated guest mode
+      console.error('[DiscordComments] Supabase auth init failed:', err);
       setAuthLoading(false);
     }
 

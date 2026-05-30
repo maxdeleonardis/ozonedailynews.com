@@ -64,8 +64,9 @@ export function useAuth(): AuthState {
       );
 
       unsubscribe = () => subscription.unsubscribe();
-    } catch {
+    } catch (err) {
       // Auth initialisation failed — degrade gracefully (user stays unauthenticated)
+      console.error('[useAuth] Supabase auth init failed:', err);
       setLoading(false);
     }
 

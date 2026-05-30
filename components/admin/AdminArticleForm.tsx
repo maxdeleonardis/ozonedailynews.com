@@ -92,7 +92,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const [subtitle,        setSubtitle]      = useState(initialData?.subtitle ?? '');
   const [slug,            setSlug]          = useState(initialData?.slug ?? '');
   const [category,        setCategory]      = useState(initialData?.category ?? 'News');
-  const [brandSlug,       setBrandSlug]     = useState(initialData?.brand_slug ?? SITE_BRAND_SLUG);
+  const [brandSlug,       setBrandSlug]     = useState(initialData?.brand_slug ?? SITE_BRAND_SLUG); // eslint-disable-line @typescript-eslint/no-unused-vars
   const [articleType,     setArticleType]   = useState(initialData?.article_type ?? 'news_article');
   const [authorName,      setAuthorName]    = useState(initialData?.author_name ?? KNOWN_AUTHORS[0].name);
   const [authorSlug,      setAuthorSlug]    = useState(initialData?.author_slug ?? KNOWN_AUTHORS[0].slug);
@@ -306,18 +306,21 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                 placeholder="auto-generated-from-title"
                 className="w-full border border-gray-300 rounded px-3 py-2 text-sm font-mono focus:outline-none focus:border-blue-500 disabled:bg-gray-50 disabled:text-gray-500"
               />
+              {isEdit && (
+                <p className="mt-1 text-xs text-gray-400">
+                  Locked — changing the slug of a published article breaks existing URLs and search rankings.
+                </p>
+              )}
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Brand</label>
-              <select
-                value={brandSlug}
-                onChange={(e) => setBrandSlug(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
-              >
-                {BRANDS.map((b) => (
-                  <option key={b.value} value={b.value}>{b.label}</option>
-                ))}
-              </select>
+              {/* Locked to this deployment's brand — editors cannot publish to another site */}
+              <input
+                type="text"
+                value={`${SITE_BRAND_LABEL} (${SITE_BRAND_SLUG})`}
+                disabled
+                className="w-full border border-gray-200 rounded px-3 py-2 text-sm bg-gray-50 text-gray-500 cursor-not-allowed"
+              />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Content Type</label>

@@ -41,10 +41,17 @@ export function useAuth(): AuthState {
 
     const supabase = createAuthBrowserClient();
 
+    // Supabase env vars missing (e.g. Vercel project not yet configured) —
+    // degrade gracefully: user is simply treated as unauthenticated.
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user ?? null);
       setLoading(false);
-    });
+    }).catch(() => setLoading(false));
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
@@ -67,7 +74,7 @@ export function useAuth(): AuthState {
 
   const signOut = useCallback(async () => {
     const supabase = createAuthBrowserClient();
-    await supabase.auth.signOut();
+    if (supabase) await supabase.auth.signOut();
     window.location.href = '/';
   }, []);
 

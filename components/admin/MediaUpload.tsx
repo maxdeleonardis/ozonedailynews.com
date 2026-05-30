@@ -54,6 +54,11 @@ export default function MediaUpload({ articleSlug, currentUrl, onUpload }: Media
 
     try {
       const sb = createBrowserClient();
+      if (!sb) {
+        setError('Storage not configured. Set Supabase env vars in Vercel.');
+        setUploading(false);
+        return;
+      }
 
       // Build storage path: thumbnails/{slug}/{timestamp}-{sanitised-name}
       const ext        = file.name.split('.').pop() ?? 'jpg';

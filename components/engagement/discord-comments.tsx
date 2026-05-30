@@ -202,6 +202,13 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
     }
 
     const supabase = createBrowserClient();
+
+    // Supabase env vars missing — skip auth, treat as unauthenticated guest
+    if (!supabase) {
+      setAuthLoading(false);
+      return;
+    }
+
     supabase.auth.getUser().then(({ data }) => {
       const u = data.user;
       if (u) {
@@ -218,10 +225,11 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
         });
       }
       setAuthLoading(false);
-    });
+    }).catch(() => setAuthLoading(false));
 
     // Also subscribe to auth changes (e.g. after OAuth redirect back)
     const supabase2 = createBrowserClient();
+    if (!supabase2) return;
     const { data: { subscription } } = supabase2.auth.onAuthStateChange((_event, session) => {
       const u = session?.user;
       if (u) {
@@ -263,6 +271,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
   async function handleDiscordLogin() {
     setDiscordLoading(true);
     const supabase = createBrowserClient();
+    if (!supabase) { setDiscordLoading(false); setError('Auth not configured.'); return; }
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: 'discord',
       options: {
@@ -279,6 +288,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
   async function handleGoogleLogin() {
     setGoogleLoading(true);
     const supabase = createBrowserClient();
+    if (!supabase) { setGoogleLoading(false); setError('Auth not configured.'); return; }
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -293,7 +303,7 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
 
   async function handleSignOut() {
     const supabase = createBrowserClient();
-    await supabase.auth.signOut();
+    if (supabase) await supabase.auth.signOut();
     setUser(null);
   }
 
@@ -320,6 +330,11 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
       // If anonymous mode and not yet signed in, create a Supabase anon session first
       if (ANONYMOUS_COMMENTS && !user) {
         const supabase = createBrowserClient();
+        if (!supabase) {
+          setError('Comments unavailable — auth not configured.');
+          setSubmitting(false);
+          return;
+        }
         const { data: anonData, error: anonError } = await supabase.auth.signInAnonymously();
         if (anonError || !anonData.user) {
           setError('Could not create anonymous session. Please try again.');

@@ -42,6 +42,11 @@ function LoginContent() {
     setGoogleLoading(true);
     setError('');
     const supabase = createAuthBrowserClient();
+    if (!supabase) {
+      setError('Auth not configured. Set Supabase env vars in Vercel.');
+      setGoogleLoading(false);
+      return;
+    }
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -66,6 +71,11 @@ function LoginContent() {
 
     setLoading(true);
     const supabase = createAuthBrowserClient();
+    if (!supabase) {
+      setError('Auth not configured. Set Supabase env vars in Vercel.');
+      setLoading(false);
+      return;
+    }
 
     if (mode === 'signup') {
       const { error: signUpError } = await supabase.auth.signUp({ email, password });

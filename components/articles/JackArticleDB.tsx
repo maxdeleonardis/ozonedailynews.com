@@ -81,7 +81,15 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       }
       breadcrumbs={row.breadcrumbs ?? undefined}
       author={row.author ?? undefined}
-      relatedArticles={row.related_articles ?? undefined}
+      relatedArticles={
+        Array.isArray(row.related_articles)
+          ? row.related_articles.map((a: Record<string, unknown>) => ({
+              ...a,
+              // JSON uses "url"; component uses "href" — normalise both
+              href: (a.href ?? a.url ?? '#') as string,
+            }))
+          : undefined
+      }
       timeline={row.timeline ?? undefined}
       documents={row.documents ?? undefined}
       showNewsletter={row.show_newsletter ?? undefined}

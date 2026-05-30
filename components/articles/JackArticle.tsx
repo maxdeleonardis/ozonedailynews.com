@@ -68,7 +68,8 @@ export interface JackHeroImage {
 }
 
 export interface JackRelatedArticle {
-  href: string;
+  href?: string;
+  url?: string;   // JSON files use "url"; "href" is the canonical prop — both accepted
   category: string;
   categoryColor?: string;
   title: string;
@@ -1292,7 +1293,7 @@ export default function JackArticle({
                       </div>
                       <div className="p-4 space-y-4">
                         {relatedArticles.map((article, i) => (
-                          <Link key={i} href={article.href} className="block group">
+                          <Link key={i} href={article.href ?? article.url ?? '#'} className="block group">
                             <span
                               className={`text-xs ${article.categoryColor || 'text-red-600'} font-bold`}
                             >

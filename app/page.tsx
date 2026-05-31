@@ -21,16 +21,9 @@ export const metadata: Metadata = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   News: "bg-red-600",
-  Tech: "bg-blue-600",
-  Finance: "bg-green-700",
-  Entertainment: "bg-purple-600",
-  World: "bg-sky-600",
-  Politics: "bg-rose-700",
   Science: "bg-teal-600",
-  Sports: "bg-indigo-600",
-  Culture: "bg-fuchsia-600",
-  Crypto: "bg-amber-600",
-  Gaming: "bg-violet-600",
+  Tech: "bg-blue-600",
+  World: "bg-sky-600",
 };
 
 function CategoryBadge({ category }: { category: string }) {
@@ -77,13 +70,22 @@ export default async function HomePage() {
       <div className="border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex gap-0 overflow-x-auto scrollbar-none">
-            {["All","News","Finance","Tech","World","Politics","Science","Sports","Culture","Crypto","Gaming","Entertainment"].map((c) => (
+            {[
+              { label: "All",         href: "/" },
+              { label: "Space",       href: "/space" },
+              { label: "Rockets",     href: "/rockets" },
+              { label: "Science",     href: "/science" },
+              { label: "Engineering", href: "/engineering" },
+              { label: "NASA",        href: "/nasa" },
+              { label: "Defense",     href: "/defense" },
+              { label: "Policy",      href: "/policy" },
+            ].map(({ label, href }) => (
               <Link
-                key={c}
-                href={c === "All" ? "/" : `/${c.toLowerCase()}`}
+                key={href}
+                href={href}
                 className="shrink-0 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-gray-900 hover:bg-white border-b-2 border-transparent hover:border-gray-900 transition-all"
               >
-                {c}
+                {label}
               </Link>
             ))}
           </div>

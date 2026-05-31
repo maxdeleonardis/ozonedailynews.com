@@ -33,7 +33,18 @@ export default async function EditArticlePage({
         </a>
         <div className="flex items-center gap-3 mt-2">
           <h1 className="text-xl font-bold text-gray-900">Edit Article</h1>
-          <span className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-0.5 rounded">{slug}</span>
+          {article.url ? (
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-blue-600 px-2 py-0.5 rounded transition-colors"
+            >
+              {slug} ↗
+            </a>
+          ) : (
+            <span className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-0.5 rounded">{slug}</span>
+          )}
           <span className={`text-xs px-2 py-0.5 rounded font-medium ${
             article.status === 'published'
               ? 'bg-green-100 text-green-700'
@@ -46,23 +57,6 @@ export default async function EditArticlePage({
         </div>
       </div>
 
-      {article.status === 'published' && article.url && (
-        <div className="mb-6 px-4 py-3 bg-blue-50 border border-blue-200 rounded text-sm text-blue-800 flex items-center justify-between gap-4">
-          <span>This article is live. Edit any fields below, then click <strong>Publish to GitHub</strong> to overwrite the static JSON and redeploy.</span>
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3 py-1.5 rounded transition-colors"
-          >
-            View live article
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-            </svg>
-          </a>
-        </div>
-      )}
 
       <AdminArticleForm initialData={article} isEdit />
     </div>

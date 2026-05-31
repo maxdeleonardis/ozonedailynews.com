@@ -18,6 +18,7 @@ import { JackArticleDB } from '@/components/articles/JackArticleDB';
 import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
 import { WikiArticle } from '@/components/articles/WikiArticle';
+import { buildArticleSchema } from '@/lib/article-schema';
 import type { TopicTagType } from '@/components/articles/NewsArticle';
 
 // Revalidate every 60 seconds — ISR means article edits go live within 1 minute
@@ -85,40 +86,30 @@ export default async function ArticleCatchallPage({ params }: { params: Promise<
     ?? article.url
     ?? `${SITE_CONFIG.url}/${slug.join('/')}`;
 
-  // NewsArticle JSON-LD — read by Google News, Bing News, and all major aggregators
-  // before they read the HTML. dateModified falls back to datePublished.
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: article.title,
-    description: article.metadata?.description ?? article.subtitle ?? '',
-    image: article.thumbnail_src ? [article.thumbnail_src] : [],
-    datePublished: article.published_at,
-    dateModified: articleAny.modified_at ?? article.published_at,
-    author: {
-      '@type': 'Person',
-      name: article.author_name,
-      url: `${SITE_CONFIG.url}/authors/${article.author_slug}`,
-    },
-    publisher: {
-      '@type': 'NewsMediaOrganization',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: SITE_CONFIG.logo,
-        width: 600,
-        height: 60,
-      },
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': canonicalUrl,
-    },
-    isAccessibleForFree: true,
-    ...(article.tags?.length ? { keywords: article.tags.join(', ') } : {}),
-    ...(article.category ? { articleSection: article.category } : {}),
-  };
+  const articleType = (articleAny.article_type as string | undefined) ?? 'news_article';
+
+  // Single source of article JSON-LD (lib/article-schema.ts):
+  //  - picks NewsArticle vs Article from article_type + lifecycle (evergreen → Article)
+  //  - links the byline to its full registered Person entity (@id, sameAs, jobTitle)
+  //  - dateModified reflects the corrections ledger (modified_date_iso) when present
+  // creator_article renders its own ProfilePage schema (richer for profiles), so we
+  // skip the article block for that type to avoid emitting two conflicting schemas.
+  const jsonLd = articleType === 'creator_article'
+    ? null
+    : buildArticleSchema({
+        title: article.title,
+        description: article.metadata?.description ?? article.subtitle ?? '',
+        imageUrl: article.thumbnail_src ?? undefined,
+        datePublished: article.published_at,
+        dateModified: articleAny.modified_date_iso ?? articleAny.modified_at ?? article.published_at,
+        authorName: article.author_name,
+        authorSlug: article.author_slug ?? undefined,
+        canonicalUrl,
+        tags: article.tags ?? [],
+        category: article.category,
+        articleType,
+        lifecycle: articleAny.lifecycle as string | undefined,
+      });
 
   // Build breadcrumbs from URL segments
   const breadcrumbs = [{ name: 'Home', item: '/' }];
@@ -133,12 +124,13 @@ export default async function ArticleCatchallPage({ params }: { params: Promise<
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       {(() => {
-        const articleType = (articleAny.article_type as string | undefined) ?? 'news_article';
         switch (articleType) {
           case 'jack_article':
             return <JackArticleDB slug={article.slug} />;

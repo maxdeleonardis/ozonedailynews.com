@@ -27,7 +27,10 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'YouBot',        allow: '/' },
       { userAgent: 'Applebot',      allow: '/' },
     ],
-    sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
+    sitemap: [
+      `${SITE_CONFIG.url}/sitemap.xml`,
+      `${SITE_CONFIG.url}/news-sitemap.xml`,
+    ],
     host: SITE_CONFIG.url,
   };
 }

@@ -37,21 +37,10 @@ import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
 import { upsertRegistryEntry } from '@/lib/registry-service';
 import { upsertRoute } from '@/lib/routing-service';
+import { KNOWN_AUTHOR_SLUGS } from '@/lib/authors';
+import { commitFilesAtomically, BRAND_BRANCH } from '@/lib/github-commit';
 import type { ArticleFull } from '@/lib/types';
 import type { ContentEntry } from '@/lib/types';
-
-// ─── Brand → Git branch map ───────────────────────────────────────────────────
-
-const BRAND_BRANCH: Record<string, string> = {
-  ozone:     'master',
-  basil:     'basil',
-  obsidian:  'obsidian',
-  honey:     'honey',
-  onyx:      'onyx',
-  clover:    'clover',
-  content:   'content',
-  objective: 'objective',
-};
 
 // ─── E-E-A-T gate (mirrors alfasa-sentinel.ts) ───────────────────────────────
 
@@ -69,23 +58,17 @@ const AI_BOILERPLATE = [
   'in summary',
 ];
 
-const KNOWN_AUTHORS = [
-  'max-deleonardis',
-  'simon-minter',
-  'ozonedailynews-editorial-team',
-];
-
 function runEeatGate(article: ArticleFull): string[] {
   const errors: string[] = [];
   const text = article.content_html ?? '';
   const lower = text.toLowerCase();
 
-  // H1 — author
+  // H1 — author must resolve to a registered entity in lib/authors.ts
   if (!article.author_name || !article.author_slug) {
     errors.push('Missing author_name or author_slug.');
   }
-  if (!KNOWN_AUTHORS.includes(article.author_slug ?? '')) {
-    errors.push(`author_slug "${article.author_slug}" is not in KNOWN_AUTHORS. Add them first.`);
+  if (!KNOWN_AUTHOR_SLUGS.includes(article.author_slug ?? '')) {
+    errors.push(`author_slug "${article.author_slug}" is not a registered author entity. Add them to lib/authors.ts first.`);
   }
 
   // H2 — ISO timestamp with timezone
@@ -130,128 +113,6 @@ function runEeatGate(article: ArticleFull): string[] {
   }
 
   return errors;
-}
-
-// ─── GitHub Git Trees API (atomic multi-file commit) ─────────────────────────
-
-interface GitRef    { object: { sha: string } }
-interface GitCommit { tree: { sha: string } }
-interface GitTree   { sha: string }
-interface GitNewCommit { sha: string }
-
-async function ghFetch<T>(
-  path: string,
-  token: string,
-  options: RequestInit = {}
-): Promise<T> {
-  const res = await fetch(`https://api.github.com${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      ...(options.headers ?? {}),
-    },
-  });
-  if (!res.ok) {
-    const err = (await res.json()) as { message?: string };
-    throw new Error(err.message ?? `GitHub API ${res.status} at ${path}`);
-  }
-  return res.json() as Promise<T>;
-}
-
-/**
- * Commits multiple files atomically using the Git Data API.
- * All files land in a single commit — no intermediate states.
- *
- * Concurrency safety: the final ref PATCH uses `force: false` (default), so
- * GitHub rejects it with 422 if another commit landed between our read and
- * write. We retry up to MAX_RETRIES times, re-fetching the latest ref each
- * time, so two simultaneous publishes resolve cleanly without data loss.
- */
-async function commitFilesAtomically(
-  owner: string,
-  repo: string,
-  branch: string,
-  token: string,
-  files: Array<{ path: string; content: string }>,
-  message: string,
-  maxRetries = 3
-): Promise<{ ok: boolean; error?: string }> {
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      // 1. Get the CURRENT branch tip (re-fetch on every retry to get latest SHA)
-      const ref = await ghFetch<GitRef>(
-        `/repos/${owner}/${repo}/git/ref/heads/${branch}`,
-        token
-      );
-      const latestCommitSha = ref.object.sha;
-
-      // 2. Get the base tree SHA of the latest commit
-      const commit = await ghFetch<GitCommit>(
-        `/repos/${owner}/${repo}/git/commits/${latestCommitSha}`,
-        token
-      );
-      const baseTreeSha = commit.tree.sha;
-
-      // 3. Create a new tree containing all files
-      const treeItems = files.map((f) => ({
-        path: f.path,
-        mode: '100644',
-        type: 'blob',
-        content: f.content, // GitHub accepts raw UTF-8 here
-      }));
-
-      const newTree = await ghFetch<GitTree>(
-        `/repos/${owner}/${repo}/git/trees`,
-        token,
-        {
-          method: 'POST',
-          body: JSON.stringify({ base_tree: baseTreeSha, tree: treeItems }),
-        }
-      );
-
-      // 4. Create the commit object
-      const newCommit = await ghFetch<GitNewCommit>(
-        `/repos/${owner}/${repo}/git/commits`,
-        token,
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            message,
-            tree: newTree.sha,
-            parents: [latestCommitSha],
-          }),
-        }
-      );
-
-      // 5. Advance the branch ref — will fail with 422 if another commit
-      //    landed since step 1 (concurrency collision). We catch and retry.
-      await ghFetch(
-        `/repos/${owner}/${repo}/git/refs/heads/${branch}`,
-        token,
-        {
-          method: 'PATCH',
-          body: JSON.stringify({ sha: newCommit.sha, force: false }),
-        }
-      );
-
-      return { ok: true };
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      const isConflict = msg.includes('Update is not a fast forward') || msg.includes('422');
-
-      if (isConflict && attempt < maxRetries) {
-        // Exponential backoff: 200ms, 400ms, 800ms
-        await new Promise((r) => setTimeout(r, 200 * Math.pow(2, attempt - 1)));
-        continue;
-      }
-
-      return { ok: false, error: msg };
-    }
-  }
-  return { ok: false, error: 'Max retries exceeded (concurrent publish collision)' };
 }
 
 // ─── POST /api/cms/publish ────────────────────────────────────────────────────
@@ -480,6 +341,7 @@ export async function POST(req: NextRequest) {
       article_type:     registryEntry.articleType ?? 'NewsArticle',
       lifecycle:        registryEntry.lifecycle ?? 'news',
       breaking:         registryEntry.breaking ?? false,
+      brand_slug:       brandSlug,
     }, { onConflict: 'slug' });
 
   // 11b. Upsert routing_table — maps the article's public URL to its immutable content_id.
@@ -495,8 +357,11 @@ export async function POST(req: NextRequest) {
   const articleUrl = article.url ?? `${siteUrl}/${routePath}`;
 
   try {
-    revalidatePath('/');                    // homepage carousel updates instantly
-    revalidatePath(`/${routePath}`);        // article page cache busted instantly
+    revalidatePath('/');                                           // homepage carousel
+    revalidatePath(`/${routePath}`);                               // article page
+    revalidatePath('/sitemap.xml');                                // main sitemap (daily revalidate default)
+    revalidatePath('/rss.xml');                                    // RSS feed (1h revalidate default)
+    // news-sitemap.xml is force-dynamic — no revalidation needed, always serves live data
     if (registryEntry.category) {
       revalidatePath(`/${registryEntry.category.toLowerCase()}`); // category hub
     }

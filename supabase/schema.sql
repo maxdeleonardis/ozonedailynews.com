@@ -182,6 +182,56 @@ create index if not exists discord_comments_created_idx on discord_comments (cre
 
 
 -- ============================================================================
+-- TABLE 6: content_registry
+-- The master index that drives sitemaps, RSS, JSON-LD, related articles, and the
+-- homepage "live freshness" carousel BETWEEN deploys.
+--
+-- Git's content_registry.json is the build-time source of truth; this table is
+-- the real-time mirror. The publish API upserts here so a new article appears in
+-- getLatestArticlesLive() immediately, before the Git deploy finishes.
+--
+-- slug is the PUBLIC URL PATH (relative, e.g. "/nasa/news/article-slug").
+-- ============================================================================
+create table if not exists content_registry (
+  slug             text        primary key,
+  title            text        not null default '',
+  description      text        not null default '',
+  publish_date     timestamptz,
+  modified_date    timestamptz,
+  category         text        not null default 'News',
+  tags             text[]      not null default '{}',
+  author           text        not null default '',
+  author_slug      text,
+  priority         numeric     not null default 0.7,
+  change_frequency text        not null default 'daily',
+  image_url        text,
+  image_alt        text,
+  article_type     text        not null default 'NewsArticle',
+  lifecycle        text        not null default 'news',
+  -- ^ 'news' | 'review' | 'feature' | 'evergreen' | 'pruned'
+  breaking         boolean     not null default false,
+  brand_slug       text        not null default 'ozone',
+  -- ^ multi-brand isolation — each site only reads/indexes its own entries
+  created_at       timestamptz not null default now(),
+  updated_at       timestamptz not null default now()
+);
+
+-- PATCH: add brand_slug on existing content_registry tables (upgrade path)
+alter table content_registry add column if not exists brand_slug text not null default 'ozone';
+
+create index if not exists content_registry_publish_idx   on content_registry (publish_date desc nulls last);
+create index if not exists content_registry_category_idx   on content_registry (category);
+create index if not exists content_registry_lifecycle_idx  on content_registry (lifecycle);
+create index if not exists content_registry_author_idx     on content_registry (author_slug);
+create index if not exists content_registry_brand_idx      on content_registry (brand_slug);
+
+drop trigger if exists content_registry_updated_at on content_registry;
+create trigger content_registry_updated_at
+  before update on content_registry
+  for each row execute function set_updated_at();
+
+
+-- ============================================================================
 -- ROW LEVEL SECURITY
 -- ============================================================================
 alter table articles         enable row level security;
@@ -189,6 +239,7 @@ alter table profiles         enable row level security;
 alter table routing_table    enable row level security;
 alter table redirects        enable row level security;
 alter table discord_comments enable row level security;
+alter table content_registry enable row level security;
 
 -- Drop all policies first so this file is safe to re-run
 drop policy if exists "anon read published articles"    on articles;
@@ -202,28 +253,56 @@ drop policy if exists "redirects_public_read"           on redirects;
 drop policy if exists "redirects_service_write"         on redirects;
 drop policy if exists "discord_comments_public_read"    on discord_comments;
 drop policy if exists "discord_comments_service_write"  on discord_comments;
+drop policy if exists "content_registry_public_read"    on content_registry;
+drop policy if exists "content_registry_service_write"  on content_registry;
 
 -- articles: public reads published, editors read/write drafts, service_role does everything
 create policy "anon read published articles"
   on articles for select
   using (status = 'published');
 
+-- Editors can only see drafts that belong to a brand they manage.
+-- brand_slugs = '{}' means superadmin — sees everything.
 create policy "editors read own drafts"
   on articles for select
   using (
-    auth.uid() in (select user_id from profiles where is_editor = true)
+    exists (
+      select 1 from profiles p
+      where p.user_id = auth.uid()
+        and p.is_editor = true
+        and (
+          p.brand_slugs = '{}'::text[]
+          or articles.brand_slug = any(p.brand_slugs)
+        )
+    )
   );
 
 create policy "editors insert drafts"
   on articles for insert
   with check (
-    auth.uid() in (select user_id from profiles where is_editor = true)
+    exists (
+      select 1 from profiles p
+      where p.user_id = auth.uid()
+        and p.is_editor = true
+        and (
+          p.brand_slugs = '{}'::text[]
+          or brand_slug = any(p.brand_slugs)
+        )
+    )
   );
 
 create policy "editors update own drafts"
   on articles for update
   using (
-    auth.uid() in (select user_id from profiles where is_editor = true)
+    exists (
+      select 1 from profiles p
+      where p.user_id = auth.uid()
+        and p.is_editor = true
+        and (
+          p.brand_slugs = '{}'::text[]
+          or articles.brand_slug = any(p.brand_slugs)
+        )
+    )
   );
 
 -- profiles: users read their own row only
@@ -256,6 +335,15 @@ create policy "discord_comments_public_read"
 
 create policy "discord_comments_service_write"
   on discord_comments for all
+  using (auth.role() = 'service_role');
+
+-- content_registry: public reads (sitemaps/RSS/homepage use anon key), service_role writes
+create policy "content_registry_public_read"
+  on content_registry for select
+  using (true);
+
+create policy "content_registry_service_write"
+  on content_registry for all
   using (auth.role() = 'service_role');
 
 

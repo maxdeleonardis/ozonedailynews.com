@@ -74,19 +74,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable} h-full antialiased`}>
       <head>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-BPPW57YXD4"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-BPPW57YXD4');
-          `}
-        </Script>
+        {/* Google tag (gtag.js) — ID driven by env var so sub-brand forks use their own property */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(newsOrgSchema) }}
@@ -120,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <li><a href="/about" className="footer-link">About Ozone Network</a></li>
                 <li><a href="/editorial-standards" className="footer-link">Editorial Standards</a></li>
                 <li><a href="/corrections" className="footer-link">Corrections Policy</a></li>
-                <li><a href="/privacy" className="footer-link">Privacy Policy</a></li>
+                <li><a href="/privacy-policy" className="footer-link">Privacy Policy</a></li>
               </ul>
             </div>
 

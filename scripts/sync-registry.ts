@@ -44,8 +44,19 @@ for (const { table, articleType } of STORES) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const article: Record<string, any> = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
-      const slug = article.url ?? article.slug ?? '';
-      if (!slug || existingSlugs.has(slug)) continue;
+
+      // Normalise to a relative path — strip the origin if the value is an absolute URL.
+      // This prevents the sitemap/RSS from producing double-URL strings like
+      // "https://www.ozonedailynews.comhttps://www.ozonedailynews.com/...".
+      const rawSlug: string = article.url ?? article.slug ?? '';
+      let slug = rawSlug;
+      if (slug.startsWith('http://') || slug.startsWith('https://')) {
+        try { slug = new URL(slug).pathname; } catch { /* keep as-is */ }
+      }
+      if (!slug) continue;
+
+      // Deduplicate against both the relative path AND any legacy full-URL form.
+      if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) continue;
 
       const entry: ContentEntry = {
         slug,

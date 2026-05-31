@@ -1,7 +1,21 @@
 // ─── Core Types for Ozone Daily News ────────────────────────────────────────
 // All article types mirror their static JSON stores in content/static/
 
-export type Lifecycle = 'news' | 'review' | 'feature' | 'pruned';
+export type Lifecycle = 'news' | 'review' | 'feature' | 'pruned' | 'evergreen';
+
+// ─── Corrections / Updates ledger ──────────────────────────────────────────────
+// Transparency by design: every post-publish change is logged with WHY and WHEN.
+export type CorrectionType = 'correction' | 'update' | 'clarification';
+
+export interface CorrectionEntry {
+  type: CorrectionType;
+  /** Human-readable note, e.g. "Added statement from Intel spokesperson." */
+  note: string;
+  /** ISO-8601 timestamp with timezone. */
+  timestamp: string;
+  /** Email or name of the editor who made the change. */
+  editor: string;
+}
 
 export type Category =
   | 'News'
@@ -55,6 +69,8 @@ export interface ArticleFull {
   thumbnail_alt?: string;
   tags: string[];
   lifecycle?: Lifecycle;
+  modified_date_iso?: string;     // ISO-8601 of last correction/update
+  corrections?: CorrectionEntry[]; // transparency ledger, newest last
   metadata?: {
     title?: string;
     description?: string;

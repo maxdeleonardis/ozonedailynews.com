@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ArticleViewTracker from '@/components/articles/ArticleViewTracker';
 import ArticleFooter from '@/components/articles/ArticleFooter';
 import RelatedArticles from '@/components/discovery/RelatedArticles';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 // =============================================================================
 // JACK ARTICLE — Premium reusable article layout (Google News optimized)
@@ -165,6 +166,9 @@ export interface JackArticleProps {
   uuid?: string;
   /** Article version */
   version?: string;
+  /** Emit the internal NewsArticle JSON-LD. Set false when a parent (e.g. the
+   *  catch-all route) already emits the authoritative schema, to avoid duplicates. */
+  emitSchema?: boolean;
 }
 
 // =============================================================================
@@ -283,10 +287,11 @@ function JackSchema({
     },
     publisher: {
       '@type': 'NewsMediaOrganization',
-      name: 'OzoneNews',
+      name: SITE_CONFIG.publisherName,
+      url: SITE_CONFIG.url,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.ozonenetwork.news/OzoneNews-logo.png',
+        url: SITE_CONFIG.logo,
         width: 600,
         height: 60,
       },
@@ -870,6 +875,7 @@ export default function JackArticle({
   keywords,
   uuid,
   version,
+  emitSchema = true,
 }: JackArticleProps) {
   // Always show the sidebar in news layout — RelatedArticles renders at minimum
   const hasSidebar = layout === 'news';
@@ -893,18 +899,20 @@ export default function JackArticle({
         />
       )}
 
-      {/* Google News JSON-LD */}
-      <JackSchema
-        title={title}
-        description={description}
-        author={author}
-        publishDateISO={publishDateISO}
-        modifiedDateISO={modifiedDateISO}
-        articleUrl={articleUrl}
-        heroImage={heroImage}
-        section={section}
-        keywords={keywords}
-      />
+      {/* Google News JSON-LD — suppressed when a parent route emits the authoritative schema */}
+      {emitSchema && (
+        <JackSchema
+          title={title}
+          description={description}
+          author={author}
+          publishDateISO={publishDateISO}
+          modifiedDateISO={modifiedDateISO}
+          articleUrl={articleUrl}
+          heroImage={heroImage}
+          section={section}
+          keywords={keywords}
+        />
+      )}
 
       {/* Hero Image — news layout */}
       {heroImage && layout === 'news' && (

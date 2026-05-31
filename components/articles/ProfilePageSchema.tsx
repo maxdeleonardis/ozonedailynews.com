@@ -9,6 +9,8 @@
  * Replace NewsArticleSchema on all CreatorArticle pages.
  */
 
+import { SITE_CONFIG } from '@/lib/site-config';
+
 export interface ProfilePageSchemaProps {
   /** Creator's full display name */
   personName: string;
@@ -44,11 +46,13 @@ export function ProfilePageSchema({
   sameAs = [],
   keywords = [],
 }: ProfilePageSchemaProps) {
-  // Filter to real external social URLs only
+  const base = SITE_CONFIG.url;
+
+  // Filter to real external social URLs only (exclude our own domain + mailto)
   const socialUrls = sameAs.filter(
     (url) =>
       url.startsWith('http') &&
-      !url.startsWith('https://www.ozonenetwork.news') &&
+      !url.startsWith(base) &&
       !url.startsWith('mailto:'),
   );
 
@@ -63,14 +67,14 @@ export function ProfilePageSchema({
     'inLanguage': 'en-US',
     'isPartOf': {
       '@type': 'WebSite',
-      'name': 'OzoneNews News',
-      'url': 'https://www.ozonenetwork.news',
+      'name': SITE_CONFIG.name,
+      'url': base,
     },
     'breadcrumb': {
       '@type': 'BreadcrumbList',
       'itemListElement': [
-        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.ozonenetwork.news' },
-        { '@type': 'ListItem', 'position': 2, 'name': 'Influencer', 'item': 'https://www.ozonenetwork.news/influencer' },
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': base },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Influencer', 'item': `${base}/influencer` },
         { '@type': 'ListItem', 'position': 3, 'name': personName, 'item': pageUrl },
       ],
     },
@@ -81,9 +85,7 @@ export function ProfilePageSchema({
       ...(imageUrl && {
         'image': {
           '@type': 'ImageObject',
-          'url': imageUrl.startsWith('http')
-            ? imageUrl
-            : `https://www.ozonenetwork.news${imageUrl}`,
+          'url': imageUrl.startsWith('http') ? imageUrl : `${base}${imageUrl}`,
           'width': 1200,
           'height': 675,
         },
@@ -94,16 +96,16 @@ export function ProfilePageSchema({
     },
     'author': {
       '@type': 'Organization',
-      'name': 'OzoneNews News',
-      'url': 'https://www.ozonenetwork.news',
+      'name': SITE_CONFIG.publisherName,
+      'url': base,
     },
     'publisher': {
       '@type': 'NewsMediaOrganization',
-      'name': 'OzoneNews News',
-      'url': 'https://www.ozonenetwork.news',
+      'name': SITE_CONFIG.publisherName,
+      'url': base,
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://www.ozonenetwork.news/OzoneNews-logo.png',
+        'url': SITE_CONFIG.logo,
         'width': 600,
         'height': 60,
       },

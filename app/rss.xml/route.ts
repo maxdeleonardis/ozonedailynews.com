@@ -1,12 +1,21 @@
 // app/rss.xml/route.ts
 // RSS feed for article subscribers and feed aggregators.
 // Includes media: and dc: namespaces required by Microsoft News / Bing News Pub Hub.
+//
+// Registry slugs may be relative ("/nasa/news/...") or absolute ("https://...").
+// toAbsoluteUrl() normalises both.
 
 import { NextResponse } from 'next/server';
 import { getLatestArticles } from '@/lib/registry-service';
 import { SITE_CONFIG } from '@/lib/site-config';
 
-export const revalidate = 3600; // 1 hour
+export const revalidate = 3600; // 1 hour — busted immediately on publish via revalidatePath
+
+/** Normalise a registry slug to a full absolute URL. */
+function toAbsoluteUrl(slug: string, baseUrl: string): string {
+  if (slug.startsWith('http://') || slug.startsWith('https://')) return slug;
+  return `${baseUrl}${slug.startsWith('/') ? slug : `/${slug}`}`;
+}
 
 export async function GET() {
   const articles = await getLatestArticles(50);
@@ -15,6 +24,7 @@ export async function GET() {
 
   const items = articles
     .map((a) => {
+      const itemUrl = toAbsoluteUrl(a.slug, baseUrl);
       const pubDate = new Date(a.publishDate).toUTCString();
       // RFC 822 author format expected by feed validators: "email (Display Name)"
       const authorRfc = `${SITE_CONFIG.email} (${escapeXml(a.author)})`;
@@ -31,8 +41,8 @@ export async function GET() {
       return `
     <item>
       <title>${escapeXml(a.title)}</title>
-      <link>${baseUrl}${a.slug}</link>
-      <guid isPermaLink="true">${baseUrl}${a.slug}</guid>
+      <link>${itemUrl}</link>
+      <guid isPermaLink="true">${itemUrl}</guid>
       <description>${escapeXml(a.description)}</description>
       <pubDate>${pubDate}</pubDate>
       <category>${escapeXml(a.category)}</category>

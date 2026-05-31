@@ -4,6 +4,7 @@
 
 import { getEntry } from '@/lib/registry-service';
 import { SITE_CONFIG } from '@/lib/site-config';
+import { buildArticleSchema } from '@/lib/article-schema';
 
 interface SEOWrapperProps {
   slug: string;
@@ -14,47 +15,25 @@ export async function SEOWrapper({ slug, children }: SEOWrapperProps) {
   const entry = await getEntry(slug);
   if (!entry) return <>{children}</>;
 
-  const authorUrl = entry.authorSlug
-    ? `${SITE_CONFIG.url}/authors/${entry.authorSlug}`
-    : undefined;
-
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: entry.title,
+  // Single source of article JSON-LD — same builder the catch-all route uses.
+  // Picks NewsArticle vs Article from articleType/lifecycle (evergreen → Article)
+  // and links the byline to its full registered Person entity (the trust graph).
+  const articleSchema = buildArticleSchema({
+    title: entry.title,
     description: entry.description,
+    imageUrl: entry.imageUrl,
+    imageWidth: entry.imageWidth,
+    imageHeight: entry.imageHeight,
     datePublished: entry.publishDate,
     dateModified: entry.modifiedDate,
-    author: {
-      '@type': 'Person',
-      name: entry.author,
-      ...(authorUrl && { url: authorUrl }),
-    },
-    publisher: {
-      '@type': 'NewsMediaOrganization',
-      name: SITE_CONFIG.publisherName,
-      url: SITE_CONFIG.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: SITE_CONFIG.logo,
-        width: 600,
-        height: 60,
-      },
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${SITE_CONFIG.url}${entry.slug}`,
-    },
-    ...(entry.imageUrl && {
-      image: {
-        '@type': 'ImageObject',
-        url: entry.imageUrl,
-        width: entry.imageWidth ?? 1200,
-        height: entry.imageHeight ?? 675,
-      },
-    }),
-    keywords: entry.tags.join(', '),
-  };
+    authorName: entry.author,
+    authorSlug: entry.authorSlug,
+    canonicalUrl: `${SITE_CONFIG.url}${entry.slug}`,
+    tags: entry.tags,
+    category: entry.category,
+    articleType: entry.articleType,
+    lifecycle: entry.lifecycle,
+  });
 
   const segments = entry.slug.split('/').filter(Boolean);
   const breadcrumbSchema = {

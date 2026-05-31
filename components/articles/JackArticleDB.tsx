@@ -61,6 +61,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
   return (
     <JackArticle
       slug={slug}
+      emitSchema={false}
       layout={row.layout ?? undefined}
       title={row.title}
       subtitle={row.subtitle ?? undefined}

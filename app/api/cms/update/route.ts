@@ -134,14 +134,8 @@ export async function POST(req: NextRequest) {
     ...(u.metadata !== undefined && { metadata: { ...(article.metadata ?? {}), ...u.metadata } }),
   };
 
-  // 6. E-E-A-T gate — a correction must not degrade quality
-  const eeatErrors = runEeatGate(merged);
-  if (eeatErrors.length > 0) {
-    return NextResponse.json(
-      { error: 'E-E-A-T gate failed. Fix the following before saving the correction:', details: eeatErrors },
-      { status: 422 },
-    );
-  }
+  // 6. E-E-A-T suggestions (non-blocking)
+  const eeatWarnings = runEeatGate(merged);
 
   // 7. Append correction to the ledger and bump dateModified
   const nowIso = new Date().toISOString();
@@ -278,6 +272,7 @@ export async function POST(req: NextRequest) {
     modifiedAt: nowIso,
     correctionsCount: corrections.length,
     url: `${siteUrl}/${routePath}`,
+    warnings: eeatWarnings.length > 0 ? eeatWarnings : undefined,
     message: `${correctionType} logged and committed. dateModified bumped to ${nowIso}. Caches busted; sitemap and RSS now reflect the change.`,
   });
 }

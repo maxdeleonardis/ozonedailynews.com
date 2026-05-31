@@ -175,14 +175,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Forbidden: not your brand' }, { status: 403 });
   }
 
-  // 4. E-E-A-T gate
-  const eeatErrors = runEeatGate(article as ArticleFull);
-  if (eeatErrors.length > 0) {
-    return NextResponse.json(
-      { error: 'E-E-A-T gate failed. Fix the following before publishing:', details: eeatErrors },
-      { status: 422 }
-    );
-  }
+  // 4. E-E-A-T suggestions (non-blocking — warnings returned alongside the publish result)
+  const eeatWarnings = runEeatGate(article as ArticleFull);
 
   // 5. Verify GitHub env vars
   const GITHUB_TOKEN  = process.env.GITHUB_TOKEN;
@@ -376,6 +370,7 @@ export async function POST(req: NextRequest) {
     branch,
     url: articleUrl,
     filesCommitted: filesToCommit.map((f) => f.path),
+    warnings: eeatWarnings.length > 0 ? eeatWarnings : undefined,
     message: `Published. Cache busted instantly via ISR. Git deploy running in background on ${branch}.`,
   });
 }

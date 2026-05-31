@@ -111,7 +111,13 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
 
   const [saving,          setSaving]        = useState(false);
   const [publishing,      setPublishing]    = useState(false);
-  const [message,         setMessage]       = useState<{ type: 'ok' | 'err'; text: string; details?: string[] } | null>(null);
+  const [message, setMessage] = useState<{
+    type: 'ok' | 'err';
+    text: string;
+    details?: string[];
+    detailsLabel?: string;
+    detailsTone?: 'warn';
+  } | null>(null);
 
   // Auto-generate slug from title (only if not editing and slug hasn't been manually set)
   const [slugLocked, setSlugLocked] = useState(isEdit);
@@ -222,6 +228,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
         ok?: boolean;
         error?: string;
         details?: string[];
+        warnings?: string[];
         url?: string;
         message?: string;
       };
@@ -230,6 +237,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
         setMessage({
           type: 'ok',
           text: `Published to GitHub. ${json.message ?? ''} Live URL: ${json.url ?? ''}`,
+          details: json.warnings,
+          detailsLabel: json.warnings?.length ? 'SEO suggestions (article is live — fix when convenient):' : undefined,
+          detailsTone: 'warn',
         });
       } else {
         setMessage({
@@ -265,14 +275,25 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
         }`}>
           <p className="font-medium">{message.text}</p>
           {message.details && message.details.length > 0 && (
-            <ul className="mt-2 space-y-1 list-none">
-              {message.details.map((d, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="mt-0.5 shrink-0">✗</span>
-                  <span>{d}</span>
-                </li>
-              ))}
-            </ul>
+            <div className={`mt-3 rounded p-3 ${
+              message.detailsTone === 'warn'
+                ? 'bg-yellow-50 border border-yellow-200 text-yellow-800'
+                : 'text-inherit'
+            }`}>
+              {message.detailsLabel && (
+                <p className="font-medium mb-1.5">{message.detailsLabel}</p>
+              )}
+              <ul className="space-y-1 list-none">
+                {message.details.map((d, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="mt-0.5 shrink-0">
+                      {message.detailsTone === 'warn' ? '○' : '✗'}
+                    </span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       )}

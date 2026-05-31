@@ -792,6 +792,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
           </a>
         </div>
       </div>
+      </div>{/* flex-1 left column */}
 
       {/* ── Right: QA panel ─────────────────────────────────────────────── */}
       <QAPanel

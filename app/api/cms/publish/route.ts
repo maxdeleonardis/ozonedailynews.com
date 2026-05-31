@@ -317,31 +317,33 @@ export async function POST(req: NextRequest) {
     .eq('slug', article.slug);
 
   // 11. Upsert the registry entry into Supabase content_registry table.
-  //     This is the write that solves the concurrency problem:
-  //     - Git handles per-article JSON files (unique filenames = no conflicts)
-  //     - Supabase handles the shared registry index (PostgreSQL upsert = no merge conflicts)
-  //     - The JSON file registry is still updated (Phase 3 above) as a local cache
-  await service
-    .from('content_registry')
-    .upsert({
-      slug:             registryEntry.slug,
-      title:            registryEntry.title,
-      description:      registryEntry.description,
-      publish_date:     registryEntry.publishDate,
-      modified_date:    registryEntry.modifiedDate,
-      category:         registryEntry.category,
-      tags:             registryEntry.tags,
-      author:           registryEntry.author,
-      author_slug:      registryEntry.authorSlug ?? null,
-      priority:         registryEntry.priority,
-      change_frequency: registryEntry.changeFrequency,
-      image_url:        registryEntry.imageUrl ?? null,
-      image_alt:        registryEntry.imageAlt ?? null,
-      article_type:     registryEntry.articleType ?? 'NewsArticle',
-      lifecycle:        registryEntry.lifecycle ?? 'news',
-      breaking:         registryEntry.breaking ?? false,
-      brand_slug:       brandSlug,
-    }, { onConflict: 'slug' });
+  //     Best-effort — a schema mismatch here must never crash the response since
+  //     the Git commit already succeeded and the article is live via ISR.
+  try {
+    await service
+      .from('content_registry')
+      .upsert({
+        slug:             registryEntry.slug,
+        title:            registryEntry.title,
+        description:      registryEntry.description,
+        publish_date:     registryEntry.publishDate,
+        modified_date:    registryEntry.modifiedDate,
+        category:         registryEntry.category,
+        tags:             registryEntry.tags,
+        author:           registryEntry.author,
+        author_slug:      registryEntry.authorSlug ?? null,
+        priority:         registryEntry.priority,
+        change_frequency: registryEntry.changeFrequency,
+        image_url:        registryEntry.imageUrl ?? null,
+        image_alt:        registryEntry.imageAlt ?? null,
+        article_type:     registryEntry.articleType ?? 'NewsArticle',
+        lifecycle:        registryEntry.lifecycle ?? 'news',
+        breaking:         registryEntry.breaking ?? false,
+        brand_slug:       brandSlug,
+      }, { onConflict: 'slug' });
+  } catch (err) {
+    console.error('[publish] content_registry upsert failed (non-fatal):', err);
+  }
 
   // 11b. Upsert routing_table — maps the article's public URL to its immutable content_id.
   //      This is the core of the decoupled routing layer: the Git file is addressed by

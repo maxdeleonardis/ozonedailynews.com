@@ -244,16 +244,21 @@ export async function POST(req: NextRequest) {
     extra:        newExtra,
   }).eq('slug', article.slug);
 
-  await service.from('content_registry')
-    .update({
-      title:         registryEntry.title,
-      description:   registryEntry.description,
-      modified_date: nowIso,
-      image_url:     registryEntry.imageUrl ?? null,
-      image_alt:     registryEntry.imageAlt ?? null,
-      tags:          registryEntry.tags,
-    })
-    .eq('slug', registryEntry.slug);
+  // Best-effort registry sync — must not crash if schema is behind
+  try {
+    await service.from('content_registry')
+      .update({
+        title:         registryEntry.title,
+        description:   registryEntry.description,
+        modified_date: nowIso,
+        image_url:     registryEntry.imageUrl ?? null,
+        image_alt:     registryEntry.imageAlt ?? null,
+        tags:          registryEntry.tags,
+      })
+      .eq('slug', registryEntry.slug);
+  } catch (err) {
+    console.error('[update] content_registry update failed (non-fatal):', err);
+  }
 
   // 13. Bust caches so the fresh dateModified propagates immediately
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonedailynews.com';

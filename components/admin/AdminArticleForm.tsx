@@ -70,7 +70,6 @@ interface InitialData {
   thumbnail_alt?: string;
   breaking?:     boolean;
   trending?:     boolean;
-  exclusive?:    boolean;
   published_at?: string;
   metadata?: {
     title?:       string;
@@ -261,7 +260,6 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const [thumbnailAlt,    setThumbnailAlt]  = useState(initialData?.thumbnail_alt ?? '');
   const [breaking,        setBreaking]      = useState(initialData?.breaking ?? false);
   const [trending,        setTrending]      = useState(initialData?.trending ?? false);
-  const [exclusive,       setExclusive]     = useState(initialData?.exclusive ?? false);
   const [publishedAt,     setPublishedAt]   = useState(initialData?.published_at ?? isoNow());
   const [metaTitle,       setMetaTitle]     = useState(initialData?.metadata?.title ?? '');
   const [metaDesc,        setMetaDesc]      = useState(initialData?.metadata?.description ?? '');
@@ -310,7 +308,6 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       thumbnail_alt: thumbnailAlt,
       breaking,
       trending,
-      exclusive,
       published_at:  publishedAt,
       publish_date:  displayDate(publishedAt),
       url:           metaCanonical,
@@ -581,7 +578,6 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
               {[
                 { label: 'Breaking', val: breaking, set: setBreaking },
                 { label: 'Trending', val: trending, set: setTrending },
-                { label: 'Exclusive', val: exclusive, set: setExclusive },
               ].map(({ label, val, set }) => (
                 <label key={label} className="flex items-center gap-1.5 text-sm text-gray-700 cursor-pointer">
                   <input

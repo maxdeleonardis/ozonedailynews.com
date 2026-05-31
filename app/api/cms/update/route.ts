@@ -216,7 +216,8 @@ export async function POST(req: NextRequest) {
   const registryContent = fs.readFileSync(registryPath, 'utf8');
 
   // 11. Commit atomically
-  const commitMessage = `${correctionType}: ${merged.title} — ${correctionEntry.note.slice(0, 72)}`;
+  // Corrections never need a full rebuild — ISR busts the cache instantly.
+  const commitMessage = `${correctionType}: ${merged.title} — ${correctionEntry.note.slice(0, 72)} [skip ci]`;
   const commitResult = await commitFilesAtomically(
     GITHUB_OWNER, GITHUB_REPO, branch, GITHUB_TOKEN,
     [

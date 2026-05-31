@@ -265,7 +265,12 @@ export async function POST(req: NextRequest) {
   ];
 
   // 9. Commit all files atomically (retries up to 3x on concurrency collision)
-  const commitMessage = `publish: ${article.title}`;
+  // New articles get a full Vercel rebuild so static paths and sitemaps refresh.
+  // Re-publishes of existing articles skip the rebuild — ISR already made them live.
+  const isRepublish = article.status === 'published';
+  const commitMessage = isRepublish
+    ? `publish: ${article.title} [skip ci]`
+    : `publish: ${article.title}`;
   const commitResult = await commitFilesAtomically(
     GITHUB_OWNER,
     GITHUB_REPO,
@@ -371,6 +376,8 @@ export async function POST(req: NextRequest) {
     url: articleUrl,
     filesCommitted: filesToCommit.map((f) => f.path),
     warnings: eeatWarnings.length > 0 ? eeatWarnings : undefined,
-    message: `Published. Cache busted instantly via ISR. Git deploy running in background on ${branch}.`,
+    message: isRepublish
+      ? `Updated and live instantly via ISR. Git synced (no rebuild — [skip ci]).`
+      : `Published. Full site rebuild triggered on ${branch}. Live within ~2 min.`,
   });
 }

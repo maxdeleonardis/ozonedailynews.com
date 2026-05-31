@@ -4,7 +4,7 @@
 // Full article editor form. Used by both /admin/articles/new and /admin/articles/edit/[slug].
 // Saves draft to Supabase. Publish button calls the Git bridge API.
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import MediaUpload from '@/components/admin/MediaUpload';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -83,6 +83,165 @@ interface InitialData {
 interface Props {
   initialData?: InitialData;
   isEdit?: boolean;
+}
+
+// ─── QA Debug Panel ───────────────────────────────────────────────────────────
+
+const AI_PHRASES = [
+  'in conclusion', 'it is important to note', 'it is important to remember',
+  'furthermore, it is crucial', "in today's fast-paced world",
+  'in the ever-evolving landscape', 'it is worth noting that',
+  'moreover, it should be noted', 'navigating the complex', 'delve into', 'in summary',
+];
+
+type CheckResult = { label: string; detail: string; tone: 'ok' | 'warn' | 'err' };
+
+function runChecks(fields: {
+  title: string; contentHtml: string; metaTitle: string;
+  metaDesc: string; metaCanonical: string; publishedAt: string; authorSlug: string;
+}): CheckResult[] {
+  const { title, contentHtml, metaTitle, metaDesc, metaCanonical, publishedAt, authorSlug } = fields;
+  const checks: CheckResult[] = [];
+  const plainText = contentHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const words     = plainText.split(' ').filter(Boolean);
+  const lower     = contentHtml.toLowerCase();
+
+  // ── Word count ──────────────────────────────────────────────────────────────
+  checks.push(words.length >= 300
+    ? { label: 'Word count', detail: `${words.length} words`, tone: 'ok' }
+    : { label: 'Word count', detail: `${words.length} / 300 minimum`, tone: words.length >= 200 ? 'warn' : 'err' });
+
+  // ── H2 tag ───────────────────────────────────────────────────────────────────
+  checks.push(/<h2[\s>]/i.test(contentHtml)
+    ? { label: 'H2 present', detail: 'At least one <h2> found', tone: 'ok' }
+    : { label: 'H2 missing', detail: 'Add at least one <h2> section heading', tone: 'err' });
+
+  // ── Em / en dash in title ────────────────────────────────────────────────────
+  const titleDash = /[—–]/.exec(title);
+  checks.push(titleDash
+    ? { label: 'Title em dash', detail: `"${title.slice(Math.max(0, titleDash.index - 12), titleDash.index + 13)}" — replace with | or comma`, tone: 'warn' }
+    : { label: 'Title clean', detail: 'No em/en dashes in title', tone: 'ok' });
+
+  // ── Em / en dash in content ─────────────────────────────────────────────────
+  const contentDash = /[—–]/.exec(contentHtml);
+  if (contentDash) {
+    const before = contentHtml.slice(0, contentDash.index);
+    const lineNum = (before.match(/\n/g) ?? []).length + 1;
+    const snippet = contentHtml.slice(Math.max(0, contentDash.index - 20), contentDash.index + 21)
+      .replace(/<[^>]+>/g, '').trim();
+    checks.push({ label: 'Em dash in content', detail: `Near line ${lineNum}: "…${snippet}…"`, tone: 'warn' });
+  } else {
+    checks.push({ label: 'Content dashes', detail: 'No em/en dashes found', tone: 'ok' });
+  }
+
+  // ── AI boilerplate ───────────────────────────────────────────────────────────
+  const foundPhrases = AI_PHRASES.filter((p) => lower.includes(p));
+  if (foundPhrases.length > 0) {
+    checks.push({ label: 'AI phrases', detail: foundPhrases.map((p) => `"${p}"`).join(', '), tone: 'warn' });
+  } else {
+    checks.push({ label: 'AI phrases', detail: 'None detected', tone: 'ok' });
+  }
+
+  // ── Meta description ─────────────────────────────────────────────────────────
+  const dl = metaDesc.length;
+  if (dl === 0) {
+    checks.push({ label: 'Meta description', detail: 'Empty — required', tone: 'err' });
+  } else if (dl < 130) {
+    checks.push({ label: 'Meta description', detail: `${dl} chars — need ${130 - dl} more (130-155)`, tone: 'warn' });
+  } else if (dl > 155) {
+    checks.push({ label: 'Meta description', detail: `${dl} chars — ${dl - 155} over limit (130-155)`, tone: 'warn' });
+  } else {
+    checks.push({ label: 'Meta description', detail: `${dl} chars — good`, tone: 'ok' });
+  }
+
+  // ── Meta title ───────────────────────────────────────────────────────────────
+  const mtl = metaTitle.length;
+  if (mtl === 0) {
+    checks.push({ label: 'Meta title', detail: 'Empty — will fall back to article title', tone: 'warn' });
+  } else if (mtl > 60) {
+    checks.push({ label: 'Meta title', detail: `${mtl} chars — ${mtl - 60} over 60-char limit`, tone: 'warn' });
+  } else {
+    checks.push({ label: 'Meta title', detail: `${mtl} / 60 chars`, tone: 'ok' });
+  }
+
+  // ── Canonical URL ────────────────────────────────────────────────────────────
+  checks.push(metaCanonical.startsWith('https://')
+    ? { label: 'Canonical URL', detail: metaCanonical, tone: 'ok' }
+    : { label: 'Canonical URL', detail: metaCanonical ? 'Must start with https://' : 'Missing', tone: 'err' });
+
+  // ── Publish date ─────────────────────────────────────────────────────────────
+  const isoTz = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}/;
+  checks.push(isoTz.test(publishedAt)
+    ? { label: 'Publish date', detail: publishedAt, tone: 'ok' }
+    : { label: 'Publish date', detail: 'Must be ISO-8601 with TZ offset, e.g. 2026-05-26T14:00:00-05:00', tone: 'err' });
+
+  // ── Author ────────────────────────────────────────────────────────────────────
+  const knownSlugs = KNOWN_AUTHORS.map((a) => a.slug);
+  checks.push(knownSlugs.includes(authorSlug)
+    ? { label: 'Author', detail: authorSlug, tone: 'ok' }
+    : { label: 'Author', detail: `"${authorSlug}" not in known authors list`, tone: 'err' });
+
+  return checks;
+}
+
+function QAPanel(props: {
+  title: string; contentHtml: string; metaTitle: string;
+  metaDesc: string; metaCanonical: string; publishedAt: string; authorSlug: string;
+}) {
+  const checks = useMemo(() => runChecks(props), [
+    props.title, props.contentHtml, props.metaTitle,
+    props.metaDesc, props.metaCanonical, props.publishedAt, props.authorSlug,
+  ]);
+
+  const counts = { ok: 0, warn: 0, err: 0 };
+  for (const c of checks) counts[c.tone]++;
+
+  return (
+    <div className="w-72 shrink-0">
+      <div className="sticky top-6 space-y-3">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500">Article QA</h2>
+          <div className="flex items-center gap-1.5 text-xs">
+            {counts.err > 0   && <span className="bg-red-100    text-red-700    px-1.5 py-0.5 rounded-full font-medium">{counts.err} ✗</span>}
+            {counts.warn > 0  && <span className="bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded-full font-medium">{counts.warn} !</span>}
+            {counts.ok > 0    && <span className="bg-green-100  text-green-700  px-1.5 py-0.5 rounded-full font-medium">{counts.ok} ✓</span>}
+          </div>
+        </div>
+
+        {/* Checks */}
+        <div className="border border-gray-200 rounded-lg overflow-hidden divide-y divide-gray-100">
+          {checks.map((c) => (
+            <div key={c.label} className={`px-3 py-2.5 text-xs ${
+              c.tone === 'err'  ? 'bg-red-50'    :
+              c.tone === 'warn' ? 'bg-yellow-50' : 'bg-white'
+            }`}>
+              <div className="flex items-center gap-1.5 font-medium">
+                <span className={
+                  c.tone === 'err'  ? 'text-red-500'    :
+                  c.tone === 'warn' ? 'text-yellow-600' : 'text-green-600'
+                }>
+                  {c.tone === 'err' ? '✗' : c.tone === 'warn' ? '!' : '✓'}
+                </span>
+                <span className={
+                  c.tone === 'err'  ? 'text-red-800'    :
+                  c.tone === 'warn' ? 'text-yellow-800' : 'text-gray-700'
+                }>{c.label}</span>
+              </div>
+              <p className={`mt-0.5 leading-snug pl-4 ${
+                c.tone === 'err'  ? 'text-red-600'    :
+                c.tone === 'warn' ? 'text-yellow-700' : 'text-gray-400'
+              }`}>{c.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-xs text-gray-400 leading-relaxed">
+          Updates live as you type. All checks are suggestions — publish is never blocked.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -265,7 +424,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const descOk  = descLen >= 130 && descLen <= 155;
 
   return (
-    <div className="max-w-4xl">
+    <div className="flex gap-8 items-start">
+      {/* ── Left: form ──────────────────────────────────────────────────── */}
+      <div className="flex-1 min-w-0">
       {/* Feedback */}
       {message && (
         <div className={`mb-6 px-4 py-3 rounded text-sm ${
@@ -631,6 +792,17 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
           </a>
         </div>
       </div>
+
+      {/* ── Right: QA panel ─────────────────────────────────────────────── */}
+      <QAPanel
+        title={title}
+        contentHtml={contentHtml}
+        metaTitle={metaTitle}
+        metaDesc={metaDesc}
+        metaCanonical={metaCanonical}
+        publishedAt={publishedAt}
+        authorSlug={authorSlug}
+      />
     </div>
   );
 }

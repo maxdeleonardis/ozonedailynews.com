@@ -85,13 +85,9 @@ export async function PUT(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  // Cannot edit a published article through the CMS (edit the static JSON in Git instead)
-  if (existing.status === 'published') {
-    return NextResponse.json(
-      { error: 'Published articles cannot be edited via the CMS. Edit the static JSON file in Git directly.' },
-      { status: 409 }
-    );
-  }
+  // Published articles can be edited and re-published — the publish API will
+  // overwrite the existing static JSON on GitHub. Only drafts/review are saved
+  // as status changes; the 'published' status is preserved by stripping it below.
 
   let body: Record<string, unknown>;
   try {

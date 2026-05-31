@@ -111,7 +111,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
 
   const [saving,          setSaving]        = useState(false);
   const [publishing,      setPublishing]    = useState(false);
-  const [message,         setMessage]       = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+  const [message,         setMessage]       = useState<{ type: 'ok' | 'err'; text: string; details?: string[] } | null>(null);
 
   // Auto-generate slug from title (only if not editing and slug hasn't been manually set)
   const [slugLocked, setSlugLocked] = useState(isEdit);
@@ -163,8 +163,8 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     };
   }
 
-  async function handleSaveDraft() {
-    if (!slug) return setMessage({ type: 'err', text: 'Slug is required.' });
+  async function handleSaveDraft(): Promise<boolean> {
+    if (!slug) { setMessage({ type: 'err', text: 'Slug is required.' }); return false; }
     setSaving(true);
     setMessage(null);
     try {
@@ -183,12 +183,16 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       if (res.ok) {
         setMessage({ type: 'ok', text: `Draft saved. Slug: ${json.slug ?? slug}` });
         if (!isEdit) {
-          // Redirect to edit page after first save
           window.location.href = `/admin/articles/edit/${json.slug ?? slug}`;
         }
+        return true;
       } else {
         setMessage({ type: 'err', text: json.error ?? 'Save failed.' });
+        return false;
       }
+    } catch (err) {
+      setMessage({ type: 'err', text: `Save error: ${err instanceof Error ? err.message : String(err)}` });
+      return false;
     } finally {
       setSaving(false);
     }
@@ -201,8 +205,12 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     setPublishing(true);
     setMessage(null);
 
-    // Save latest changes first
-    await handleSaveDraft();
+    // Save latest changes first — abort if save fails so we don't publish stale content
+    const saved = await handleSaveDraft();
+    if (!saved) {
+      setPublishing(false);
+      return;
+    }
 
     try {
       const res  = await fetch('/api/cms/publish', {
@@ -224,8 +232,11 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
           text: `Published to GitHub. ${json.message ?? ''} Live URL: ${json.url ?? ''}`,
         });
       } else {
-        const detail = json.details ? json.details.join('\n') : (json.error ?? 'Publish failed.');
-        setMessage({ type: 'err', text: detail });
+        setMessage({
+          type: 'err',
+          text: json.error ?? 'Publish failed.',
+          details: json.details,
+        });
       }
     } finally {
       setPublishing(false);
@@ -247,12 +258,22 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     <div className="max-w-4xl">
       {/* Feedback */}
       {message && (
-        <div className={`mb-6 px-4 py-3 rounded text-sm whitespace-pre-wrap ${
+        <div className={`mb-6 px-4 py-3 rounded text-sm ${
           message.type === 'ok'
             ? 'bg-green-50 text-green-800 border border-green-200'
             : 'bg-red-50 text-red-800 border border-red-200'
         }`}>
-          {message.text}
+          <p className="font-medium">{message.text}</p>
+          {message.details && message.details.length > 0 && (
+            <ul className="mt-2 space-y-1 list-none">
+              {message.details.map((d, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0">✗</span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
 

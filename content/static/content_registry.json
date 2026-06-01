@@ -76,6 +76,32 @@
     "breaking": false
   },
   {
+    "slug": "/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026",
+    "title": "Nvidia GeForce RTX 5070 Review | The Midrange Blackwell Dilemma in 2026",
+    "description": "The GB205 delivers real gains at 1440p and remarkable local AI throughput. But a 12GB frame buffer at $549 MSRP forces an honest question about long-term value.",
+    "publishDate": "2026-05-30",
+    "modifiedDate": "2026-05-30",
+    "category": "Tech",
+    "tags": [
+      "Nvidia",
+      "RTX 5070",
+      "Blackwell",
+      "GPU",
+      "Gaming",
+      "DLSS 4",
+      "1440p",
+      "AI Inference"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=1200&h=675&fit=crop",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/pigeon-magnetic-navigation-liver-macrophages-science-2026",
     "title": "Pigeon Navigation | Magnetic Compass Found in Liver, Not Brain",
     "description": "Pigeon magnetic navigation relies on iron-rich liver macrophages, not the brain. A Science study from University of Bonn rewrites how birds find their way home.",

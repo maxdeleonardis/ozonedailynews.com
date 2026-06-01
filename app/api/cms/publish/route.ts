@@ -214,11 +214,25 @@ export async function POST(req: NextRequest) {
 
   const jsonContent = JSON.stringify(finalArticle, null, 2);
 
-  // Two file paths for full backward compatibility:
-  //   1. content/articles/[content_id].json — new ID-addressed path (permanent, never moves)
-  //   2. content/static/articles/[slug].json — legacy slug path (existing resolution chain)
+  // File paths for the atomic Git commit:
+  //   1. content/articles/[content_id].json  — ID-addressed path (permanent, never moves)
+  //   2. content/static/articles/[slug].json — legacy slug path (routing resolution chain)
+  //   3. content/static/[type_dir]/[slug].json — type-specific dir read by *DB components
+  //      e.g. JackArticleDB reads content/static/jack_articles/, ArticlePageDB reads
+  //      content/static/article_pages/, etc.  Without this, re-publishing a jack_article
+  //      leaves the live content stale because the *DB component never sees the new JSON.
   const idFilePath   = `content/articles/${contentId}.json`;
   const jsonFilePath = `content/static/articles/${article.slug}.json`;
+
+  // Derive the type-specific subdirectory (mirrors what each *DB component reads from)
+  const articleTypeDir: Record<string, string> = {
+    jack_article:    'jack_articles',
+    article_page:    'article_pages',
+    creator_article: 'creator_articles',
+    wiki_article:    'wiki_articles',
+  };
+  const typeDir = articleTypeDir[article.article_type ?? ''];
+  const typeFilePath = typeDir ? `content/static/${typeDir}/${article.slug}.json` : null;
 
   // 8. Build registry entry and upsert locally (busts in-process cache immediately)
   //    app/[...slug]/page.tsx handles all routing — NO page.tsx stubs are generated.
@@ -261,6 +275,7 @@ export async function POST(req: NextRequest) {
   const filesToCommit: Array<{ path: string; content: string }> = [
     { path: idFilePath,                                         content: jsonContent },
     { path: jsonFilePath,                                       content: jsonContent },
+    ...(typeFilePath ? [{ path: typeFilePath,                   content: jsonContent }] : []),
     { path: 'content/static/content_registry.json',            content: registryContent },
   ];
 

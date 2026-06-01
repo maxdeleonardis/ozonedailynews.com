@@ -39,11 +39,26 @@ interface ArticlePageDBProps {
 }
 
 export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
-  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
+  // Supabase first — edits are live on next request without a GitHub commit.
+  // Static JSON is the fallback for local dev / Supabase offline.
+  let rowRaw: Record<string, unknown> | null = null;
+
+  const supabase = await createClient();
+  if (supabase) {
+    const { data } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single();
+    rowRaw = data ?? null;
+  }
+
+  if (!rowRaw) rowRaw = loadStaticRow(slug);
   if (!rowRaw) {
-    const supabase = await createClient();
-    if (supabase) {
-      const { data } = await supabase
+    const supabaseAlt = await createClient();
+    if (supabaseAlt) {
+      const { data } = await supabaseAlt
         .from('article_pages')
         .select('*')
         .eq('slug', slug)

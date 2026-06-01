@@ -41,19 +41,25 @@ interface JackArticleDBProps {
 }
 
 export async function JackArticleDB({ slug }: JackArticleDBProps) {
-  // Try static file first, fallback to Supabase
-  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
-  if (!rowRaw) {
-    const supabase = await createClient();
-    if (supabase) {
-      const { data } = await supabase
-        .from('jack_articles')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-      rowRaw = data ?? null;
-    }
+  // Check Supabase articles table first — this means a "Save Draft" in the admin
+  // panel is live on the NEXT page load with zero GitHub commits required.
+  // Static file is the fallback (used in local dev / when Supabase is unavailable).
+  let rowRaw: Record<string, unknown> | null = null;
+
+  const supabase = await createClient();
+  if (supabase) {
+    const { data } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single();
+    rowRaw = data ?? null;
   }
+
+  // Fallback to static JSON (local dev, Supabase offline, or article not yet in DB)
+  if (!rowRaw) rowRaw = loadStaticRow(slug);
+
   if (!rowRaw) notFound();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const row = rowRaw as any;

@@ -39,31 +39,29 @@ interface ArticlePageDBProps {
 }
 
 export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
-  // Supabase first — edits are live on next request without a GitHub commit.
-  // Static JSON is the fallback for local dev / Supabase offline.
-  let rowRaw: Record<string, unknown> | null = null;
+  // Static JSON is source of truth — always read it first so the Git-committed
+  // version always wins over any stale Supabase row from a mis-routed update.
+  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
 
-  const supabase = await createClient();
-  if (supabase) {
-    const { data } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single();
-    rowRaw = data ?? null;
-  }
-
-  if (!rowRaw) rowRaw = loadStaticRow(slug);
   if (!rowRaw) {
-    const supabaseAlt = await createClient();
-    if (supabaseAlt) {
-      const { data } = await supabaseAlt
+    const supabase = await createClient();
+    if (supabase) {
+      const { data: pageData } = await supabase
         .from('article_pages')
         .select('*')
         .eq('slug', slug)
         .single();
-      rowRaw = data ?? null;
+      rowRaw = pageData ?? null;
+
+      if (!rowRaw) {
+        const { data: articleData } = await supabase
+          .from('articles')
+          .select('*')
+          .eq('slug', slug)
+          .eq('status', 'published')
+          .single();
+        rowRaw = articleData ?? null;
+      }
     }
   }
   if (!rowRaw) notFound();

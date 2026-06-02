@@ -41,24 +41,36 @@ interface JackArticleDBProps {
 }
 
 export async function JackArticleDB({ slug }: JackArticleDBProps) {
-  // Check Supabase articles table first — this means a "Save Draft" in the admin
-  // panel is live on the NEXT page load with zero GitHub commits required.
-  // Static file is the fallback (used in local dev / when Supabase is unavailable).
-  let rowRaw: Record<string, unknown> | null = null;
+  // Static JSON is source of truth — always read it first. This guarantees the
+  // Git-committed version (with correct article_type + full content) always wins
+  // over any stale Supabase row left by a mis-routed update.
+  let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
 
-  const supabase = await createClient();
-  if (supabase) {
-    const { data } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single();
-    rowRaw = data ?? null;
+  // Only fall back to Supabase when there is no static file (e.g. breaking news
+  // inserted directly into the DB before a Git commit). Always check jack_articles
+  // first, then articles as a legacy fallback.
+  if (!rowRaw) {
+    const supabase = await createClient();
+    if (supabase) {
+      const { data: jackData } = await supabase
+        .from('jack_articles')
+        .select('*')
+        .eq('slug', slug)
+        .eq('status', 'published')
+        .single();
+      rowRaw = jackData ?? null;
+
+      if (!rowRaw) {
+        const { data: articleData } = await supabase
+          .from('articles')
+          .select('*')
+          .eq('slug', slug)
+          .eq('status', 'published')
+          .single();
+        rowRaw = articleData ?? null;
+      }
+    }
   }
-
-  // Fallback to static JSON (local dev, Supabase offline, or article not yet in DB)
-  if (!rowRaw) rowRaw = loadStaticRow(slug);
 
   if (!rowRaw) notFound();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

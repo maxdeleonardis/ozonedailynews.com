@@ -1,10 +1,10 @@
 [
   {
     "slug": "/nasa/artemis-3-timeline-leo-demonstration-2026",
-    "title": "NASA Artemis 3 | Revised Timeline and the LEO Demonstration Profile",
+    "title": "NASA Artemis 3 | ",
     "description": "NASA locks Artemis III into late 2027 as a 463 km LEO crewed demonstration with SpaceX Starship HLS and Blue Moon Mark 1. Lunar landing moves to Artemis IV in 2028.",
-    "publishDate": "2026-05-30",
-    "modifiedDate": "2026-05-30",
+    "publishDate": "2026-05-30T14:00:00+00:00",
+    "modifiedDate": "2026-05-30T14:00:00+00:00",
     "category": "Science",
     "tags": [
       "NASA",
@@ -17,9 +17,10 @@
     ],
     "author": "Max DeLeonardis",
     "authorSlug": "max-deleonardis",
-    "priority": 0.7,
+    "priority": 0.8,
     "changeFrequency": "daily",
     "imageUrl": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+    "imageAlt": "NASA rocket launch pad at Kennedy Space Center at dusk",
     "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": false
@@ -121,7 +122,6 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": null,
     "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": false
@@ -146,7 +146,6 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": null,
     "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": false

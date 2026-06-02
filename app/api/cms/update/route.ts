@@ -285,6 +285,21 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: `GitHub commit failed: ${commitResult.error}` }, { status: 502 });
   }
 
+  // 11b. Write updated JSON to local disk so the dev server reflects changes instantly.
+  //      On production (Railway/Vercel) the process.cwd() files are ephemeral anyway,
+  //      but in local dev this is the only way to see updates without a git pull.
+  try {
+    const idFileAbs   = nodePath.join(process.cwd(), idFilePath);
+    const jsonFileAbs = nodePath.join(process.cwd(), jsonFilePath);
+    fs.mkdirSync(nodePath.dirname(idFileAbs),   { recursive: true });
+    fs.mkdirSync(nodePath.dirname(jsonFileAbs), { recursive: true });
+    fs.writeFileSync(idFileAbs,   jsonContent, 'utf8');
+    fs.writeFileSync(jsonFileAbs, jsonContent, 'utf8');
+  } catch (err) {
+    // Non-fatal — production doesn't need this, dev will just need a git pull
+    console.warn('[update] local disk write skipped:', err);
+  }
+
   // 12. Update Supabase: store ledger + bumped modified in the correct table
   const newExtra = { ...(article.extra ?? {}), corrections, modified_date_iso: nowIso };
   await service.from(resolvedTable).update({

@@ -31,13 +31,21 @@ const ALL_STATUSES = ['all', 'draft', 'review', 'published'] as const;
 
 export default function AdminArticleList({ articles }: Props) {
   const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [search, setSearch]             = useState<string>('');
   const [deleting, setDeleting]         = useState<string | null>(null);
   const [publishing, setPublishing]     = useState<string | null>(null);
   const [message, setMessage]           = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
 
-  const filtered = statusFilter === 'all'
-    ? articles
-    : articles.filter((a) => a.status === statusFilter);
+  const q = search.toLowerCase().trim();
+  const filtered = articles
+    .filter((a) => statusFilter === 'all' || a.status === statusFilter)
+    .filter((a) =>
+      !q ||
+      a.title?.toLowerCase().includes(q) ||
+      a.slug?.toLowerCase().includes(q) ||
+      a.category?.toLowerCase().includes(q) ||
+      a.author_name?.toLowerCase().includes(q)
+    );
 
   async function handleDelete(slug: string, title: string) {
     if (!confirm(`Delete draft "${title}"? This cannot be undone.`)) return;
@@ -89,22 +97,51 @@ export default function AdminArticleList({ articles }: Props) {
 
   return (
     <div>
-      {/* Status filter tabs */}
-      <div className="flex gap-2 mb-4">
-        {ALL_STATUSES.map((s) => (
-          <button
-            key={s}
-            onClick={() => setStatusFilter(s)}
-            className={`px-3 py-1 rounded text-xs font-medium border ${
-              statusFilter === s
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white text-gray-600 border-gray-300 hover:border-gray-400'
-            }`}
+      {/* Search + Status filter row */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-4">
+        {/* Search bar */}
+        <div className="relative flex-1 max-w-sm">
+          <svg
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
           >
-            {s.charAt(0).toUpperCase() + s.slice(1)}
-            {s === 'all' ? ` (${articles.length})` : ` (${articles.filter((a) => a.status === s).length})`}
-          </button>
-        ))}
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+          </svg>
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search by title, slug, category, author…"
+            className="w-full pl-8 pr-3 py-1.5 text-xs border border-gray-300 rounded bg-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+          {search && (
+            <button
+              onClick={() => setSearch('')}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-sm leading-none"
+              aria-label="Clear search"
+            >
+              ×
+            </button>
+          )}
+        </div>
+
+        {/* Status filter tabs */}
+        <div className="flex gap-2 flex-wrap">
+          {ALL_STATUSES.map((s) => (
+            <button
+              key={s}
+              onClick={() => setStatusFilter(s)}
+              className={`px-3 py-1 rounded text-xs font-medium border ${
+                statusFilter === s
+                  ? 'bg-blue-600 text-white border-blue-600'
+                  : 'bg-white text-gray-600 border-gray-300 hover:border-gray-400'
+              }`}
+            >
+              {s.charAt(0).toUpperCase() + s.slice(1)}
+              {s === 'all' ? ` (${articles.length})` : ` (${articles.filter((a) => a.status === s).length})`}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Feedback message */}
@@ -129,7 +166,10 @@ export default function AdminArticleList({ articles }: Props) {
       {/* Table */}
       {filtered.length === 0 ? (
         <p className="text-gray-500 text-sm py-8 text-center">
-          No articles found. <a href="/admin/articles/new" className="text-blue-600 underline">Create one.</a>
+          {q
+            ? <>No articles match &ldquo;<strong>{search}</strong>&rdquo;. <button onClick={() => setSearch('')} className="text-blue-600 underline">Clear search</button></>
+            : <>No articles found. <a href="/admin/articles/new" className="text-blue-600 underline">Create one.</a></>
+          }
         </p>
       ) : (
         <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">

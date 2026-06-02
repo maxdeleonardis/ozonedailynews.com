@@ -325,6 +325,20 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // 9c. Write to local disk so dev server reflects the publish immediately.
+  //     On production the FS is ephemeral; this only matters for local dev.
+  try {
+    const { default: fsSync }   = await import('fs');
+    const { default: pathSync } = await import('path');
+    for (const f of filesToCommit) {
+      const abs = pathSync.join(process.cwd(), f.path);
+      fsSync.mkdirSync(pathSync.dirname(abs), { recursive: true });
+      fsSync.writeFileSync(abs, f.content, 'utf8');
+    }
+  } catch (err) {
+    console.warn('[publish] local disk write skipped:', err);
+  }
+
   // 10. Update Supabase articles row status → published
   await service
     .from('articles')

@@ -524,17 +524,34 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Content Type</label>
-              <select
-                value={articleType}
-                onChange={(e) => setArticleType(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
-              >
-                <option value="news_article">News Article (Standard)</option>
-                <option value="jack_article">Jack Article (Long-form / Investigation)</option>
-                <option value="article_page">Article Page (Evergreen Guide)</option>
-                <option value="creator_article">Creator Article (Influencer Profile)</option>
-                <option value="wiki_article">Wiki Article (Glossary / Definition)</option>
-              </select>
+              {isEdit ? (
+                /* Locked on edit — changing this would swap the page renderer and break the design */
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 flex items-center gap-2 border border-amber-300 bg-amber-50 rounded px-3 py-2 text-sm">
+                    <span className="inline-block w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                    <span className="font-medium text-amber-900">
+                      {articleType === 'jack_article'    ? 'Jack Article (Long-form / Investigation)'  :
+                       articleType === 'article_page'    ? 'Article Page (Evergreen Guide)'            :
+                       articleType === 'creator_article' ? 'Creator Article (Influencer Profile)'      :
+                       articleType === 'wiki_article'    ? 'Wiki Article (Glossary / Definition)'      :
+                                                           'News Article (Standard)'}
+                    </span>
+                  </div>
+                  <span className="text-xs text-amber-700 shrink-0">Locked</span>
+                </div>
+              ) : (
+                <select
+                  value={articleType}
+                  onChange={(e) => setArticleType(e.target.value)}
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
+                >
+                  <option value="news_article">News Article (Standard)</option>
+                  <option value="jack_article">Jack Article (Long-form / Investigation)</option>
+                  <option value="article_page">Article Page (Evergreen Guide)</option>
+                  <option value="creator_article">Creator Article (Influencer Profile)</option>
+                  <option value="wiki_article">Wiki Article (Glossary / Definition)</option>
+                </select>
+              )}
             </div>
           </div>
 

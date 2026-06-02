@@ -103,17 +103,69 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'correction.type must be correction | update | clarification' }, { status: 400 });
   }
 
-  // 3. Load the LIVE article
-  const { data: article, error: fetchErr } = await service
+  // 3. Load the LIVE article — check all stores in priority order so that
+  //    jack_articles, creator_articles, wiki_articles, etc. are all editable.
+  const SUPABASE_TABLE_MAP: Record<string, string> = {
+    jack_article:    'jack_articles',
+    creator_article: 'creator_articles',
+    wiki_article:    'wiki_articles',
+    article_page:    'article_pages',
+    news_article:    'articles',
+  };
+  const STATIC_STORE_MAP: Record<string, string> = {
+    jack_article:    'jack_articles',
+    creator_article: 'creator_articles',
+    wiki_article:    'wiki_articles',
+    article_page:    'article_pages',
+    news_article:    'articles',
+  };
+
+  // Try the primary articles table first, then fan out to typed tables.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let article: Record<string, any> | null = null;
+  const primaryResult = await service
     .from('articles')
     .select('*')
     .eq('slug', body.slug)
     .single();
+  if (!primaryResult.error && primaryResult.data) {
+    article = primaryResult.data;
+  } else {
+    // Fan out to typed Supabase tables
+    for (const table of ['jack_articles', 'creator_articles', 'wiki_articles', 'article_pages']) {
+      const { data, error } = await service
+        .from(table)
+        .select('*')
+        .eq('slug', body.slug)
+        .single();
+      if (!error && data) {
+        article = data;
+        break;
+      }
+    }
+    // Last resort: load from static JSON on disk
+    if (!article) {
+      const { default: fs } = await import('fs');
+      const { default: nodePath } = await import('path');
+      for (const store of Object.values(STATIC_STORE_MAP)) {
+        const fp = nodePath.join(process.cwd(), 'content', 'static', store, `${body.slug}.json`);
+        if (fs.existsSync(fp)) {
+          article = JSON.parse(fs.readFileSync(fp, 'utf8'));
+          break;
+        }
+      }
+    }
+  }
 
-  if (fetchErr || !article) return NextResponse.json({ error: 'Article not found' }, { status: 404 });
-  if (article.status !== 'published') {
+  if (!article) return NextResponse.json({ error: 'Article not found in any store' }, { status: 404 });
+  if (article.status && article.status !== 'published') {
     return NextResponse.json({ error: 'Only published articles can be corrected/updated. Use /api/cms/publish for drafts.' }, { status: 409 });
   }
+
+  // Resolve which static store and Supabase table this article belongs to
+  const resolvedArticleType: string = (article.article_type as string) ?? 'news_article';
+  const resolvedStore = STATIC_STORE_MAP[resolvedArticleType] ?? 'articles';
+  const resolvedTable = SUPABASE_TABLE_MAP[resolvedArticleType] ?? 'articles';
 
   // 4. Brand access check
   const brandSlug = article.brand_slug ?? 'ozone';
@@ -121,10 +173,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Forbidden: not your brand' }, { status: 403 });
   }
 
-  // 5. Apply optional field updates
+  // 5. Apply optional field updates — article_type is ALWAYS preserved from the
+  //    original record so the renderer (JackArticleDB, NewsArticle, etc.) never changes.
   const u = body.updates ?? {};
-  const merged: ArticleFull = {
+  const merged = {
     ...(article as ArticleFull),
+    article_type: resolvedArticleType, // locked — never allow updates to change this
     ...(u.title !== undefined && { title: u.title }),
     ...(u.subtitle !== undefined && { subtitle: u.subtitle }),
     ...(u.content_html !== undefined && { content_html: u.content_html }),
@@ -132,7 +186,7 @@ export async function POST(req: NextRequest) {
     ...(u.thumbnail_alt !== undefined && { thumbnail_alt: u.thumbnail_alt }),
     ...(u.tags !== undefined && { tags: u.tags }),
     ...(u.metadata !== undefined && { metadata: { ...(article.metadata ?? {}), ...u.metadata } }),
-  };
+  } as ArticleFull & { article_type: string };
 
   // 6. E-E-A-T suggestions (non-blocking)
   const eeatWarnings = runEeatGate(merged);
@@ -179,7 +233,7 @@ export async function POST(req: NextRequest) {
   const jsonContent = JSON.stringify(finalArticle, null, 2);
 
   const idFilePath   = `content/articles/${contentId}.json`;
-  const jsonFilePath = `content/static/articles/${article.slug}.json`;
+  const jsonFilePath = `content/static/${resolvedStore}/${article.slug}.json`;
 
   // 10. Build registry entry — bump modifiedDate, KEEP original publishDate
   const canonical = merged.metadata?.alternates?.canonical ?? '';
@@ -231,9 +285,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: `GitHub commit failed: ${commitResult.error}` }, { status: 502 });
   }
 
-  // 12. Update Supabase: store ledger + bumped modified in articles.extra
+  // 12. Update Supabase: store ledger + bumped modified in the correct table
   const newExtra = { ...(article.extra ?? {}), corrections, modified_date_iso: nowIso };
-  await service.from('articles').update({
+  await service.from(resolvedTable).update({
     title:        merged.title,
     subtitle:     merged.subtitle,
     content_html: merged.content_html,

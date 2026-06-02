@@ -13668,8 +13668,7 @@
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,
-    "change_frequency": "weekly",
-    "image_url": "https://www.OzoneNews.org${SLUG}"
+    "change_frequency": "weekly"
   },
   {
     "slug": "/video-games/playstation-state-of-play-june-2026-preview",
@@ -13701,7 +13700,6 @@
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,
-    "change_frequency": "weekly",
-    "image_url": "https://www.OzoneNews.org${SLUG}"
+    "change_frequency": "weekly"
   }
 ]

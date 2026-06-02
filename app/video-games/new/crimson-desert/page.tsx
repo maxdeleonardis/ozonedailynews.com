@@ -1,53 +1,47 @@
 import type { Metadata } from 'next';
-import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
+import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
-// Page renders dynamically â€” content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
+export const dynamic = 'force-dynamic';
 
-
-const SLUG = '/video-games/news/crimson-desert';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
+const SLUG = '/video-games/new/crimson-desert';
 
 export const metadata: Metadata = {
-  title: 'Crimson Desert Hits 3 Million Wishlists Before March 19',
-  description:
-    'Pearl Abyss\'s open-world action RPG Crimson Desert crossed 3 million wishlists across PC, PS5, Xbox Series X|S, and Mac ahead of its March 19, 2026 launch. The map is twice the size of Skyrim.',
+  title: 'Crimson Desert | Release Date, Story, Gameplay & News 2026',
+  description: 'Everything confirmed about Crimson Desert by Pearl Abyss, covering release date, story, gameplay mechanics, map size, platforms, and all the latest news for the open-world action RPG.',
   keywords: [
-    'Crimson Desert wishlists',
+    'Crimson Desert',
     'Crimson Desert release date',
-    'Crimson Desert March 19 2026',
+    'Crimson Desert gameplay',
+    'Crimson Desert story',
     'Pearl Abyss Crimson Desert',
-    'Crimson Desert 3 million wishlists',
-    'Crimson Desert open world',
+    'Crimson Desert PS5',
+    'Crimson Desert PC Steam',
+    'Crimson Desert map size',
     'Crimson Desert Kliff Greymanes',
-    'Crimson Desert vs Elden Ring wishlists',
-    'Crimson Desert Pywel',
+    'Crimson Desert open world RPG 2026',
+    'Crimson Desert vs Elden Ring',
+    'Crimson Desert wishlist Steam',
     'Crimson Desert single player',
-    'Pearl Abyss Black Desert',
-    'Crimson Desert map size Skyrim',
+    'Crimson Desert 2026',
   ],
-  alternates: { canonical: ARTICLE_URL },
+  alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
-    title: 'Crimson Desert Hits 3M Wishlists | Pearl Abyss Open-World RPG',
-    description:
-      '3 million wishlists across PC, PS5, Xbox, and Mac. A map twice Skyrim\'s size. Pearl Abyss pivots from MMO to single-player action RPG ahead of March 19',
+    title: 'Crimson Desert | Release Date, Story & Gameplay 2026',
+    description: 'Full hub for Crimson Desert by Pearl Abyss. Release date, map size, story, platforms, and all confirmed details for the open-world action RPG.',
     type: 'article',
-    url: ARTICLE_URL,
+    url: `https://www.OzoneNews.org${SLUG}`,
     siteName: 'OzoneNews',
-    authors: ['Connan Boyle'],
-    publishedTime: '2026-03-01T00:00:00Z',
-    modifiedTime: '2026-03-01T00:00:00Z',
+    authors: ['Rudy Sinigur'],
     section: 'Gaming',
-    tags: ['Crimson Desert', 'Pearl Abyss', 'RPG', 'Open World', 'PS5', 'Xbox', 'Steam'],
+    tags: ['Crimson Desert', 'Pearl Abyss', 'Open World RPG', 'PS5', 'Gaming'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crimson Desert | 3M Wishlists Before March 19 Launch',
-    description:
-      'Pearl Abyss\'s single-player pivot rivals Elden Ring and Starfield in pre-launch wishlists. Open world twice Skyrim\'s size. Launches March 19.',
+    title: 'Crimson Desert | Everything Confirmed So Far',
+    description: 'Release date, map twice Skyrim, story, platforms, all confirmed Crimson Desert details in one place.',
   },
 };
 
-export default function CrimsonDesertPage() {
-  return <NewsArticleDB slug="video-games-new-crimson-desert" />;
+export default function CrimsonDesertHubPage() {
+  return <ArticlePageDB slug="video-games-new-crimson-desert" />;
 }

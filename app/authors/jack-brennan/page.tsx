@@ -49,6 +49,9 @@ export default function JackBrennanAuthorPage() {
         description="Jack Brennan is OzoneNews's Creator & Influencer Reporter, documenting the economics, culture, and policy landscape of the digital creator industry from New York."
         url="https://www.ozonenetwork.news/authors/jack-brennan"
         image="https://www.ozonenetwork.news/influncer/author/jack_brennen.JPG"
+        sameAs={[
+          'https://www.facebook.com/jack.brennan.3158',
+        ]}
         knowsAbout={['Creator Economy', 'Influencer Marketing', 'TikTok', 'Instagram', 'YouTube', 'Platform Policy', 'Social Commerce', 'Digital Media']}
         location={{ city: 'New York', region: 'NY' }}
         articleCount={20}
@@ -121,6 +124,14 @@ export default function JackBrennanAuthorPage() {
           >
             ✉ j.brennan@ozonenetwork.news
           </a>
+          <a
+            href="https://www.facebook.com/jack.brennan.3158"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline transition-colors"
+          >
+            f Facebook
+          </a>
         </div>
       </div>
 
@@ -157,15 +168,25 @@ export default function JackBrennanAuthorPage() {
               ))}
             </div>
 
-            {/* Contact */}
+            {/* Contact & Social */}
             <div className="border border-purple-100 px-5 py-4">
-              <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-3">Contact</p>
-              <a
-                href="mailto:j.brennan@ozonenetwork.news"
-                className="block text-sm text-blue-600 hover:text-blue-800 underline transition-colors"
-              >
-                ✉ j.brennan@ozonenetwork.news
-              </a>
+              <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-3">Contact &amp; Social</p>
+              <div className="space-y-2">
+                <a
+                  href="mailto:j.brennan@ozonenetwork.news"
+                  className="block text-sm text-blue-600 hover:text-blue-800 underline transition-colors"
+                >
+                  ✉ j.brennan@ozonenetwork.news
+                </a>
+                <a
+                  href="https://www.facebook.com/jack.brennan.3158"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm text-blue-600 hover:text-blue-800 underline transition-colors"
+                >
+                  f Facebook
+                </a>
+              </div>
             </div>
 
             {/* Editorial */}

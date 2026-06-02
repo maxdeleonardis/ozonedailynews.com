@@ -4,6 +4,119 @@
 
 ---
 
+
+
+Let me pull up that article and review the current content landscape first. 
+
+Using "Fetch Web Page"
+
+Fetched https://www.ozonenetwork.news/youtube/adsense-cpm-rates-may-2026
+
+Read [](file:///Users/thelegendofzjui/Documents/GitHub/Object-Network26-/content/static/articles)
+
+Let me check the article's JSON file to update the byline to Rudy: 
+
+Read [](file:///Users/thelegendofzjui/Documents/GitHub/Object-Network26-/content/static/articles/youtube-adsense-cpm-rates-may-2026-niche-breakdown.json#1-1), lines 1 to 40
+
+Now I'll update the byline to Rudy Sinigur: 
+
+Using "Replace String in File"
+
+
+```
+
+```
+Also update the page.tsx for the article to reflect the new author. Let me find it: 
+
+Searched for files matching `**/app/youtube/adsense-cpm-rates-may-2026*`, 1 match
+
+Read [](file:///Users/thelegendofzjui/Documents/GitHub/Object-Network26-/app/youtube/adsense-cpm-rates-may-2026/page.tsx#1-1), lines 1 to 50
+
+Using "Replace String in File"
+
+
+```
+
+```
+Done. Now here's the full content plan for creator economy articles in this same vein:
+
+---
+
+## Rudy Sinigur | Byline Updated on AdSense CPM Article
+
+The `/youtube/adsense-cpm-rates-may-2026` article is now bylined to **Rudy Sinigur** in both the static JSON and page.tsx metadata. His author page at `/authors/rudy-sinigur` will auto-populate his article feed.
+
+---
+
+## Creator Economy Content Plan | Same Lens as the CPM Article
+
+The AdSense CPM article works because it answers **a real dollar question creators are actively Googling** with specific data, named figures, and a forward-looking strategy section. Here are 12 articles in the same vein, organized by cluster:
+
+---
+
+### Cluster 1 | YouTube Monetization Data (Hub: `/youtube`)
+Assign to: **Rudy Sinigur**
+
+| Title | Slug | Search Intent |
+|---|---|---|
+| YouTube AdSense CPM Rates June 2026, Niche Breakdown and Q3 Outlook | `/youtube/adsense-cpm-rates-june-2026` | Monthly recurring — publish 1st of every month |
+| YouTube RPM Calculator 2026, How to Estimate Your Real Creator Income | `/youtube/rpm-calculator-how-to-estimate-creator-income-2026` | High evergreen, 40K+ searches/mo |
+| YouTube Shorts RPM vs Long-Form 2026, Which Format Pays More | `/youtube/shorts-rpm-vs-long-form-revenue-comparison-2026` | Huge creator debate, very searchable |
+| YouTube Channel Membership Pricing 2026, Tiers, Revenue Split, Strategy | `/youtube/channel-membership-pricing-revenue-strategy-2026` | Growing search term as creators diversify |
+
+---
+
+### Cluster 2 | Platform Monetization Comparisons (Hub: `/youtube` or `/finance`)
+Assign to: **Rudy Sinigur** or **Alfasa**
+
+| Title | Slug | Search Intent |
+|---|---|---|
+| TikTok Creator Fund vs YouTube AdSense 2026, Which Platform Pays More | `/youtube/tiktok-creator-fund-vs-youtube-adsense-2026` | Direct comparison, massive search volume |
+| Instagram Reels Bonus Program 2026, Payout Rates, Eligibility, How It Compares to YouTube | `/tech/instagram-reels-bonus-payout-rates-2026` | Facebook/Meta just expanded this program |
+| Twitch Payout Rates 2026, Affiliate vs Partner Revenue Breakdown | `/tech/twitch-payout-rates-affiliate-partner-2026` | Twitch creators actively search this |
+
+---
+
+### Cluster 3 | Creator Business and Economics (Hub: `/finance` or `/youtube`)
+Assign to: **Rudy Sinigur**
+
+| Title | Slug | Search Intent |
+|---|---|---|
+| How Much YouTube Pays Per 1,000 Views in 2026, Real Creator Data by Niche | `/youtube/how-much-youtube-pays-per-1000-views-2026` | The single highest-volume search in creator economy |
+| YouTube Super Thanks and Super Chat Revenue 2026, Are Fan Funding Features Worth It | `/youtube/super-thanks-super-chat-revenue-worth-it-2026` | Active creator question, no good data articles |
+| Creator Economy Revenue Mix 2026, AdSense vs Memberships vs Brand Deals vs Merch | `/youtube/creator-economy-revenue-mix-2026-breakdown` | Analysis piece, information gain angle |
+
+---
+
+### Cluster 4 | Adjacent Creator Platform News (Hub: `/tech` or `/youtube`)
+Assign to: **William Rodriguez** (news) or **Rudy** (data)
+
+| Title | Slug | Search Intent |
+|---|---|---|
+| YouTube Premium Price Increase Impact on Creators 2026, RPM Shift Explained | `/youtube/premium-price-increase-creator-rpm-impact-2026` | Spin-off from the CPM article, already referenced in it |
+| YouTube Ad Revenue Q2 2026 Results, What Creator Earnings Data Shows | `/youtube/ad-revenue-q2-2026-creator-earnings-data` | Publish when Alphabet Q2 earnings drop (late July) |
+
+---
+
+## Pruning Plan Preview
+
+Before starting the prune, the articles most clearly **outside OzoneNews scope** based on what I can see are:
+
+- Winter Olympics athlete profiles (`winter-olympics-mikaela-shiffrin.json`, etc.) — these read as evergreen wiki pieces, not breaking news
+- `video-games-new-windrose.json` — unclear relevance
+- `entertainment-hulu.json` — possibly thin content
+- The `/clothing` vertical (`new-balance-energy-arc`) — doesn't fit news scope
+
+**Recommended pruning workflow:**
+1. Audit each article for: word count, internal links, primary source citation, byline
+2. Articles under 400 words with no named source = candidate for deletion or redirect
+3. Redirect deleted slugs to the relevant hub (e.g. `/video-games` for game articles, `/youtube` for YouTube articles)
+4. Update `content_registry.json` and `_index.json` after each deletion
+
+**Want to start with the CPM June 2026 monthly update article first, then move into pruning?**
+
+Made changes.
+
 ## What This Branch Covers
 
 ObjectWire main branch publishes verified news and analysis across these verticals. Every article uses `NewsArticleDB` (standard news) or `JackArticleDB` (premium research/investigations). No creator profiles, no influencer content — those live in `creator_articles` and are out of scope here.

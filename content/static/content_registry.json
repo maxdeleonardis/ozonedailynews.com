@@ -13620,5 +13620,88 @@
     "change_frequency": "weekly",
     "image_width": 1200,
     "image_height": 675
+  },
+  {
+    "slug": "/authors/rudy-sinigur",
+    "title": "Rudy Sinigur | Staff Writer, OzoneNews",
+    "description": "Rudy Sinigur is a staff writer at OzoneNews covering news, sports, culture, and emerging stories across multiple verticals.",
+    "publish_date": "June 2, 2026",
+    "modified_date": "June 2, 2026",
+    "category": "Meta",
+    "tags": [
+      "Author",
+      "OzoneNews",
+      "Rudy Sinigur"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly",
+    "image_url": "https://www.ozonenetwork.news/authors/rudy-sinigur"
+  },
+  {
+    "slug": "/authors/william-rodriguez",
+    "title": "William Rodriguez | Staff Writer, OzoneNews",
+    "description": "William Rodriguez is a staff writer at OzoneNews covering news, technology, gaming, and culture.",
+    "publish_date": "June 2, 2026",
+    "modified_date": "June 2, 2026",
+    "category": "Meta",
+    "tags": [
+      "Author",
+      "OzoneNews",
+      "William Rodriguez"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly",
+    "image_url": "https://www.ozonenetwork.news/authors/william-rodriguez"
+  },
+  {
+    "slug": "/social/creator-monetization-snapchat-tiktok-instagram-2026",
+    "title": "Snapchat vs TikTok vs Instagram Monetization 2026 | Creator Guide",
+    "description": "A complete breakdown of how Snapchat, TikTok, and Instagram pay creators in 2026, covering requirements, payout rates, pros and cons, and which platform fits yo",
+    "publish_date": "June 1, 2026",
+    "modified_date": "June 1, 2026",
+    "category": "Social Media",
+    "tags": [
+      "Social Media",
+      "Creator Monetization Snapchat Tiktok Instagram 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.OzoneNews.org${SLUG}"
+  },
+  {
+    "slug": "/video-games/playstation-state-of-play-june-2026-preview",
+    "title": "PlayStation State of Play June 2026 | Wolverine, Intergalactic, God of War Preview",
+    "description": "Sony hosts a 60-plus minute State of Play on June 2. Wolverine is confirmed. Intergalactic",
+    "publish_date": "June 1, 2026",
+    "modified_date": "June 1, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Playstation State Of Play June 2026 Preview"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/youtube/creator-economy-cpm-2026",
+    "title": "YouTube CPM by Niche 2026 | Creator Economy Deep Dive",
+    "description": "A full breakdown of YouTube CPM and RPM rates by niche in 2026, covering 20 content categories, geographic premiums, Q4 seasonality, and creator strategy for Q3",
+    "publish_date": "June 1, 2026",
+    "modified_date": "June 1, 2026",
+    "category": "YouTube",
+    "tags": [
+      "YouTube",
+      "Creator Economy",
+      "Creator Economy Cpm 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.OzoneNews.org${SLUG}"
   }
 ]

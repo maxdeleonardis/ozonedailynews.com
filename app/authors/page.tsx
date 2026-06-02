@@ -91,6 +91,62 @@ const AUTHORS = [
     text: 'text-purple-700',
     quote: 'Every follower count is a business story waiting to be told.',
   },
+  {
+    slug: 'william-rodriguez',
+    initials: 'WR',
+    name: 'William Rodriguez',
+    role: 'Staff Writer',
+    department: 'News & Culture',
+    location: 'United States',
+    bio: 'Staff writer at OzoneNews contributing news coverage across technology, gaming, entertainment, and culture verticals. Brings a direct reporting style focused on verified facts, primary sources, and reader clarity.',
+    beats: ['News', 'Technology', 'Gaming', 'Culture', 'Entertainment'],
+    accent: 'bg-indigo-700',
+    border: 'border-indigo-700',
+    text: 'text-indigo-700',
+    quote: 'Every story deserves to be told accurately.',
+  },
+  {
+    slug: 'rudy-sinigur',
+    initials: 'RS',
+    name: 'Rudy Sinigur',
+    role: 'Staff Writer',
+    department: 'News & Sports',
+    location: 'United States',
+    bio: 'Staff writer at OzoneNews contributing reporting across news, sports, culture, and world stories. Applies a fact-first approach to breaking stories and long-form features, consistent with OzoneNews editorial standards.',
+    beats: ['News', 'Sports', 'Culture', 'World', 'Entertainment'],
+    accent: 'bg-orange-700',
+    border: 'border-orange-700',
+    text: 'text-orange-700',
+    quote: 'Get the facts right, then tell the story well.',
+  },
+  {
+    slug: 'jack-wang',
+    initials: 'JW',
+    name: 'Jack Wang',
+    role: 'Co-Founder & Contributor',
+    department: 'Technology & Culture',
+    location: 'United States',
+    bio: 'Co-founder of OzoneNews contributing reporting and editorial perspective across technology, gaming, finance, and digital culture. Known for sharp original metaphors that reframe technical subjects for a general audience without sacrificing precision.',
+    beats: ['Technology', 'Gaming', 'Finance', 'Digital Culture', 'AI'],
+    accent: 'bg-teal-700',
+    border: 'border-teal-700',
+    text: 'text-teal-700',
+    quote: 'The best metaphors are the ones that make you see something you already knew differently.',
+  },
+  {
+    slug: 'conan-boyle',
+    initials: 'CB',
+    name: 'Conan Boyle',
+    role: 'Staff Writer',
+    department: 'News & Technology',
+    location: 'United States',
+    bio: 'Staff writer at OzoneNews covering news, technology, gaming, and digital culture. Applies a rigorous, fact-first approach to every story, consistent with OzoneNews\'s commitment to primary-source journalism.',
+    beats: ['News', 'Technology', 'Gaming', 'Digital Culture', 'Entertainment'],
+    accent: 'bg-rose-700',
+    border: 'border-rose-700',
+    text: 'text-rose-700',
+    quote: 'Good reporting starts with good questions.',
+  },
 ];
 
 export default function AuthorsPage() {
@@ -119,7 +175,7 @@ export default function AuthorsPage() {
             </div>
             <div className="shrink-0 flex gap-8 md:pb-1">
               <div className="text-right">
-                <p className="text-3xl font-black text-gray-900">4</p>
+                <p className="text-3xl font-black text-gray-900">9</p>
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mt-1">Journalists</p>
               </div>
               <div className="text-right">

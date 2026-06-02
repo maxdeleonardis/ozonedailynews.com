@@ -7,26 +7,26 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Conan Boyle | Staff Writer, OzoneNews',
+  title: 'Rudy Sinigur | Staff Writer, OzoneNews',
   description:
-    'Conan Boyle is a staff writer at OzoneNews covering news, technology, gaming, and digital culture.',
-  alternates: { canonical: 'https://www.ozonenetwork.news/authors/conan-boyle' },
+    'Rudy Sinigur is a staff writer at OzoneNews covering news, sports, culture, and emerging stories across multiple verticals.',
+  alternates: { canonical: 'https://www.ozonenetwork.news/authors/rudy-sinigur' },
   openGraph: {
-    title: 'Conan Boyle | Staff Writer, OzoneNews',
-    description: 'Staff writer at OzoneNews covering news, technology, gaming, and digital culture.',
-    url: 'https://www.ozonenetwork.news/authors/conan-boyle',
+    title: 'Rudy Sinigur | Staff Writer, OzoneNews',
+    description: 'Staff writer at OzoneNews covering news, sports, culture, and emerging stories.',
+    url: 'https://www.ozonenetwork.news/authors/rudy-sinigur',
     siteName: 'OzoneNews',
     type: 'profile',
   },
   twitter: {
     card: 'summary',
-    title: 'Conan Boyle | Staff Writer, OzoneNews',
-    description: 'Staff writer at OzoneNews covering news, technology, gaming, and digital culture.',
+    title: 'Rudy Sinigur | Staff Writer, OzoneNews',
+    description: 'Staff writer at OzoneNews covering news, sports, culture, and emerging stories.',
   },
 };
 
 const BEATS = [
-  'News', 'Technology', 'Gaming', 'Digital Culture', 'Entertainment',
+  'News', 'Sports', 'Culture', 'World', 'Entertainment',
 ];
 
 const HIGHLIGHTS = [
@@ -38,23 +38,23 @@ const HIGHLIGHTS = [
 const SOCIAL = [
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/conan.boyle',
+    href: 'https://www.facebook.com/rudy.sinigur',
     icon: 'f',
   },
 ];
 
-export default function ConanBoyleAuthorPage() {
+export default function RudySinigurAuthorPage() {
   return (
     <main className="min-h-screen bg-white">
       <AuthorSchema
-        name="Conan Boyle"
+        name="Rudy Sinigur"
         jobTitle="Staff Writer"
-        description="Conan Boyle is a staff writer at OzoneNews covering news, technology, gaming, and digital culture."
-        url="https://www.ozonenetwork.news/authors/conan-boyle"
+        description="Rudy Sinigur is a staff writer at OzoneNews covering news, sports, culture, and emerging stories."
+        url="https://www.ozonenetwork.news/authors/rudy-sinigur"
         sameAs={[
-          'https://www.facebook.com/conan.boyle',
+          'https://www.facebook.com/rudy.sinigur',
         ]}
-        knowsAbout={['News', 'Technology', 'Gaming', 'Digital Culture', 'Entertainment']}
+        knowsAbout={['News', 'Sports', 'Culture', 'World', 'Entertainment']}
         location={{ city: 'United States', region: '' }}
         articleCount={10}
       />
@@ -68,13 +68,13 @@ export default function ConanBoyleAuthorPage() {
             <span>/</span>
             <Link href="/authors" className="hover:text-gray-300 transition-colors">Authors</Link>
             <span>/</span>
-            <span className="text-gray-400">Conan Boyle</span>
+            <span className="text-gray-400">Rudy Sinigur</span>
           </nav>
 
           <div className="flex flex-col md:flex-row md:items-end gap-8">
             {/* Avatar */}
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white bg-rose-700 flex items-center justify-center">
-              <span className="text-white font-black text-3xl tracking-tight">CB</span>
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white bg-orange-700 flex items-center justify-center">
+              <span className="text-white font-black text-3xl tracking-tight">RS</span>
             </div>
             {/* Identity */}
             <div className="flex-1">
@@ -82,7 +82,7 @@ export default function ConanBoyleAuthorPage() {
                 Staff Writer &middot; OzoneNews
               </p>
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3">
-                Conan Boyle
+                Rudy Sinigur
               </h1>
               <p className="text-gray-300 text-xl font-medium">Staff Writer</p>
             </div>
@@ -100,7 +100,7 @@ export default function ConanBoyleAuthorPage() {
           {/* Quote bar */}
           <div className="mt-10 border-l-4 border-gray-500 pl-5">
             <p className="text-gray-300 text-lg italic font-light leading-relaxed max-w-2xl">
-              &ldquo;Good reporting starts with good questions.&rdquo;
+              &ldquo;Get the facts right, then tell the story well.&rdquo;
             </p>
           </div>
         </div>
@@ -197,20 +197,20 @@ export default function ConanBoyleAuthorPage() {
             {/* Bio */}
             <section>
               <h2 className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-5 border-b-2 border-gray-900 pb-3">
-                About Conan Boyle
+                About Rudy Sinigur
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
                 <p>
-                  Conan Boyle is a staff writer at{' '}
+                  Rudy Sinigur is a staff writer at{' '}
                   <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">OzoneNews</Link>,
-                  contributing reporting across news, technology, gaming, and digital culture. He applies
-                  a rigorous, fact-first approach to every story, consistent with OzoneNews&rsquo;s
-                  commitment to primary-source journalism.
+                  contributing reporting across news, sports, culture, and world stories. He applies a
+                  fact-first approach to breaking stories and long-form features alike, consistent with
+                  OzoneNews&rsquo;s editorial standards.
                 </p>
                 <p>
-                  Boyle&rsquo;s work spans multiple verticals at OzoneNews, bringing clarity and precision
-                  to complex subjects in technology, gaming, and broader news coverage. His reporting
-                  prioritizes verified information, named sources, and documented evidence over speed.
+                  Sinigur&rsquo;s work reflects a commitment to primary-source journalism: verifying claims
+                  through official records, named sources, and documented evidence before publication.
+                  His coverage spans multiple beats, bringing a versatile reporting skill set to the OzoneNews newsroom.
                 </p>
               </div>
             </section>
@@ -227,7 +227,7 @@ export default function ConanBoyleAuthorPage() {
                   ))}
                 </div>
               }>
-                <AuthorArticlesServer authorSlug="conan-boyle" authorName="Conan Boyle" />
+                <AuthorArticlesServer authorSlug="rudy-sinigur" authorName="Rudy Sinigur" />
               </Suspense>
             </section>
           </div>

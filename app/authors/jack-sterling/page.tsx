@@ -45,6 +45,11 @@ const SOCIAL = [
     href: 'mailto:j.sterling@ozonenetwork.news',
     icon: '\u2709',
   },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/james.lake.7731',
+    icon: 'f',
+  },
 ];
 
 export default function JackSterlingAuthorPage() {
@@ -56,6 +61,9 @@ export default function JackSterlingAuthorPage() {
         description="Jack Sterling is a co-founder and managing reporter at OzoneNews, an independent nonprofit newsroom. He covers federal investigations, Congress, AI policy, and the politics of technology from Washington, D.C."
         url="https://www.ozonenetwork.news/authors/jack-sterling"
         image="https://www.ozonenetwork.news/influncer/author/jack_sterling.jpg"
+        sameAs={[
+          'https://www.facebook.com/james.lake.7731',
+        ]}
         knowsAbout={['Breaking News', 'Politics', 'Investigations', 'Congress', 'AI Policy', 'Federal Law', 'Gaming', 'Technology']}
         alumniOf={[{ name: 'New York University', department: 'Journalism' }]}
         location={{ city: 'Washington', region: 'DC' }}
@@ -129,6 +137,17 @@ export default function JackSterlingAuthorPage() {
           >
             ✉ j.sterling@ozonenetwork.news
           </a>
+          {SOCIAL.filter(s => s.label !== 'Email').map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 underline transition-colors"
+            >
+              {s.icon} {s.label}
+            </a>
+          ))}
         </div>
       </div>
 
@@ -165,6 +184,26 @@ export default function JackSterlingAuthorPage() {
                   <p className="text-sm text-gray-700 text-right">{value}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Social links */}
+            <div className="border border-gray-200 divide-y divide-gray-100">
+              <div className="px-5 py-3">
+                <p className="text-[10px] uppercase tracking-widest font-black text-gray-400 mb-3">Social Profiles</p>
+                <div className="space-y-2">
+                  {SOCIAL.map((s) => (
+                    s.label === 'Email' ? (
+                      <a key={s.label} href={s.href} className="block text-sm text-blue-600 hover:text-blue-800 underline transition-colors">
+                        {s.icon} {s.label}
+                      </a>
+                    ) : (
+                      <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:text-blue-800 underline transition-colors">
+                        {s.icon} {s.label}
+                      </a>
+                    )
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Editorial */}

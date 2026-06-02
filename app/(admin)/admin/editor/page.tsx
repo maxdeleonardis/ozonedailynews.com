@@ -67,6 +67,8 @@ export default function BlogEditor() {
   const [featuredImage, setFeaturedImage] = useState('');
   const [blocks, setBlocks] = useState<ArticleBlock[]>([]);
   const [sidebarBlocks, setSidebarBlocks] = useState<ArticleBlock[]>([]);
+  const [contentType, setContentType] = useState<'articles' | 'jack_articles' | 'article_pages' | 'creator_articles' | 'alysa_articles'>('articles');
+  const [rawHtml, setRawHtml] = useState('');
   const [layoutColumns, setLayoutColumns] = useState<1 | 2>(1);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const [activeSidebarBlockId, setActiveSidebarBlockId] = useState<string | null>(null);
@@ -300,15 +302,20 @@ export default function BlogEditor() {
       alert('Please enter a title');
       return;
     }
-    if (blocks.length === 0) {
+    const isHtmlMode = contentType === 'article_pages' || contentType === 'creator_articles' || contentType === 'alysa_articles';
+    if (!isHtmlMode && blocks.length === 0) {
       alert('Please add at least one content block');
+      return;
+    }
+    if (isHtmlMode && !rawHtml.trim()) {
+      alert('Please enter HTML content');
       return;
     }
 
     setIsLoading(true);
 
     try {
-      const content = {
+      const baseContent = {
         title,
         slug,
         excerpt,
@@ -316,20 +323,26 @@ export default function BlogEditor() {
         author_slug: author.toLowerCase().replace(/\s+/g, '-'),
         category,
         tags,
-        read_time: calculateReadTime(blocks),
-        blocks,
-        sidebar_blocks: sidebarBlocks,
-        layout_columns: layoutColumns,
         status,
         featured_image: featuredImage,
         published_at: status === 'published' ? new Date().toISOString() : null,
         updated_at: new Date().toISOString(),
       };
 
+      const content = isHtmlMode
+        ? { ...baseContent, content_html: rawHtml }
+        : {
+            ...baseContent,
+            read_time: calculateReadTime(blocks),
+            blocks,
+            sidebar_blocks: sidebarBlocks,
+            layout_columns: layoutColumns,
+          };
+
       const res = await fetch('/admin/api/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'articles', slug, content }),
+        body: JSON.stringify({ type: contentType, slug, content }),
       });
 
       const data = await res.json() as {
@@ -1305,8 +1318,14 @@ export default function BlogEditor() {
                 Back
               </Button>
             </Link>
-            <h1 className="text-xl font-bold">New Blog Post</h1>
-            <span className="text-sm text-gray-500">({blocks.length} blocks)</span>
+            <h1 className="text-xl font-bold">
+              {contentType === 'article_pages' ? 'New Article Page' :
+               contentType === 'jack_articles' ? 'New Jack Article' :
+               contentType === 'creator_articles' ? 'New Creator Article' :
+               contentType === 'alysa_articles' ? 'New Alysa Article' :
+               'New News Article'}
+            </h1>
+            <span className="text-sm text-gray-500">({contentType === 'article_pages' || contentType === 'creator_articles' || contentType === 'alysa_articles' ? 'HTML mode' : `${blocks.length} blocks`})</span>
           </div>
           <div className="flex gap-2">
             <Button onClick={() => savePost('draft')} variant="outline" disabled={isLoading}>
@@ -1329,6 +1348,26 @@ export default function BlogEditor() {
                 <CardTitle>Post Details</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="contentType">Content Type</Label>
+                  <select
+                    id="contentType"
+                    value={contentType}
+                    onChange={(e) => setContentType(e.target.value as typeof contentType)}
+                    className="w-full h-10 px-3 rounded-md border border-gray-300 mt-1"
+                  >
+                    <option value="articles">News Article (articles/)</option>
+                    <option value="jack_articles">Jack Article (jack_articles/)</option>
+                    <option value="article_pages">Article Page / Hub (article_pages/)</option>
+                    <option value="creator_articles">Creator Article (creator_articles/)</option>
+                    <option value="alysa_articles">Alysa Article (alysa_articles/)</option>
+                  </select>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {contentType === 'article_pages' || contentType === 'creator_articles' || contentType === 'alysa_articles'
+                      ? '✏️ Raw HTML mode — paste content_html directly'
+                      : '🧱 Block editor mode'}
+                  </p>
+                </div>
                 <div>
                   <Label htmlFor="title">Meta Title *</Label>
                   <Input
@@ -1461,7 +1500,27 @@ export default function BlogEditor() {
               </CardContent>
             </Card>
 
-            {/* Content Blocks */}
+            {/* Content Blocks / Raw HTML Editor */}
+            {(contentType === 'article_pages' || contentType === 'creator_articles' || contentType === 'alysa_articles') ? (
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>content_html (Raw HTML)</CardTitle>
+                    <span className="text-sm text-gray-500">Wrap body in <code className="bg-gray-100 px-1 rounded">{'<div class="prose prose-lg max-w-none">'}</code></span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <Textarea
+                    value={rawHtml}
+                    onChange={(e) => setRawHtml(e.target.value)}
+                    placeholder={'<div class="prose prose-lg max-w-none">\n  <p>Article content here...</p>\n</div>'}
+                    rows={32}
+                    className="font-mono text-sm"
+                  />
+                  <p className="text-xs text-gray-500 mt-2">{rawHtml.length.toLocaleString()} characters</p>
+                </CardContent>
+              </Card>
+            ) : (
             <Card>
               <CardHeader>
                 <div className="flex items-center justify-between">
@@ -1518,6 +1577,7 @@ export default function BlogEditor() {
                 )}
               </CardContent>
             </Card>
+            )} {/* end block-editor ternary */}
 
             {/* Sidebar Blocks (only show when 2 columns selected) */}
             {layoutColumns === 2 && (

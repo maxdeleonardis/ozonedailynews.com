@@ -1,56 +1,47 @@
 import type { Metadata } from 'next';
-import { JackArticleDB } from '@/components/articles/JackArticleDB';
+import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 
 export const dynamic = 'force-dynamic';
 
 const SLUG = '/video-games/news/destiny-2-ends-development-bungie-layoffs-2026';
-const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
-const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Destiny 2 Ends Development | Bungie Layoffs, Monument of Triumph June 2026',
-  description: 'Bungie confirms Destiny 2 ends active development after June 9, 2026. Monument of Triumph final update restores Director UI, adds The Gauntlet boss rush, upgrades all Exotics to Tier 5. Sony write-downs exceed $700M.',
+  title: 'Destiny 2 | End of Development, Bungie Layoffs & Legacy Hub 2026',
+  description: 'Complete Destiny 2 reference hub covering the end of active development, Monument of Triumph final update, Bungie layoffs, Sony write-downs, and the game\'s legacy as a live-service era landmark.',
   keywords: [
-    'Destiny 2 ends development',
-    'Destiny 2 final update 2026',
+    'Destiny 2',
+    'Destiny 2 end of development 2026',
+    'Destiny 2 Monument of Triumph',
     'Bungie layoffs 2026',
-    'Monument of Triumph update',
-    'Destiny 2 Monument of Triumph June 2026',
-    'Bungie Sony write-down',
-    'Destiny 2 static archive',
-    'Destiny 2 The Gauntlet boss rush',
-    'Destiny 2 Exotic armor Tier 5 upgrade',
-    'Destiny 2 Director UI restoration',
-    'Destiny 2 The Collection',
-    'Bungie Marathon sales miss',
-    'Destiny 2 servers staying up',
-    'live-service game ending 2026',
-    'Destiny 2 legacy raid gear set bonuses',
-    'Warlock double Nova Bomb',
-    'Bungie studio cuts',
+    'Destiny 2 final update June 2026',
+    'Sony Bungie write-down',
+    'Destiny 2 The Gauntlet',
+    'Destiny 2 Exotic Tier 5',
+    'Bungie Marathon',
+    'Destiny 2 servers 2026',
+    'Destiny 2 legacy',
+    'Destiny 2 Director UI',
+    'live service game ending 2026',
+    'Destiny 2 history',
   ],
-  alternates: { canonical: ARTICLE_URL },
+  alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
-    title: 'Destiny 2 Ends Active Development | Monument of Triumph Final Update Breakdown',
-    description: 'Bungie confirms no new Destiny 2 content after June 9. Final patch restores Director UI, opens The Gauntlet boss rush, upgrades all Exotics to Tier 5. Sony has written down $700M+ on the acquisition.',
+    title: 'Destiny 2 | End of Development Hub, Bungie Layoffs & Legacy 2026',
+    description: 'Full Destiny 2 reference: Monument of Triumph final patch, Bungie studio history, Sony $700M write-down, The Gauntlet boss rush, and what comes next.',
     type: 'article',
-    url: ARTICLE_URL,
+    url: `https://www.OzoneNews.org${SLUG}`,
     siteName: 'OzoneNews',
     authors: ['Jack Sterling'],
-    publishedTime: '2026-05-21T20:00:00-05:00',
-    modifiedTime: '2026-05-21T20:00:00-05:00',
     section: 'Gaming',
-    images: [{ url: OG_IMAGE, width: 1200, height: 675, alt: 'Destiny 2 ends development Monument of Triumph final update June 2026' }],
-    tags: ['Destiny 2', 'Bungie', 'Monument of Triumph', 'Sony Interactive Entertainment'],
+    tags: ['Destiny 2', 'Bungie', 'Sony Interactive Entertainment', 'Live Service'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Destiny 2 Ends Development | June 9 Final Update, Bungie Layoffs, Sony $700M Write-Down',
-    description: 'Monument of Triumph is the last patch. Director UI restored, The Gauntlet opens June 13, all Exotics auto-upgraded to Tier 5.',
-    images: [OG_IMAGE],
+    title: 'Destiny 2 | End of Development, Bungie Layoffs, Full Legacy Hub',
+    description: 'Monument of Triumph is the last patch. Full breakdown of Bungie\'s fall, Sony\'s $700M write-down, and what Destiny 2 leaves behind.',
   },
 };
 
-export default function Destiny2EndsDevPage() {
-  return <JackArticleDB slug="video-games-news-destiny-2-ends-development-bungie-layoffs-monument-of-triumph-2026" />;
+export default function Destiny2HubPage() {
+  return <ArticlePageDB slug="video-games-news-destiny-2-ends-development-bungie-layoffs-2026" />;
 }

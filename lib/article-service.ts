@@ -128,19 +128,32 @@ export async function getArticleBySlug(slug: string): Promise<ArticleFull | null
  * Resolves an article from a URL path segment array (used by the [...slug] catchall).
  * Try order:
  *   0. Supabase routing_table — decoupled URL → content_id → content/articles/[id].json
- *   1. Join all segments with hyphens — matches the existing naming convention
- *      e.g. ['google','news','google-samsung-ai-...'] → 'google-news-google-samsung-ai-...'
- *   2. Last segment only — for articles that don't embed the category prefix
- *   3. Full URL scan — scans all articles and matches by the `url` field path suffix
+ *   1. Join all segments with hyphens — checks ALL static stores so jack_articles,
+ *      wiki_articles, creator_articles etc. are resolved without a DB round-trip.
+ *      e.g. ['tech','gaming','nvidia-rtx-...'] → 'tech-gaming-nvidia-rtx-...'
+ *   2. Last segment only — same multi-store check
+ *   3. Full URL scan — scans all stores and matches by the `url` field path suffix
  */
+
+// All static stores in lookup priority order.
+const ALL_STORES = [
+  'articles',
+  'jack_articles',
+  'wiki_articles',
+  'creator_articles',
+  'article_pages',
+  'sterling_articles',
+] as const;
+
 export async function getArticleByUrlSegments(segments: string[]): Promise<ArticleFull | null> {
   const fullPath = '/' + segments.join('/');
-
-  // Try 1: joined slug (static JSON — fast path, no network)
-  // Checked BEFORE routing_table so a static file always wins without a Supabase round-trip.
   const joinedSlug = segments.join('-');
-  const byJoined = readStaticRow<ArticleFull>('articles', joinedSlug);
-  if (byJoined) return byJoined;
+
+  // Try 1: joined slug — fast path, checks all stores, no network.
+  for (const store of ALL_STORES) {
+    const hit = readStaticRow<ArticleFull>(store, joinedSlug);
+    if (hit) return hit;
+  }
 
   // Try 0: routing_table lookup (new ID-addressed storage, zero file renames)
   // Guarded by a 2 s timeout so a slow Supabase connection never hangs the page.
@@ -158,32 +171,41 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
     // routing-service unavailable (e.g. no Supabase in local dev) — fall through
   }
 
-  // Try 2: last segment only
+  // Try 2: last segment only — same multi-store check
   const lastSegment = segments[segments.length - 1];
   if (lastSegment !== joinedSlug) {
-    const byLast = readStaticRow<ArticleFull>('articles', lastSegment);
-    if (byLast) return byLast;
+    for (const store of ALL_STORES) {
+      const hit = readStaticRow<ArticleFull>(store, lastSegment);
+      if (hit) return hit;
+    }
   }
 
-  // Try 3: scan all articles and match by url field path
-  const all = readStaticDir<ArticleFull>('articles');
-  const byUrl = all.find((a) => {
-    if (!a.url) return false;
-    try { return new URL(a.url).pathname === fullPath; } catch { return a.url === fullPath; }
-  });
-  if (byUrl) return byUrl;
+  // Try 3: scan ALL stores and match by url field path
+  for (const store of ALL_STORES) {
+    const all = readStaticDir<ArticleFull>(store);
+    const byUrl = all.find((a) => {
+      if (!a.url) return false;
+      try { return new URL(a.url).pathname === fullPath; } catch { return a.url === fullPath; }
+    });
+    if (byUrl) return byUrl;
+  }
 
-  // Try 4: Supabase fallback
+  // Try 4: Supabase fallback — fan out across all typed tables
   const { createClient } = await import('./supabase/server');
   const supabase = await createClient();
   if (!supabase) return null;
-  const { data } = await supabase
-    .from('articles')
-    .select('*')
-    .ilike('url', `%${fullPath}`)
-    .eq('status', 'published')
-    .single();
-  return (data as ArticleFull | null) ?? null;
+
+  for (const table of ['articles', 'jack_articles', 'wiki_articles', 'creator_articles', 'article_pages']) {
+    const { data } = await supabase
+      .from(table)
+      .select('*')
+      .ilike('url', `%${fullPath}`)
+      .eq('status', 'published')
+      .single();
+    if (data) return data as ArticleFull;
+  }
+
+  return null;
 }
 
 export async function getBreakingHeadlines(): Promise<ArticleFull[]> {

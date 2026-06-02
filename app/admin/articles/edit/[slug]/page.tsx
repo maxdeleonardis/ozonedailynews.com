@@ -1,11 +1,35 @@
 // app/admin/articles/edit/[slug]/page.tsx
 // Server Component — fetches the draft article and passes it to the form.
+// Static JSON is ALWAYS the source of truth — it is read first so the
+// Git-committed version wins over any stale Supabase row.
 
+import fs from 'fs';
+import path from 'path';
 import { createServiceClient } from '@/lib/supabase/server';
 import AdminArticleForm from '@/components/admin/AdminArticleForm';
 import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
+
+const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
+const ALL_STORES = [
+  'articles',
+  'jack_articles',
+  'wiki_articles',
+  'creator_articles',
+  'article_pages',
+  'sterling_articles',
+] as const;
+
+function loadFromStatic(slug: string): Record<string, unknown> | null {
+  for (const store of ALL_STORES) {
+    const fp = path.join(STATIC_BASE, store, `${slug}.json`);
+    if (fs.existsSync(fp)) {
+      try { return JSON.parse(fs.readFileSync(fp, 'utf8')); } catch { continue; }
+    }
+  }
+  return null;
+}
 
 export default async function EditArticlePage({
   params,
@@ -14,14 +38,20 @@ export default async function EditArticlePage({
 }) {
   const { slug } = await params;
 
-  const service = createServiceClient();
-  if (!service) return <p className="text-red-600">Database not configured.</p>;
+  // 1. Try static JSON first — this is always the canonical version
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let article: Record<string, any> | null = loadFromStatic(slug);
 
-  const { data: article } = await service
-    .from('articles')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  // 2. Fall back to Supabase across all typed tables
+  if (!article) {
+    const service = createServiceClient();
+    if (!service) return <p className="text-red-600">Database not configured.</p>;
+
+    for (const table of ALL_STORES) {
+      const { data } = await service.from(table).select('*').eq('slug', slug).single();
+      if (data) { article = data; break; }
+    }
+  }
 
   if (!article) notFound();
 

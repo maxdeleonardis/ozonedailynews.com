@@ -1252,7 +1252,10 @@ export default function JackArticle({
             <div className={hasSidebar ? 'grid lg:grid-cols-12 gap-8 lg:gap-12' : ''}>
               {/* Article Body */}
               <div className={hasSidebar ? 'lg:col-span-8' : 'max-w-4xl'}>
-                <div className="prose prose-lg max-w-none" itemProp="articleBody">
+                <div
+                  className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-headings:tracking-tight prose-h2:text-xl prose-h2:uppercase prose-h2:border-b-2 prose-h2:border-gray-900 prose-h2:pb-3 prose-h2:mt-10 prose-h3:text-lg prose-h3:uppercase prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-800 prose-strong:font-bold"
+                  itemProp="articleBody"
+                >
                   {children}
 
                   {/* Sources */}

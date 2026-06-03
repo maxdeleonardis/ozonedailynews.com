@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
+    "title": "Google Breaks Ground in Sweden | The 9-Year Road to Horndal and What It Means for European AI Infrastructure",
+    "description": "Google broke ground on its first owned data center in Sweden on June 2, 2026, in Horndal. The 700MW facility ends a 9-year development and reshapes European AI infrastructure.",
+    "publishDate": "2026-06-03T09:00:00-05:00",
+    "modifiedDate": "2026-06-03T09:00:00-05:00",
+    "category": "Tech",
+    "tags": [
+      "Google",
+      "Sweden",
+      "Data Center",
+      "AI Infrastructure",
+      "Cloud Computing",
+      "Renewable Energy",
+      "Europe",
+      "Hyperscale"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.8,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop",
+    "imageAlt": "Large-scale data center facility with rows of server hardware and cool blue lighting",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/nasa/artemis-3-timeline-leo-demonstration-2026",
     "title": "NASA Artemis 3 | x",
     "description": "NASA locks Artemis III into late 2027 as a 463 km LEO crewed demonstration with SpaceX Starship HLS and Blue Moon Mark 1. Lunar landing moves to Artemis IV in 2028.",
@@ -201,7 +228,7 @@
   {
     "slug": "/science/arctic-sea-ice-minimum-2026-measured-extent",
     "title": "Arctic Sea Ice Minimum 2026 | NSIDC Measured Extent and Trend Data",
-    "description": "The 2025 Arctic sea ice minimum was 4.28 million km², third-lowest on record. NSIDC data shows the long-term trend at minus 13% per decade. 2026 melt tracking has begun.",
+    "description": "The 2025 Arctic sea ice minimum was 4.28 million km\u00b2, third-lowest on record. NSIDC data shows the long-term trend at minus 13% per decade. 2026 melt tracking has begun.",
     "publishDate": "2026-05-28",
     "modifiedDate": "2026-05-28",
     "category": "Science",

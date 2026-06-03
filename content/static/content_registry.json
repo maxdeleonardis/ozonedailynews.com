@@ -13701,5 +13701,23 @@
     "author": "OzoneNews Editorial",
     "priority": 0.6,
     "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/news/empulse-1047-games-titanfall-movement-shooter-2026",
+    "title": "EMPULSE | 1047 Games Reveals Titanfall-Style Movement Shooter",
+    "description": "EMPULSE is a new 6v6 movement shooter from 1047 Games, the studio behind Splitgate. Under $30 on Early Access, no microtransactions, full gameplay reveal at PC ",
+    "publish_date": "June 1, 2026",
+    "modified_date": "June 1, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "News",
+      "Empulse 1047 Games Titanfall Movement Shooter 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://www.OzoneNews.org${SLUG}"
   }
 ]

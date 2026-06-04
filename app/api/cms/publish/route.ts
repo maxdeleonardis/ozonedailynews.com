@@ -151,11 +151,36 @@ export async function POST(req: NextRequest) {
   }
 
   // 3. Fetch article from Supabase (service role — reads drafts past RLS)
-  const { data: article, error: fetchErr } = await service
+  let { data: article, error: fetchErr } = await service
     .from('articles')
     .select('*')
     .eq('slug', body.slug)
     .single();
+
+  // ── Static-JSON fallback ──────────────────────────────────────────────────
+  // Jack/wiki/creator/sterling articles are published as static JSON and have
+  // no Supabase row. Load them directly from disk so they can be re-published
+  // via the CMS edit form.
+  if (fetchErr || !article) {
+    const { default: fs }       = await import('fs');
+    const { default: nodePath } = await import('path');
+    const STATIC_BASE = nodePath.join(process.cwd(), 'content', 'static');
+    const ALL_STORES  = [
+      'articles', 'jack_articles', 'wiki_articles',
+      'creator_articles', 'article_pages', 'sterling_articles',
+    ] as const;
+
+    for (const store of ALL_STORES) {
+      const fp = nodePath.join(STATIC_BASE, store, `${body.slug}.json`);
+      if (fs.existsSync(fp)) {
+        try {
+          article = JSON.parse(fs.readFileSync(fp, 'utf8'));
+          fetchErr = null;
+        } catch { /* keep null */ }
+        break;
+      }
+    }
+  }
 
   if (fetchErr || !article) {
     return NextResponse.json({ error: 'Article not found' }, { status: 404 });

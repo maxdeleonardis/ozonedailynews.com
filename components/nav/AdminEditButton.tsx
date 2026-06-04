@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { createBrowserClient } from '@/lib/supabase/client';
 
 // Shown only to editors on article pages (any path with 2+ segments)
 // Links to /admin/articles/edit/[slug]
@@ -13,21 +12,10 @@ export default function AdminEditButton() {
   const [isEditor, setIsEditor] = useState(false);
 
   useEffect(() => {
-    const supabase = createBrowserClient();
-    if (!supabase) return;
-
-    supabase.auth.getUser().then(async ({ data }) => {
-      const user = data.user;
-      if (!user) return;
-
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('is_editor')
-        .eq('user_id', user.id)
-        .single();
-
-      if (profile?.is_editor) setIsEditor(true);
-    });
+    fetch('/api/auth/is-editor')
+      .then(r => r.json())
+      .then(d => { if (d.is_editor) setIsEditor(true); })
+      .catch(() => {});
   }, []);
 
   // Only show on article-like paths (e.g. /finance/spacex-ipo-...) — not on /admin, /account, etc.

@@ -1,5 +1,23 @@
 [
   {
+    "slug": "/science/nasa-maven-mars-orbiter-dead-2026",
+    "title": "NASA Declares MAVEN Mars Orbiter Dead | Fatal Spin Ends 11-Year Mission After Six Months of Silence",
+    "description": "NASA declared MAVEN dead on June 4, 2026, after a spin failure on December 6, 2025 ended six months of silence and 11 years of Mars science.",
+    "publishDate": "2026-06-04T14:00:00-05:00",
+    "modifiedDate": "2026-06-04T14:00:00-05:00",
+    "category": "Science",
+    "tags": ["NASA", "MAVEN", "Mars", "Deep Space Network", "Shannon Curry", "Mars Reconnaissance Orbiter"],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.9,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&h=675&fit=crop",
+    "imageAlt": "Artist rendering of a Mars orbiter spacecraft above the red Martian surface",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm",
     "title": "Sun Fires Triple Solar Flares | Cannibal CME Pushes Northern Lights Deep Into the US Tonight",
     "description": "Three solar flares merge into a cannibal CME, pushing Northern Lights as far south as Illinois and Oregon tonight, June 4-5, 2026.",

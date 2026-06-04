@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Amazon News 2026 | AWS, Robotics & AI',
-  description: 'Latest Amazon and AWS news: cloud computing, robotics, AI and retail from OzoneNews.',
+  description: 'Amazon news, AWS cloud, Prime Video and MGM deals, retail strategy, and antitrust developments. Deep reporting on Amazon business and platform impact.',
   alternates: { canonical: 'https://www.ozonenetwork.news/amazon' },
   openGraph: {
     title: 'Amazon News 2026 | AWS, Robotics & AI',

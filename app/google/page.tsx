@@ -9,7 +9,7 @@ const SLUG = '/google';
 
 export const metadata: Metadata = {
   title: 'Google News | Search, AI & Android 2026',
-  description: 'Google news covering Search, AI, Android, YouTube, and Google Cloud from OzoneNews.',
+  description: 'Google news: Search, Android, YouTube, Google Cloud, and AI research. Reports on product launches, antitrust issues, and developer ecosystems.',
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Google News | Search, AI & Android 2026',

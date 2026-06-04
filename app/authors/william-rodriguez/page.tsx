@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'William Rodriguez | Staff Writer, OzoneNews',
   description:
-    'William Rodriguez is a staff writer at OzoneNews covering news, technology, gaming, and culture.',
+    'William Rodriguez is a staff writer at OzoneNews covering news, technology, gaming, and culture. He focuses on investigative features and product analysis across major tech beats.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/william-rodriguez' },
   openGraph: {
     title: 'William Rodriguez | Staff Writer, OzoneNews',

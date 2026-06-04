@@ -9,7 +9,7 @@ const SLUG = '/video-games';
 
 export const metadata: Metadata = {
   title: 'Video Game News | GTA 6, Nintendo & More 2026',
-  description: 'Latest video game news: GTA 6, Nintendo Switch 2, new releases, and gaming industry analysis from OzoneNews.',
+  description: 'Latest video game news, developer interviews, hardware updates, and industry analysis. Coverage includes GTA 6, Nintendo Switch 2, and major releases.',
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Video Game News | GTA 6, Nintendo & More 2026',

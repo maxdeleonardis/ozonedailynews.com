@@ -13717,7 +13717,154 @@
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/anime/news/hunter-x-hunter-volume-39-release-date-july-2026",
+    "title": "Hunter x Hunter Volume 39 | Release Date July 3, 2026",
+    "description": "Shueisha confirmed Hunter x Hunter Volume 39 releases July 3, 2026 in Japan, compiling Chapters 401-410 and ending a 22-month print hiatus. English release via ",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Anime",
+    "tags": [
+      "Anime"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/meta/news/meta-model-capability-initiative-employee-tracking-mci-rollback-2026",
+    "title": "Meta MCI | Employee Tracking Revolt, GDPR Risk & Rollback 2026",
+    "description": "Mouse clicks, clipboard contents, device sleep cycles across 200 apps, all fed into Meta\\",
+    "publish_date": "June 3, 2026",
+    "modified_date": "June 3, 2026",
+    "category": "Meta",
+    "tags": [
+      "Meta"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.3,
+    "change_frequency": "monthly"
+  },
+  {
+    "slug": "/microsoft/news/microsoft-build-2026-san-francisco-agentic-ai-hub",
+    "title": "Microsoft Build 2026 | Dates, Location, Announcements & History",
+    "description": "Full hub for Microsoft Build 2026. Dates June 2-3 in San Francisco, 2,500 attendees, Scout AI agent reveal, and a complete history of the Build conference from ",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Technology",
+    "tags": [
+      "Microsoft",
+      "Big Tech",
+      "News",
+      "Microsoft Build 2026 San Francisco Agentic Ai Hub"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/microsoft/news/microsoft-scout-autopilot-always-on-ai-agent-build-2026",
+    "title": "Microsoft Scout | Always-On AI Autopilot Revealed at Build 2026",
+    "description": "Microsoft unveiled Scout at Build 2026, an autonomous always-on AI agent that triages emails, tracks deadlines, and coordinates meetings without prompting. Roll",
+    "publish_date": "June 2, 2026",
+    "modified_date": "June 2, 2026",
+    "category": "Technology",
+    "tags": [
+      "Microsoft",
+      "Big Tech",
+      "News",
+      "Microsoft Scout Autopilot Always On Ai Agent Build 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.7,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/007-first-light/news/amazon-mgm-takes-publishing-control-future-bond-games",
+    "title": "Amazon MGM Takes Publishing Control | Future Bond Games 2026",
+    "description": "Amazon Game Studios and MGM will publish all future James Bond games, stripping IO Interactive of self-publishing rights. A legal loophole let 007 First Light s",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "007 First Light",
+      "News"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/bandai-namco/ace-combat-8-wings-of-theve-release-date-october-2026",
+    "title": "Ace Combat 8 Wings of Theve | Release Date October 2, 2026",
+    "description": "Ace Combat 8: Wings of Theve launches October 2, 2026 on PS5, Xbox Series X/S, and PC. Unreal Engine 5, franchise 30th anniversary, Joker Squadron story, Land B",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Bandai Namco",
+      "Ace Combat 8 Wings Of Theve Release Date October 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/news/god-of-war-laufey-gameplay-reveal-state-of-play-2026",
+    "title": "God of War Laufey Gameplay Reveal | Play as Faye, 2027",
+    "description": "Santa Monica Studio revealed God of War Laufey at Sony",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "News",
+      "God Of War Laufey Gameplay Reveal State Of Play 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/news/marvels-wolverine-state-of-play-gameplay-reveal-september-2026",
+    "title": "Marvel",
+    "description": "Insomniac Games revealed Marvel",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "News",
+      "Marvels Wolverine State Of Play Gameplay Reveal September 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
+  },
+  {
+    "slug": "/youtube/news/pewdiepie-odysseus-open-source-ai-workspace-2026",
+    "title": "PewDiePie Launches Odysseus | Free Open-Source AI App",
+    "description": "PewDiePie released Odysseus, a free open-source local AI workspace. Docker setup, hardware-aware model scanning, autonomous agents, no subscriptions.",
+    "publish_date": "June 4, 2026",
+    "modified_date": "June 4, 2026",
+    "category": "YouTube",
+    "tags": [
+      "YouTube",
+      "Creator Economy",
+      "News",
+      "Pewdiepie Odysseus Open Source Ai Workspace 2026"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
     "change_frequency": "weekly",
-    "image_url": "https://www.OzoneNews.org${SLUG}"
+    "image_url": "https://www.ozonenetwork.news${SLUG}"
   }
 ]

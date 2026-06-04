@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Meta News 2026 | Instagram, AI & Reality Labs',
-  description: 'Latest Meta news: Instagram, WhatsApp, Ray-Ban glasses, and AI from OzoneNews.',
+  description: 'Meta news: Threads product updates, ad policy changes, AI research, and regulatory scrutiny. Investigative reporting on platform governance and privacy.',
   alternates: { canonical: 'https://www.ozonenetwork.news/meta' },
   openGraph: {
     title: 'Meta News 2026 | Instagram, AI & Reality Labs',

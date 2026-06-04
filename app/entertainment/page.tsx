@@ -9,7 +9,7 @@ const SLUG = '/entertainment';
 
 export const metadata: Metadata = {
   title: 'Entertainment News | Film, TV & Streaming 2026',
-  description: 'Entertainment news covering film, television, streaming platforms, and pop culture from OzoneNews.',
+  description: 'Entertainment coverage of film, TV, streaming deals, studio strategy, and festival reporting. Data-led reviews, industry moves, and exclusive interviews.',
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Entertainment News | Film, TV & Streaming 2026',

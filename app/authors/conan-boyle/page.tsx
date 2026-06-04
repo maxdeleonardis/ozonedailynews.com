@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Conan Boyle | Staff Writer, OzoneNews',
   description:
-    'Conan Boyle is a staff writer at OzoneNews covering news, technology, gaming, and digital culture.',
+    'Conan Boyle is a staff writer at OzoneNews covering news, technology, gaming, and digital culture. He files enterprise stories and feature reporting on platform and culture shifts.',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/conan-boyle' },
   openGraph: {
     title: 'Conan Boyle | Staff Writer, OzoneNews',

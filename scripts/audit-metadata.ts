@@ -81,16 +81,39 @@ function extractField(content: string, field: string): string {
 
 /**
  * Extract a potentially multi-line string field (description, etc.)
- * Handles simple cases: description: 'text' or description:\n  'text'
+ * Handles: inline double-quoted, inline single-quoted, inline backtick,
+ * multi-line double-quoted, multi-line single-quoted, multi-line backtick.
+ * Uses escape-aware matching so \'  and \" inside strings don't truncate.
  */
 function extractDescription(content: string): string {
-  // Try single-line first
-  const singleLine = content.match(/description:\s*['"`]([^'"`\n]+)['"`]/);
-  if (singleLine) return singleLine[1].trim();
+  // Escape-aware helpers:
+  //   double-quoted:  "( no unescaped " )"
+  //   single-quoted:  '( no unescaped ' )'
+  // In regex: (?:[^"\\]|\\.)* means: any char except quote/backslash, OR backslash+any char
 
-  // Multi-line: description:\n    'text...\n    text'
-  const multiLine = content.match(/description:\s*\n\s*['"`]([\s\S]*?)['"`]\s*[,\n]/);
-  if (multiLine) return multiLine[1].replace(/\s+/g, ' ').trim();
+  // Inline double-quoted (handles apostrophes and escaped chars)
+  const dq = content.match(/description:\s*"((?:[^"\\]|\\.)*)"/);
+  if (dq) return dq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
+
+  // Inline single-quoted (handles escaped apostrophes \')
+  const sq = content.match(/description:\s*'((?:[^'\\]|\\.)*)'/);
+  if (sq) return sq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
+
+  // Inline backtick (single line)
+  const bq = content.match(/description:\s*`([^`\n]+)`/);
+  if (bq) return bq[1].trim();
+
+  // Multi-line double-quoted: description:\n    "text..."
+  const mdq = content.match(/description:\s*\n\s*"((?:[^"\\]|\\.)*)"\s*[,\n]/);
+  if (mdq) return mdq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
+
+  // Multi-line single-quoted: description:\n    'text...'
+  const msq = content.match(/description:\s*\n\s*'((?:[^'\\]|\\.)*)'\s*[,\n]/);
+  if (msq) return msq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
+
+  // Multi-line backtick: description:\n    `text...`
+  const mbq = content.match(/description:\s*\n\s*`([\s\S]*?)`\s*[,\n]/);
+  if (mbq) return mbq[1].replace(/\s+/g, ' ').trim();
 
   return '';
 }

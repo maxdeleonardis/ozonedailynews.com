@@ -9,7 +9,7 @@ const SLUG = '/microsoft';
 
 export const metadata: Metadata = {
   title: 'Microsoft News | Azure, Copilot & Windows 2026',
-  description: 'Microsoft news covering Azure, Copilot, Windows, and enterprise software from OzoneNews.',
+  description: 'Microsoft news: Azure cloud, Copilot AI, Windows releases, and enterprise product strategy. Timely analysis of developer tools and platform shifts.',
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
     title: 'Microsoft News | Azure, Copilot & Windows 2026',

@@ -54,7 +54,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: (article.metadata?.openGraph?.description as string | undefined) ?? article.metadata?.description ?? article.subtitle ?? '',
       url: canonicalUrl,
       siteName: SITE_CONFIG.name,
-      images: article.thumbnail_src ? [{ url: article.thumbnail_src, width: 1200, height: 675, alt: article.thumbnail_alt ?? article.title }] : [],
+      // Prefer Satori-generated branded OG image; fall back to thumbnail if api/og unreachable
+      images: [
+        {
+          url: `${SITE_CONFIG.url}/api/og?slug=${encodeURIComponent(article.slug)}`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+        ...(article.thumbnail_src
+          ? [{ url: article.thumbnail_src, width: 1200, height: 675, alt: article.thumbnail_alt ?? article.title }]
+          : []),
+      ],
       publishedTime: article.published_at,
       authors: article.author_name ? [article.author_name] : [],
       section: article.category,
@@ -64,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title: article.metadata?.title ?? article.title,
       description: article.metadata?.description ?? article.subtitle ?? '',
-      images: article.thumbnail_src ? [article.thumbnail_src] : [],
+      images: [`${SITE_CONFIG.url}/api/og?slug=${encodeURIComponent(article.slug)}`],
     },
   };
 }

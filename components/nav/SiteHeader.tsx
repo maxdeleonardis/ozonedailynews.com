@@ -1,5 +1,6 @@
 import Logo from '@/components/nav/Logo';
 import AuthNav from '@/components/nav/AuthNav';
+import AdminEditButton from '@/components/nav/AdminEditButton';
 import Link from 'next/link';
 
 const NAV_LINKS = [
@@ -30,6 +31,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+          <AdminEditButton />
           <Link
             href="/rss.xml"
             className="hidden sm:inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orange-500 transition-colors font-medium"

@@ -89,23 +89,59 @@ export async function getArticleByContentId(
 // ─── Articles (NewsArticleDB) ─────────────────────────────────────────────────
 
 export async function getAllArticles(): Promise<ArticleFull[]> {
-  const local = readStaticDir<ArticleFull>('articles');
-  if (local.length > 0) {
-    return local.sort((a, b) =>
+  // Layer 1: read ALL static stores so jack_articles, wiki_articles,
+  // creator_articles, sterling_articles, article_pages all appear on the homepage.
+  const staticStores: (typeof ALL_STORES[number])[] = [
+    'articles',
+    'jack_articles',
+    'wiki_articles',
+    'creator_articles',
+    'article_pages',
+    'sterling_articles',
+  ];
+  const merged: ArticleFull[] = [];
+  for (const store of staticStores) {
+    merged.push(...readStaticDir<ArticleFull>(store));
+  }
+
+  if (merged.length > 0) {
+    // Deduplicate by slug (same article can theoretically appear in two stores)
+    const seen = new Set<string>();
+    const deduped = merged.filter((a) => {
+      const key = a.slug ?? a.url ?? '';
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    return deduped.sort((a, b) =>
       new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
     );
   }
 
-  // Layer 2: Supabase fallback
+  // Layer 2: Supabase fallback — fan out across all typed tables
   const { createClient } = await import('./supabase/server');
   const supabase = await createClient();
   if (!supabase) return [];
-  const { data } = await supabase
-    .from('articles')
-    .select('*')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-  return (data ?? []) as ArticleFull[];
+  const results: ArticleFull[] = [];
+  for (const table of ['articles', 'jack_articles', 'wiki_articles', 'creator_articles', 'article_pages', 'sterling_articles']) {
+    const { data } = await supabase
+      .from(table)
+      .select('*')
+      .eq('status', 'published')
+      .order('published_at', { ascending: false });
+    if (data) results.push(...(data as ArticleFull[]));
+  }
+  const seen = new Set<string>();
+  return results
+    .filter((a) => {
+      const key = a.slug ?? a.url ?? '';
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) =>
+      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    );
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleFull | null> {
@@ -209,7 +245,12 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
 }
 
 export async function getBreakingHeadlines(): Promise<ArticleFull[]> {
-  // Breaking headlines always read from Supabase (live inserts)
+  // Check static stores first — breaking articles published via Git show up immediately.
+  const all = await getAllArticles();
+  const staticBreaking = all.filter((a) => (a as ArticleFull & { breaking?: boolean }).breaking);
+  if (staticBreaking.length > 0) return staticBreaking.slice(0, 5);
+
+  // Supabase fallback for live-inserted breaking news
   const { createClient } = await import('./supabase/server');
   const supabase = await createClient();
   if (!supabase) return [];

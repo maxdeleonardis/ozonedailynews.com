@@ -53,6 +53,12 @@ export default async function AdminLayout({
             >
               Articles
             </a>
+            <a
+              href="/admin/media"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              Media
+            </a>
           </nav>
         </div>
         <div className="flex items-center gap-4 text-xs text-gray-500">

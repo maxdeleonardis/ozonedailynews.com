@@ -99,10 +99,23 @@ export async function PUT(
   // Strip fields that must not be changed via this route
   const { id: _id, status: _status, brand_slug: _brand, ...updateFields } = body;
 
+  // If the article exists in `articles` — update it.
+  // If it only exists in a typed table (jack_articles, etc.) or was manually
+  // published via static JSON, INSERT it so it can be edited and re-published
+  // via the CMS. This is the fix for the "Blue Origin title not updating" bug.
   const { error } = await service
     .from('articles')
-    .update({ ...updateFields, updated_at: new Date().toISOString() })
-    .eq('slug', slug);
+    .upsert(
+      {
+        ...updateFields,
+        slug,
+        brand_slug: existing.brand_slug,
+        // Preserve published status if already published so publish gate works
+        status: existing.status ?? 'draft',
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: 'slug' }
+    );
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 

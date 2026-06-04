@@ -27,18 +27,38 @@ export default async function AdminArticlesPage() {
 
   if (!profile?.is_editor) redirect('/');
 
-  // Fetch all articles for this editor's brands
-  let query = service
-    .from('articles')
-    .select('id, slug, title, category, status, brand_slug, author_name, published_at, updated_at')
-    .order('updated_at', { ascending: false })
-    .limit(200);
+  // Fetch all articles across all typed tables so nothing is missing from the list
+  const TYPED_TABLES = ['articles', 'jack_articles', 'creator_articles', 'wiki_articles', 'article_pages'] as const;
+  const articleMap = new Map<string, {
+    id: string; slug: string; title: string; category: string;
+    status: 'draft' | 'review' | 'published'; brand_slug: string;
+    author_name: string; published_at: string; updated_at: string;
+  }>();
 
-  if (profile.brand_slugs?.length > 0) {
-    query = query.in('brand_slug', profile.brand_slugs);
+  for (const table of TYPED_TABLES) {
+    let q = service
+      .from(table)
+      .select('id, slug, title, category, status, brand_slug, author_name, published_at, updated_at')
+      .order('updated_at', { ascending: false })
+      .limit(200);
+    if (profile.brand_slugs?.length > 0) {
+      q = q.in('brand_slug', profile.brand_slugs);
+    }
+    const { data } = await q;
+    if (data) {
+      for (const row of data) {
+        if (!articleMap.has(row.slug)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          articleMap.set(row.slug, row as any);
+        }
+      }
+    }
   }
 
-  const { data: articles } = await query;
+  const articles = Array.from(articleMap.values()).sort(
+    (a, b) => new Date(b.updated_at ?? b.published_at ?? 0).getTime()
+              - new Date(a.updated_at ?? a.published_at ?? 0).getTime()
+  );
 
   return (
     <div>

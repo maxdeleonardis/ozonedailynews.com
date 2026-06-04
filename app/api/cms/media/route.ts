@@ -87,3 +87,48 @@ export async function POST(req: NextRequest) {
   const { data: urlData } = service.storage.from(BUCKET).getPublicUrl(storagePath);
   return NextResponse.json({ url: urlData.publicUrl }, { status: 200 });
 }
+
+// ─── GET /api/cms/media ───────────────────────────────────────────────────────
+// List all files in the media/thumbnails/ bucket prefix.
+// Used by the admin Media Library page.
+
+export async function GET(req: NextRequest) {
+  const ssr = await createSSRClient();
+  if (!ssr) return NextResponse.json({ error: 'Auth not configured' }, { status: 503 });
+
+  const { data: { user } } = await ssr.auth.getUser();
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const service = createServiceClient();
+  if (!service) return NextResponse.json({ error: 'DB not configured' }, { status: 503 });
+
+  const { data: profile } = await service
+    .from('profiles')
+    .select('is_editor')
+    .eq('user_id', user.id)
+    .single();
+  if (!profile?.is_editor) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+
+  const { searchParams } = new URL(req.url);
+  const prefix = searchParams.get('prefix') ?? 'thumbnails';
+  const limit  = Math.min(parseInt(searchParams.get('limit') ?? '200', 10), 500);
+
+  const { data: files, error } = await service.storage
+    .from(BUCKET)
+    .list(prefix, { limit, sortBy: { column: 'created_at', order: 'desc' } });
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+  const items = (files ?? [])
+    .filter((f) => f.name !== '.emptyFolderPlaceholder')
+    .map((f) => ({
+      name: f.name,
+      path: `${prefix}/${f.name}`,
+      url: `${supabaseUrl}/storage/v1/object/public/${BUCKET}/${prefix}/${f.name}`,
+      size: f.metadata?.size ?? 0,
+      createdAt: f.created_at,
+    }));
+
+  return NextResponse.json({ items });
+}

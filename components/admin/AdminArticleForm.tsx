@@ -285,12 +285,13 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     }
   }, [title, slugLocked]);
 
-  // Auto-set canonical from slug
+  // Auto-set canonical from slug + category (only on new articles before first save)
   useEffect(() => {
     if (slug && !isEdit) {
-      setMetaCanonical(`https://www.ozonedailynews.com/${slug}`);
+      const cat = category.toLowerCase();
+      setMetaCanonical(`https://www.ozonedailynews.com/${cat}/${slug}`);
     }
-  }, [slug, isEdit]);
+  }, [slug, category, isEdit]);
 
   function buildPayload() {
     return {
@@ -532,7 +533,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                     <span className="font-medium text-amber-900">
                       {articleType === 'jack_article'    ? 'Jack Article (Long-form / Investigation)'  :
                        articleType === 'article_page'    ? 'Article Page (Evergreen Guide)'            :
-                       articleType === 'creator_article' ? 'Creator Article (Influencer Profile)'      :
+                       articleType === 'creator_article' ? 'Quick Article (Space / Science / Tech)'    :
                        articleType === 'wiki_article'    ? 'Wiki Article (Glossary / Definition)'      :
                                                            'News Article (Standard)'}
                     </span>
@@ -548,7 +549,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                   <option value="news_article">News Article (Standard)</option>
                   <option value="jack_article">Jack Article (Long-form / Investigation)</option>
                   <option value="article_page">Article Page (Evergreen Guide)</option>
-                  <option value="creator_article">Creator Article (Influencer Profile)</option>
+                  <option value="creator_article">Quick Article (Space / Science / Tech)</option>
                   <option value="wiki_article">Wiki Article (Glossary / Definition)</option>
                 </select>
               )}

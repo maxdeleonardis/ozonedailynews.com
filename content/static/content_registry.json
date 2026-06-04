@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/tech/google-ai-data-center-water-consumption-cooling-2026",
+    "title": "AI's Hidden Thirst | How Google Is Engineering Its Way Out of the Data Center Water Crisis",
+    "description": "AI models consume up to 500ml of water per query for server cooling. Google's three-part fix: air cooling, closed-loop liquid systems, and municipal heat recovery. Full breakdown.",
+    "publishDate": "2026-06-03T11:00:00-05:00",
+    "modifiedDate": "2026-06-03T11:00:00-05:00",
+    "category": "Tech",
+    "tags": [
+      "Google",
+      "Data Centers",
+      "AI Infrastructure",
+      "Water Consumption",
+      "Cooling Technology",
+      "Sustainability",
+      "Renewable Energy",
+      "Hyperscale"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.85,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&h=675&fit=crop",
+    "imageAlt": "Industrial cooling towers at a large data center facility releasing water vapor into the air",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
     "title": "Google Breaks Ground in Sweden | The 9-Year Road to Horndal and What It Means for European AI Infrastructure",
     "description": "Google broke ground on its first owned data center in Sweden on June 2, 2026, in Horndal. The 700MW facility ends a 9-year development and reshapes European AI infrastructure.",

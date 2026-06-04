@@ -1,0 +1,153 @@
+{
+  "slug": "science-sagittarius-a-black-hole-wind-discovery-2026",
+  "article_type": "jack_article",
+  "url": "https://www.ozonedailynews.com/science/sagittarius-a-black-hole-wind-discovery-2026",
+  "article_url": "https://www.ozonedailynews.com/science/sagittarius-a-black-hole-wind-discovery-2026",
+  "title": "Milky Way Black Hole Caught Breathing | 50-Year Mystery of Sagittarius A* Wind Solved",
+  "subtitle": "A Northwestern University team used 100+ hours of ALMA data to produce a map 100 times deeper than any prior image of the galactic core, revealing a cone-shaped cavity carved by a continuous hot wind from Sagittarius A* blowing for at least 20,000 years.",
+  "category": "Science",
+  "category_label": "Astrophysics | Discovery",
+  "department": "Science",
+  "layout": "news",
+  "accent_color": "teal",
+  "status": "published",
+  "breaking": false,
+  "trending": true,
+  "topic_tag": "science",
+  "publish_date": "June 4, 2026",
+  "publish_date_iso": "2026-06-04T12:00:00-05:00",
+  "modified_date_iso": "2026-06-04T12:00:00-05:00",
+  "published_at": "2026-06-04T12:00:00-05:00",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "author": {
+    "name": "Max DeLeonardis",
+    "slug": "max-deleonardis",
+    "department": "Science"
+  },
+  "read_time": "7 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds",
+  "hero_image": {
+    "src": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop",
+    "alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds"
+  },
+  "tags": [
+    "Sagittarius A",
+    "Northwestern University",
+    "ALMA",
+    "Chandra X-ray Observatory",
+    "Elena Murchikova",
+    "Astrophysical Journal Letters"
+  ],
+  "keywords": [
+    "Sagittarius A black hole wind discovery",
+    "Milky Way black hole breathing",
+    "ALMA carbon monoxide map Sgr A",
+    "Elena Murchikova Northwestern University",
+    "Chandra X-ray Observatory black hole wind",
+    "space news June 2026"
+  ],
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/science", "label": "Science" },
+    { "href": "/science/space", "label": "Space" }
+  ],
+  "categories": [
+    { "label": "Astrophysics", "color": "teal" },
+    { "label": "Discovery", "color": "blue" }
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "title": "Found: Milky Way black hole's missing wind",
+      "url": "https://news.northwestern.edu/stories/2026/06/found-milky-way-black-holes-missing-wind",
+      "publisher": "Northwestern University",
+      "date": "June 4, 2026"
+    },
+    {
+      "number": 2,
+      "title": "Milky Way's Black Hole Finally Caught 'Breathing'",
+      "url": "https://public.nrao.edu/news/black-hole-breathing/",
+      "publisher": "National Radio Astronomy Observatory",
+      "date": "June 4, 2026"
+    },
+    {
+      "number": 3,
+      "title": "Chandra Helps Find Missing Wind from Milky Way's Black Hole",
+      "url": "https://chandra.harvard.edu/photo/2026/sgrawind/",
+      "publisher": "NASA Chandra X-ray Observatory",
+      "date": "June 4, 2026"
+    },
+    {
+      "number": 4,
+      "title": "Even quiet black holes create winds, new Milky Way observations reveal",
+      "url": "https://www.sciencenews.org/article/milky-way-supermassive-black-hole-wind",
+      "publisher": "Science News",
+      "date": "June 4, 2026"
+    }
+  ],
+  "related_articles": [
+    {
+      "url": "/science/nasa-maven-mars-orbiter-dead-2026",
+      "title": "NASA Declares MAVEN Mars Orbiter Dead | 11-Year Mission Ends",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    },
+    {
+      "url": "/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm",
+      "title": "Cannibal CME | Northern Lights Across the US Tonight June 4-5",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    },
+    {
+      "url": "/science/bumblebee-problem-solving-chimp-tool-use-study-2026",
+      "title": "Bumblebees Match Chimps in Problem-Solving | Science Study 2026",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    },
+    {
+      "url": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+      "title": "SpaceX Starship | Orbital Flight Record and Reuse Milestones 2026",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    }
+  ],
+  "footer_tagline": "Reported Science Journalism from Ozone Network News",
+  "footer_links": [
+    { "href": "/science", "label": "Science" },
+    { "href": "/science/space", "label": "Space" },
+    { "href": "/about", "label": "About" }
+  ],
+  "engagement_slug": "science-sagittarius-a-black-hole-wind-discovery-2026",
+  "metadata": {
+    "title": "Sagittarius A* Wind Found | Milky Way Black Hole Breathing",
+    "description": "Astronomers using ALMA and Chandra detected a hot continuous wind from Sagittarius A*, solving a 50-year mystery about the Milky Way's black hole.",
+    "keywords": [
+      "Sagittarius A black hole wind discovery",
+      "Milky Way black hole breathing",
+      "ALMA carbon monoxide map Sgr A",
+      "Chandra X-ray Observatory black hole wind",
+      "Northwestern University astrophysics 2026"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/science/sagittarius-a-black-hole-wind-discovery-2026"
+    },
+    "openGraph": {
+      "title": "Sagittarius A* Wind Found | Milky Way Black Hole Breathing",
+      "description": "Astronomers using ALMA and Chandra detected a hot continuous wind from Sagittarius A*, solving a 50-year mystery about the Milky Way's black hole.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>A study published Thursday in <em>The Astrophysical Journal Letters</em> reports the first confirmed detection of a continuous wind flowing outward from Sagittarius A* (Sgr A*), the supermassive black hole at the center of the Milky Way. The finding closes a gap in astrophysics that has persisted for roughly 50 years: physical models have long predicted that a black hole of this mass must generate outflowing winds as it accretes material, but no observational evidence of that wind had ever been captured.</p>\n\n<p>The research was led by a team at <a href=\"https://news.northwestern.edu/stories/2026/06/found-milky-way-black-holes-missing-wind\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Northwestern University</a> and relies on more than 100 hours of data from the Atacama Large Millimeter/submillimeter Array in Chile, cross-referenced with X-ray maps from NASA's Chandra X-ray Observatory. The combined dataset produced a map of the galactic core 100 times deeper and 80 times sharper than any prior image of the region.</p>\n\n<h2>Why the Wind Went Undetected for 50 Years</h2>\n\n<p>Observing Sgr A* from Earth requires looking directly through the densest part of the Milky Way's disk. Between Earth and the galactic center sit roughly 26,000 light-years of interstellar dust, ionized gas, and stellar debris. At optical wavelengths the core is completely invisible. Even at radio and millimeter wavelengths, the bright, rapidly fluctuating emission from the black hole itself overwhelms the fainter signals that would reveal the surrounding gas structure.</p>\n\n<p>Previous surveys could resolve the general vicinity of Sgr A* but not the fine-grained spatial detail required to distinguish a wind-carved cavity from the complex background emission. The University team addressed this by developing new data-processing algorithms capable of modeling and subtracting the variable glare of the black hole in real time, leaving a residual map of the surrounding molecular gas that was previously impossible to produce.</p>\n\n<p>The five-year observation campaign accumulated more than 100 hours of ALMA integration time on the galactic center, a depth of coverage that no prior study had achieved. The signal-to-noise improvement over previous maps was not incremental. The resulting image represents a qualitative step change in the observational baseline for this region.</p>\n\n<h2>What the Data Showed | A Cone-Shaped Cavity Three Light-Years Wide</h2>\n\n<p>When the processed ALMA image rendered, researchers identified a cone-shaped cavity extending approximately three light-years from the position of Sgr A*, completely evacuated of cold carbon monoxide gas. Cold molecular gas is the raw material for star formation and is otherwise abundant throughout the galactic center. Its systematic absence in a geometrically defined region surrounding the black hole is not a feature that arises naturally from galactic dynamics.</p>\n\n<p>\"Unless a black hole exists in a perfect vacuum, it must blow a wind somehow,\" said Dr. Mark Gorski, who co-led the study. \"With these new observations, we looked at the data and said, 'There it is.' There is the thing that everybody's been looking for for 50 years.\"</p>\n\n<p>To confirm the cavity was not an imaging artifact, the team overlaid their ALMA carbon monoxide map with X-ray emission data from <a href=\"https://chandra.harvard.edu/photo/2026/sgrawind/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">NASA's Chandra X-ray Observatory</a>. The alignment was precise: the evacuated region in the cold gas map was filled in the Chandra data with superheated X-ray-emitting plasma. The physical interpretation is unambiguous. A hot outflowing wind from Sgr A* is sweeping cold molecular material out of its path, compressing it at the cavity boundaries, and vaporizing material that cannot escape quickly enough.</p>\n\n<h2>A Quiet Wind, Not a Violent Jet | What Makes This Discovery Different</h2>\n\n<p>The documented behavior of active supermassive black holes at high accretion rates involves relativistic jets: tightly collimated streams of plasma accelerated to near-light speeds that can extend for millions of light-years and restructure entire galaxy clusters. That is the extreme end of black hole feedback. Sagittarius A* is not in that state.</p>\n\n<p>Sgr A* is currently in a low-luminosity, low-accretion phase. It is consuming material at a rate so modest that its total luminosity is many orders of magnitude below what active galactic nuclei produce. The wind detected in this study is correspondingly gentle: a warm, steady outflow rather than a catastrophic blast. Its velocity and energy content are consistent with accretion disk winds observed in lower-luminosity systems elsewhere, but this is the first time such a wind has been directly mapped in a quiescent state at the Milky Way's own center.</p>\n\n<p>The significance of observing a quiescent-state wind, rather than a jet, is that quiescence is the normal condition for the vast majority of supermassive black holes across cosmic time. Active quasar phases are brief relative to galactic timescales. Most supermassive black holes, including every one that sits at the center of a galaxy not currently undergoing a major merger or starburst, spend most of their existence in a low-accretion state similar to Sgr A* today. Understanding how those quiet black holes interact with their surroundings has been a fundamental gap in galaxy evolution models.</p>\n\n<h2>Twenty Thousand Years of Steady Outflow | Consequences for the Galactic Center</h2>\n\n<p>The geometry of the cavity and the dynamics of the surrounding gas allow the team to estimate how long the wind has been active. Based on the extent of the cone and the velocity of the outflow inferred from the ALMA spectral data, the researchers conclude the wind has been blowing continuously for at least 20,000 years. On human timescales that is an enormous span. On galactic timescales it is a brief episode, suggesting the wind may have been active intermittently or continuously for far longer periods.</p>\n\n<p>The practical consequence for the galactic center is straightforward: a wind that systematically removes cold molecular gas from the vicinity of the black hole is suppressing star formation in that region. Cold dense molecular clouds are the direct precursors to new stars. Where the wind clears them away or heats them above the density threshold for collapse, star formation cannot proceed. Sgr A*'s gentle breeze is therefore acting as a long-timescale regulator on the stellar population of the inner Milky Way.</p>\n\n<p>This mechanism, where a supermassive black hole's feedback suppresses star formation in its host galaxy's center, has been invoked theoretically in galaxy evolution models for decades. The Sgr A* wind detection provides the first direct observational evidence of that process operating in a quiescent system at resolved spatial scales. The galactic center is the one place in the universe where we can map this process at high enough resolution to see the individual cavities and compression fronts that the theoretical models predict.</p>\n\n<p>The discovery arrives on the same day as several other significant science stories. Our coverage of the <a href=\"/science/nasa-maven-mars-orbiter-dead-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">end of NASA's MAVEN Mars mission</a>, the <a href=\"/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm\" class=\"text-blue-600 hover:text-blue-800 underline\">June 4 cannibal CME geomagnetic storm</a>, and <a href=\"/science/bumblebee-problem-solving-chimp-tool-use-study-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">the bumblebee tool-use study in Science</a> represents a concentrated cluster of research publications. The Sgr A* wind paper is the most structurally significant of the group for the long-term trajectory of astrophysics. It resolves a 50-year-old prediction and opens a new observational window on the most studied black hole in the universe. The full dataset supporting the study is also available for community analysis, and <a href=\"/science/ozone-layer-recovery-data-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">follow-on studies using archived space observatory data</a> are already in progress at multiple institutions.</p>\n\n<h2>Frequently Asked Questions</h2>\n\n<h3>What is Sagittarius A* and where is it?</h3>\n<p>Sagittarius A* is the supermassive black hole at the center of the Milky Way galaxy, located approximately 26,000 light-years from Earth in the direction of the Sagittarius constellation. It has a mass of roughly 4 million times that of the sun. The 2022 Nobel Prize in Physics was awarded in part for the first direct image of Sgr A* captured by the Event Horizon Telescope collaboration.</p>\n\n<h3>What did researchers discover about Sagittarius A*?</h3>\n<p>A Northwestern University team used ALMA and NASA's Chandra X-ray Observatory to detect a continuous hot wind flowing outward from Sgr A*. The wind has carved a cone-shaped cavity roughly three light-years across in the cold molecular gas surrounding the black hole. This is the first direct observational confirmation of a wind from the Milky Way's central black hole, resolving a 50-year prediction from accretion physics.</p>\n\n<h3>Why was the black hole wind so hard to detect?</h3>\n<p>The galactic center is obscured by 26,000 light-years of interstellar dust and gas that block optical wavelengths entirely. Even at radio wavelengths, the bright fluctuating emission from Sgr A* itself drowns out the fainter signals from surrounding gas. The Northwestern team spent five years accumulating over 100 hours of ALMA observation time and developed new algorithms to subtract the black hole's own glare, producing an image 100 times deeper than any prior map of the region.</p>\n\n<h3>How long has the Sagittarius A* wind been blowing?</h3>\n<p>Based on the size of the cleared cavity and the inferred outflow velocity, the research team estimates the wind has been active for at least 20,000 years. Whether it has been continuous throughout that period or active in episodic bursts is not yet determined by the current dataset.</p>\n\n<h3>Why does a quiet black hole wind matter for galaxy evolution?</h3>\n<p>Most supermassive black holes in the universe spend the majority of their existence in a low-accretion, quiescent state similar to Sgr A* today. This wind provides the first direct evidence of how a quiet black hole interacts with its surrounding gas, suppressing star formation by clearing cold molecular material from the galactic center. Galaxy evolution models have predicted this feedback mechanism for decades without direct observational support at these spatial scales.</p>\n\n<SourcesInterlink\n  sources={[{\"number\":1,\"url\":\"https://news.northwestern.edu/stories/2026/06/found-milky-way-black-holes-missing-wind\",\"title\":\"Found: Milky Way black hole's missing wind\",\"author\":\"Northwestern University\",\"date\":\"June 4, 2026\"},{\"number\":2,\"url\":\"https://public.nrao.edu/news/black-hole-breathing/\",\"title\":\"Milky Way's Black Hole Finally Caught 'Breathing'\",\"author\":\"NRAO\",\"date\":\"June 4, 2026\"},{\"number\":3,\"url\":\"https://chandra.harvard.edu/photo/2026/sgrawind/\",\"title\":\"Chandra Helps Find Missing Wind from Milky Way's Black Hole\",\"author\":\"NASA Chandra\",\"date\":\"June 4, 2026\"},{\"number\":4,\"url\":\"https://www.sciencenews.org/article/milky-way-supermassive-black-hole-wind\",\"title\":\"Even quiet black holes create winds, new Milky Way observations reveal\",\"date\":\"June 4, 2026\"}]}\n  internalLinks={[{\"href\":\"/science/nasa-maven-mars-orbiter-dead-2026\",\"label\":\"NASA MAVEN Mars Orbiter Declared Dead | 11-Year Mission Ends\",\"category\":\"Science\"},{\"href\":\"/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm\",\"label\":\"Cannibal CME | Northern Lights Across the US Tonight June 4-5\",\"category\":\"Science\"},{\"href\":\"/science/bumblebee-problem-solving-chimp-tool-use-study-2026\",\"label\":\"Bumblebees Match Chimps in Problem-Solving | Science 2026\",\"category\":\"Science\"},{\"href\":\"/science/ozone-layer-recovery-data-2026\",\"label\":\"Ozone Layer Recovery | 2026 Data\",\"category\":\"Science\"}]}\n  accentColor=\"blue\"\n/>",
+  "id": "e954cee9-a2e9-4fa5-bfc5-89536e7735de"
+}

@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Kagurabachi Anime | April 2027 Premiere, CygamesPictures',
   description:
-    'The Kagurabachi anime adaptation premieres April 2027, produced by CygamesPictures. Based on Takeru Hokazono\'s Weekly Shonen Jump revenge-action manga. Official teaser trailer released.',
+    'The Kagurabachi anime adaptation premieres April 2027, produced by CygamesPictures. Based on Takeru Hokazono\'s Weekly Shonen Jump revenge-action manga.',
   keywords: [
     'Kagurabachi anime',
     'Kagurabachi anime release date',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kagurabachi Anime April 2027 | Official Trailer + CygamesPictures Confirmed',
+    title: 'Kagurabachi Anime April 2027 | Official Trailer +',
     description:
       'The Shonen Jump revenge-action manga gets its anime. CygamesPictures producing. April 2027.',
   },

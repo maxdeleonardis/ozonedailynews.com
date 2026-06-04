@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 export const metadata: Metadata = {
   title: 'Windrose Dev Holds Off on Release Date Despite 1M Wishlists',
   description:
-    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident in build quality, despite crossing 1 million Steam wishlists. Quality over hype.',
+    'Windrose Crew says the pirate survival game won\'t get a release date until the studio is confident in build quality, despite crossing 1 million Steam',
   keywords: [
     'Windrose release date',
     'Windrose Crew update',

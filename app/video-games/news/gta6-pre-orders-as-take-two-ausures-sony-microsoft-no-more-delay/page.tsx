@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/gta6-pre-orders-as-take-two-ausures-sony-microsoft-no-more-delay';
 
 export const metadata: Metadata = {
-  title: 'GTA 6 Pre-Orders | Date, Price, Bonuses & Confirmed Details 2026',
-  description: 'Full GTA 6 pre-order hub covering confirmed date, Standard and Premium editions, bonuses, Take-Two assurances to Sony and Microsoft, PlayStation Store title IDs, and everything verified so far.',
+  title: 'GTA 6 Pre-Orders | Date, Price, Bonuses & Confirmed Details',
+  description: 'Full GTA 6 pre-order hub covering confirmed date, Standard and Premium editions, bonuses, Take-Two assurances to Sony and Microsoft, PlayStation Store',
   keywords: [
     'GTA 6 pre-orders',
     'GTA 6 pre-order date 2026',

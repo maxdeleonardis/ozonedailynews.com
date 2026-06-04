@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Rudy Sinigur | Staff Writer, OzoneNews',
   description:
-    'Rudy Sinigur is a staff writer at OzoneNews covering news, sports, culture, and emerging stories across multiple verticals. He files longform features and investigative pieces on topics that shape public life.',
+    'Rudy Sinigur is a staff writer at OzoneNews covering news, sports, culture, and emerging stories across multiple verticals. He files longform features and',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/rudy-sinigur' },
   openGraph: {
     title: 'Rudy Sinigur | Staff Writer, OzoneNews',

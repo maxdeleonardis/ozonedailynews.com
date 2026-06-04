@@ -10,7 +10,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?w
 export const metadata: Metadata = {
   title: 'Nintendo Switch 2 vs Steam Deck OLED | Which to Buy 2026',
   description:
-    'Nintendo Switch 2 ($449.99, June 5) vs Steam Deck OLED ($549). Side-by-side: specs, screen quality, game libraries, portability, and price. Which handheld gaming device is worth buying in 2026.',
+    'Nintendo Switch 2 ($449.99, June 5) vs Steam Deck OLED ($549). Side-by-side: specs, screen quality, game libraries, portability, and price. Which handheld',
   keywords: [
     'Nintendo Switch 2 vs Steam Deck',
     'Switch 2 vs Steam Deck OLED',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nintendo Switch 2 vs Steam Deck OLED | Which to Buy in 2026',
     description:
-      'Switch 2 launches June 5 at $449.99. Steam Deck OLED is $549. Both are handheld consoles, but they serve completely different players. Full comparison: specs, games, display, and price.',
+      'Switch 2 launches June 5 at $449.99. Steam Deck OLED is $549. Both are handheld consoles, but they serve completely different players. Full comparison:',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',

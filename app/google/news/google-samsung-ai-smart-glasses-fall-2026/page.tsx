@@ -11,7 +11,7 @@ const OG_IMAGE =
 export const metadata: Metadata = {
   title: 'Google Samsung AI Smart Glasses | Fall 2026 Launch',
   description:
-    'Google and Samsung revealed audio-first AI smart glasses at Google I/O 2026 built on Android XR with Gemini AI. Warby Parker and Gentle Monster designs launch fall 2026.',
+    'Google and Samsung revealed audio-first AI smart glasses at Google I/O 2026 built on Android XR with Gemini AI. Warby Parker and Gentle Monster designs',
   keywords: [
     'Google Samsung AI smart glasses',
     'Android XR smart glasses 2026',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     canonical: ARTICLE_URL,
   },
   openGraph: {
-    title: 'Google & Samsung AI Smart Glasses | Fall 2026 Launch at Google I/O',
+    title: 'Google & Samsung AI Smart Glasses | Fall 2026 Launch at',
     description:
-      'Google and Samsung unveiled audio-first AI glasses at Google I/O 2026. Gemini AI, real-time translation, turn-by-turn nav, and Warby Parker designs. Ships fall 2026.',
+      'Google and Samsung unveiled audio-first AI glasses at Google I/O 2026. Gemini AI, real-time translation, turn-by-turn nav, and Warby Parker designs. Ships',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Google and Samsung reveal AI smart glasses, launching fall 2026',
+    title: 'Google and Samsung reveal AI smart glasses, launching',
     description:
       'Gemini-powered audio glasses with real-time translation, nav, and camera. Built with Warby Parker and Gentle Monster. Direct challenge to Meta Ray-Ban.',
     images: [OG_IMAGE],

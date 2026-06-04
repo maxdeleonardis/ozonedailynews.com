@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meta 8,000 Layoffs | Applied AI Draft and $145B Silicon Race',
     description:
-      'Meta terminates 8,000 employees May 20, 2026 while drafting 1,000 elite engineers into a mandatory Applied AI unit under VP Maher Saba. Record Q1 revenue of $56.3B alongside $145B capex.',
+      'Meta terminates 8,000 employees May 20, 2026 while drafting 1,000 elite engineers into a mandatory Applied AI unit under VP Maher Saba. Record Q1 revenue',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'OzoneNews',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meta 8,000 Layoffs May 20 | 1,000 Engineers Drafted Into Applied AI Unit',
+    title: 'Meta 8,000 Layoffs May 20 | 1,000 Engineers Drafted Into',
     description:
       'Record $56.3B Q1 revenue. $145B capex target. 8,000 jobs gone. 1,000 engineers mandatory drafted. Meta rewrites the Big Tech employment contract.',
   },

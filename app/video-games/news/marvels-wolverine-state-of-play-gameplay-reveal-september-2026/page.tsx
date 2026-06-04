@@ -8,7 +8,7 @@ const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: "Marvel's Wolverine Gameplay Reveal | Release Date September 15, 2026",
-  description: "Insomniac Games revealed Marvel's Wolverine at Sony's June 2 State of Play. PS5 exclusive, September 15 2026, rated M. Rage Meter combat, Jean Grey, Sabretooth AI companions, no Spider-Man crossover.",
+  description: "Insomniac Games revealed Marvel's Wolverine at Sony's June 2 State of Play. PS5 exclusive, September 15 2026, rated M. Rage Meter combat, Jean Grey,",
   keywords: [
     "Marvel's Wolverine release date",
     "Marvel's Wolverine gameplay trailer",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: "Marvel's Wolverine Gameplay Reveal | September 15, 2026 PS5 Exclusive",
-    description: "Insomniac's Wolverine goes rated M with Rage Meter combat, limb dismemberment, Jean Grey and Sabretooth as AI companions, and a September 15 release. No Spider-Man crossover confirmed.",
+    description: "Insomniac's Wolverine goes rated M with Rage Meter combat, limb dismemberment, Jean Grey and Sabretooth as AI companions, and a September 15 release. No",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

@@ -13,7 +13,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635372730136-06b29022281c?w
 export const metadata: Metadata = {
   title: 'Fortnite Chapter 6 Season 2 Map Changes | All New POIs',
   description:
-    "Fortnite Chapter 6 Season 2 map changes: Shogun's Sorrow castle POI, cherry blossom zones, Katana Shrine, yakuza districts, and every new named location. Full breakdown.",
+    "Fortnite Chapter 6 Season 2 map changes: Shogun's Sorrow castle POI, cherry blossom zones, Katana Shrine, yakuza districts, and every new named location.",
   keywords: [
     'Fortnite Chapter 6 Season 2 map',
     'Fortnite Season 2 map changes',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fortnite Chapter 6 Season 2 Map Changes | Shogun's Sorrow, Cherry Blossoms",
     description:
-      "Every new POI in Fortnite Chapter 6 Season 2: Shogun's Sorrow castle, cherry blossom zones, Katana Shrine, and yakuza crime districts across the updated map.",
+      "Every new POI in Fortnite Chapter 6 Season 2: Shogun's Sorrow castle, cherry blossom zones, Katana Shrine, and yakuza crime districts across the updated",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

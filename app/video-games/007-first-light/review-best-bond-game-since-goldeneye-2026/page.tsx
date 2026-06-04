@@ -10,7 +10,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w
 export const metadata: Metadata = {
   title: '007 First Light Review | Best Bond Game Since GoldenEye 1997',
   description:
-    'IO Interactive delivers the best James Bond game since GoldenEye 64. 007 First Light earns a 9/10 from IGN, a Metacritic 91, and a legitimate 2026 Game of the Year case with Glacier Engine RTGI and the Bluff and Lure system.',
+    'IO Interactive delivers the best James Bond game since GoldenEye 64. 007 First Light earns a 9/10 from IGN, a Metacritic 91, and a legitimate 2026 Game of',
   keywords: [
     '007 First Light review',
     '007 First Light best Bond game since GoldenEye',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '007 First Light Review | Best Bond Game Since GoldenEye 1997',
     description:
-      'IO Interactive earns near-universal 9/10 acclaim with an origin story that ends a 14-year James Bond gaming drought. Patrick Gibson, Glacier Engine RTGI, and a legitimate 2026 GOTY case.',
+      'IO Interactive earns near-universal 9/10 acclaim with an origin story that ends a 14-year James Bond gaming drought. Patrick Gibson, Glacier Engine RTGI,',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

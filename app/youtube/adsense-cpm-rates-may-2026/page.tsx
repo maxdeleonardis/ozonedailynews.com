@@ -7,9 +7,9 @@ const SLUG = '/youtube/adsense-cpm-rates-may-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop&q=80';
 
 export const metadata: Metadata = {
-  title: 'YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM Data',
+  title: 'YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM',
   description:
-    'YouTube AdSense CPM rates for May 2026 by niche. Personal finance leads at $42 to $68 CPM. Tech spiked on Computex ad spend. Full RPM data, Premium impact, and Q3 creator strategy.',
+    'YouTube AdSense CPM rates for May 2026 by niche. Personal finance leads at $42 to $68 CPM. Tech spiked on Computex ad spend. Full RPM data, Premium',
   keywords: [
     'YouTube CPM rates May 2026',
     'YouTube AdSense CPM 2026',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
-    title: 'YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM Data',
+    title: 'YouTube CPM Rates May 2026 | AdSense Niche Breakdown & RPM',
     description:
-      'Personal finance hits $68 CPM. Tech surged 12% on Computex budgets. Gaming stalls at $6 to $11. Full May 2026 YouTube AdSense niche leaderboard with RPM data and Q3 creator strategy.',
+      'Personal finance hits $68 CPM. Tech surged 12% on Computex budgets. Gaming stalls at $6 to $11. Full May 2026 YouTube AdSense niche leaderboard with RPM',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'OzoneNews',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YouTube CPM Rates May 2026 | Personal Finance $68, Tech Up 12%, Gaming $6',
+    title: 'YouTube CPM Rates May 2026 | Personal Finance $68, Tech Up',
     description: 'Full niche CPM and RPM leaderboard. Premium price hike impact. Q3 survival strategy for creators.',
     images: [OG_IMAGE],
   },

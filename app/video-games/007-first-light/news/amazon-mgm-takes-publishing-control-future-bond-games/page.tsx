@@ -8,7 +8,7 @@ const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: "Amazon MGM Takes Publishing Control | Future Bond Games 2026",
-  description: "Amazon Game Studios and MGM will publish all future James Bond games, stripping IO Interactive of self-publishing rights. A legal loophole let 007 First Light ship independently, but that window is now closed.",
+  description: "Amazon Game Studios and MGM will publish all future James Bond games, stripping IO Interactive of self-publishing rights. A legal loophole let 007 First",
   keywords: [
     'Amazon MGM Bond games publishing',
     'IO Interactive self-publishing rights Bond',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: "Amazon MGM Takes Publishing Control | Future Bond Games 2026",
-    description: "IO Interactive's self-publishing deal predated Amazon's $8.45B MGM acquisition. Jeff Gattis confirms Amazon Game Studios will fund and publish all future Bond sequels, with full creative oversight.",
+    description: "IO Interactive's self-publishing deal predated Amazon's $8.45B MGM acquisition. Jeff Gattis confirms Amazon Game Studios will fund and publish all future",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amazon Takes the Keys to Bond Gaming | IO Loses Self-Publishing Rights',
-    description: '007 First Light shipped under an old self-pub deal. Amazon now controls all future sequels. 88 Metacritic, 1.5M day-one sales, and a new corporate overlord.',
+    title: 'Amazon Takes the Keys to Bond Gaming | IO Loses',
+    description: '007 First Light shipped under an old self-pub deal. Amazon now controls all future sequels. 88 Metacritic, 1.5M day-one sales, and a new corporate',
   },
 };
 

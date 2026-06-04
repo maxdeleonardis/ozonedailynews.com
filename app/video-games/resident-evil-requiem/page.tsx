@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/resident-evil-requiem';
 
 export const metadata: Metadata = {
-  title: 'Resident Evil Requiem | Release Date, Story, Gameplay & News 2026',
-  description: 'Everything confirmed about Resident Evil Requiem (RE9) by Capcom, covering release date, story details, gameplay mechanics, protagonist, setting, and all the latest news.',
+  title: 'Resident Evil Requiem | Release Date, Story, Gameplay',
+  description: 'Everything confirmed about Resident Evil Requiem (RE9) by Capcom, covering release date, story details, gameplay mechanics, protagonist, setting, and all',
   keywords: [
     'Resident Evil Requiem',
     'Resident Evil 9',

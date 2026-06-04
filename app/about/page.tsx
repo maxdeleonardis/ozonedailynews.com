@@ -12,7 +12,7 @@ const PAGE_URL = 'https://www.ozonenetwork.news/about';
 export const metadata: Metadata = {
   title: 'About OzoneNews | Ozone Network News LLC',
   description:
-    'Ozone Network News LLC is an independent, self-funded newsroom delivering verified, source-cited reporting. Read our mission, ownership, funding, and editorial independence statement.',
+    'Ozone Network News LLC is an independent, self-funded newsroom delivering verified, source-cited reporting. Read our mission, ownership, funding, and',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'About OzoneNews | Ozone Network News LLC',

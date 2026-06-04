@@ -8,7 +8,7 @@ const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Hunter x Hunter Volume 39 | Release Date July 3, 2026',
-  description: 'Shueisha confirmed Hunter x Hunter Volume 39 releases July 3, 2026 in Japan, compiling Chapters 401-410 and ending a 22-month print hiatus. English release via VIZ Media to follow.',
+  description: 'Shueisha confirmed Hunter x Hunter Volume 39 releases July 3, 2026 in Japan, compiling Chapters 401-410 and ending a 22-month print hiatus. English',
   keywords: [
     'Hunter x Hunter Volume 39',
     'Hunter x Hunter Volume 39 release date',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Hunter x Hunter Volume 39 | Release Date July 3, 2026',
-    description: 'Shueisha confirmed Vol. 39 drops July 3 in Japan, compiling Chapters 401-410. Fans are speculating Chapter 411 returns in late July, tying into Shueisha\'s 100th anniversary.',
+    description: 'Shueisha confirmed Vol. 39 drops July 3 in Japan, compiling Chapters 401-410. Fans are speculating Chapter 411 returns in late July, tying into',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

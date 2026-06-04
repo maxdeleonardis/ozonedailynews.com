@@ -13,7 +13,7 @@ import PopularCarousel from '@/components/discovery/PopularCarousel';
 export const metadata: Metadata = {
   title: 'OzoneNews | Tech, Gaming, Crypto & Culture News 2026',
   description:
-    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, and culture. Every article is source-cited, fact-checked, and written for real search intent.',
+    'OzoneNews is a verified news platform covering tech, gaming, crypto, entertainment, and culture. Every article is source-cited, fact-checked, and written',
   keywords: [
     'tech news 2026',
     'gaming news',

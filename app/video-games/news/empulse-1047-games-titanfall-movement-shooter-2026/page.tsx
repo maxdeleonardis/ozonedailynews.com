@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/empulse-1047-games-titanfall-movement-shooter-2026';
 
 export const metadata: Metadata = {
-  title: 'EMPULSE | 1047 Games Reveals Titanfall-Style Movement Shooter',
-  description: 'EMPULSE is a new 6v6 movement shooter from 1047 Games, the studio behind Splitgate. Under $30 on Early Access, no microtransactions, full gameplay reveal at PC Gaming Show June 7.',
+  title: 'EMPULSE | 1047 Games Reveals Titanfall-Style Movement',
+  description: 'EMPULSE is a new 6v6 movement shooter from 1047 Games, the studio behind Splitgate. Under $30 on Early Access, no microtransactions, full gameplay reveal',
   keywords: [
     'EMPULSE',
     'EMPULSE 1047 Games',

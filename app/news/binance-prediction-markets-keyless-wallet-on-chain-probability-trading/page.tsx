@@ -9,7 +9,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1629193382974-f478714dba26?w
 
 export const metadata: Metadata = {
   title: 'Binance Prediction Markets | Keyless Wallet On-Chain Trading',
-  description: 'Binance launches prediction markets via Keyless Wallet, letting users trade on-chain probability contracts from the Binance app. Binance Barbados Limited provides the service. Full breakdown.',
+  description: 'Binance launches prediction markets via Keyless Wallet, letting users trade on-chain probability contracts from the Binance app. Binance Barbados Limited',
   keywords: [
     'Binance prediction markets',
     'Binance Keyless Wallet',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Binance Launches Prediction Markets | Keyless Wallet On-Chain Trading',
-    description: 'On-chain probability trading comes to the Binance app through a new Prediction Account powered by Keyless Wallet MPC technology. Provided by Binance Barbados Limited.',
+    title: 'Binance Launches Prediction Markets | Keyless Wallet',
+    description: 'On-chain probability trading comes to the Binance app through a new Prediction Account powered by Keyless Wallet MPC technology. Provided by Binance',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

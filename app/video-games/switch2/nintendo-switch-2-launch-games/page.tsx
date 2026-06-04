@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=12
 export const metadata: Metadata = {
   title: 'Nintendo Switch 2 Launch Games | Full List, Mario Kart World',
   description:
-    'Complete Nintendo Switch 2 launch games list for June 5, 2026. Mario Kart World, Donkey Kong Bananza, Pokemon Pokopia, Super Mario Bros Wonder Switch 2 Edition, and every confirmed title.',
+    'Complete Nintendo Switch 2 launch games list for June 5, 2026. Mario Kart World, Donkey Kong Bananza, Pokemon Pokopia, Super Mario Bros Wonder Switch 2',
   keywords: [
     'Nintendo Switch 2 launch games',
     'Nintendo Switch 2 games list',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nintendo Switch 2 Launch Games | Full List June 5, 2026',
     description:
-      'Every game confirmed for Nintendo Switch 2 launch. Mario Kart World at $79.99, Donkey Kong Bananza, Pokemon Pokopia with 93 OpenCritic, and all confirmed third-party titles.',
+      'Every game confirmed for Nintendo Switch 2 launch. Mario Kart World at $79.99, Donkey Kong Bananza, Pokemon Pokopia with 93 OpenCritic, and all confirmed',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

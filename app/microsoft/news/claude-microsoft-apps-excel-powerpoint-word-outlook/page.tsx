@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Claude is now GA in Excel, Word, and PowerPoint. Outlook is in beta.',
+    title: 'Claude is now GA in Excel, Word, and PowerPoint. Outlook',
     description: 'Context carries across all four apps. Anthropic confirms GA on May 7, 2026.',
   },
 };

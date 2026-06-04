@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Jack Brennan | Creator & Influencer Reporter, OzoneNews',
   description:
-    'Jack Brennan is OzoneNews\'s Creator & Influencer Reporter, covering digital creator economics, social platforms, and the influencer industry from New York.',
+    'Jack Brennan is OzoneNews\'s Creator & Influencer Reporter, covering digital creator economics, social platforms, and the influencer industry from New',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-brennan' },
   openGraph: {
     title: 'Jack Brennan | Creator & Influencer Reporter, OzoneNews',

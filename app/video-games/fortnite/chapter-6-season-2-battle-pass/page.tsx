@@ -11,7 +11,7 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1627891127978-e33338a159d6?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Fortnite Chapter 6 Season 2 Battle Pass | All Skins & Rewards',
+  title: 'Fortnite Chapter 6 Season 2 Battle Pass | All Skins',
   description:
     'Full breakdown of the Fortnite Chapter 6 Season 2 Battle Pass: all skins, secret styles, Page 2 bonus cosmetics, and the fastest XP routes to tier 100.',
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Fortnite Chapter 6 Season 2 Battle Pass | All Skins, Styles & Rewards',
+    title: 'Fortnite Chapter 6 Season 2 Battle Pass | All Skins, Styles',
     description:
       'Every skin, back bling, pickaxe, glider, and secret style in the Fortnite Chapter 6 Season 2 "Lawless" Battle Pass. Plus the fastest XP routes to tier 100.',
     type: 'article',

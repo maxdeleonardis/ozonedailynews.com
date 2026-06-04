@@ -10,7 +10,7 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 export const metadata: Metadata = {
   title: 'Rockstar GTA 5 Crunch | Developers Were Never Paid Overtime',
   description:
-    'Former Rockstar developers who worked 80-100 hour weeks to ship GTA 5 in 2013 say they received no overtime compensation. As GTA 6 approaches a $70-$80 launch, workers are speaking out again.',
+    'Former Rockstar developers who worked 80-100 hour weeks to ship GTA 5 in 2013 say they received no overtime compensation. As GTA 6 approaches a $70-$80',
   keywords: [
     'GTA 5 crunch overtime pay',
     'Rockstar Games crunch',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTA 5 Made $8 Billion. The Devs Who Crunched to Build It Were Never Paid Overtime.',
+    title: 'GTA 5 Made $8 Billion. The Devs Who Crunched to Build It',
     description:
       'Former Rockstar staff describe 100-hour weeks, no overtime pay, and a Rockstar that has never acknowledged the GTA 5 crunch.',
   },

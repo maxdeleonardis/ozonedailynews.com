@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title:
-      'Square Enix FY2026 Financial Results | Western Downsizing Yields 34.9% Operating Income Surge',
+      'Square Enix FY2026 Financial Results | Western Downsizing',
     description:
-      'Full analysis of Square Enix FY2026: 34.9% income surge to 54.7B yen, western publishing consolidated from 11 hubs to four, and HD Games growing from 3.3B to 14.1B in operating profit.',
+      'Full analysis of Square Enix FY2026: 34.9% income surge to 54.7B yen, western publishing consolidated from 11 hubs to four, and HD Games growing from 3.3B',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Square Enix FY2026: Income up 34.9% as Western Downsizing Pays Off',
+    title: 'Square Enix FY2026 | Income up 34.9% as Western Downsizing',
     description:
       '314 jobs cut, 11 publishing hubs collapsed to four. Operating margin hits 18.4%. Full breakdown.',
   },

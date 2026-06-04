@@ -11,9 +11,9 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1634287847376-06de6b0132bc?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Fortnite Season 2 Weapons Tier List | Katana, SMGs, LMGs Ranked',
+  title: 'Fortnite Season 2 Weapons Tier List | Katana, SMGs, LMGs',
   description:
-    'Full Fortnite Chapter 6 Season 2 weapons tier list. Katana, new SMGs, LMGs, and all current loot pool weapons ranked S through D with damage stats and best use cases.',
+    'Full Fortnite Chapter 6 Season 2 weapons tier list. Katana, new SMGs, LMGs, and all current loot pool weapons ranked S through D with damage stats and',
   keywords: [
     'Fortnite Chapter 6 Season 2 weapons',
     'Fortnite Season 2 weapons tier list',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Fortnite Chapter 6 Season 2 Weapons Tier List | Katana, SMGs & LMGs Ranked',
+    title: 'Fortnite Chapter 6 Season 2 Weapons Tier List | Katana',
     description:
-      'Every weapon in the Fortnite Chapter 6 Season 2 loot pool ranked S through D. Katana tops the melee class, new SMG and LMG additions change the mid-range meta.',
+      'Every weapon in the Fortnite Chapter 6 Season 2 loot pool ranked S through D. Katana tops the melee class, new SMG and LMG additions change the mid-range',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

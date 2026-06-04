@@ -80,42 +80,59 @@ function extractField(content: string, field: string): string {
 }
 
 /**
- * Extract a potentially multi-line string field (description, etc.)
+ * Extract the top-level metadata description field only.
+ * Limits search to the section of the file between `export const metadata`
+ * and the first `openGraph:` or `twitter:` nested block, so that OG/twitter
+ * `description:` fields (which are shorter by design) are never mistaken for
+ * the canonical top-level description.
+ *
  * Handles: inline double-quoted, inline single-quoted, inline backtick,
  * multi-line double-quoted, multi-line single-quoted, multi-line backtick.
- * Uses escape-aware matching so \'  and \" inside strings don't truncate.
+ * Escape-aware: \'  and \" inside strings don't truncate extraction.
  */
 function extractDescription(content: string): string {
-  // Escape-aware helpers:
-  //   double-quoted:  "( no unescaped " )"
-  //   single-quoted:  '( no unescaped ' )'
-  // In regex: (?:[^"\\]|\\.)* means: any char except quote/backslash, OR backslash+any char
+  // --- Isolate top-level section (before openGraph/twitter nested blocks) ---
+  const metaIdx = content.search(/export\s+const\s+metadata/);
+  const searchStart = metaIdx >= 0 ? metaIdx : 0;
 
-  // Inline double-quoted (handles apostrophes and escaped chars)
-  const dq = content.match(/description:\s*"((?:[^"\\]|\\.)*)"/);
-  if (dq) return dq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
+  const ogIdx = content.indexOf('openGraph:', searchStart);
+  const twIdx = content.indexOf('twitter:', searchStart);
+  const endIdx = Math.min(
+    ogIdx > searchStart ? ogIdx : content.length,
+    twIdx > searchStart ? twIdx : content.length,
+  );
+  const topSection = content.slice(searchStart, endIdx);
 
-  // Inline single-quoted (handles escaped apostrophes \')
-  const sq = content.match(/description:\s*'((?:[^'\\]|\\.)*)'/);
-  if (sq) return sq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
+  function runExtract(src: string): string {
+    // Inline double-quoted
+    const dq = src.match(/description:\s*"((?:[^"\\]|\\.)*)"/);
+    if (dq) return dq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
 
-  // Inline backtick (single line)
-  const bq = content.match(/description:\s*`([^`\n]+)`/);
-  if (bq) return bq[1].trim();
+    // Inline single-quoted (handles escaped apostrophes \')
+    const sq = src.match(/description:\s*'((?:[^'\\]|\\.)*)'/);
+    if (sq) return sq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
 
-  // Multi-line double-quoted: description:\n    "text..."
-  const mdq = content.match(/description:\s*\n\s*"((?:[^"\\]|\\.)*)"\s*[,\n]/);
-  if (mdq) return mdq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
+    // Inline backtick (single line)
+    const bq = src.match(/description:\s*`([^`\n]+)`/);
+    if (bq) return bq[1].trim();
 
-  // Multi-line single-quoted: description:\n    'text...'
-  const msq = content.match(/description:\s*\n\s*'((?:[^'\\]|\\.)*)'\s*[,\n]/);
-  if (msq) return msq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
+    // Multi-line double-quoted: description:\n    "text..."
+    const mdq = src.match(/description:\s*\n\s*"((?:[^"\\]|\\.)*)"\s*[,\n]/);
+    if (mdq) return mdq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
 
-  // Multi-line backtick: description:\n    `text...`
-  const mbq = content.match(/description:\s*\n\s*`([\s\S]*?)`\s*[,\n]/);
-  if (mbq) return mbq[1].replace(/\s+/g, ' ').trim();
+    // Multi-line single-quoted: description:\n    'text...'
+    const msq = src.match(/description:\s*\n\s*'((?:[^'\\]|\\.)*)'\s*[,\n]/);
+    if (msq) return msq[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim();
 
-  return '';
+    // Multi-line backtick: description:\n    `text...`
+    const mbq = src.match(/description:\s*\n\s*`([\s\S]*?)`\s*[,\n]/);
+    if (mbq) return mbq[1].replace(/\s+/g, ' ').trim();
+
+    return '';
+  }
+
+  // Try top-level section first; fall back to full content if nothing found
+  return runExtract(topSection) || runExtract(content);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

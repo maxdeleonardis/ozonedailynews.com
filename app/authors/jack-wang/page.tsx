@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Jack Wang | Co-Founder & Contributor, OzoneNews',
   description:
-    'Jack Wang is a co-founder and contributor at OzoneNews covering technology, gaming, finance, and digital culture. He writes analysis and investigations on platforms and developer ecosystems.',
+    'Jack Wang is a co-founder and contributor at OzoneNews covering technology, gaming, finance, and digital culture. He writes analysis and investigations on',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-wang' },
   openGraph: {
     title: 'Jack Wang | Co-Founder & Contributor, OzoneNews',

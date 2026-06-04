@@ -10,7 +10,7 @@ const IMAGE_URL = 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?
 export const metadata: Metadata = {
   title: 'Witch Hat Atelier | Review, Staff, Season 2 News 2026',
   description:
-    'Witch Hat Atelier (Tongari Boushi no Atelier) is the Spring 2026 AotY frontrunner. BUG FILMS, director Ayumu Watanabe, composer Yuka Kitamura. 13 episodes now airing on Crunchyroll. Season 2 outlook inside.',
+    'Witch Hat Atelier (Tongari Boushi no Atelier) is the Spring 2026 AotY frontrunner. BUG FILMS, director Ayumu Watanabe, composer Yuka Kitamura. 13 episodes',
   keywords: [
     'Witch Hat Atelier',
     'Tongari Boushi no Atelier',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Witch Hat Atelier | Spring 2026 Review, Staff & Season 2 News',
+    title: 'Witch Hat Atelier | Spring 2026 Review, Staff & Season 2',
     description:
-      'BUG FILMS completed all 13 episodes before broadcast. Director Ayumu Watanabe, Elden Ring composer Yuka Kitamura. The AotY frontrunner is airing now on Crunchyroll.',
+      'BUG FILMS completed all 13 episodes before broadcast. Director Ayumu Watanabe, Elden Ring composer Yuka Kitamura. The AotY frontrunner is airing now on',
     type: 'article',
     url: PAGE_URL,
     siteName: 'OzoneNews',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Witch Hat Atelier | The Spring 2026 AotY Frontrunner',
     description:
-      'BUG FILMS finished all episodes before airing. Director of Summer Time Rendering. Elden Ring composer. The most-watched anime of Spring 2026 — now on Crunchyroll.',
+      'BUG FILMS finished all episodes before airing. Director of Summer Time Rendering. Elden Ring composer. The most-watched anime of Spring 2026 — now on',
     images: [IMAGE_URL],
   },
 };

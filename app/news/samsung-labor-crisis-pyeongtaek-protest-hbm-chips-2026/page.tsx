@@ -10,8 +10,8 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`; // restored by wiki:pub
 const OG_IMAGE = 'https://images.unsplash.com/photo-1591189824294-f9a64b5e5d15?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Samsung Labor Crisis 2026 | 40,000 Workers Protest HBM Chip Supply',
-  description: 'The largest protest in Samsung Electronics history erupted April 23, 2026 in Pyeongtaek, South Korea, as 40,000 workers demand pay parity with SK Hynix and threaten an 18-day strike that could cripple global AI chip supply.',
+  title: 'Samsung Labor Crisis 2026 | 40,000 Workers Protest HBM Chip',
+  description: 'The largest protest in Samsung Electronics history erupted April 23, 2026 in Pyeongtaek, South Korea, as 40,000 workers demand pay parity with SK Hynix',
   keywords: [
     'Samsung labor crisis 2026',
     'Samsung workers protest Pyeongtaek',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Samsung Labor Crisis 2026 | 40,000 Workers Protest as AI Chip Supply Hangs in the Balance',
-    description: '40,000 Samsung workers flooded Pyeongtaek demanding triple bonuses matching SK Hynix. An 18-day strike threat could cost $676M/day and delay AI servers for months.',
+    title: 'Samsung Labor Crisis 2026 | 40,000 Workers Protest as AI',
+    description: '40,000 Samsung workers flooded Pyeongtaek demanding triple bonuses matching SK Hynix. An 18-day strike threat could cost $676M/day and delay AI servers',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Samsung Labor Crisis | 40,000 Workers Could Shut Down the World\'s AI Chip Supply',
+    title: 'Samsung Labor Crisis | 40,000 Workers Could Shut Down the's AI Chip Supply',
     description: 'An 18-day strike threat at Pyeongtaek would cost $676M/day and delay NVIDIA AI servers for months. The biggest labor standoff in semiconductor history.',
     images: [OG_IMAGE],
   },

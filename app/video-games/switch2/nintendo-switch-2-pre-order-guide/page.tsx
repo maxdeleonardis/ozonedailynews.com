@@ -10,9 +10,9 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Nintendo Switch 2 Pre-Order Guide | Where to Buy, Price, Bundles',
+  title: 'Nintendo Switch 2 Pre-Order Guide | Where to Buy, Price',
   description:
-    'Nintendo Switch 2 pre-orders are open now. Console: $449.99. Mario Kart World bundle: $499.99. Buy at Nintendo, Best Buy, GameStop, Amazon, Target, and Walmart before June 5, 2026.',
+    'Nintendo Switch 2 pre-orders are open now. Console: $449.99. Mario Kart World bundle: $499.99. Buy at Nintendo, Best Buy, GameStop, Amazon, Target, and',
   keywords: [
     'Nintendo Switch 2 pre-order',
     'where to buy Nintendo Switch 2',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Nintendo Switch 2 Pre-Order Guide | Bundles, Price, Where to Buy',
+    title: 'Nintendo Switch 2 Pre-Order Guide | Bundles, Price, Where',
     description:
-      'Switch 2 launches June 5, 2026 at $449.99. Mario Kart World bundle $499.99. Pre-orders live at Nintendo, Best Buy, GameStop, Amazon, Target, Walmart. Stock is limited.',
+      'Switch 2 launches June 5, 2026 at $449.99. Mario Kart World bundle $499.99. Pre-orders live at Nintendo, Best Buy, GameStop, Amazon, Target, Walmart.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

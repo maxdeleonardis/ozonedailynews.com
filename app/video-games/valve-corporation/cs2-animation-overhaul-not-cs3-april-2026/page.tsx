@@ -11,7 +11,7 @@ const OG_IMAGE = '/influncer/valve-ceo-Gabe-Newell.PNG';
 export const metadata: Metadata = {
   title: 'Valve Ships CS2 Animation Overhaul | Not CS3',
   description:
-    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false, confirmed directly by Valve.',
+    'Valve released a beta build overhauling Counter-Strike 2\'s entire animation system on April 1, 2026. Reports of a CS3 built on Unreal Engine 5 are false,',
   keywords: [
     'CS2 animation update',
     'Counter-Strike 2 animation overhaul',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Valve Ships CS2 Animation Overhaul, CS3 Rumors Are April Fools Jokes",
+    title: "Valve Ships CS2 Animation Overhaul, CS3 Rumors Are April",
     description:
       'The "CS3 on Unreal Engine 5" story is fake. What Valve actually shipped on April 1 is a major CS2 animation system beta.',
     images: [`https://www.ozonenetwork.news${OG_IMAGE}`],

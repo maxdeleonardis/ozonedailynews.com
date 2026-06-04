@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: 'https://www.ozonenetwork.news/amazon',
     siteName: 'OzoneNews',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Amazon News 2026 | AWS, Robotics & AI",
+    description: "Latest Amazon and AWS news: cloud computing, robotics, AI and retail from OzoneNews.",
+  },
 };
 
 export default async function Page() {

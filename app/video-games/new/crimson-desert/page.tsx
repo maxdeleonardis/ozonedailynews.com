@@ -7,7 +7,7 @@ const SLUG = '/video-games/new/crimson-desert';
 
 export const metadata: Metadata = {
   title: 'Crimson Desert | Release Date, Story, Gameplay & News 2026',
-  description: 'Everything confirmed about Crimson Desert by Pearl Abyss, covering release date, story, gameplay mechanics, map size, platforms, and all the latest news for the open-world action RPG.',
+  description: 'Everything confirmed about Crimson Desert by Pearl Abyss, covering release date, story, gameplay mechanics, map size, platforms, and all the latest news',
   keywords: [
     'Crimson Desert',
     'Crimson Desert release date',

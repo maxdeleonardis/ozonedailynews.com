@@ -9,7 +9,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1518547131872-2ebe5eb1d1e8?w
 export const metadata: Metadata = {
   title: 'Subnautica 2 Early Access | 2 Million Copies in 12 Hours',
   description:
-    'Subnautica 2 sold 2 million copies in 12 hours on May 14, 2026, hitting 651,000 concurrent players across all platforms. Built on Unreal Engine 5 with optional four-player co-op.',
+    'Subnautica 2 sold 2 million copies in 12 hours on May 14, 2026, hitting 651,000 concurrent players across all platforms. Built on Unreal Engine 5 with',
   keywords: [
     'Subnautica 2 Early Access',
     'Subnautica 2 sales',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Subnautica 2 Early Access | 2 Million Copies in 12 Hours, 651K Concurrent',
+    title: 'Subnautica 2 Early Access | 2 Million Copies in 12 Hours',
     description:
-      'Unknown Worlds launched Subnautica 2 into Early Access on May 14, 2026. 1 million copies in the first hour. 2 million in 12 hours. 651,000 peak concurrent players on Unreal Engine 5.',
+      'Unknown Worlds launched Subnautica 2 into Early Access on May 14, 2026. 1 million copies in the first hour. 2 million in 12 hours. 651,000 peak concurrent',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Subnautica 2 | 2M copies in 12 hours, 651K concurrent players on UE5',
+    title: 'Subnautica 2 | 2M copies in 12 hours, 651K concurrent',
     description:
-      '1 million sold in hour one. 2 million in 12 hours. 467K Steam peak. Unreal Engine 5 marine physics, optional 4-player co-op, and a corporate comeback story.',
+      '1 million sold in hour one. 2 million in 12 hours. 467K Steam peak. Unreal Engine 5 marine physics, optional 4-player co-op, and a corporate comeback',
     images: [OG_IMAGE],
   },
 };

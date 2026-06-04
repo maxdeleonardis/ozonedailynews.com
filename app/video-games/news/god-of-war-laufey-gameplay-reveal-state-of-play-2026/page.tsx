@@ -8,7 +8,7 @@ const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'God of War Laufey Gameplay Reveal | Play as Faye, 2027',
-  description: "Santa Monica Studio revealed God of War Laufey at Sony's June 2 State of Play. Play as Faye across Norse, Greek, and Mongolian mythologies in a multi-myth afterlife prison. PS5 exclusive, 2027 window.",
+  description: "Santa Monica Studio revealed God of War Laufey at Sony's June 2 State of Play. Play as Faye across Norse, Greek, and Mongolian mythologies in a multi-myth",
   keywords: [
     'God of War Laufey',
     'God of War Laufey gameplay reveal',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'God of War Laufey Revealed | Play as Faye, PS5 Exclusive',
-    description: "Santa Monica Studio's next God of War stars Kratos' wife Faye fighting through The Everywhen, a multi-myth afterlife war spanning Norse, Greek, East Asian, and Mongolian gods. 2027 probable window.",
+    description: "Santa Monica Studio's next God of War stars Kratos' wife Faye fighting through The Everywhen, a multi-myth afterlife war spanning Norse, Greek, East",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'God of War Laufey | Faye Is the New Protagonist. The Everywhen Is Insane.',
-    description: 'Multi-myth afterlife prison, a talking gelatinous cube companion, Mongolian war gods, and Deborah Ann Woll voicing Faye. PS5 exclusive. No release date yet.',
+    title: 'God of War Laufey | Faye Is the New Protagonist. The',
+    description: 'Multi-myth afterlife prison, a talking gelatinous cube companion, Mongolian war gods, and Deborah Ann Woll voicing Faye. PS5 exclusive. No release date',
   },
 };
 

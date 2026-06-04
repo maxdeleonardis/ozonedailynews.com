@@ -12,7 +12,7 @@ const OG_IMAGE = '';
 export const metadata: Metadata = {
   title: 'Dragon Ball Xenoverse 3 | AGE 1000, West City, PS5 2027',
   description:
-    'Dragon Ball Xenoverse 3 officially revealed at Dragon Ball Games Battle Hour 2026. Set in AGE 1000 West City, built from Akira Toriyama designs, releasing on PS5, Xbox Series X, and PC Steam in 2027.',
+    'Dragon Ball Xenoverse 3 officially revealed at Dragon Ball Games Battle Hour 2026. Set in AGE 1000 West City, built from Akira Toriyama designs, releasing',
   keywords: [
     'Dragon Ball Xenoverse 3 release date 2027',
     'Dragon Ball Xenoverse 3 PS5 Xbox Series X PC Steam',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dragon Ball Xenoverse 3 Officially Revealed | AGE 1000, PS5 2027',
+    title: 'Dragon Ball Xenoverse 3 Officially Revealed | AGE 1000, PS5',
     description:
       '10 years after Xenoverse 2. New world by Akira Toriyama. Great Saiyan Squad. PS5, Xbox Series X, PC Steam in 2027.',
   },

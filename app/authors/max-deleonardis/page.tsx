@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Max DeLeonardis, OzoneNews Science & Technology Writer',
   description:
-    'Max DeLeonardis is a founding writer at OzoneNews in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging technology.',
+    'Max DeLeonardis is a founding writer at OzoneNews in Austin, Texas, covering biotechnology, medical research, AI hardware, video games, and emerging',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/max-deleonardis' },
   openGraph: {
     title: 'Max DeLeonardis, OzoneNews Science & Technology Writer',

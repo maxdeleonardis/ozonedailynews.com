@@ -9,7 +9,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w
 
 export const metadata: Metadata = {
   title: 'GTA 6 Pre-Order Date, Price & Bonuses | 2026 Guide',
-  description: 'GTA 6 pre-orders are expected to open before the November 19, 2026 launch. Here is what we know about pricing ($70-$80), editions, and pre-order bonuses from Take-Two and Rockstar.',
+  description: 'GTA 6 pre-orders are expected to open before the November 19, 2026 launch. Here is what we know about pricing ($70-$80), editions, and pre-order bonuses',
   keywords: [
     'GTA 6 pre-order',
     'GTA 6 pre-order date 2026',

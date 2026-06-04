@@ -8,9 +8,9 @@ const OG_IMAGE =
   'https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Steam Machine 2026 Launch Leak | Four SKUs, Two Frame Variants, Queue',
+  title: 'Steam Machine 2026 Launch Leak | Four SKUs, Two Frame',
   description:
-    'Steam client code reveals four Steam Machine SKUs and two Steam Frame variants for 2026. Valve activates the same reservation queue used for the Steam Controller. 512GB and 2TB confirmed configurations.',
+    'Steam client code reveals four Steam Machine SKUs and two Steam Frame variants for 2026. Valve activates the same reservation queue used for the Steam',
   keywords: [
     'Steam Machine 2026',
     'Steam Machine launch date',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.objectwire.org${SLUG}` },
   openGraph: {
-    title: 'Steam Machine 2026 Leak | 4 SKUs, Steam Frame, Reservation Queue Confirmed',
+    title: 'Steam Machine 2026 Leak | 4 SKUs, Steam Frame, Reservation',
     description:
-      'Valve Steam client code exposes four Steam Machine configurations, two Steam Frame variants, and an imminent reservation queue. 512GB entry and 2TB flagship confirmed.',
+      'Valve Steam client code exposes four Steam Machine configurations, two Steam Frame variants, and an imminent reservation queue. 512GB entry and 2TB',
     type: 'article',
     url: `https://www.objectwire.org${SLUG}`,
     siteName: 'ObjectWire',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Steam Machine 2026 | 4 SKUs and Reservation Queue Leaked in Steam Client Code',
+    title: 'Steam Machine 2026 | 4 SKUs and Reservation Queue Leaked in',
     description: '512GB to 2TB configs, two Steam Frame variants, Valve queue system confirmed in latest client update.',
     images: [OG_IMAGE],
   },

@@ -10,7 +10,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w
 export const metadata: Metadata = {
   title: 'GTA 6 Release Date | Everything Confirmed for Fall 2026',
   description:
-    'GTA 6 confirmed for Fall 2026 on PS5 and Xbox Series X|S. Full guide: release date, dual protagonists Jason and Lucia, State of Leonida map, expected $80 price, PC release window, and GTA Online successor.',
+    'GTA 6 confirmed for Fall 2026 on PS5 and Xbox Series X|S. Full guide: release date, dual protagonists Jason and Lucia, State of Leonida map, expected $80',
   keywords: [
     'GTA 6 release date',
     'GTA 6',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTA 6 Release Date | Fall 2026 Confirmed — PS5, Xbox, and Everything Rockstar Has Said',
+    title: 'GTA 6 Release Date | Fall 2026 Confirmed | PS5, Xbox, and',
     description:
       'Jason and Lucia. State of Leonida. Expected $80 price. PC date TBD. Every confirmed GTA 6 detail in one place.',
     images: [OG_IMAGE],

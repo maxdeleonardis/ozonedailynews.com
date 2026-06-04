@@ -8,12 +8,12 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/corrections';
 
 export const metadata: Metadata = {
-  title: 'Corrections Policy | OzoneNews',
+  title: 'Corrections Policy',
   description:
-    'How OzoneNews handles corrections. Errors are fixed publicly, timestamped, and original text is preserved. Report an issue to corrections@ozonenetwork.news.',
+    'How OzoneNews handles corrections. Errors are fixed publicly, timestamped, and the original text is preserved alongside every correction.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Corrections Policy | OzoneNews',
+    title: 'Corrections Policy',
     description: 'How OzoneNews handles corrections. Errors fixed publicly and timestamped.',
     type: 'article',
     url: PAGE_URL,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Corrections Policy | OzoneNews',
+    title: 'Corrections Policy',
     description: 'How OzoneNews handles corrections. Errors fixed publicly and timestamped.',
   },
 };

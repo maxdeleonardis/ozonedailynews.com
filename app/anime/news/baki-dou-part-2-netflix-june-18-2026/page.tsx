@@ -7,9 +7,9 @@ const SLUG = '/anime/news/baki-dou-part-2-netflix-june-18-2026';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200&h=675&fit=crop&q=80';
 
 export const metadata: Metadata = {
-  title: 'BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes 14-25',
+  title: 'BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes',
   description:
-    'BAKI-DOU Part 2 premieres June 18, 2026 on Netflix. All 12 episodes (14 through 25) drop simultaneously. Musashi Miyamoto faces Baki, Hanayama, Pickle, and Motobe in the full sword-era gauntlet.',
+    'BAKI-DOU Part 2 premieres June 18, 2026 on Netflix. All 12 episodes (14 through 25) drop simultaneously. Musashi Miyamoto faces Baki, Hanayama, Pickle,',
   keywords: [
     'BAKI-DOU Part 2 release date',
     'BAKI-DOU Part 2 Netflix',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
-    title: 'BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes 14-25',
+    title: 'BAKI-DOU Part 2 | Netflix Release Date June 18, Episodes',
     description:
       'All 12 episodes drop June 18, 2026. Musashi Miyamoto faces Baki, Hanayama, Pickle, and Motobe in TMS Entertainment\'s most hyper-violent arc yet.',
     type: 'article',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BAKI-DOU Part 2 | June 18 on Netflix, All 12 Episodes at Once',
+    title: 'BAKI-DOU Part 2 | June 18 on Netflix, All 12 Episodes at',
     description: 'Musashi vs Baki, Hanayama, Pickle, and Motobe. Episodes 14 to 25. TMS Entertainment confirms the date.',
     images: [OG_IMAGE],
   },

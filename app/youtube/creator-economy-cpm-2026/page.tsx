@@ -7,7 +7,7 @@ const SLUG = '/youtube/creator-economy-cpm-2026';
 
 export const metadata: Metadata = {
   title: 'YouTube CPM by Niche 2026 | Creator Economy Deep Dive',
-  description: 'A full breakdown of YouTube CPM and RPM rates by niche in 2026, covering 20 content categories, geographic premiums, Q4 seasonality, and creator strategy for Q3.',
+  description: 'A full breakdown of YouTube CPM and RPM rates by niche in 2026, covering 20 content categories, geographic premiums, Q4 seasonality, and creator strategy',
   keywords: [
     'YouTube CPM 2026',
     'YouTube RPM 2026',

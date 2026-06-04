@@ -8,9 +8,9 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = `https://www.ozonenetwork.news/api/og?title=Ubisoft+Reports+%E2%82%AC1.3B+Record+Operating+Loss&category=Gaming&author=Max+DeLeonardis&date=April+28+2026`;
 
 export const metadata: Metadata = {
-  title: 'Ubisoft €1.3B Record Loss | Hexe 2027, Far Cry & Ghost Recon by 2029',
+  title: 'Ubisoft €1.3B Record Loss | Hexe 2027, Far Cry & Ghost',
   description:
-    "Ubisoft's FY 2025-26 results show a €1.30B operating loss and €1.48B net loss. CFO Frédéric Duguet confirms AC Hexe 2027, new Far Cry and Ghost Recon before March 2029.",
+    "Ubisoft's FY 2025-26 results show a €1.30B operating loss and €1.48B net loss. CFO Frédéric Duguet confirms AC Hexe 2027, new Far Cry and Ghost Recon",
   keywords: [
     'Ubisoft FY 2025-26 results',
     'Ubisoft operating loss',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Ubisoft €1.3B Record Operating Loss | Hexe 2027, Far Cry & Ghost Recon by 2029',
+    title: 'Ubisoft €1.3B Record Operating Loss | Hexe 2027, Far Cry',
     description:
       'CFO Frédéric Duguet confirms the largest loss in Ubisoft history alongside a 3-franchise pipeline: AC Hexe 2027, new Far Cry and Ghost Recon by March 2029.',
     type: 'article',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ubisoft Posts €1.3B Record Loss, Locks In 3-Franchise Recovery Pipeline',
+    title: 'Ubisoft Posts €1.3B Record Loss, Locks In 3-Franchise',
     description:
-      'AC Hexe lands 2027. New Far Cry and Ghost Recon before March 2029. CFO Frédéric Duguet confirms the full roadmap alongside the worst annual result in company history.',
+      'AC Hexe lands 2027. New Far Cry and Ghost Recon before March 2029. CFO Frédéric Duguet confirms the full roadmap alongside the worst annual result in',
     images: [OG_IMAGE],
   },
 };

@@ -9,9 +9,9 @@ const OG_IMAGE =
   'https://images.unsplash.com/photo-1749264292585-858660898055?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'Nintendo Switch 2 Price Hike $499.99 September 2026 | Star Fox, H2 Titles Confirmed',
+  title: 'Nintendo Switch 2 Price Hike $499.99 September 2026 | Star',
   description:
-    'Nintendo confirms Switch 2 price rises from $449.99 to $499.99 on September 1, 2026 in North America and Europe. Star Fox launches June 25. Multiple unannounced H2 2026 titles confirmed by president Shuntaro Furukawa.',
+    'Nintendo confirms Switch 2 price rises from $449.99 to $499.99 on September 1, 2026 in North America and Europe. Star Fox launches June 25. Multiple',
   keywords: [
     'Nintendo Switch 2 price hike',
     'Nintendo Switch 2 $499.99',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Nintendo Switch 2 Price Hike to $499.99 September 2026 | Star Fox & H2 Titles Confirmed',
+    title: 'Nintendo Switch 2 Price Hike to $499.99 September 2026',
     description:
-      'Nintendo raises Switch 2 to $499.99 September 1. Star Fox launches June 25. Furukawa confirms multiple unannounced H2 titles. Nintendo stock fell 8% on announcement.',
+      'Nintendo raises Switch 2 to $499.99 September 1. Star Fox launches June 25. Furukawa confirms multiple unannounced H2 titles. Nintendo stock fell 8% on',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nintendo Switch 2 Rises to $499.99 September 1. Star Fox June 25. More Unannounced H2 Titles Coming.',
+    title: 'Nintendo Switch 2 Rises to $499.99 September 1. Star Fox',
     description:
       'Furukawa confirms price hike driven by memory costs, exchange rates, and oil prices. Stock fell 8%. Switch 2 adoption still outpacing original Switch.',
     images: [OG_IMAGE],

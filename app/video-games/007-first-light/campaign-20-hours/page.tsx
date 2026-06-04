@@ -8,9 +8,9 @@ const SLUG = '/video-games/007-first-light/campaign-20-hours';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: '007 First Light Campaign Length | 20 Hours Average Playthrough',
+  title: '007 First Light Campaign Length | 20 Hours Average',
   description:
-    '007 First Light campaign is reportedly around 20 hours for an average player. Tactical Simulator mode extends playtime with new objectives and post-launch missions. Launches May 27, 2026.',
+    '007 First Light campaign is reportedly around 20 hours for an average player. Tactical Simulator mode extends playtime with new objectives and post-launch',
   keywords: [
     '007 First Light campaign length',
     '007 First Light how long to beat',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: '007 First Light Campaign Length | 20 Hours Average Playthrough',
+    title: '007 First Light Campaign Length | 20 Hours Average',
     description:
-      'IO Interactive\'s Bond origin story targets 20 hours for a standard run. Tactical Simulator mode and post-launch missions extend total playtime. Launches May 27, 2026.',
+      'IO Interactive\'s Bond origin story targets 20 hours for a standard run. Tactical Simulator mode and post-launch missions extend total playtime. Launches',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '007 First Light | 20-Hour Campaign, Tactical Simulator Mode Details',
+    title: '007 First Light | 20-Hour Campaign, Tactical Simulator Mode',
     description:
       'IO Interactive\'s Bond origin story runs 20 hours for an average player. Post-launch Tactical Simulator missions also confirmed. May 27 launch.',
   },

@@ -7,12 +7,12 @@ import AuthorSchema from '@/components/authors/AuthorSchema';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Alfasa Chillingsworth | Finance & Markets Reporter, OzoneNews',
+  title: 'Alfasa Chillingsworth | Finance & Markets Reporter',
   description:
-    "Alfasa Chillingsworth is OzoneNews's Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, and My Hero Academia.",
+    "Alfasa Chillingsworth is OzoneNews's Finance & Markets Reporter and Anime & Gaming Editor, based in New York. Covering payments, fintech, markets, and My",
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/alfansa' },
   openGraph: {
-    title: 'Alfasa Chillingsworth | Finance & Markets Reporter, OzoneNews',
+    title: 'Alfasa Chillingsworth | Finance & Markets Reporter',
     description: 'Finance & Markets Reporter and Anime & Gaming Editor at OzoneNews. Covering fintech, payments, MHA, and gaming economics.',
     url: 'https://www.ozonenetwork.news/authors/alfansa',
     siteName: 'OzoneNews',

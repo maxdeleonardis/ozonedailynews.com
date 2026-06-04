@@ -8,7 +8,7 @@ const SLUG = '/video-games/nintendo/donkey-kong-bananza';
 export const metadata: Metadata = {
   title: "Donkey Kong Bananza | 347M Voxels, Switch 2 Launch Title",
   description:
-    "Donkey Kong Bananza launches June 5, 2026 on Nintendo Switch 2 at $59.99. Nintendo's GDC 2026 session revealed 347,070,464 individually destructible voxels per level, a dynamic resolution system, and the Restore mechanic. Directed by Kenta Motokura.",
+    "Donkey Kong Bananza launches June 5, 2026 on Nintendo Switch 2 at $59.99. Nintendo's GDC 2026 session revealed 347,070,464 individually destructible",
   keywords: [
     "Donkey Kong Bananza",
     "Donkey Kong Bananza release date",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     canonical: `https://www.ozonenetwork.news${SLUG}`,
   },
   openGraph: {
-    title: "Donkey Kong Bananza | 347M Voxels Per Level, Nintendo Switch 2",
+    title: "Donkey Kong Bananza | 347M Voxels Per Level, Nintendo",
     description:
-      "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels. Launches June 5, 2026 on Nintendo Switch 2 at $59.99.",
+      "Nintendo's Kenta Motokura and Tatsuya Kurihara revealed at GDC 2026 that each Bananza level contains 347,070,464 individually destructible voxels.",
     type: "article",
     url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: "OzoneNews",

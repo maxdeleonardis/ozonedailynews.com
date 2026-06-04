@@ -12,9 +12,9 @@ const BG_IMAGE = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=12
 const OG_IMAGE = `https://www.objectwire.org/api/og?title=PlayStation+Working+on+inFamous+Remake+Collection&category=Gaming&author=Max+DeLeonardis&date=May+16+2026&bg=${encodeURIComponent(BG_IMAGE)}`;
 
 export const metadata: Metadata = {
-  title: 'inFamous Remake Collection | PlayStation Studios, Not Sucker Punch',
+  title: 'inFamous Remake Collection | PlayStation Studios, Not',
   description:
-    'VGC journalist Jordan Middler says he believes Sony has an inFamous project underway at a PlayStation Studios team separate from original developer Sucker Punch, reviving the franchise dormant since 2014.',
+    'VGC journalist Jordan Middler says he believes Sony has an inFamous project underway at a PlayStation Studios team separate from original developer Sucker',
   keywords: [
     'inFamous remake',
     'inFamous collection PlayStation',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'inFamous Remake Collection | PlayStation Studios, Not Sucker Punch',
+    title: 'inFamous Remake Collection | PlayStation Studios, Not',
     description:
       'VGC journalist Jordan Middler says a separate PlayStation Studios team, not Sucker Punch, has an inFamous project underway.',
     type: 'article',

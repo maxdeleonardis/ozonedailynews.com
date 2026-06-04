@@ -12,7 +12,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w
 export const metadata: Metadata = {
   title: 'GTA 6 | Release Date, Price, Characters & Complete Guide',
   description:
-    'GTA 6 releases November 19, 2026 on PS5 and Xbox Series X|S. Full guide covering release date, price, dual protagonists Jason and Lucia, Vice City map, PC release, and GTA Online successor.',
+    'GTA 6 releases November 19, 2026 on PS5 and Xbox Series X|S. Full guide covering release date, price, dual protagonists Jason and Lucia, Vice City map, PC',
   keywords: [
     'GTA 6',
     'Grand Theft Auto VI',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTA 6 | Everything Confirmed | Release Date, Price, Characters',
+    title: 'GTA 6 | Everything Confirmed | Release Date, Price',
     description:
       'November 19, 2026 on PS5 and Xbox. Jason and Lucia, Vice City, the state of Leonida. Complete guide.',
     images: [OG_IMAGE],

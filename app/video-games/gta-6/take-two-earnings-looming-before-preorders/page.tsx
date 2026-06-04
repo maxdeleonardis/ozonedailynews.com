@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
     title: 'Take-Two Earnings Before GTA VI Preorders | Nov 2026',
-    description: 'Take-Two raises full-year bookings outlook to $6.7B as GTA VI targets November 19, 2026. $1B pre-order forecast, possible $80 price point, 12,900 employees on final polish.',
+    description: 'Take-Two raises full-year bookings outlook to $6.7B as GTA VI targets November 19, 2026. $1B pre-order forecast, possible $80 price point, 12,900',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

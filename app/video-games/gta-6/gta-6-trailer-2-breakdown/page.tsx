@@ -11,9 +11,9 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'GTA 6 Trailer 2 Breakdown | Every Confirmed Detail, Release Date',
+  title: 'GTA 6 Trailer 2 Breakdown | Every Confirmed Detail, Release',
   description:
-    'GTA 6 Trailer 2 confirmed dual protagonists Jason and Lucia, Vice City open world, November 19 2026 release date, and a map larger than any previous Rockstar game. Full breakdown.',
+    'GTA 6 Trailer 2 confirmed dual protagonists Jason and Lucia, Vice City open world, November 19 2026 release date, and a map larger than any previous',
   keywords: [
     'GTA 6 trailer 2',
     'GTA 6 Trailer 2 breakdown',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'GTA 6 Trailer 2 Breakdown | Jason, Lucia, Vice City, Nov 19',
     description:
-      'GTA 6 Trailer 2 confirmed: dual protagonist Jason and Lucia, the state of Leonida (Vice City), November 19, 2026 release, and a map designed around social media-era Florida.',
+      'GTA 6 Trailer 2 confirmed: dual protagonist Jason and Lucia, the state of Leonida (Vice City), November 19, 2026 release, and a map designed around social',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

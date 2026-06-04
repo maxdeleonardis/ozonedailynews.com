@@ -8,7 +8,7 @@ const SLUG = '/anime';
 
 export const metadata: Metadata = {
   title: 'Anime News & Series Guides | OzoneNews 2026',
-  description: 'Anime coverage at OzoneNews: Jujutsu Kaisen, My Hero Academia, Demon Slayer, One Piece, Dragon Ball and more. Season guides, arc breakdowns, and release calendars.',
+  description: 'Anime coverage at OzoneNews: Jujutsu Kaisen, My Hero Academia, Demon Slayer, One Piece, Dragon Ball and more. Season guides, arc breakdowns, and release',
   keywords: [
     'anime news 2026',
     'Jujutsu Kaisen',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anime Hub | OzoneNews',
+    title: 'Anime Hub',
     description: 'Jujutsu Kaisen, MHA, Demon Slayer, One Piece and more.',
   },
 };

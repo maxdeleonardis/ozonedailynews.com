@@ -8,9 +8,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'JJK Season 3 | Culling Game Arc, Episode Guide, Where to Watch',
+  title: 'JJK Season 3 | Culling Game Arc, Episode Guide, Where to',
   description:
-    'Jujutsu Kaisen Season 3 is airing Spring 2026. Full Culling Game arc guide: new characters Higuruma, Kashimo, Hakari, colony assignments, episode breakdown, where to watch on Crunchyroll, and what comes in Season 4.',
+    'Jujutsu Kaisen Season 3 is airing Spring 2026. Full Culling Game arc guide: new characters Higuruma, Kashimo, Hakari, colony assignments, episode',
   keywords: [
     'Jujutsu Kaisen Season 3',
     'JJK Season 3',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'JJK Season 3 | Culling Game Arc, Episode Guide, Where to Watch',
+    title: 'JJK Season 3 | Culling Game Arc, Episode Guide, Where to',
     description:
-      'MAPPA\'s Jujutsu Kaisen Season 3 is airing now. Culling Game arc, new characters Higuruma and Kashimo, colony structure, and how it sets up the Shinjuku Showdown final arc.',
+      'MAPPA\'s Jujutsu Kaisen Season 3 is airing now. Culling Game arc, new characters Higuruma and Kashimo, colony structure, and how it sets up the Shinjuku',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JJK Season 3 | Culling Game, New Characters, and Where to Watch',
+    title: 'JJK Season 3 | Culling Game, New Characters, and Where to',
     description:
       'Spring 2026. Higuruma, Kashimo, Hakari. Multi-colony battles. The most complex arc in JJK history is now animating on Crunchyroll.',
     images: [OG_IMAGE],

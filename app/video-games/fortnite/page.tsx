@@ -13,7 +13,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635372730136-06b29022281c?w
 export const metadata: Metadata = {
   title: 'Fortnite | Chapter 6 Season 2, News & Guides 2026',
   description:
-    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides from OzoneNews.',
+    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides from',
   keywords: [
     'Fortnite',
     'Fortnite Chapter 6 Season 2',

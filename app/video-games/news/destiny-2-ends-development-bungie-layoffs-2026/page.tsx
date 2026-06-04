@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/video-games/news/destiny-2-ends-development-bungie-layoffs-2026';
 
 export const metadata: Metadata = {
-  title: 'Destiny 2 | End of Development, Bungie Layoffs & Legacy Hub 2026',
-  description: 'Complete Destiny 2 reference hub covering the end of active development, Monument of Triumph final update, Bungie layoffs, Sony write-downs, and the game\'s legacy as a live-service era landmark.',
+  title: 'Destiny 2 | End of Development, Bungie Layoffs & Legacy Hub',
+  description: 'Complete Destiny 2 reference hub covering the end of active development, Monument of Triumph final update, Bungie layoffs, Sony write-downs, and the',
   keywords: [
     'Destiny 2',
     'Destiny 2 end of development 2026',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
-    title: 'Destiny 2 | End of Development Hub, Bungie Layoffs & Legacy 2026',
+    title: 'Destiny 2 | End of Development Hub, Bungie Layoffs & Legacy',
     description: 'Full Destiny 2 reference: Monument of Triumph final patch, Bungie studio history, Sony $700M write-down, The Gauntlet boss rush, and what comes next.',
     type: 'article',
     url: `https://www.OzoneNews.org${SLUG}`,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Destiny 2 | End of Development, Bungie Layoffs, Full Legacy Hub',
+    title: 'Destiny 2 | End of Development, Bungie Layoffs, Full Legacy',
     description: 'Monument of Triumph is the last patch. Full breakdown of Bungie\'s fall, Sony\'s $700M write-down, and what Destiny 2 leaves behind.',
   },
 };

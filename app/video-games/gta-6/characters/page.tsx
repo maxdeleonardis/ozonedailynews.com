@@ -8,9 +8,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'GTA 6 Characters | Jason Duval, Lucia Caminos, Every Confirmed Detail',
+  title: 'GTA 6 Characters | Jason Duval, Lucia Caminos, Every',
   description:
-    'Full breakdown of GTA 6 characters: Jason Duval and Lucia Caminos confirmed by Rockstar. Lucia is the first female protagonist in mainline GTA history. Dual protagonist structure, Bonnie and Clyde dynamic, and every trailer-confirmed detail.',
+    'Full breakdown of GTA 6 characters: Jason Duval and Lucia Caminos confirmed by Rockstar. Lucia is the first female protagonist in mainline GTA history.',
   keywords: [
     'GTA 6 characters',
     'GTA 6 protagonists',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'GTA 6 Characters | Jason Duval, Lucia Caminos, Every Confirmed Detail',
+    title: 'GTA 6 Characters | Jason Duval, Lucia Caminos, Every',
     description:
-      'Jason Duval and Lucia Caminos are GTA 6\'s dual protagonists. Lucia is the first female lead in mainline GTA history. "We\'re like Bonnie and Clyde, but if they had a real shot at it." Full character breakdown inside.',
+      'Jason Duval and Lucia Caminos are GTA 6\'s dual protagonists. Lucia is the first female lead in mainline GTA history. "We\'re like Bonnie and Clyde, but',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTA 6 Characters | Jason, Lucia, and the Bonnie and Clyde Dynamic',
+    title: 'GTA 6 Characters | Jason, Lucia, and the Bonnie and Clyde',
     description:
       'Lucia Caminos is the first female protagonist in mainline GTA history. Jason Duval is her partner. Everything confirmed from Trailer 1 and Trailer 2.',
     images: [OG_IMAGE],

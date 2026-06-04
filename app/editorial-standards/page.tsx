@@ -8,12 +8,12 @@ export const revalidate = false;
 const PAGE_URL = 'https://www.ozonenetwork.news/editorial-standards';
 
 export const metadata: Metadata = {
-  title: 'Editorial Standards | OzoneNews',
+  title: 'Editorial Standards',
   description:
     'How OzoneNews reports, sources, verifies, and corrects. Our standards on accuracy, attribution, AI use, Information Gain, and conflicts of interest.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Editorial Standards | OzoneNews',
+    title: 'Editorial Standards',
     description: 'How OzoneNews reports, sources, verifies, corrects, and applies AI policy.',
     type: 'article',
     url: PAGE_URL,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Editorial Standards | OzoneNews',
+    title: 'Editorial Standards',
     description: 'How OzoneNews reports, sources, verifies, and corrects.',
   },
 };

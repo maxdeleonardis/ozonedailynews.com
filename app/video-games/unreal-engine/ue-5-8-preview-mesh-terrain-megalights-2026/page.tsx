@@ -8,7 +8,7 @@ const SLUG = '/video-games/unreal-engine/ue-5-8-preview-mesh-terrain-megalights-
 export const metadata: Metadata = {
   title: 'Unreal Engine 5.8 Preview | Mesh Terrain and MegaLights',
   description:
-    'Unreal Engine 5.8 Preview (May 2026) introduces experimental Mesh Terrain 3D topology and production-ready MegaLights for PS5, Xbox Series X, and mobile handhelds.',
+    'Unreal Engine 5.8 Preview (May 2026) introduces experimental Mesh Terrain 3D topology and production-ready MegaLights for PS5, Xbox Series X, and mobile',
   keywords: [
     'Unreal Engine 5.8 Preview',
     'Unreal Engine 5.8 Mesh Terrain',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
-    title: 'Unreal Engine 5.8 Preview | Mesh Terrain & MegaLights Go Production',
+    title: 'Unreal Engine 5.8 Preview | Mesh Terrain & MegaLights Go',
     description:
-      'Epic released UE 5.8 Preview on May 12, 2026. Mesh Terrain replaces legacy height-fields with true 3D topology. MegaLights hits production status for PS5, Xbox Series X, and mobile.',
+      'Epic released UE 5.8 Preview on May 12, 2026. Mesh Terrain replaces legacy height-fields with true 3D topology. MegaLights hits production status for PS5,',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'OzoneNews',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UE 5.8 Preview | Mesh Terrain replaces height-fields, MegaLights goes production',
+    title: 'UE 5.8 Preview | Mesh Terrain replaces height-fields',
     description:
       'Epic dropped UE 5.8 Preview May 12. True 3D terrain, 100+ dynamic lights on console, MetaHuman Crowd at scale. Here is what it means for 2026 studios.',
   },

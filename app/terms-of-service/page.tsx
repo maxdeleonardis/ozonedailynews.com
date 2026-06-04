@@ -7,7 +7,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "OzoneNews Terms of Service: user obligations, content rules, acceptable use, copyright, and dispute resolution. Legal terms for using the site and our services.",
+  description: "OzoneNews Terms of Service: user obligations, content rules, acceptable use, copyright, and dispute resolution. Legal terms for using the site and our",
   alternates: {
     canonical: 'https://www.ozonenetwork.news/terms-of-service',
   },

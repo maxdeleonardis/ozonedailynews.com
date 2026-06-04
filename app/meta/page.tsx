@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: 'https://www.ozonenetwork.news/meta',
     siteName: 'OzoneNews',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Meta News 2026 | Instagram, AI & Reality Labs",
+    description: "Latest Meta news: Instagram, WhatsApp, Ray-Ban glasses, and AI from OzoneNews.",
+  },
 };
 
 export default async function Page() {

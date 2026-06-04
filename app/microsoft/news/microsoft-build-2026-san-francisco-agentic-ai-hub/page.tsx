@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/microsoft-build-2026-san-francisco-agentic-ai-hub';
 
 export const metadata: Metadata = {
-  title: 'Microsoft Build 2026 | Dates, Location, Announcements & History',
-  description: 'Full hub for Microsoft Build 2026. Dates June 2-3 in San Francisco, 2,500 attendees, Scout AI agent reveal, and a complete history of the Build conference from 2011 to the AI era.',
+  title: 'Microsoft Build 2026 | Dates, Location, Announcements',
+  description: 'Full hub for Microsoft Build 2026. Dates June 2-3 in San Francisco, 2,500 attendees, Scout AI agent reveal, and a complete history of the Build conference',
   keywords: [
     'Microsoft Build 2026',
     'Microsoft Build 2026 dates',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
-    title: 'Microsoft Build 2026 | Full Event Hub, Announcements & History',
+    title: 'Microsoft Build 2026 | Full Event Hub, Announcements',
     description: 'June 2-3, San Francisco. 2,500 developers, $1,100 tickets, Scout AI agent reveal. Full logistics, keynote breakdown, and 15-year conference history.',
     type: 'article',
     url: `https://www.OzoneNews.org${SLUG}`,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Microsoft Build 2026 | Everything That Happened in San Francisco',
+    title: 'Microsoft Build 2026 | Everything That Happened in San',
     description: 'Dates, location, Scout AI reveal, 2,500 attendees, and 15 years of Build history. Full hub.',
   },
 };

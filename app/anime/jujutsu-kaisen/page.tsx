@@ -9,7 +9,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w
 
 export const metadata: Metadata = {
   title: 'Jujutsu Kaisen | Series Guide, Arc Breakdown & Anime 2026',
-  description: 'Complete Jujutsu Kaisen guide: Yuji Itadori, Gojo, Sukuna, MAPPA anime Season 3, Culling Game arc, cursed energy system, and manga arc chronology. 100M copies sold.',
+  description: 'Complete Jujutsu Kaisen guide: Yuji Itadori, Gojo, Sukuna, MAPPA anime Season 3, Culling Game arc, cursed energy system, and manga arc chronology. 100M',
   keywords: [
     'Jujutsu Kaisen',
     'Jujutsu Kaisen Season 3',

@@ -9,9 +9,9 @@ const SLUG = '/video-games/news/windrose';
 const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Windrose Hits 1M Steam Wishlists | Uzbek Pirate Survival Game',
+  title: 'Windrose Hits 1M Steam Wishlists | Uzbek Pirate Survival',
   description:
-    'Windrose Crew\'s debut pirate survival game from Uzbekistan surpassed 1 million Steam wishlists after a viral Steam Next Fest demo peaking at 22,396 concurrent players.',
+    'Windrose Crew\'s debut pirate survival game from Uzbekistan surpassed 1 million Steam wishlists after a viral Steam Next Fest demo peaking at 22,396',
   keywords: [
     'Windrose game',
     'Windrose Steam wishlists',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Windrose Hits 1M Wishlists | Uzbek Pirate Survival Game',
     description:
-      'A small studio from Uzbekistan captured gaming\'s spotlight. Windrose topped Steam Next Fest with 351K wishlists in one week, a 22K player demo peak, and now 1 million total wishlists ahead of launch.',
+      'A small studio from Uzbekistan captured gaming\'s spotlight. Windrose topped Steam Next Fest with 351K wishlists in one week, a 22K player demo peak, and',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

@@ -7,8 +7,8 @@ const SLUG = '/video-games/forza-horizon6/leak-ban-may-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues Franchise Bans',
-  description: 'Playground Games confirmed a 155GB Forza Horizon 6 build leaked on May 11, 2026. The studio announced permanent franchise-wide and hardware-level bans for pirated builds ahead of the May 19 launch.',
+  title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues',
+  description: 'Playground Games confirmed a 155GB Forza Horizon 6 build leaked on May 11, 2026. The studio announced permanent franchise-wide and hardware-level bans for',
   keywords: [
     'Forza Horizon 6 leak',
     'Forza Horizon 6 leak May 2026',
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues Franchise & Hardware Bans',
-    description: '155GB full build leaked May 11. Playground Games confirmed permanent franchise-wide and hardware-level bans. Launch: May 19, 2026 on Xbox, PC, and Game Pass.',
+    title: 'Forza Horizon 6 Leak May 2026 | Playground Games Issues',
+    description: '155GB full build leaked May 11. Playground Games confirmed permanent franchise-wide and hardware-level bans. Launch: May 19, 2026 on Xbox, PC, and Game',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'ObjectWire',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forza Horizon 6 Full Build Leaked. Playground Games Issues Permanent Hardware Bans.',
+    title: 'Forza Horizon 6 Full Build Leaked. Playground Games',
     description: '155GB build confirmed leaked May 11. Hardware-level bans already issued. Launch: May 19 on Xbox, PC, Game Pass.',
   },
 };

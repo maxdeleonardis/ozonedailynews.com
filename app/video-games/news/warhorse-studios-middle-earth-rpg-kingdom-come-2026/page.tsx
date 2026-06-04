@@ -8,9 +8,9 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = `https://www.ozonenetwork.news/api/og?title=Warhorse+Studios+Confirms+Middle-earth+RPG+%26+New+Kingdom+Come&category=Gaming&author=Max+DeLeonardis&date=May+20+2026`;
 
 export const metadata: Metadata = {
-  title: 'Warhorse Studios Confirms Middle-earth RPG | New Kingdom Come Title 2026',
+  title: 'Warhorse Studios Confirms Middle-earth RPG | New Kingdom',
   description:
-    'Warhorse Studios confirms an open-world Middle-earth RPG and a new Kingdom Come title on May 20, 2026. Embracer Group reveals Fellowship Entertainment spin-off and SEK 7.2B AAA write-down.',
+    'Warhorse Studios confirms an open-world Middle-earth RPG and a new Kingdom Come title on May 20, 2026. Embracer Group reveals Fellowship Entertainment',
   keywords: [
     'Warhorse Studios Middle-earth RPG',
     'Warhorse Studios new game 2026',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Warhorse Studios Confirms Open-World Middle-earth RPG and New Kingdom Come Title',
+    title: 'Warhorse Studios Confirms Open-World Middle-earth RPG',
     description:
-      'Double announcement from Warhorse Studios on May 20, 2026: an open-world Middle-earth RPG and a new Kingdom Come entry, revealed during Embracer Group\'s Q4 earnings alongside a SEK 7.2B write-down.',
+      'Double announcement from Warhorse Studios on May 20, 2026: an open-world Middle-earth RPG and a new Kingdom Come entry, revealed during Embracer Group\'s',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Warhorse Studios Is Making a Middle-earth RPG. And a New Kingdom Come.',
+    title: 'Warhorse Studios Is Making a Middle-earth RPG. And a New',
     description:
-      "Prague's most grounded RPG studio is heading to Tolkien's universe. Announced alongside a SEK 7.2B write-down and the Fellowship Entertainment Nasdaq spin-off from Embracer Group.",
+      "Prague's most grounded RPG studio is heading to Tolkien's universe. Announced alongside a SEK 7.2B write-down and the Fellowship Entertainment Nasdaq",
     images: [OG_IMAGE],
   },
 };

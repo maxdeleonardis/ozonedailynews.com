@@ -7,7 +7,7 @@ import { WikiArticle } from '@/components/articles/WikiArticle';
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "OzoneNews Privacy Policy: how we collect, use, and protect personal data, cookies, and user choices across our products. Explains data retention, third-party services, and user controls.",
+  description: "OzoneNews Privacy Policy: how we collect, use, and protect personal data, cookies, and user choices across our products. Explains data retention,",
   alternates: {
     canonical: 'https://www.ozonenetwork.news/privacy-policy',
   },

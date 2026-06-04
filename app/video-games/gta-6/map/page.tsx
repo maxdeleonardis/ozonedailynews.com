@@ -8,9 +8,9 @@ const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;
 const OG_IMAGE = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=675&fit=crop';
 
 export const metadata: Metadata = {
-  title: 'GTA 6 Map | State of Leonida, Vice City, and Every Confirmed Region',
+  title: 'GTA 6 Map | State of Leonida, Vice City, and Every',
   description:
-    'Full breakdown of the GTA 6 map: State of Leonida spans Vice City, the Florida Everglades, beach towns, causeways, and inland communities. Every confirmed location from Trailer 1 and Trailer 2, plus size comparison vs GTA 5.',
+    'Full breakdown of the GTA 6 map: State of Leonida spans Vice City, the Florida Everglades, beach towns, causeways, and inland communities. Every confirmed',
   keywords: [
     'GTA 6 map',
     'GTA 6 State of Leonida',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'GTA 6 Map | State of Leonida, Vice City, and Every Confirmed Region',
+    title: 'GTA 6 Map | State of Leonida, Vice City, and Every',
     description:
-      'State of Leonida is the largest Rockstar open world ever built. Vice City, the Everglades, beach towns, and a Keys analog, all confirmed from trailers. Full regional breakdown inside.',
+      'State of Leonida is the largest Rockstar open world ever built. Vice City, the Everglades, beach towns, and a Keys analog, all confirmed from trailers.',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

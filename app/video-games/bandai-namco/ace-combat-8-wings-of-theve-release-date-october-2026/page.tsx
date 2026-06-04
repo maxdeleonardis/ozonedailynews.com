@@ -8,7 +8,7 @@ const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
   title: 'Ace Combat 8 Wings of Theve | Release Date October 2, 2026',
-  description: 'Ace Combat 8: Wings of Theve launches October 2, 2026 on PS5, Xbox Series X/S, and PC. Unreal Engine 5, franchise 30th anniversary, Joker Squadron story, Land Battleship superweapon, and multiplayer confirmed.',
+  description: 'Ace Combat 8: Wings of Theve launches October 2, 2026 on PS5, Xbox Series X/S, and PC. Unreal Engine 5, franchise 30th anniversary, Joker Squadron story,',
   keywords: [
     'Ace Combat 8 Wings of Theve release date',
     'Ace Combat 8 October 2026',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Ace Combat 8: Wings of Theve | October 2, 2026 Release Date Confirmed',
-    description: 'Built on UE5 for the franchise 30th anniversary. Joker Squadron, dynamic cloudscapes, Land Battleship, multiplayer, and Ace Combat Zero bundled with every pre-order.',
+    title: 'Ace Combat 8: Wings of Theve | October 2, 2026 Release Date',
+    description: 'Built on UE5 for the franchise 30th anniversary. Joker Squadron, dynamic cloudscapes, Land Battleship, multiplayer, and Ace Combat Zero bundled with every',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ace Combat 8: Wings of Theve | Oct 2, 2026 — UE5, Multiplayer, Ace Combat Zero Bundled',
+    title: 'Ace Combat 8: Wings of Theve | Oct 2, 2026 | UE5',
     description: '30th anniversary, Strangereal July 2029, Joker Squadron, Land Battleship. Deluxe gets Sep 28 early access.',
   },
 };

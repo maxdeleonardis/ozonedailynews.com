@@ -7,9 +7,9 @@ const SLUG = '/anime/news/the-one-piece-wit-studio-netflix-february-2027';
 const OG_IMAGE = 'https://images.unsplash.com/photo-1541562232579-512a21360020?w=1200&h=675&fit=crop&q=80';
 
 export const metadata: Metadata = {
-  title: 'THE ONE PIECE Remake | WIT Studio Netflix February 2027, 7-Episode East Blue',
+  title: 'THE ONE PIECE Remake | WIT Studio Netflix February 2027',
   description:
-    'WIT Studio\'s THE ONE PIECE premieres February 2027 on Netflix. 7 episodes, 300 minutes, East Blue Saga from chapter 1 to the Baratie arc. Director Masashi Koizuka strips Toei filler for a cinematic entry point.',
+    'WIT Studio\'s THE ONE PIECE premieres February 2027 on Netflix. 7 episodes, 300 minutes, East Blue Saga from chapter 1 to the Baratie arc. Director',
   keywords: [
     'THE ONE PIECE WIT Studio Netflix',
     'THE ONE PIECE release date 2027',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `https://www.ozonenetwork.news${SLUG}` },
   openGraph: {
-    title: 'THE ONE PIECE | WIT Studio Netflix February 2027, 7-Episode East Blue Drop',
+    title: 'THE ONE PIECE | WIT Studio Netflix February 2027, 7-Episode',
     description:
-      '300 minutes, 7 episodes, no filler. Masashi Koizuka directs the Attack on Titan studio\'s cinematic reimagining of the world\'s best-selling manga for a simultaneous worldwide Netflix debut.',
+      '300 minutes, 7 episodes, no filler. Masashi Koizuka directs the Attack on Titan studio\'s cinematic reimagining of the world\'s best-selling manga for a',
     type: 'article',
     url: `https://www.ozonenetwork.news${SLUG}`,
     siteName: 'OzoneNews',

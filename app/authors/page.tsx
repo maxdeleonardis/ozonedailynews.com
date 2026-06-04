@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Authors & Contributors | OzoneNews Nonprofit Newsroom',
   description:
-    'Meet the journalists, reporters, and editors behind OzoneNews, an independent nonprofit newsroom covering finance, science, technology, gaming, investigations, and creator culture.',
+    'Meet the journalists, reporters, and editors behind OzoneNews, an independent nonprofit newsroom covering finance, science, technology, gaming,',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors' },
   openGraph: {
     title: 'OzoneNews Authors & Contributors',

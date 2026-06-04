@@ -8,8 +8,8 @@ const ARTICLE_URL = `https://www.ozonenetwork.news${SLUG}`;
 const OG_IMAGE = 'https://www.ozonenetwork.news/api/og?title=AC+Black+Flag+Resynced+%7C+Glorified+Facelift%2C+Not+a+Remake&category=Gaming&desc=Ubisoft+cuts+multiplayer%2C+Freedom+Cry%2C+and+Abstergo+for+ray-tracing+and+QoL+tweaks&author=Jack+Sterling&date=May+21%2C+2026';
 
 export const metadata: Metadata = {
-  title: 'AC Black Flag Resynced Is a Glorified Facelift | Not a Remake',
-  description: "Ubisoft's Black Flag Resynced adds ray-tracing and new Blackbeard chapters but cuts multiplayer, Freedom Cry, and the Abstergo modern-day layer. The 2013 skeleton, parkour jank and brain-dead AI intact, runs on a better GPU.",
+  title: 'AC Black Flag Resynced Is a Glorified Facelift | Not a',
+  description: "Ubisoft's Black Flag Resynced adds ray-tracing and new Blackbeard chapters but cuts multiplayer, Freedom Cry, and the Abstergo modern-day layer. The 2013",
   keywords: [
     'AC Black Flag Resynced review',
     'Black Flag Resynced facelift not remake',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'AC Black Flag Resynced Is a Glorified Facelift | The Case Against Calling It a Remake',
+    title: 'AC Black Flag Resynced Is a Glorified Facelift | The Case',
     description: 'Multiplayer cut. Freedom Cry gone. Abstergo layer removed. The 2013 parkour jank and brain-dead AI are still there. What Resynced actually is, examined.',
     type: 'article',
     url: ARTICLE_URL,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Black Flag Resynced: No Multiplayer. No Freedom Cry. Same 2013 AI. Is It Actually a Remake?',
+    title: 'Black Flag Resynced | No Multiplayer. No Freedom Cry. Same',
     description: 'Hands-on analysis of what Ubisoft added, what they cut, and whether the ray-tracing justifies the full 2026 price tag.',
     images: [OG_IMAGE],
   },

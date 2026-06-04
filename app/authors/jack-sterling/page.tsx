@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Jack Sterling | Co-Founder & Managing Reporter, OzoneNews',
   description:
-    'Jack Sterling is a co-founder and managing reporter at OzoneNews, an independent nonprofit newsroom. He covers federal investigations, Congress, AI policy, and the politics of technology from Washington, D.C.',
+    'Jack Sterling is a co-founder and managing reporter at OzoneNews, an independent nonprofit newsroom. He covers federal investigations, Congress, AI',
   alternates: { canonical: 'https://www.ozonenetwork.news/authors/jack-sterling' },
   openGraph: {
     title: 'Jack Sterling | Co-Founder & Managing Reporter, OzoneNews',

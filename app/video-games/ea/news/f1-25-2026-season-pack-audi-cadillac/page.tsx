@@ -10,7 +10,7 @@ const OG_IMAGE = `https://www.ozonenetwork.news/api/og?title=EA+F1+25+2026+Seaso
 export const metadata: Metadata = {
   title: 'EA F1 25 2026 Season Pack | Audi, Cadillac, June 3',
   description:
-    'EA confirms F1 25: 2026 Season Pack launches June 3 on PS5, Xbox Series X|S, and PC. Audi and Cadillac join the grid, Lewis Hamilton leads cover athletes, and the MADRING Madrid circuit arrives before the real-world race.',
+    'EA confirms F1 25: 2026 Season Pack launches June 3 on PS5, Xbox Series X|S, and PC. Audi and Cadillac join the grid, Lewis Hamilton leads cover athletes,',
   keywords: [
     'F1 25 2026 Season Pack',
     'EA Sports F1 25 expansion',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'EA F1 25 2026 Season Pack | Audi & Cadillac Join Grid June 3',
     description:
-      'EA drops the 2026 Season Pack for F1 25 on June 3. Audi replaces Sauber, Cadillac enters as the first major American F1 constructor, and the MADRING Madrid circuit is playable before the real race.',
+      'EA drops the 2026 Season Pack for F1 25 on June 3. Audi replaces Sauber, Cadillac enters as the first major American F1 constructor, and the MADRING',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EA F1 25 Gets Audi, Cadillac, and Madrid. June 3.',
     description:
-      '$29.99 console / $24.99 PC. First American F1 constructor in a game, MADRING before the real race, Lewis Hamilton cover. No standalone F1 26, full new title in 2027.',
+      '$29.99 console / $24.99 PC. First American F1 constructor in a game, MADRING before the real race, Lewis Hamilton cover. No standalone F1 26, full new',
     images: [OG_IMAGE],
   },
 };

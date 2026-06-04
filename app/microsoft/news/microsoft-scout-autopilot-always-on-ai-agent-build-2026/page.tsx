@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 const SLUG = '/microsoft/news/microsoft-scout-autopilot-always-on-ai-agent-build-2026';
 
 export const metadata: Metadata = {
-  title: 'Microsoft Scout | Always-On AI Autopilot Revealed at Build 2026',
-  description: 'Microsoft unveiled Scout at Build 2026, an autonomous always-on AI agent that triages emails, tracks deadlines, and coordinates meetings without prompting. Rolling out now for Frontier enterprise customers.',
+  title: 'Microsoft Scout | Always-On AI Autopilot Revealed at Build',
+  description: 'Microsoft unveiled Scout at Build 2026, an autonomous always-on AI agent that triages emails, tracks deadlines, and coordinates meetings without',
   keywords: [
     'Microsoft Scout',
     'Microsoft Scout AI agent',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `https://www.OzoneNews.org${SLUG}` },
   openGraph: {
     title: 'Microsoft Scout | Always-On AI Agent Revealed at Build 2026',
-    description: 'Scout does not wait for prompts. It triages emails, drafts responses, tracks stalled decisions, and preps your meetings automatically. Built on OpenClaw and Microsoft\'s Work IQ layer.',
+    description: 'Scout does not wait for prompts. It triages emails, drafts responses, tracks stalled decisions, and preps your meetings automatically. Built on OpenClaw',
     type: 'article',
     url: `https://www.OzoneNews.org${SLUG}`,
     siteName: 'OzoneNews',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Microsoft Scout | The AI Agent That Works Without Being Asked',
+    title: 'Microsoft Scout | The AI Agent That Works Without Being',
     description: 'Announced at Build 2026. Scout runs in the background, triages your inbox, spots stalled decisions, and preps your meetings. No prompt required.',
   },
 };

@@ -7,8 +7,8 @@ const SLUG = '/meta/news/meta-model-capability-initiative-employee-tracking-mci-
 const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Meta MCI | Employee Tracking Revolt, GDPR Risk & Rollback 2026',
-  description: 'Meta\'s Model Capability Initiative captured every mouse click, keystroke, and screenshot from employees to train AI agents. Workers revolted. GDPR exposure hit. Meta is now rolling back. Full investigation.',
+  title: 'Meta MCI | Employee Tracking Revolt, GDPR Risk & Rollback',
+  description: 'Meta\'s Model Capability Initiative captured every mouse click, keystroke, and screenshot from employees to train AI agents. Workers revolted. GDPR',
   keywords: [
     'Meta Model Capability Initiative',
     'Meta employee tracking software',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'Meta MCI | Employees Revolted Against Keystroke Surveillance, GDPR Threat Forced Rollback',
-    description: 'Meta\'s secret tracking software logged every click, URL, and clipboard paste across 200 apps to train autonomous AI. Workers called it an "Employee Data Extraction Factory." GDPR exposure. Rollback now underway.',
+    title: 'Meta MCI | Employees Revolted Against Keystroke',
+    description: 'Meta\'s secret tracking software logged every click, URL, and clipboard paste across 200 apps to train autonomous AI. Workers called it an "Employee Data',
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',

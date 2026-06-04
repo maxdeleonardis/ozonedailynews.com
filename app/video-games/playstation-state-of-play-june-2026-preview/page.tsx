@@ -7,8 +7,8 @@ const SLUG = '/video-games/playstation-state-of-play-june-2026-preview';
 const ARTICLE_URL = `https://www.OzoneNews.org${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'PlayStation State of Play June 2026 | Wolverine, Intergalactic, God of War Preview',
-  description: "Sony's June 2, 2026 State of Play runs over an hour. Marvel's Wolverine gets its biggest gameplay reveal yet. Intergalactic and a new God of War are the two headline rumors. Full preview.",
+  title: 'PlayStation State of Play June 2026 | Wolverine',
+  description: "Sony's June 2, 2026 State of Play runs over an hour. Marvel's Wolverine gets its biggest gameplay reveal yet. Intergalactic and a new God of War are the",
   keywords: [
     'PlayStation State of Play June 2026',
     'State of Play June 2 2026',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: ARTICLE_URL },
   openGraph: {
-    title: 'PlayStation State of Play June 2026 | Wolverine, Intergalactic, God of War',
-    description: "Sony hosts a 60-plus minute State of Play on June 2. Wolverine is confirmed. Intergalactic's gameplay debut and a new God of War are the two biggest rumors. Here is everything to expect.",
+    title: 'PlayStation State of Play June 2026 | Wolverine',
+    description: "Sony hosts a 60-plus minute State of Play on June 2. Wolverine is confirmed. Intergalactic's gameplay debut and a new God of War are the two biggest",
     type: 'article',
     url: ARTICLE_URL,
     siteName: 'OzoneNews',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "PlayStation State of Play June 2 | Wolverine Confirmed, Intergalactic and God of War Rumored",
+    title: "PlayStation State of Play June 2 | Wolverine Confirmed",
     description: "Sony's hour-plus showcase airs June 2 at 5 PM ET. Everything confirmed and rumored.",
   },
 };

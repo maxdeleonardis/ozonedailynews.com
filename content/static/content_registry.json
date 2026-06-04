@@ -74,7 +74,7 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.8,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop",
+    "imageUrl": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-google-horndal-sweden-data-center-groundbreaking-2026/1780556471656--029.jpg",
     "imageAlt": "Large-scale data center facility with rows of server hardware and cool blue lighting",
     "articleType": "NewsArticle",
     "lifecycle": "news",
@@ -282,7 +282,7 @@
   {
     "slug": "/science/arctic-sea-ice-minimum-2026-measured-extent",
     "title": "Arctic Sea Ice Minimum 2026 | NSIDC Measured Extent and Trend Data",
-    "description": "The 2025 Arctic sea ice minimum was 4.28 million km\u00b2, third-lowest on record. NSIDC data shows the long-term trend at minus 13% per decade. 2026 melt tracking has begun.",
+    "description": "The 2025 Arctic sea ice minimum was 4.28 million km², third-lowest on record. NSIDC data shows the long-term trend at minus 13% per decade. 2026 melt tracking has begun.",
     "publishDate": "2026-05-28",
     "modifiedDate": "2026-05-28",
     "category": "Science",

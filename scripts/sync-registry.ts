@@ -207,15 +207,38 @@ function extractMetadataFromFile(filePath: string): PageMeta | null {
       console.warn(`⚠️  No publishedTime found in ${relative} — will use today as fallback. Add openGraph.publishedTime to avoid stale news-sitemap entries.`);
     }
 
-    // extract openGraph image URL + dimensions
-    const imageUrlMatch = content.match(/(?:url|image_url)\s*:\s*['"`](https?:\/\/[^'"`\r\n]{10,300})['"`]/);
-    const imageUrl = imageUrlMatch?.[1]?.trim();
+    // extract openGraph image URL + dimensions (only from images array, not openGraph.url)
+    const imagesArrayMatch = content.match(/images\s*:\s*\[\s*\{[^}]{0,500}\}/);
+    let imageUrl: string | undefined;
+    let imageWidth: number | undefined;
+    let imageHeight: number | undefined;
+    
+    if (imagesArrayMatch) {
+      const imagesBlock = imagesArrayMatch[0];
+      const imageUrlMatch = imagesBlock.match(/url\s*:\s*['"`](https?:\/\/[^'"`\r\n]{10,300})['"`]/);
+      imageUrl = imageUrlMatch?.[1]?.trim();
+      
+      const imageWidthMatch = imagesBlock.match(/width\s*:\s*(\d{3,5})/);
+      imageWidth = imageWidthMatch ? parseInt(imageWidthMatch[1], 10) : undefined;
+      
+      const imageHeightMatch = imagesBlock.match(/height\s*:\s*(\d{3,5})/);
+      imageHeight = imageHeightMatch ? parseInt(imageHeightMatch[1], 10) : undefined;
+    }
 
-    const imageWidthMatch = content.match(/width\s*:\s*(\d{3,5})/);
-    const imageWidth = imageWidthMatch ? parseInt(imageWidthMatch[1], 10) : undefined;
-
-    const imageHeightMatch = content.match(/height\s*:\s*(\d{3,5})/);
-    const imageHeight = imageHeightMatch ? parseInt(imageHeightMatch[1], 10) : undefined;
+    // Check for Satori opengraph-image.tsx (Next.js auto-generated OG images)
+    const pageDir = path.dirname(filePath);
+    const satoriOgPath = path.join(pageDir, 'opengraph-image.tsx');
+    if (!imageUrl && fs.existsSync(satoriOgPath)) {
+      // Satori OG image exists, extract dimensions from the file
+      const satoriContent = fs.readFileSync(satoriOgPath, 'utf-8');
+      const satoriSizeMatch = satoriContent.match(/size\s*=\s*\{\s*width\s*:\s*(\d{3,5})\s*,\s*height\s*:\s*(\d{3,5})/);
+      if (satoriSizeMatch) {
+        imageWidth = parseInt(satoriSizeMatch[1], 10);
+        imageHeight = parseInt(satoriSizeMatch[2], 10);
+        // Construct the auto-generated OG image URL
+        imageUrl = `https://www.ozonenetwork.news${slug === '/' ? '' : slug}/opengraph-image`;
+      }
+    }
 
     if (imageUrl && (!imageWidth || !imageHeight)) {
       console.warn(`⚠️  ${relative} has an image but is missing width/height — article will be excluded from Google Top Stories carousel.`);
@@ -432,6 +455,15 @@ function repairExistingEntries(rows: RegistryRow[], allPages: PageMeta[]): { row
         // Remove the broken value entirely rather than leave garbage
         delete updated.image_url;
       }
+      changed = true;
+    }
+
+    // --- Add missing Satori OG image data ---
+    const page = pageBySlug.get(row.slug);
+    if (!updated.image_url && page?.imageUrl) {
+      updated.image_url = page.imageUrl;
+      if (page.imageWidth)  updated.image_width  = page.imageWidth;
+      if (page.imageHeight) updated.image_height = page.imageHeight;
       changed = true;
     }
 

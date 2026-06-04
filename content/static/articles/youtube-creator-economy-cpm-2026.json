@@ -31,11 +31,18 @@
   "hero_image_credit": null,
   "thumbnail_src": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=675&fit=crop&q=80",
   "thumbnail_alt": "YouTube creator reviewing CPM and RPM analytics data across niches in 2026",
-  "tags": ["YouTube", "Creator Economy", "CPM Rates 2026", "YouTube AdSense", "YouTube Monetization", "Digital Advertising"],
+  "tags": [
+    "YouTube",
+    "Creator Economy",
+    "CPM Rates 2026",
+    "YouTube AdSense",
+    "YouTube Monetization",
+    "Digital Advertising"
+  ],
   "read_time": "9 min read",
   "view_count": 0,
   "publish_date": "June 1, 2026",
-  "url": "/youtube/creator-economy-cpm-2026",
+  "url": "/social/youtube/creator-economy-cpm-2026",
   "faq_items": [
     {
       "question": "What is the difference between CPM and RPM on YouTube?",

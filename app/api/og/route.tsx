@@ -123,6 +123,26 @@ export async function GET(req: NextRequest) {
     let bgParam     = searchParams.get('bg')         ?? '';
     const breaking  = searchParams.get('breaking')  === 'true';
 
+    // ── Media Factory lookup — check article_thumbnails in shared Supabase ──
+    // If a pre-approved PNG exists, redirect immediately (no render needed)
+    if (slug) {
+      const mfUrl = process.env.MEDIA_FACTORY_SUPABASE_URL;
+      const mfKey = process.env.MEDIA_FACTORY_SUPABASE_ANON_KEY;
+      if (mfUrl && mfKey) {
+        const mf = createClient(mfUrl, mfKey);
+        const { data: thumb } = await mf
+          .from('article_thumbnails')
+          .select('generated_url')
+          .eq('source_slug', slug)
+          .eq('brand_slug', 'ozone')
+          .eq('status', 'ready')
+          .maybeSingle();
+        if (thumb?.generated_url) {
+          return Response.redirect(thumb.generated_url, 302);
+        }
+      }
+    }
+
     // ── Supabase content_registry lookup ────────────────────────────────────
     if (slug) {
       const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

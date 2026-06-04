@@ -15,8 +15,8 @@
 // =============================================================================
 
 // ─── Feature flag ────────────────────────────────────────────────────────────
-// Enabled: guests can comment with just a display name. No account required.
-const ANONYMOUS_COMMENTS = true;
+// false = login required to comment (Discord or Google OAuth)
+const ANONYMOUS_COMMENTS = false;
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createBrowserClient } from '@/lib/supabase/client';

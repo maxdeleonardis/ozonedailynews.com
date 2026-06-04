@@ -349,7 +349,8 @@ export default function DiscordComments({ slug, articleTitle }: Props) {
           slug,
           body:         draft.trim(),
           articleTitle,
-          // Pass guest name so Discord webhook can display it
+          articleUrl:   typeof window !== 'undefined' ? window.location.href : undefined,
+          // Pass guest name so Discord thread can display it
           guestName:    (ANONYMOUS_COMMENTS && !user) ? guestName.trim() : undefined,
         }),
       });

@@ -229,7 +229,7 @@ export interface JackArticleFull {
   tags: string[];
   lifecycle?: Lifecycle;
   sources?: Array<{ url: string; title: string; publisher?: string }>;
-  timeline?: Array<{ date: string; event: string }>;
+  timeline?: Array<{ date: string; event?: string; description?: string; highlight?: boolean }>;
   relatedArticles?: Array<{ url: string; title: string; category?: string }>;
   breadcrumbs?: Array<{ href: string; label: string }>;
 }

@@ -93,7 +93,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
                           {source.title}
                         </a>
                         {source.publisher && (
-                          <span className="text-gray-400 ml-1">— {source.publisher}</span>
+                          <span className="text-gray-400 ml-1">| {source.publisher}</span>
                         )}
                       </span>
                     </li>
@@ -136,7 +136,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
                       </div>
                       <div className="pb-4">
                         <p className="text-xs font-semibold text-gray-500">{item.date}</p>
-                        <p className="text-sm text-gray-800 mt-0.5">{item.event}</p>
+                        <p className="text-sm text-gray-800 mt-0.5">{item.description ?? item.event}</p>
                       </div>
                     </div>
                   ))}

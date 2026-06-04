@@ -83,7 +83,9 @@ export interface ArticleFull {
 // ─── SterlingArticleDB ──────────────────────────────────────────────────────
 export interface TimelineItem {
   date: string;
-  event: string;
+  event?: string;
+  description?: string;
+  highlight?: boolean;
 }
 
 export interface Source {

@@ -25,8 +25,10 @@ const DISCORD_API = 'https://discord.com/api/v10';
 function discordHeaders() {
   const token = process.env.DISCORD_BOT_TOKEN;
   if (!token) return null;
+  // Support both "Bot MTQ..." and raw "MTQ..." in the env var
+  const authValue = token.startsWith('Bot ') ? token : `Bot ${token}`;
   return {
-    'Authorization': `Bot ${token}`,
+    'Authorization': authValue,
     'Content-Type': 'application/json',
   };
 }
@@ -220,48 +222,43 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to save comment' }, { status: 500 });
   }
 
-  // ── Discord Forum Thread (non-blocking) ───────────────────────────────────
-  // We do this after the DB insert so the comment is always saved even if
-  // Discord is down. Thread management runs in the background.
-  void (async () => {
-    try {
-      // Look up whether this article already has a forum thread
-      const { data: threadRow } = await service
-        .from('discord_threads')
-        .select('thread_id')
-        .eq('slug', slug)
-        .single();
+  // ── Discord Forum Thread ──────────────────────────────────────────────────
+  // Awaited before returning so the function doesn't tear down before Discord sync.
+  try {
+    const { data: threadRow } = await service
+      .from('discord_threads')
+      .select('thread_id')
+      .eq('slug', slug)
+      .single();
 
-      const existingThreadId: string | null = threadRow?.thread_id ?? null;
+    const existingThreadId: string | null = threadRow?.thread_id ?? null;
 
-      if (!existingThreadId) {
-        // ── First comment ever for this article — create the Forum Post ──
-        const resolvedTitle = articleTitle || slug.replace(/-/g, ' ');
-        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonedailynews.com';
-        const resolvedUrl = articleUrl || `${siteUrl}/${slug}`;
+    if (!existingThreadId) {
+      const resolvedTitle = articleTitle || slug.replace(/-/g, ' ');
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.ozonedailynews.com';
+      const resolvedUrl = articleUrl || `${siteUrl}/${slug}`;
 
-        const threadId = await createForumThread(
-          resolvedTitle,
-          commentBody.trim(),
-          username,
-          resolvedUrl,
-        );
+      const threadId = await createForumThread(
+        resolvedTitle,
+        commentBody.trim(),
+        username,
+        resolvedUrl,
+      );
 
-        if (threadId) {
-          // Persist the slug → thread_id mapping so future comments go to the same thread
-          await service
-            .from('discord_threads')
-            .upsert({ slug, thread_id: threadId }, { onConflict: 'slug' });
-        }
-      } else {
-        // ── Subsequent comment — reply inside the existing thread ──
-        await postToThread(existingThreadId, commentBody.trim(), username, avatar || undefined);
+      console.log('[discord/comments] createForumThread result:', threadId);
+
+      if (threadId) {
+        const { error: upsertErr } = await service
+          .from('discord_threads')
+          .upsert({ slug, thread_id: threadId }, { onConflict: 'slug' });
+        if (upsertErr) console.error('[discord/comments] upsert thread error:', upsertErr.message);
       }
-    } catch (err) {
-      // Discord errors are fully non-fatal — the comment is already saved in Supabase
-      console.error('[discord/comments] Discord sync error (non-fatal):', err);
+    } else {
+      await postToThread(existingThreadId, commentBody.trim(), username, avatar || undefined);
     }
-  })();
+  } catch (err) {
+    console.error('[discord/comments] Discord sync error (non-fatal):', err);
+  }
 
   const comment = {
     id:              inserted.id,

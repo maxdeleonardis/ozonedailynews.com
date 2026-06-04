@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Force dark mode to class-based only — site is light mode permanently */
 @variant dark (&:is(.dark *));

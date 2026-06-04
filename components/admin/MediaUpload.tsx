@@ -15,7 +15,7 @@ interface MediaUploadProps {
   onUpload: (url: string) => void;
 }
 
-const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_BYTES = 25 * 1024 * 1024; // 25 MB
 const ACCEPTED = 'image/jpeg,image/png,image/webp,image/gif';
 
 export default function MediaUpload({ articleSlug, currentUrl, onUpload }: MediaUploadProps) {
@@ -34,7 +34,7 @@ export default function MediaUpload({ articleSlug, currentUrl, onUpload }: Media
 
     // Client-side validation before the network round-trip
     if (file.size > MAX_BYTES) {
-      setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max is 10 MB.`);
+      setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max is 25 MB.`);
       return;
     }
     if (!file.type.startsWith('image/')) {
@@ -117,7 +117,7 @@ export default function MediaUpload({ articleSlug, currentUrl, onUpload }: Media
         >
           {uploading ? 'Uploading…' : preview ? 'Replace image' : 'Upload image'}
         </button>
-        <span className="text-xs text-gray-400">JPEG, PNG, WebP, GIF — max 10 MB</span>
+        <span className="text-xs text-gray-400">JPEG, PNG, WebP, GIF — max 25 MB</span>
         <input
           ref={inputRef}
           type="file"

@@ -13,7 +13,7 @@ import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
 
 const BUCKET = 'media';
-const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_BYTES = 25 * 1024 * 1024; // 25 MB
 
 export async function POST(req: NextRequest) {
   // Verify the caller is a signed-in editor
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
   }
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
-      { error: `File too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max is 10 MB.` },
+      { error: `File too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Max is 25 MB.` },
       { status: 400 },
     );
   }

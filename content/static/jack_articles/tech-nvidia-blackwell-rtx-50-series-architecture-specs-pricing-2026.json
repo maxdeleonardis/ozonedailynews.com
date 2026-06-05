@@ -1,0 +1,177 @@
+{
+  "slug": "tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026",
+  "article_type": "jack_article",
+  "url": "https://www.ozonedailynews.com/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+  "article_url": "https://www.ozonedailynews.com/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+  "title": "Blackwell Commences Its Reign | NVIDIA GeForce RTX 50-Series Architecture, Specs, and Pricing",
+  "subtitle": "The RTX 5090's 512-bit GDDR7 interface delivers 1,792 GB/s of memory bandwidth. DLSS 4 Multi Frame Generation synthesizes up to three frames per hardware-rendered frame. Here is the full architecture breakdown, spec table, and market reality for the complete Blackwell desktop lineup.",
+  "category": "Tech",
+  "category_label": "Hardware | Analysis",
+  "department": "Technology",
+  "layout": "news",
+  "accent_color": "blue",
+  "status": "published",
+  "breaking": false,
+  "trending": true,
+  "topic_tag": "technology",
+  "publish_date": "June 4, 2026",
+  "publish_date_iso": "2026-06-04T09:00:00-05:00",
+  "modified_date_iso": "2026-06-04T09:00:00-05:00",
+  "published_at": "2026-06-04T09:00:00-05:00",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "author": {
+    "name": "Max DeLeonardis",
+    "slug": "max-deleonardis",
+    "department": "Technology"
+  },
+  "read_time": "9 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background",
+  "hero_image": {
+    "src": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop",
+    "alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background"
+  },
+  "tags": [
+    "NVIDIA",
+    "GeForce RTX 5090",
+    "Blackwell",
+    "DLSS 4",
+    "GDDR7",
+    "TSMC"
+  ],
+  "keywords": [
+    "NVIDIA Blackwell RTX 50 series specs",
+    "GeForce RTX 5090 price",
+    "RTX 5090 GDDR7 512-bit memory bandwidth",
+    "DLSS 4 Multi Frame Generation",
+    "RTX 5080 5070 Ti 5070 specs comparison",
+    "Blackwell architecture TSMC 4N"
+  ],
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/tech", "label": "Tech" },
+    { "href": "/tech/nvidia", "label": "NVIDIA" }
+  ],
+  "categories": [
+    { "label": "Hardware", "color": "blue" },
+    { "label": "Analysis", "color": "gray" }
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "title": "NVIDIA GeForce RTX 5090 Founders Edition Review",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-geforce-rtx-5090-review",
+      "publisher": "Tom's Hardware",
+      "date": "January 2025"
+    },
+    {
+      "number": 2,
+      "title": "Custom RTX 5090, RTX 5080 Listed For Up to $2,800 and $1,400 Overseas",
+      "url": "https://www.tomshardware.com/pc-components/gpus/custom-rtx-5090-rtx-5080-listed-for-up-to-usd2-800-and-usd1-400-overseas-initial-pricing-exceeds-msrp",
+      "publisher": "Tom's Hardware"
+    },
+    {
+      "number": 3,
+      "title": "NVIDIA RTX 50-Series Specs and Architecture Analysis",
+      "url": "https://gamersnexus.net/gpus/nvidia-rtx-5090-575-watts-rtx-5080-5070-ti-5070-specs",
+      "publisher": "GamersNexus"
+    },
+    {
+      "number": 4,
+      "title": "GeForce RTX 50 Series",
+      "url": "https://en.wikipedia.org/wiki/GeForce_RTX_50_series",
+      "publisher": "Wikipedia"
+    },
+    {
+      "number": 5,
+      "title": "RTX 50-Series System Integration Guide",
+      "url": "https://www.corsair.com/us/en/explorer/gamer/gaming-pcs/rtx-5090-5080-and-5070-series-gpus-everything-you-need-to-know/",
+      "publisher": "Corsair"
+    }
+  ],
+  "related_articles": [
+    {
+      "url": "/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026",
+      "title": "NVIDIA RTX 5070 Review | Blackwell Midrange 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
+      "title": "Google Breaks Ground in Sweden | Horndal Data Center 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/google-ai-data-center-water-consumption-cooling-2026",
+      "title": "Google AI Data Center Water Consumption and Cooling 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "January 6, 2025",
+      "description": "NVIDIA CEO Jensen Huang announces the full GeForce RTX 50-series desktop lineup at CES 2025 in Las Vegas.",
+      "highlight": false
+    },
+    {
+      "date": "January 30, 2025",
+      "description": "GeForce RTX 5090 and RTX 5080 Founders Edition cards go on sale. RTX 5090 retails at $1,999 MSRP, RTX 5080 at $999 MSRP.",
+      "highlight": true
+    },
+    {
+      "date": "March 2025",
+      "description": "RTX 5070 Ti ($749) and RTX 5070 ($549) launch. AIB partner cards arrive across all four SKUs.",
+      "highlight": false
+    },
+    {
+      "date": "Q2 2025 onward",
+      "description": "Sustained supply constraints push street prices above MSRP across all tiers. AI researcher demand for RTX 5090's 32GB GDDR7 frame buffer accelerates sell-through.",
+      "highlight": false
+    },
+    {
+      "date": "Mid-2026",
+      "description": "Blackwell desktop cards remain the current-generation consumer GPU standard. Supply normalizes on lower tiers; RTX 5090 continues to see premium pricing in secondary markets.",
+      "highlight": false
+    }
+  ],
+  "footer_tagline": "Reported Technology Journalism from Ozone Network News",
+  "footer_links": [
+    { "href": "/tech", "label": "Tech" },
+    { "href": "/tech/nvidia", "label": "NVIDIA" },
+    { "href": "/about", "label": "About" }
+  ],
+  "engagement_slug": "tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026",
+  "metadata": {
+    "title": "NVIDIA RTX 50 Series | Blackwell Specs and Pricing 2026",
+    "description": "NVIDIA's Blackwell RTX 50-series launches with the RTX 5090 at $1,999, featuring 32GB GDDR7 on a 512-bit bus and 1,792 GB/s memory bandwidth.",
+    "keywords": [
+      "NVIDIA Blackwell RTX 50 series specs",
+      "GeForce RTX 5090 price GDDR7",
+      "DLSS 4 Multi Frame Generation",
+      "RTX 5080 5070 Ti specs comparison 2026",
+      "Blackwell architecture TSMC 4N"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026"
+    },
+    "openGraph": {
+      "title": "NVIDIA RTX 50 Series | Blackwell Specs and Pricing 2026",
+      "description": "NVIDIA's Blackwell RTX 50-series launches with the RTX 5090 at $1,999, featuring 32GB GDDR7 on a 512-bit bus and 1,792 GB/s memory bandwidth.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>NVIDIA's GeForce RTX 50-series desktop lineup, built on the Blackwell architecture and fabricated on TSMC's customized 4N node, defines the current ceiling for consumer graphics performance. The flagship RTX 5090 ships with 32GB of GDDR7 memory across a 512-bit bus, delivering 1,792 GB/s of raw memory bandwidth. That figure is not a generational improvement. It is a categorical step, approaching double the bandwidth of the previous generation's top card. Below it, the RTX 5080, 5070 Ti, and 5070 scale down the bus width and core count while inheriting the same GDDR7 memory standard and the full DLSS 4 software stack.</p>\n\n<p>Announced by Jensen Huang at CES 2025 and available from January 30, 2025, the Blackwell desktop cards target two distinct buyer segments that increasingly overlap: high-resolution PC gamers running 4K at maximum path-tracing settings, and AI researchers and developers who need large local VRAM pools for fine-tuning and inference without cloud compute costs. The RTX 5090's 32GB frame buffer is the specification that drives its sustained sell-through and above-MSRP street pricing, because no competing consumer card offers that capacity at any price.</p>\n\n<h2>The GDDR7 Sub-system | Why 512-Bit Memory Bus Changes the Calculus</h2>\n\n<p>The central hardware story of the Blackwell generation is memory bandwidth. Every performance ceiling in modern GPU workloads, whether path-traced gaming, large-language-model inference, or generative image synthesis, is bounded at some point by how fast data moves between the frame buffer and the shader cores. DLSS and tensor-accelerated upscaling can offset some of that constraint at the rendering layer, but they cannot substitute for raw throughput when the workload itself requires continuous large-data movement.</p>\n\n<p>The RTX 5090 addresses this directly with a 512-bit GDDR7 interface operating at effective speeds that produce 1,792 GB/s. By comparison, the RTX 4090 delivered approximately 1,008 GB/s. The lower-tier Blackwell cards use narrower buses but benefit from GDDR7's higher per-pin speed relative to GDDR6X: the RTX 5080's 256-bit GDDR7 interface delivers more bandwidth than a 320-bit GDDR6X configuration would at equivalent clock speeds.</p>\n\n<p>For gaming workloads, this bandwidth advantage directly enables high-resolution texture streaming at 4K and 8K without the stutter events caused by VRAM saturation. For AI workloads, it determines batch size and model layer loading speed during inference. The RTX 5090's combination of 32GB capacity and 1,792 GB/s throughput is why <a href=\"/tech/google-horndal-sweden-data-center-groundbreaking-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">hyperscaler AI infrastructure buildouts</a> and individual AI researchers are drawing from the same GPU supply pool, contributing to sustained above-MSRP pricing.</p>\n\n<h2>DLSS 4 and Neural Materials | The Software Layer Rebuild</h2>\n\n<p>NVIDIA's Deep Learning Super Sampling has evolved across four generations from a simple upscaling tool into a comprehensive frame synthesis pipeline. DLSS 4 on Blackwell introduces two features that change the rendering model in ways that go beyond quality-setting comparisons.</p>\n\n<p><strong>Multi Frame Generation</strong> extends the previous generation's single synthetic frame insertion to a maximum of three synthetic frames for every one hardware-rendered frame. At 60 hardware-rendered frames per second, DLSS 4 Multi Frame Generation can produce a displayed output of up to 240 frames per second. The latency implications of this are non-trivial: synthetic frames add perceptual latency that hardware-rendered frames do not, and NVIDIA's NVIDIA Reflex integration is required to keep input response within acceptable bounds for competitive gaming. At display frame rates above 144 Hz, the trade-off becomes favorable for most non-competitive gaming scenarios.</p>\n\n<p><strong>Neural Materials</strong> approaches VRAM usage from the asset side rather than the rendering side. Conventional high-fidelity textures consume fixed VRAM allocations proportional to resolution and channel count. Neural Materials replaces stored texture data with compact neural network weights that regenerate surface appearance on demand at the shader level. NVIDIA reports VRAM reductions of up to two-thirds for supported material types, which matters in open-world titles that stream large numbers of unique surface materials simultaneously. The practical effect is that VRAM headroom that previously filled with texture data becomes available for higher-resolution render targets or larger active scene complexity.</p>\n\n<p>Both features require developer integration and are not automatically available in all titles. The adoption curve for DLSS 4 in the game catalog is the gating factor on realizing the theoretical frame rate numbers in real-world use. As of mid-2026, DLSS 4 with Multi Frame Generation support has shipped in a growing list of titles, and the trajectory mirrors DLSS 3's adoption pace rather than the slower DLSS 2 rollout. Our dedicated <a href=\"/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">RTX 5070 Blackwell midrange review</a> covers DLSS 4 performance in detail at the $549 price point.</p>\n\n<h2>Full Desktop Lineup | Specification Table</h2>\n\n<p>NVIDIA launched the RTX 50-series in two waves. The RTX 5090 and RTX 5080 shipped January 30, 2025. The RTX 5070 Ti and RTX 5070 followed in March 2025. All four cards share the Blackwell die architecture and GDDR7 memory, but differ substantially in CUDA core count, bus width, VRAM capacity, and thermal envelope.</p>\n\n<table style=\"width:100%; border-collapse:collapse; font-size:0.9em; margin:1.5em 0\">\n  <thead>\n    <tr style=\"background:#1e293b; color:#f8fafc\">\n      <th style=\"padding:10px 12px; text-align:left\">Specification</th>\n      <th style=\"padding:10px 12px; text-align:center\">RTX 5090</th>\n      <th style=\"padding:10px 12px; text-align:center\">RTX 5080</th>\n      <th style=\"padding:10px 12px; text-align:center\">RTX 5070 Ti</th>\n      <th style=\"padding:10px 12px; text-align:center\">RTX 5070</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr style=\"border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">Launch MSRP</td>\n      <td style=\"padding:9px 12px; text-align:center\">$1,999</td>\n      <td style=\"padding:9px 12px; text-align:center\">$999</td>\n      <td style=\"padding:9px 12px; text-align:center\">$749</td>\n      <td style=\"padding:9px 12px; text-align:center\">$549</td>\n    </tr>\n    <tr style=\"background:#f8fafc; border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">CUDA Cores</td>\n      <td style=\"padding:9px 12px; text-align:center\">21,760</td>\n      <td style=\"padding:9px 12px; text-align:center\">10,752</td>\n      <td style=\"padding:9px 12px; text-align:center\">8,960</td>\n      <td style=\"padding:9px 12px; text-align:center\">6,144</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">Base / Boost Clock</td>\n      <td style=\"padding:9px 12px; text-align:center\">2.01 / 2.41 GHz</td>\n      <td style=\"padding:9px 12px; text-align:center\">2.30 / 2.62 GHz</td>\n      <td style=\"padding:9px 12px; text-align:center\">2.30 / 2.45 GHz</td>\n      <td style=\"padding:9px 12px; text-align:center\">2.16 / 2.51 GHz</td>\n    </tr>\n    <tr style=\"background:#f8fafc; border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">VRAM</td>\n      <td style=\"padding:9px 12px; text-align:center\">32 GB GDDR7</td>\n      <td style=\"padding:9px 12px; text-align:center\">16 GB GDDR7</td>\n      <td style=\"padding:9px 12px; text-align:center\">16 GB GDDR7</td>\n      <td style=\"padding:9px 12px; text-align:center\">12 GB GDDR7</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">Memory Bus Width</td>\n      <td style=\"padding:9px 12px; text-align:center\">512-bit</td>\n      <td style=\"padding:9px 12px; text-align:center\">256-bit</td>\n      <td style=\"padding:9px 12px; text-align:center\">256-bit</td>\n      <td style=\"padding:9px 12px; text-align:center\">192-bit</td>\n    </tr>\n    <tr style=\"background:#f8fafc; border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">Memory Bandwidth</td>\n      <td style=\"padding:9px 12px; text-align:center\">1,792 GB/s</td>\n      <td style=\"padding:9px 12px; text-align:center\">960 GB/s</td>\n      <td style=\"padding:9px 12px; text-align:center\">896 GB/s</td>\n      <td style=\"padding:9px 12px; text-align:center\">672 GB/s</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #e2e8f0\">\n      <td style=\"padding:9px 12px; font-weight:600\">TDP</td>\n      <td style=\"padding:9px 12px; text-align:center\">575W</td>\n      <td style=\"padding:9px 12px; text-align:center\">360W</td>\n      <td style=\"padding:9px 12px; text-align:center\">300W</td>\n      <td style=\"padding:9px 12px; text-align:center\">250W</td>\n    </tr>\n    <tr style=\"background:#f8fafc\">\n      <td style=\"padding:9px 12px; font-weight:600\">Min. Recommended PSU</td>\n      <td style=\"padding:9px 12px; text-align:center\">1000W</td>\n      <td style=\"padding:9px 12px; text-align:center\">850W</td>\n      <td style=\"padding:9px 12px; text-align:center\">750W</td>\n      <td style=\"padding:9px 12px; text-align:center\">650W</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>The 575W TDP of the RTX 5090 is the specification that most directly affects system builds. It requires a 16-pin 12VHPWR connector delivering up to 600W, a 1000W or higher power supply with sufficient 12V rail headroom, and a case with adequate airflow to manage the thermal output of a card that can sustain over half a kilowatt continuously under load. AIB partner implementations from ASUS, MSI, and Zotac vary in triple-fan cooler designs, PCB length, and overclocking headroom, but all share the same base power ceiling.</p>\n\n<h2>Market Reality | MSRP vs. Street Pricing</h2>\n\n<p>NVIDIA's published MSRPs held at launch: $1,999 for the RTX 5090, $999 for the RTX 5080, $749 for the RTX 5070 Ti, and $549 for the RTX 5070. The RTX 5080's $999 price point matched the previous generation's intermediate refresh exactly, which NVIDIA positioned as a value argument. Founders Edition cards sold at these prices directly through NVIDIA's own storefront.</p>\n\n<p>AIB partner cards did not hold those prices. Custom overclocked models from ASUS ROG, MSI MEG, and similar premium lines carried significant premiums at launch, with RTX 5090 AIB variants reaching $2,500 to $3,000 in domestic markets and exceeding $3,000 in international markets affected by import margins and local component shortages. The RTX 5090's 32GB GDDR7 frame buffer attracted demand from AI researchers and local inference developers who need large VRAM pools for model fine-tuning, a buyer segment that did not exist at meaningful scale in previous GPU generations.</p>\n\n<p>This dual-market demand structure, gaming buyers and AI workstation buyers competing for the same SKU, is structurally different from prior GPU cycles. The same dynamic is visible at the infrastructure level: <a href=\"/tech/google-ai-data-center-water-consumption-cooling-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">hyperscale AI data center expansion</a> absorbs GPU supply at the data center tier, while consumer demand for local AI compute absorbs the desktop card supply. NVIDIA benefits from both, but the supply constraint on desktop cards is partly a consequence of the same AI compute boom driving <a href=\"/tech/google-horndal-sweden-data-center-groundbreaking-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Google's hyperscale infrastructure investment in Europe</a>.</p>\n\n<p>The lower three tiers normalized in supply terms faster than the RTX 5090. The RTX 5070 at $549 represents the most accessible Blackwell entry point with DLSS 4 support and 12GB GDDR7, and street pricing has converged closer to MSRP as AIB production volumes increased through mid-2025 and into 2026.</p>\n\n<h2>Frequently Asked Questions</h2>\n\n<h3>What is the NVIDIA Blackwell architecture?</h3>\n<p>Blackwell is NVIDIA's GPU microarchitecture generation following Ada Lovelace. It is fabricated on TSMC's customized 4N process node and powers both the GeForce RTX 50-series desktop consumer cards and NVIDIA's H100 and H200 data center accelerators. On the consumer side, Blackwell introduces GDDR7 memory support, DLSS 4 Multi Frame Generation, and Neural Materials, alongside significantly increased CUDA core counts compared to Ada Lovelace.</p>\n\n<h3>How much does the RTX 5090 cost?</h3>\n<p>The official MSRP is $1,999 for the Founders Edition. AIB partner custom models launched at higher prices, with premium overclocked variants from ASUS ROG and MSI MEG reaching $2,500 to $3,000 at domestic retailers. International pricing exceeded $3,000 in some markets due to import duties and regional margins. Street pricing has remained above MSRP due to sustained demand from both gaming and AI workstation buyers.</p>\n\n<h3>What is DLSS 4 Multi Frame Generation?</h3>\n<p>DLSS 4 Multi Frame Generation is an AI-driven frame synthesis feature exclusive to Blackwell hardware. It generates up to three synthetic frames for every single hardware-rendered frame, multiplying the displayed frame rate beyond what the GPU could render natively. A game running at 60 natively-rendered fps can display up to 240 fps with DLSS 4 MFG enabled. The feature requires NVIDIA Reflex to manage input latency, and requires per-game developer integration to function.</p>\n\n<h3>How is the RTX 5090 different from the RTX 5080?</h3>\n<p>The RTX 5090 carries 21,760 CUDA cores versus 10,752 in the RTX 5080, more than double the shader count. The bigger distinction is the memory subsystem: the RTX 5090 uses a 512-bit bus with 32GB GDDR7 delivering 1,792 GB/s, while the RTX 5080 uses a 256-bit bus with 16GB GDDR7 delivering 960 GB/s. The RTX 5090 also draws 575W versus 360W for the RTX 5080, requiring a substantially larger power supply and thermal solution. The price gap is also 2x: $1,999 versus $999 at MSRP.</p>\n\n<h3>Is the RTX 5090 worth it for AI work?</h3>\n<p>For local AI inference and fine-tuning tasks that fit within 32GB of VRAM, the RTX 5090 is the highest-bandwidth consumer option available. Its 1,792 GB/s memory bandwidth and native FP4 tensor precision support allow larger batch sizes and faster layer loading than any previous consumer card. Researchers who previously required dual-card or cloud setups for certain model sizes can run those workloads locally on a single RTX 5090. Whether the premium above MSRP is justified depends on the specific model sizes and workloads involved.</p>\n\n<SourcesInterlink\n  sources={[{\"number\":1,\"url\":\"https://www.tomshardware.com/pc-components/gpus/nvidia-geforce-rtx-5090-review\",\"title\":\"NVIDIA GeForce RTX 5090 Founders Edition Review\",\"author\":\"Tom's Hardware\",\"date\":\"January 2025\"},{\"number\":2,\"url\":\"https://www.tomshardware.com/pc-components/gpus/custom-rtx-5090-rtx-5080-listed-for-up-to-usd2-800-and-usd1-400-overseas-initial-pricing-exceeds-msrp\",\"title\":\"Custom RTX 5090, RTX 5080 Listed For Up to $2,800 and $1,400 Overseas\",\"author\":\"Tom's Hardware\"},{\"number\":3,\"url\":\"https://gamersnexus.net/gpus/nvidia-rtx-5090-575-watts-rtx-5080-5070-ti-5070-specs\",\"title\":\"NVIDIA RTX 50-Series Specs and Architecture Analysis\",\"author\":\"GamersNexus\"},{\"number\":4,\"url\":\"https://en.wikipedia.org/wiki/GeForce_RTX_50_series\",\"title\":\"GeForce RTX 50 Series\",\"author\":\"Wikipedia\"},{\"number\":5,\"url\":\"https://www.corsair.com/us/en/explorer/gamer/gaming-pcs/rtx-5090-5080-and-5070-series-gpus-everything-you-need-to-know/\",\"title\":\"RTX 50-Series System Integration Guide\",\"author\":\"Corsair\"}]}\n  internalLinks={[{\"href\":\"/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026\",\"label\":\"NVIDIA RTX 5070 Review | Blackwell Midrange Performance\",\"category\":\"Tech\"},{\"href\":\"/tech/google-horndal-sweden-data-center-groundbreaking-2026\",\"label\":\"Google Horndal Data Center | 700MW AI Infrastructure Groundbreaking\",\"category\":\"Tech\"},{\"href\":\"/tech/google-ai-data-center-water-consumption-cooling-2026\",\"label\":\"Google AI Data Center | Water Consumption and Cooling 2026\",\"category\":\"Tech\"},{\"href\":\"/finance/spacex-ipo-75-billion-record-valuation-2026\",\"label\":\"SpaceX $75B IPO | Record Valuation and Wall Street Analysis\",\"category\":\"Finance\"}]}\n  accentColor=\"blue\"\n/>",
+  "id": "1b5a9fa3-7daa-4f2d-9cf1-13030cb2b63d"
+}

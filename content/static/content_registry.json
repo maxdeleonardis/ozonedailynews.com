@@ -1,5 +1,23 @@
 [
   {
+    "slug": "/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+    "title": "Blackwell Commences Its Reign | NVIDIA GeForce RTX 50-Series Architecture, Specs, and Pricing",
+    "description": "NVIDIA's Blackwell RTX 50-series launches with the RTX 5090 at $1,999, featuring 32GB GDDR7 on a 512-bit bus and 1,792 GB/s memory bandwidth.",
+    "publishDate": "2026-06-04T09:00:00-05:00",
+    "modifiedDate": "2026-06-04T09:00:00-05:00",
+    "category": "Tech",
+    "tags": ["NVIDIA", "GeForce RTX 5090", "Blackwell", "DLSS 4", "GDDR7", "TSMC"],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.85,
+    "changeFrequency": "weekly",
+    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop",
+    "imageAlt": "NVIDIA GeForce graphics card with green LED lighting against a dark background",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/sagittarius-a-black-hole-wind-discovery-2026",
     "title": "Milky Way Black Hole Caught Breathing | 50-Year Mystery of Sagittarius A* Wind Solved",
     "description": "Astronomers using ALMA and Chandra detected a hot continuous wind from Sagittarius A*, solving a 50-year mystery about the Milky Way's black hole.",

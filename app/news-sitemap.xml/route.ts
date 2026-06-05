@@ -1,7 +1,8 @@
 // app/news-sitemap.xml/route.ts
 // Google News sitemap — articles from last 48h only (1,000 URL max per spec).
 // force-dynamic: Googlebot crawls every 15-60 min — must be real-time, not build-time.
-// Reads content/static/articles/ directly — never Supabase.
+// Reads ALL static content stores — articles/, jack_articles/, wiki_articles/,
+// creator_articles/, article_pages/ — never Supabase.
 
 import { NextResponse } from 'next/server';
 import fs from 'fs';
@@ -11,30 +12,55 @@ import type { ArticleFull } from '@/lib/types';
 
 export const dynamic = 'force-dynamic';
 
-function getRecentArticles(): ArticleFull[] {
-  const dir = path.join(process.cwd(), 'content', 'static', 'articles');
-  if (!fs.existsSync(dir)) return [];
+// All static stores that can produce publishable articles
+const STORES = [
+  'articles',
+  'jack_articles',
+  'wiki_articles',
+  'creator_articles',
+  'article_pages',
+  'sterling_articles',
+];
 
+function getRecentArticles(): ArticleFull[] {
+  const staticBase = path.join(process.cwd(), 'content', 'static');
   const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000);
 
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '_index.json')
-    .map((f) => {
-      try {
-        return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as ArticleFull;
-      } catch {
-        return null;
-      }
-    })
-    .filter((a): a is ArticleFull => {
-      if (!a) return false;
-      // Articles in content/static/articles/ are live by definition.
-      // The status field in static JSON files may be stale ("draft") from pre-publish state;
-      // exclude only articles explicitly pruned from the lifecycle or missing a publish date.
-      if (!a.published_at) return false;
-      if ((a as ArticleFull & { lifecycle?: string }).lifecycle === 'pruned') return false;
-      return new Date(a.published_at) > cutoff;
+  const all: ArticleFull[] = [];
+
+  for (const store of STORES) {
+    const dir = path.join(staticBase, store);
+    if (!fs.existsSync(dir)) continue;
+
+    const entries = fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith('.json') && f !== '_index.json')
+      .map((f) => {
+        try {
+          return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as ArticleFull;
+        } catch {
+          return null;
+        }
+      })
+      .filter((a): a is ArticleFull => {
+        if (!a) return false;
+        if (!a.published_at) return false;
+        if ((a as ArticleFull & { lifecycle?: string }).lifecycle === 'pruned') return false;
+        if ((a as ArticleFull & { status?: string }).status === 'draft') return false;
+        return new Date(a.published_at) > cutoff;
+      });
+
+    all.push(...entries);
+  }
+
+  // Deduplicate by url/article_url then sort newest first
+  const seen = new Set<string>();
+  return all
+    .filter((a) => {
+      const key = a.url || (a as ArticleFull & { article_url?: string }).article_url || '';
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
     })
     .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
     .slice(0, 1000);

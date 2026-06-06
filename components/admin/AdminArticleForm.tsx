@@ -266,6 +266,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   const [metaCanonical,   setMetaCanonical] = useState(initialData?.metadata?.alternates?.canonical ?? '');
   const [metaKeywords,    setMetaKeywords]  = useState((initialData?.metadata?.keywords ?? []).join(', '));
 
+  const [satoriPreview,   setSatoriPreview] = useState<{ url: string; source: 'satori' | 'local' } | null>(null);
+  const [satoriImgError,  setSatoriImgError] = useState(false);
+
   const [saving,          setSaving]        = useState(false);
   const [publishing,      setPublishing]    = useState(false);
   const [message, setMessage] = useState<{
@@ -292,6 +295,25 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       setMetaCanonical(`https://www.ozonedailynews.com/${cat}/${slug}`);
     }
   }, [slug, category, isEdit]);
+
+  function buildSatoriStudioUrl(): string {
+    const params = new URLSearchParams({ title: title || 'Untitled', category });
+    if (subtitle) params.set('subtitle', subtitle);
+    if (authorName) params.set('author', authorName);
+    return `https://satori-neon.vercel.app/api/og?${params.toString()}`;
+  }
+
+  function handleGenerateSatori() {
+    setSatoriImgError(false);
+    // Try the external Satori Studio first (works if user has an active session there)
+    setSatoriPreview({ url: buildSatoriStudioUrl(), source: 'satori' });
+  }
+
+  function handleLocalPreview() {
+    if (!slug) return;
+    setSatoriImgError(false);
+    setSatoriPreview({ url: `/api/og?slug=${slug}`, source: 'local' });
+  }
 
   function buildPayload() {
     return {
@@ -627,6 +649,110 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
               }
             }}
           />
+
+          {/* ── Satori thumbnail generator ─────────────────────────────────────── */}
+          <div className="border border-purple-200 bg-purple-50 rounded-lg p-4 space-y-3">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold text-purple-900">Generate Thumbnail with Satori</p>
+                <p className="text-xs text-purple-600 mt-0.5">Renders a 1200×630 OG card from your title, category, and subtitle.</p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                {slug && (
+                  <button
+                    type="button"
+                    onClick={handleLocalPreview}
+                    className="text-xs px-2.5 py-1.5 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 rounded"
+                  >
+                    Local preview
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={handleGenerateSatori}
+                  disabled={!title}
+                  className="text-xs px-3 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white font-medium rounded"
+                >
+                  Generate with Satori
+                </button>
+              </div>
+            </div>
+
+            {satoriPreview && (
+              <div className="space-y-2">
+                {/* Preview image */}
+                <div
+                  className="relative rounded overflow-hidden bg-gray-900 border border-gray-200"
+                  style={{ aspectRatio: '1200 / 630' }}
+                >
+                  <img
+                    src={satoriPreview.url}
+                    alt="Generated thumbnail preview"
+                    className="w-full h-full object-cover"
+                    onLoad={() => setSatoriImgError(false)}
+                    onError={() => setSatoriImgError(true)}
+                  />
+                  {satoriImgError && satoriPreview.source === 'satori' && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 gap-3 p-6 text-center">
+                      <p className="text-sm font-medium text-gray-700">Sign in to Satori Studio to preview</p>
+                      <a
+                        href="https://satori-neon.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-blue-600 hover:text-blue-800 underline"
+                      >
+                        Open Satori Studio ↗
+                      </a>
+                      {slug && (
+                        <button
+                          type="button"
+                          onClick={handleLocalPreview}
+                          className="text-xs text-purple-700 underline"
+                        >
+                          Use local preview instead
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Action row */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setThumbnailSrc(satoriPreview.url);
+                      if (!thumbnailAlt && title) setThumbnailAlt(title);
+                    }}
+                    className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded"
+                  >
+                    ✓ Use as thumbnail
+                  </button>
+                  <a
+                    href={buildSatoriStudioUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-purple-600 hover:text-purple-800 underline"
+                  >
+                    Open full-size in Satori ↗
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => { setSatoriPreview(null); setSatoriImgError(false); }}
+                    className="ml-auto text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Dismiss
+                  </button>
+                </div>
+
+                {satoriPreview.source === 'satori' && satoriImgError && (
+                  <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">
+                    Preview requires an active Satori Studio session. Sign in at satori-neon.vercel.app, then click Generate again.
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Manual URL override (Unsplash, external CDN, etc.) */}
           <details className="group">

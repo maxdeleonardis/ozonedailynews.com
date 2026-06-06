@@ -1,0 +1,155 @@
+{
+  "slug": "science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+  "article_type": "jack_article",
+  "url": "https://www.ozonedailynews.com/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+  "article_url": "https://www.ozonedailynews.com/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+  "title": "Antares Mark-0 Goes Critical | First Advanced US Nuclear Reactor in 40 Years",
+  "subtitle": "Antares Nuclear's sodium heat-pipe microreactor achieved zero-power criticality at Idaho National Laboratory on June 4 under the DOE Reactor Pilot Program, the first advanced non-light-water reactor to do so in the US in more than 40 years.",
+  "category": "Science",
+  "category_label": "Energy | Nuclear",
+  "department": "Science",
+  "layout": "news",
+  "accent_color": "orange",
+  "status": "published",
+  "breaking": false,
+  "trending": true,
+  "topic_tag": "science",
+  "publish_date": "June 5, 2026",
+  "publish_date_iso": "2026-06-05T10:00:00-05:00",
+  "modified_date_iso": "2026-06-05T10:00:00-05:00",
+  "published_at": "2026-06-05T10:00:00-05:00",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "author": {
+    "name": "Max DeLeonardis",
+    "slug": "max-deleonardis",
+    "department": "Science"
+  },
+  "read_time": "8 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Nuclear reactor control room with glowing instruments and operator stations",
+  "hero_image": {
+    "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+    "alt": "Nuclear reactor control room with glowing instruments and operator stations"
+  },
+  "tags": [
+    "Antares Nuclear",
+    "HALEU",
+    "TRISO",
+    "Idaho National Laboratory",
+    "DOE Reactor Pilot Program",
+    "BWXT",
+    "Microreactor"
+  ],
+  "keywords": [
+    "Antares Mark-0 nuclear reactor criticality 2026",
+    "DOE Reactor Pilot Program",
+    "HALEU TRISO microreactor",
+    "Idaho National Laboratory advanced nuclear",
+    "sodium heat pipe microreactor",
+    "nuclear energy news June 2026",
+    "Trump nuclear executive order"
+  ],
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/science", "label": "Science" },
+    { "href": "/science/energy", "label": "Energy" }
+  ],
+  "categories": [
+    { "label": "Nuclear", "color": "orange" },
+    { "label": "Energy", "color": "yellow" }
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "title": "Antares Mark-0 Becomes First Advanced Nuclear Reactor to Achieve Criticality Under DOE Pilot Program",
+      "url": "https://www.powermag.com/antares-mark-0-becomes-first-advanced-nuclear-reactor-to-achieve-criticality-under-doe-pilot-program/",
+      "publisher": "Power Magazine",
+      "date": "June 5, 2026"
+    },
+    {
+      "number": 2,
+      "title": "DOE Reactor Pilot Program overview",
+      "url": "https://www.energy.gov/ne/us-department-energy-reactor-pilot-program",
+      "publisher": "U.S. Department of Energy",
+      "date": "2025"
+    },
+    {
+      "number": 3,
+      "title": "Antares CEO Jordan Bramble statement on Mark-0 criticality",
+      "url": "https://www.linkedin.com/posts/jordan-bramble-19147274_the-antares-mark-0-reactor-has-achieved-initial-ugcPost-7468429784419774464-8Jxp/",
+      "publisher": "LinkedIn",
+      "date": "June 4, 2026"
+    },
+    {
+      "number": 4,
+      "title": "Air Force ANPI picks Antares and Radiant for on-base microreactors by 2028",
+      "url": "https://www.powermag.com/air-force-anpi-picks-put-radiant-antares-westinghouse-on-track-for-first-on%E2%80%91base-microreactors-by-2028/",
+      "publisher": "Power Magazine",
+      "date": "April 2026"
+    }
+  ],
+  "related_articles": [
+    {
+      "url": "/tech/google-ai-data-center-water-consumption-cooling-2026",
+      "title": "AI's Hidden Thirst | How Google Engineers Its Data Center Cooling",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+      "title": "NVIDIA Blackwell RTX 50-Series | Architecture, Specs, and Pricing 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
+      "title": "Google Breaks Ground in Sweden | The 9-Year Road to Horndal",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/science/ozone-layer-recovery-data-2026",
+      "title": "Ozone Layer Recovery 2026 | WMO Report Confirms Progress",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    }
+  ],
+  "footer_tagline": "Science and Energy Reporting from OzoneNews",
+  "footer_links": [
+    { "href": "/science", "label": "Science" },
+    { "href": "/about", "label": "About" },
+    { "href": "/editorial-standards", "label": "Editorial Standards" }
+  ],
+  "engagement_slug": "science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+  "metadata": {
+    "title": "Antares Mark-0 | First Advanced Nuclear Reactor Critical in 40 Years",
+    "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",
+    "keywords": [
+      "Antares Mark-0 nuclear reactor criticality",
+      "DOE Reactor Pilot Program 2026",
+      "HALEU TRISO microreactor Idaho National Laboratory",
+      "sodium heat pipe reactor",
+      "nuclear energy news June 2026"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026"
+    },
+    "openGraph": {
+      "title": "Antares Mark-0 | First Advanced Nuclear Reactor Critical in 40 Years",
+      "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "Nuclear reactor control room with glowing instruments and operator stations"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>Antares Nuclear Inc.'s Mark-0, a sodium heat-pipe-cooled microreactor fueled by high-assay low-enriched uranium TRISO compacts, achieved zero-power criticality on June 4, 2026, at Idaho National Laboratory's Materials and Fuels Complex. The milestone, confirmed under the Department of Energy's Reactor Pilot Program, makes Antares the first advanced non-light-water reactor to reach criticality in the United States in more than 40 years.</p>\n\n<p>The Mark-0 is the 53rd reactor built at INL since 1951 and the first novel reactor design to achieve criticality at the laboratory in more than half a century. INL Laboratory Director John Wagner described the significance carefully in a June 4 statement: \"Criticality is the condition at which a nuclear fission chain reaction becomes self-sustaining. What Antares achieved is specifically zero-power criticality. This is not electricity generation. It is not full-power operation. It is proof that the system works: the scientific and engineering validation that every subsequent step depends on.\"</p>\n\n<h2>What Zero-Power Criticality Means | Neutrons, Not Megawatts</h2>\n\n<p>The Mark-0 is configured specifically for zero-power testing and is not equipped with power conversion or heat removal systems. It produced no measurable thermal output during the criticality test. What it produced is validation: confirmation that the reactor's neutron physics, control rod behavior, and fuel geometry perform as designed. Every subsequent step in the Antares roadmap, from electricity generation in 2027 to military deployments in 2028, depends on the data gathered in this test campaign.</p>\n\n<p>The reactor is installed in Building MFC-793, the Sodium Components Maintenance Shop at INL's Materials and Fuels Complex, below grade in a pit on the east side of the high bay. The DOE authorization pathway limited commissioning to less than six months, operational phase to less than one month, and decommissioning to less than six months. Following operations, the reactor will cool on site for 30 to 180 days before defueling. Antares plans to retain the HALEU TRISO fuel after Mark-0 activities and use the same fuel in its Mark-1 reactor.</p>\n\n<h2>TRISO Fuel and the HALEU Supply Chain | BWXT and Urenco</h2>\n\n<p>The Mark-0 uses less than 120 kilograms of HALEU, uranium enriched to below 20% U-235, in TRISO fuel compacts fabricated by BWX Technologies at its Specialty Fuels Fabrication facility in Lynchburg, Virginia. TRISO particles coat uranium kernels in successive layers of carbon and silicon carbide, engineered to contain fission products under high temperature and irradiation. The fuel specification was developed through DOE's Advanced Gas Reactor program and previously qualified under Project Pele, the US Army's program to develop a 1.5-MW transportable microreactor.</p>\n\n<p>HALEU remains a critical supply chain constraint for the broader advanced reactor industry. No domestic commercial enricher currently produces it at scale. For the Mark-0 campaign, the DOE and NNSA provided government-held scrap material processed and fabricated by BWXT. For longer-term supply, Antares signed what has been described as the world's first multi-year commercial HALEU supply contract with Urenco in May 2026. Under the agreement, Urenco will supply enrichment services from its Advanced Fuels Facility at Capenhurst, UK, targeted to come online in 2031 at up to 27 metric tons of HALEU per year, enough to supply approximately 30 advanced reactors. Centrus Energy's demonstration cascade in Piketon, Ohio, has produced just over 920 kilograms of HALEU to date under a DOE contract, sufficient for early demonstration work but far below commercial scale.</p>\n\n<p>BWX Technologies President Rex Geveden credited the company's fuel fabrication capabilities: \"Our skilled workforce, advanced manufacturing technologies, and nuclear-qualified supply chain are driving a new generation of reactor demonstrations across the country.\" Antares CEO Jordan Bramble said BWXT's proven fuel specification allowed his team to focus on reactor-specific validation: \"Building on a proven fuel specification developed through Project Pele let our team focus on what we had to prove ourselves: our control system and reactor physics.\"</p>\n\n<h2>From Mark-0 to Commercial Product | The R1 Microreactor Roadmap</h2>\n\n<p>The Mark-0 test paves the way for the Mark-1, which Antares plans to operate at the same MFC-793 facility at INL in 2027. The Mark-1 will couple the reactor core to a nitrogen-closed Brayton cycle power conversion system, validating temperature-dependent reactor effects, reactivity feedback, and the interaction between the core and the power conversion system. Bramble described it as the company's \"ultimate development milestone\" before commercial deployment.</p>\n\n<p>Antares' commercial product, the R1 microreactor, is rated at 100 kilowatts-electric to 1 megawatt-electric. It is designed to operate for six or more years without connection to the commercial grid and without refueling. The R1 uses a TRISO-fueled prismatic graphite core, passive sodium heat pipes for primary heat transport, a fin-and-tube primary heat exchanger, and a recuperated nitrogen-closed Brayton cycle operating at less than 300 psi. The system ships in an integrated transport cradle that includes shielding and connects directly to installation microgrids. Antares describes the architecture as optimized for reliability, uptime, and manufacturability rather than maximum power density.</p>\n\n<p>In April 2026, the Department of the Air Force and the Defense Innovation Unit selected Antares under the Advanced Nuclear Power for Installations initiative to deploy a prototype microreactor at Joint Base San Antonio, Texas. A parallel selection was made for Radiant Nuclear at Buckley Space Force Base. Antares also holds agreements with the US Air Force, Space Force, NASA, and the Defense Innovation Unit. Initial deployments are targeted for 2028, subject to environmental review and regulatory approvals.</p>\n\n<h2>The Race to July 4 | Four Other Companies in the DOE Pilot</h2>\n\n<p>Antares is the first, but not the only company targeting criticality under Trump's Reactor Pilot Program, established in the May 2025 Executive Order 14301 with the goal of achieving at least three advanced reactor criticalities by July 4, 2026, the US 250th anniversary. Energy Secretary Chris Wright framed the milestone in those terms: \"It is fitting that on the eve of our nation's 250th anniversary, we are witnessing a historic moment for American energy. For the first time in more than four decades, a new privately developed non-light-water reactor has reached criticality in the U.S.\"</p>\n\n<p>Valar Atomics is testing the Ward 250, a 100-kilowatt-thermal high-temperature gas reactor at Utah's San Rafael Energy Lab, with its July 4 target being full-power operations rather than zero-power criticality. Aalo Atomics completed construction of its Critical Test Reactor, a sodium-cooled unit at INL, and received DOE-Idaho DSA approval on April 30, entering the final Operational Readiness Review phase. Radiant Nuclear took possession of INL's DOME facility in April 2026 for a fueled test campaign of its Kaleidos 1-MWe helium-cooled TRISO reactor, targeting at least 150 continuous full-power hours without operator intervention. Oklo is targeting a July 4 criticality for its Groves isotope test reactor in Lockhart, Texas, which reached construction substantial completion in 229 days from greenfield.</p>\n\n<p>Advanced nuclear energy has become increasingly relevant to the broader AI infrastructure story. Data center power requirements have grown sharply as AI compute clusters scale, a dynamic covered in our analysis of <a href=\"/tech/google-ai-data-center-water-consumption-cooling-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Google's data center water and power engineering challenges</a> and the <a href=\"/tech/google-horndal-sweden-data-center-groundbreaking-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">nine-year permitting road to Google's Horndal facility in Sweden</a>. The AI hardware driving that demand, including <a href=\"/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">NVIDIA's Blackwell GPU architecture</a> operating at up to 2,300 watts per module, has focused capital on new energy sources independent of grid interconnection queues. Microreactors designed for <a href=\"/science/ozone-layer-recovery-data-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">low-footprint, low-emission power generation</a> are directly relevant to that constraint. Bramble summed up the company's position: \"We said criticality in 2026, electricity production in 2027, and power to the warfighter in 2028. Today is the first of those commitments delivered on the schedule we set.\"</p>\n\n<h2>Frequently Asked Questions</h2>\n\n<h3>What did Antares Nuclear achieve on June 4, 2026?</h3>\n<p>Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at Idaho National Laboratory, confirming a self-sustaining nuclear fission chain reaction at essentially no measurable energy output. The test validated the reactor's neutron physics, control rod behavior, and fuel geometry. It is the first advanced non-light-water reactor to reach criticality in the US in over 40 years, and the first novel design to go critical at INL in more than 50 years.</p>\n\n<h3>What is a sodium heat-pipe microreactor?</h3>\n<p>A sodium heat-pipe reactor uses passive sodium-filled metal tubes to transfer heat from the reactor core outward to a heat exchanger, without pumps, coolant loops, or active safety systems. The passive design eliminates major failure mode categories present in conventional light-water reactors. Antares' R1 product combines this cooling approach with TRISO fuel and a nitrogen-closed Brayton cycle power conversion system, producing a self-contained unit shipping in a single transport cradle and rated at 100 kilowatts to 1 megawatt of electricity output.</p>\n\n<h3>What is HALEU and why does it matter for advanced reactors?</h3>\n<p>HALEU, or high-assay low-enriched uranium, is uranium enriched to between 5% and 20% U-235. Most advanced non-light-water reactor designs require HALEU because their neutron physics demand higher enrichment than the roughly 4% used in conventional light-water reactor fuel. The US currently lacks a domestic commercial HALEU supply chain at scale, making fuel procurement a critical constraint for the entire advanced reactor sector. Antares addressed this by signing what has been described as the world's first multi-year commercial HALEU supply contract with Urenco in May 2026.</p>\n\n<h3>What is the DOE Reactor Pilot Program?</h3>\n<p>The Reactor Pilot Program was established by President Trump's May 2025 Executive Order 14301, directing the Department of Energy to accelerate testing of advanced reactors and target at least three criticalities by July 4, 2026. The program provides a DOE authorization pathway operating in parallel with, and faster than, the NRC licensing process. Participating companies include Antares, Valar Atomics, Aalo Atomics, Radiant Nuclear, and Oklo, operating at DOE facilities primarily at Idaho National Laboratory and in Utah.</p>\n\n<h3>When will Antares produce electricity from a nuclear reactor?</h3>\n<p>Antares plans to operate the Mark-1, its first full-power electricity-producing reactor, at the same INL facility in 2027. The Mark-1 adds a nitrogen-closed Brayton cycle power conversion system to validate full-power thermal operation and power conversion coupling. The commercial R1 microreactor is targeted for initial deployment at military installations in 2028, beginning with Joint Base San Antonio, Texas, where the Air Force selected Antares in April 2026 under the Advanced Nuclear Power for Installations program.</p>\n\n<SourcesInterlink\n  sources={[{\"number\":1,\"url\":\"https://www.powermag.com/antares-mark-0-becomes-first-advanced-nuclear-reactor-to-achieve-criticality-under-doe-pilot-program/\",\"title\":\"Antares Mark-0 Becomes First Advanced Nuclear Reactor to Achieve Criticality\",\"author\":\"Power Magazine\",\"date\":\"June 5, 2026\"},{\"number\":2,\"url\":\"https://www.energy.gov/ne/us-department-energy-reactor-pilot-program\",\"title\":\"DOE Reactor Pilot Program\",\"author\":\"U.S. Department of Energy\",\"date\":\"2025\"},{\"number\":3,\"url\":\"https://www.linkedin.com/posts/jordan-bramble-19147274_the-antares-mark-0-reactor-has-achieved-initial-ugcPost-7468429784419774464-8Jxp/\",\"title\":\"Jordan Bramble on Mark-0 Criticality\",\"author\":\"Antares CEO\",\"date\":\"June 4, 2026\"},{\"number\":4,\"url\":\"https://www.powermag.com/air-force-anpi-picks-put-radiant-antares-westinghouse-on-track-for-first-on%E2%80%91base-microreactors-by-2028/\",\"title\":\"Air Force ANPI Picks Antares and Radiant for On-Base Microreactors\",\"author\":\"Power Magazine\",\"date\":\"April 2026\"}]}\n  internalLinks={[{\"href\":\"/tech/google-ai-data-center-water-consumption-cooling-2026\",\"label\":\"AI's Hidden Thirst | Google Data Center Water and Power Engineering\",\"category\":\"Tech\"},{\"href\":\"/tech/google-horndal-sweden-data-center-groundbreaking-2026\",\"label\":\"Google Horndal Sweden Data Center | 9-Year Permitting Road\",\"category\":\"Tech\"},{\"href\":\"/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026\",\"label\":\"NVIDIA Blackwell RTX 50-Series | Architecture and Specs\",\"category\":\"Tech\"},{\"href\":\"/science/ozone-layer-recovery-data-2026\",\"label\":\"Ozone Layer Recovery 2026 | WMO Report\",\"category\":\"Science\"}]}\n  accentColor=\"orange\"\n/>",
+  "id": "b3f42a91-7c3e-4d1a-8e56-c921a7d40f82"
+}

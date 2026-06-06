@@ -1,0 +1,155 @@
+{
+  "slug": "science-iss-zvezda-air-leak-dragon-shelter-june-2026",
+  "article_type": "jack_article",
+  "url": "https://www.ozonedailynews.com/science/iss-zvezda-air-leak-dragon-shelter-june-2026",
+  "article_url": "https://www.ozonedailynews.com/science/iss-zvezda-air-leak-dragon-shelter-june-2026",
+  "title": "ISS Zvezda Air Leak | NASA Crew Shelters in Dragon as Russia Attempts Emergency Repairs",
+  "subtitle": "NASA directed five astronauts to shelter inside the Crew Dragon capsule on June 5 as Russian cosmonauts attempted emergency repairs on a worsening air leak in the Zvezda service module's PrK vestibule, highlighting deepening NASA-Roscosmos tensions over the unresolved structural issue.",
+  "category": "Science",
+  "category_label": "Space | Breaking",
+  "department": "Science",
+  "layout": "news",
+  "accent_color": "blue",
+  "status": "published",
+  "breaking": true,
+  "trending": true,
+  "topic_tag": "science",
+  "publish_date": "June 5, 2026",
+  "publish_date_iso": "2026-06-05T14:00:00-05:00",
+  "modified_date_iso": "2026-06-05T14:00:00-05:00",
+  "published_at": "2026-06-05T14:00:00-05:00",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "author": {
+    "name": "Max DeLeonardis",
+    "slug": "max-deleonardis",
+    "department": "Science"
+  },
+  "read_time": "6 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "International Space Station orbiting Earth with solar panels extended against the darkness of space",
+  "hero_image": {
+    "src": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+    "alt": "International Space Station orbiting Earth with solar panels extended against the darkness of space"
+  },
+  "tags": [
+    "ISS",
+    "Zvezda",
+    "SpaceX Dragon",
+    "Roscosmos",
+    "NASA",
+    "Crew-12",
+    "Space Station"
+  ],
+  "keywords": [
+    "ISS Zvezda air leak June 2026",
+    "NASA astronauts shelter Dragon capsule ISS",
+    "Roscosmos PrK vestibule repair",
+    "International Space Station leak 2026",
+    "SpaceX Crew Dragon safe haven",
+    "NASA Roscosmos tension ISS",
+    "ISS structural integrity 2026"
+  ],
+  "show_corrections": true,
+  "show_editorial_standards": true,
+  "breadcrumbs": [
+    { "href": "/", "label": "Home" },
+    { "href": "/science", "label": "Science" },
+    { "href": "/science/space", "label": "Space" }
+  ],
+  "categories": [
+    { "label": "Space", "color": "blue" },
+    { "label": "Breaking", "color": "red" }
+  ],
+  "sources": [
+    {
+      "number": 1,
+      "title": "Astronauts briefly shelter in Dragon during ISS leak repair",
+      "url": "https://spacenews.com/astronauts-briefly-shelter-in-dragon-during-iss-leak-repair/",
+      "publisher": "SpaceNews",
+      "date": "June 5, 2026"
+    },
+    {
+      "number": 2,
+      "title": "NASA crew briefly shelters inside Dragon capsule as Russia addresses new space station leaks",
+      "url": "https://spaceflightnow.com/2026/06/05/nasa-crew-briefly-shelter-inside-dragon-capsule-as-russia-addresses-new-space-station-leaks/",
+      "publisher": "Spaceflight Now",
+      "date": "June 5, 2026"
+    },
+    {
+      "number": 3,
+      "title": "NASA astronauts briefly shelter in safe haven following worsening leaks on ISS",
+      "url": "https://www.livescience.com/space/space-exploration/nasa-astronauts-briefly-shelter-in-safe-haven-procedure-following-worsening-leaks-on-international-space-station",
+      "publisher": "Live Science",
+      "date": "June 5, 2026"
+    },
+    {
+      "number": 4,
+      "title": "ISS module cracking still unresolved despite stopping air leaks",
+      "url": "https://spacenews.com/iss-module-cracking-still-unresolved-despite-stopping-air-leaks/",
+      "publisher": "SpaceNews",
+      "date": "April 2026"
+    }
+  ],
+  "related_articles": [
+    {
+      "url": "/finance/spacex-ipo-75-billion-record-valuation-2026",
+      "title": "SpaceX's $75B Record IPO | Inside Elon Musk's Out-of-This-World Valuation",
+      "category": "Finance",
+      "categoryColor": "text-green-600"
+    },
+    {
+      "url": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+      "title": "SpaceX Starship Orbital Flight Record | Reuse Milestones 2026",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    },
+    {
+      "url": "/science/nasa-maven-mars-orbiter-dead-2026",
+      "title": "NASA Declares MAVEN Mars Orbiter Dead | 11-Year Mission Ends",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    },
+    {
+      "url": "/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026",
+      "title": "Blue Origin New Glenn Explosion | Launchpad Destruction Threatens Program",
+      "category": "Science",
+      "categoryColor": "text-teal-600"
+    }
+  ],
+  "footer_tagline": "Space and Science Reporting from OzoneNews",
+  "footer_links": [
+    { "href": "/science", "label": "Science" },
+    { "href": "/about", "label": "About" },
+    { "href": "/editorial-standards", "label": "Editorial Standards" }
+  ],
+  "engagement_slug": "science-iss-zvezda-air-leak-dragon-shelter-june-2026",
+  "metadata": {
+    "title": "ISS Zvezda Leak | NASA Crew Shelters in Dragon Capsule",
+    "description": "NASA directed five astronauts to shelter in Dragon on June 5 as Russian cosmonauts attempted emergency repairs on the Zvezda module's worsening PrK air leak.",
+    "keywords": [
+      "ISS Zvezda air leak June 2026",
+      "NASA astronauts shelter Dragon capsule",
+      "Roscosmos PrK vestibule repair",
+      "International Space Station structural integrity",
+      "SpaceX Crew Dragon safe haven ISS"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/science/iss-zvezda-air-leak-dragon-shelter-june-2026"
+    },
+    "openGraph": {
+      "title": "ISS Zvezda Leak | NASA Crew Shelters in Dragon Capsule",
+      "description": "NASA directed five astronauts to shelter in Dragon on June 5 as Russian cosmonauts attempted emergency repairs on the Zvezda module's worsening PrK air leak.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "International Space Station orbiting Earth with solar panels extended against the darkness of space"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>NASA instructed the five American astronauts aboard the International Space Station to shelter inside a SpaceX Crew Dragon capsule on June 5, 2026, as Russian cosmonauts attempted emergency repairs on a worsening air leak in the Zvezda service module. The shelter order, issued by Mission Control in Houston shortly after 9 a.m. Eastern, lasted less than two hours before Roscosmos chose not to proceed with the planned full repair, opting instead to take measurements for later assessment.</p>\n\n<p>The incident marks the most acute public escalation of a long-running structural issue with the Zvezda module's PrK vestibule, and surfaces ongoing disagreements between NASA and Roscosmos over the severity and root cause of cracks that have been under investigation for years.</p>\n\n<h2>Who Was Sheltering and Why</h2>\n\n<p>The four members of Crew-12, the Crew Dragon mission that arrived at the station in February 2026, were joined in the Dragon capsule by NASA astronaut Chris Williams, who flew to the ISS in November 2025 aboard a Soyuz spacecraft. The shelter directive applied to all five NASA astronauts on the station while Russian cosmonauts Sergey Kud-Sverchkov and Sergei Mikaev conducted work inside the Zvezda vestibule.</p>\n\n<p>NASA press secretary Bethany Stevens explained the decision: \"Following new leaks, Roscosmos has elected to proceed with a more extensive repair operation on Friday, June 5. Out of an abundance of caution, NASA has directed all four of the agency's SpaceX Crew-12 members and NASA astronaut Chris Williams to assume an elevated safety posture in the Dragon spacecraft while the repair is underway.\"</p>\n\n<p>The repair work itself involves the PrK, a vestibule that links a docking port with the rest of the Zvezda service module. The hatch separating PrK from the rest of Zvezda is normally kept closed except when a Progress cargo spacecraft is docked there. The hatch between the US and Russian segments is also kept closed when the PrK hatch is open, keeping NASA astronauts physically separated from the work area during any operations there.</p>\n\n<h2>What Roscosmos Found and Did Not Fix</h2>\n\n<p>Russian flight controllers detected an air leak while pressurizing the PrK vestibule early on June 5. Cosmonauts inspecting the vestibule found two potential leak sites. One was coated with a sealant during the June 5 work session, while preparations were underway to address the second, located on a conical section of the vestibule.</p>\n\n<p>Roscosmos ultimately chose not to proceed with the more extensive repair it had initially planned, electing instead to take measurements for later assessment. The astronauts were cleared to exit the Dragon capsule less than two hours after the shelter order was issued. Roscosmos stated in a <a href=\"https://t.me/roscosmos_gk/20089\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Telegram post</a> that the situation posed no threat to the station or crew, and that air pressure in the station remained stable at normal levels.</p>\n\n<p>Stevens issued a follow-up statement after the shelter order was lifted that hinted at continuing friction: \"We look forward to working with Roscosmos on a collaborative approach to address the leaks.\" The astronauts themselves appeared to treat the interruption as routine. \"We'll just clean up our mess and get back to our day,\" one crew member told controllers after completing procedures to exit the Dragon.</p>\n\n<h2>A Long-Running Problem with No Agreed Cause</h2>\n\n<p>The PrK air leak has been monitored for years. Earlier in 2025, there were indications that prior repair efforts had stopped or significantly slowed the leak. In a March 2026 hearing before the House Science Committee, Joel Montalbano, NASA's acting associate administrator for space operations, said: \"The current position right now is there are no leaks. They've put some sealant over it and we're not leaking.\"</p>\n\n<p>That assessment proved premature. Members of NASA's ISS Advisory Council noted at an April 29, 2026, meeting that <a href=\"https://spacenews.com/iss-module-cracking-still-unresolved-despite-stopping-air-leaks/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">NASA and Roscosmos had not agreed on a root cause for the cracking and disagreed on the severity of the issue</a>. NASA was also concerned that Roscosmos was not consistently adhering to protocols established in August 2025 to lower the pressure in PrK when not in use, protocols designed to limit stress on the already-compromised structure.</p>\n\n<p>The leak had reportedly increased in the days leading up to June 5, prompting Roscosmos to escalate from monitoring to an attempted repair, and NASA to issue the shelter directive.</p>\n\n<h2>Dragon as a Lifeboat | What the Shelter Protocol Means</h2>\n\n<p>The Crew Dragon's role as both a crew transport and a safe haven capsule is central to NASA's risk management for ISS operations. When Roscosmos conducts repair work that NASA deems risky enough to justify elevated precautions, directing astronauts into the Dragon ensures that the crew has immediate access to a vehicle capable of undocking and returning to Earth independently of the Russian segment's systems.</p>\n\n<p>The June 5 incident is not the first time Dragon has been used in this capacity, and it reflects the broader significance of domestic crew vehicle capability that <a href=\"/finance/spacex-ipo-75-billion-record-valuation-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX developed through its Commercial Crew program</a>, a program whose value in contingency operations has become increasingly evident. The same Falcon 9 stack and Dragon capsule heritage underlies the <a href=\"/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX reusability milestones that have redefined launch economics</a>. As NASA works toward <a href=\"/nasa/artemis-3-timeline-leo-demonstration-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis missions beyond low Earth orbit</a>, the structural condition of the aging ISS Russian segment becomes a parallel management challenge. The station's nominal end-of-life has been discussed as the early 2030s, with deorbit planning ongoing.</p>\n\n<p>The June 5 shelter event also coincides with a broader week of news about aging infrastructure and program transitions in human spaceflight. NASA's announcement last week that the <a href=\"/science/nasa-maven-mars-orbiter-dead-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">MAVEN Mars orbiter's mission had ended after 11 years</a> following an unrecoverable attitude control failure underscores how hardware in space operates under constraints that ground-based repair cannot address. The ISS situation is more complex because it involves two space agencies, ongoing operations, and six people living aboard a structure with disputed structural data.</p>\n\n<h2>Frequently Asked Questions</h2>\n\n<h3>Why did NASA direct astronauts into the Dragon capsule on June 5?</h3>\n<p>NASA directed five astronauts into the SpaceX Crew Dragon as a safety precaution while Russian cosmonauts Sergey Kud-Sverchkov and Sergei Mikaev attempted a repair of a worsening air leak in the Zvezda service module's PrK vestibule. The Dragon provides an independent, immediately accessible vehicle capable of undocking and returning to Earth, giving NASA a safety buffer during Russian repair operations it deemed risky enough to warrant elevated precautions.</p>\n\n<h3>What is the PrK vestibule and where is it on the ISS?</h3>\n<p>PrK is a pressurized vestibule within the Zvezda service module, the Russian core component of the ISS, that links a docking port used by Progress cargo spacecraft with the rest of the module. The vestibule has experienced structural cracking that has been under investigation for several years. Its hatch is normally kept closed, with additional protocols requiring pressure to be reduced in the vestibule when not in use to limit stress on the compromised material.</p>\n\n<h3>Is the ISS in danger from this leak?</h3>\n<p>Roscosmos stated that the June 5 situation posed no immediate threat to the station or its crew and that air pressure across the station remained stable at normal levels. However, NASA and Roscosmos have not agreed on a root cause for the cracking, and NASA's ISS Advisory Council noted in April 2026 that Russia was not consistently following the pressure management protocols designed to slow the crack's progression. The leak had reportedly worsened in the days before June 5.</p>\n\n<h3>How many US astronauts are currently on the ISS?</h3>\n<p>At the time of the June 5 incident, five NASA astronauts were aboard the ISS: the four Crew-12 members, who arrived at the station in February 2026 on a SpaceX Crew Dragon, and Chris Williams, who flew to the station in November 2025 on a Soyuz spacecraft. All five were directed to shelter in the Dragon capsule while the Roscosmos repair work was underway.</p>\n\n<h3>What happens to the ISS after this incident?</h3>\n<p>No immediate changes to station operations were announced following the June 5 shelter event. Roscosmos reported that one of the two identified leak sites was coated with sealant during the June 5 session, with work on the second site planned separately. NASA indicated it would continue working with Roscosmos toward a collaborative resolution. The station's nominal end-of-life is planned for the early 2030s, with commercial space station programs from Axiom Space, Vast, and others expected to provide successor facilities.</p>\n\n<SourcesInterlink\n  sources={[{\"number\":1,\"url\":\"https://spacenews.com/astronauts-briefly-shelter-in-dragon-during-iss-leak-repair/\",\"title\":\"Astronauts briefly shelter in Dragon during ISS leak repair\",\"author\":\"Jeff Foust, SpaceNews\",\"date\":\"June 5, 2026\"},{\"number\":2,\"url\":\"https://spaceflightnow.com/2026/06/05/nasa-crew-briefly-shelter-inside-dragon-capsule-as-russia-addresses-new-space-station-leaks/\",\"title\":\"NASA crew briefly shelters inside Dragon capsule\",\"author\":\"Spaceflight Now\",\"date\":\"June 5, 2026\"},{\"number\":3,\"url\":\"https://www.livescience.com/space/space-exploration/nasa-astronauts-briefly-shelter-in-safe-haven-procedure-following-worsening-leaks-on-international-space-station\",\"title\":\"NASA astronauts briefly shelter in safe haven following worsening ISS leaks\",\"author\":\"Live Science\",\"date\":\"June 5, 2026\"},{\"number\":4,\"url\":\"https://spacenews.com/iss-module-cracking-still-unresolved-despite-stopping-air-leaks/\",\"title\":\"ISS module cracking still unresolved despite stopping air leaks\",\"author\":\"SpaceNews\",\"date\":\"April 2026\"}]}\n  internalLinks={[{\"href\":\"/finance/spacex-ipo-75-billion-record-valuation-2026\",\"label\":\"SpaceX $75B IPO | Commercial Crew and Dragon Program Context\",\"category\":\"Finance\"},{\"href\":\"/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026\",\"label\":\"SpaceX Starship Orbital Flight Record | Reuse Milestones 2026\",\"category\":\"Science\"},{\"href\":\"/nasa/artemis-3-timeline-leo-demonstration-2026\",\"label\":\"NASA Artemis III Mission Status | Launch Window and Crew Update\",\"category\":\"Science\"},{\"href\":\"/science/nasa-maven-mars-orbiter-dead-2026\",\"label\":\"NASA Declares MAVEN Mars Orbiter Dead | 11-Year Mission Ends\",\"category\":\"Science\"}]}\n  accentColor=\"blue\"\n/>",
+  "id": "a7e19d53-2c84-4b8e-9f01-d6e84c3f1a95"
+}

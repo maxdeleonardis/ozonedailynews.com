@@ -251,7 +251,7 @@ export interface ContentEntry {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
-  articleType?: 'NewsArticle' | 'SterlingArticle' | 'ArticlePage' | 'CreatorArticle' | 'WikiArticle';
+  articleType?: 'NewsArticle' | 'JackArticle' | 'SterlingArticle' | 'ArticlePage' | 'CreatorArticle' | 'WikiArticle';
   lifecycle?: Lifecycle;
   breaking?: boolean;
 }

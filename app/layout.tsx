@@ -153,10 +153,10 @@ export default async function RootLayout({
               </div>
 
               {/* Nameplate */}
-              <div className="container mx-auto px-4 py-2 md:py-5 text-center">
-                <Link href="/" className="inline-block group">
-                  <div className="text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif">
-                    OZONENEWS
+              <div className="container mx-auto px-4 py-2 md:py-5 text-center overflow-visible">
+                <Link href="/" className="inline-block group overflow-visible">
+                  <div className="sunset-text text-[2.4rem] sm:text-5xl md:text-8xl font-black tracking-tighter leading-none font-serif px-2 overflow-visible">
+                    <span className="opacity-50 font-thin mr-2 md:mr-4">-</span>OZONENEWS<span className="opacity-50 font-thin ml-2 md:ml-4">-</span>
                   </div>
                   <div className="flex items-center justify-center gap-4 mt-1.5">
                     <div className="h-px w-10 md:w-28 bg-black" />

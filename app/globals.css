@@ -610,3 +610,94 @@ html:not(.dark) {
 body, header, footer, main, nav {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+
+/* ── Sunset + water shimmer brand text (OZONENEWS masthead) ──────────────── */
+/* Vertical sunset (top sky → horizon glow) layered with a horizontal
+   water-light band that sweeps across like sun reflecting off water.
+   Built as a reusable utility — intended to roll out sitewide. */
+.sunset-text {
+  background-image:
+    /* Layer 1 — water-light shimmer band, sweeps horizontally */
+    linear-gradient(
+      105deg,
+      transparent 32%,
+      rgba(255, 255, 255, 0.45) 46%,
+      rgba(255, 248, 235, 0.72) 50%,
+      rgba(255, 255, 255, 0.45) 54%,
+      transparent 68%
+    ),
+    /* Layer 2 — sunset sky, top to bottom */
+    linear-gradient(
+      180deg,
+      #5b21b6 0%,
+      #7c3aed 14%,
+      #c026d3 30%,
+      #f43f5e 46%,
+      #fb7185 58%,
+      #fb923c 72%,
+      #fbbf24 88%,
+      #fde68a 100%
+    );
+  background-size:
+    250% 100%, /* shimmer band: extra-wide for a smooth sweep */
+    100% 250%; /* sunset: extra-tall so the vertical drift reads */
+  background-position:
+    -60% center, /* shimmer starts off the left edge */
+    center 0%; /* sunset starts at the top */
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: sunsetWater 10s ease-in-out infinite;
+}
+
+/* Brighter band for dark mode so it glows against #121212 */
+.dark .sunset-text {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 32%,
+      rgba(255, 255, 255, 0.55) 46%,
+      rgba(255, 250, 240, 0.85) 50%,
+      rgba(255, 255, 255, 0.55) 54%,
+      transparent 68%
+    ),
+    linear-gradient(
+      180deg,
+      #818cf8 0%,
+      #a78bfa 14%,
+      #e879f9 30%,
+      #fb7185 46%,
+      #fda4af 58%,
+      #fdba74 72%,
+      #fde047 88%,
+      #fef3c7 100%
+    );
+  background-size: 250% 100%, 100% 250%;
+  background-position: -60% center, center 0%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes sunsetWater {
+  0% {
+    /* sun high, light pooled on the left */
+    background-position: -60% center, center 0%;
+  }
+  50% {
+    /* sun dipped toward the horizon, light swept across the water */
+    background-position: 160% center, center 100%;
+  }
+  100% {
+    background-position: -60% center, center 0%;
+  }
+}
+
+/* Respect reduced-motion: keep the gradient, drop the animation */
+@media (prefers-reduced-motion: reduce) {
+  .sunset-text {
+    animation: none;
+  }
+}

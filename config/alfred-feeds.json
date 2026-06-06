@@ -1,0 +1,113 @@
+{
+  "feeds": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "Tech",
+      "priority": "high",
+      "keywords": ["OpenAI", "Google", "Microsoft", "Meta", "Nvidia", "Apple", "AI", "machine learning", "LLM", "ChatGPT", "Gemini"],
+      "min_score": 70
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "category": "Tech",
+      "priority": "high",
+      "keywords": ["iPhone", "Android", "gadget", "Google", "Apple", "Meta", "AI", "hardware"],
+      "min_score": 70
+    },
+    {
+      "name": "GameSpot",
+      "url": "https://www.gamespot.com/feeds/mashup/",
+      "category": "Gaming",
+      "priority": "high",
+      "keywords": ["GTA 6", "Nintendo Switch 2", "PlayStation", "Xbox", "Fortnite", "Rockstar", "release date"],
+      "min_score": 75
+    },
+    {
+      "name": "IGN All",
+      "url": "https://feeds.ign.com/ign/all",
+      "category": "Gaming",
+      "priority": "medium",
+      "keywords": ["GTA 6", "Nintendo", "PlayStation", "Xbox", "Fortnite", "release date", "gameplay"],
+      "min_score": 75
+    },
+    {
+      "name": "Polygon",
+      "url": "https://www.polygon.com/rss/index.xml",
+      "category": "Gaming",
+      "priority": "medium",
+      "keywords": ["GTA 6", "Nintendo Switch 2", "indie game", "game review", "esports"],
+      "min_score": 70
+    },
+    {
+      "name": "CoinDesk",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "category": "Crypto",
+      "priority": "high",
+      "keywords": ["Bitcoin", "Ethereum", "crypto", "blockchain", "DeFi", "stablecoin", "USDC", "regulation"],
+      "min_score": 70
+    },
+    {
+      "name": "Decrypt",
+      "url": "https://decrypt.co/feed",
+      "category": "Crypto",
+      "priority": "medium",
+      "keywords": ["crypto", "NFT", "Web3", "DeFi", "stablecoin", "Solana", "Ethereum"],
+      "min_score": 70
+    },
+    {
+      "name": "The Block",
+      "url": "https://www.theblock.co/rss.xml",
+      "category": "Crypto",
+      "priority": "high",
+      "keywords": ["crypto", "blockchain", "DeFi", "institutional", "regulation", "SEC"],
+      "min_score": 75
+    },
+    {
+      "name": "Variety",
+      "url": "https://variety.com/feed/",
+      "category": "Entertainment",
+      "priority": "medium",
+      "keywords": ["Disney", "streaming", "box office", "Netflix", "HBO", "Warner Bros"],
+      "min_score": 70
+    },
+    {
+      "name": "Deadline Hollywood",
+      "url": "https://deadline.com/feed/",
+      "category": "Entertainment",
+      "priority": "medium",
+      "keywords": ["Disney", "Warner Bros", "Paramount", "streaming", "box office", "Marvel"],
+      "min_score": 70
+    },
+    {
+      "name": "Ars Technica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "category": "Tech",
+      "priority": "medium",
+      "keywords": ["OpenAI", "Google", "Microsoft", "security", "privacy", "AI", "policy"],
+      "min_score": 70
+    },
+    {
+      "name": "VentureBeat",
+      "url": "https://venturebeat.com/feed/",
+      "category": "Tech",
+      "priority": "medium",
+      "keywords": ["AI", "machine learning", "startup", "funding", "acquisition", "IPO"],
+      "min_score": 70
+    }
+  ],
+  "refresh_interval_minutes": 15,
+  "notification_settings": {
+    "method": "telegram",
+    "min_score_for_notification": 70,
+    "batch_notifications": false,
+    "quiet_hours": {
+      "enabled": true,
+      "start": "23:00",
+      "end": "07:00",
+      "timezone": "America/Chicago"
+    },
+    "max_notifications_per_batch": 10
+  }
+}

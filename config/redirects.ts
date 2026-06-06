@@ -50,12 +50,6 @@ export const redirects: R[] = [
   { source: '/crypto/txc-stablecoin', destination: '/define/crypto/txc-stablecoin', permanent: true },
 
   // ==========================================================================
-  // CONTENT REORGANIZATION — /tech → /social for social media articles
-  // Date: June 4, 2026
-  // ==========================================================================
-  { source: '/tech/meta/instagram-drops-encrypted-dms', destination: '/social/meta/instagram-drops-encrypted-dms', permanent: true },
-
-  // ==========================================================================
   // MISC DEAD PATHS — no content, redirect to nearest hub
   // ==========================================================================
   { source: '/blog',           destination: '/news',         permanent: true },

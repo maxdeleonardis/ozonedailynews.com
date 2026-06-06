@@ -13,7 +13,7 @@ const OG_IMAGE = 'https://images.unsplash.com/photo-1635372730136-06b29022281c?w
 export const metadata: Metadata = {
   title: 'Fortnite | Chapter 6 Season 2, News & Guides 2026',
   description:
-    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides from',
+    'Fortnite Chapter 6 Season 2 hub. Map changes, Battle Pass breakdown, weapons tier list, ranked mode, and the latest Fortnite news and guides.',
   keywords: [
     'Fortnite',
     'Fortnite Chapter 6 Season 2',
@@ -76,6 +76,13 @@ export default function FortniteHubPage() {
             ],
           },
           {
+            heading: 'Chapter 7 Coverage',
+            links: [
+              { href: '/video-games/fortnite/shattered-live-event-chapter-7-season-2-finale', label: 'Shattered Event | Season 2 Finale Recap' },
+              { href: '/video-games/fortnite/chapter-7-season-3-runners', label: 'Chapter 7 Season 3 Runners | Full Guide' },
+            ],
+          },
+          {
             heading: 'Season 2 Guides',
             links: [
               { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Map Changes | All New POIs' },
@@ -101,6 +108,8 @@ export default function FortniteHubPage() {
         { id: 'sources', label: 'Sources & Further Reading' },
       ]}
       relatedLinks={[
+        { href: '/video-games/fortnite/shattered-live-event-chapter-7-season-2-finale', label: 'Shattered Event | Season 2 Finale Recap', description: 'Geno revealed, Zero Point breaks the island, free locker items for attendees' },
+        { href: '/video-games/fortnite/chapter-7-season-3-runners', label: 'Chapter 7 Season 3 Runners Guide', description: 'Shattered Coast, Seven Power Boots, John Wick Battle Pass, all 9 new weapons' },
         { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Chapter 6 Season 2 Map Changes', description: 'Shogun POI, cherry blossoms, and every new named location' },
         { href: '/video-games/fortnite/chapter-6-season-2-battle-pass', label: 'Chapter 6 Season 2 Battle Pass', description: 'All skins, secret styles, and bonus rewards in the Season 2 pass' },
         { href: '/video-games/fortnite/chapter-6-season-2-weapons-tier-list', label: 'Season 2 Weapons Tier List', description: 'Katanas, SMGs, LMGs and the complete weapon rankings' },
@@ -229,6 +238,18 @@ export default function FortniteHubPage() {
       <Section id="guides" title="All Season 2 Guides">
         <ul className="space-y-2">
           <li>
+            <Link href="/video-games/fortnite/shattered-live-event-chapter-7-season-2-finale" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+              Shattered Live Event | Chapter 7 Season 2 Finale Recap
+            </Link>
+            {' '}— Geno revealed as the Visitor, the Dark Harvester fires into the Zero Point, and the island physically breaks apart
+          </li>
+          <li>
+            <Link href="/video-games/fortnite/chapter-7-season-3-runners" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+              Chapter 7 Season 3 Runners | Complete Guide
+            </Link>
+            {' '}— Shattered Coast map, exposed Zero Point, Seven Power Boots, Fire Sprites, John Wick Battle Pass, and all 9 new weapons
+          </li>
+          <li>
             <Link href="/video-games/fortnite/chapter-6-season-2-map-changes" className="text-blue-600 hover:text-blue-800 underline font-semibold">
               Chapter 6 Season 2 Map Changes
             </Link>
@@ -276,6 +297,8 @@ export default function FortniteHubPage() {
             },
           ]}
           internalLinks={[
+            { href: '/video-games/fortnite/shattered-live-event-chapter-7-season-2-finale', label: 'Shattered Live Event Recap', description: 'Geno revealed, Zero Point breaks the island, Chaos Cutlasses Pickaxe for attendees' },
+            { href: '/video-games/fortnite/chapter-7-season-3-runners', label: 'Chapter 7 Season 3 Runners Guide', description: 'Shattered Coast, Seven Power Boots, John Wick collab, all new weapons' },
             { href: '/video-games/fortnite/chapter-6-season-2-map-changes', label: 'Chapter 6 Season 2 Map Changes', description: 'Every new named location, Shogun POI, and rotation paths' },
             { href: '/video-games/fortnite/chapter-6-season-2-battle-pass', label: 'Chapter 6 Season 2 Battle Pass', description: 'All skins, secret styles, and bonus rewards tier by tier' },
             { href: '/video-games/fortnite/chapter-6-season-2-weapons-tier-list', label: 'Season 2 Weapons Tier List', description: 'Full S-to-D ranking of every weapon in the current loot pool' },

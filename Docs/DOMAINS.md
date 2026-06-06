@@ -9,7 +9,7 @@
 
 ```
 ozonenetwork.news        ← FLAGSHIP: all verticals, aggregates the network
-    ├── ozonedailynews.com     ← YouTube, creator economy, viral content news
+    ├── ozonedailynews.com     ← Spcae Science 
     ├── objectivewire.org      ← Investigations, private intelligence, civic watchdog
     ├── basilnews.com          ← Food, restaurants, food tech, agriculture
     ├── clovernews.com         ← Personal finance, consumer money, deals

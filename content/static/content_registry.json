@@ -14143,5 +14143,41 @@
     "image_url": "https://www.ozonenetwork.news/social/youtube/news/pewdiepie-odysseus-open-source-ai-workspace-2026/opengraph-image",
     "image_width": 1200,
     "image_height": 675
+  },
+  {
+    "slug": "/video-games/fortnite/chapter-7-season-3-runners",
+    "title": "Fortnite Chapter 7 Season 3 Runners | Map, Battle Pass & Weapons",
+    "description": "Complete guide to Fortnite Chapter 7 Season 3 Runners. Shattered Coast map, exposed Zero Point, Seven Power Boots, Sprites, John Wick Battle Pass collab, and al",
+    "publish_date": "June 5, 2026",
+    "modified_date": "June 5, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Fortnite",
+      "Chapter 7 Season 3 Runners"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/fortnite/shattered-live-event-chapter-7-season-2-finale",
+    "title": "Fortnite Shattered Live Event | Chapter 7 Season 2 Finale",
+    "description": "The Shattered event ended Fortnite Chapter 7 Season 2 with a branching faction finale, the Geno reveal, and the Zero Point breaking the island apart ahead of Se",
+    "publish_date": "June 5, 2026",
+    "modified_date": "June 5, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Fortnite",
+      "Shattered Live Event Chapter 7 Season 2 Finale"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly"
   }
 ]

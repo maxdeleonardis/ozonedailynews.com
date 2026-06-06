@@ -1,0 +1,38 @@
+#!/bin/sh
+# =============================================================================
+# .githooks/pre-push
+# =============================================================================
+# Alfanso post-session pipeline — fires automatically before every git push.
+#
+# What it runs:
+#   alfanso:pre-push = registry sync + sitemap ping, NO git (push already happening)
+#
+# To install on a fresh clone:
+#   npm run hooks:install
+#   (or runs automatically via "prepare" on npm install)
+#
+# To skip in an emergency:
+#   git push --no-verify
+# =============================================================================
+
+echo ""
+echo "🌅  Alfanso | Pre-push pipeline starting..."
+echo ""
+
+# Run sync + ping only (--skip-git prevents a push-inside-a-push loop)
+npm run alfanso:pre-push
+
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -ne 0 ]; then
+  echo ""
+  echo "❌  Alfanso pre-push pipeline failed (exit $EXIT_CODE)"
+  echo "    Fix the issue above, or bypass with: git push --no-verify"
+  echo ""
+  exit $EXIT_CODE
+fi
+
+echo ""
+echo "✅  Alfanso pre-push complete — push proceeding"
+echo ""
+exit 0

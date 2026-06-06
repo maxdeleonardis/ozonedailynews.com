@@ -268,6 +268,8 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
 
   const [satoriPreview,   setSatoriPreview] = useState<{ url: string; source: 'satori' | 'local' } | null>(null);
   const [satoriImgError,  setSatoriImgError] = useState(false);
+  const [satoriMinting,   setSatoriMinting]  = useState(false);
+  const [satoriMintMsg,   setSatoriMintMsg]  = useState<{ ok: boolean; text: string } | null>(null);
 
   const [saving,          setSaving]        = useState(false);
   const [publishing,      setPublishing]    = useState(false);
@@ -303,10 +305,52 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     return `https://satori-neon.vercel.app/api/og?${params.toString()}`;
   }
 
-  function handleGenerateSatori() {
+  /** Calls Satori fetch-article, previews the returned imageUrl, and
+   *  optionally writes it back into thumbnail_src on confirmation. */
+  async function handleMintWithSatori() {
+    if (!metaCanonical && !slug) {
+      setSatoriMintMsg({ ok: false, text: 'Save the article first so it has a canonical URL.' });
+      return;
+    }
+
+    const articleUrl = metaCanonical || `https://www.ozonedailynews.com/${category.toLowerCase()}/${slug}`;
+
+    setSatoriMinting(true);
+    setSatoriMintMsg(null);
+    setSatoriPreview(null);
     setSatoriImgError(false);
-    // Try the external Satori Studio first (works if user has an active session there)
-    setSatoriPreview({ url: buildSatoriStudioUrl(), source: 'satori' });
+
+    try {
+      const res = await fetch('https://satori-neon.vercel.app/api/v1/fetch-article', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: articleUrl }),
+      });
+
+      if (!res.ok) {
+        setSatoriMintMsg({ ok: false, text: `Satori API returned HTTP ${res.status}` });
+        return;
+      }
+
+      const data = await res.json() as {
+        imageUrl?: string;
+        title?: string;
+        subtitle?: string;
+        error?: string;
+      };
+
+      if (!data.imageUrl) {
+        setSatoriMintMsg({ ok: false, text: data.error ?? 'Satori did not return an imageUrl' });
+        return;
+      }
+
+      setSatoriPreview({ url: data.imageUrl, source: 'satori' });
+      setSatoriMintMsg({ ok: true, text: 'Thumbnail generated. Click "Use as thumbnail" to apply it.' });
+    } catch (err) {
+      setSatoriMintMsg({ ok: false, text: err instanceof Error ? err.message : String(err) });
+    } finally {
+      setSatoriMinting(false);
+    }
   }
 
   function handleLocalPreview() {
@@ -655,7 +699,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold text-purple-900">Generate Thumbnail with Satori</p>
-                <p className="text-xs text-purple-600 mt-0.5">Renders a 1200×630 OG card from your title, category, and subtitle.</p>
+                <p className="text-xs text-purple-600 mt-0.5">
+                  Calls the Satori Media Factory API to generate a 1200×630 branded OG card.
+                </p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 {slug && (
@@ -669,14 +715,29 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                 )}
                 <button
                   type="button"
-                  onClick={handleGenerateSatori}
-                  disabled={!title}
-                  className="text-xs px-3 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white font-medium rounded"
+                  onClick={handleMintWithSatori}
+                  disabled={satoriMinting || (!title && !metaCanonical)}
+                  className="text-xs px-3 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white font-medium rounded flex items-center gap-1.5"
                 >
-                  Generate with Satori
+                  {satoriMinting ? (
+                    <><span className="animate-spin inline-block">⟳</span> Minting…</>
+                  ) : (
+                    <>⚡ Mint with Satori</>
+                  )}
                 </button>
               </div>
             </div>
+
+            {/* Status message */}
+            {satoriMintMsg && (
+              <p className={`text-xs px-3 py-2 rounded ${
+                satoriMintMsg.ok
+                  ? 'bg-green-50 border border-green-200 text-green-800'
+                  : 'bg-red-50 border border-red-200 text-red-700'
+              }`}>
+                {satoriMintMsg.ok ? '✓ ' : '✗ '}{satoriMintMsg.text}
+              </p>
+            )}
 
             {satoriPreview && (
               <div className="space-y-2">
@@ -692,29 +753,16 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                     onLoad={() => setSatoriImgError(false)}
                     onError={() => setSatoriImgError(true)}
                   />
-                  {satoriImgError && satoriPreview.source === 'satori' && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 gap-3 p-6 text-center">
-                      <p className="text-sm font-medium text-gray-700">Sign in to Satori Studio to preview</p>
-                      <a
-                        href="https://satori-neon.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-blue-600 hover:text-blue-800 underline"
-                      >
-                        Open Satori Studio ↗
-                      </a>
-                      {slug && (
-                        <button
-                          type="button"
-                          onClick={handleLocalPreview}
-                          className="text-xs text-purple-700 underline"
-                        >
-                          Use local preview instead
-                        </button>
-                      )}
+                  {satoriImgError && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 gap-2 p-6 text-center">
+                      <p className="text-sm font-medium text-gray-700">Could not load preview</p>
+                      <p className="text-xs text-gray-500 font-mono break-all">{satoriPreview.url}</p>
                     </div>
                   )}
                 </div>
+
+                {/* URL display */}
+                <p className="text-xs font-mono text-gray-500 break-all px-1">{satoriPreview.url}</p>
 
                 {/* Action row */}
                 <div className="flex items-center gap-3 flex-wrap">
@@ -723,33 +771,28 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                     onClick={() => {
                       setThumbnailSrc(satoriPreview.url);
                       if (!thumbnailAlt && title) setThumbnailAlt(title);
+                      setSatoriMintMsg({ ok: true, text: `Thumbnail URL applied. Save the draft to persist it.` });
                     }}
                     className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded"
                   >
                     ✓ Use as thumbnail
                   </button>
                   <a
-                    href={buildSatoriStudioUrl()}
+                    href={satoriPreview.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-purple-600 hover:text-purple-800 underline"
                   >
-                    Open full-size in Satori ↗
+                    Open full-size ↗
                   </a>
                   <button
                     type="button"
-                    onClick={() => { setSatoriPreview(null); setSatoriImgError(false); }}
+                    onClick={() => { setSatoriPreview(null); setSatoriImgError(false); setSatoriMintMsg(null); }}
                     className="ml-auto text-xs text-gray-400 hover:text-gray-600"
                   >
                     Dismiss
                   </button>
                 </div>
-
-                {satoriPreview.source === 'satori' && satoriImgError && (
-                  <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">
-                    Preview requires an active Satori Studio session. Sign in at satori-neon.vercel.app, then click Generate again.
-                  </p>
-                )}
               </div>
             )}
           </div>

@@ -404,7 +404,8 @@
     "changeFrequency": "daily",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026"
   },
   {
     "slug": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026",
@@ -428,7 +429,8 @@
     "changeFrequency": "daily",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026"
   },
   {
     "slug": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",

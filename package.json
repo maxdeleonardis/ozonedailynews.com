@@ -20,7 +20,8 @@
     "lifecycle:prune": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --prune",
     "ping:indexers": "npx ts-node --project tsconfig.scripts.json scripts/ping-indexers.ts",
     "backfill": "npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts",
-    "rss:digest": "npx ts-node --project tsconfig.scripts.json scripts/rss-digest.ts"
+    "rss:digest": "npx ts-node --project tsconfig.scripts.json scripts/rss-digest.ts",
+    "mint:thumbnails": "npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

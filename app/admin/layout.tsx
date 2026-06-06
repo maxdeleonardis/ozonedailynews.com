@@ -6,9 +6,10 @@
 import { redirect } from 'next/navigation';
 import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'OzoneNews CMS',
+  title: `${process.env.NEXT_PUBLIC_SITE_NAME ?? 'OzoneNews'} CMS`,
   robots: { index: false, follow: false },
 };
 
@@ -44,7 +45,7 @@ export default async function AdminLayout({
       <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <span className="font-bold text-gray-900 text-sm tracking-tight">
-            OzoneNews CMS
+            {SITE_CONFIG.name} CMS
           </span>
           <nav className="flex gap-4 text-sm">
             <a

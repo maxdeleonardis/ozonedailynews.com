@@ -6,6 +6,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import MediaUpload from '@/components/admin/MediaUpload';
+import { AUTHORS } from '@/lib/authors';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -19,12 +20,11 @@ const CATEGORIES = [
 // Editors on ozonedailynews.com cannot publish to another brand's content.
 const SITE_BRAND_SLUG  = process.env.NEXT_PUBLIC_BRAND_SLUG  ?? 'ozone';
 const SITE_BRAND_LABEL = process.env.NEXT_PUBLIC_SITE_NAME   ?? 'OzoneDaily';
+const SITE_URL         = process.env.NEXT_PUBLIC_SITE_URL    ?? 'https://www.ozonedailynews.com';
 
-const KNOWN_AUTHORS = [
-  { name: 'Max DeLeonardis',         slug: 'max-deleonardis' },
-  { name: 'Simon Alfred Minter',            slug: 'simon-minter' },
-  { name: 'OzoneNews Editorial Team', slug: 'ozonedailynews-editorial-team' },
-];
+// Author list is driven by lib/authors.ts — the single source of truth for E-E-A-T.
+// All registered author entities across the network appear here.
+const KNOWN_AUTHORS = Object.values(AUTHORS).map((a) => ({ name: a.name, slug: a.slug }));
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -294,7 +294,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
   useEffect(() => {
     if (slug && !isEdit) {
       const cat = category.toLowerCase();
-      setMetaCanonical(`https://www.ozonedailynews.com/${cat}/${slug}`);
+      setMetaCanonical(`${SITE_URL}/${cat}/${slug}`);
     }
   }, [slug, category, isEdit]);
 
@@ -313,7 +313,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       return;
     }
 
-    const articleUrl = metaCanonical || `https://www.ozonedailynews.com/${category.toLowerCase()}/${slug}`;
+    const articleUrl = metaCanonical || `${SITE_URL}/${category.toLowerCase()}/${slug}`;
 
     setSatoriMinting(true);
     setSatoriMintMsg(null);
@@ -932,7 +932,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
               type="url"
               value={metaCanonical}
               onChange={(e) => setMetaCanonical(e.target.value)}
-              placeholder="https://www.ozonedailynews.com/category/slug"
+              placeholder={`${SITE_URL}/category/slug`}
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm font-mono focus:outline-none focus:border-blue-500"
             />
           </div>

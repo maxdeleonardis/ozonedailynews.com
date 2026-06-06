@@ -1,5 +1,29 @@
 [
   {
+    "slug": "/tech/blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
+    "title": "Blazar Talon 1.5X Anamorphic | World's First Full Frame Autofocus Cinema Lens Series",
+    "description": "Blazar Talon 1.5X is the world's first full-frame autofocus anamorphic lens, delivering a 1.8x cinematic look at T2.1 in three focal lengths from $1,099.",
+    "publishDate": "2026-06-06",
+    "modifiedDate": "2026-06-06",
+    "category": "Tech",
+    "tags": [
+      "Blazar Lens",
+      "Anamorphic",
+      "Sony E-mount",
+      "Cinema Lenses",
+      "Filmmaking",
+      "Autofocus"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=675&fit=crop",
+    "articleType": "JackArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
     "title": "Antares Mark-0 Goes Critical | First Advanced US Nuclear Reactor in 40 Years",
     "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",

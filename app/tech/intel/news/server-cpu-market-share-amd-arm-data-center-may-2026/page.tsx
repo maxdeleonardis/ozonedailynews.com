@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 
 const SLUG = '/intel/news/server-cpu-market-share-amd-arm-data-center-may-2026';
 const ARTICLE_URL = `https://www.objectwire.org${SLUG}`;

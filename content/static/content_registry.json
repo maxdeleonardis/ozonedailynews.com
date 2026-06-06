@@ -14179,5 +14179,43 @@
     "author": "OzoneNews Editorial",
     "priority": 0.6,
     "change_frequency": "weekly"
+  },
+  {
+    "slug": "/video-games/battlefield-6",
+    "title": "Battlefield 6 | Season 3 Blast Point, News & Guides 2026",
+    "description": "Battlefield 6 hub. Season 3 Blast Point launches June 10 with Cairo Bazaar, Golmud Sands, Flashpoint mode, server browser, ranked Conquest, and 6 new weapons.",
+    "publish_date": "June 6, 2026",
+    "modified_date": "June 6, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Battlefield 6"
+    ],
+    "author": "Electronic Arts",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/battlefield-6/season-3-blastpoint",
+    "title": "Battlefield 6 Season 3 Blast Point | Maps, Weapons, Battle Pass",
+    "description": "Battlefield 6 Season 3 Blast Point launches June 10 with Cairo Bazaar, Golmud Sands, 6 new weapons, Flashpoint mode, server browser, ranked Conquest, and 2 new ",
+    "publish_date": "June 6, 2026",
+    "modified_date": "June 6, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
+      "Battlefield 6",
+      "Season 3 Blastpoint"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_url": "https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=1200&h=675&fit=crop&q=80",
+    "image_width": 1200,
+    "image_height": 675
   }
 ]

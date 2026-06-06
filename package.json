@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "prepare": "git config core.hooksPath .githooks || true",
-    "prebuild": "npx tsx scripts/validate-public.ts && npx tsx scripts/validate-canonicals.ts && npx tsx scripts/validate-eeat.ts && npx tsx scripts/sync-registry.ts --write",
+    "prebuild": "npx tsx scripts/validate-public.ts && npx tsx scripts/validate-canonicals.ts && npx tsx scripts/validate-eeat.ts && npm run alfanso:sync",
     "build": "next build --turbopack",
     "start": "next start",
     "hooks:install": "git config core.hooksPath .githooks && echo '✅  Alfanso git hooks installed (.githooks/pre-push)'",

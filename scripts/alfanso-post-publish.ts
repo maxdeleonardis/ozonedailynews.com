@@ -214,9 +214,13 @@ function gitPublish() {
 
 // ─── Step 5: Summary ─────────────────────────────────────────────────────────
 
-function printSummary(added: number) {
+function printSummary(added: number, isBuildCheckpoint: boolean) {
   log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  log('  Alfanso Post-Publish Complete');
+  if (isBuildCheckpoint) {
+    log('  Alfanso Checkpoint — Build Ready');
+  } else {
+    log('  Alfanso Post-Publish Complete');
+  }
   log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   log(`  Registry:    content/static/content_registry.json (+${added})`);
   log(`  RSS:         ${SITE_URL}/rss.xml         (reads registry, live)`);
@@ -232,14 +236,21 @@ function printSummary(added: number) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  log('\n🌅  Alfanso Post-Publish Pipeline');
+  const isBuildCheckpoint = SKIP_GIT && SKIP_PING;
+
+  if (isBuildCheckpoint) {
+    log('\n🌅  Alfanso | Build Checkpoint Sync');
+    log('    registry · verify · (no git, no ping)\n');
+  } else {
+    log('\n🌅  Alfanso Post-Publish Pipeline');
+  }
   if (DRY_RUN) log('    (dry-run mode — no writes)\n');
 
   const added = await syncRegistry();
   verifyOutputFiles();
   await pingSitemaps();
   gitPublish();
-  printSummary(added);
+  printSummary(added, isBuildCheckpoint);
 }
 
 main().catch(err => {

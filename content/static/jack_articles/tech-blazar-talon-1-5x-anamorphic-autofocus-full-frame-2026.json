@@ -104,7 +104,7 @@
     "department": "Tech",
     "hero_image": {
       "alt": "Cinema camera lens with shallow depth of field and anamorphic bokeh",
-      "src": "https://www.ozonedailynews.com/api/og?slug=tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026"
+      "src": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026/1780817406036-screenshot-2026-06-06-at-2.30.34-pm.png"
     },
     "breadcrumbs": [
       {
@@ -166,5 +166,115 @@
   "created_at": "2026-06-06T23:17:33.670393+00:00",
   "updated_at": "2026-06-07T07:30:11.461611+00:00",
   "id": "d7f7d48b-9e1a-4d3a-b8a4-3b32cf566bb7",
-  "lifecycle": "news"
+  "lifecycle": "news",
+  "layout": "news",
+  "sources": [
+    {
+      "url": "https://blazarlens.com/talon/",
+      "date": "2026",
+      "title": "Blazar Talon 1.5X AF Full Frame Anamorphic — Official Product Page",
+      "number": 1,
+      "publisher": "Blazar Lens"
+    },
+    {
+      "url": "https://store.blazarlens.com/products/talon-50mm-t2-1-full-frame-1-5x-af-anamorphic-lens-e",
+      "date": "2026",
+      "title": "Blazar Talon 50mm T2.1 — Official Store",
+      "number": 2,
+      "publisher": "Blazar Lens Store"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1948541-REG/blazar_lens_bltl50_e_50mm_t2_1_talon_1_5x.html",
+      "date": "2026",
+      "title": "Blazar Talon 50mm T2.1 E-Mount — B&H Photo",
+      "number": 3,
+      "publisher": "B&H Photo Video"
+    },
+    {
+      "url": "https://better-focus.com/collections/blazar",
+      "date": "2026",
+      "title": "Blazar Lens Collection — Better Focus Germany",
+      "number": 4,
+      "publisher": "Better Focus"
+    }
+  ],
+  "keywords": [
+    "Blazar Talon 1.5X anamorphic lens review",
+    "full frame autofocus anamorphic lens 2026",
+    "Blazar Talon 35mm 50mm 75mm specs",
+    "anamorphic lens for Sony mirrorless",
+    "best anamorphic lens 2026",
+    "1.5x squeeze full frame cinema"
+  ],
+  "categories": [
+    {
+      "color": "blue",
+      "label": "Filmmaking"
+    },
+    {
+      "color": "gray",
+      "label": "Hardware"
+    }
+  ],
+  "department": "Tech",
+  "hero_image": {
+    "alt": "Cinema camera lens with shallow depth of field and anamorphic bokeh",
+    "src": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026/1780817406036-screenshot-2026-06-06-at-2.30.34-pm.png"
+  },
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/tech",
+      "label": "Tech"
+    }
+  ],
+  "accent_color": "blue",
+  "footer_links": [
+    {
+      "href": "/tech",
+      "label": "Tech"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/editorial-standards",
+      "label": "Editorial Standards"
+    }
+  ],
+  "category_label": "Tech | Filmmaking",
+  "footer_tagline": "Tech and Filmmaking Hardware Reporting from OzoneNews",
+  "engagement_slug": "tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
+  "related_articles": [
+    {
+      "url": "/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+      "title": "NVIDIA Blackwell RTX 50-Series | Architecture, Specs, and Pricing 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026",
+      "title": "NVIDIA RTX 5070 Review | Blackwell Midrange Performance 2026",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
+      "title": "Google Breaks Ground in Sweden | The 9-Year Road to Horndal",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    },
+    {
+      "url": "/tech/google-ai-data-center-water-consumption-cooling-2026",
+      "title": "AI's Hidden Thirst | How Google Engineers Its Data Center Cooling",
+      "category": "Tech",
+      "categoryColor": "text-blue-600"
+    }
+  ],
+  "show_corrections": true,
+  "show_editorial_standards": true
 }

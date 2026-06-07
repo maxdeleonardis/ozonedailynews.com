@@ -222,6 +222,29 @@ export async function POST(req: NextRequest) {
   // 7. Format article to static JSON (strip DB-only fields)
   const { id: _id, brand_slug: _brand, ...staticArticle } = article;
 
+  // Expand `extra` JSONB back to top-level fields.
+  // backfill-articles.ts stores any key not in its `knownKeys` set into `extra`,
+  // which means all JackArticle-specific fields (layout, accent_color, department,
+  // hero_image, breadcrumbs, sources, related_articles, timeline, footer_links, etc.)
+  // land in `extra` rather than at the top level. If we write the Supabase row directly
+  // to disk without expanding, *DB components that read top-level fields (JackArticleDB,
+  // ArticlePageDB) will see null for every JackArticle field and render as a broken layout.
+  //
+  // Merge order: extra fields are the base; explicit top-level fields win on collision
+  // (so a null top-level never overwrites a real value from extra).
+  const { extra: _extra, ...staticWithoutExtra } = staticArticle as typeof staticArticle & { extra?: Record<string, unknown> };
+  const extraFields = (_extra && typeof _extra === 'object' && !Array.isArray(_extra))
+    ? (_extra as Record<string, unknown>)
+    : {};
+  // Build the merged field set: start from top-level, then fill any null/undefined
+  // slots with the corresponding value from extra (never clobber a real top-level value).
+  const mergedFields: Record<string, unknown> = { ...staticWithoutExtra };
+  for (const [k, v] of Object.entries(extraFields)) {
+    if (mergedFields[k] === null || mergedFields[k] === undefined) {
+      mergedFields[k] = v;
+    }
+  }
+
   // Generate or reuse an immutable content_id (UUID).
   // This is the filename in content/articles/[content_id].json.
   // It NEVER changes even if the author renames the article or changes its URL.
@@ -230,12 +253,12 @@ export async function POST(req: NextRequest) {
     ? article.id
     : randomUUID();
 
-  const finalArticle = {
-    ...staticArticle,
+  const finalArticle: ArticleFull = {
+    ...mergedFields,
     id: contentId,          // embed the id so the file is self-describing
     status: 'published' as const,
-    lifecycle: staticArticle.lifecycle ?? 'news',
-  };
+    lifecycle: (staticArticle.lifecycle ?? 'news') as ArticleFull['lifecycle'],
+  } as ArticleFull;
 
   const jsonContent = JSON.stringify(finalArticle, null, 2);
 

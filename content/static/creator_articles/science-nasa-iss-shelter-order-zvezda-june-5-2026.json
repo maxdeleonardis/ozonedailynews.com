@@ -1,0 +1,76 @@
+{
+  "slug": "science-nasa-iss-shelter-order-zvezda-june-5-2026",
+  "article_type": "creator_article",
+  "url": "https://www.ozonedailynews.com/science/nasa-iss-shelter-order-zvezda-june-5-2026",
+  "article_url": "https://www.ozonedailynews.com/science/nasa-iss-shelter-order-zvezda-june-5-2026",
+  "title": "NASA Orders Astronauts to Take Shelter After New Leak Aboard the International Space Station",
+  "subtitle": "Russian cosmonauts prepared repairs Friday morning after a fresh pressure drop was detected in the Zvezda module. Officials cleared the crew to return to normal operations roughly 90 minutes later.",
+  "category": "Science",
+  "creator_name": "ISS Brief | June 5, 2026",
+  "status": "published",
+  "breaking": false,
+  "trending": true,
+  "topic_tag": "science",
+  "lifecycle": "news",
+  "publish_date": "June 5, 2026",
+  "published_at": "2026-06-05T16:00:00-05:00",
+  "modified_date_iso": "2026-06-05T16:00:00-05:00",
+  "author_name": "Kaustubh Madiraju",
+  "author_slug": "kaustubh-madiraju",
+  "read_time": "3 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "International Space Station orbiting Earth with docked spacecraft visible against the darkness of space",
+  "tags": [
+    "ISS",
+    "NASA",
+    "Roscosmos",
+    "Zvezda",
+    "SpaceX Dragon",
+    "Crew Dragon"
+  ],
+  "stats": [
+    { "value": "~90 min", "label": "Shelter Duration" },
+    { "value": "June 5, 2026", "label": "Incident Date" },
+    { "value": "5", "label": "NASA Crew in Dragon" },
+    { "value": "Zvezda PrK", "label": "Affected Section" }
+  ],
+  "infobox": [
+    { "label": "Date", "value": "Friday, June 5, 2026" },
+    { "label": "Module", "value": "Zvezda Service Module, PrK Vestibule" },
+    { "label": "Safe Haven", "value": "SpaceX Crew Dragon (Crew-12)" },
+    { "label": "Duration", "value": "Approximately 90 minutes" },
+    { "label": "Leak Sites", "value": "2 identified; 1 sealed, 1 pending" },
+    { "label": "Outcome", "value": "No emergency declared" },
+    { "label": "Source", "value": "NASA | Roscosmos via TASS", "href": "https://blogs.nasa.gov/spacestation/" }
+  ],
+  "cta_buttons": [
+    { "icon": "🚀", "label": "NASA ISS Blog", "href": "https://blogs.nasa.gov/spacestation/" }
+  ],
+  "content_html": "<p>On Friday, June 5, 2026, NASA directed five American astronauts aboard the International Space Station to shelter inside the docked SpaceX Crew Dragon capsule while Russian cosmonauts attempted repairs on a worsening air leak in the Zvezda service module. The shelter order was lifted roughly 90 minutes later after Roscosmos completed partial repair work and determined no emergency action was required.</p>\n\n<h2>What Triggered the Order</h2>\n\n<p>Flight controllers detected a fresh pressure drop in the PrK vestibule, a section of the Zvezda module connecting a cargo docking port to the rest of the Russian segment. Two leak sites were identified during the work session. Cosmonauts applied sealant to one of them on June 5. The second, on a conical section of the vestibule, was measured but not sealed, with engineers scheduled to assess the data and plan a follow-up approach.</p>\n\n<p>NASA's shelter directive applied to all four members of SpaceX Crew-12, who arrived at the station in February 2026, and to NASA astronaut Chris Williams, who launched aboard a Soyuz in November 2025. Russian cosmonauts Sergey Kud-Sverchkov and Sergei Mikaev carried out the repair work while the American crew waited in Dragon.</p>\n\n<h2>Zvezda's Persistent Leak Problem</h2>\n\n<p>The Zvezda service module launched in July 2000 and forms the core of the Russian ISS segment. Pressure loss in the PrK vestibule has been a documented concern since at least 2019. NASA's ISS Advisory Council noted in April 2026 that the two agencies had not agreed on a root cause for the cracking, and that Roscosmos was not consistently following pressure management protocols designed to slow structural degradation. The leak had reportedly worsened in the days before June 5, prompting escalation from monitoring to an active repair attempt.</p>\n\n<p>For the full background on the Zvezda leak and the interagency tension surrounding it, see OzoneNews's <a href=\"/science/iss-zvezda-air-leak-dragon-shelter-june-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">in-depth investigation of the Zvezda air leak and NASA-Roscosmos relations</a>. The June 5 event is the most public escalation of that ongoing structural issue.</p>\n\n<h2>Station Status and What Comes Next</h2>\n\n<p>Roscosmos stated the situation posed no threat to the crew or the station, and that air pressure remained at normal levels across the ISS. NASA confirmed no emergency was declared and said it would continue working with Roscosmos on a collaborative resolution to the leaks. The station is certified for operations through 2030, and the condition of the Russian segment is an active factor in long-term transition planning toward commercial successor platforms.</p>\n\n<p>For live ISS status, NASA publishes crew activity reports at <a href=\"https://blogs.nasa.gov/spacestation/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">blogs.nasa.gov/spacestation</a>. Additional OzoneNews science coverage includes the <a href=\"/science/nasa-maven-mars-orbiter-dead-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">loss of the MAVEN Mars orbiter after 11 years</a>, a <a href=\"/science/sagittarius-a-black-hole-wind-discovery-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">major new discovery about the Milky Way's central black hole</a>, and the <a href=\"/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm\" class=\"text-blue-600 hover:text-blue-800 underline\">June 2026 geomagnetic storm that produced visible aurora across the United States</a>.</p>",
+  "metadata": {
+    "title": "ISS Leak | NASA Orders Astronauts to Shelter June 2026",
+    "description": "NASA ordered the ISS crew to shelter in Dragon on June 5 after new Zvezda leaks worsened. Partial repairs completed within 90 minutes; no emergency was declared.",
+    "keywords": [
+      "ISS leak June 2026",
+      "NASA astronauts shelter ISS",
+      "Zvezda module pressure loss 2026",
+      "International Space Station Zvezda PrK repair",
+      "SpaceX Crew Dragon safe haven June 5 2026"
+    ],
+    "openGraph": {
+      "title": "ISS Leak | NASA Orders Astronauts to Shelter June 2026",
+      "description": "NASA ordered the ISS crew to shelter in Dragon on June 5 after new Zvezda leaks worsened. Partial repairs completed within 90 minutes; no emergency was declared.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "International Space Station orbiting Earth with docked spacecraft visible against the darkness of space"
+        }
+      ]
+    },
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/science/nasa-iss-shelter-order-zvezda-june-5-2026"
+    }
+  }
+}

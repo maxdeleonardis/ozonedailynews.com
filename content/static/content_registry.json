@@ -75,6 +75,30 @@
     "breaking": true
   },
   {
+    "slug": "/science/nasa-iss-shelter-order-zvezda-june-5-2026",
+    "title": "NASA Orders Astronauts to Take Shelter After New Leak Aboard the International Space Station",
+    "description": "NASA ordered the ISS crew to shelter in Dragon on June 5 after new Zvezda leaks worsened. Partial repairs completed within 90 minutes; no emergency was declared.",
+    "publishDate": "2026-06-05",
+    "modifiedDate": "2026-06-05",
+    "category": "Science",
+    "tags": [
+      "ISS",
+      "NASA",
+      "Roscosmos",
+      "Zvezda",
+      "SpaceX Dragon",
+      "Crew Dragon"
+    ],
+    "author": "Kaustubh Madiraju",
+    "authorSlug": "kaustubh-madiraju",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=1200&h=675&fit=crop",
+    "articleType": "CreatorArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm",
     "title": "Sun Fires Triple Solar Flares | Cannibal CME Pushes Northern Lights Deep Into the US Tonight",
     "description": "Three solar flares merge into a cannibal CME, pushing Northern Lights as far south as Illinois and Oregon tonight, June 4-5, 2026.",

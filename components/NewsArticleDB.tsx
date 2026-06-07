@@ -9,6 +9,7 @@ import { getRelatedArticles as getRegistryRelated } from '@/lib/registry-service
 import { getAuthor } from '@/lib/authors';
 import { extractAndInjectToc } from '@/lib/toc-utils';
 import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
+import { ContentRenderer } from '@/components/articles/ContentRenderer';
 import { SEOWrapper } from './SEOWrapper';
 import type { ArticleFull } from '@/lib/types';
 
@@ -121,10 +122,7 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
           {/* Main article body */}
           <div>
-            <div
-              className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-              dangerouslySetInnerHTML={{ __html: processedHtml }}
-            />
+            <ContentRenderer html={processedHtml} />
 
             {/* Tags */}
             {article.tags.length > 0 && (

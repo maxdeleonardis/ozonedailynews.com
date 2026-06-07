@@ -8,6 +8,7 @@ import { getCreatorBySlug } from '@/lib/article-service';
 import { getAuthor } from '@/lib/authors';
 import { extractAndInjectToc } from '@/lib/toc-utils';
 import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
+import { ContentRenderer } from '@/components/articles/ContentRenderer';
 import { SEOWrapper } from './SEOWrapper';
 
 interface CreatorArticleDBProps {
@@ -85,10 +86,7 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
           {/* Article body */}
           <div>
-            <div
-              className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-              dangerouslySetInnerHTML={{ __html: processedHtml }}
-            />
+            <ContentRenderer html={processedHtml} />
 
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((tag) => (

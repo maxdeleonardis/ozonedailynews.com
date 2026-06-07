@@ -8,6 +8,7 @@ import { getRelatedArticles } from '@/lib/registry-service';
 import { getAuthor } from '@/lib/authors';
 import { extractAndInjectToc } from '@/lib/toc-utils';
 import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
+import { ContentRenderer } from '@/components/articles/ContentRenderer';
 import { SEOWrapper } from './SEOWrapper';
 
 interface ArticlePageDBProps {
@@ -65,10 +66,7 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
           {/* Main body */}
           <div>
-            <div
-              className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-              dangerouslySetInnerHTML={{ __html: processedHtml }}
-            />
+            <ContentRenderer html={processedHtml} />
 
             {article.tags.length > 0 && (
               <div className="mt-8 pt-6 border-t border-gray-200 flex flex-wrap gap-2">

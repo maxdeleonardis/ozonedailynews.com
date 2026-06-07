@@ -5,6 +5,9 @@
 import { notFound } from 'next/navigation';
 import { getArticlePageBySlug } from '@/lib/article-service';
 import { getRelatedArticles } from '@/lib/registry-service';
+import { getAuthor } from '@/lib/authors';
+import { extractAndInjectToc } from '@/lib/toc-utils';
+import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
 import { SEOWrapper } from './SEOWrapper';
 
 interface ArticlePageDBProps {
@@ -15,11 +18,22 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
   const article = await getArticlePageBySlug(slug);
   if (!article) notFound();
 
-  const related = await getRelatedArticles(article.url, 4);
+  const related = await getRelatedArticles(article.url, 5);
+
+  const { processedHtml, tocHeadings } = extractAndInjectToc(article.content_html ?? '');
+
+  const authorEntity = getAuthor(article.author_slug);
+  const authorCardData: AuthorCardData = {
+    slug:      article.author_slug ?? 'ozonedailynews-editorial-team',
+    name:      article.author_name ?? 'OzoneNews Editorial Team',
+    jobTitle:  authorEntity?.jobTitle,
+    initials:  authorEntity?.initials,
+    avatarUrl: authorEntity?.avatarUrl,
+  };
 
   return (
     <SEOWrapper slug={article.url}>
-      <article className="max-w-4xl mx-auto px-4 py-8">
+      <article className="max-w-6xl mx-auto px-4 py-8">
         <header className="mb-8">
           <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
             {article.category}
@@ -31,12 +45,6 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
             <p className="text-xl text-gray-600 leading-relaxed">{article.subtitle}</p>
           )}
           <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <span>
-              By{' '}
-              <a href={`/authors/${article.author_slug}`} className="text-blue-600 hover:text-blue-800 underline">
-                {article.author_name}
-              </a>
-            </span>
             <time dateTime={article.published_at}>{article.publish_date}</time>
             {article.read_time && <span>{article.read_time}</span>}
           </div>
@@ -52,35 +60,49 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
           </figure>
         )}
 
-        <div
-          className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-          dangerouslySetInnerHTML={{ __html: article.content_html }}
-        />
+        {/* 2-column grid: article body + sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
+          {/* Main body */}
+          <div>
+            <div
+              className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
+              dangerouslySetInnerHTML={{ __html: processedHtml }}
+            />
 
-        {article.tags.length > 0 && (
-          <div className="mt-8 pt-6 border-t border-gray-200 flex flex-wrap gap-2">
-            {article.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 rounded-full text-xs bg-gray-100 text-gray-700 border border-gray-200">
-                {tag}
-              </span>
-            ))}
+            {article.tags.length > 0 && (
+              <div className="mt-8 pt-6 border-t border-gray-200 flex flex-wrap gap-2">
+                {article.tags.map((tag) => (
+                  <span key={tag} className="px-3 py-1 rounded-full text-xs bg-gray-100 text-gray-700 border border-gray-200">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        )}
 
-        {related.length > 0 && (
-          <div className="mt-10 pt-8 border-t border-gray-200">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Related Articles</h2>
-            <ul className="grid sm:grid-cols-2 gap-4">
-              {related.map((entry) => (
-                <li key={entry.slug}>
-                  <a href={entry.slug} className="text-blue-600 hover:text-blue-800 underline text-sm">
-                    {entry.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+          {/* Sidebar */}
+          <aside className="lg:sticky lg:top-6 self-start">
+            <AuthorCard author={authorCardData} />
+            <TocNav headings={tocHeadings} />
+
+            {related.length > 0 && (
+              <div className="border border-gray-200">
+                <div className="bg-black text-white px-4 py-2">
+                  <h3 className="font-bold text-sm tracking-wider">RELATED ARTICLES</h3>
+                </div>
+                <ul className="p-4 space-y-3">
+                  {related.map((entry) => (
+                    <li key={entry.slug}>
+                      <a href={entry.slug} className="text-blue-600 hover:text-blue-800 underline text-sm leading-snug block">
+                        {entry.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </aside>
+        </div>
       </article>
     </SEOWrapper>
   );

@@ -5,6 +5,9 @@
 
 import { notFound } from 'next/navigation';
 import { getCreatorBySlug } from '@/lib/article-service';
+import { getAuthor } from '@/lib/authors';
+import { extractAndInjectToc } from '@/lib/toc-utils';
+import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
 import { SEOWrapper } from './SEOWrapper';
 
 interface CreatorArticleDBProps {
@@ -14,6 +17,17 @@ interface CreatorArticleDBProps {
 export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
   const article = await getCreatorBySlug(slug);
   if (!article) notFound();
+
+  const { processedHtml, tocHeadings } = extractAndInjectToc(article.content_html ?? '');
+
+  const authorEntity = getAuthor(article.author_slug);
+  const authorCardData: AuthorCardData = {
+    slug:      article.author_slug ?? 'ozonedailynews-editorial-team',
+    name:      article.author_name ?? 'OzoneNews Editorial Team',
+    jobTitle:  authorEntity?.jobTitle,
+    initials:  authorEntity?.initials,
+    avatarUrl: authorEntity?.avatarUrl,
+  };
 
   return (
     <SEOWrapper slug={article.url}>
@@ -72,7 +86,7 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
           <div>
             <div
               className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-              dangerouslySetInnerHTML={{ __html: article.content_html }}
+              dangerouslySetInnerHTML={{ __html: processedHtml }}
             />
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -84,9 +98,12 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
             </div>
           </div>
 
-          {/* Wikipedia-style infobox */}
-          {article.infobox && article.infobox.length > 0 && (
-            <aside className="sticky top-6">
+          {/* Sidebar: Author Card + TOC + Wikipedia-style infobox */}
+          <aside className="lg:sticky lg:top-6 self-start">
+            <AuthorCard author={authorCardData} />
+            <TocNav headings={tocHeadings} />
+
+            {article.infobox && article.infobox.length > 0 && (
               <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
                 <div className="bg-gray-800 px-4 py-3">
                   <p className="text-white font-semibold text-sm">{article.creator_name ?? 'Creator Profile'}</p>
@@ -111,15 +128,8 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
                   ))}
                 </div>
               </div>
-              <div className="mt-3 text-xs text-gray-400 px-1">
-                By{' '}
-                <a href={`/authors/${article.author_slug}`} className="text-blue-600 hover:text-blue-800 underline">
-                  {article.author_name}
-                </a>
-                {' '} &bull; {article.publish_date}
-              </div>
-            </aside>
-          )}
+            )}
+          </aside>
         </div>
       </article>
     </SEOWrapper>

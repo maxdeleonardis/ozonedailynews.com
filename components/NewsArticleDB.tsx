@@ -6,6 +6,9 @@
 import { notFound } from 'next/navigation';
 import { getArticleBySlug } from '@/lib/article-service';
 import { getRelatedArticles as getRegistryRelated } from '@/lib/registry-service';
+import { getAuthor } from '@/lib/authors';
+import { extractAndInjectToc } from '@/lib/toc-utils';
+import { AuthorCard, TocNav, type AuthorCardData } from '@/components/articles/SidebarWidgets';
 import { SEOWrapper } from './SEOWrapper';
 import type { ArticleFull } from '@/lib/types';
 
@@ -21,12 +24,12 @@ function ArticleBadge({ label, color }: { label: string; color: string }) {
   );
 }
 
-async function RelatedArticlesSidebar({ slug, category }: { slug: string; category: string }) {
+async function RelatedLinks({ slug }: { slug: string }) {
   const related = await getRegistryRelated(slug, 5);
   if (related.length === 0) return null;
 
   return (
-    <aside className="sticky top-6">
+    <div>
       <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4 border-b border-gray-200 pb-2">
         Related Articles
       </h2>
@@ -43,7 +46,7 @@ async function RelatedArticlesSidebar({ slug, category }: { slug: string; catego
           </li>
         ))}
       </ul>
-    </aside>
+    </div>
   );
 }
 
@@ -52,6 +55,17 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
   if (!article) notFound();
 
   const articleUrl = article.url;
+
+  const { processedHtml, tocHeadings } = extractAndInjectToc(article.content_html ?? '');
+
+  const authorEntity = getAuthor(article.author_slug);
+  const authorCardData: AuthorCardData = {
+    slug:      article.author_slug ?? 'ozonedailynews-editorial-team',
+    name:      article.author_name ?? 'OzoneNews Editorial Team',
+    jobTitle:  authorEntity?.jobTitle,
+    initials:  authorEntity?.initials,
+    avatarUrl: authorEntity?.avatarUrl,
+  };
 
   return (
     <SEOWrapper slug={articleUrl}>
@@ -74,7 +88,9 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
               </span>
               {article.breaking && <ArticleBadge label="Breaking" color="bg-red-600" />}
               {article.trending && <ArticleBadge label="Trending" color="bg-orange-500" />}
-              {article.exclusive && <ArticleBadge label="Exclusive" color="bg-purple-600" />}
+              {(article as ArticleFull & { exclusive?: boolean }).exclusive && (
+                <ArticleBadge label="Exclusive" color="bg-purple-600" />
+              )}
             </div>
             <h1 className="article-headline text-2xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
               {article.title}
@@ -106,7 +122,7 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
           <div>
             <div
               className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-blue-600 prose-a:underline prose-a:hover:text-blue-800"
-              dangerouslySetInnerHTML={{ __html: article.content_html }}
+              dangerouslySetInnerHTML={{ __html: processedHtml }}
             />
 
             {/* Tags */}
@@ -125,22 +141,14 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
                 </div>
               </div>
             )}
-
-            {/* Author card */}
-            <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Written by</p>
-              <a
-                href={`/authors/${article.author_slug}`}
-                className="text-blue-600 hover:text-blue-800 underline font-semibold"
-              >
-                {article.author_name}
-              </a>
-              <p className="text-sm text-gray-500 mt-1">{article.category} Reporter, OzoneNews</p>
-            </div>
           </div>
 
-          {/* Sticky sidebar */}
-          <RelatedArticlesSidebar slug={articleUrl} category={article.category} />
+          {/* Sidebar */}
+          <aside className="lg:sticky lg:top-6 self-start">
+            <AuthorCard author={authorCardData} />
+            <TocNav headings={tocHeadings} />
+            <RelatedLinks slug={articleUrl} />
+          </aside>
         </div>
       </article>
     </SEOWrapper>

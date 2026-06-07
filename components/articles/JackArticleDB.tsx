@@ -20,54 +20,12 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { getAuthor } from '@/lib/authors';
+import { extractAndInjectToc } from '@/lib/toc-utils';
 import JackArticle from './JackArticle';
 import { ContentRenderer } from './ContentRenderer';
 import { SisterSiteCallout } from '@/components/ui/SisterSiteLink';
 
 const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
-
-// ── TOC helper ────────────────────────────────────────────────────────────────
-// Parses H2 headings from content_html, slugifies them into anchor IDs, and
-// injects those IDs back into the HTML string so sidebar TOC links resolve.
-function slugifyHeading(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .slice(0, 80);
-}
-
-function extractAndInjectToc(html: string): {
-  processedHtml: string;
-  tocHeadings: { id: string; text: string }[];
-} {
-  const tocHeadings: { id: string; text: string }[] = [];
-  const usedIds = new Set<string>();
-
-  const processedHtml = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
-    const text = inner.replace(/<[^>]+>/g, '').trim();
-    if (!text) return match;
-
-    let id = slugifyHeading(text);
-    // Deduplicate IDs within the same article
-    if (usedIds.has(id)) {
-      let n = 2;
-      while (usedIds.has(`${id}-${n}`)) n++;
-      id = `${id}-${n}`;
-    }
-    usedIds.add(id);
-    tocHeadings.push({ id, text });
-
-    // Skip injection if the tag already carries an explicit id
-    if (/\bid=/i.test(attrs)) return match;
-    return `<h2${attrs} id="${id}">${inner}</h2>`;
-  });
-
-  return { processedHtml, tocHeadings };
-}
-// ─────────────────────────────────────────────────────────────────────────────
 
 function loadStaticRow(slug: string): Record<string, unknown> | null {
   try {

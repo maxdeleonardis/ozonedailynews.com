@@ -19,11 +19,55 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { getAuthor } from '@/lib/authors';
 import JackArticle from './JackArticle';
 import { ContentRenderer } from './ContentRenderer';
 import { SisterSiteCallout } from '@/components/ui/SisterSiteLink';
 
 const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
+
+// ── TOC helper ────────────────────────────────────────────────────────────────
+// Parses H2 headings from content_html, slugifies them into anchor IDs, and
+// injects those IDs back into the HTML string so sidebar TOC links resolve.
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 80);
+}
+
+function extractAndInjectToc(html: string): {
+  processedHtml: string;
+  tocHeadings: { id: string; text: string }[];
+} {
+  const tocHeadings: { id: string; text: string }[] = [];
+  const usedIds = new Set<string>();
+
+  const processedHtml = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    if (!text) return match;
+
+    let id = slugifyHeading(text);
+    // Deduplicate IDs within the same article
+    if (usedIds.has(id)) {
+      let n = 2;
+      while (usedIds.has(`${id}-${n}`)) n++;
+      id = `${id}-${n}`;
+    }
+    usedIds.add(id);
+    tocHeadings.push({ id, text });
+
+    // Skip injection if the tag already carries an explicit id
+    if (/\bid=/i.test(attrs)) return match;
+    return `<h2${attrs} id="${id}">${inner}</h2>`;
+  });
+
+  return { processedHtml, tocHeadings };
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 function loadStaticRow(slug: string): Record<string, unknown> | null {
   try {
@@ -76,6 +120,26 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const row = rowRaw as any;
 
+  // ── TOC: extract H2 headings and inject anchor IDs into the HTML ──
+  const { processedHtml, tocHeadings } = extractAndInjectToc(row.content_html ?? '');
+
+  // ── Author: prefer explicit author object, fall back to registry lookup ──
+  // Most articles store only author_name + author_slug at top level; the
+  // AuthorEntity registry has the full initials, jobTitle, and avatarUrl.
+  const resolvedAuthor = (() => {
+    if (row.author) return row.author;
+    const entity = getAuthor(row.author_slug as string | undefined);
+    if (!entity) return undefined;
+    return {
+      name:       entity.name,
+      slug:       entity.slug,
+      avatar:     entity.avatarUrl ?? undefined,
+      initials:   entity.initials,
+      department: entity.jobTitle,
+      url:        `/authors/${entity.slug}`,
+    };
+  })();
+
   return (
     <JackArticle
       slug={slug}
@@ -99,7 +163,8 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
           : undefined
       }
       breadcrumbs={row.breadcrumbs ?? undefined}
-      author={row.author ?? undefined}
+      author={resolvedAuthor}
+      tocHeadings={tocHeadings.length > 0 ? tocHeadings : undefined}
       relatedArticles={
         Array.isArray(row.related_articles)
           ? row.related_articles.map((a: Record<string, unknown>) => ({
@@ -134,7 +199,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
           ctaLabel={row.owire_link.cta ?? 'Read on owire.org →'}
         />
       )}
-      <ContentRenderer html={row.content_html ?? ''} />
+      <ContentRenderer html={processedHtml} />
     </JackArticle>
   );
 }

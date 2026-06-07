@@ -51,6 +51,11 @@ export interface JackAuthor {
   url?: string;
 }
 
+export interface TocHeading {
+  id: string;
+  text: string;
+}
+
 export interface JackBreadcrumb {
   href: string;
   label: string;
@@ -138,6 +143,8 @@ export interface JackArticleProps {
   showNewsletter?: boolean;
   newsletterTitle?: string;
   newsletterDescription?: string;
+  /** Auto-generated TOC from H2 headings (injected by JackArticleDB) */
+  tocHeadings?: TocHeading[];
 
   // --- Footer ---
   sources?: JackSourceReference[];
@@ -863,6 +870,7 @@ export default function JackArticle({
   newsletterTitle = 'Investigation Updates',
   newsletterDescription = 'Get updates on this case and other OzoneNews investigations.',
   sources,
+  tocHeadings,
   showCorrections = true,
   showEditorialStandards = true,
   footerTagline = 'Decoupling Global Markets from Legacy Constraints.',
@@ -1288,6 +1296,63 @@ export default function JackArticle({
               {/* Sidebar */}
               {hasSidebar && (
                 <aside className="lg:col-span-4">
+
+                  {/* ── Author Card ── */}
+                  {author && (
+                    <Link
+                      href={author.url ?? (author.slug ? `/authors/${author.slug}` : '#')}
+                      className="flex items-center gap-3 border border-gray-200 p-4 mb-6 hover:bg-gray-50 transition-colors group"
+                    >
+                      <div className="shrink-0">
+                        {author.avatar ? (
+                          <img
+                            src={author.avatar}
+                            alt={author.name}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        ) : (
+                          <div className={`w-12 h-12 rounded-full ${accentBgMap[accentColor]} flex items-center justify-center`}>
+                            <span className="text-white font-bold text-sm">
+                              {author.initials ?? author.name.split(' ').map((n) => n[0]).join('')}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-bold text-sm group-hover:underline leading-tight">{author.name}</p>
+                        {author.department && (
+                          <p className="text-xs text-gray-500 mt-0.5 truncate">{author.department}</p>
+                        )}
+                      </div>
+                    </Link>
+                  )}
+
+                  {/* ── Table of Contents ── */}
+                  {tocHeadings && tocHeadings.length > 1 && (
+                    <div className="border border-gray-200 mb-8">
+                      <div className="bg-black text-white px-4 py-2">
+                        <h3 className="font-bold text-sm tracking-wider">IN THIS ARTICLE</h3>
+                      </div>
+                      <nav className="p-4" aria-label="Table of contents">
+                        <ol className="space-y-2.5">
+                          {tocHeadings.map((h, i) => (
+                            <li key={h.id} className="flex items-start gap-2.5">
+                              <span className="text-gray-400 font-mono text-[11px] mt-0.5 shrink-0 tabular-nums">
+                                {String(i + 1).padStart(2, '0')}
+                              </span>
+                              <a
+                                href={`#${h.id}`}
+                                className="text-sm text-gray-700 hover:text-black hover:underline leading-snug"
+                              >
+                                {h.text}
+                              </a>
+                            </li>
+                          ))}
+                        </ol>
+                      </nav>
+                    </div>
+                  )}
+
                   {/* Auto Related Articles — queries articles table by category */}
                   <div className="mb-8">
                     <RelatedArticles

@@ -314,41 +314,60 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
     }
 
     const articleUrl = metaCanonical || `${SITE_URL}/${category.toLowerCase()}/${slug}`;
+    const endpoint   = 'https://satori-neon.vercel.app/api/v1/fetch-article';
+    const payload    = { url: articleUrl };
 
     setSatoriMinting(true);
-    setSatoriMintMsg(null);
+    setSatoriMintMsg({ ok: true, text: `⟳ Sending to Satori…\nEndpoint: ${endpoint}\nPayload: ${JSON.stringify(payload)}` });
     setSatoriPreview(null);
     setSatoriImgError(false);
 
+    console.group('[Satori Mint]');
+    console.log('Endpoint:', endpoint);
+    console.log('Payload:', payload);
+
     try {
-      const res = await fetch('https://satori-neon.vercel.app/api/v1/fetch-article', {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: articleUrl }),
+        body: JSON.stringify(payload),
       });
 
+      console.log('Response status:', res.status, res.statusText);
+      console.log('Response headers:', Object.fromEntries(res.headers.entries()));
+
+      const rawText = await res.text();
+      console.log('Raw response body:', rawText);
+
       if (!res.ok) {
-        setSatoriMintMsg({ ok: false, text: `Satori API returned HTTP ${res.status}` });
+        setSatoriMintMsg({ ok: false, text: `Satori API HTTP ${res.status}: ${rawText.slice(0, 200)}` });
         return;
       }
 
-      const data = await res.json() as {
-        imageUrl?: string;
-        title?: string;
-        subtitle?: string;
-        error?: string;
-      };
+      let data: { imageUrl?: string; title?: string; subtitle?: string; error?: string };
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        setSatoriMintMsg({ ok: false, text: `Satori returned non-JSON: ${rawText.slice(0, 200)}` });
+        return;
+      }
+
+      console.log('Parsed response:', data);
 
       if (!data.imageUrl) {
-        setSatoriMintMsg({ ok: false, text: data.error ?? 'Satori did not return an imageUrl' });
+        setSatoriMintMsg({ ok: false, text: `No imageUrl in response. Keys: ${Object.keys(data).join(', ')}. Error: ${data.error ?? 'none'}` });
         return;
       }
 
       setSatoriPreview({ url: data.imageUrl, source: 'satori' });
-      setSatoriMintMsg({ ok: true, text: 'Thumbnail generated. Click "Use as thumbnail" to apply it.' });
+      setSatoriMintMsg({ ok: true, text: `✓ Received imageUrl: ${data.imageUrl}` });
+      console.log('imageUrl:', data.imageUrl);
     } catch (err) {
-      setSatoriMintMsg({ ok: false, text: err instanceof Error ? err.message : String(err) });
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('Fetch error:', msg);
+      setSatoriMintMsg({ ok: false, text: `Network error: ${msg}` });
     } finally {
+      console.groupEnd();
       setSatoriMinting(false);
     }
   }
@@ -429,7 +448,11 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
 
   async function handlePublish() {
     if (!slug) return setMessage({ type: 'err', text: 'Save the draft first.' });
-    if (!confirm(`Publish "${title}" to GitHub? This will commit the article and trigger a site rebuild.`)) return;
+
+    const action = isEdit
+      ? `Update "${title}"? Changes go live instantly via ISR — no full rebuild.`
+      : `Publish "${title}"? This commits the article and triggers a full site rebuild (~2 min).`;
+    if (!confirm(action)) return;
 
     setPublishing(true);
     setMessage(null);
@@ -459,7 +482,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
       if (json.ok) {
         setMessage({
           type: 'ok',
-          text: `Published to GitHub. ${json.message ?? ''} Live URL: ${json.url ?? ''}`,
+          text: `✓ ${json.message ?? 'Published.'} ${json.url ? `Live: ${json.url}` : ''}`.trim(),
           details: json.warnings,
           detailsLabel: json.warnings?.length ? 'SEO suggestions (article is live — fix when convenient):' : undefined,
           detailsTone: 'warn',
@@ -730,13 +753,13 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
 
             {/* Status message */}
             {satoriMintMsg && (
-              <p className={`text-xs px-3 py-2 rounded ${
+              <pre className={`text-xs px-3 py-2 rounded whitespace-pre-wrap break-all font-mono ${
                 satoriMintMsg.ok
                   ? 'bg-green-50 border border-green-200 text-green-800'
                   : 'bg-red-50 border border-red-200 text-red-700'
               }`}>
                 {satoriMintMsg.ok ? '✓ ' : '✗ '}{satoriMintMsg.text}
-              </p>
+              </pre>
             )}
 
             {satoriPreview && (
@@ -964,7 +987,7 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
             disabled={saving || publishing}
             className="px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md disabled:opacity-50"
           >
-            {publishing ? 'Publishing to GitHub...' : 'Publish to GitHub'}
+            {publishing ? 'Publishing...' : isEdit ? 'Update & Publish' : 'Publish'}
           </button>
 
           <a

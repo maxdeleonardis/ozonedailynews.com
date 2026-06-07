@@ -65,8 +65,11 @@ export default function AdminArticleList({ articles }: Props) {
     }
   }
 
-  async function handlePublish(slug: string, title: string) {
-    if (!confirm(`Publish "${title}" to GitHub? This will trigger a site rebuild.`)) return;
+  async function handlePublish(slug: string, title: string, isPublished: boolean) {
+    const action = isPublished
+      ? `Update "${title}"? Changes go live instantly via ISR.`
+      : `Publish "${title}"? This commits the article and triggers a full site rebuild (~2 min).`;
+    if (!confirm(action)) return;
     setPublishing(slug);
     setMessage(null);
     try {
@@ -84,7 +87,7 @@ export default function AdminArticleList({ articles }: Props) {
       };
 
       if (json.ok) {
-        setMessage({ type: 'ok', text: `Published! ${json.message ?? ''} → ${json.url ?? ''}` });
+        setMessage({ type: 'ok', text: `✓ ${json.message ?? 'Published.'} ${json.url ? `→ ${json.url}` : ''}`.trim() });
         window.location.reload();
       } else {
         const detail = json.details?.join(' | ') ?? json.error ?? 'Publish failed.';
@@ -213,11 +216,11 @@ export default function AdminArticleList({ articles }: Props) {
                       Edit
                     </a>
                     <button
-                      onClick={() => handlePublish(article.slug, article.title)}
+                      onClick={() => handlePublish(article.slug, article.title, article.status === 'published')}
                       disabled={publishing === article.slug}
                       className="text-green-700 hover:text-green-900 underline text-xs disabled:opacity-50"
                     >
-                      {publishing === article.slug ? 'Publishing...' : article.status === 'published' ? 'Republish' : 'Publish'}
+                      {publishing === article.slug ? 'Publishing...' : article.status === 'published' ? 'Update' : 'Publish'}
                     </button>
                     <button
                       onClick={() => handleDelete(article.slug, article.title)}

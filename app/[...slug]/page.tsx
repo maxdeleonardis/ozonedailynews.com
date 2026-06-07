@@ -17,7 +17,6 @@ import { NewsArticleDB } from '@/components/articles/NewsArticleDB';
 import { JackArticleDB } from '@/components/articles/JackArticleDB';
 import { ArticlePageDB } from '@/components/articles/ArticlePageDB';
 import { CreatorArticleDB } from '@/components/articles/CreatorArticleDB';
-import { WikiArticle } from '@/components/articles/WikiArticle';
 import { buildArticleSchema } from '@/lib/article-schema';
 import type { TopicTagType } from '@/components/articles/NewsArticle';
 
@@ -146,11 +145,10 @@ export default async function ArticleCatchallPage({ params }: { params: Promise<
           case 'jack_article':
             return <JackArticleDB slug={article.slug} />;
           case 'article_page':
+          case 'wiki_article':   // wiki_article is now an alias for article_page
             return <ArticlePageDB slug={article.slug} />;
           case 'creator_article':
             return <CreatorArticleDB slug={article.slug} />;
-          case 'wiki_article':
-            return <WikiArticle slug={article.slug} />;
           case 'news_article':
           default:
             return (

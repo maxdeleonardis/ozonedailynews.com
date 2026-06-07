@@ -319,19 +319,34 @@ export async function getAllArticlePages(): Promise<ArticlePageFull[]> {
 }
 
 export async function getArticlePageBySlug(slug: string): Promise<ArticlePageFull | null> {
-  const local = readStaticRow<ArticlePageFull>('article_pages', slug);
+  // Check article_pages/ first (canonical location), then wiki_articles/ as a
+  // legacy fallback — wiki_article is now an alias for article_page, so old
+  // files in wiki_articles/ still resolve without needing to be migrated.
+  const local =
+    readStaticRow<ArticlePageFull>('article_pages', slug) ??
+    readStaticRow<ArticlePageFull>('wiki_articles', slug);
   if (local) return local;
 
   const { createClient } = await import('./supabase/server');
   const supabase = await createClient();
   if (!supabase) return null;
-  const { data } = await supabase
+
+  // Try article_pages table first, then wiki_articles table as fallback
+  const { data: apData } = await supabase
     .from('article_pages')
     .select('*')
     .eq('slug', slug)
     .eq('status', 'published')
     .single();
-  return (data as ArticlePageFull | null) ?? null;
+  if (apData) return apData as ArticlePageFull;
+
+  const { data: wikiData } = await supabase
+    .from('wiki_articles')
+    .select('*')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .single();
+  return (wikiData as ArticlePageFull | null) ?? null;
 }
 
 // ─── Creator Articles (CreatorArticleDB) ──────────────────────────────────────

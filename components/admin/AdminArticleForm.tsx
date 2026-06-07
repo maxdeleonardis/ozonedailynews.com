@@ -621,9 +621,9 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                     <span className="inline-block w-2 h-2 rounded-full bg-amber-400 shrink-0" />
                     <span className="font-medium text-amber-900">
                       {articleType === 'jack_article'    ? 'Jack Article (Long-form / Investigation)'  :
-                       articleType === 'article_page'    ? 'Article Page (Evergreen Guide)'            :
-                       articleType === 'creator_article' ? 'Quick Article (Space / Science / Tech)'    :
-                       articleType === 'wiki_article'    ? 'Wiki Article (Glossary / Definition)'      :
+                       articleType === 'article_page'    ? 'Article Page (Evergreen / Wiki)'           :
+                       articleType === 'creator_article' ? 'Quick Article'                             :
+                       articleType === 'wiki_article'    ? 'Article Page (Evergreen / Wiki)'           :
                                                            'News Article (Standard)'}
                     </span>
                   </div>
@@ -637,9 +637,8 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
                 >
                   <option value="news_article">News Article (Standard)</option>
                   <option value="jack_article">Jack Article (Long-form / Investigation)</option>
-                  <option value="article_page">Article Page (Evergreen Guide)</option>
-                  <option value="creator_article">Quick Article (Space / Science / Tech)</option>
-                  <option value="wiki_article">Wiki Article (Glossary / Definition)</option>
+                  <option value="article_page">Article Page (Evergreen / Wiki)</option>
+                  <option value="creator_article">Quick Article</option>
                 </select>
               )}
             </div>

@@ -276,8 +276,8 @@ export async function POST(req: NextRequest) {
   const articleTypeDir: Record<string, string> = {
     jack_article:    'jack_articles',
     article_page:    'article_pages',
+    wiki_article:    'article_pages',  // wiki_article is an alias — writes to article_pages/
     creator_article: 'creator_articles',
-    wiki_article:    'wiki_articles',
   };
   const typeDir = articleTypeDir[article.article_type ?? ''];
   const typeFilePath = typeDir ? `content/static/${typeDir}/${article.slug}.json` : null;

@@ -59,15 +59,6 @@ const HUBS: Hub[] = [
     ],
   },
   {
-    label: 'Finance',
-    href: '/finance',
-    items: [
-      { label: 'All Finance News', href: '/finance' },
-      { label: 'Crypto', href: '/crypto' },
-      { label: 'BlackRock', href: '/blackrock' },
-    ],
-  },
-  {
     label: 'Social',
     href: '/social',
     items: [

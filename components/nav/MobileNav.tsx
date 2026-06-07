@@ -53,14 +53,6 @@ const NAV_HUBS: NavHub[] = [
     ],
   },
   {
-    label: 'Finance', href: '/finance',
-    items: [
-      { label: 'All Finance News', href: '/finance' },
-      { label: 'Crypto', href: '/crypto' },
-      { label: 'BlackRock', href: '/blackrock' },
-    ],
-  },
-  {
     label: 'Social', href: '/social',
     items: [
       { label: 'All Social Media', href: '/social' },

@@ -3,8 +3,8 @@
     "slug": "/tech/blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
     "title": "Blazar Talon 1.5X Anamorphic | World's First Full Frame Autofocus Cinema Lens Series",
     "description": "Blazar Talon 1.5X is the world's first full-frame autofocus anamorphic lens, delivering a 1.8x cinematic look at T2.1 in three focal lengths from $1,099.",
-    "publishDate": "2026-06-06",
-    "modifiedDate": "2026-06-06",
+    "publishDate": "2026-06-06T15:00:00+00:00",
+    "modifiedDate": "2026-06-06T15:00:00+00:00",
     "category": "Tech",
     "tags": [
       "Blazar Lens",
@@ -16,10 +16,11 @@
     ],
     "author": "Max DeLeonardis",
     "authorSlug": "max-deleonardis",
-    "priority": 0.7,
+    "priority": 0.8,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=675&fit=crop",
-    "articleType": "JackArticle",
+    "imageUrl": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026/1780817406036-screenshot-2026-06-06-at-2.30.34-pm.png",
+    "imageAlt": "Cinema camera lens with shallow depth of field and anamorphic bokeh",
+    "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": false
   },
@@ -404,8 +405,7 @@
     "changeFrequency": "daily",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026"
+    "breaking": false
   },
   {
     "slug": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026",
@@ -429,8 +429,7 @@
     "changeFrequency": "daily",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026"
+    "breaking": false
   },
   {
     "slug": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",

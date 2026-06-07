@@ -3,41 +3,30 @@
  *
  * Resolution order:
  *   1. Supabase article_thumbnails — journalist-approved PNG from Media Factory
- *      (permanent Supabase Storage URL, fastest)
- *   2. Local Satori render — built on demand from the JSON file on disk
+ *      (permanent Supabase Storage URL, CDN-cached, no re-render needed)
+ *   2. Satori Media Factory API — generates branded 1200x630 OG card on demand.
+ *      Fonts, layout, and branding are all handled centrally on the Satori service.
+ *   3. 302 fallback direct to Satori generate URL — if proxy fetch fails,
+ *      let the browser hit Satori directly so it still gets an image.
  *
- * The article's UUID is embedded in the JSON file as `id`, so we can look up
- * article_thumbnails without an extra DB round-trip to articles table.
+ * No local Satori rendering. No font loading. No sharp. No font-not-found errors.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import satori from 'satori';
 import fs from 'fs';
 import path from 'path';
 import { createClient } from '@/lib/supabase/server';
 
-// ── Config ────────────────────────────────────────────────────────────────────
-const W = 1200;
-const H = 630;
-const SITE_NAME = 'OzoneNews';
-const BRAND_SLUG = 'ozone';
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
-const CATEGORY_COLORS: Record<string, string> = {
-  Finance:       '#4f46e5',
-  Tech:          '#2563eb',
-  Science:       '#0d9488',
-  Space:         '#0ea5e9',
-  News:          '#dc2626',
-  World:         '#7c3aed',
-  Politics:      '#b45309',
-  Entertainment: '#db2777',
-  Sports:        '#16a34a',
-  Crypto:        '#f59e0b',
-  Gaming:        '#8b5cf6',
-  Culture:       '#ec4899',
-};
+// Config
 
-// ── Static store resolver ─────────────────────────────────────────────────────
+const SATORI_GENERATE_API = 'https://satori-neon.vercel.app/api/v1/generate';
+const BRAND_SLUG = process.env.NEXT_PUBLIC_BRAND_SLUG ?? 'ozone';
+
+// Static store resolver
+
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 const STORES = [
   'articles',
@@ -49,16 +38,16 @@ const STORES = [
 ] as const;
 
 interface ArticleMeta {
-  id?: string;          // UUID — present in all JSON files, used for Supabase lookup
+  id?: string;
   title: string;
   subtitle?: string;
   category: string;
   author_name?: string;
   publish_date?: string;
   published_at?: string;
-  thumbnail_src?: string;
   breaking?: boolean;
   read_time?: string;
+  hero_image?: { src?: string };
 }
 
 function findArticle(slug: string): ArticleMeta | null {
@@ -75,13 +64,14 @@ function findArticle(slug: string): ArticleMeta | null {
   return null;
 }
 
-// ── Supabase: check for pre-approved thumbnail ────────────────────────────────
+// Supabase: check for journalist-approved thumbnail from Media Factory
+
 async function getApprovedThumbnailUrl(articleId: string): Promise<string | null> {
   try {
     const supabase = await createClient();
     if (!supabase) return null;
 
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('article_thumbnails')
       .select('generated_url')
       .eq('source_table', 'articles')
@@ -89,149 +79,33 @@ async function getApprovedThumbnailUrl(articleId: string): Promise<string | null
       .eq('status', 'ready')
       .maybeSingle();
 
-    if (error || !data?.generated_url) return null;
-    return data.generated_url as string;
+    return data?.generated_url ?? null;
   } catch {
     return null;
   }
 }
 
-// ── Font loader ───────────────────────────────────────────────────────────────
-let fontBoldBuf: ArrayBuffer | null = null;
-let fontRegularBuf: ArrayBuffer | null = null;
+// Build Satori generate URL from article metadata
 
-function loadFont(variant: 'Bold' | 'Regular'): ArrayBuffer {
-  const candidates = [
-    path.join(process.cwd(), 'node_modules', '@next', 'font', 'google', 'files',
-      `inter-latin-${variant.toLowerCase()}-normal.woff`),
-    path.join(process.cwd(), 'public', `Inter-${variant}.ttf`),
-    `/System/Library/Fonts/Supplemental/Arial${variant === 'Bold' ? ' Bold' : ''}.ttf`,
-    `/System/Library/Fonts/Helvetica.ttc`,
-  ];
-  for (const p of candidates) {
-    if (fs.existsSync(p)) {
-      return fs.readFileSync(p).buffer as ArrayBuffer;
-    }
+function buildSatoriUrl(article: ArticleMeta, slug: string): string {
+  const u = new URL(SATORI_GENERATE_API);
+  u.searchParams.set('network', BRAND_SLUG);
+  u.searchParams.set('title', article.title);
+  u.searchParams.set('category', article.category);
+  u.searchParams.set('slug', slug);
+  if (article.subtitle) u.searchParams.set('subtitle', article.subtitle);
+  if (article.author_name) u.searchParams.set('author', article.author_name);
+  if (article.breaking) u.searchParams.set('breaking', '1');
+  // Only pass a hero image if it is a real external URL — avoid /api/og loops
+  const heroSrc = article.hero_image?.src;
+  if (heroSrc && !heroSrc.includes('/api/og') && heroSrc.startsWith('http')) {
+    u.searchParams.set('image_url', heroSrc);
   }
-  throw new Error(`OG font not found. Tried: ${candidates.join(', ')}`);
+  u.searchParams.set('layout', 'standard');
+  return u.toString();
 }
 
-function getBoldFont(): ArrayBuffer {
-  if (!fontBoldBuf) fontBoldBuf = loadFont('Bold');
-  return fontBoldBuf;
-}
-function getRegularFont(): ArrayBuffer {
-  if (!fontRegularBuf) fontRegularBuf = loadFont('Regular');
-  return fontRegularBuf;
-}
-
-// ── OG image builder ──────────────────────────────────────────────────────────
-async function buildOGImage(article: ArticleMeta): Promise<Buffer> {
-  const accent = CATEGORY_COLORS[article.category] ?? '#111827';
-  const title = article.title.length > 90
-    ? article.title.slice(0, 87) + '…'
-    : article.title;
-  const subtitle = article.subtitle
-    ? (article.subtitle.length > 130 ? article.subtitle.slice(0, 127) + '…' : article.subtitle)
-    : null;
-  const displayDate = article.publish_date ??
-    (article.published_at
-      ? new Date(article.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-      : '');
-
-  const element = {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex',
-        flexDirection: 'column' as const,
-        width: W,
-        height: H,
-        background: '#0a0a0a',
-        fontFamily: 'Inter',
-        position: 'relative' as const,
-        overflow: 'hidden',
-      },
-      children: [
-        { type: 'div', props: { style: { position: 'absolute' as const, left: 0, top: 0, width: 8, height: H, background: accent } } },
-        article.thumbnail_src
-          ? { type: 'img', props: { src: article.thumbnail_src, width: W, height: H, style: { position: 'absolute' as const, top: 0, left: 0, width: W, height: H, objectFit: 'cover', opacity: 0.18, filter: 'blur(6px)' } } }
-          : { type: 'div', props: { style: { display: 'none' } } },
-        { type: 'div', props: { style: { position: 'absolute' as const, inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 100%)' } } },
-        {
-          type: 'div',
-          props: {
-            style: { display: 'flex', flexDirection: 'column' as const, position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0, padding: '56px 72px 52px 80px', justifyContent: 'space-between' },
-            children: [
-              {
-                type: 'div',
-                props: {
-                  style: { display: 'flex', alignItems: 'center', gap: 16 },
-                  children: [
-                    { type: 'div', props: { style: { fontSize: 22, fontWeight: 800, color: '#ffffff', letterSpacing: '-0.5px' }, children: SITE_NAME } },
-                    { type: 'div', props: { style: { background: accent, color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, padding: '4px 12px' }, children: article.category } },
-                    ...(article.breaking ? [{ type: 'div', props: { style: { background: '#dc2626', color: '#fff', fontSize: 11, fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' as const, padding: '4px 12px' }, children: 'Breaking' } }] : []),
-                  ],
-                },
-              },
-              {
-                type: 'div',
-                props: {
-                  style: { display: 'flex', flexDirection: 'column' as const, gap: 20, flex: 1, justifyContent: 'center' },
-                  children: [
-                    { type: 'div', props: { style: { fontSize: title.length > 60 ? 44 : 52, fontWeight: 800, color: '#ffffff', lineHeight: 1.15, letterSpacing: '-1.5px', maxWidth: 980 }, children: title } },
-                    ...(subtitle ? [{ type: 'div', props: { style: { fontSize: 22, fontWeight: 400, color: 'rgba(255,255,255,0.65)', lineHeight: 1.5, maxWidth: 860 }, children: subtitle } }] : []),
-                  ],
-                },
-              },
-              {
-                type: 'div',
-                props: {
-                  style: { display: 'flex', alignItems: 'center', gap: 24, borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: 20 },
-                  children: [
-                    ...(article.author_name ? [{ type: 'div', props: { style: { fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.9)' }, children: article.author_name } }] : []),
-                    ...(displayDate ? [{ type: 'div', props: { style: { fontSize: 15, color: 'rgba(255,255,255,0.5)' }, children: displayDate } }] : []),
-                    ...(article.read_time ? [{ type: 'div', props: { style: { fontSize: 15, color: 'rgba(255,255,255,0.5)' }, children: article.read_time } }] : []),
-                    { type: 'div', props: { style: { marginLeft: 'auto', fontSize: 14, fontWeight: 700, color: accent, letterSpacing: '0.5px' }, children: 'ozonedailynews.com' } },
-                  ],
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-  };
-
-  let boldFont: ArrayBuffer;
-  let regularFont: ArrayBuffer;
-  try {
-    boldFont = getBoldFont();
-    regularFont = getRegularFont();
-  } catch {
-    boldFont = getBoldFont();
-    regularFont = boldFont;
-  }
-
-  const svg = await satori(element as Parameters<typeof satori>[0], {
-    width: W,
-    height: H,
-    fonts: [
-      { name: 'Inter', data: boldFont, weight: 800, style: 'normal' },
-      { name: 'Inter', data: boldFont, weight: 700, style: 'normal' },
-      { name: 'Inter', data: regularFont ?? boldFont, weight: 400, style: 'normal' },
-      { name: 'Inter', data: boldFont, weight: 600, style: 'normal' },
-    ],
-  });
-
-  const sharp = (await import('sharp')).default;
-  const png = await sharp(Buffer.from(svg)).png().toBuffer();
-  return png;
-}
-
-// ── Route handler ─────────────────────────────────────────────────────────────
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+// Route handler
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -241,41 +115,57 @@ export async function GET(req: NextRequest) {
     return new NextResponse('Missing ?slug=', { status: 400 });
   }
 
-  // 1. Find the article JSON on disk
+  // 1. Find article metadata from disk (title, subtitle, category for Satori params)
   const article = findArticle(slug);
   if (!article) {
     return new NextResponse(`Article not found: ${slug}`, { status: 404 });
   }
 
-  // 2. If the article has a UUID, check Supabase for a journalist-approved thumbnail
-  //    from Media Factory (Supabase Storage PNG, already rendered + approved)
+  // 2. Check Supabase for a journalist-approved thumbnail from Media Factory
   if (article.id) {
     const approvedUrl = await getApprovedThumbnailUrl(article.id);
     if (approvedUrl) {
-      // Redirect to the permanent Storage URL — CDN-cached, no re-render needed
       return NextResponse.redirect(approvedUrl, {
         status: 302,
         headers: {
           'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-          'X-OG-Source': `media-factory:${BRAND_SLUG}`,
+          'X-OG-Source': 'media-factory',
         },
       });
     }
   }
 
-  // 3. Fall back to local Satori render
+  // 3. Proxy to Satori Media Factory API — returns PNG directly
+  const satoriUrl = buildSatoriUrl(article, slug);
+
   try {
-    const png = await buildOGImage(article);
-    return new NextResponse(png.buffer as ArrayBuffer, {
-      status: 200,
-      headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
-        'X-OG-Source': 'local-render',
-      },
+    const res = await fetch(satoriUrl, {
+      signal: AbortSignal.timeout(8000),
+      headers: { 'User-Agent': `OzoneNews-OG/1.0 brand=${BRAND_SLUG}` },
     });
+
+    if (res.ok) {
+      const contentType = res.headers.get('content-type') ?? 'image/png';
+      return new NextResponse(res.body, {
+        status: 200,
+        headers: {
+          'Content-Type': contentType,
+          'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+          'X-OG-Source': 'satori-api',
+          'X-OG-Slug': slug,
+        },
+      });
+    }
+
+    console.warn(`[OG] Satori API returned ${res.status} for slug: ${slug}`);
   } catch (err) {
-    console.error('[OG] generation failed:', err);
-    return new NextResponse(`OG generation failed: ${String(err)}`, { status: 500 });
+    console.warn('[OG] Satori API unreachable:', err instanceof Error ? err.message : String(err));
   }
+
+  // 4. Last-resort fallback: 302 directly to Satori so the browser still gets an image
+  //    even if the proxy fetch timed out or Satori is temporarily down.
+  return NextResponse.redirect(satoriUrl, {
+    status: 302,
+    headers: { 'Cache-Control': 'public, max-age=300' },
+  });
 }

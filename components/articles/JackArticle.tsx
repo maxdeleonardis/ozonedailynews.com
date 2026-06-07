@@ -49,6 +49,8 @@ export interface JackAuthor {
   initials?: string;
   department?: string;
   url?: string;
+  /** Editorial beats shown as niche tags on the sidebar author card */
+  beats?: string[];
 }
 
 export interface TocHeading {
@@ -1319,9 +1321,22 @@ export default function JackArticle({
                         )}
                       </div>
                       <div className="min-w-0">
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Written by</p>
                         <p className="font-bold text-sm group-hover:underline leading-tight">{author.name}</p>
                         {author.department && (
                           <p className="text-xs text-gray-500 mt-0.5 truncate">{author.department}</p>
+                        )}
+                        {author.beats && author.beats.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mt-1.5">
+                            {author.beats.slice(0, 3).map((beat) => (
+                              <span
+                                key={beat}
+                                className="inline-block px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 rounded"
+                              >
+                                {beat}
+                              </span>
+                            ))}
+                          </div>
                         )}
                       </div>
                     </Link>

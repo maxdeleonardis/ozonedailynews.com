@@ -65,6 +65,7 @@ export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
     jobTitle:  authorEntity?.jobTitle,
     initials:  authorEntity?.initials,
     avatarUrl: authorEntity?.avatarUrl,
+    beats:     authorEntity?.beats,
   };
 
   return (

@@ -94,9 +94,9 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       avatar:     entity.avatarUrl ?? undefined,
       initials:   entity.initials,
       department: entity.jobTitle,
+      beats:      entity.beats,
       url:        `/authors/${entity.slug}`,
-    };
-  })();
+    };  })();
 
   return (
     <JackArticle

@@ -13,6 +13,8 @@ export interface AuthorCardData {
   jobTitle?: string;
   initials?: string;
   avatarUrl?: string;
+  /** Editorial beats shown as niche tags under the author name */
+  beats?: string[];
 }
 
 /** Clickable author card — full card links to /authors/[slug]. */
@@ -51,6 +53,18 @@ export function AuthorCard({ author }: { author: AuthorCardData }) {
         <p className="font-bold text-sm group-hover:underline leading-tight">{author.name}</p>
         {author.jobTitle && (
           <p className="text-xs text-gray-500 mt-0.5 truncate">{author.jobTitle}</p>
+        )}
+        {author.beats && author.beats.length > 0 && (
+          <div className="flex flex-wrap gap-1 mt-1.5">
+            {author.beats.slice(0, 3).map((beat) => (
+              <span
+                key={beat}
+                className="inline-block px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 rounded"
+              >
+                {beat}
+              </span>
+            ))}
+          </div>
         )}
       </div>
     </Link>

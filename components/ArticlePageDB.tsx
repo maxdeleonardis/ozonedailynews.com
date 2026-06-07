@@ -29,6 +29,7 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
     jobTitle:  authorEntity?.jobTitle,
     initials:  authorEntity?.initials,
     avatarUrl: authorEntity?.avatarUrl,
+    beats:     authorEntity?.beats,
   };
 
   return (

@@ -27,6 +27,7 @@ export async function CreatorArticleDB({ slug }: CreatorArticleDBProps) {
     jobTitle:  authorEntity?.jobTitle,
     initials:  authorEntity?.initials,
     avatarUrl: authorEntity?.avatarUrl,
+    beats:     authorEntity?.beats,
   };
 
   return (

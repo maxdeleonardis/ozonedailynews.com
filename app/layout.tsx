@@ -138,7 +138,7 @@ export default async function RootLayout({
         <OrganizationSchema />
         <WebSiteSchema />
       </head>
-      <body className="bg-[#faf9f6] text-gray-900 antialiased font-sans dark:bg-[#121212] dark:text-gray-100">
+      <body className="bg-[#f5f1e9] text-gray-900 antialiased dark:bg-[#121212] dark:text-gray-100">
         <AuthProvider>
           <ThemeProvider>
             <FooterAuthorProvider>
@@ -196,7 +196,7 @@ export default async function RootLayout({
                   <div className="font-black text-lg tracking-tight text-white mb-1">OzoneNews</div>
                   <p className="text-xs text-gray-500 mb-3 leading-relaxed">Verified News Network</p>
                   <p className="text-xs text-gray-400 leading-relaxed max-w-[220px] mb-4">
-                    Independent nonprofit newsroom delivering verified, source-cited reporting on technology, finance, gaming, and global affairs.
+                    Independent nonprofit newsroom delivering verified, source-cited reporting on technology, gaming, and global affairs.
                   </p>
                   <div className="flex flex-col gap-1 text-xs text-gray-500 mb-4">
                     <span>2921 E 17th St Bldg 3, Austin, TX 78702</span>
@@ -223,10 +223,8 @@ export default async function RootLayout({
                   <div className="flex flex-col gap-2.5">
                     <Link href="/news" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">News</Link>
                     <Link href="/tech" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Tech</Link>
-                    <Link href="/finance" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Finance</Link>
                     <Link href="/entertainment" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Entertainment</Link>
                     <Link href="/video-games" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Gaming</Link>
-                    <Link href="/crypto" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Crypto</Link>
                     <Link href="/science" className="text-sm text-gray-300 hover:text-white font-medium transition-colors">Science</Link>
                   </div>
                 </div>
@@ -314,7 +312,7 @@ export default async function RootLayout({
                     <h4 className="font-bold text-xs uppercase tracking-widest text-gray-300 mb-3">Our Mission</h4>
                     <p className="text-xs text-gray-400 leading-relaxed">
                       OzoneNews is an independent, self-funded newsroom based in Austin, Texas. We deliver
-                      verified, source-cited reporting on technology, finance, politics, gaming, and global
+                      verified, source-cited reporting on technology, politics, gaming, and global
                       affairs. Every article is produced by a named reporter, sourced to primary documents,
                       and published without advertiser influence. We do not aggregate or rewrite
                       competitors&rsquo; work as our own.

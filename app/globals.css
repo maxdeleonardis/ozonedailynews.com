@@ -36,7 +36,7 @@
 
   html {
     scroll-behavior: smooth;
-    background: #faf9f6;
+    background: #f5f1e9;
     -webkit-text-size-adjust: 100%;
     /* `clip` (not `hidden`) so descendants can use position: sticky.
        `hidden` would make <html> a scroll container and break sticky.
@@ -51,16 +51,13 @@
   }
 
   body {
-    background: #faf9f6;
+    background: #f5f1e9;
     color: #1a1a1a;
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.7;
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Do NOT set overflow-y: scroll here — that makes <body> a scroll container
-       and position: sticky on the article TOC stops tracking the viewport.
-       Scrollbar lane is reserved via `scrollbar-gutter: stable` on <html>. */
     overflow-x: clip;
   }
 
@@ -71,9 +68,9 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     color: #0f0f0f;
     font-display: swap;
   }
@@ -82,11 +79,11 @@
     color: #f0f0f0;
   }
 
-  /* Paragraph styling - clean sans-serif (Perplexity-style) */
+  /* Paragraph styling — serif body for newspaper reading feel */
   p {
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: #1a1a1a;
     font-weight: 400;
   }
@@ -95,13 +92,14 @@
     color: #d4d4d4;
   }
 
-  /* Article prose styling */
+  /* Article prose styling — serif for editorial newspaper feel */
   .prose p {
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.85;
     color: #1a1a1a;
     margin-bottom: 1.5rem;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   .dark .prose p {
@@ -109,9 +107,9 @@
   }
 
   .prose li {
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: #1a1a1a;
   }
 
@@ -120,12 +118,17 @@
   }
 
   .prose blockquote {
-    font-family: var(--font-sans);
-    color: #1a1a1a;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: #2a2a2a;
+    border-left: 3px solid #0f0f0f;
+    padding-left: 1.25rem;
+    margin: 1.75rem 0;
   }
 
   .dark .prose blockquote {
     color: #d4d4d4;
+    border-left-color: #555;
   }
 
   a {
@@ -160,9 +163,9 @@
    In dark mode, swap to dark surfaces instead.
    ============================================================================= */
 
-/* Force eggshell background — overrides any dark tailwind bg-* utility on page wrappers */
+/* Force newsprint paper background — overrides any dark tailwind bg-* utility on page wrappers */
 :root:not(.dark) .min-h-screen {
-  background-color: #faf9f6 !important;
+  background-color: #f5f1e9 !important;
   color: #1a1a1a;
 }
 
@@ -207,10 +210,10 @@
    TYPOGRAPHY SCALE — Perplexity-style clean sans-serif
    ============================================================================= */
 
-/* Consistent heading weights */
-h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
-h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
-h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+/* Consistent heading weights — tight tracking for editorial compression */
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.035em; }
+h2 { font-size: clamp(1.35rem, 3vw, 2rem);    letter-spacing: -0.03em; }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem);letter-spacing: -0.02em; }
 
 /* Dark text on formerly-dark badge/tag elements — only in light mode */
 :root:not(.dark) .text-white {
@@ -701,3 +704,235 @@ body, header, footer, main, nav {
     animation: none;
   }
 }
+
+/* =============================================================================
+   NEWSPAPER DESIGN SYSTEM
+   Reusable editorial primitives. Apply these to any article, hub, or section.
+   ============================================================================= */
+
+/* ── Paper background ─────────────────────────────────────────────────────── */
+/* Warm newsprint base with a barely-visible horizontal line rhythm (24px grid)
+   that mirrors the underlying baseline grid of typeset text. */
+.newspaper-paper {
+  background-color: #f5f1e9;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(0, 0, 0, 0.03) 23px,
+      rgba(0, 0, 0, 0.03) 24px
+    );
+}
+.dark .newspaper-paper {
+  background-color: #181614;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(255, 255, 255, 0.03) 23px,
+      rgba(255, 255, 255, 0.03) 24px
+    );
+}
+
+/* ── Section rules ────────────────────────────────────────────────────────── */
+/* Classic double rule: thick line above, thin hairline below.
+   Used above section headings, column breaks, and article headers. */
+.section-rule {
+  border: none;
+  border-top: 3px solid #0f0f0f;
+  position: relative;
+  margin-bottom: 0;
+}
+.section-rule::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: #0f0f0f;
+  margin-top: 3px;
+}
+.dark .section-rule {
+  border-top-color: #e0e0e0;
+}
+.dark .section-rule::after {
+  background: #444;
+}
+
+/* Single thin rule — column dividers */
+.column-rule {
+  border: none;
+  border-top: 1px solid #ccc9c0;
+  margin: 1.5rem 0;
+}
+.dark .column-rule {
+  border-top-color: #3a3a3a;
+}
+
+/* ── Section label (kicker) ──────────────────────────────────────────────── */
+/* The small uppercase label above a headline, e.g. "BREAKING NEWS" */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0f0f0f;
+  border-top: 2px solid #0f0f0f;
+  padding-top: 4px;
+  padding-right: 2px;
+  line-height: 1;
+}
+.dark .section-label {
+  color: #e0e0e0;
+  border-top-color: #e0e0e0;
+}
+.section-label.accent-red {
+  color: #b91c1c;
+  border-top-color: #b91c1c;
+}
+
+/* ── Byline ───────────────────────────────────────────────────────────────── */
+.byline {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #555;
+}
+.dark .byline {
+  color: #999;
+}
+
+/* ── Lede (first paragraph emphasis) ─────────────────────────────────────── */
+/* Slightly larger first paragraph, the newspaper "lede" */
+.lede > p:first-child,
+.prose.lede > p:first-of-type {
+  font-size: 1.175rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #111;
+}
+.dark .lede > p:first-child,
+.dark .prose.lede > p:first-of-type {
+  color: #e8e8e8;
+}
+
+/* ── Drop cap ────────────────────────────────────────────────────────────── */
+/* Add .drop-cap to the parent element of an article's first paragraph */
+.drop-cap > p:first-of-type::first-letter,
+.prose.drop-cap > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.2em;
+  line-height: 0.78;
+  font-weight: 700;
+  margin-right: 0.1em;
+  margin-top: 0.06em;
+  color: #0f0f0f;
+}
+.dark .drop-cap > p:first-of-type::first-letter,
+.dark .prose.drop-cap > p:first-of-type::first-letter {
+  color: #f0f0f0;
+}
+
+/* ── Pull quote ───────────────────────────────────────────────────────────── */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: #0f0f0f;
+  border-top: 3px solid #0f0f0f;
+  border-bottom: 1px solid #0f0f0f;
+  padding: 1.25rem 0;
+  margin: 2rem 0;
+  text-align: left;
+}
+.dark .pull-quote {
+  color: #e8e8e8;
+  border-top-color: #e0e0e0;
+  border-bottom-color: #555;
+}
+
+/* ── Newspaper headline utilities ─────────────────────────────────────────── */
+/* .headline-xl — front-page lead story treatment */
+.headline-xl {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #0f0f0f;
+}
+.dark .headline-xl {
+  color: #f0f0f0;
+}
+
+/* .headline-section — section front headline */
+.headline-section {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #0f0f0f;
+}
+.dark .headline-section {
+  color: #f0f0f0;
+}
+
+/* ── Column layout ────────────────────────────────────────────────────────── */
+/* Optional multi-column text layout for long-form prose */
+.text-columns-2 {
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid #ccc9c0;
+}
+.text-columns-3 {
+  column-count: 3;
+  column-gap: 2rem;
+  column-rule: 1px solid #ccc9c0;
+}
+@media (max-width: 768px) {
+  .text-columns-2,
+  .text-columns-3 {
+    column-count: 1;
+  }
+}
+
+/* ── Nav bar newspaper treatment ─────────────────────────────────────────── */
+/* Section tab pill in the top nav — active state reads like a newspaper
+   section marker with a red underline accent. */
+.nav-section-active {
+  border-bottom: 2px solid #b91c1c;
+  font-weight: 900;
+}
+
+/* ── Article card overrides ───────────────────────────────────────────────── */
+/* Cards default to white paper, slightly raised — no shadow, just border.
+   Newspaper cards have clear ink-and-paper hierarchy, no drop shadows. */
+.news-card {
+  background: #fff;
+  border: 1px solid #e0ddd4;
+  transition: border-color 0.15s ease;
+}
+.news-card:hover {
+  border-color: #0f0f0f;
+}
+.dark .news-card {
+  background: #1e1c18;
+  border-color: #333;
+}
+.dark .news-card:hover {
+  border-color: #aaa;
+}
+
+/* ── Article reading measure ──────────────────────────────────────────────── */
+/* Constrain reading columns to ~68 chars for comfortable newspaper measure */
+.reading-measure {
+  max-width: 68ch;
+}
+

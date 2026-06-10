@@ -114,69 +114,131 @@ export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
             {/* ── RIGHT SIDEBAR ── */}
             <aside className="lg:sticky lg:top-6 self-start mt-8 lg:mt-0 space-y-5">
 
-              {/* Wikipedia-style infobox */}
-              <div className="border border-gray-300 rounded overflow-hidden text-sm">
-                <div className="bg-gray-700 px-4 py-2.5">
-                  <p className="text-white font-semibold text-xs uppercase tracking-wider truncate">
-                    {article.title}
-                  </p>
-                </div>
-
-                {/* Thumbnail inside infobox */}
-                {article.thumbnail_src && (
-                  <div className="bg-gray-50 p-3 border-b border-gray-200 text-center">
-                    <img
-                      src={article.thumbnail_src}
-                      alt={article.thumbnail_alt ?? article.title}
-                      className="mx-auto rounded object-cover max-h-36 w-full"
-                    />
+              {/* Wikipedia-style infobox with rich data structure */}
+              {(article as any).info_box ? (
+                <div className="border border-gray-300 rounded overflow-hidden text-sm bg-gray-50">
+                  {/* Infobox header */}
+                  <div className="bg-gray-700 px-4 py-2.5">
+                    <p className="text-white font-semibold text-xs uppercase tracking-wider truncate">
+                      {(article as any).info_box.title ?? article.title}
+                    </p>
                   </div>
-                )}
 
-                <table className="w-full text-xs">
-                  <tbody className="divide-y divide-gray-100">
-                    <tr>
-                      <td className="px-3 py-2 font-semibold text-gray-500 w-24 align-top">Category</td>
-                      <td className="px-3 py-2 text-gray-800">
-                        <Link href={`/${article.category.toLowerCase()}`} className="text-blue-600 hover:text-blue-800 underline">
-                          {article.category}
-                        </Link>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold text-gray-500 align-top">Published</td>
-                      <td className="px-3 py-2 text-gray-800">
-                        <time dateTime={article.published_at}>{article.publish_date}</time>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold text-gray-500 align-top">Author</td>
-                      <td className="px-3 py-2">
-                        <Link href={`/authors/${authorSlug}`} className="text-blue-600 hover:text-blue-800 underline">
-                          {authorName}
-                        </Link>
-                        {authorTitle && (
-                          <span className="block text-gray-400 text-xs mt-0.5">{authorTitle}</span>
-                        )}
-                      </td>
-                    </tr>
-                    {article.read_time && (
+                  {/* Infobox image */}
+                  {(article as any).info_box.image && (
+                    <div className="bg-white p-3 border-b border-gray-200 text-center">
+                      <img
+                        src={(article as any).info_box.image.src}
+                        alt={(article as any).info_box.image.alt}
+                        className="mx-auto rounded object-cover max-h-48 w-full"
+                      />
+                      {(article as any).info_box.image.caption && (
+                        <p className="text-xs text-gray-500 mt-2 italic">
+                          {(article as any).info_box.image.caption}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Infobox sections */}
+                  {(article as any).info_box.sections && (article as any).info_box.sections.map((section: any, idx: number) => (
+                    <div key={idx} className="px-4 py-3 border-b border-gray-200 last:border-b-0">
+                      <h3 className="font-bold text-gray-900 text-xs uppercase tracking-wider mb-2">
+                        {section.heading}
+                      </h3>
+
+                      {/* Key/value items */}
+                      {section.items && section.items.length > 0 && (
+                        <dl className="space-y-1.5">
+                          {section.items.map((item: any, i: number) => (
+                            <div key={i} className="grid grid-cols-[1fr_1.2fr] gap-2">
+                              <dt className="text-gray-600 text-xs">{item.label}</dt>
+                              <dd className="text-gray-900 text-xs font-medium">{item.value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      )}
+
+                      {/* Links */}
+                      {section.links && section.links.length > 0 && (
+                        <ul className="space-y-1.5">
+                          {section.links.map((link: any, i: number) => (
+                            <li key={i}>
+                              <Link href={link.href} className="text-blue-600 hover:text-blue-800 underline text-xs block">
+                                {link.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                /* Fallback simple infobox */
+                <div className="border border-gray-300 rounded overflow-hidden text-sm">
+                  <div className="bg-gray-700 px-4 py-2.5">
+                    <p className="text-white font-semibold text-xs uppercase tracking-wider truncate">
+                      {article.title}
+                    </p>
+                  </div>
+
+                  {/* Thumbnail inside infobox */}
+                  {article.thumbnail_src && (
+                    <div className="bg-gray-50 p-3 border-b border-gray-200 text-center">
+                      <img
+                        src={article.thumbnail_src}
+                        alt={article.thumbnail_alt ?? article.title}
+                        className="mx-auto rounded object-cover max-h-36 w-full"
+                      />
+                    </div>
+                  )}
+
+                  <table className="w-full text-xs">
+                    <tbody className="divide-y divide-gray-100">
                       <tr>
-                        <td className="px-3 py-2 font-semibold text-gray-500 align-top">Read time</td>
-                        <td className="px-3 py-2 text-gray-800">{article.read_time}</td>
-                      </tr>
-                    )}
-                    {article.tags.length > 0 && (
-                      <tr>
-                        <td className="px-3 py-2 font-semibold text-gray-500 align-top">Tags</td>
-                        <td className="px-3 py-2 text-gray-700 leading-relaxed">
-                          {article.tags.slice(0, 5).join(', ')}
+                        <td className="px-3 py-2 font-semibold text-gray-500 w-24 align-top">Category</td>
+                        <td className="px-3 py-2 text-gray-800">
+                          <Link href={`/${article.category.toLowerCase()}`} className="text-blue-600 hover:text-blue-800 underline">
+                            {article.category}
+                          </Link>
                         </td>
                       </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                      <tr>
+                        <td className="px-3 py-2 font-semibold text-gray-500 align-top">Published</td>
+                        <td className="px-3 py-2 text-gray-800">
+                          <time dateTime={article.published_at}>{article.publish_date}</time>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="px-3 py-2 font-semibold text-gray-500 align-top">Author</td>
+                        <td className="px-3 py-2">
+                          <Link href={`/authors/${authorSlug}`} className="text-blue-600 hover:text-blue-800 underline">
+                            {authorName}
+                          </Link>
+                          {authorTitle && (
+                            <span className="block text-gray-400 text-xs mt-0.5">{authorTitle}</span>
+                          )}
+                        </td>
+                      </tr>
+                      {article.read_time && (
+                        <tr>
+                          <td className="px-3 py-2 font-semibold text-gray-500 align-top">Read time</td>
+                          <td className="px-3 py-2 text-gray-800">{article.read_time}</td>
+                        </tr>
+                      )}
+                      {article.tags.length > 0 && (
+                        <tr>
+                          <td className="px-3 py-2 font-semibold text-gray-500 align-top">Tags</td>
+                          <td className="px-3 py-2 text-gray-700 leading-relaxed">
+                            {article.tags.slice(0, 5).join(', ')}
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              )}
 
               {/* Author card (compact, Wikipedia-style) */}
               <div className="border border-gray-200 rounded overflow-hidden text-sm">

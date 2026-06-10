@@ -1,5 +1,75 @@
 [
   {
+    "slug": "/earth/coral-reef",
+    "title": "Coral Reef | Why Heat Stress and Bleaching Are Reshaping Ocean Life",
+    "description": "Coral reefs are under pressure from heat waves, acidification, and disease. Here is what 2026 bleaching data and recovery trends show.",
+    "publishDate": "2026-06-09",
+    "modifiedDate": "2026-06-09",
+    "category": "Science",
+    "tags": [
+      "Coral Reef",
+      "Coral Bleaching",
+      "Marine Biology",
+      "Ocean Heat",
+      "Great Barrier Reef",
+      "Climate Change"
+    ],
+    "author": "Simon Alfred Minter",
+    "authorSlug": "simon-minter",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop",
+    "articleType": "ArticlePage",
+    "lifecycle": "evergreen",
+    "breaking": false
+  },
+  {
+    "slug": "/news/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers",
+    "title": "Researchers Find Hidden Damage To Coral Reefs By Scuba Divers",
+    "description": "A new study shows scuba divers cause frequent, mostly unnoticed reef damage. The findings challenge the idea that diving tourism is inherently sustainable.",
+    "publishDate": "2026-06-09",
+    "modifiedDate": "2026-06-09",
+    "category": "News",
+    "tags": [
+      "Coral Reefs",
+      "Scuba Diving",
+      "Marine Tourism",
+      "Coral Bleaching",
+      "Marine Conservation",
+      "Ocean Health"
+    ],
+    "author": "Simon Alfred Minter",
+    "authorSlug": "simon-minter",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/earth",
+    "title": "Earth | Climate, Oceans, and Coral Systems",
+    "description": "Earth coverage focused on coral reefs, ocean health, climate resilience, and the ecosystems that sustain life on our planet.",
+    "publishDate": "2026-06-09",
+    "modifiedDate": "2026-06-09",
+    "category": "Earth",
+    "tags": [
+      "Earth",
+      "Coral Reefs",
+      "Ocean Health",
+      "Climate Systems"
+    ],
+    "author": "Simon Alfred Minter",
+    "authorSlug": "simon-minter",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
+    "articleType": "ArticlePage",
+    "lifecycle": "evergreen",
+    "breaking": false
+  },
+  {
     "slug": "/science/spain-solar-eclipses-summer-2026",
     "title": "Spain Has 3 Solar Eclipses This Summer | Dates, Viewing Locations, and What to Expect",
     "description": "Spain sees three solar eclipses in summer 2026, including a total eclipse on August 12. Get the exact dates, paths, and viewing tips for each event.",

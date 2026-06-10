@@ -1,0 +1,97 @@
+{
+  "slug": "earth",
+  "url": "https://www.ozonedailynews.com/earth",
+  "article_type": "article_page",
+  "title": "Earth | Climate, Oceans, and Coral Systems",
+  "subtitle": "A hub page for Earth-focused reporting on reefs, ocean heat, climate resilience, and the ecosystems that connect marine life to the living planet.",
+  "category": "Earth",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-06-09T14:00:00-05:00",
+  "publish_date": "June 9, 2026",
+  "author_name": "Simon Alfred Minter",
+  "author_slug": "simon-minter",
+  "read_time": "5 min read",
+  "thumbnail_src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Earth from space with blue ocean and white cloud layers",
+  "info_box": {
+    "title": "Earth",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop",
+      "alt": "Earth from space showing blue oceans and white clouds",
+      "caption": "The Blue Marble, photographed from space"
+    },
+    "sections": [
+      {
+        "heading": "Key Statistics",
+        "items": [
+          { "label": "Surface Area", "value": "510.1 million km²" },
+          { "label": "Ocean Coverage", "value": "71% (361 million km²)" },
+          { "label": "Land Coverage", "value": "29% (149 million km²)" },
+          { "label": "Mean Ocean Depth", "value": "3,688 meters" },
+          { "label": "Coral Reef Coverage", "value": "<1% of seafloor" }
+        ]
+      },
+      {
+        "heading": "Climate Status (2026)",
+        "items": [
+          { "label": "Global Temp Anomaly", "value": "+1.4°C above pre-industrial" },
+          { "label": "Ocean Heat Content", "value": "Record high (2025-2026)" },
+          { "label": "Sea Level Rise", "value": "+3.4mm/year (accelerating)" },
+          { "label": "Arctic Sea Ice", "value": "13% decline per decade" }
+        ]
+      },
+      {
+        "heading": "Marine Life",
+        "items": [
+          { "label": "Marine Species", "value": "~2.2 million described" },
+          { "label": "Coral Reef Species", "value": "25% of all marine life" },
+          { "label": "Fish Stocks", "value": "34% overfished (FAO 2025)" },
+          { "label": "Ocean Acidification", "value": "pH 8.05 (down from 8.25)" }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          { "href": "/earth/coral-reef", "label": "Coral Reef Systems" },
+          { "href": "/science/great-barrier-reef-bleaching-data-2026", "label": "Great Barrier Reef 2026" },
+          { "href": "/science/arctic-sea-ice-minimum-2026-measured-extent", "label": "Arctic Sea Ice Data" },
+          { "href": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026", "label": "CO₂ Levels 2026" }
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "Earth",
+    "Coral Reefs",
+    "Ocean Health",
+    "Climate Systems",
+    "Marine Biology",
+    "Ocean Temperature"
+  ],
+  "metadata": {
+    "title": "Earth | Climate, Oceans, and Coral Systems",
+    "description": "Earth coverage focused on coral reefs, ocean health, climate resilience, and the ecosystems that sustain life on our planet.",
+    "keywords": [
+      "earth climate ocean health",
+      "coral reefs earth coverage",
+      "ocean resilience science"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/earth"
+    },
+    "openGraph": {
+      "title": "Earth | Climate, Oceans, and Coral Systems",
+      "description": "Earth coverage focused on coral reefs, ocean health, climate resilience, and the ecosystems that sustain life on our planet.",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
+          "width": 1200,
+          "height": 675,
+          "alt": "Earth from space with blue ocean and white cloud layers"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>The Earth is a unified system where climate, ocean temperature, atmospheric conditions, and biological resilience are deeply connected. Our coverage brings together reporting on coral reefs, ocean acidification, marine heatwaves, and the ecosystems that sustain billions of people and trillions of organisms.</p>\n\n<h2>Coral Reefs and Ocean Health</h2>\n\n<p>Coral reefs are the most visible indicator of ocean stress in the 2026 climate cycle. Covering less than 1 percent of the seafloor, they support roughly 25 percent of all marine species while facing unprecedented heat stress. Read our full <a href=\"/earth/coral-reef\" class=\"text-blue-600 hover:text-blue-800 underline\">Coral Reef guide</a> for current bleaching data, recovery rates, and long-term resilience strategies.</p>\n\n<figure>\n  <img src=\"https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop\" alt=\"Colorful coral reef with tropical fish and blue water\" />\n  <figcaption>Healthy coral reefs are among the most biodiverse ecosystems on Earth, but heat stress is accelerating bleaching events globally.</figcaption>\n</figure>\n\n<h2>Ocean Temperature and Marine Heatwaves</h2>\n\n<p>Sea surface temperatures in 2026 continue to exceed historical baselines, creating persistent conditions for marine heatwaves. These events stress every organism from fish larvae to adult corals, disrupting feeding, reproduction, and migration patterns. The cumulative effect is a reshaping of ocean food webs at scales that humans are only beginning to measure.</p>\n\n<figure>\n  <img src=\"https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=675&fit=crop\" alt=\"Waves and ocean sunset with dramatic clouds\" />\n  <figcaption>Ocean systems are warming faster than the atmosphere, with profound consequences for marine migration and breeding cycles.</figcaption>\n</figure>\n\n<h2>Coastal Ecosystems Under Pressure</h2>\n\n<p>Mangrove forests, seagrass beds, and salt marshes form the nurseries of the ocean. Fish, crustaceans, and mollusks depend on these coastal zones for the first months of their lives. When coastal habitats are degraded by pollution, aquaculture, or development, the entire downstream marine ecosystem becomes fragile.</p>\n\n<figure>\n  <img src=\"https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&h=675&fit=crop\" alt=\"Crashing waves and rocky coastline\" />\n  <figcaption>Coastal dynamics shape everything from local species abundance to regional climate patterns.</figcaption>\n</figure>\n\n<h2>Why Earth Systems Matter Now</h2>\n\n<p>Earth reporting is not separate from climate science, marine biology, or oceanography. It is the integrated study of how systems fail, adapt, and sometimes recover. A reef that survives 2026 bleaching does so because local conditions, species diversity, and recovery time all aligned. Understanding that alignment is the key to predicting which ecosystems will persist and which will collapse.</p>"
+}

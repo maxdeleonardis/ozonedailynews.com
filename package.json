@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next dev",
-    "prebuild": "npx ts-node --project tsconfig.scripts.json scripts/validate-public.ts && npx ts-node --project tsconfig.scripts.json scripts/validate-canonicals.ts && npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write",
+    "prebuild": "npx ts-node --project tsconfig.scripts.json scripts/validate-public.ts && npx ts-node --project tsconfig.scripts.json scripts/validate-canonicals.ts && npx ts-node --project tsconfig.scripts.json scripts/validate-cms-routes.ts && npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -15,6 +15,7 @@
     "validate:eeat:strict": "cross-env EEAT_STRICT=true npx ts-node --project tsconfig.scripts.json scripts/validate-eeat.ts",
     "validate:geo": "npx ts-node --project tsconfig.scripts.json scripts/validate-geo.ts",
     "validate:canonicals": "npx ts-node --project tsconfig.scripts.json scripts/validate-canonicals.ts",
+    "validate:cms": "npx ts-node --project tsconfig.scripts.json scripts/validate-cms-routes.ts",
     "lifecycle:check": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --check",
     "lifecycle:promote": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --promote",
     "lifecycle:prune": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --prune",

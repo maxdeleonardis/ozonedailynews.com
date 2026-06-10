@@ -76,6 +76,24 @@ function toRow(article: Record<string, unknown>, defaultType: string) {
   };
 }
 
+// ─── Recursive file finder ───────────────────────────────────────────────────
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...findJsonFilesRecursive(fullPath));
+    } else if (entry.name.endsWith('.json') && entry.name !== '_index.json') {
+      results.push(fullPath);
+    }
+  }
+  
+  return results;
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
   let ok = 0;
@@ -88,20 +106,19 @@ async function main() {
       continue;
     }
 
-    const files = fs.readdirSync(dir).filter(
-      (f) => f.endsWith('.json') && f !== '_index.json'
-    );
+    // Recursively find all JSON files (supports sharded structure)
+    const files = findJsonFilesRecursive(dir);
 
     console.log(`\n📂  ${path.relative(process.cwd(), dir)}  (${files.length} files)`);
 
-    for (const file of files) {
-      const raw = fs.readFileSync(path.join(dir, file), 'utf8');
+    for (const filePath of files) {
+      const raw = fs.readFileSync(filePath, 'utf8');
       let article: Record<string, unknown>;
 
       try {
         article = JSON.parse(raw);
       } catch (e) {
-        console.error(`  SKIP  ${file} — invalid JSON: ${e}`);
+        console.error(`  SKIP  ${path.basename(filePath)} — invalid JSON: ${e}`);
         skipped++;
         continue;
       }
@@ -109,7 +126,7 @@ async function main() {
       const row = toRow(article, defaultType);
 
       if (!row.slug) {
-        console.error(`  SKIP  ${file} — missing slug`);
+        console.error(`  SKIP  ${path.basename(filePath)} — missing slug`);
         skipped++;
         continue;
       }

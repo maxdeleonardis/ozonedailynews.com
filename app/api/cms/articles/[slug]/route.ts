@@ -41,6 +41,8 @@ export async function GET(
   const { slug } = await params;
   const { profile, service } = auth;
 
+  console.log('[GET /api/cms/articles] Received slug:', slug);
+
   // Try multiple slug variants to match database records
   const slugVariants = [
     slug,                                    // exact: "researchers-find..."
@@ -51,6 +53,7 @@ export async function GET(
 
   let data = null;
   for (const variant of slugVariants) {
+    console.log('[GET /api/cms/articles] Trying variant:', variant);
     const result = await service
       .from('articles')
       .select('*')
@@ -58,6 +61,7 @@ export async function GET(
       .single();
     
     if (result.data) {
+      console.log('[GET /api/cms/articles] ✓ Found with variant:', variant);
       data = result.data;
       break;
     }
@@ -88,6 +92,8 @@ export async function PUT(
   const { slug } = await params;
   const { profile, service } = auth;
 
+  console.log('[PUT /api/cms/articles] Received slug:', slug);
+
   // Try multiple slug variants to match database records
   const slugVariants = [
     slug,                                    // exact: "researchers-find..."
@@ -99,6 +105,7 @@ export async function PUT(
   let existing = null;
   let matchedSlug = slug;
   for (const variant of slugVariants) {
+    console.log('[PUT /api/cms/articles] Trying variant:', variant);
     const result = await service
       .from('articles')
       .select('brand_slug, status')
@@ -106,6 +113,7 @@ export async function PUT(
       .single();
     
     if (result.data) {
+      console.log('[PUT /api/cms/articles] ✓ Found with variant:', variant);
       existing = result.data;
       matchedSlug = variant;
       break;

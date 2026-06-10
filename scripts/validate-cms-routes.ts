@@ -28,11 +28,21 @@ function canLoadArticle(slug: string): { success: boolean; path?: string; error?
     try {
       const registry: RegistryEntry[] = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
       for (const slugVariant of slugVariants) {
-        const entry = registry.find((e) => 
-          e.slug === slugVariant || 
-          e.slug === `/${slugVariant}` || 
-          e.slug.endsWith(`/${slugVariant}`)
-        );
+        const entry = registry.find((e) => {
+          // Match exact slug
+          if (e.slug === slugVariant || e.slug === `/${slugVariant}`) return true;
+          
+          // Match if registry slug ends with the variant
+          if (e.slug.endsWith(`/${slugVariant}`)) return true;
+          
+          // Match if we convert /category/slug to category-slug
+          const registryWithoutLeadingSlash = e.slug.replace(/^\//, '');
+          const registryWithDashes = registryWithoutLeadingSlash.replace(/\//g, '-');
+          if (registryWithDashes === slugVariant) return true;
+          
+          return false;
+        });
+        
         if (entry?.filePath) {
           const fp = path.join(STATIC_BASE, entry.filePath);
           if (fs.existsSync(fp)) {
@@ -67,7 +77,10 @@ const failures: Array<{ slug: string; error: string }> = [];
 
 for (const entry of registry) {
   // Test both with and without leading slash (how edit links are generated)
-  const testSlug = entry.slug.replace(/^\//, '');
+  // Convert /category/slug to category-slug for edit URL format
+  const registrySlugWithoutLeadingSlash = entry.slug.replace(/^\//, '');
+  const testSlug = registrySlugWithoutLeadingSlash.replace(/\//g, '-');
+  
   const result = canLoadArticle(testSlug);
   
   if (result.success) {

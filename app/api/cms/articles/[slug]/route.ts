@@ -41,13 +41,29 @@ export async function GET(
   const { slug } = await params;
   const { profile, service } = auth;
 
-  const { data, error } = await service
-    .from('articles')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  // Try multiple slug variants to match database records
+  const slugVariants = [
+    slug,                                    // exact: "researchers-find..."
+    `/${slug}`,                              // with leading slash: "/researchers-find..."
+    slug.replace(/-/, '/'),                  // first dash to slash: "news/researchers-find..."
+    `/${slug.replace(/-/, '/')}`,            // leading slash + first dash: "/news/researchers-find..."
+  ];
 
-  if (error || !data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  let data = null;
+  for (const variant of slugVariants) {
+    const result = await service
+      .from('articles')
+      .select('*')
+      .eq('slug', variant)
+      .single();
+    
+    if (result.data) {
+      data = result.data;
+      break;
+    }
+  }
+
+  if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
   // Check brand access
   if (
@@ -72,12 +88,29 @@ export async function PUT(
   const { slug } = await params;
   const { profile, service } = auth;
 
-  // Fetch existing to confirm brand access
-  const { data: existing } = await service
-    .from('articles')
-    .select('brand_slug, status')
-    .eq('slug', slug)
-    .single();
+  // Try multiple slug variants to match database records
+  const slugVariants = [
+    slug,                                    // exact: "researchers-find..."
+    `/${slug}`,                              // with leading slash: "/researchers-find..."
+    slug.replace(/-/, '/'),                  // first dash to slash: "news/researchers-find..."
+    `/${slug.replace(/-/, '/')}`,            // leading slash + first dash: "/news/researchers-find..."
+  ];
+
+  let existing = null;
+  let matchedSlug = slug;
+  for (const variant of slugVariants) {
+    const result = await service
+      .from('articles')
+      .select('brand_slug, status')
+      .eq('slug', variant)
+      .single();
+    
+    if (result.data) {
+      existing = result.data;
+      matchedSlug = variant;
+      break;
+    }
+  }
 
   // ── Static-JSON fallback ──────────────────────────────────────────────────
   // If the article has no Supabase row it was published as a static jack/wiki/
@@ -169,7 +202,7 @@ export async function PUT(
     .upsert(
       {
         ...updateFields,
-        slug,
+        slug: matchedSlug,  // Use the matched slug variant from DB
         brand_slug: existing.brand_slug,
         // Preserve published status if already published so publish gate works
         status: existing.status ?? 'draft',
@@ -195,11 +228,29 @@ export async function DELETE(
   const { slug } = await params;
   const { profile, service } = auth;
 
-  const { data: existing } = await service
-    .from('articles')
-    .select('brand_slug, status')
-    .eq('slug', slug)
-    .single();
+  // Try multiple slug variants to match database records
+  const slugVariants = [
+    slug,                                    // exact: "researchers-find..."
+    `/${slug}`,                              // with leading slash: "/researchers-find..."
+    slug.replace(/-/, '/'),                  // first dash to slash: "news/researchers-find..."
+    `/${slug.replace(/-/, '/')}`,            // leading slash + first dash: "/news/researchers-find..."
+  ];
+
+  let existing = null;
+  let matchedSlug = slug;
+  for (const variant of slugVariants) {
+    const result = await service
+      .from('articles')
+      .select('brand_slug, status')
+      .eq('slug', variant)
+      .single();
+    
+    if (result.data) {
+      existing = result.data;
+      matchedSlug = variant;
+      break;
+    }
+  }
 
   if (!existing) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
@@ -217,7 +268,7 @@ export async function DELETE(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  const { error } = await service.from('articles').delete().eq('slug', slug);
+  const { error } = await service.from('articles').delete().eq('slug', matchedSlug);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   return NextResponse.json({ ok: true });

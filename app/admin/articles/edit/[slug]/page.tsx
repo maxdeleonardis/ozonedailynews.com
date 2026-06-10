@@ -23,7 +23,7 @@ const ALL_STORES = [
 ] as const;
 
 function loadFromStatic(slug: string): Record<string, unknown> | null {
-  // Normalize slug - try both with and without leading slash/category
+  // Normalize slug - try multiple matching strategies
   const slugVariants = [
     slug,
     `/${slug}`,
@@ -35,9 +35,22 @@ function loadFromStatic(slug: string): Record<string, unknown> | null {
     try {
       const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
       for (const slugVariant of slugVariants) {
-        const entry = registry.find((e: { slug: string; filePath?: string }) => 
-          e.slug === slugVariant || e.slug === `/${slugVariant}` || e.slug.endsWith(`/${slugVariant}`)
-        );
+        const entry = registry.find((e: { slug: string; filePath?: string }) => {
+          // Match exact slug
+          if (e.slug === slugVariant || e.slug === `/${slugVariant}`) return true;
+          
+          // Match if registry slug ends with the variant (handles /category/slug matching)
+          if (e.slug.endsWith(`/${slugVariant}`)) return true;
+          
+          // Match if we remove the first path segment from registry slug
+          // e.g., "/news/article-name" matches "news-article-name"
+          const registryWithoutLeadingSlash = e.slug.replace(/^\//, '');
+          const registryWithDashes = registryWithoutLeadingSlash.replace(/\//g, '-');
+          if (registryWithDashes === slugVariant) return true;
+          
+          return false;
+        });
+        
         if (entry?.filePath) {
           const fp = path.join(STATIC_BASE, entry.filePath);
           if (fs.existsSync(fp)) {

@@ -262,15 +262,10 @@ export async function POST(req: NextRequest) {
 
   const jsonContent = JSON.stringify(finalArticle, null, 2);
 
-  // File paths for the atomic Git commit:
-  //   1. content/articles/[content_id].json  — ID-addressed path (permanent, never moves)
-  //   2. content/static/articles/[slug].json — legacy slug path (routing resolution chain)
-  //   3. content/static/[type_dir]/[slug].json — type-specific dir read by *DB components
-  //      e.g. JackArticleDB reads content/static/jack_articles/, ArticlePageDB reads
-  //      content/static/article_pages/, etc.  Without this, re-publishing a jack_article
-  //      leaves the live content stale because the *DB component never sees the new JSON.
-  const idFilePath   = `content/articles/${contentId}.json`;
-  const jsonFilePath = `content/static/articles/${article.slug}.json`;
+  // Calculate sharded file path based on article type and published_at date
+  const publishDate = new Date(article.published_at ?? new Date());
+  const year = publishDate.getFullYear();
+  const month = String(publishDate.getMonth() + 1).padStart(2, '0');
 
   // Derive the type-specific subdirectory (mirrors what each *DB component reads from)
   const articleTypeDir: Record<string, string> = {
@@ -278,9 +273,28 @@ export async function POST(req: NextRequest) {
     article_page:    'article_pages',
     wiki_article:    'article_pages',  // wiki_article is an alias — writes to article_pages/
     creator_article: 'creator_articles',
+    sterling_article: 'sterling_articles',
   };
-  const typeDir = articleTypeDir[article.article_type ?? ''];
-  const typeFilePath = typeDir ? `content/static/${typeDir}/${article.slug}.json` : null;
+  
+  const typeDir = articleTypeDir[article.article_type ?? ''] || 'articles';
+  
+  // Determine sharding strategy: date-based or category-based
+  let typeFilePath: string;
+  if (typeDir === 'article_pages') {
+    // Category-based sharding for evergreen content
+    const category = (article.category ?? 'general').toLowerCase().replace(/\s+/g, '-');
+    typeFilePath = `content/static/${typeDir}/${category}/${article.slug}.json`;
+  } else {
+    // Date-based sharding for time-sensitive content
+    typeFilePath = `content/static/${typeDir}/${year}/${month}/${article.slug}.json`;
+  }
+
+  // File paths for the atomic Git commit:
+  //   1. content/articles/[content_id].json  — ID-addressed path (permanent, never moves)
+  //   2. content/static/[type_dir]/YYYY/MM/[slug].json — sharded by date for news articles
+  //   3. content/static/[type_dir]/category/[slug].json — sharded by category for article_pages
+  const idFilePath   = `content/articles/${contentId}.json`;
+  const jsonFilePath = typeFilePath;  // Use the sharded path
 
   // 8. Build registry entry and upsert locally (busts in-process cache immediately)
   //    app/[...slug]/page.tsx handles all routing — NO page.tsx stubs are generated.
@@ -320,10 +334,11 @@ export async function POST(req: NextRequest) {
   const registryPath = nodePath.join(process.cwd(), 'content', 'static', 'content_registry.json');
   const registryContent = fs.readFileSync(registryPath, 'utf8');
 
+  // Commit only the sharded file path (no duplicates)
+  // The registry contains the filePath mapping for lookup
   const filesToCommit: Array<{ path: string; content: string }> = [
-    { path: idFilePath,                                         content: jsonContent },
-    { path: jsonFilePath,                                       content: jsonContent },
-    ...(typeFilePath ? [{ path: typeFilePath,                   content: jsonContent }] : []),
+    { path: idFilePath,                                         content: jsonContent },      // ID-addressed
+    { path: jsonFilePath,                                       content: jsonContent },      // Sharded path
     { path: 'content/static/content_registry.json',            content: registryContent },
   ];
 

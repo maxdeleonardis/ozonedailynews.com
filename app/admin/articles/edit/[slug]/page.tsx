@@ -12,6 +12,7 @@ import { notFound } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
+const REGISTRY_PATH = path.join(STATIC_BASE, 'content_registry.json');
 const ALL_STORES = [
   'articles',
   'jack_articles',
@@ -22,12 +23,57 @@ const ALL_STORES = [
 ] as const;
 
 function loadFromStatic(slug: string): Record<string, unknown> | null {
-  for (const store of ALL_STORES) {
-    const fp = path.join(STATIC_BASE, store, `${slug}.json`);
-    if (fs.existsSync(fp)) {
-      try { return JSON.parse(fs.readFileSync(fp, 'utf8')); } catch { continue; }
+  // Normalize slug - try both with and without leading slash/category
+  const slugVariants = [
+    slug,
+    `/${slug}`,
+    slug.replace(/^\//, ''),
+  ];
+
+  // Try registry lookup first (handles sharded paths)
+  if (fs.existsSync(REGISTRY_PATH)) {
+    try {
+      const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+      for (const slugVariant of slugVariants) {
+        const entry = registry.find((e: { slug: string; filePath?: string }) => 
+          e.slug === slugVariant || e.slug === `/${slugVariant}` || e.slug.endsWith(`/${slugVariant}`)
+        );
+        if (entry?.filePath) {
+          const fp = path.join(STATIC_BASE, entry.filePath);
+          if (fs.existsSync(fp)) {
+            return JSON.parse(fs.readFileSync(fp, 'utf8'));
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Registry lookup failed:', err);
     }
   }
+
+  // Fallback: try legacy flat paths recursively
+  function findFileRecursive(dir: string, filename: string): string | null {
+    if (!fs.existsSync(dir)) return null;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        const found = findFileRecursive(fullPath, filename);
+        if (found) return found;
+      } else if (entry.name === filename) {
+        return fullPath;
+      }
+    }
+    return null;
+  }
+
+  for (const store of ALL_STORES) {
+    const storeDir = path.join(STATIC_BASE, store);
+    const found = findFileRecursive(storeDir, `${slug}.json`);
+    if (found) {
+      try { return JSON.parse(fs.readFileSync(found, 'utf8')); } catch { continue; }
+    }
+  }
+
   return null;
 }
 

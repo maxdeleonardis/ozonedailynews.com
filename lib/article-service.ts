@@ -20,15 +20,32 @@ const CONTENT_BASE = path.join(process.cwd(), 'content');
 
 // ─── Filesystem helpers ───────────────────────────────────────────────────────
 
+// Recursive function to find all JSON files in a directory
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...findJsonFilesRecursive(fullPath));
+    } else if (entry.isFile() && entry.name.endsWith('.json') && entry.name !== '_index.json' && entry.name !== 'content_registry.json') {
+      results.push(fullPath);
+    }
+  }
+  
+  return results;
+}
+
 function readStaticDir<T>(table: string): T[] {
   const dir = path.join(STATIC_BASE, table);
   if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '_index.json')
-    .map((f) => {
+  
+  return findJsonFilesRecursive(dir)
+    .map((filePath) => {
       try {
-        return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as T;
+        return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
       } catch {
         return null;
       }
@@ -36,7 +53,36 @@ function readStaticDir<T>(table: string): T[] {
     .filter((x): x is T => x !== null);
 }
 
+// ─── Registry-based file resolution ──────────────────────────────────────────
+// Reads content_registry.json to resolve slug → filePath for sharded storage
+
+function getRegistryEntry(slug: string): { filePath: string } | null {
+  const registryPath = path.join(STATIC_BASE, 'content_registry.json');
+  if (!fs.existsSync(registryPath)) return null;
+  try {
+    const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+    const entry = registry.find((e: { slug: string; filePath?: string }) => e.slug === slug || e.slug === `/${slug}`);
+    return entry?.filePath ? { filePath: entry.filePath } : null;
+  } catch {
+    return null;
+  }
+}
+
 function readStaticRow<T>(table: string, slug: string): T | null {
+  // Try registry-based lookup first (supports sharded structure)
+  const registryEntry = getRegistryEntry(slug);
+  if (registryEntry) {
+    const file = path.join(STATIC_BASE, registryEntry.filePath);
+    if (fs.existsSync(file)) {
+      try {
+        return JSON.parse(fs.readFileSync(file, 'utf8')) as T;
+      } catch {
+        return null;
+      }
+    }
+  }
+
+  // Fallback to legacy flat structure (backwards compatibility)
   const file = path.join(STATIC_BASE, table, `${slug}.json`);
   if (!fs.existsSync(file)) return null;
   try {

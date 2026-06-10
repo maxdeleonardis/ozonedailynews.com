@@ -237,6 +237,7 @@ export interface JackArticleFull {
 // ─── Content Registry ─────────────────────────────────────────────────────────
 export interface ContentEntry {
   slug: string;
+  filePath?: string;  // NEW: relative path from content/static/ for sharded access (e.g., "articles/2026/06/slug.json")
   title: string;
   description: string;
   publishDate: string;

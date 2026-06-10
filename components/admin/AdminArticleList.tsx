@@ -210,7 +210,7 @@ export default function AdminArticleList({ articles }: Props) {
                   </td>
                   <td className="px-4 py-3 text-right space-x-2">
                     <a
-                      href={`/admin/articles/edit/${article.slug}`}
+                      href={`/admin/articles/edit/${article.slug.replace(/^\//, '')}`}
                       className="text-blue-600 hover:text-blue-800 underline text-xs"
                     >
                       Edit

@@ -35,16 +35,34 @@ if (fs.existsSync(REGISTRY_PATH)) {
 const existingSlugs = new Set(existing.map((e) => e.slug));
 const newEntries: ContentEntry[] = [];
 
+// Recursive function to find all JSON files in a directory
+function findJsonFiles(dir: string): string[] {
+  const results: string[] = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      // Recurse into subdirectories
+      results.push(...findJsonFiles(fullPath));
+    } else if (entry.isFile() && entry.name.endsWith('.json') && entry.name !== '_index.json') {
+      results.push(fullPath);
+    }
+  }
+  
+  return results;
+}
+
 for (const { table, articleType } of STORES) {
   const dir = path.join(STATIC_BASE, table);
   if (!fs.existsSync(dir)) continue;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== '_index.json');
+  const files = findJsonFiles(dir);
 
-  for (const file of files) {
+  for (const fullPath of files) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const article: Record<string, any> = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+      const article: Record<string, any> = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
 
       // Normalise to a relative path — strip the origin if the value is an absolute URL.
       // This prevents the sitemap/RSS from producing double-URL strings like
@@ -59,8 +77,12 @@ for (const { table, articleType } of STORES) {
       // Deduplicate against both the relative path AND any legacy full-URL form.
       if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) continue;
 
+      // Calculate relative file path from STATIC_BASE
+      const relativePath = path.relative(STATIC_BASE, fullPath);
+
       const entry: ContentEntry = {
         slug,
+        filePath:        relativePath,  // NEW: actual file location for sharded access
         title:           article.title ?? '',
         description:     article.metadata?.description ?? article.subtitle ?? '',
         publishDate:     article.published_at?.split('T')[0] ?? new Date().toISOString().split('T')[0],
@@ -79,8 +101,8 @@ for (const { table, articleType } of STORES) {
 
       newEntries.push(entry);
       existingSlugs.add(slug);
-    } catch {
-      console.warn(`  Warning: Failed to parse ${file}`);
+    } catch (err) {
+      console.warn(`  Warning: Failed to parse ${fullPath}:`, err);
     }
   }
 }

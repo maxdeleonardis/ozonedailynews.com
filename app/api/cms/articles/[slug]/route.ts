@@ -6,9 +6,11 @@
 import fs from 'fs';
 import path from 'path';
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { createSSRClient } from '@/lib/supabase/ssr';
 import { createServiceClient } from '@/lib/supabase/server';
 import { commitFilesAtomically, BRAND_BRANCH } from '@/lib/github-commit';
+import { upsertRegistryEntry } from '@/lib/registry-service';
 
 async function getEditorProfile() {
   const ssr = await createSSRClient();
@@ -176,6 +178,48 @@ export async function PUT(
     // Also update local file so dev server sees changes immediately
     fs.writeFileSync(staticPath, fileContent, 'utf8');
 
+    // ── Sync registry title/author so sitemap + homepage stay consistent ──
+    try {
+      const m = merged as Record<string, unknown>;
+      const meta = (m.metadata ?? {}) as Record<string, unknown>;
+      const articleUrl = (m.url as string | undefined) ?? '';
+      const routePath  = articleUrl ? new URL(articleUrl).pathname.replace(/^\//, '') : slug;
+      upsertRegistryEntry({
+        slug:            `/${routePath}`,
+        title:           (m.title as string | undefined) ?? '',
+        description:     (meta.description as string | undefined) ?? (m.subtitle as string | undefined) ?? '',
+        publishDate:     (m.publish_date as string | undefined) ?? '',
+        modifiedDate:    new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+        category:        (m.category as string | undefined) ?? 'News',
+        tags:            Array.isArray(m.tags) ? (m.tags as string[]) : [],
+        author:          (m.author_name as string | undefined) ?? '',
+        authorSlug:      (m.author_slug as string | undefined) ?? undefined,
+        priority:        0.8,
+        changeFrequency: 'daily',
+        imageUrl:        (m.thumbnail_src as string | undefined) ?? undefined,
+        imageAlt:        (m.thumbnail_alt as string | undefined) ?? undefined,
+        articleType:     (m.article_type as 'NewsArticle' | 'JackArticle' | 'SterlingArticle' | 'ArticlePage' | 'CreatorArticle' | 'WikiArticle' | undefined) ?? 'NewsArticle',
+        lifecycle:       (m.lifecycle as import('@/lib/types').Lifecycle | undefined) ?? 'news',
+        breaking:        Boolean(m.breaking ?? false),
+        filePath:        `${store}/${path.relative(path.join(process.cwd(), 'content', 'static', store), staticPath)}`,
+      });
+    } catch (err) {
+      console.warn('[PUT] registry sync failed (non-fatal):', err);
+    }
+
+    // ── Bust ISR cache so homepage + category hub reflect the new title ───
+    try {
+      const m = merged as Record<string, unknown>;
+      const articleUrl = (m.url as string | undefined) ?? '';
+      const routePath  = articleUrl ? new URL(articleUrl).pathname : `/${slug}`;
+      revalidatePath('/');
+      revalidatePath(routePath);
+      const cat = (m.category as string | undefined)?.toLowerCase();
+      if (cat) revalidatePath(`/${cat}`);
+    } catch {
+      // revalidatePath only works in Next.js server context
+    }
+
     return NextResponse.json({ ok: true });
   }
   // ─────────────────────────────────────────────────────────────────────────
@@ -220,6 +264,16 @@ export async function PUT(
     );
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  // Bust ISR cache if this was a published article being edited
+  if (existing.status === 'published') {
+    try {
+      revalidatePath('/');
+      revalidatePath(`/${slug}`);
+    } catch {
+      // safe to swallow outside server context
+    }
+  }
 
   return NextResponse.json({ ok: true });
 }

@@ -54,6 +54,9 @@ import type { CreatorCalloutColor, CreatorTableColumn, CreatorTableRow, CreatorG
 import { TweetEmbed } from '@/components/articles/TweetEmbed';
 import { YouTubeEmbed } from '@/components/articles/YouTubeEmbed';
 import FAQAccordion from '@/components/FAQAccordion';
+import { DirectAnswer } from '@/components/geo/DirectAnswer';
+import { KeyTakeaways } from '@/components/geo/KeyTakeaways';
+import { CitationBlock } from '@/components/geo/CitationBlock';
 import { SourcesInterlink } from '@/components/articles/SourcesInterlink';
 import type { SourceItem, InternalLinkItem } from '@/components/articles/SourcesInterlink';
 import { TopicMediaClientBridge } from '@/components/articles/TopicMediaClientBridge';
@@ -348,6 +351,40 @@ const COMPONENTS: Record<string, ComponentDef> = {
         items={(props.items as Array<{ question: string; answer: string }>) ?? []}
         heading={props.heading as string | undefined}
         color={props.color as 'blue' | 'purple' | 'green' | 'orange' | 'red' | 'gray' | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  // ── GEO components ────────────────────────────────────────────────────────
+  DirectAnswer: {
+    render: (props) => (
+      <DirectAnswer
+        answer={(props.answer as string) ?? ''}
+        question={props.question as string | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  KeyTakeaways: {
+    render: (props) => (
+      <KeyTakeaways
+        items={(props.items as string[]) ?? []}
+        heading={props.heading as string | undefined}
+      />
+    ),
+    selfClosing: true,
+  },
+  CitationBlock: {
+    render: (props) => (
+      <CitationBlock
+        question={(props.question as string) ?? ''}
+        answer={(props.answer as string) ?? ''}
+        type={props.type as 'definition' | 'stat' | 'comparison' | 'timeline' | 'verdict' | undefined}
+        stat={props.stat as string | undefined}
+        statLabel={props.statLabel as string | undefined}
+        facts={props.facts as string[] | undefined}
+        source={props.source as string | undefined}
+        sourceUrl={props.sourceUrl as string | undefined}
       />
     ),
     selfClosing: true,

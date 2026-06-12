@@ -1,5 +1,56 @@
 [
   {
+    "slug": "/science/earth-mycorrhizal-fungi-network-map-spun-2026",
+    "filePath": "articles/2026/06/science-earth-mycorrhizal-fungi-network-map-spun-2026.json",
+    "title": "Earth's Fungi Network Spans 110 Quadrillion Kilometers | SPUN",
+    "description": "A global SPUN study maps Earth's mycorrhizal fungal network at 110 quadrillion kilometers, storing up to 4 billion tons of CO2 annually in soil.",
+    "publishDate": "2026-06-11",
+    "modifiedDate": "2026-06-11",
+    "category": "Science",
+    "tags": [
+      "Mycorrhizal Fungi",
+      "SPUN",
+      "Soil Science",
+      "Carbon Sequestration",
+      "Biodiversity",
+      "Industrial Agriculture"
+    ],
+    "author": "Simon Alfred Minter",
+    "authorSlug": "simon-minter",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&h=675&fit=crop",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/science/galaxy-killing-wind-cristal-02-jwst-early-universe-2026",
+    "filePath": "jack_articles/2026/06/science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026.json",
+    "title": "Galaxy-Killing Wind | JWST Solves Why Early Galaxies Die Young",
+    "description": "Galaxy-killing wind found by JWST is stripping CRISTAL-02, solving why massive early universe galaxies died within 50 million years.",
+    "publishDate": "2026-06-11",
+    "modifiedDate": "2026-06-11",
+    "category": "Science",
+    "tags": [
+      "JWST",
+      "CRISTAL-02",
+      "ALMA",
+      "Galactic Wind",
+      "Galaxy Evolution",
+      "Supernovae",
+      "Astrophysics"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1200&h=675&fit=crop",
+    "articleType": "JackArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/news/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers",
     "filePath": "articles/2026/06/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers.json",
     "title": "Researchers Find Hidden Damage To Coral Reefs By Scuba Divers",

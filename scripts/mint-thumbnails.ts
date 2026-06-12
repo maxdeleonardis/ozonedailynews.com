@@ -69,15 +69,35 @@ interface ArticleFile {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...findJsonFilesRecursive(fullPath));
+    } else if (entry.name.endsWith('.json') && entry.name !== '_index.json') {
+      results.push(fullPath);
+    }
+  }
+  return results;
+}
+
 function findArticleFile(slug: string): { filePath: string; data: ArticleFile } | null {
   for (const store of STORES) {
-    const fp = path.join(STATIC_BASE, store, `${slug}.json`);
-    if (fs.existsSync(fp)) {
+    // First try flat path (legacy)
+    const flat = path.join(STATIC_BASE, store, `${slug}.json`);
+    if (fs.existsSync(flat)) {
       try {
-        const data = JSON.parse(fs.readFileSync(fp, 'utf8')) as ArticleFile;
-        return { filePath: fp, data };
-      } catch {
-        return null;
+        return { filePath: flat, data: JSON.parse(fs.readFileSync(flat, 'utf8')) as ArticleFile };
+      } catch { return null; }
+    }
+    // Then scan recursively (sharded structure)
+    for (const fp of findJsonFilesRecursive(path.join(STATIC_BASE, store))) {
+      if (path.basename(fp) === `${slug}.json`) {
+        try {
+          return { filePath: fp, data: JSON.parse(fs.readFileSync(fp, 'utf8')) as ArticleFile };
+        } catch { return null; }
       }
     }
   }
@@ -87,12 +107,8 @@ function findArticleFile(slug: string): { filePath: string; data: ArticleFile } 
 function getAllArticleSlugs(): string[] {
   const slugs: string[] = [];
   for (const store of STORES) {
-    const dir = path.join(STATIC_BASE, store);
-    if (!fs.existsSync(dir)) continue;
-    for (const f of fs.readdirSync(dir)) {
-      if (f.endsWith('.json') && f !== '_index.json') {
-        slugs.push(f.replace(/\.json$/, ''));
-      }
+    for (const fp of findJsonFilesRecursive(path.join(STATIC_BASE, store))) {
+      slugs.push(path.basename(fp).replace(/\.json$/, ''));
     }
   }
   return slugs;

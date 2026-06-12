@@ -11,9 +11,16 @@
   "author_name": "Max DeLeonardis",
   "author_slug": "max-deleonardis",
   "read_time": "8 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starship-flight-10-engineering-legacy-v3-transition",
   "thumbnail_alt": "SpaceX rocket launch with exhaust plume against night sky",
-  "tags": ["SpaceX", "Starship", "Super Heavy", "Rocket Engineering", "Starbase", "Space Launch"],
+  "tags": [
+    "SpaceX",
+    "Starship",
+    "Super Heavy",
+    "Rocket Engineering",
+    "Starbase",
+    "Space Launch"
+  ],
   "lifecycle": "news",
   "breaking": false,
   "trending": true,

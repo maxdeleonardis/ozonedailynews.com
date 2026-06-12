@@ -27,10 +27,10 @@
     "department": "Finance"
   },
   "read_time": "10 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=finance-spacex-ipo-75-billion-record-valuation-2026",
   "thumbnail_alt": "SpaceX Falcon 9 rocket on launchpad at sunrise with financial district skyline in the background",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=finance-spacex-ipo-75-billion-record-valuation-2026",
     "alt": "SpaceX Falcon 9 rocket on launchpad at sunrise with financial district skyline in the background"
   },
   "tags": [
@@ -59,13 +59,28 @@
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/finance", "label": "Finance" },
-    { "href": "/finance/spacex", "label": "SpaceX" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/finance",
+      "label": "Finance"
+    },
+    {
+      "href": "/finance/spacex",
+      "label": "SpaceX"
+    }
   ],
   "categories": [
-    { "label": "IPO", "color": "indigo" },
-    { "label": "Deep Dive", "color": "gray" }
+    {
+      "label": "IPO",
+      "color": "indigo"
+    },
+    {
+      "label": "Deep Dive",
+      "color": "gray"
+    }
   ],
   "sources": [
     {
@@ -142,9 +157,18 @@
   ],
   "footer_tagline": "Reported Financial Journalism from Ozone Network News",
   "footer_links": [
-    { "href": "/finance", "label": "Finance" },
-    { "href": "/tech", "label": "Tech" },
-    { "href": "/about", "label": "About" }
+    {
+      "href": "/finance",
+      "label": "Finance"
+    },
+    {
+      "href": "/tech",
+      "label": "Tech"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    }
   ],
   "engagement_slug": "finance-spacex-ipo-75-billion-record-valuation-2026",
   "brand_slug": "ozone",
@@ -167,7 +191,7 @@
       "description": "SpaceX priced its historic IPO at $135 per share targeting $75B, valuing the company at $1.77T. Wall Street is split: Oppenheimer bull vs. Morningstar bear. Full breakdown inside.",
       "images": [
         {
-          "url": "https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=1200&h=675&fit=crop",
+          "url": "https://www.ozonedailynews.com/api/og?slug=finance-spacex-ipo-75-billion-record-valuation-2026",
           "width": 1200,
           "height": 675,
           "alt": "SpaceX Falcon 9 rocket on launchpad at sunrise with financial district skyline in the background"

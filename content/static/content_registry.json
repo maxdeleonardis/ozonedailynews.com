@@ -73,7 +73,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers"
   },
   {
     "slug": "/earth/coral-reef",
@@ -559,7 +560,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starship-flight-10-engineering-legacy-v3-transition"
   },
   {
     "slug": "/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026",
@@ -640,7 +642,8 @@
     "imageUrl": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026"
   },
   {
     "slug": "/science/pigeon-magnetic-navigation-liver-macrophages-science-2026",
@@ -666,7 +669,8 @@
     "imageUrl": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026"
   },
   {
     "slug": "/science/arctic-sea-ice-minimum-2026-measured-extent",
@@ -691,7 +695,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=arctic-sea-ice-minimum-2026-measured-extent"
   },
   {
     "slug": "/science/great-barrier-reef-bleaching-data-2026",
@@ -716,7 +721,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=great-barrier-reef-bleaching-data-2026"
   },
   {
     "slug": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026",
@@ -741,7 +747,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=nasa-artemis-3-mission-status-launch-window-2026"
   },
   {
     "slug": "/science/ozone-layer-recovery-data-2026",
@@ -766,7 +773,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=ozone-layer-recovery-data-2026"
   },
   {
     "slug": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
@@ -791,6 +799,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starship-orbital-flight-record-reuse-milestones-2026"
   }
 ]

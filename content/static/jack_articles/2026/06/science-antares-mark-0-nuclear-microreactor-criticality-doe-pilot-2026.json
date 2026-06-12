@@ -26,10 +26,10 @@
     "department": "Science"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
   "thumbnail_alt": "Nuclear reactor control room with glowing instruments and operator stations",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
     "alt": "Nuclear reactor control room with glowing instruments and operator stations"
   },
   "tags": [
@@ -53,13 +53,28 @@
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/science", "label": "Science" },
-    { "href": "/science/energy", "label": "Energy" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/science/energy",
+      "label": "Energy"
+    }
   ],
   "categories": [
-    { "label": "Nuclear", "color": "orange" },
-    { "label": "Energy", "color": "yellow" }
+    {
+      "label": "Nuclear",
+      "color": "orange"
+    },
+    {
+      "label": "Energy",
+      "color": "yellow"
+    }
   ],
   "sources": [
     {
@@ -119,9 +134,18 @@
   ],
   "footer_tagline": "Science and Energy Reporting from OzoneNews",
   "footer_links": [
-    { "href": "/science", "label": "Science" },
-    { "href": "/about", "label": "About" },
-    { "href": "/editorial-standards", "label": "Editorial Standards" }
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/editorial-standards",
+      "label": "Editorial Standards"
+    }
   ],
   "engagement_slug": "science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
   "metadata": {
@@ -142,7 +166,7 @@
       "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",
       "images": [
         {
-          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
           "width": 1200,
           "height": 675,
           "alt": "Nuclear reactor control room with glowing instruments and operator stations"

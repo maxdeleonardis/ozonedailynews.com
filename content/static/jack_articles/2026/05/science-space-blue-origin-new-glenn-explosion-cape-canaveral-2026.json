@@ -27,42 +27,103 @@
     "department": "Space & Defense"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026",
   "thumbnail_alt": "Rocket launch from Cape Canaveral illuminating the night sky",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026",
     "alt": "Rocket launch from Cape Canaveral illuminating the night sky"
   },
-  "tags": ["Blue Origin", "New Glenn", "Cape Canaveral", "Amazon Kuiper", "NASA", "Artemis", "BE-4", "ULA Vulcan", "Space"],
-  "keywords": ["Blue Origin New Glenn explosion", "Cape Canaveral LC-36", "Amazon Project Kuiper delay", "BE-4 engine failure", "NASA lunar architecture"],
+  "tags": [
+    "Blue Origin",
+    "New Glenn",
+    "Cape Canaveral",
+    "Amazon Kuiper",
+    "NASA",
+    "Artemis",
+    "BE-4",
+    "ULA Vulcan",
+    "Space"
+  ],
+  "keywords": [
+    "Blue Origin New Glenn explosion",
+    "Cape Canaveral LC-36",
+    "Amazon Project Kuiper delay",
+    "BE-4 engine failure",
+    "NASA lunar architecture"
+  ],
   "lifecycle": "news",
   "section": "Space",
   "show_newsletter": true,
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/science", "label": "Science" },
-    { "href": "/science/space", "label": "Space" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/science/space",
+      "label": "Space"
+    }
   ],
   "categories": [
-    { "label": "Breaking", "color": "red" },
-    { "label": "Space", "color": "blue" }
+    {
+      "label": "Breaking",
+      "color": "red"
+    },
+    {
+      "label": "Space",
+      "color": "blue"
+    }
   ],
   "sources": [
-    { "title": "Space Launch Delta 45 Public Safety Alert", "url": "https://www.patrick.spaceforce.mil", "publisher": "U.S. Space Force" },
-    { "title": "Blue Origin New Glenn Mission Page", "url": "https://www.blueorigin.com/new-glenn", "publisher": "Blue Origin" },
-    { "title": "Amazon Project Kuiper Constellation Overview", "url": "https://www.aboutamazon.com/what-we-do/devices-services/project-kuiper", "publisher": "Amazon" }
+    {
+      "title": "Space Launch Delta 45 Public Safety Alert",
+      "url": "https://www.patrick.spaceforce.mil",
+      "publisher": "U.S. Space Force"
+    },
+    {
+      "title": "Blue Origin New Glenn Mission Page",
+      "url": "https://www.blueorigin.com/new-glenn",
+      "publisher": "Blue Origin"
+    },
+    {
+      "title": "Amazon Project Kuiper Constellation Overview",
+      "url": "https://www.aboutamazon.com/what-we-do/devices-services/project-kuiper",
+      "publisher": "Amazon"
+    }
   ],
   "related_articles": [
-    { "url": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026", "title": "NASA Artemis 3 Mission Status | Launch Window 2026", "category": "Science" },
-    { "url": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026", "title": "SpaceX Starship Orbital Flight Record | Reuse Milestones 2026", "category": "Science" },
-    { "url": "/tech/nvidia/blackwell-allocation-hyperscaler-compute-2026", "title": "Nvidia Blackwell Allocation | Hyperscaler Compute 2026", "category": "Tech" }
+    {
+      "url": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026",
+      "title": "NASA Artemis 3 Mission Status | Launch Window 2026",
+      "category": "Science"
+    },
+    {
+      "url": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+      "title": "SpaceX Starship Orbital Flight Record | Reuse Milestones 2026",
+      "category": "Science"
+    },
+    {
+      "url": "/tech/nvidia/blackwell-allocation-hyperscaler-compute-2026",
+      "title": "Nvidia Blackwell Allocation | Hyperscaler Compute 2026",
+      "category": "Tech"
+    }
   ],
   "metadata": {
     "title": "Blue Origin New Glenn Explosion | LC-36 Destruction 2026",
     "description": "Blue Origin's New Glenn rocket exploded during a static fire test at Cape Canaveral LC-36, destroying the pad and delaying Amazon Kuiper and NASA lunar missions.",
-    "keywords": ["Blue Origin New Glenn explosion", "Cape Canaveral LC-36", "Amazon Kuiper delay", "BE-4 engine", "NASA Artemis lunar delay"],
+    "keywords": [
+      "Blue Origin New Glenn explosion",
+      "Cape Canaveral LC-36",
+      "Amazon Kuiper delay",
+      "BE-4 engine",
+      "NASA Artemis lunar delay"
+    ],
     "alternates": {
       "canonical": "https://www.ozonedailynews.com/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026"
     },

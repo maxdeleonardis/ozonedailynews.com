@@ -24,42 +24,102 @@
     "department": "Hardware"
   },
   "read_time": "9 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-gaming-nvidia-rtx-5070-review-blackwell-midrange-2026",
   "thumbnail_alt": "Nvidia GeForce RTX 5070 Founders Edition graphics card against a dark background",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=tech-gaming-nvidia-rtx-5070-review-blackwell-midrange-2026",
     "alt": "Nvidia GeForce RTX 5070 Founders Edition graphics card against a dark background"
   },
-  "tags": ["Nvidia", "RTX 5070", "Blackwell", "GPU", "Gaming", "DLSS 4", "1440p", "AI Inference"],
-  "keywords": ["RTX 5070 review", "Nvidia Blackwell midrange", "DLSS 4 Multi-Frame Generation", "GB205", "1440p GPU 2026"],
+  "tags": [
+    "Nvidia",
+    "RTX 5070",
+    "Blackwell",
+    "GPU",
+    "Gaming",
+    "DLSS 4",
+    "1440p",
+    "AI Inference"
+  ],
+  "keywords": [
+    "RTX 5070 review",
+    "Nvidia Blackwell midrange",
+    "DLSS 4 Multi-Frame Generation",
+    "GB205",
+    "1440p GPU 2026"
+  ],
   "lifecycle": "review",
   "section": "Hardware Reviews",
   "show_newsletter": true,
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/tech", "label": "Tech" },
-    { "href": "/tech/gaming", "label": "Gaming" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/tech",
+      "label": "Tech"
+    },
+    {
+      "href": "/tech/gaming",
+      "label": "Gaming"
+    }
   ],
   "categories": [
-    { "label": "GPU Review", "color": "green" },
-    { "label": "Gaming", "color": "blue" }
+    {
+      "label": "GPU Review",
+      "color": "green"
+    },
+    {
+      "label": "Gaming",
+      "color": "blue"
+    }
   ],
   "sources": [
-    { "title": "Nvidia GeForce RTX 5070 Product Page", "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070/", "publisher": "Nvidia" },
-    { "title": "RTX 5070 Founders Edition Teardown", "url": "https://www.techpowerup.com", "publisher": "TechPowerUp" },
-    { "title": "DLSS 4 Multi-Frame Generation Technical Overview", "url": "https://www.nvidia.com/en-us/geforce/technologies/dlss/", "publisher": "Nvidia" }
+    {
+      "title": "Nvidia GeForce RTX 5070 Product Page",
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070/",
+      "publisher": "Nvidia"
+    },
+    {
+      "title": "RTX 5070 Founders Edition Teardown",
+      "url": "https://www.techpowerup.com",
+      "publisher": "TechPowerUp"
+    },
+    {
+      "title": "DLSS 4 Multi-Frame Generation Technical Overview",
+      "url": "https://www.nvidia.com/en-us/geforce/technologies/dlss/",
+      "publisher": "Nvidia"
+    }
   ],
   "related_articles": [
-    { "url": "/tech/nvidia/blackwell-allocation-hyperscaler-compute-2026", "title": "Nvidia Blackwell Allocation | How Hyperscalers Are Rationing GB200 Compute in 2026", "category": "Tech" },
-    { "url": "/tech/meta/wearables-for-work-enterprise-2026", "title": "Meta Wearables for Work | Enterprise Push 2026", "category": "Tech" },
-    { "url": "/tech/intel/18a-high-volume-manufacturing", "title": "Intel 18A | High-Volume Manufacturing", "category": "Tech" }
+    {
+      "url": "/tech/nvidia/blackwell-allocation-hyperscaler-compute-2026",
+      "title": "Nvidia Blackwell Allocation | How Hyperscalers Are Rationing GB200 Compute in 2026",
+      "category": "Tech"
+    },
+    {
+      "url": "/tech/meta/wearables-for-work-enterprise-2026",
+      "title": "Meta Wearables for Work | Enterprise Push 2026",
+      "category": "Tech"
+    },
+    {
+      "url": "/tech/intel/18a-high-volume-manufacturing",
+      "title": "Intel 18A | High-Volume Manufacturing",
+      "category": "Tech"
+    }
   ],
   "metadata": {
     "title": "Nvidia RTX 5070 Review | Blackwell Midrange GPU 2026",
     "description": "RTX 5070 review: GB205 Blackwell architecture, 12GB GDDR7, DLSS 4 Multi-Frame Generation, and 988 TOPS FP4 compute tested at 1440p and 4K in 2026.",
-    "keywords": ["RTX 5070 review", "Nvidia Blackwell GB205", "DLSS 4", "1440p GPU 2026", "midrange GPU 2026"],
+    "keywords": [
+      "RTX 5070 review",
+      "Nvidia Blackwell GB205",
+      "DLSS 4",
+      "1440p GPU 2026",
+      "midrange GPU 2026"
+    ],
     "alternates": {
       "canonical": "https://www.ozonedailynews.com/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026"
     },

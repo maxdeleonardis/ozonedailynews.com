@@ -26,10 +26,10 @@
     "department": "Science"
   },
   "read_time": "7 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-bumblebee-problem-solving-chimp-tool-use-study-2026",
   "thumbnail_alt": "Close-up macro photograph of a bumblebee on a yellow flower",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=science-bumblebee-problem-solving-chimp-tool-use-study-2026",
     "alt": "Close-up macro photograph of a bumblebee on a yellow flower"
   },
   "tags": [
@@ -51,12 +51,24 @@
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/science", "label": "Science" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/science",
+      "label": "Science"
+    }
   ],
   "categories": [
-    { "label": "Biology", "color": "teal" },
-    { "label": "Research", "color": "gray" }
+    {
+      "label": "Biology",
+      "color": "teal"
+    },
+    {
+      "label": "Research",
+      "color": "gray"
+    }
   ],
   "sources": [
     {
@@ -117,8 +129,14 @@
   ],
   "footer_tagline": "Reported Science Journalism from Ozone Network News",
   "footer_links": [
-    { "href": "/science", "label": "Science" },
-    { "href": "/about", "label": "About" }
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    }
   ],
   "engagement_slug": "science-bumblebee-problem-solving-chimp-tool-use-study-2026",
   "metadata": {
@@ -139,7 +157,7 @@
       "description": "A study in Science finds buff-tailed bumblebees spontaneously use objects as tools to reach food, matching the cognitive problem-solving of chimpanzees.",
       "images": [
         {
-          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-bumblebee-problem-solving-chimp-tool-use-study-2026",
           "width": 1200,
           "height": 675,
           "alt": "Close-up macro photograph of a bumblebee on a yellow flower"

@@ -26,10 +26,10 @@
     "department": "Science"
   },
   "read_time": "7 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&h=675&fit=crop",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-nasa-maven-mars-orbiter-dead-2026",
   "thumbnail_alt": "Artist rendering of a Mars orbiter spacecraft above the red Martian surface",
   "hero_image": {
-    "src": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&h=675&fit=crop",
+    "src": "https://www.ozonedailynews.com/api/og?slug=science-nasa-maven-mars-orbiter-dead-2026",
     "alt": "Artist rendering of a Mars orbiter spacecraft above the red Martian surface"
   },
   "tags": [
@@ -51,13 +51,28 @@
   "show_corrections": true,
   "show_editorial_standards": true,
   "breadcrumbs": [
-    { "href": "/", "label": "Home" },
-    { "href": "/science", "label": "Science" },
-    { "href": "/science/space", "label": "Space" }
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/science/space",
+      "label": "Space"
+    }
   ],
   "categories": [
-    { "label": "Space Science", "color": "teal" },
-    { "label": "NASA", "color": "blue" }
+    {
+      "label": "Space Science",
+      "color": "teal"
+    },
+    {
+      "label": "NASA",
+      "color": "blue"
+    }
   ],
   "sources": [
     {
@@ -145,9 +160,18 @@
   ],
   "footer_tagline": "Reported Science Journalism from Ozone Network News",
   "footer_links": [
-    { "href": "/science", "label": "Science" },
-    { "href": "/science/space", "label": "Space" },
-    { "href": "/about", "label": "About" }
+    {
+      "href": "/science",
+      "label": "Science"
+    },
+    {
+      "href": "/science/space",
+      "label": "Space"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    }
   ],
   "engagement_slug": "science-nasa-maven-mars-orbiter-dead-2026",
   "metadata": {
@@ -168,7 +192,7 @@
       "description": "NASA declared MAVEN dead on June 4, 2026, after a spin failure on December 6, 2025 ended six months of silence and 11 years of Mars science.",
       "images": [
         {
-          "url": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&h=675&fit=crop",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-nasa-maven-mars-orbiter-dead-2026",
           "width": 1200,
           "height": 675,
           "alt": "Artist rendering of a Mars orbiter spacecraft above the red Martian surface"

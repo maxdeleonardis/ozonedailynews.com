@@ -38,16 +38,23 @@ function scoreArticle(article: Record<string, any>): GEOResult {
   return { slug: article.slug ?? 'unknown', score, signals };
 }
 
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fp = path.join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...findJsonFilesRecursive(fp));
+    else if (entry.name.endsWith('.json') && entry.name !== '_index.json') results.push(fp);
+  }
+  return results;
+}
+
 function readArticleStore(table: string): GEOResult[] {
   const dir = path.join(staticBase, table);
-  if (!fs.existsSync(dir)) return [];
-
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '_index.json')
-    .map((f) => {
+  return findJsonFilesRecursive(dir)
+    .map((fp) => {
       try {
-        const a = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+        const a = JSON.parse(fs.readFileSync(fp, 'utf8'));
         return scoreArticle(a);
       } catch {
         return null;
@@ -58,7 +65,7 @@ function readArticleStore(table: string): GEOResult[] {
 
 // ─── Run ──────────────────────────────────────────────────────────────────────
 
-const stores = ['articles', 'sterling_articles', 'article_pages'];
+const stores = ['articles', 'jack_articles', 'sterling_articles', 'article_pages', 'wiki_articles'];
 const allResults: GEOResult[] = [];
 
 for (const store of stores) {

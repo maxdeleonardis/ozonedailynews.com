@@ -24,6 +24,7 @@
     "backfill": "npx dotenv-cli -e .env.local -- npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts",
     "rss:digest": "npx ts-node --project tsconfig.scripts.json scripts/rss-digest.ts",
     "mint:thumbnails": "npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts",
+    "satori:publish": "npx ts-node --project tsconfig.scripts.json scripts/satori-publish.ts",
     "publish": "npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write && npx dotenv-cli -e .env.local -- npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts && npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts && git add -A && git commit -m 'publish: sync registry & backfill' && git push"
   },
   "dependencies": {

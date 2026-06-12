@@ -39,16 +39,27 @@ function scanPage(filePath: string) {
   const content = fs.readFileSync(filePath, 'utf8');
   if (!content.includes('metadata')) return; // No metadata export, skip
 
+  // Skip dynamic catch-all routes and auth-gated pages — they have no static metadata
+  const relPath = path.relative(process.cwd(), filePath);
+  const SKIP_PATTERNS = ['[...slug]', 'account', 'saved', 'preferences'];
+  if (SKIP_PATTERNS.some(p => relPath.includes(p))) return;
+
   const criticals: string[] = [];
   const warnings: string[] = [];
 
-  // Extract title string
-  const titleMatch = content.match(/title[:\s]*['"`]([^'"`]+)['"`]/);
-  const titleStr = titleMatch?.[1] ?? '';
+  // Extract title — handles single/double/template quotes robustly
+  const titleMatch =
+    content.match(/title\s*:\s*"((?:[^"\\]|\\.)+)"/) ??
+    content.match(/title\s*:\s*'((?:[^'\\]|\\.)+)'/) ??
+    content.match(/title\s*:\s*`((?:[^`\\]|\\.)+)`/);
+  const titleStr = titleMatch?.[1]?.replace(/\\'/g, "'").replace(/\\"/g, '"') ?? '';
 
-  // Extract description string
-  const descMatch = content.match(/description[:\s]*['"`]([^'"`]+)['"`]/);
-  const descStr = descMatch?.[1] ?? '';
+  // Extract description — handles apostrophes, escaped quotes, and multiline
+  const descMatch =
+    content.match(/description\s*:\s*"((?:[^"\\]|\\.)+)"/) ??
+    content.match(/description\s*:\s*'((?:[^'\\]|\\.)+)'/) ??
+    content.match(/description\s*:\s*`((?:[^`\\]|\\.)+)`/);
+  const descStr = descMatch?.[1]?.replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\s+/g, ' ').trim() ?? '';
 
   // C1: Em dash in title
   if (titleStr && EM_DASH_REGEX.test(titleStr)) {

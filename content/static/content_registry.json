@@ -14228,8 +14228,26 @@
     "tags": [
       "Video Games",
       "Gaming",
+      "News"
+    ],
+    "author": "OzoneNews Editorial",
+    "priority": 0.6,
+    "change_frequency": "weekly",
+    "image_width": 1200,
+    "image_height": 675
+  },
+  {
+    "slug": "/video-games/news/crazy-taxi-world-tour-ai-controversy",
+    "title": "Crazy Taxi World Tour AI Controversy | Sega Steam Disclosure",
+    "description": "Sega defends Crazy Taxi World Tour after its Steam page confirms generative AI use. Series creator Kenji Kanno says AI was reference-only at Summer Game Fest. F",
+    "publish_date": "June 12, 2026",
+    "modified_date": "June 12, 2026",
+    "category": "Gaming",
+    "tags": [
+      "Video Games",
+      "Gaming",
       "News",
-      "Tomb Raider Legacy Of Atlantis Ai Controversy"
+      "Crazy Taxi World Tour Ai Controversy"
     ],
     "author": "OzoneNews Editorial",
     "priority": 0.6,

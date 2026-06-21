@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
     ],
+    localPatterns: [
+      { pathname: "/api/og/**", search: "?slug=*" },
+      { pathname: "/thumbnails/**" },
+    ],
   },
   async redirects() {
     return [

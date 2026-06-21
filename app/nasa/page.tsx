@@ -1,51 +1,45 @@
 export const dynamic = 'force-dynamic';
 
 import type { Metadata } from 'next';
-import { WikiArticle } from '@/components/articles/WikiArticle';
-
-// Page renders dynamically — content fetched from Supabase at request time.
-// Run 'npm run wiki:migrate' to update content in Supabase.
-
+import { ArticlePageDB } from '@/components/ArticlePageDB';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: "NASA (National Aeronautics and Space Administration) | Missi",
-  description: "Comprehensive overview of NASA's missions, discoveries, and contributions to space exploration. From Artemis Moon missions to Europa ice measurements,",
+  title: 'NASA | Missions, Discoveries & Space Exploration',
+  description: 'NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, James Webb Space Telescope, and deep space science.',
   keywords: [
-    "NASA",
-    "National Aeronautics and Space Administration",
-    "space exploration",
-    "Artemis mission",
-    "Juno spacecraft",
-    "Europa",
-    "Mars rovers",
-    "James Webb Space Telescope",
-    "ISS",
-    "space agency",
+    'NASA',
+    'NASA missions 2026',
+    'Artemis program',
+    'James Webb Space Telescope',
+    'Mars exploration',
+    'space exploration',
   ],
   alternates: {
-    canonical: 'https://www.ozonenetwork.news/nasa',
+    canonical: `${SITE_CONFIG.url}/nasa`,
   },
   openGraph: {
-    title: "NASA: America's Space Agency - Missions, Discoveries & Exploration",
-    description: "Complete overview of NASA's current missions, recent discoveries, and contributions to space science. From Moon missions to Europa's ocean.",
-    type: "article",
-    url: "https://www.ozonenetwork.news/nasa",
+    title: 'NASA | Missions, Discoveries & Space Exploration',
+    description: 'NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, JWST, and deep space science.',
+    type: 'article',
+    url: `${SITE_CONFIG.url}/nasa`,
+    siteName: SITE_CONFIG.publisherName,
     images: [
       {
-        url: "https://www.ozonenetwork.news/images/nasa-overview-og.jpg",
+        url: `${SITE_CONFIG.url}/api/og?slug=nasa`,
         width: 1200,
-        height: 630,
-        alt: "NASA Space Exploration",
+        height: 675,
+        alt: 'NASA | Missions, Discoveries & Space Exploration branded thumbnail',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NASA: America',
-    description: 'Complete overview of NASA',
+    title: 'NASA | Missions, Discoveries & Space Exploration',
+    description: 'NASA missions, discoveries, and space exploration coverage from OzoneNews.',
   },
 };
 
 export default function NASAPage() {
-  return <WikiArticle slug="nasa" />;
+  return <ArticlePageDB slug="nasa" />;
 }

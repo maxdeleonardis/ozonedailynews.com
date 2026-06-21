@@ -37,6 +37,13 @@ export interface AuthorEntity {
   avatarUrl?: string;
   /** Year the author began reporting for the network. */
   since?: string;
+  /** Optional education credentials for schema.org alumniOf and E-E-A-T. */
+  education?: Array<{
+    institution: string;
+    degree: string;
+    year?: string;
+    url?: string;
+  }>;
 }
 
 // ─── Registry ────────────────────────────────────────────────────────────────
@@ -51,13 +58,18 @@ export const AUTHORS: Record<string, AuthorEntity> = {
     tagline: 'Founder & Publisher, Ozone Network News',
     bio: [
       'Max DeLeonardis is the founder, publisher, and owner of Ozone Network News LLC, the independent media company that operates OzoneNews and the broader ONN network of digital news brands covering science, technology, climate, finance, and global affairs.',
-      'He built the network to deliver fast, fact-checked, sourced reporting for a scientifically literate audience, operating under a strict editorial standards policy with named authorship required on every article, verified external sources, and a published corrections policy.',
+      'He earned his undergraduate degree and his Ph.D. from North Carolina State University, completing his doctoral work in Biomedical Engineering in 2024. His Ph.D. was completed through the prestigious joint graduate program in Biomedical Engineering, a collaboration between NC State and the University of North Carolina at Chapel Hill, one of the oldest and most respected inter-institutional biomedical engineering programs in the United States.',
+      'His scientific training in biomedical engineering, which spans quantitative data analysis, research methodology, and peer-reviewed scientific literature, directly informs his editorial oversight of OzoneNews science and technology coverage. He built the network to deliver fast, fact-checked, sourced reporting for a scientifically literate audience, operating under a strict editorial standards policy with named authorship required on every article, verified external sources, and a published corrections policy.',
     ],
-    beats: ['Science', 'Technology', 'Climate', 'Space', 'Publishing'],
+    beats: ['Science', 'Technology', 'Climate', 'Space', 'Biomedical Engineering', 'Publishing'],
     knowsAbout: [
+      'Biomedical Engineering',
+      'Scientific Research',
+      'Peer-Reviewed Literature',
       'Science Journalism',
       'Space Exploration',
       'Climate Science',
+      'Atmospheric Science',
       'Technology',
       'Digital Media',
       'Editorial Standards',
@@ -69,6 +81,19 @@ export const AUTHORS: Record<string, AuthorEntity> = {
     ],
     initials: 'MD',
     since: '2026',
+    education: [
+      {
+        institution: 'North Carolina State University',
+        degree: 'Ph.D. in Biomedical Engineering',
+        year: '2024',
+        url: 'https://www.bme.ncsu.edu/',
+      },
+      {
+        institution: 'North Carolina State University',
+        degree: 'B.S.',
+        url: 'https://www.ncsu.edu/',
+      },
+    ],
   },
 
   'simon-minter': {
@@ -144,13 +169,8 @@ export const AUTHORS: Record<string, AuthorEntity> = {
       'Mental Health',
       'Nonprofit Leadership',
       'Community Support',
-      'Young Adult Services',
     ],
-    sameAs: [
-      'https://www.joshshopefoundation.org/',
-      'https://x.com/JoshsHopeInfo',
-      'https://www.facebook.com/josh.donnelly.77',
-    ],
+    sameAs: [],
     initials: 'JD',
     since: '2026',
   },
@@ -181,6 +201,14 @@ export function authorPersonSchema(author: AuthorEntity) {
     description: author.bio[0],
     knowsAbout: author.knowsAbout,
     ...(author.sameAs.length > 0 && { sameAs: author.sameAs }),
+    ...(author.education && author.education.length > 0 && {
+      alumniOf: author.education.map((edu) => ({
+        '@type': 'EducationalOrganization',
+        name: edu.institution,
+        ...(edu.url && { url: edu.url }),
+        ...(edu.degree && { department: { '@type': 'EducationalOrganization', name: edu.degree } }),
+      })),
+    }),
     worksFor: {
       '@type': 'NewsMediaOrganization',
       name: SITE_CONFIG.publisherName,

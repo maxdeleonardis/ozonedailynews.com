@@ -11,8 +11,7 @@
 
 Overflow verticals, each housed on a dedicated authority domain:
 
-- **ozonedailynews.com** — Science, space exploration, global sustainability, planet health [LIVE]
-- **objectivewire.org** — Investigations, private intelligence, civic watchdog [LIVE]
+
 - **basilnews.com** — Personal finance, market movements, job listings, restaurant and hospitality hiring [Purchased]
 - **honeynewspaper.com** — Human-centered journalism, truth and ethics, real-world impact, environment [Purchased May 26, 2026, replaces micanewspaper.com]
 - **cloverheadlines.com** — Luxury lifestyle, fashion, travel, premium culture [Purchased May 26, 2026]

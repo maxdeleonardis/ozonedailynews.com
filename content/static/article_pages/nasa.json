@@ -1,0 +1,136 @@
+{
+  "slug": "nasa",
+  "url": "https://www.ozonedailynews.com/nasa",
+  "article_type": "article_page",
+  "title": "NASA | Missions, Discoveries & Space Exploration",
+  "subtitle": "The National Aeronautics and Space Administration is the United States government agency responsible for civilian space exploration, aeronautics research, and Earth science. From the Artemis Moon program to the James Webb Space Telescope, NASA operates the most active deep space and planetary science mission portfolio in the world.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-06-20T09:00:00-05:00",
+  "publish_date": "June 20, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "read_time": "1 min read",
+  "thumbnail_src": "/thumbnails/nasa.jpg",
+  "thumbnail_alt": "NASA | Missions, Discoveries & Space Exploration branded thumbnail",
+  "tags": [
+    "NASA",
+    "Artemis",
+    "James Webb Space Telescope",
+    "Mars Exploration",
+    "Space Exploration"
+  ],
+  "info_box": {
+    "title": "NASA",
+    "subtitle": "National Aeronautics and Space Administration",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=800&h=600&fit=crop",
+      "alt": "NASA rocket launch ascending into blue sky",
+      "caption": "NASA mission launch from Kennedy Space Center"
+    },
+    "sections": [
+      {
+        "heading": "Agency Overview",
+        "items": [
+          {
+            "label": "Founded",
+            "value": "July 29, 1958"
+          },
+          {
+            "label": "Headquarters",
+            "value": "Washington, D.C."
+          },
+          {
+            "label": "Administrator",
+            "value": "Bill Nelson"
+          },
+          {
+            "label": "Annual Budget",
+            "value": "$24.8 billion (FY 2026)"
+          },
+          {
+            "label": "Field Centers",
+            "value": "10 across the United States"
+          }
+        ]
+      },
+      {
+        "heading": "Active Programs",
+        "items": [
+          {
+            "label": "Lunar",
+            "value": "Artemis Program (crewed Moon return)"
+          },
+          {
+            "label": "Mars",
+            "value": "Perseverance rover, Curiosity rover"
+          },
+          {
+            "label": "Deep Space",
+            "value": "JWST, Parker Solar Probe, New Horizons"
+          },
+          {
+            "label": "Earth Science",
+            "value": "PACE, TEMPO, Landsat 9"
+          },
+          {
+            "label": "Space Station",
+            "value": "International Space Station"
+          }
+        ]
+      },
+      {
+        "heading": "OzoneNews NASA Coverage",
+        "links": [
+          {
+            "href": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026",
+            "label": "Artemis 3 Mission Status & Launch Window 2026"
+          },
+          {
+            "href": "/nasa/artemis-3-timeline-leo-demonstration-2026",
+            "label": "Artemis 3 Timeline & LEO Demonstration"
+          },
+          {
+            "href": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+            "label": "SpaceX Starship Orbital Flight Record"
+          },
+          {
+            "href": "/science",
+            "label": "All Science Coverage"
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "title": "NASA | Missions, Discoveries & Space Exploration",
+    "description": "NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, James Webb Space Telescope, and deep space science.",
+    "keywords": [
+      "NASA",
+      "NASA missions 2026",
+      "Artemis program",
+      "James Webb Space Telescope",
+      "Mars exploration",
+      "space exploration"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/nasa"
+    },
+    "openGraph": {
+      "title": "NASA | Missions, Discoveries & Space Exploration",
+      "description": "NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, JWST, and deep space science.",
+      "type": "article",
+      "url": "https://www.ozonedailynews.com/nasa",
+      "images": [
+        {
+          "url": "https://www.ozonedailynews.com/thumbnails/nasa.jpg",
+          "width": 1200,
+          "height": 675,
+          "alt": "NASA | Missions, Discoveries & Space Exploration branded thumbnail"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>The National Aeronautics and Space Administration (NASA) is the United States government agency responsible for the nation's civilian space program, aeronautics research, and Earth system science. Founded in 1958, NASA operates the most active deep space exploration portfolio in the world, including the Artemis lunar program, the Mars Perseverance and Curiosity rovers, the James Webb Space Telescope, and a fleet of Earth-observing satellites that monitor climate, atmosphere, and ocean systems.</p>\n\n<h2>Active Missions & Programs</h2>\n\n<p>NASA's current priorities center on returning humans to the Moon through the <a href=\"/nasa/news/nasa-artemis-3-mission-status-launch-window-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis program</a>, with Artemis 3 targeting a crewed lunar landing. The agency simultaneously operates robotic missions across the solar system, from the <a href=\"/science\" class=\"text-blue-600 hover:text-blue-800 underline\">Mars surface</a> to the outer planets, and maintains continuous human presence aboard the International Space Station.</p>\n\n<h2>OzoneNews NASA Coverage</h2>\n\n<p>OzoneNews covers NASA missions with a focus on primary-source data, specific milestones, and named researchers. Our coverage includes <a href=\"/nasa/artemis-3-timeline-leo-demonstration-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis timeline updates</a>, JWST discoveries, planetary science findings, and launch vehicle development. Explore our full <a href=\"/space\" class=\"text-blue-600 hover:text-blue-800 underline\">space exploration coverage</a> for related stories from SpaceX, Blue Origin, and international partners.</p>"
+}

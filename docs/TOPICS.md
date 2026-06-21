@@ -1,7 +1,56 @@
 # OzoneNews | Topic Intelligence Guide
-**Last updated:** May 29, 2026
+**Last updated:** June 20, 2026
 **Scope:** ozonedailynews.com only
 **Purpose:** The topics we are obligated to cover well. Not a list of keywords. A list of things that are actually happening to the planet and to the science that explains it.
+
+---
+
+## GSC Performance Data | June 2026 Update
+
+**Data source:** Google Search Console, top pages by impressions  
+**Date range:** Rolling 28 days ending June 20, 2026
+
+### Top Performing Pages
+
+| URL | Clicks | Impressions | Cluster |
+|---|---|---|---|
+| `/spacex-starship-orbital-flight-record-reuse-milestones-2026` | 2 | 354 | Space exploration |
+| `/great-barrier-reef-bleaching-data-2026` | 3 | 59 | Climate/ocean science |
+| `/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026` | 0 | 45 | Nuclear/SMR energy |
+| `/ozone-layer-recovery-data-2026` | 1 | 23 | Ozone (namesake) |
+| `/` (homepage) | 0 | 22 | Brand |
+| `/tech/google-ai-data-center-water-consumption-cooling-2026` | 0 | 22 | Tech + environment |
+| `/about` | 2 | 15 | Trust/E-E-A-T |
+| `/nasa-artemis-3-mission-status-launch-window-2026` | 0 | 12 | Space exploration |
+| `/tech-news-87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026` | 0 | 11 | AI agents/security |
+
+### Key Takeaways
+
+1. **Space exploration dominates** with 366 combined impressions (68% of top-page total). SpaceX Starship is the single highest-traffic article by a 6x margin. Double down on Starship, Artemis, and commercial launch coverage.
+
+2. **Climate/environmental data is the second strongest cluster** (82 combined impressions). Data-driven articles with specific measurements and year-over-year comparisons are the winning format. Great Barrier Reef and ozone layer articles prove this.
+
+3. **Nuclear/SMR is a breakout topic** (45 impressions on one article). Very low competition from authoritative sources. Build this into a regular beat with a hub page.
+
+4. **Tech + environment intersection works** (22 impressions). AI data center water/energy consumption is a differentiated angle most tech outlets ignore. Expand this into a regular series.
+
+5. **AI agent security has emerging demand** (11 impressions). The DryRun report article is getting surfaced. Follow-on coverage of AI agent security research will capture growing demand.
+
+6. **CTR optimization needed.** Several pages have high impressions but zero clicks. Metadata titles and descriptions need to lead with specific numbers and milestones.
+
+### Immediate Editorial Priorities (Next 2 Weeks)
+
+Based on GSC data, these are the highest-ROI articles to write next:
+
+| Priority | Article | Why | Target Keyword |
+|---|---|---|---|
+| 1 | SpaceX Starship Flight 11 or next test update | 354 impressions on single article, highest demand topic | `spacex starship flight 11 2026` |
+| 2 | Nuclear SMR update (NuScale, TerraPower, or new DOE milestone) | 45 impressions, breakout topic, low competition | `small modular reactor 2026` |
+| 3 | Great Barrier Reef 2026 mid-year bleaching update | 59 impressions, seasonal relevance | `great barrier reef bleaching 2026` |
+| 4 | AI data center energy/water update (Microsoft or Amazon) | 22 impressions, expand the cluster | `ai data center water consumption 2026` |
+| 5 | Artemis 3 crew or hardware milestone | 12 impressions, growing space cluster | `artemis 3 launch date 2026` |
+| 6 | AI agent security follow-up (new research or framework) | 11 impressions, emerging demand | `ai agent security vulnerabilities 2026` |
+| 7 | Ozone layer 2026 mid-year assessment | 23 impressions, namesake identity topic | `ozone layer recovery 2026` |
 
 ---
 
@@ -370,6 +419,28 @@ Not policy debates. Not opinion on subsidies. The actual installed capacity numb
 - **Energy poverty** — the number of people globally without electricity access. Often overlooked in renewable energy coverage.
 
 **Primary sources:** IEA, BloombergNEF, IRENA, Our World in Data, U.S. EIA
+
+---
+
+### 5b. Nuclear Energy and Advanced Reactors | BREAKOUT TOPIC (GSC Verified)
+
+**GSC data:** 45 impressions on a single Antares Mark 0 microreactor article (June 2026). Zero clicks, meaning the topic is being surfaced by Google but title/snippet needs optimization. Very low competition from authoritative sources.
+
+**Why it matters:** Nuclear energy is undergoing a renaissance driven by AI data center power demand, DOE advanced reactor demonstrations, and the 45Q tax credit. SMRs and microreactors are moving from design to construction to criticality in 2026-2027. Almost no outlet covers the specific technical milestones with data.
+
+**What to watch:**
+- **DOE Advanced Reactor Demonstration Program** — Antares, TerraPower Natrium, X-energy Xe-100, Kairos Hermes. Track each project through permitting, construction, and criticality milestones.
+- **NuScale VOYGR** — after the UGSF cancellation, where does NuScale go next? New customer announcements, NRC certification updates.
+- **Microreactors** — Antares Mark 0, BWXT BWXR-300, Westinghouse eVinci. These are sub-20MW units for remote sites, military bases, and data centers.
+- **AI data center nuclear PPAs** — Microsoft-Constellation Three Mile Island restart, Amazon-Talen Energy Susquehanna deal. Every new nuclear-data center PPA is news.
+- **NRC licensing milestones** — every NRC design certification, construction permit, and operating license for advanced reactors.
+- **International SMR projects** — Rolls-Royce SMR (UK), GE Hitachi BWRX-300 (Canada), CNNR ACP100 Linglong One (China).
+
+**Primary sources:** DOE Office of Nuclear Energy, NRC, IAEA, World Nuclear Association, U.S. Energy Information Administration
+
+**Article cadence:** 2 per month. Every criticality, licensing, or PPA milestone is an article. Build a nuclear energy hub page at `/science/nuclear-energy/`.
+
+**Target keywords:** `small modular reactor 2026`, `nuclear microreactor doe`, `smr criticality milestone`, `ai data center nuclear power`, `natrium reactor construction`
 
 ---
 

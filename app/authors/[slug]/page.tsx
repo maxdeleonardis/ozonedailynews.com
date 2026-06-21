@@ -138,6 +138,34 @@ export default async function AuthorPage(
           </section>
         )}
 
+        {/* Education */}
+        {author.education && author.education.length > 0 && (
+          <section className="mb-8">
+            <h2 className="mb-3 text-xl font-semibold text-slate-800 border-b pb-2">Education</h2>
+            <ul className="space-y-2">
+              {author.education.map((edu, i) => (
+                <li key={i} className="text-slate-700">
+                  <span className="font-medium">{edu.degree}</span>
+                  {edu.year && <span className="text-slate-500">, {edu.year}</span>}
+                  <span className="text-slate-500"> &mdash; </span>
+                  {edu.url ? (
+                    <a
+                      href={edu.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 underline"
+                    >
+                      {edu.institution}
+                    </a>
+                  ) : (
+                    <span>{edu.institution}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Recent articles (from the content registry) */}
         {recent.length > 0 && (
           <section className="mb-8">

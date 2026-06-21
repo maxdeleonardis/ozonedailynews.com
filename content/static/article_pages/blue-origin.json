@@ -1,0 +1,137 @@
+{
+  "slug": "blue-origin",
+  "url": "https://www.ozonedailynews.com/blue-origin",
+  "article_type": "article_page",
+  "title": "Blue Origin | New Glenn, New Shepard & Space Infrastructure",
+  "subtitle": "Blue Origin is the private aerospace manufacturer and spaceflight services company founded by Jeff Bezos in 2000. The company develops reusable launch vehicles including New Shepard for suborbital tourism and New Glenn for orbital payloads, alongside lunar lander hardware for NASA's Artemis program and advanced rocket engine production through its BE-3, BE-4, and BE-7 engine programs.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-06-20T09:00:00-05:00",
+  "publish_date": "June 20, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "read_time": "1 min read",
+  "thumbnail_src": "/thumbnails/blue-origin.jpg",
+  "thumbnail_alt": "Blue Origin | New Glenn, New Shepard & Space Infrastructure branded thumbnail",
+  "tags": [
+    "Blue Origin",
+    "New Glenn",
+    "New Shepard",
+    "Jeff Bezos",
+    "BE-4 Engine",
+    "Commercial Spaceflight"
+  ],
+  "info_box": {
+    "title": "Blue Origin",
+    "subtitle": "Spaceflight Systems & Launch Services",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1581708230339-c5e7d2c1b9ad?w=800&h=600&fit=crop",
+      "alt": "Rocket engine firing on test stand",
+      "caption": "Blue Origin BE-4 engine test firing at West Texas facility"
+    },
+    "sections": [
+      {
+        "heading": "Company Overview",
+        "items": [
+          {
+            "label": "Founded",
+            "value": "September 8, 2000"
+          },
+          {
+            "label": "Founder",
+            "value": "Jeff Bezos"
+          },
+          {
+            "label": "CEO",
+            "value": "Dave Limp"
+          },
+          {
+            "label": "Headquarters",
+            "value": "Kent, Washington"
+          },
+          {
+            "label": "Key Facilities",
+            "value": "West Texas, Cape Canaveral, Huntsville"
+          }
+        ]
+      },
+      {
+        "heading": "Active Programs",
+        "items": [
+          {
+            "label": "Suborbital",
+            "value": "New Shepard (tourism & payloads)"
+          },
+          {
+            "label": "Orbital",
+            "value": "New Glenn (heavy-lift, reusable)"
+          },
+          {
+            "label": "Lunar",
+            "value": "Blue Moon lander (Artemis HLS)"
+          },
+          {
+            "label": "Engines",
+            "value": "BE-3, BE-4, BE-7"
+          },
+          {
+            "label": "BE-4 Customer",
+            "value": "ULA Vulcan Centaur"
+          }
+        ]
+      },
+      {
+        "heading": "OzoneNews Blue Origin Coverage",
+        "links": [
+          {
+            "href": "/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026",
+            "label": "Blue Origin New Glenn Explosion at Cape Canaveral 2026"
+          },
+          {
+            "href": "/space",
+            "label": "All Space Coverage"
+          },
+          {
+            "href": "/nasa",
+            "label": "NASA Missions & Programs"
+          },
+          {
+            "href": "/space-x",
+            "label": "SpaceX Coverage"
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "title": "Blue Origin | New Glenn, New Shepard & Space Infrastructure",
+    "description": "Blue Origin news and analysis from OzoneNews. New Glenn orbital launches, New Shepard suborbital flights, BE-4 engine production, and Blue Moon lunar lander development.",
+    "keywords": [
+      "Blue Origin",
+      "New Glenn rocket 2026",
+      "New Shepard",
+      "BE-4 engine",
+      "Blue Moon lander",
+      "Jeff Bezos space company"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/blue-origin"
+    },
+    "openGraph": {
+      "title": "Blue Origin | New Glenn, New Shepard & Space Infrastructure",
+      "description": "Blue Origin news and analysis from OzoneNews. New Glenn orbital launches, New Shepard flights, BE-4 engine production, and Blue Moon lunar lander.",
+      "type": "article",
+      "url": "https://www.ozonedailynews.com/blue-origin",
+      "images": [
+        {
+          "url": "https://www.ozonedailynews.com/thumbnails/blue-origin.jpg",
+          "width": 1200,
+          "height": 675,
+          "alt": "Blue Origin | New Glenn, New Shepard & Space Infrastructure branded thumbnail"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>Blue Origin is the private aerospace manufacturer and spaceflight services company founded by Jeff Bezos in 2000. Headquartered in Kent, Washington, the company develops reusable launch vehicles, rocket engines, and lunar lander systems. Blue Origin's motto, \"Gradatim Ferociter\" (step by step, ferociously), reflects its incremental engineering approach to building permanent space infrastructure.</p>\n\n<h2>Launch Vehicles & Engines</h2>\n\n<p>Blue Origin operates <a href=\"/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">New Glenn</a>, a reusable heavy-lift orbital rocket, and New Shepard, a suborbital vehicle for space tourism and research payloads. The company's BE-4 engine, powered by liquid oxygen and liquefied natural gas, also powers United Launch Alliance's Vulcan Centaur. Blue Origin is developing the Blue Moon lander for NASA's <a href=\"/nasa\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis program</a>.</p>\n\n<h2>OzoneNews Coverage</h2>\n\n<p>OzoneNews covers Blue Origin milestones including New Glenn test flights, engine production updates, and lunar lander development. For comparison coverage of the broader commercial launch market, see our <a href=\"/space-x\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX reporting</a> and our complete <a href=\"/space\" class=\"text-blue-600 hover:text-blue-800 underline\">space exploration section</a>.</p>"
+}

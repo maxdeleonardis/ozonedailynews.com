@@ -74,11 +74,20 @@ for (const { table, articleType } of STORES) {
       }
       if (!slug) continue;
 
-      // Deduplicate against both the relative path AND any legacy full-URL form.
-      if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) continue;
-
       // Calculate relative file path from STATIC_BASE
       const relativePath = path.relative(STATIC_BASE, fullPath);
+
+      // Deduplicate against both the relative path AND any legacy full-URL form.
+      if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) {
+        // Backfill filePath on existing entries that are missing it
+        const existingEntry = existing.find(
+          (e) => e.slug === slug || e.slug === rawSlug,
+        );
+        if (existingEntry && !existingEntry.filePath) {
+          existingEntry.filePath = relativePath;
+        }
+        continue;
+      }
 
       const entry: ContentEntry = {
         slug,
@@ -107,8 +116,28 @@ for (const { table, articleType } of STORES) {
   }
 }
 
-if (newEntries.length === 0) {
+// Count how many existing entries had their filePath backfilled
+let backfilled = 0;
+for (const { table } of STORES) {
+  const dir = path.join(STATIC_BASE, table);
+  if (!fs.existsSync(dir)) continue;
+  // (already processed above, just counting)
+}
+// Check existing entries for filePath that was just added
+backfilled = existing.filter((e) => e.filePath).length;
+
+if (newEntries.length === 0 && !WRITE) {
   console.log('\n✔ sync-registry: Registry is up to date. No new entries to add.\n');
+  process.exit(0);
+}
+
+if (newEntries.length === 0 && WRITE) {
+  // Still write to persist any backfilled filePath fields
+  const sorted = [...existing].sort(
+    (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+  );
+  fs.writeFileSync(REGISTRY_PATH, JSON.stringify(sorted, null, 2) + '\n');
+  console.log(`\n  ✔ Registry updated: ${sorted.length} total entries (filePath backfilled).\n`);
   process.exit(0);
 }
 

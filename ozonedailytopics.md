@@ -14,6 +14,47 @@ OzoneNews is a verified news publication. We report on primary-source, confirmed
 
 ---
 
+## GSC Performance Data | June 2026
+
+**Data source:** Google Search Console, top pages by impressions
+**Date range:** Rolling 28 days ending June 20, 2026
+
+### Top Performing Pages
+
+| URL | Clicks | Impressions | Cluster |
+|---|---|---|---|
+| `/spacex-starship-orbital-flight-record-reuse-milestones-2026` | 2 | 354 | Space exploration |
+| `/great-barrier-reef-bleaching-data-2026` | 3 | 59 | Climate/ocean science |
+| `/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026` | 0 | 45 | Nuclear/SMR energy |
+| `/ozone-layer-recovery-data-2026` | 1 | 23 | Ozone (namesake) |
+| `/` (homepage) | 0 | 22 | Brand |
+| `/tech/google-ai-data-center-water-consumption-cooling-2026` | 0 | 22 | Tech + environment |
+| `/about` | 2 | 15 | Trust/E-E-A-T |
+| `/nasa-artemis-3-mission-status-launch-window-2026` | 0 | 12 | Space exploration |
+| `/tech-news-87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026` | 0 | 11 | AI agents/security |
+
+### Performance Analysis
+
+**Space exploration is the dominant cluster.** SpaceX Starship alone generated 354 impressions, more than 5x the next highest article. Combined with NASA Artemis 3 (12 impressions), space content accounts for 366 impressions, roughly 68% of all top-page impressions. This confirms the editorial strategy of prioritizing space coverage.
+
+**Climate and environmental data is the second strongest cluster.** Great Barrier Reef bleaching (59 impressions) and ozone layer recovery (23 impressions) combined for 82 impressions. Data-driven environmental articles with specific measurements and year-over-year comparisons are the format that works.
+
+**Nuclear/SMR is a breakout topic.** The Antares Mark 0 microreactor article generated 45 impressions with zero clicks, meaning Google is surfacing it but the title/snippet needs optimization. The topic itself has clear demand and very low competition from authoritative sources.
+
+**Tech infrastructure with environmental angle works.** Google AI data center water consumption (22 impressions) proves the intersection of tech infrastructure and environmental impact data is a winning formula. This is a differentiated angle most tech outlets ignore.
+
+**AI agent security has emerging demand.** The DryRun 87% PR flaw report article is getting impressions on a topic that is actively growing. Follow-on coverage of AI agent security research will capture this demand.
+
+### CTR Optimization Opportunities
+
+Several pages have high impressions but zero or near-zero clicks, indicating title/meta description optimization is needed:
+
+- **Antares microreactor** (45 impressions, 0 clicks): Rewrite metadata.title to lead with the specific milestone. Try "Antares Mark 0 Microreactor | First Criticality Achieved in DOE Pilot"
+- **Google AI water consumption** (22 impressions, 0 clicks): Add specific numbers to the title. Try "Google AI Data Centers | Water Consumption Data 2026"
+- **NASA Artemis 3** (12 impressions, 0 clicks): Title may be too generic. Try "Artemis 3 Launch Window | NASA Status Update June 2026"
+
+---
+
 ## What We Cover
 
 ### Science
@@ -176,9 +217,9 @@ Every published article must contain at minimum:
 
 ## Current Science Coverage Clusters
 
-These are the active interlinking clusters as of June 4, 2026:
+These are the active interlinking clusters as of June 20, 2026:
 
-**Space exploration cluster**
+**Space exploration cluster** (366 combined GSC impressions, top performing)
 - `/science/nasa-maven-mars-orbiter-dead-2026`
 - `/nasa/news/nasa-artemis-3-mission-status-launch-window-2026`
 - `/nasa/artemis-3-timeline-leo-demonstration-2026`
@@ -190,7 +231,7 @@ These are the active interlinking clusters as of June 4, 2026:
 - `/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm`
 - `/science/sagittarius-a-black-hole-wind-discovery-2026`
 
-**Biology and ecology cluster**
+**Biology and ecology cluster** (82 combined GSC impressions)
 - `/science/bumblebee-problem-solving-chimp-tool-use-study-2026`
 - `/science/pigeon-magnetic-navigation-liver-macrophages-science-2026`
 - `/science/great-barrier-reef-bleaching-data-2026`
@@ -198,10 +239,18 @@ These are the active interlinking clusters as of June 4, 2026:
 - `/science/keeling-curve-co2-annual-peak-mauna-loa-2026`
 - `/science/ozone-layer-recovery-data-2026`
 
-**Tech infrastructure cluster**
+**Nuclear energy cluster** (45 GSC impressions, breakout topic)
+- `/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026`
+- (Expand: add NuScale, TerraPower Natrium, AI data center nuclear PPA articles)
+
+**Tech infrastructure cluster** (22 GSC impressions)
 - `/tech/google-horndal-sweden-data-center-groundbreaking-2026`
 - `/tech/google-ai-data-center-water-consumption-cooling-2026`
 - `/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026`
+
+**AI agents and security cluster** (11 GSC impressions, emerging)
+- `/tech-news-87-percent-ai-agent-pull-requests-security-flaws-dryrun-report-2026`
+- (Expand: add MCP security, agentic coding tool benchmarks, multi-agent coordination)
 
 **Finance cluster**
 - `/finance/spacex-ipo-75-billion-record-valuation-2026`
@@ -210,17 +259,71 @@ These are the active interlinking clusters as of June 4, 2026:
 
 ## Priority Coverage Queue
 
-Topics we actively watch for new developments:
+Topics we actively watch for new developments, ranked by actual GSC performance data (June 2026):
 
-- NASA Artemis program (crewed lunar missions, SLS, Orion)
-- SpaceX Starship development (flight tests, Mechazilla catch operations, Starlink V3)
-- Mars surface missions (Curiosity, Perseverance, Ingenuity follow-on)
-- NVIDIA Blackwell and next-gen GPU supply chains
-- Google, Microsoft, Amazon hyperscale data center expansion in Europe
-- Solar Cycle 25 peak activity and space weather events
-- NOAA climate monitoring (sea ice, CO2, ozone)
+### Tier 1 | Proven Demand (Double Down)
+
+These clusters have confirmed search impressions. Write more of these, interlink aggressively, and build out hub pages.
+
+1. **SpaceX Starship and reusable rocket programs** (354 impressions on single article)
+   - Every flight test, every reuse milestone, every Starbase update
+   - Follow-on: Starship V3 transition, Mechazilla catch operations, Starlink V3 deployment
+   - Target: 2-3 articles per month minimum
+   - Interlink cluster: starship-flight-10, orbital-flight-record, V3-transition
+
+2. **NASA Artemis program** (12 impressions, growing)
+   - Artemis 3 launch window updates, SLS/Orion milestones, astronaut crew announcements
+   - Lunar Gateway status, HLS Starship development
+   - Target: 1-2 articles per month
+   - Interlink cluster: artemis-3-mission-status, artemis-3-timeline-leo
+
+3. **Coral reef bleaching and ocean health** (59 impressions)
+   - Great Barrier Reef annual survey data, NOAA Coral Reef Watch alerts
+   - Ocean acidification measurements, bleaching forecast models
+   - Target: 1-2 articles per month, major feature on annual AIMS survey
+   - Interlink cluster: great-barrier-reef-bleaching, arctic-sea-ice, keeling-curve
+
+4. **Ozone layer recovery** (23 impressions, namesake topic)
+   - This is our identity topic. Must own it.
+   - Antarctic ozone hole annual report (September/October), WMO 2026 assessment
+   - CFC-11 illegal emissions monitoring, stratospheric aerosol injection ozone impacts
+   - Target: 1-2 articles per month, major feature every October
+   - Interlink cluster: ozone-layer-recovery, sagittarius-a-black-hole-wind
+
+5. **Nuclear energy and SMR development** (45 impressions, breakout)
+   - Antares, NuScale, TerraPower, Rolls-Royce SMR milestones
+   - DOE 45Q and advanced reactor demonstration program updates
+   - Target: 2 articles per month. Very low competition, high GEO value.
+   - Build a nuclear energy hub page at `/science/nuclear-energy/`
+
+6. **AI data center environmental impact** (22 impressions)
+   - Google, Microsoft, Amazon water consumption and energy data
+   - Hyperscale data center power procurement, grid impact
+   - Target: 1-2 articles per month
+   - Interlink cluster: google-ai-data-center-water, google-horndal-sweden
+
+7. **AI agent security and reliability** (11 impressions, emerging)
+   - Follow-on coverage of the DryRun 87% PR flaw report
+   - New security research on agentic systems, MCP vulnerabilities
+   - Target: 1 article per month, react to new research papers
+
+### Tier 2 | Active Watch (Scheduled Data Drops)
+
+- NOAA climate monitoring (sea ice, CO2, ocean heat content) - monthly data drops
+- Solar Cycle 25 peak activity and space weather events - react to X-class flares
 - Peer-reviewed biology and cognitive science (animal intelligence, navigation, ecology)
 - SpaceX IPO and associated capital markets developments
+- NVIDIA Blackwell and next-gen GPU supply chains
+- Google, Microsoft, Amazon hyperscale data center expansion in Europe
+
+### Tier 3 | Watch and React
+
+- Major volcanic eruptions (stratospheric impact on ozone)
+- Extreme heat records (national, regional, global)
+- Wildfire season milestones
+- Space mission anomalies
+- New IPCC or major Nature/Science papers
+- Mars surface missions (Curiosity, Perseverance)
 
 ---
 

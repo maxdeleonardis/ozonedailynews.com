@@ -1,0 +1,137 @@
+{
+  "slug": "space-x",
+  "url": "https://www.ozonedailynews.com/space-x",
+  "article_type": "article_page",
+  "title": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight",
+  "subtitle": "Space Exploration Technologies Corp. (SpaceX) is the private aerospace manufacturer and space transportation company founded by Elon Musk in 2002. SpaceX operates the Falcon 9 and Falcon Heavy orbital rockets, the Dragon spacecraft, the Starlink satellite internet constellation, and is developing Starship, the most powerful launch vehicle ever built.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-06-20T09:00:00-05:00",
+  "publish_date": "June 20, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "read_time": "1 min read",
+  "thumbnail_src": "/thumbnails/space-x.jpg",
+  "thumbnail_alt": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight branded thumbnail",
+  "tags": [
+    "SpaceX",
+    "Starship",
+    "Falcon 9",
+    "Starlink",
+    "Elon Musk",
+    "Commercial Spaceflight"
+  ],
+  "info_box": {
+    "title": "SpaceX",
+    "subtitle": "Space Exploration Technologies Corp.",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=600&fit=crop",
+      "alt": "SpaceX rocket on launch pad at twilight",
+      "caption": "SpaceX launch vehicle at Starbase, Boca Chica, Texas"
+    },
+    "sections": [
+      {
+        "heading": "Company Overview",
+        "items": [
+          {
+            "label": "Founded",
+            "value": "March 14, 2002"
+          },
+          {
+            "label": "Founder & CEO",
+            "value": "Elon Musk"
+          },
+          {
+            "label": "Headquarters",
+            "value": "Hawthorne, California"
+          },
+          {
+            "label": "Valuation",
+            "value": "~$350 billion (2025)"
+          },
+          {
+            "label": "Employees",
+            "value": "13,000+"
+          }
+        ]
+      },
+      {
+        "heading": "Active Programs",
+        "items": [
+          {
+            "label": "Orbital Rocket",
+            "value": "Falcon 9 (reusable, 300+ flights)"
+          },
+          {
+            "label": "Heavy Lift",
+            "value": "Falcon Heavy"
+          },
+          {
+            "label": "Spacecraft",
+            "value": "Dragon (cargo & crew)"
+          },
+          {
+            "label": "Next-Gen",
+            "value": "Starship (fully reusable)"
+          },
+          {
+            "label": "Satellite Network",
+            "value": "Starlink (6,000+ satellites)"
+          }
+        ]
+      },
+      {
+        "heading": "OzoneNews SpaceX Coverage",
+        "links": [
+          {
+            "href": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+            "label": "SpaceX Starship Orbital Flight Record & Reuse Milestones 2026"
+          },
+          {
+            "href": "/spacex-starship-flight-10-engineering-legacy-v3-transition",
+            "label": "Starship Flight 10 | Engineering Legacy & V3 Transition"
+          },
+          {
+            "href": "/finance/spacex-ipo-75-billion-record-valuation-2026",
+            "label": "SpaceX IPO & Record Valuation"
+          },
+          {
+            "href": "/space",
+            "label": "All Space Coverage"
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "title": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight",
+    "description": "SpaceX news and analysis from OzoneNews. Starship test flights, Falcon 9 launch cadence, Starlink deployments, and the future of reusable rocketry.",
+    "keywords": [
+      "SpaceX",
+      "SpaceX Starship 2026",
+      "Falcon 9 launches",
+      "Starlink satellite network",
+      "reusable rockets",
+      "commercial spaceflight"
+    ],
+    "alternates": {
+      "canonical": "https://www.ozonedailynews.com/space-x"
+    },
+    "openGraph": {
+      "title": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight",
+      "description": "SpaceX news and analysis from OzoneNews. Starship test flights, Falcon 9 launch cadence, Starlink deployments, and reusable rocketry.",
+      "type": "article",
+      "url": "https://www.ozonedailynews.com/space-x",
+      "images": [
+        {
+          "url": "https://www.ozonedailynews.com/thumbnails/space-x.jpg",
+          "width": 1200,
+          "height": 675,
+          "alt": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight branded thumbnail"
+        }
+      ]
+    }
+  },
+  "content_html": "<p>Space Exploration Technologies Corp. (SpaceX) is the private aerospace manufacturer and space transportation company founded by Elon Musk in 2002. Headquartered in Hawthorne, California, SpaceX has transformed the global launch industry through reusable rocket technology, achieving over 300 Falcon 9 flights and recovering boosters more than 250 times. The company operates the Dragon spacecraft for NASA cargo and crew missions to the International Space Station.</p>\n\n<h2>Starship & Reusability</h2>\n\n<p>SpaceX is developing <a href=\"/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Starship</a>, a fully reusable super heavy-lift launch vehicle designed for lunar, Martian, and point-to-point Earth transportation. Starship test flights have set records for booster recovery and orbital-class reuse. The vehicle is central to NASA's <a href=\"/nasa/news/nasa-artemis-3-mission-status-launch-window-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis 3</a> human landing system. Read our analysis of <a href=\"/spacex-starship-flight-10-engineering-legacy-v3-transition\" class=\"text-blue-600 hover:text-blue-800 underline\">Starship Flight 10 and the V3 transition</a>.</p>\n\n<h2>Starlink & Commercial Operations</h2>\n\n<p>Beyond launch services, SpaceX operates <a href=\"/space\" class=\"text-blue-600 hover:text-blue-800 underline\">Starlink</a>, a constellation of more than 6,000 satellites providing global internet coverage. The company's launch cadence, reusability economics, and vertical integration have made it the dominant orbital launch provider worldwide. For capital markets coverage, see our reporting on the <a href=\"/finance/spacex-ipo-75-billion-record-valuation-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX valuation and IPO outlook</a>.</p>"
+}

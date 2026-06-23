@@ -1,86 +1,197 @@
 [
   {
-    "slug": "/blue-origin",
-    "filePath": "article_pages/blue-origin.json",
-    "title": "Blue Origin | New Glenn, New Shepard & Space Infrastructure",
-    "description": "Blue Origin news and analysis from OzoneNews. New Glenn orbital launches, New Shepard suborbital flights, BE-4 engine production, and Blue Moon lunar lander development.",
+    "slug": "/science/aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026",
+    "filePath": "articles/2026/06/science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026.json",
+    "title": "Quantum Sensing Breakthrough Clears Path for Dark Matter and Gravitational Wave Detector",
+    "description": "UK-led collaboration in Nature demonstrates quantum sensing noise cancellation for AION atom interferometer. Tabletop prototype at Imperial College London achieves Standard Quantum Limit sensitivity, targeting 1 Hz mid-band gravitational waves and ultralight dark matter detection.",
+    "publishDate": "2026-06-23",
+    "modifiedDate": "2026-06-23",
+    "category": "Science",
+    "tags": [
+      "AION",
+      "Atom Interferometry",
+      "Quantum Sensing",
+      "Dark Matter",
+      "Gravitational Waves",
+      "LIGO",
+      "LISA",
+      "Nature",
+      "Imperial College London",
+      "University of Oxford"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/science/heliconius-butterfly-longevity-aging-pollen-genetics-2026",
+    "filePath": "articles/2026/06/science-heliconius-butterfly-longevity-aging-pollen-genetics-2026.json",
+    "title": "Tropical Butterfly Lives 25 Times Longer Than Cousins | New Aging Blueprint Discovered",
+    "description": "University of Bristol and Smithsonian study in Nature Communications reveals Heliconius butterflies live up to 348 days due to evolved genetic mechanisms and pollen diet. A Pullinator grip strength test showed zero physical decline in aged individuals, challenging standard senescence models.",
+    "publishDate": "2026-06-23",
+    "modifiedDate": "2026-06-23",
+    "category": "Science",
+    "tags": [
+      "Heliconius Butterflies",
+      "Longevity",
+      "Aging Biology",
+      "University of Bristol",
+      "Smithsonian Tropical Research Institute",
+      "Nature Communications",
+      "Pollen Diet",
+      "Evolutionary Biology"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-heliconius-butterfly-longevity-aging-pollen-genetics-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/spacex/starfall-reentry-capsule-demo-launch-2026",
+    "filePath": "articles/2026/06/spacex-starfall-reentry-capsule-demo-launch-2026.json",
+    "title": "SpaceX Preps Secret Starfall Reentry Capsule | Orbital Manufacturing Demo Launch Tomorrow",
+    "description": "SpaceX launches Starfall reentry capsule demo on Falcon 9 from Cape Canaveral. The flat cylindrical vehicle returns up to 2,200 pounds of cargo from orbit, targeting the orbital manufacturing market with a 29-flight veteran booster B1078.",
+    "publishDate": "2026-06-22",
+    "modifiedDate": "2026-06-22",
+    "category": "Space",
+    "tags": [
+      "SpaceX",
+      "Starfall",
+      "Falcon 9",
+      "Orbital Manufacturing",
+      "Reentry Capsule",
+      "Cape Canaveral",
+      "B1078",
+      "In-Space Manufacturing"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/spacex-starfall-reentry-capsule-demo-launch-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
+  },
+  {
+    "slug": "/tech/spacex-starfall-reentry-capsule-demo-2026",
+    "filePath": "articles/2026/06/tech-spacex-starfall-reentry-capsule-demo-2026.json",
+    "title": "SpaceX Preps Sunrise Launch for Secretive Starfall Reentry Capsule Demo",
+    "description": "SpaceX launches Starfall reentry capsule Tuesday June 23 at 6:43 a.m. EDT aboard Falcon 9 B1078 on its 29th flight. The flat cylindrical capsule targets 2,200 pounds of cargo return for the orbital manufacturing market.",
+    "publishDate": "2026-06-22",
+    "modifiedDate": "2026-06-22",
+    "category": "Tech",
+    "tags": [
+      "SpaceX",
+      "Starfall",
+      "Reentry Capsule",
+      "Falcon 9",
+      "Orbital Manufacturing",
+      "B1078",
+      "Cape Canaveral"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/tech-spacex-starfall-reentry-capsule-demo-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/science/nasa-roman-space-telescope-arrives-florida-2026",
+    "filePath": "jack_articles/2026/06/science-nasa-roman-space-telescope-arrives-florida-2026.json",
+    "title": "Nancy Grace Roman Space Telescope | Arrives in Florida for Launch Processing",
+    "description": "NASA Nancy Grace Roman Space Telescope arrives at Kennedy Space Center for 70-day pre-launch processing. Falcon Heavy launch targeting August 30, 2026, to Sun-Earth L2 with a 300-megapixel Wide Field Instrument.",
+    "publishDate": "2026-06-22",
+    "modifiedDate": "2026-06-22",
+    "category": "Science",
+    "tags": [
+      "Nancy Grace Roman Space Telescope",
+      "NASA",
+      "Kennedy Space Center",
+      "Falcon Heavy",
+      "SpaceX",
+      "Wide Field Instrument",
+      "Lagrange Point L2"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-nasa-roman-space-telescope-arrives-florida-2026.jpg",
+    "articleType": "JackArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
+    "slug": "/blue-origin/new-glenn-pad-rebuild-lc36-2026",
+    "filePath": "articles/2026/06/blue-origin-new-glenn-pad-rebuild-lc36-2026.json",
+    "title": "Rocket Report | Rebuild Begins at Blue Origin Launch Complex 36 After New Glenn Explosion",
+    "description": "Blue Origin begins round-the-clock rebuild of Launch Complex 36 after New Glenn static fire explosion. Pad reconstruction started June 16 with a custom vertical integration building system.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
-    "category": "Science",
+    "category": "News",
     "tags": [
       "Blue Origin",
       "New Glenn",
-      "New Shepard",
-      "Jeff Bezos",
-      "BE-4 Engine",
-      "Commercial Spaceflight"
+      "Launch Complex 36",
+      "Static Fire Explosion",
+      "Dave Limp",
+      "Relativity Space",
+      "Terran R",
+      "NASA Artemis"
     ],
-    "author": "OzoneNews Editorial Team",
-    "authorSlug": "ozonedailynews-editorial-team",
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "/thumbnails/blue-origin.jpg",
-    "articleType": "ArticlePage",
-    "lifecycle": "evergreen",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=blue-origin"
+    "imageUrl": "/thumbnails/blue-origin-new-glenn-pad-rebuild-lc36-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
   },
   {
-    "slug": "/nasa",
-    "filePath": "article_pages/nasa.json",
-    "title": "NASA | Missions, Discoveries & Space Exploration",
-    "description": "NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, James Webb Space Telescope, and deep space science.",
+    "slug": "/science/jwst-gj504b-salty-clouds-pink-planet-2026",
+    "filePath": "articles/2026/06/science-jwst-gj504b-salty-clouds-pink-planet-2026.json",
+    "title": "A Salty Surprise | JWST Detects Vaporized Salt Clouds on the Pink Planet GJ 504b",
+    "description": "JWST detected vaporized salt clouds on exoplanet GJ 504b, the famous Pink Planet. Sodium chloride and potassium chloride found in its atmosphere by NIRSpec. New exoplanet chemistry data.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
     "category": "Science",
     "tags": [
-      "NASA",
-      "Artemis",
       "James Webb Space Telescope",
-      "Mars Exploration",
-      "Space Exploration"
+      "GJ 504b",
+      "Pink Planet",
+      "Exoplanet Atmosphere",
+      "Salt Clouds",
+      "NIRSpec",
+      "Northwestern University"
     ],
-    "author": "OzoneNews Editorial Team",
-    "authorSlug": "ozonedailynews-editorial-team",
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "/thumbnails/nasa.jpg",
-    "articleType": "ArticlePage",
-    "lifecycle": "evergreen",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=nasa"
-  },
-  {
-    "slug": "/space-x",
-    "filePath": "article_pages/space-x.json",
-    "title": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight",
-    "description": "SpaceX news and analysis from OzoneNews. Starship test flights, Falcon 9 launch cadence, Starlink deployments, and the future of reusable rocketry.",
-    "publishDate": "2026-06-20",
-    "modifiedDate": "2026-06-20",
-    "category": "Science",
-    "tags": [
-      "SpaceX",
-      "Starship",
-      "Falcon 9",
-      "Starlink",
-      "Elon Musk",
-      "Commercial Spaceflight"
-    ],
-    "author": "OzoneNews Editorial Team",
-    "authorSlug": "ozonedailynews-editorial-team",
-    "priority": 0.7,
-    "changeFrequency": "daily",
-    "imageUrl": "/thumbnails/space-x.jpg",
-    "articleType": "ArticlePage",
-    "lifecycle": "evergreen",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=space-x"
+    "imageUrl": "/thumbnails/science-jwst-gj504b-salty-clouds-pink-planet-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
   },
   {
     "slug": "/science/quantum-entanglement-strange-metal-crystal-2026",
     "filePath": "articles/2026/06/science-quantum-entanglement-strange-metal-crystal-2026.json",
     "title": "Quantum Soup Captured | Physicists Find Entanglement in a Visible Strange Metal Crystal",
-    "description": "[FILL: 130-155 chars. Primary keyword in first 60 chars. No generic phrases or AI boilerplate.]",
+    "description": "Physicists detected macroscopic quantum entanglement inside a visible centimeter-sized strange metal crystal. The Nature Physics study proves quantum states can thrive in solid matter.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
     "category": "Science",
@@ -101,41 +212,13 @@
     "imageUrl": "/thumbnails/science-quantum-entanglement-strange-metal-crystal-2026.jpg",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=science-quantum-entanglement-strange-metal-crystal-2026"
-  },
-  {
-    "slug": "/science/jwst-gj504b-salty-clouds-pink-planet-2026",
-    "filePath": "articles/2026/06/science-jwst-gj504b-salty-clouds-pink-planet-2026.json",
-    "title": "A Salty Surprise | JWST Detects Vaporized Salt Clouds on the Pink Planet GJ 504b",
-    "description": "[FILL: 130-155 chars. Primary keyword in first 60 chars. No generic phrases or AI boilerplate.]",
-    "publishDate": "2026-06-20",
-    "modifiedDate": "2026-06-20",
-    "category": "Science",
-    "tags": [
-      "James Webb Space Telescope",
-      "GJ 504b",
-      "Pink Planet",
-      "Exoplanet Atmosphere",
-      "Salt Clouds",
-      "NIRSpec",
-      "Northwestern University"
-    ],
-    "author": "Max DeLeonardis",
-    "authorSlug": "max-deleonardis",
-    "priority": 0.7,
-    "changeFrequency": "daily",
-    "imageUrl": "/thumbnails/science-jwst-gj504b-salty-clouds-pink-planet-2026.jpg",
-    "articleType": "NewsArticle",
-    "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=science-jwst-gj504b-salty-clouds-pink-planet-2026"
+    "breaking": false
   },
   {
     "slug": "/science/titan-hydrocarbon-resources-nasa-study-2026",
     "filePath": "articles/2026/06/science-titan-hydrocarbon-resources-nasa-study-2026.json",
     "title": "Persian Gulf of Space | NASA Study Maps Massive Fuel Resources on Saturn Moon Titan",
-    "description": "[FILL: 130-155 chars. Primary keyword in first 60 chars. No generic phrases or AI boilerplate.]",
+    "description": "NASA Goddard study maps vast hydrocarbon fuel reserves and water ice on Saturn moon Titan. Methane lakes, LNG, and rocket propellant potential make Titan a deep-space refueling hub.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
     "category": "Science",
@@ -183,14 +266,13 @@
     "imageUrl": "/thumbnails/world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026.jpg",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026"
+    "breaking": false
   },
   {
     "slug": "/tech/bezos-orbital-data-centers-vivatech-2026",
     "filePath": "jack_articles/2026/06/tech-bezos-orbital-data-centers-vivatech-2026.json",
     "title": "Off-World Overhaul | Jeff Bezos Declares Orbital AI Data Centers Are a Certainty at VivaTech 2026",
-    "description": "[FILL: 130-155 chars. Primary keyword in first 60 chars. No generic phrases or AI boilerplate.]",
+    "description": "Jeff Bezos says orbital AI data centers are inevitable once launch costs drop. Blue Origin aims to build the space infrastructure road for space-based computing at VivaTech 2026.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
     "category": "Tech",
@@ -210,41 +292,13 @@
     "imageUrl": "/thumbnails/tech-bezos-orbital-data-centers-vivatech-2026.jpg",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "thumbnail_src": "/api/og?slug=tech-bezos-orbital-data-centers-vivatech-2026"
-  },
-  {
-    "slug": "/blue-origin/new-glenn-pad-rebuild-lc36-2026",
-    "filePath": "articles/2026/06/blue-origin-new-glenn-pad-rebuild-lc36-2026.json",
-    "title": "Rocket Report | Rebuild Begins at Blue Origin Launch Complex 36 After New Glenn Explosion",
-    "description": "Blue Origin begins round-the-clock rebuild of Launch Complex 36 after New Glenn static fire explosion. Pad reconstruction started June 16 with a custom vertical integration building system.",
-    "publishDate": "2026-06-20",
-    "modifiedDate": "2026-06-20",
-    "category": "News",
-    "tags": [
-      "Blue Origin",
-      "New Glenn",
-      "Launch Complex 36",
-      "Static Fire Explosion",
-      "Dave Limp",
-      "Relativity Space",
-      "Terran R",
-      "NASA Artemis"
-    ],
-    "author": "Max DeLeonardis",
-    "authorSlug": "max-deleonardis",
-    "priority": 0.7,
-    "changeFrequency": "daily",
-    "imageUrl": "/thumbnails/blue-origin-new-glenn-pad-rebuild-lc36-2026.jpg",
-    "articleType": "NewsArticle",
-    "lifecycle": "news",
     "breaking": false
   },
   {
     "slug": "/tech/google-nvidia-ai-chip-playbook-tpu-2026",
     "filePath": "jack_articles/2026/06/tech-google-nvidia-ai-chip-playbook-tpu-2026.json",
     "title": "Turning the Tables | Google Borrows Nvidia Financial Playbook to Break AI Chip Monopoly",
-    "description": "[FILL: 130-155 chars. Primary keyword in first 60 chars. No generic phrases or AI boilerplate.]",
+    "description": "Alphabet clones Nvidia financial playbook with $3.2 billion in guarantees, $35 billion private-credit platform, and circular financing to force TPU adoption and break Nvidia AI chip dominance.",
     "publishDate": "2026-06-20",
     "modifiedDate": "2026-06-20",
     "category": "Tech",
@@ -268,11 +322,86 @@
     "breaking": false
   },
   {
+    "slug": "/blue-origin",
+    "filePath": "article_pages/blue-origin.json",
+    "title": "Blue Origin | New Glenn, New Shepard & Space Infrastructure",
+    "description": "Blue Origin news and analysis from OzoneNews. New Glenn orbital launches, New Shepard suborbital flights, BE-4 engine production, and Blue Moon lunar lander development.",
+    "publishDate": "2026-06-20",
+    "modifiedDate": "2026-06-20",
+    "category": "Science",
+    "tags": [
+      "Blue Origin",
+      "New Glenn",
+      "New Shepard",
+      "Jeff Bezos",
+      "BE-4 Engine",
+      "Commercial Spaceflight"
+    ],
+    "author": "OzoneNews Editorial Team",
+    "authorSlug": "ozonedailynews-editorial-team",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/blue-origin.jpg",
+    "articleType": "ArticlePage",
+    "lifecycle": "evergreen",
+    "breaking": false
+  },
+  {
+    "slug": "/nasa",
+    "filePath": "article_pages/nasa.json",
+    "title": "NASA | Missions, Discoveries & Space Exploration",
+    "description": "NASA missions, discoveries, and space exploration coverage from OzoneNews. Artemis Moon program, Mars rovers, James Webb Space Telescope, and deep space science.",
+    "publishDate": "2026-06-20",
+    "modifiedDate": "2026-06-20",
+    "category": "Science",
+    "tags": [
+      "NASA",
+      "Artemis",
+      "James Webb Space Telescope",
+      "Mars Exploration",
+      "Space Exploration"
+    ],
+    "author": "OzoneNews Editorial Team",
+    "authorSlug": "ozonedailynews-editorial-team",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/nasa.jpg",
+    "articleType": "ArticlePage",
+    "lifecycle": "evergreen",
+    "breaking": false
+  },
+  {
+    "slug": "/space-x",
+    "filePath": "article_pages/space-x.json",
+    "title": "SpaceX | Starship, Falcon 9 & Commercial Spaceflight",
+    "description": "SpaceX news and analysis from OzoneNews. Starship test flights, Falcon 9 launch cadence, Starlink deployments, and the future of reusable rocketry.",
+    "publishDate": "2026-06-20",
+    "modifiedDate": "2026-06-20",
+    "category": "Science",
+    "tags": [
+      "SpaceX",
+      "Starship",
+      "Falcon 9",
+      "Starlink",
+      "Elon Musk",
+      "Commercial Spaceflight"
+    ],
+    "author": "OzoneNews Editorial Team",
+    "authorSlug": "ozonedailynews-editorial-team",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/space-x.jpg",
+    "articleType": "ArticlePage",
+    "lifecycle": "evergreen",
+    "breaking": false
+  },
+  {
     "slug": "/science/earth-mycorrhizal-fungi-network-map-spun-2026",
+    "filePath": "articles/2026/06/science-earth-mycorrhizal-fungi-network-map-spun-2026.json",
     "title": "Earth's Fungi Network Spans 110 Quadrillion Kilometers ",
     "description": "A global SPUN study maps Earth's mycorrhizal fungal network at 110 quadrillion kilometers, storing up to 4 billion tons of CO2 annually in soil.",
-    "publishDate": "2026-06-11T14:00:00+00:00",
-    "modifiedDate": "2026-06-11T14:00:00+00:00",
+    "publishDate": "2026-06-11",
+    "modifiedDate": "2026-06-11",
     "category": "Science",
     "tags": [
       "Mycorrhizal Fungi",
@@ -284,17 +413,16 @@
     ],
     "author": "Max DeLeonardis",
     "authorSlug": "max-deleonardis",
-    "priority": 0.8,
+    "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://www.ozonedailynews.com/api/og?slug=science-earth-mycorrhizal-fungi-network-map-spun-2026",
-    "imageAlt": "Close-up of soil and plant roots showing mycorrhizal fungal threads underground",
+    "imageUrl": "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": true,
-    "filePath": "articles/2026/06/science-earth-mycorrhizal-fungi-network-map-spun-2026.json"
+    "breaking": true
   },
   {
     "slug": "/science/galaxy-killing-wind-cristal-02-jwst-early-universe-2026",
+    "filePath": "jack_articles/2026/06/science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026.json",
     "title": "Galaxy-Killing Wind | JWST Solves Why Early Galaxies Die Young",
     "description": "Galaxy-killing wind found by JWST is stripping CRISTAL-02, solving why massive early universe galaxies died within 50 million years.",
     "publishDate": "2026-06-11",
@@ -313,14 +441,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026.json"
+    "breaking": false
   },
   {
     "slug": "/news/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers",
+    "filePath": "articles/2026/06/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers.json",
     "title": "Researchers Find Hidden Damage To Coral Reefs By Scuba Divers",
     "description": "A new study shows scuba divers cause frequent, mostly unnoticed reef damage. The findings challenge the idea that diving tourism is inherently sustainable.",
     "publishDate": "2026-06-09",
@@ -338,14 +466,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/06/researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers.json"
+    "breaking": false
   },
   {
     "slug": "/earth/coral-reef",
+    "filePath": "article_pages/earth/earth-coral-reef.json",
     "title": "Coral Reef | Why Heat Stress and Bleaching Are Reshaping Ocean Life",
     "description": "Coral reefs are under pressure from heat stress, acidification, and disease. Here is what 2026 bleaching data and recovery trends show.",
     "publishDate": "2026-06-09",
@@ -366,11 +494,11 @@
     "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&h=675&fit=crop",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false,
-    "filePath": "article_pages/earth/earth-coral-reef.json"
+    "breaking": false
   },
   {
     "slug": "/earth",
+    "filePath": "article_pages/earth/earth.json",
     "title": "Earth | Climate, Oceans, and Coral Systems",
     "description": "Earth coverage focused on coral reefs, ocean health, climate resilience, and the ecosystems that sustain life on our planet.",
     "publishDate": "2026-06-09",
@@ -391,11 +519,11 @@
     "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false,
-    "filePath": "article_pages/earth/earth.json"
+    "breaking": false
   },
   {
     "slug": "/science/spain-solar-eclipses-summer-2026",
+    "filePath": "articles/2026/06/science-spain-solar-eclipses-summer-2026.json",
     "title": "Spain Has 3 Solar Eclipses This Summer | Dates, Viewing Locations, and What to Expect",
     "description": "Spain sees three solar eclipses in summer 2026, including a total eclipse on August 12. Get the exact dates, paths, and viewing tips for each event.",
     "publishDate": "2026-06-07",
@@ -413,14 +541,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/06/science-spain-solar-eclipses-summer-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/milky-way-black-hole-wind-sagittarius-a-discovery-2026",
+    "filePath": "jack_articles/2026/06/science-milky-way-black-hole-wind-sagittarius-a-discovery-2026.json",
     "title": "Scientists Find Wind Blowing From Our Milky Way's Black Hole | Half-Century Search Ends",
     "description": "JWST has confirmed a molecular wind driven by Sagittarius A*, the Milky Way's black hole, ending a 50-year search and rewriting galactic feedback models.",
     "publishDate": "2026-06-07",
@@ -439,14 +567,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-milky-way-black-hole-wind-sagittarius-a-discovery-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/west-coast-sea-stars-resurgence-die-off-2026",
+    "filePath": "article_pages/science/science-west-coast-sea-stars-resurgence-die-off-2026.json",
     "title": "West Coast Sea Stars Resurgence | After Massive Die-Off, Populations Recover Unevenly",
     "description": "After sea star wasting disease killed billions of sea stars from 2013 to 2016, West Coast populations are partially rebounding. Here is the current ecological status.",
     "publishDate": "2026-06-07",
@@ -468,11 +596,11 @@
     "imageUrl": "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1200&h=675&fit=crop",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false,
-    "filePath": "article_pages/science/science-west-coast-sea-stars-resurgence-die-off-2026.json"
+    "breaking": false
   },
   {
     "slug": "/tech/blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
+    "filePath": "articles/2026/06/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.json",
     "title": "Blazar Talon 1.5X Anamorphic | World's First Full Frame Autofocus Cinema Lens Series",
     "description": "Blazar Talon 1.5X is the world's first full-frame autofocus anamorphic lens, delivering a 1.8x cinematic look at T2.1 in three focal lengths from $1,099.",
     "publishDate": "2026-06-06",
@@ -490,14 +618,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026/1780817406036-screenshot-2026-06-06-at-2.30.34-pm.png",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/06/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+    "filePath": "jack_articles/2026/06/science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026.json",
     "title": "Antares Mark-0 Goes Critical | First Advanced US Nuclear Reactor in 40 Years",
     "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",
     "publishDate": "2026-06-05",
@@ -516,14 +644,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/iss-zvezda-air-leak-dragon-shelter-june-2026",
+    "filePath": "jack_articles/2026/06/science-iss-zvezda-air-leak-dragon-shelter-june-2026.json",
     "title": "ISS Zvezda Air Leak | NASA Crew Shelters in Dragon as Russia Attempts Emergency Repairs",
     "description": "NASA directed five astronauts to shelter in Dragon on June 5 as Russian cosmonauts attempted emergency repairs on the Zvezda module's worsening PrK air leak.",
     "publishDate": "2026-06-05",
@@ -542,14 +670,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": true,
-    "filePath": "jack_articles/2026/06/science-iss-zvezda-air-leak-dragon-shelter-june-2026.json"
+    "breaking": true
   },
   {
     "slug": "/science/nasa-iss-shelter-order-zvezda-june-5-2026",
+    "filePath": "creator_articles/science-nasa-iss-shelter-order-zvezda-june-5-2026.json",
     "title": "NASA Orders Astronauts to Take Shelter After New Leak Aboard the International Space Station",
     "description": "NASA ordered the ISS crew to shelter in Dragon on June 5 after new Zvezda leaks worsened. Partial repairs completed within 90 minutes; no emergency was declared.",
     "publishDate": "2026-06-05",
@@ -570,11 +698,11 @@
     "imageUrl": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=1200&h=675&fit=crop",
     "articleType": "CreatorArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "creator_articles/science-nasa-iss-shelter-order-zvezda-june-5-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/bumblebee-problem-solving-chimp-tool-use-study-2026",
+    "filePath": "jack_articles/2026/06/science-bumblebee-problem-solving-chimp-tool-use-study-2026.json",
     "title": "Bumblebees Match Chimps in Classic Problem-Solving Test | New Study Rewrites Invertebrate Intelligence",
     "description": "A study in Science finds buff-tailed bumblebees spontaneously use objects as tools to reach food, matching the cognitive problem-solving of chimpanzees.",
     "publishDate": "2026-06-04",
@@ -592,14 +720,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-bumblebee-problem-solving-chimp-tool-use-study-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/nasa-maven-mars-orbiter-dead-2026",
+    "filePath": "jack_articles/2026/06/science-nasa-maven-mars-orbiter-dead-2026.json",
     "title": "NASA Declares MAVEN Mars Orbiter Dead | Fatal Spin Ends 11-Year Mission After Six Months of Silence",
     "description": "NASA declared MAVEN dead on June 4, 2026, after a spin failure on December 6, 2025 ended six months of silence and 11 years of Mars science.",
     "publishDate": "2026-06-04",
@@ -617,14 +745,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-nasa-maven-mars-orbiter-dead-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm",
+    "filePath": "jack_articles/2026/06/science-northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm.json",
     "title": "Sun Fires Triple Solar Flares | Cannibal CME Pushes Northern Lights Deep Into the US Tonight",
     "description": "Three solar flares merge into a cannibal CME, pushing Northern Lights as far south as Illinois and Oregon tonight, June 4-5, 2026.",
     "publishDate": "2026-06-04",
@@ -642,14 +770,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": true,
-    "filePath": "jack_articles/2026/06/science-northern-lights-us-june-2026-cannibal-cme-geomagnetic-storm.json"
+    "breaking": true
   },
   {
     "slug": "/science/sagittarius-a-black-hole-wind-discovery-2026",
+    "filePath": "jack_articles/2026/06/science-sagittarius-a-black-hole-wind-discovery-2026.json",
     "title": "Milky Way Black Hole Caught Breathing | 50-Year Mystery of Sagittarius A* Wind Solved",
     "description": "Astronomers using ALMA and Chandra detected a hot continuous wind from Sagittarius A*, solving a 50-year mystery about the Milky Way's black hole.",
     "publishDate": "2026-06-04",
@@ -667,14 +795,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/science-sagittarius-a-black-hole-wind-discovery-2026.json"
+    "breaking": false
   },
   {
     "slug": "/tech/nvidia/blackwell-rtx-50-series-architecture-specs-pricing-2026",
+    "filePath": "jack_articles/2026/06/tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026.json",
     "title": "Blackwell Commences Its Reign | NVIDIA GeForce RTX 50-Series Architecture, Specs, and Pricing",
     "description": "NVIDIA's Blackwell RTX 50-series launches with the RTX 5090 at $1,999, featuring 32GB GDDR7 on a 512-bit bus and 1,792 GB/s memory bandwidth.",
     "publishDate": "2026-06-04",
@@ -692,14 +820,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026.json"
+    "breaking": false
   },
   {
     "slug": "/finance/spacex-ipo-75-billion-record-valuation-2026",
+    "filePath": "jack_articles/2026/06/finance-spacex-ipo-75-billion-record-valuation-2026.json",
     "title": "SpaceX's $75B Record IPO | Inside Elon Musk's Out-of-This-World Capital Requirements",
     "description": "SpaceX priced its historic IPO at $135 per share targeting $75B, valuing the company at $1.77T. Wall Street is split: Oppenheimer bull vs. Morningstar bear. Full breakdown inside.",
     "publishDate": "2026-06-03",
@@ -719,14 +847,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": true,
-    "filePath": "jack_articles/2026/06/finance-spacex-ipo-75-billion-record-valuation-2026.json"
+    "breaking": true
   },
   {
     "slug": "/tech/google-ai-data-center-water-consumption-cooling-2026",
+    "filePath": "jack_articles/2026/06/tech-google-ai-data-center-water-consumption-cooling-2026.json",
     "title": "AI's Hidden Thirst | How Google Is Engineering Its Way Out of the Data Center Water Crisis",
     "description": "AI models consume up to 500ml of water per query for server cooling. Google's three-part fix: air cooling, closed-loop liquid systems, and municipal heat recovery. Full breakdown.",
     "publishDate": "2026-06-03",
@@ -746,14 +874,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/tech-google-ai-data-center-water-consumption-cooling-2026.json"
+    "breaking": false
   },
   {
     "slug": "/tech/google-horndal-sweden-data-center-groundbreaking-2026",
+    "filePath": "jack_articles/2026/06/tech-google-horndal-sweden-data-center-groundbreaking-2026.json",
     "title": "Google Breaks Ground in Sweden | The 9-Year Road to Horndal and What It Means for European AI Infrastructure",
     "description": "Google broke ground in Horndal, Sweden on June 2, 2026. The 700MW facility closes a 9-year development and reshapes European AI infrastructure.",
     "publishDate": "2026-06-03",
@@ -773,14 +901,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://vgxzkkigomwmdxtwazeg.supabase.co/storage/v1/object/public/media/thumbnails/tech-google-horndal-sweden-data-center-groundbreaking-2026/1780556471656--029.jpg",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "jack_articles/2026/06/tech-google-horndal-sweden-data-center-groundbreaking-2026.json"
+    "breaking": false
   },
   {
     "slug": "/nasa/artemis-3-timeline-leo-demonstration-2026",
+    "filePath": "articles/2026/05/nasa-artemis-3-timeline-leo-demonstration-2026.json",
     "title": "NASA Artemis 3 | x",
     "description": "NASA locks Artemis III into late 2027 as a 463 km LEO crewed demonstration with SpaceX Starship HLS and Blue Moon Mark 1. Lunar landing moves to Artemis IV in 2028.",
     "publishDate": "2026-05-30",
@@ -799,14 +927,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/nasa-artemis-3-timeline-leo-demonstration-2026.json"
+    "breaking": false
   },
   {
     "slug": "/spacex-starship-flight-10-engineering-legacy-v3-transition",
+    "filePath": "articles/2026/05/spacex-starship-flight-10-engineering-legacy-v3-transition.json",
     "title": "Starship Flight 10 | Engineering Legacy and the V3 Transition",
     "description": "SpaceX Starship Flight 10 with Ship 37 and Booster 16 exposed structural limits that directly shaped V3 megarocket design. Full engineering breakdown.",
     "publishDate": "2026-05-30",
@@ -824,14 +952,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/spacex-starship-flight-10-engineering-legacy-v3-transition.json"
+    "breaking": false
   },
   {
     "slug": "/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026",
+    "filePath": "jack_articles/2026/05/science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026.json",
     "title": "Blue Origin New Glenn Explosion | Launchpad Destruction Threatens Amazon Kuiper and NASA Lunar Architecture",
     "description": "Blue Origin's New Glenn rocket exploded during a static fire test at Cape Canaveral LC-36, destroying the pad and delaying Amazon Kuiper and NASA lunar missions.",
     "publishDate": "2026-05-30",
@@ -852,15 +980,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "/api/og?slug=science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026",
+    "imageUrl": "https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "news",
-    "breaking": true,
-    "filePath": "jack_articles/2026/05/science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026.json",
-    "thumbnail_src": "/api/og?slug=science-space-blue-origin-new-glenn-explosion-cape-canaveral-2026"
+    "breaking": true
   },
   {
     "slug": "/tech/gaming/nvidia-rtx-5070-review-blackwell-midrange-2026",
+    "filePath": "jack_articles/2026/05/tech-gaming-nvidia-rtx-5070-review-blackwell-midrange-2026.json",
     "title": "Nvidia GeForce RTX 5070 Review | The Midrange Blackwell Dilemma in 2026",
     "description": "RTX 5070 review: GB205 Blackwell architecture, 12GB GDDR7, DLSS 4 Multi-Frame Generation, and 988 TOPS FP4 compute tested at 1440p and 4K in 2026.",
     "publishDate": "2026-05-30",
@@ -880,14 +1007,14 @@
     "authorSlug": "max-deleonardis",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "JackArticle",
     "lifecycle": "review",
-    "breaking": false,
-    "filePath": "jack_articles/2026/05/tech-gaming-nvidia-rtx-5070-review-blackwell-midrange-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026",
+    "filePath": "articles/2026/05/keeling-curve-co2-annual-peak-mauna-loa-2026.json",
     "title": "Keeling Curve 2026 | CO2 Hits 433.95 ppm at Mauna Loa Peak",
     "description": "Mauna Loa Observatory recorded 433.95 ppm CO2 on May 1, 2026, the highest daily reading in the 68-year Keeling Curve record. NOAA monthly average pending June.",
     "publishDate": "2026-05-29",
@@ -906,14 +1033,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026",
+    "imageUrl": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/keeling-curve-co2-annual-peak-mauna-loa-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/pigeon-magnetic-navigation-liver-macrophages-science-2026",
+    "filePath": "articles/2026/05/pigeon-magnetic-navigation-liver-macrophages-science-2026.json",
     "title": "Pigeon Navigation | Magnetic Compass Found in Liver, Not Brain",
     "description": "Pigeon magnetic navigation relies on iron-rich liver macrophages, not the brain. A Science study from University of Bonn rewrites how birds find their way home.",
     "publishDate": "2026-05-29",
@@ -932,14 +1059,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026",
+    "imageUrl": "https://images.unsplash.com/photo-1511511450040-677116ff389e?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/pigeon-magnetic-navigation-liver-macrophages-science-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/arctic-sea-ice-minimum-2026-measured-extent",
+    "filePath": "articles/2026/05/arctic-sea-ice-minimum-2026-measured-extent.json",
     "title": "Arctic Sea Ice Minimum 2026 | NSIDC Measured Extent and Trend Data",
     "description": "The 2025 Arctic sea ice minimum was 4.28 million km², third-lowest on record. NSIDC data shows the long-term trend at minus 13% per decade. 2026 melt tracking has begun.",
     "publishDate": "2026-05-28",
@@ -957,14 +1084,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/arctic-sea-ice-minimum-2026-measured-extent.json"
+    "breaking": false
   },
   {
     "slug": "/science/great-barrier-reef-bleaching-data-2026",
+    "filePath": "articles/2026/05/great-barrier-reef-bleaching-data-2026.json",
     "title": "Great Barrier Reef Bleaching 2026 | AIMS Survey Data and Coral Status",
     "description": "AIMS 2026 monitoring data: 73% of surveyed reefs showed bleaching in the fifth mass event in eight years. Northern reef had record coral cover before the thermal stress event.",
     "publishDate": "2026-05-28",
@@ -982,14 +1109,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/great-barrier-reef-bleaching-data-2026.json"
+    "breaking": false
   },
   {
     "slug": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026",
+    "filePath": "articles/2026/05/nasa-artemis-3-mission-status-launch-window-2026.json",
     "title": "NASA Artemis III Mission Status | Launch Window and Crew Update 2026",
     "description": "NASA delayed Artemis III to no earlier than mid-2027. SpaceX HLS needs a second demo flight and Axiom Space xEMU suits are in qualification testing at Johnson Space Center.",
     "publishDate": "2026-05-28",
@@ -1007,14 +1134,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/nasa-artemis-3-mission-status-launch-window-2026.json"
+    "breaking": false
   },
   {
     "slug": "/science/ozone-layer-recovery-data-2026",
+    "filePath": "articles/2026/05/ozone-layer-recovery-data-2026.json",
     "title": "Ozone Layer Recovery Data 2026 | WMO Report Confirms Progress",
     "description": "The 2026 WMO ozone assessment confirms recovery to 1980 levels by 2045 at mid-latitudes and 2066 at the poles. Antarctic hole was fifth-smallest on record in 2025.",
     "publishDate": "2026-05-28",
@@ -1032,14 +1159,14 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/ozone-layer-recovery-data-2026.json"
+    "breaking": false
   },
   {
     "slug": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
+    "filePath": "articles/2026/05/spacex-starship-orbital-flight-record-reuse-milestones-2026.json",
     "title": "SpaceX Starship Orbital Flight Record | Reuse Milestones and 2026 Manifest",
     "description": "SpaceX Starship Flight 9 completed May 27, 2026 with the second consecutive booster catch. Nine total flights since April 2023. NASA Artemis HLS certification requirements and what comes next.",
     "publishDate": "2026-05-28",
@@ -1057,10 +1184,9 @@
     "authorSlug": "simon-minter",
     "priority": 0.7,
     "changeFrequency": "daily",
-    "imageUrl": "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&h=675&fit=crop",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false,
-    "filePath": "articles/2026/05/spacex-starship-orbital-flight-record-reuse-milestones-2026.json"
+    "breaking": false
   }
 ]

@@ -11,7 +11,7 @@
   "author_name": "Simon Alfred Minter",
   "author_slug": "simon-minter",
   "read_time": "8 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=great-barrier-reef-bleaching-data-2026",
+  "thumbnail_src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
   "thumbnail_alt": "Aerial view of coral reef with blue ocean water and visible reef structure",
   "tags": [
     "Great Barrier Reef",
@@ -41,7 +41,7 @@
       "description": "AIMS 2026 data: 73% of surveyed reefs showed bleaching in the fifth mass event in eight years. Northern reef had record coral cover before thermal stress.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=great-barrier-reef-bleaching-data-2026",
+          "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
           "width": 1200,
           "height": 675
         }

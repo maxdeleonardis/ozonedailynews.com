@@ -12,7 +12,7 @@
   "author_name": "Simon Alfred Minter",
   "author_slug": "simon-minter",
   "read_time": "5 min read",
-  "thumbnail_src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
+  "thumbnail_src": "/thumbnails/earth.jpg",
   "thumbnail_alt": "Earth from space with blue ocean and white cloud layers",
   "info_box": {
     "title": "Earth",
@@ -25,38 +25,89 @@
       {
         "heading": "Key Statistics",
         "items": [
-          { "label": "Surface Area", "value": "510.1 million km²" },
-          { "label": "Ocean Coverage", "value": "71% (361 million km²)" },
-          { "label": "Land Coverage", "value": "29% (149 million km²)" },
-          { "label": "Mean Ocean Depth", "value": "3,688 meters" },
-          { "label": "Coral Reef Coverage", "value": "<1% of seafloor" }
+          {
+            "label": "Surface Area",
+            "value": "510.1 million km²"
+          },
+          {
+            "label": "Ocean Coverage",
+            "value": "71% (361 million km²)"
+          },
+          {
+            "label": "Land Coverage",
+            "value": "29% (149 million km²)"
+          },
+          {
+            "label": "Mean Ocean Depth",
+            "value": "3,688 meters"
+          },
+          {
+            "label": "Coral Reef Coverage",
+            "value": "<1% of seafloor"
+          }
         ]
       },
       {
         "heading": "Climate Status (2026)",
         "items": [
-          { "label": "Global Temp Anomaly", "value": "+1.4°C above pre-industrial" },
-          { "label": "Ocean Heat Content", "value": "Record high (2025-2026)" },
-          { "label": "Sea Level Rise", "value": "+3.4mm/year (accelerating)" },
-          { "label": "Arctic Sea Ice", "value": "13% decline per decade" }
+          {
+            "label": "Global Temp Anomaly",
+            "value": "+1.4°C above pre-industrial"
+          },
+          {
+            "label": "Ocean Heat Content",
+            "value": "Record high (2025-2026)"
+          },
+          {
+            "label": "Sea Level Rise",
+            "value": "+3.4mm/year (accelerating)"
+          },
+          {
+            "label": "Arctic Sea Ice",
+            "value": "13% decline per decade"
+          }
         ]
       },
       {
         "heading": "Marine Life",
         "items": [
-          { "label": "Marine Species", "value": "~2.2 million described" },
-          { "label": "Coral Reef Species", "value": "25% of all marine life" },
-          { "label": "Fish Stocks", "value": "34% overfished (FAO 2025)" },
-          { "label": "Ocean Acidification", "value": "pH 8.05 (down from 8.25)" }
+          {
+            "label": "Marine Species",
+            "value": "~2.2 million described"
+          },
+          {
+            "label": "Coral Reef Species",
+            "value": "25% of all marine life"
+          },
+          {
+            "label": "Fish Stocks",
+            "value": "34% overfished (FAO 2025)"
+          },
+          {
+            "label": "Ocean Acidification",
+            "value": "pH 8.05 (down from 8.25)"
+          }
         ]
       },
       {
         "heading": "Related Coverage",
         "links": [
-          { "href": "/earth/coral-reef", "label": "Coral Reef Systems" },
-          { "href": "/science/great-barrier-reef-bleaching-data-2026", "label": "Great Barrier Reef 2026" },
-          { "href": "/science/arctic-sea-ice-minimum-2026-measured-extent", "label": "Arctic Sea Ice Data" },
-          { "href": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026", "label": "CO₂ Levels 2026" }
+          {
+            "href": "/earth/coral-reef",
+            "label": "Coral Reef Systems"
+          },
+          {
+            "href": "/science/great-barrier-reef-bleaching-data-2026",
+            "label": "Great Barrier Reef 2026"
+          },
+          {
+            "href": "/science/arctic-sea-ice-minimum-2026-measured-extent",
+            "label": "Arctic Sea Ice Data"
+          },
+          {
+            "href": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026",
+            "label": "CO₂ Levels 2026"
+          }
         ]
       }
     ]
@@ -85,7 +136,7 @@
       "description": "Earth coverage focused on coral reefs, ocean health, climate resilience, and the ecosystems that sustain life on our planet.",
       "images": [
         {
-          "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=675&fit=crop",
+          "url": "/thumbnails/earth.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Earth from space with blue ocean and white cloud layers"

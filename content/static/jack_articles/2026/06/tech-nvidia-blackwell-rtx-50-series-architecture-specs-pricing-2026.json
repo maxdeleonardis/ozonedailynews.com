@@ -26,10 +26,10 @@
     "department": "Technology"
   },
   "read_time": "9 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026",
+  "thumbnail_src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
   "thumbnail_alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background",
   "hero_image": {
-    "src": "https://www.ozonedailynews.com/api/og?slug=tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026",
+    "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background"
   },
   "tags": [
@@ -188,7 +188,7 @@
       "description": "NVIDIA's Blackwell RTX 50-series launches with the RTX 5090 at $1,999, featuring 32GB GDDR7 on a 512-bit bus and 1,792 GB/s memory bandwidth.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=tech-nvidia-blackwell-rtx-50-series-architecture-specs-pricing-2026",
+          "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
           "width": 1200,
           "height": 675,
           "alt": "NVIDIA GeForce graphics card with green LED lighting against a dark background"

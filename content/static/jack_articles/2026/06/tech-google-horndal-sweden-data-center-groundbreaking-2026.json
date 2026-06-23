@@ -26,10 +26,10 @@
     "department": "Technology"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-google-horndal-sweden-data-center-groundbreaking-2026",
+  "thumbnail_src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
   "thumbnail_alt": "Large-scale data center facility with rows of server hardware and cool blue lighting",
   "hero_image": {
-    "src": "https://www.ozonedailynews.com/api/og?slug=tech-google-horndal-sweden-data-center-groundbreaking-2026",
+    "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "alt": "Large-scale data center facility with rows of server hardware and cool blue lighting"
   },
   "tags": [
@@ -180,7 +180,7 @@
       "description": "Google broke ground in Horndal, Sweden on June 2, 2026. The 700MW facility closes a 9-year development and reshapes European AI infrastructure.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=tech-google-horndal-sweden-data-center-groundbreaking-2026",
+          "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
           "width": 1200,
           "height": 675,
           "alt": "Large-scale data center facility with rows of server hardware and cool blue lighting"

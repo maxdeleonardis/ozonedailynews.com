@@ -26,10 +26,10 @@
     "department": "Science"
   },
   "read_time": "7 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-sagittarius-a-black-hole-wind-discovery-2026",
+  "thumbnail_src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
   "thumbnail_alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds",
   "hero_image": {
-    "src": "https://www.ozonedailynews.com/api/og?slug=science-sagittarius-a-black-hole-wind-discovery-2026",
+    "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds"
   },
   "tags": [
@@ -164,7 +164,7 @@
       "description": "Astronomers using ALMA and Chandra detected a hot continuous wind from Sagittarius A*, solving a 50-year mystery about the Milky Way's black hole.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-sagittarius-a-black-hole-wind-discovery-2026",
+          "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
           "width": 1200,
           "height": 675,
           "alt": "Deep space image showing the bright center of the Milky Way galaxy with glowing gas clouds"

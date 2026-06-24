@@ -83,13 +83,29 @@ function readStaticRow<T>(table: string, slug: string): T | null {
   }
 
   // Fallback to legacy flat structure (backwards compatibility)
-  const file = path.join(STATIC_BASE, table, `${slug}.json`);
-  if (!fs.existsSync(file)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8')) as T;
-  } catch {
-    return null;
+  const flatFile = path.join(STATIC_BASE, table, `${slug}.json`);
+  if (fs.existsSync(flatFile)) {
+    try {
+      return JSON.parse(fs.readFileSync(flatFile, 'utf8')) as T;
+    } catch {
+      return null;
+    }
   }
+
+  // Sharded directory fallback — scan year/month subdirectories for [slug].json
+  // Handles jack_articles/2026/06/slug.json, articles/2026/06/slug.json, etc.
+  const allFiles = findJsonFilesRecursive(path.join(STATIC_BASE, table));
+  const target = `${slug}.json`;
+  const match = allFiles.find(f => path.basename(f) === target);
+  if (match) {
+    try {
+      return JSON.parse(fs.readFileSync(match, 'utf8')) as T;
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
 }
 
 // ─── ID-addressed content reader ─────────────────────────────────────────────

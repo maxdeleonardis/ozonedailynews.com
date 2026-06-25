@@ -1,0 +1,60 @@
+name: Ping Search Engines on Deploy
+
+# Fires on every push to master — waits for Vercel deploy, then pings
+# Google Indexing API + Bing IndexNow with the latest published URLs.
+on:
+  push:
+    branches: [master]
+
+jobs:
+  ping-indexers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      # Wait for Vercel deployment to go live (90 s is usually enough)
+      - name: Wait for Vercel deploy
+        run: |
+          echo "Waiting 90s for Vercel to deploy..."
+          sleep 90
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.NEXT_PUBLIC_SITE_URL }}/")
+          echo "Site status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "⚠️  Site returned $STATUS — pinging anyway (may be a CDN delay)"
+          fi
+
+      # Ping IndexNow (Bing + partners) — works immediately, no service account needed
+      - name: Ping IndexNow (Bing)
+        run: npx ts-node --project tsconfig.scripts.json scripts/ping-indexnow.ts --last 10
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+
+      # Ping Google Indexing API — only runs if service account is configured
+      # Setup: https://developers.google.com/search/apis/indexing-api/v3/prereqs
+      - name: Ping Google Indexing API
+        run: |
+          if [ -n "$GOOGLE_SA_EMAIL" ] && [ -n "$GOOGLE_SA_PRIVATE_KEY" ]; then
+            npx ts-node --project tsconfig.scripts.json scripts/ping-indexers.ts --last
+          else
+            echo "⚠️  GOOGLE_SA_EMAIL / GOOGLE_SA_PRIVATE_KEY not set — skipping Google Indexing API"
+            echo "   To enable: add these as GitHub Secrets (see docs/GOOGLE_INDEXING_SETUP.md)"
+          fi
+        env:
+          GOOGLE_SA_EMAIL: ${{ secrets.GOOGLE_SA_EMAIL }}
+          GOOGLE_SA_PRIVATE_KEY: ${{ secrets.GOOGLE_SA_PRIVATE_KEY }}
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}

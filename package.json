@@ -21,12 +21,14 @@
     "lifecycle:promote": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --promote",
     "lifecycle:prune": "npx ts-node --project tsconfig.scripts.json scripts/lifecycle-manager.ts --prune",
     "ping:indexers": "npx ts-node --project tsconfig.scripts.json scripts/ping-indexers.ts",
+    "ping:indexnow": "npx ts-node --project tsconfig.scripts.json scripts/ping-indexnow.ts",
+    "ping:all": "npm run ping:indexnow && npm run ping:indexers -- --last",
     "backfill": "npx dotenv-cli -e .env.local -- npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts",
     "rss:digest": "npx ts-node --project tsconfig.scripts.json scripts/rss-digest.ts",
     "mint:thumbnails": "npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts",
     "generate:thumbnails": "npx ts-node --project tsconfig.scripts.json scripts/generate-missing-thumbnails.ts",
     "satori:publish": "npx ts-node --project tsconfig.scripts.json scripts/satori-publish.ts",
-    "publish": "npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write && npx dotenv-cli -e .env.local -- npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts && npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts && git add -A && git commit -m 'publish: sync registry & backfill' && git push"
+    "publish": "npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write && npx dotenv-cli -e .env.local -- npx ts-node --project tsconfig.scripts.json scripts/backfill-articles.ts && npx ts-node --project tsconfig.scripts.json scripts/mint-thumbnails.ts && git add -A && git commit -m 'publish: sync registry & backfill' && git push && sleep 90 && npm run ping:indexnow -- --last 5"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

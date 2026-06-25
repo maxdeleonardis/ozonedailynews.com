@@ -27,12 +27,30 @@ import { SisterSiteCallout } from '@/components/ui/SisterSiteLink';
 
 const STATIC_DIR = path.join(process.cwd(), 'content', 'static', 'jack_articles');
 
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...findJsonFilesRecursive(full));
+    else if (entry.isFile() && entry.name.endsWith('.json')) results.push(full);
+  }
+  return results;
+}
+
 function loadStaticRow(slug: string): Record<string, unknown> | null {
   try {
+    // 1. Flat path (legacy: jack_articles/slug.json)
     const safeSlug = slug.replace(/\//g, '__');
     const fp = path.join(STATIC_DIR, `${safeSlug}.json`);
-    if (!fs.existsSync(fp)) return null;
-    return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+    if (fs.existsSync(fp)) return JSON.parse(fs.readFileSync(fp, 'utf8')) as Record<string, unknown>;
+
+    // 2. Sharded subdirectory scan (jack_articles/YYYY/MM/slug.json)
+    const target = `${safeSlug}.json`;
+    const match = findJsonFilesRecursive(STATIC_DIR).find(f => path.basename(f) === target);
+    if (match) return JSON.parse(fs.readFileSync(match, 'utf8')) as Record<string, unknown>;
+
+    return null;
   } catch {
     return null;
   }

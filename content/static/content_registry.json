@@ -600,7 +600,7 @@
   },
   {
     "slug": "/tech/blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
-    "filePath": "articles/2026/06/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.json",
+    "filePath": "jack_articles/2026/06/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.json",
     "title": "Blazar Talon 1.5X Anamorphic | World's First Full Frame Autofocus Cinema Lens Series",
     "description": "Blazar Talon 1.5X is the world's first full-frame autofocus anamorphic lens, delivering a 1.8x cinematic look at T2.1 in three focal lengths from $1,099.",
     "publishDate": "2026-06-06",
@@ -619,7 +619,7 @@
     "priority": 0.7,
     "changeFrequency": "daily",
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
-    "articleType": "NewsArticle",
+    "articleType": "JackArticle",
     "lifecycle": "news",
     "breaking": false
   },

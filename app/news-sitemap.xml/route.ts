@@ -22,6 +22,18 @@ const STORES = [
   'sterling_articles',
 ];
 
+/** Recursively collect all .json files under a directory (handles YYYY/MM/ sharding). */
+function findJsonFilesRecursive(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const results: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...findJsonFilesRecursive(full));
+    else if (entry.isFile() && entry.name.endsWith('.json') && entry.name !== '_index.json' && entry.name !== 'content_registry.json') results.push(full);
+  }
+  return results;
+}
+
 function getRecentArticles(): ArticleFull[] {
   const staticBase = path.join(process.cwd(), 'content', 'static');
   const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000);
@@ -32,12 +44,10 @@ function getRecentArticles(): ArticleFull[] {
     const dir = path.join(staticBase, store);
     if (!fs.existsSync(dir)) continue;
 
-    const entries = fs
-      .readdirSync(dir)
-      .filter((f) => f.endsWith('.json') && f !== '_index.json')
+    const entries = findJsonFilesRecursive(dir)
       .map((f) => {
         try {
-          return JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as ArticleFull;
+          return JSON.parse(fs.readFileSync(f, 'utf8')) as ArticleFull;
         } catch {
           return null;
         }

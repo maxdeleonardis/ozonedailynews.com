@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "6 min read",
-  "thumbnail_src": "/thumbnails/science-jwst-gj504b-salty-clouds-pink-planet-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-jwst-gj504b-salty-clouds-pink-planet-2026",
   "thumbnail_alt": "Artistic rendering of the magenta exoplanet GJ 504b with swirling salt clouds against deep space",
   "tags": [
     "James Webb Space Telescope",
@@ -43,7 +43,7 @@
       "description": "JWST detected vaporized salt clouds on exoplanet GJ 504b, the famous Pink Planet. Sodium chloride and potassium chloride found in its atmosphere by NIRSpec. New exoplanet chemistry data.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/science-jwst-gj504b-salty-clouds-pink-planet-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-jwst-gj504b-salty-clouds-pink-planet-2026",
           "width": 1200,
           "height": 675,
           "alt": "Vaporized sodium chloride clouds on exoplanet GJ 504b the Pink Planet"

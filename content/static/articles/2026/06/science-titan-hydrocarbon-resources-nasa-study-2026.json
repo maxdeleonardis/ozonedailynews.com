@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "6 min read",
-  "thumbnail_src": "/thumbnails/science-titan-hydrocarbon-resources-nasa-study-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-titan-hydrocarbon-resources-nasa-study-2026",
   "thumbnail_alt": "Saturn moon Titan with thick atmosphere and hydrocarbon lakes against the ringed planet",
   "tags": [
     "Titan",
@@ -44,7 +44,7 @@
       "description": "NASA Goddard study maps vast hydrocarbon fuel reserves and water ice on Saturn moon Titan. Methane lakes, LNG, and rocket propellant potential make Titan a deep-space refueling hub.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/science-titan-hydrocarbon-resources-nasa-study-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-titan-hydrocarbon-resources-nasa-study-2026",
           "width": 1200,
           "height": 675,
           "alt": "Saturn moon Titan with thick atmosphere and hydrocarbon lakes against Saturn rings"

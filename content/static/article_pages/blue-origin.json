@@ -12,7 +12,7 @@
   "author_name": "OzoneNews Editorial Team",
   "author_slug": "ozonedailynews-editorial-team",
   "read_time": "1 min read",
-  "thumbnail_src": "/thumbnails/blue-origin.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=blue-origin",
   "thumbnail_alt": "Blue Origin | New Glenn, New Shepard & Space Infrastructure branded thumbnail",
   "tags": [
     "Blue Origin",
@@ -125,7 +125,7 @@
       "url": "https://www.ozonedailynews.com/blue-origin",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/blue-origin.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=blue-origin",
           "width": 1200,
           "height": 675,
           "alt": "Blue Origin | New Glenn, New Shepard & Space Infrastructure branded thumbnail"

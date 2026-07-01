@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "7 min read",
-  "thumbnail_src": "/thumbnails/blue-origin-new-glenn-pad-rebuild-lc36-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=blue-origin-new-glenn-pad-rebuild-lc36-2026",
   "thumbnail_alt": "Blue Origin New Glenn rocket explosion aftermath with damaged launch pad infrastructure at Cape Canaveral",
   "tags": [
     "Blue Origin",
@@ -44,7 +44,7 @@
       "description": "Blue Origin begins round-the-clock rebuild of Launch Complex 36 after New Glenn static fire explosion. Pad reconstruction started June 16 with a custom vertical integration building system.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/blue-origin-new-glenn-pad-rebuild-lc36-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=blue-origin-new-glenn-pad-rebuild-lc36-2026",
           "width": 1200,
           "height": 675,
           "alt": "Blue Origin New Glenn rocket explosion aftermath at Cape Canaveral Launch Complex 36"

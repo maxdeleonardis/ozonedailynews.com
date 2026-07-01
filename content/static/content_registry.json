@@ -1,5 +1,86 @@
 [
   {
+    "slug": "/science/nasa-swift-observatory-rescue-boost-mission-2026",
+    "filePath": "articles/2026/06/science-nasa-swift-observatory-rescue-boost-mission-2026.json",
+    "title": "NASA Launches $30M Robotic Rescue to Save Sinking Swift Telescope",
+    "description": "NASA is initiating a historic $30 million rescue operation to deploy a three-armed robotic satellite to catch and tow the sinking Neil Gehrels Swift Observatory before it burns up in Earth's atmosphere. Launch targets July 1 from Kwajalein Atoll.",
+    "publishDate": "2026-06-30",
+    "modifiedDate": "2026-06-30",
+    "category": "Science",
+    "tags": [
+      "Neil Gehrels Swift Observatory",
+      "NASA",
+      "Katalyst Space Technologies",
+      "Swift Rescue Mission",
+      "Pegasus XL",
+      "Kwajalein Atoll",
+      "LINK Satellite",
+      "Orbital Salvage"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-nasa-swift-observatory-rescue-boost-mission-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
+  },
+  {
+    "slug": "/science/iss-canadarm2-wrist-joint-spacewalk-2026",
+    "filePath": "articles/2026/06/science-iss-canadarm2-wrist-joint-spacewalk-2026.json",
+    "title": "ISS Canadarm2 Wrist Joint Repair | Astronauts Complete 7-Hour Spacewalk",
+    "description": "NASA astronauts Chris Williams and Jessica Meir completed a seven-hour spacewalk on June 30 to replace a broken 200-pound wrist joint on the ISS Canadarm2 robotic arm. The repair restored full robotic arm operations just in time for Canada Day.",
+    "publishDate": "2026-06-30",
+    "modifiedDate": "2026-06-30",
+    "category": "Science",
+    "tags": [
+      "Canadarm2",
+      "International Space Station",
+      "NASA",
+      "Chris Williams",
+      "Jessica Meir",
+      "Canadian Space Agency",
+      "US Spacewalk 95",
+      "Johnson Space Center"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-iss-canadarm2-wrist-joint-spacewalk-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
+  },
+  {
+    "slug": "/science/nasa-cold-atom-lab-iss-upgrade-quantum-bec-2026",
+    "filePath": "articles/2026/06/science-nasa-cold-atom-lab-iss-upgrade-quantum-bec-2026.json",
+    "title": "Inside NASA Cold Atom Lab | Freezing Atoms to Near Absolute Zero on the ISS",
+    "description": "NASA upgraded the Cold Atom Lab on the ISS, cooling atoms to near absolute zero to create Bose-Einstein Condensates in microgravity. The Quantum 2.0 project enables deep space navigation and dark matter research.",
+    "publishDate": "2026-06-30",
+    "modifiedDate": "2026-06-30",
+    "category": "Science",
+    "tags": [
+      "Cold Atom Lab",
+      "NASA JPL",
+      "Bose-Einstein Condensate",
+      "International Space Station",
+      "Quantum Navigation",
+      "Jessica Meir",
+      "Absolute Zero",
+      "Dark Matter Detection"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-nasa-cold-atom-lab-iss-upgrade-quantum-bec-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026",
     "filePath": "articles/2026/06/science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026.json",
     "title": "Quantum Sensing Breakthrough Clears Path for Dark Matter and Gravitational Wave Detector",
@@ -344,7 +425,8 @@
     "imageUrl": "/thumbnails/blue-origin.jpg",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=blue-origin"
   },
   {
     "slug": "/nasa",
@@ -368,7 +450,8 @@
     "imageUrl": "/thumbnails/nasa.jpg",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=nasa"
   },
   {
     "slug": "/space-x",
@@ -393,7 +476,8 @@
     "imageUrl": "/thumbnails/space-x.jpg",
     "articleType": "ArticlePage",
     "lifecycle": "evergreen",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=space-x"
   },
   {
     "slug": "/science/earth-mycorrhizal-fungi-network-map-spun-2026",
@@ -469,7 +553,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=researchers-find-hidden-damage-to-coral-reefs-by-scuba-divers"
   },
   {
     "slug": "/earth/coral-reef",
@@ -955,7 +1040,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starship-flight-10-engineering-legacy-v3-transition"
   },
   {
     "slug": "/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026",
@@ -1036,7 +1122,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=keeling-curve-co2-annual-peak-mauna-loa-2026"
   },
   {
     "slug": "/science/pigeon-magnetic-navigation-liver-macrophages-science-2026",
@@ -1062,7 +1149,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1511511450040-677116ff389e?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=pigeon-magnetic-navigation-liver-macropheons-science-2026"
   },
   {
     "slug": "/science/arctic-sea-ice-minimum-2026-measured-extent",
@@ -1087,7 +1175,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=arctic-sea-ice-minimum-2026-measured-extent"
   },
   {
     "slug": "/science/great-barrier-reef-bleaching-data-2026",
@@ -1112,7 +1201,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=great-barrier-reef-bleaching-data-2026"
   },
   {
     "slug": "/nasa/news/nasa-artemis-3-mission-status-launch-window-2026",
@@ -1137,7 +1227,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=nasa-artemis-3-mission-status-launch-window-2026"
   },
   {
     "slug": "/science/ozone-layer-recovery-data-2026",
@@ -1162,7 +1253,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=ozone-layer-recovery-data-2026"
   },
   {
     "slug": "/nasa/news/spacex-starship-orbital-flight-record-reuse-milestones-2026",
@@ -1187,6 +1279,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=675&fit=crop",
     "articleType": "NewsArticle",
     "lifecycle": "news",
-    "breaking": false
+    "breaking": false,
+    "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starship-orbital-flight-record-reuse-milestones-2026"
   }
 ]

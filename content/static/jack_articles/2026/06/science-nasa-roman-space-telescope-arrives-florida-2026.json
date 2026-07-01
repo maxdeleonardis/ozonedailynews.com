@@ -27,10 +27,10 @@
     "department": "Science"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "/thumbnails/science-nasa-roman-space-telescope-arrives-florida-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-nasa-roman-space-telescope-arrives-florida-2026",
   "thumbnail_alt": "Nancy Grace Roman Space Telescope inside transport container at Kennedy Space Center processing facility",
   "hero_image": {
-    "src": "/thumbnails/science-nasa-roman-space-telescope-arrives-florida-2026.jpg",
+    "src": "https://www.ozonedailynews.com/api/og?slug=science-nasa-roman-space-telescope-arrives-florida-2026",
     "alt": "Nancy Grace Roman Space Telescope during transfer operations at Kennedy Space Center, Florida"
   },
   "tags": [
@@ -146,7 +146,7 @@
       "description": "NASA Nancy Grace Roman Space Telescope arrives at Kennedy Space Center for 70-day pre-launch processing. Falcon Heavy launch targeting August 30, 2026, to Sun-Earth L2 with a 300-megapixel Wide Field Instrument.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/science-nasa-roman-space-telescope-arrives-florida-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-nasa-roman-space-telescope-arrives-florida-2026",
           "width": 1200,
           "height": 675,
           "alt": "Nancy Grace Roman Space Telescope being unloaded from transport container at Kennedy Space Center"

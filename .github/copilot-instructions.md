@@ -25,6 +25,8 @@ CORRECT alternatives:
 | `Record sales — 5M in 48h` | `Record sales, 5M in 48 hours` |
 | `New feature — here's what changed` | `New feature, here is what changed` |
 
+---
+
 ## metadata.title Rules
 
 - Max 60 characters
@@ -55,6 +57,8 @@ These phrases trigger Google's HCU classifier. Never write them:
 - "Delve into"
 - "In summary"
 
+---
+
 ## Link Styling (Non-Negotiable)
 
 Every link in article prose must be blue and underlined:
@@ -76,6 +80,8 @@ Inside content_html strings, use `class=` not `className=`.
 NEVER render linked text as unstyled or black.
 NEVER omit `target="_blank" rel="noopener noreferrer"` on external links.
 
+---
+
 ## Author Rules
 
 - Every article needs a named author (author_name + author_slug)
@@ -90,11 +96,13 @@ NEVER omit `target="_blank" rel="noopener noreferrer"` on external links.
   WRONG: `2026-05-25` (date-only is banned)
 - publish_date: display string `"May 25, 2026"` (for UI only)
 
+---
+
 ## Article Minimum Requirements
 
 Every published article must have:
 1. author_name + author_slug
-2. published_at (ISO-8601)
+2. published_at (ISO-8601 with timezone offset)
 3. 300+ words in content_html
 4. At least one <h2> in content_html
 5. metadata.description: 130-155 chars
@@ -102,7 +110,9 @@ Every published article must have:
 7. 4+ internal links
 8. 1+ external source link
 9. 4-8 tags (proper nouns only)
-10. thumbnail_src (for Google Top Stories eligibility)
+10. thumbnail_src pointing to a local `/thumbnails/` file (Google Top Stories requirement)
+
+---
 
 ## GEO Article Structure (always follow this order)
 
@@ -116,7 +126,10 @@ Every published article must have:
 6. More body sections with H2s
 7. <h2>Frequently Asked Questions</h2>
    <FAQAccordion items={[{ question: "...", answer: "..." }]} />
+8. <SourcesInterlink sources={[...]} internalLinks={[...]} />
 ```
+
+---
 
 ## Heading Rules
 
@@ -125,6 +138,8 @@ Every published article must have:
 - Banned heading words: "Background", "Overview", "Introduction", "Conclusion"
 - No `&` in H1/H2/H3 headings (only in metadata.title/openGraph.title)
 
+---
+
 ## Category Values (only these are valid)
 
 News, Tech, Finance, Entertainment, World, Politics, Science, Sports, Culture, Crypto, Gaming
@@ -132,16 +147,179 @@ News, Tech, Finance, Entertainment, World, Politics, Science, Sports, Culture, C
 ## URL / Slug Rules
 
 - Lowercase, hyphen-only, no stop words
-- Slug format: `app/category/my-article/page.tsx` → slug: `category-my-article`
-- The slug in page.tsx and the JSON filename must be identical
+- Static JSON filename slug: `category-article-name-2026`
+- URL slug: `/category/article-name-2026`
+- The JSON filename base and the `slug` field in the JSON must be consistent
 
-## Publishing Workflow
+---
 
-1. Write page.tsx stub with full metadata (title, description, keywords, canonical, openGraph, twitter)
-2. Write static JSON at content/static/{type}/{slug}.json
-3. Run: `npm run wiki:sync -- --write` (registers in content_registry.json)
-4. Run: `npm run alfasa` (session briefing confirms quality)
-5. Commit: `git add -A && git commit -m "publish: [article title]" && git push`
+## Publishing Workflow (Static JSON is source of truth)
+
+```
+1. Write static JSON at content/static/articles/YYYY/MM/{slug}.json
+   OR content/static/jack_articles/YYYY/MM/{slug}.json (long-form / JackArticleDB)
+2. Run: npm run wiki:sync -- --write    (registers in content_registry.json)
+3. Mint thumbnail via local Satori      (see Satori section below)
+4. Run: npm run wiki:sync -- --write    (updates imageUrl in registry)
+5. Commit: git add -A && git commit -m "publish: [title]" && git push
+```
+
+NEVER generate per-article page.tsx stubs. All routing is dynamic via app/[...slug]/page.tsx.
+
+---
+
+## Satori Thumbnail System (LOCAL — localhost:3000)
+
+Satori is the local branded thumbnail generation server.
+It renders 1200x630 PNG images with title, subtitle, logo, gradient overlay, and Unsplash backgrounds.
+
+**Always use localhost:3000. NEVER call satori-neon.vercel.app in minting code (returns 502).**
+
+### Connection
+
+```
+Local URL : http://localhost:3000
+Token     : satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3
+Network   : ozone
+```
+
+### The Golden Rule
+
+Always download and save the PNG. Never store a live CDN URL in thumbnail_src.
+
+| Wrong | Correct |
+|---|---|
+| `"thumbnail_src": "https://satori-neon.vercel.app/..."` | `"thumbnail_src": "/thumbnails/my-slug.jpg"` |
+
+### Minting — Always Use Python (never multi-line curl with shell variables)
+
+```python
+import urllib.request, urllib.parse, json, os
+
+SATORI_BASE = "http://localhost:3000"
+TOKEN = "satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3"
+SLUG = "category-article-slug-2026"
+TITLE = "Article Title Here"
+SUBTITLE = "Short deck text"
+LAYOUT = "breaking"     # breaking | cinematic | standard | minimal
+ACCENT = "#00d4ff"      # optional — see accent color guide below
+OUT_PATH = f"public/thumbnails/{SLUG}.jpg"
+
+# Step 1: Register in Satori DB + get auto-selected Unsplash image
+payload = json.dumps({
+    "network": "ozone",
+    "slug": SLUG,
+    "title": TITLE,
+    "subtitle": SUBTITLE,
+    "layout": LAYOUT
+}).encode()
+
+req = urllib.request.Request(
+    f"{SATORI_BASE}/api/v1/quick-generate",
+    data=payload,
+    headers={"Content-Type": "application/json", "Authorization": f"Bearer {TOKEN}"},
+    method="POST"
+)
+with urllib.request.urlopen(req) as resp:
+    data = json.loads(resp.read())
+
+image_url = data.get("image_url", "")
+
+# Step 2: Render PNG (pass accent to override brand default)
+params = urllib.parse.urlencode({
+    "network": "ozone",
+    "title": TITLE,
+    "subtitle": SUBTITLE,
+    "image_url": image_url,
+    "layout": LAYOUT,
+    "accent": ACCENT    # remove line if not overriding
+})
+
+req2 = urllib.request.Request(f"{SATORI_BASE}/api/v1/generate?{params}")
+with urllib.request.urlopen(req2) as resp:
+    png_bytes = resp.read()
+
+os.makedirs("public/thumbnails", exist_ok=True)
+with open(OUT_PATH, "wb") as f:
+    f.write(png_bytes)
+
+print(f"Saved: {OUT_PATH} ({len(png_bytes)//1024} KB)")
+```
+
+### Layouts
+
+| Layout | Use when |
+|---|---|
+| `breaking` | Breaking news, time-sensitive stories, announcements |
+| `cinematic` | Science, space, deep-dive features — visually dramatic |
+| `standard` | General news, everyday articles |
+| `minimal` | Opinion, editorial, text-heavy content |
+
+### Accent Color Guide
+
+| Story type | Color | Hex |
+|---|---|---|
+| Space / quantum / physics | Electric cyan | `#00d4ff` |
+| Tech / AI / software | Vivid blue | `#2563eb` |
+| Finance / crypto | Emerald green | `#10b981` |
+| Breaking / danger | Alert red | `#ef4444` |
+| Science / biology | Teal | `#0d9488` |
+| Gaming | Violet | `#7c3aed` |
+| Politics / world | Rose | `#f43f5e` |
+| No override | Omit `accent` param | — |
+
+### Overlay Strength (optional)
+
+Add `&overlay=85` to the generate URL (0-100, default 100).
+Use 70-85 when background detail should show through; lower values hurt headline legibility.
+
+### API Reference (localhost:3000)
+
+```bash
+# Health
+curl http://localhost:3000/api/health
+
+# Look up saved thumbnail URL
+curl "http://localhost:3000/api/v1/og?network=ozone&slug=my-article-slug"
+
+# Preview in browser
+http://localhost:3000/api/v1/generate?network=ozone&title=My+Title&layout=breaking
+```
+
+### Live Editor (browser-based, full visual control)
+
+Open `http://localhost:3000` to use the Canva-style dashboard. Features:
+- URL import bar — paste article URL, Satori auto-fills title, subtitle, background
+- Prompt mode — type a prompt, Grok AI generates everything
+- Drag-and-drop original media upload (JPEG/PNG/WebP, max 10MB)
+- Custom accent color picker + overlay strength slider
+- Game Customization panel (Grok-powered): title, franchise, developer, publisher, genre, platforms, overlay badge, review score slider
+- Platform badges: PC, PS5, Xbox, Switch, Mobile, VR
+- Overlay badges: REVIEW, GAMEPLAY, FIRST LOOK, EXCLUSIVE, BREAKING, OPINION, GUIDE
+- Review score 0-100 with color badge (Gold 80-100, Green 60-79, Yellow 40-59, Red 0-39)
+- Source badges: Original Upload (green), Unsplash (blue), AI Generated (purple), External URL (orange)
+
+Click **Save to Satori** after editing to lock the design in the DB.
+
+### After Every Mint — Run This
+
+```bash
+npm run wiki:sync -- --write
+```
+
+Updates `imageUrl` in `content_registry.json` so homepage cards, hub pages, and sitemaps show the thumbnail.
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `Connection refused` on localhost:3000 | Satori is not running — start it in the Satori repo with `npm run dev` |
+| `HTTP 502` from remote Satori | Use localhost:3000 — remote is unreliable. Never use satori-neon.vercel.app |
+| Thumbnail not showing on homepage | Run `npm run wiki:sync -- --write` then hard-refresh (`Cmd+Shift+R`) |
+| Article header shows flat color | `thumbnail_src` is missing or wrong — re-mint with correct slug |
+| Wrong photo for topic | Run `quick-generate` first to get the Unsplash image_url, then pass it to `generate` |
+
+---
 
 ## Trust Pages (must exist and be linked in footer)
 
@@ -152,6 +330,8 @@ News, Tech, Finance, Entertainment, World, Politics, Science, Sports, Culture, C
 
 All four must be visible blue-underlined links in the global footer "Newsroom Policies" row.
 
+---
+
 ## Never Do
 
 - NEVER add canonical to app/layout.tsx or any shared layout
@@ -160,3 +340,7 @@ All four must be visible blue-underlined links in the global footer "Newsroom Po
 - NEVER use Supabase for new article writes (static JSON is source of truth)
 - NEVER use any *DB component without a matching static JSON file
 - NEVER publish without a content_registry.json entry
+- NEVER generate per-article page.tsx stubs (routing is via app/[...slug]/page.tsx)
+- NEVER store a live CDN URL in thumbnail_src — always save PNG to public/thumbnails/ first
+- NEVER use multi-line curl with shell variables to call Satori — use Python urllib instead
+- NEVER call satori-neon.vercel.app for minting (returns 502) — always use localhost:3000

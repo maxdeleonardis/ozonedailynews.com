@@ -16,7 +16,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "7 min read",
-  "thumbnail_src": "/thumbnails/spacex-starfall-reentry-capsule-demo-launch-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=spacex-starfall-reentry-capsule-demo-launch-2026",
   "thumbnail_alt": "SpaceX Falcon 9 launching at sunrise carrying the Starfall reentry capsule demonstration mission",
   "tags": [
     "SpaceX",
@@ -46,7 +46,7 @@
       "description": "SpaceX launches Starfall reentry capsule demo on Falcon 9 from Cape Canaveral. The flat cylindrical vehicle returns up to 2,200 pounds of cargo from orbit, targeting the orbital manufacturing market with a 29-flight veteran booster B1078.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/spacex-starfall-reentry-capsule-demo-launch-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=spacex-starfall-reentry-capsule-demo-launch-2026",
           "width": 1200,
           "height": 675,
           "alt": "SpaceX Falcon 9 launching at sunrise carrying the Starfall reentry capsule"

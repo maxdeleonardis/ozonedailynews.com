@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "6 min read",
-  "thumbnail_src": "/thumbnails/science-quantum-entanglement-strange-metal-crystal-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-quantum-entanglement-strange-metal-crystal-2026",
   "thumbnail_alt": "Abstract visualization of quantum entanglement with glowing interconnected particles and energy waves",
   "tags": [
     "Quantum Entanglement",
@@ -44,7 +44,7 @@
       "description": "Physicists detected macroscopic quantum entanglement inside a visible centimeter-sized strange metal crystal. The Nature Physics study proves quantum states can thrive in solid matter.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/science-quantum-entanglement-strange-metal-crystal-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-quantum-entanglement-strange-metal-crystal-2026",
           "width": 1200,
           "height": 675,
           "alt": "Abstract visualization of 9-partite quantum entanglement in a strange metal crystal Ce3Pd20Si6"

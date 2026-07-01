@@ -16,7 +16,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "8 min read",
-  "thumbnail_src": "/thumbnails/science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026",
   "thumbnail_alt": "Atom interferometer prototype at Imperial College London with ultracold strontium laser setup",
   "tags": [
     "AION",
@@ -48,7 +48,7 @@
       "description": "UK-led collaboration in Nature demonstrates quantum sensing noise cancellation for AION atom interferometer. Tabletop prototype at Imperial College London achieves Standard Quantum Limit sensitivity, targeting 1 Hz mid-band gravitational waves and ultralight dark matter detection.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=science-aion-atom-interferometer-quantum-sensing-noise-cancellation-dark-matter-gravitational-waves-2026",
           "width": 1200,
           "height": 675,
           "alt": "Atom interferometer prototype with ultracold strontium laser system at Imperial College London"

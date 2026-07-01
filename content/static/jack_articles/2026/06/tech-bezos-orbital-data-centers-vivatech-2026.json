@@ -27,10 +27,10 @@
     "department": "Tech"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "/thumbnails/tech-bezos-orbital-data-centers-vivatech-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-bezos-orbital-data-centers-vivatech-2026",
   "thumbnail_alt": "Jeff Bezos speaking at VivaTech 2026 with Blue Origin orbital data center concept on screen",
   "hero_image": {
-    "src": "/thumbnails/tech-bezos-orbital-data-centers-vivatech-2026.jpg",
+    "src": "https://www.ozonedailynews.com/api/og?slug=tech-bezos-orbital-data-centers-vivatech-2026",
     "alt": "Jeff Bezos speaking at VivaTech 2026 with Blue Origin orbital data center concept on screen"
   },
   "tags": [
@@ -137,7 +137,7 @@
       "description": "Jeff Bezos says orbital AI data centers are inevitable once launch costs drop. Blue Origin aims to build the space infrastructure road for space-based computing at VivaTech 2026.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/tech-bezos-orbital-data-centers-vivatech-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=tech-bezos-orbital-data-centers-vivatech-2026",
           "width": 1200,
           "height": 675,
           "alt": "Jeff Bezos at VivaTech 2026 with orbital data center concept"

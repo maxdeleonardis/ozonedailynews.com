@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "7 min read",
-  "thumbnail_src": "/thumbnails/world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026",
   "thumbnail_alt": "Antarctic ice sheet with massive glacial cracks and iceberg calving into dark ocean waters",
   "tags": [
     "Antarctic Ice Loss",
@@ -44,7 +44,7 @@
       "description": "Nature study reveals 30-year predictable window for Antarctic sea level rise. West Antarctic Ice Sheet collapse may trigger 4-meter rise with a threshold already breached.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=world-climate-antarctic-ice-sheet-collapse-30-year-warning-2026",
           "width": 1200,
           "height": 675,
           "alt": "Antarctic ice sheet with glacial cracks and iceberg calving into dark ocean"

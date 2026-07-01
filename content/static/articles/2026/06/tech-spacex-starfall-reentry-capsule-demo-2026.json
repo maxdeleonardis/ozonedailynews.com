@@ -14,7 +14,7 @@
   "author_slug": "max-deleonardis",
   "author_role": "Founder & Publisher",
   "read_time": "8 min read",
-  "thumbnail_src": "/thumbnails/tech-spacex-starfall-reentry-capsule-demo-2026.jpg",
+  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-spacex-starfall-reentry-capsule-demo-2026",
   "thumbnail_alt": "Falcon 9 rocket launching at sunrise carrying the Starfall reentry capsule for orbital manufacturing demonstration",
   "tags": [
     "SpaceX",
@@ -43,7 +43,7 @@
       "description": "SpaceX launches Starfall reentry capsule Tuesday June 23 at 6:43 a.m. EDT aboard Falcon 9 B1078 on its 29th flight. The flat cylindrical capsule targets 2,200 pounds of cargo return for the orbital manufacturing market.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/thumbnails/tech-spacex-starfall-reentry-capsule-demo-2026.jpg",
+          "url": "https://www.ozonedailynews.com/api/og?slug=tech-spacex-starfall-reentry-capsule-demo-2026",
           "width": 1200,
           "height": 675,
           "alt": "SpaceX Falcon 9 launch at sunrise carrying Starfall reentry capsule demonstration mission"

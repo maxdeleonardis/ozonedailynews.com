@@ -3,7 +3,7 @@
 **Site:** ozonedailynews.com
 **Publisher:** Ozone Network News LLC
 **Byline standard:** Max DeLeonardis (primary) | OzoneNews Editorial Team (house byline)
-**Article format:** jack_article (GEO-structured, sourced, FAQs required)
+**Article format:** jack_article (GEO-structured, sourced, FAQs requiredd)
 
 ---
 

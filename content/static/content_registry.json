@@ -54,6 +54,33 @@
     "breaking": true
   },
   {
+    "slug": "/spacex/falcon-9-b1067-36th-flight-starlink-10-42-2026",
+    "filePath": "articles/2026/07/spacex-falcon-9-b1067-36th-flight-starlink-10-42-2026.json",
+    "title": "SpaceX Falcon 9 B1067 | Record 36th Flight, Starlink 10-42",
+    "description": "SpaceX Falcon 9 B1067 launched a record 36th time July 9, delivering 29 Starlink V2 Mini satellites from Cape Canaveral in the Starlink 10-42 mission.",
+    "publishDate": "2026-07-09",
+    "modifiedDate": "2026-07-09",
+    "category": "Science",
+    "tags": [
+      "SpaceX",
+      "Falcon 9",
+      "B1067",
+      "Starlink",
+      "Cape Canaveral",
+      "NASA",
+      "Starship",
+      "International Space Station"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/spacex-falcon-9-b1067-36th-flight-starlink-10-42-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
+  },
+  {
     "slug": "/science/swift-link-spacecraft-mission-status-july-2026",
     "filePath": "articles/2026/07/science-swift-link-spacecraft-mission-status-july-2026.json",
     "title": "LINK Spacecraft Launches to Rescue Swift Observatory | Mission Status July 8",

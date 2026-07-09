@@ -15,7 +15,7 @@
   "author_name": "Max DeLeonardis",
   "author_slug": "max-deleonardis",
   "read_time": "7 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=nasa-artemis-3-timeline-leo-demonstration-2026",
+  "thumbnail_src": "/thumbnails/nasa-artemis-3-timeline-leo-demonstration-2026.jpg",
   "thumbnail_alt": "NASA rocket launch pad at Kennedy Space Center at dusk",
   "tags": [
     "NASA",
@@ -41,7 +41,7 @@
       "images": [
         {
           "alt": "NASA rocket launch pad at Kennedy Space Center at dusk",
-          "url": "https://www.ozonedailynews.com/api/og?slug=nasa-artemis-3-timeline-leo-demonstration-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/nasa-artemis-3-timeline-leo-demonstration-2026.jpg",
           "width": 1200,
           "height": 675
         }

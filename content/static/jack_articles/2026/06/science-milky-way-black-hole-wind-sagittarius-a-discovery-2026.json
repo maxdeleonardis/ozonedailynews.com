@@ -27,7 +27,7 @@
     "department": "Science"
   },
   "read_time": "7 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-milky-way-black-hole-wind-sagittarius-a-discovery-2026",
+  "thumbnail_src": "/thumbnails/science-milky-way-black-hole-wind-sagittarius-a-discovery-2026.jpg",
   "thumbnail_alt": "Galactic center with bright stars and glowing gas clouds surrounding Sagittarius A*, the Milky Way's supermassive black hole",
   "hero_image": {
     "src": "https://www.ozonedailynews.com/api/og?slug=science-milky-way-black-hole-wind-sagittarius-a-discovery-2026",
@@ -161,7 +161,7 @@
       "description": "JWST has confirmed a molecular wind driven by Sagittarius A*, the Milky Way's black hole, ending a 50-year search and rewriting galactic feedback models.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-milky-way-black-hole-wind-sagittarius-a-discovery-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-milky-way-black-hole-wind-sagittarius-a-discovery-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Galactic center surrounding Sagittarius A*, the Milky Way's supermassive black hole"

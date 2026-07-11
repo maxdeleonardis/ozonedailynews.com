@@ -26,7 +26,7 @@
     "department": "Science"
   },
   "read_time": "6 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-iss-zvezda-air-leak-dragon-shelter-june-2026",
+  "thumbnail_src": "/thumbnails/science-iss-zvezda-air-leak-dragon-shelter-june-2026.jpg",
   "thumbnail_alt": "International Space Station orbiting Earth with solar panels extended against the darkness of space",
   "hero_image": {
     "src": "https://www.ozonedailynews.com/api/og?slug=science-iss-zvezda-air-leak-dragon-shelter-june-2026",
@@ -166,7 +166,7 @@
       "description": "NASA directed five astronauts to shelter in Dragon on June 5 as Russian cosmonauts attempted emergency repairs on the Zvezda module's worsening PrK air leak.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-iss-zvezda-air-leak-dragon-shelter-june-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-iss-zvezda-air-leak-dragon-shelter-june-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "International Space Station orbiting Earth with solar panels extended against the darkness of space"

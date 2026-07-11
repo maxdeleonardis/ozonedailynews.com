@@ -14,7 +14,7 @@
   "author_name": "Simon Alfred Minter",
   "author_slug": "simon-minter",
   "read_time": "5 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-spain-solar-eclipses-summer-2026",
+  "thumbnail_src": "/thumbnails/science-spain-solar-eclipses-summer-2026.jpg",
   "thumbnail_alt": "Total solar eclipse with corona visible against a dark sky over a European landscape",
   "tags": [
     "Solar Eclipse",
@@ -43,7 +43,7 @@
       "description": "Spain sees three solar eclipses in summer 2026, including a total eclipse on August 12. Get the exact dates, paths, and viewing tips for each event.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-spain-solar-eclipses-summer-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-spain-solar-eclipses-summer-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Total solar eclipse with corona visible against a dark sky over a European landscape"

@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/tech/reflect-orbital-earendil-1-fcc-approval-space-mirror-2026",
+    "filePath": "articles/2026/07/tech-reflect-orbital-earendil-1-fcc-approval-space-mirror-2026.json",
+    "title": "FCC Approves Reflect Orbital Earendil-1 | Controversial Space Mirror Satellite",
+    "description": "Overriding pushback from astronomers, the FCC approved Reflect Orbital Earendil-1, a 60-foot space mirror designed to reflect sunlight to Earth at night.",
+    "publishDate": "2026-07-11",
+    "modifiedDate": "2026-07-11",
+    "category": "Tech",
+    "tags": [
+      "Reflect Orbital",
+      "FCC",
+      "Earendil-1",
+      "Space Mirror",
+      "Light Pollution",
+      "American Astronomical Society",
+      "Sequoia Capital",
+      "SpaceX"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/tech-reflect-orbital-earendil-1-fcc-approval-space-mirror-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
+  },
+  {
     "slug": "/science/neanderthal-homo-sapiens-ucagizli-cave-culture-2026",
     "filePath": "articles/2026/07/science-neanderthal-homo-sapiens-ucagizli-cave-culture-2026.json",
     "title": "Neanderthals and Homo Sapiens Shared Culture | Üçağızlı Cave Study",

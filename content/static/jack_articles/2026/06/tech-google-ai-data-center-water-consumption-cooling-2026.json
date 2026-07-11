@@ -27,7 +27,7 @@
     "department": "Technology"
   },
   "read_time": "9 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-google-ai-data-center-water-consumption-cooling-2026",
+  "thumbnail_src": "/thumbnails/tech-google-ai-data-center-water-consumption-cooling-2026.jpg",
   "thumbnail_alt": "Industrial cooling towers at a large data center facility releasing water vapor into the air",
   "hero_image": {
     "src": "https://www.ozonedailynews.com/api/og?slug=tech-google-ai-data-center-water-consumption-cooling-2026",
@@ -182,7 +182,7 @@
       "description": "AI models consume up to 500ml of water per query for server cooling. Google's three-part fix: air cooling, closed-loop liquid systems, and municipal heat recovery. Full breakdown.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=tech-google-ai-data-center-water-consumption-cooling-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/tech-google-ai-data-center-water-consumption-cooling-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Industrial cooling towers at a large data center facility releasing water vapor into the air"

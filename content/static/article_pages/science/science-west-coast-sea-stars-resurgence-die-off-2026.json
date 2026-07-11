@@ -12,7 +12,7 @@
   "author_name": "Josh Donnelly",
   "author_slug": "josh-donnelly",
   "read_time": "8 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-west-coast-sea-stars-resurgence-die-off-2026",
+  "thumbnail_src": "/thumbnails/science-west-coast-sea-stars-resurgence-die-off-2026.jpg",
   "thumbnail_alt": "Ochre sea stars clustered on a rocky Pacific tide pool with sea anemones and mussels at low tide",
   "tags": [
     "Sea Stars",
@@ -137,7 +137,7 @@
       "description": "After sea star wasting disease killed billions of sea stars from 2013 to 2016, West Coast populations are partially rebounding. Here is the current ecological status.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-west-coast-sea-stars-resurgence-die-off-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-west-coast-sea-stars-resurgence-die-off-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Ochre sea stars on a rocky Pacific tide pool"

@@ -26,7 +26,7 @@
     "department": "Science"
   },
   "read_time": "8 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+  "thumbnail_src": "/thumbnails/science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026.jpg",
   "thumbnail_alt": "Nuclear reactor control room with glowing instruments and operator stations",
   "hero_image": {
     "src": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
@@ -166,7 +166,7 @@
       "description": "Antares Nuclear's Mark-0 microreactor achieved zero-power criticality at INL on June 4, the first advanced non-LWR in the US in more than 40 years under the DOE Reactor Pilot Program.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-antares-mark-0-nuclear-microreactor-criticality-doe-pilot-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Nuclear reactor control room with glowing instruments and operator stations"

@@ -15,7 +15,7 @@
   "author_name": "Max DeLeonardis",
   "author_slug": "max-deleonardis",
   "read_time": "8 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
+  "thumbnail_src": "/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.jpg",
   "thumbnail_alt": "Cinema camera lens with shallow depth of field and anamorphic bokeh",
   "tags": [
     "Blazar Lens",
@@ -39,7 +39,7 @@
       "images": [
         {
           "alt": "Cinema camera lens with shallow depth of field and anamorphic bokeh",
-          "url": "https://www.ozonedailynews.com/api/og?slug=tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/tech-blazar-talon-1-5x-anamorphic-autofocus-full-frame-2026.jpg",
           "width": 1200,
           "height": 675
         }

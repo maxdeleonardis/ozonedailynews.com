@@ -27,7 +27,7 @@
     "department": "Science"
   },
   "read_time": "9 min read",
-  "thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026",
+  "thumbnail_src": "/thumbnails/science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026.jpg",
   "thumbnail_alt": "Deep space galaxy surrounded by stars and glowing gas clouds in the early universe",
   "hero_image": {
     "src": "https://www.ozonedailynews.com/api/og?slug=science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026",
@@ -161,7 +161,7 @@
       "description": "Galaxy-killing wind found by JWST is stripping CRISTAL-02, solving why massive early universe galaxies died within 50 million years.",
       "images": [
         {
-          "url": "https://www.ozonedailynews.com/api/og?slug=science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026",
+          "url": "https://www.ozonedailynews.com/thumbnails/science-galaxy-killing-wind-cristal-02-jwst-early-universe-2026.jpg",
           "width": 1200,
           "height": 675,
           "alt": "Deep space galaxy surrounded by stars and glowing gas clouds in the early universe"

@@ -15,8 +15,8 @@
   "publish_date": "June 5, 2026",
   "published_at": "2026-06-05T16:00:00-05:00",
   "modified_date_iso": "2026-06-05T16:00:00-05:00",
-  "author_name": "Kaustubh Madiraju",
-  "author_slug": "kaustubh-madiraju",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
   "read_time": "3 min read",
   "thumbnail_src": "/thumbnails/science-nasa-iss-shelter-order-zvezda-june-5-2026.jpg",
   "thumbnail_alt": "International Space Station orbiting Earth with docked spacecraft visible against the darkness of space",
@@ -110,5 +110,6 @@
     "alternates": {
       "canonical": "https://www.ozonedailynews.com/science/nasa-iss-shelter-order-zvezda-june-5-2026"
     }
-  }
+  },
+  "author_role": "Founder & Publisher"
 }

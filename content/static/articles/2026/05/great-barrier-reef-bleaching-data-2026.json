@@ -8,8 +8,8 @@
   "status": "draft",
   "published_at": "2026-05-28T13:00:00-05:00",
   "publish_date": "May 28, 2026",
-  "author_name": "Simon Alfred Minter",
-  "author_slug": "simon-minter",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
   "read_time": "8 min read",
   "thumbnail_src": "/thumbnails/great-barrier-reef-bleaching-data-2026.jpg",
   "thumbnail_alt": "Aerial view of coral reef with blue ocean water and visible reef structure",
@@ -47,5 +47,6 @@
         }
       ]
     }
-  }
+  },
+  "author_role": "Founder & Publisher"
 }

@@ -9,8 +9,8 @@
   "lifecycle": "evergreen",
   "published_at": "2026-06-20T09:00:00-05:00",
   "publish_date": "June 20, 2026",
-  "author_name": "OzoneNews Editorial Team",
-  "author_slug": "ozonedailynews-editorial-team",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
   "read_time": "1 min read",
   "thumbnail_src": "/thumbnails/blue-origin.jpg",
   "thumbnail_alt": "Blue Origin | New Glenn, New Shepard & Space Infrastructure branded thumbnail",
@@ -133,5 +133,6 @@
       ]
     }
   },
-  "content_html": "<p>Blue Origin is the private aerospace manufacturer and spaceflight services company founded by Jeff Bezos in 2000. Headquartered in Kent, Washington, the company develops reusable launch vehicles, rocket engines, and lunar lander systems. Blue Origin's motto, \"Gradatim Ferociter\" (step by step, ferociously), reflects its incremental engineering approach to building permanent space infrastructure.</p>\n\n<h2>Launch Vehicles & Engines</h2>\n\n<p>Blue Origin operates <a href=\"/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">New Glenn</a>, a reusable heavy-lift orbital rocket, and New Shepard, a suborbital vehicle for space tourism and research payloads. The company's BE-4 engine, powered by liquid oxygen and liquefied natural gas, also powers United Launch Alliance's Vulcan Centaur. Blue Origin is developing the Blue Moon lander for NASA's <a href=\"/nasa\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis program</a>.</p>\n\n<h2>OzoneNews Coverage</h2>\n\n<p>OzoneNews covers Blue Origin milestones including New Glenn test flights, engine production updates, and lunar lander development. For comparison coverage of the broader commercial launch market, see our <a href=\"/space-x\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX reporting</a> and our complete <a href=\"/space\" class=\"text-blue-600 hover:text-blue-800 underline\">space exploration section</a>.</p>"
+  "content_html": "<p>Blue Origin is the private aerospace manufacturer and spaceflight services company founded by Jeff Bezos in 2000. Headquartered in Kent, Washington, the company develops reusable launch vehicles, rocket engines, and lunar lander systems. Blue Origin's motto, \"Gradatim Ferociter\" (step by step, ferociously), reflects its incremental engineering approach to building permanent space infrastructure.</p>\n\n<h2>Launch Vehicles & Engines</h2>\n\n<p>Blue Origin operates <a href=\"/science/space/blue-origin-new-glenn-explosion-cape-canaveral-2026\" class=\"text-blue-600 hover:text-blue-800 underline\">New Glenn</a>, a reusable heavy-lift orbital rocket, and New Shepard, a suborbital vehicle for space tourism and research payloads. The company's BE-4 engine, powered by liquid oxygen and liquefied natural gas, also powers United Launch Alliance's Vulcan Centaur. Blue Origin is developing the Blue Moon lander for NASA's <a href=\"/nasa\" class=\"text-blue-600 hover:text-blue-800 underline\">Artemis program</a>.</p>\n\n<h2>OzoneNews Coverage</h2>\n\n<p>OzoneNews covers Blue Origin milestones including New Glenn test flights, engine production updates, and lunar lander development. For comparison coverage of the broader commercial launch market, see our <a href=\"/space-x\" class=\"text-blue-600 hover:text-blue-800 underline\">SpaceX reporting</a> and our complete <a href=\"/space\" class=\"text-blue-600 hover:text-blue-800 underline\">space exploration section</a>.</p>",
+  "author_role": "Founder & Publisher"
 }

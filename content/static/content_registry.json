@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/science/hillsborough-meteorite-alien-chemistry-2026",
+    "filePath": "articles\\2026\\07\\science-hillsborough-meteorite-alien-chemistry-2026.json",
+    "title": "Hillsborough Meteorite | Alien World Chemistry and Prebiotic Compounds Found",
+    "description": "The meteorite that crashed through a New Jersey home roof in 2024 contains alien world chemistry, prebiotic organic compounds, and proof of ancient liquid saltwater from a 4.5 billion-year-old asteroid.",
+    "publishDate": "2026-07-17",
+    "modifiedDate": "2026-07-17",
+    "category": "Science",
+    "tags": [
+      "Hillsborough Meteorite",
+      "CM1/2 Carbonaceous Chondrite",
+      "Erigone Asteroid Family",
+      "Lucy Mission",
+      "Donaldjohanson Asteroid",
+      "Panspermia",
+      "Prebiotic Chemistry",
+      "American Museum of Natural History"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-hillsborough-meteorite-alien-chemistry-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/culture/gianna-taylor-italian-american-creator-gu-idol-2026",
     "filePath": "creator_articles/gianna-taylor-italian-american-creator-gu-idol-2026.json",
     "title": "Gianna Taylor | Italian-American Creator and GU-Idol Winner 2026",

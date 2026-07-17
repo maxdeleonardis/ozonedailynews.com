@@ -277,7 +277,7 @@ The **Live Editor** is a browser-based Canva-style dashboard built directly into
 
 Open it at:
 ```
-http://localhost:3001
+http://localhost:3000
 ```
 _(Satori must be running. Same `npm run dev` as above.)_
 

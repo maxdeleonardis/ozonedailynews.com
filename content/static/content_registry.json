@@ -27,6 +27,33 @@
     "breaking": false
   },
   {
+    "slug": "/science/erythrulose-interstellar-true-sugar-2026",
+    "filePath": "articles\\2026\\07\\science-erythrulose-interstellar-true-sugar-2026.json",
+    "title": "Cosmic Sweet Spot | Astronomers Detect First True Sugar in Interstellar Space",
+    "description": "Astronomers detected the first true sugar molecule, erythrulose, in interstellar space. The four-carbon sugar was found in the G+0.693-0.027 molecular cloud near the galactic center, confirming complex organic chemistry can occur in cold space.",
+    "publishDate": "2026-07-17",
+    "modifiedDate": "2026-07-17",
+    "category": "Science",
+    "tags": [
+      "Erythrulose",
+      "Interstellar Sugar",
+      "Astrobiology",
+      "G+0.693-0.027",
+      "Centre for Astrobiology",
+      "IRAM 30-meter Telescope",
+      "Yebes 40-meter Telescope",
+      "Nature Astronomy"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-erythrulose-interstellar-true-sugar-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/culture/gianna-taylor-italian-american-creator-gu-idol-2026",
     "filePath": "creator_articles/gianna-taylor-italian-american-creator-gu-idol-2026.json",
     "title": "Gianna Taylor | Italian-American Creator and GU-Idol Winner 2026",

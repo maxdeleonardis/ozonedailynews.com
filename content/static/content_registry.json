@@ -54,6 +54,33 @@
     "breaking": false
   },
   {
+    "slug": "/science/opencrispr1-ai-synthetic-molecular-scissors-2026",
+    "filePath": "articles\\2026\\07\\science-opencrispr1-ai-synthetic-molecular-scissors-2026.json",
+    "title": "CRISPR 2.0 | AI Generates Entirely Synthetic Molecular Scissors to Edit Human DNA",
+    "description": "Scientists used generative AI to design OpenCRISPR-1, a fully synthetic gene-editing protein from scratch. Published in Nature, the AI-designed nuclease reduces off-target cuts by 85% and is open-source for global research.",
+    "publishDate": "2026-07-17",
+    "modifiedDate": "2026-07-17",
+    "category": "Science",
+    "tags": [
+      "OpenCRISPR-1",
+      "CRISPR 2.0",
+      "AI Protein Design",
+      "Profluent Bio",
+      "Innovative Genomics Institute",
+      "Jennifer Doudna",
+      "Gene Editing",
+      "Nature"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-opencrispr1-ai-synthetic-molecular-scissors-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/culture/gianna-taylor-italian-american-creator-gu-idol-2026",
     "filePath": "creator_articles/gianna-taylor-italian-american-creator-gu-idol-2026.json",
     "title": "Gianna Taylor | Italian-American Creator and GU-Idol Winner 2026",

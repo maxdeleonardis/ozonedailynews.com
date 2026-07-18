@@ -75,7 +75,10 @@ for (const { table, articleType } of STORES) {
       if (!slug) continue;
 
       // Calculate relative file path from STATIC_BASE
-      const relativePath = path.relative(STATIC_BASE, fullPath);
+      // Always normalise to forward slashes — path.relative() returns OS-native
+      // separators (backslashes on Windows), which breaks path resolution on
+      // Linux/Vercel deployments. The registry must be OS-agnostic.
+      const relativePath = path.relative(STATIC_BASE, fullPath).split(path.sep).join('/');
 
       // Deduplicate against both the relative path AND any legacy full-URL form.
       if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) {

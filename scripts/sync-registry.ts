@@ -82,12 +82,18 @@ for (const { table, articleType } of STORES) {
 
       // Deduplicate against both the relative path AND any legacy full-URL form.
       if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) {
-        // Backfill filePath on existing entries that are missing it
+        // Backfill filePath and refresh imageUrl on existing entries
         const existingEntry = existing.find(
           (e) => e.slug === slug || e.slug === rawSlug,
         );
-        if (existingEntry && !existingEntry.filePath) {
-          existingEntry.filePath = relativePath;
+        if (existingEntry) {
+          if (!existingEntry.filePath) {
+            existingEntry.filePath = relativePath;
+          }
+          // Always sync imageUrl from article's thumbnail_src so CDN URLs get replaced
+          if (article.thumbnail_src) {
+            existingEntry.imageUrl = article.thumbnail_src;
+          }
         }
         continue;
       }

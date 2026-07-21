@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/world/us-canada-50-percent-tariff-trade-war-2026",
+    "filePath": "articles\\2026\\07\\world-us-canada-50-percent-tariff-trade-war-2026.json",
+    "title": "Trade Escalation | U.S. Imposes 50 Percent Tariff on Canadian Imports",
+    "description": "The U.S. has imposed a 50 percent tariff on Canadian goods including energy, automotive, and agriculture, triggering retaliation threats from Ottawa and USMCA violation claims.",
+    "publishDate": "2026-07-20",
+    "modifiedDate": "2026-07-20",
+    "category": "World",
+    "tags": [
+      "US Canada Tariffs",
+      "Trade War",
+      "USMCA",
+      "Justin Trudeau",
+      "USTR",
+      "Softwood Lumber",
+      "Automotive Supply Chain",
+      "North American Trade"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/world-us-canada-50-percent-tariff-trade-war-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/hillsborough-meteorite-alien-chemistry-2026",
     "filePath": "articles/2026/07/science-hillsborough-meteorite-alien-chemistry-2026.json",
     "title": "Hillsborough Meteorite | Alien World Chemistry and Prebiotic Compounds Found",

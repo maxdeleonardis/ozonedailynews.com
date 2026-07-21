@@ -27,6 +27,33 @@
     "breaking": false
   },
   {
+    "slug": "/science/artemis-iii-nasa-moon-mission-timeline-2026",
+    "filePath": "articles/2026/07/science-artemis-iii-nasa-moon-mission-timeline-2026.json",
+    "title": "Dress Rehearsal for History | NASA Reaffirms Timeline for Artemis III Moon Mission",
+    "description": "NASA reaffirms Artemis III timeline for the first human lunar landing in 50 years. Four astronauts, three spacecraft, and a commercial lander will rendezvous near the Moon's South Pole.",
+    "publishDate": "2026-07-20",
+    "modifiedDate": "2026-07-20",
+    "category": "Science",
+    "tags": [
+      "Artemis III",
+      "NASA",
+      "Space Launch System",
+      "Orion Spacecraft",
+      "Starship HLS",
+      "Blue Moon Lander",
+      "Lunar South Pole",
+      "Human Spaceflight"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-artemis-iii-nasa-moon-mission-timeline-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/science/hillsborough-meteorite-alien-chemistry-2026",
     "filePath": "articles/2026/07/science-hillsborough-meteorite-alien-chemistry-2026.json",
     "title": "Hillsborough Meteorite | Alien World Chemistry and Prebiotic Compounds Found",

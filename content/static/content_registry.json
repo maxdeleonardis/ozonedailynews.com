@@ -1,5 +1,32 @@
 [
   {
+    "slug": "/science/aquatic-deoxygenation-planetary-threat-2026",
+    "filePath": "articles/2026/07/science-aquatic-deoxygenation-planetary-threat-2026.json",
+    "title": "Silent Suffocation | Aquatic Deoxygenation Emerges as a Critical Planetary Threat",
+    "description": "A new study in Limnology and Oceanography warns that aquatic deoxygenation driven by ocean warming and nutrient runoff is a critical planetary threat that should be added to the Planetary Boundaries framework.",
+    "publishDate": "2026-07-21",
+    "modifiedDate": "2026-07-21",
+    "category": "Science",
+    "tags": [
+      "Aquatic Deoxygenation",
+      "Planetary Boundaries",
+      "Scripps Institution of Oceanography",
+      "Limnology and Oceanography",
+      "Ocean Dead Zones",
+      "Eutrophication",
+      "Climate Feedback Loop",
+      "UC San Diego"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-aquatic-deoxygenation-planetary-threat-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/world/us-canada-50-percent-tariff-trade-war-2026",
     "filePath": "articles\\2026\\07\\world-us-canada-50-percent-tariff-trade-war-2026.json",
     "title": "Trade Escalation | U.S. Imposes 50 Percent Tariff on Canadian Imports",

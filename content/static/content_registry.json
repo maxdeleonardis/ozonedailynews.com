@@ -54,6 +54,33 @@
     "breaking": false
   },
   {
+    "slug": "/science/nasa-nuclear-mars-mission-budget-2026",
+    "filePath": "articles/2026/07/science-nasa-nuclear-mars-mission-budget-2026.json",
+    "title": "Nuclear Power to Mars | NASA Details $2.1 Billion Budget for Nuclear-Powered Spacecraft",
+    "description": "NASA has detailed a $2.1 billion budget for a nuclear-powered spacecraft mission to Mars. The nuclear thermal propulsion system could cut deep-space transit times and enable faster crewed missions to the red planet.",
+    "publishDate": "2026-07-21",
+    "modifiedDate": "2026-07-21",
+    "category": "Science",
+    "tags": [
+      "NASA",
+      "Nuclear Propulsion",
+      "Mars Mission",
+      "Nuclear Thermal Propulsion",
+      "Deep Space Exploration",
+      "Crewed Mars Mission",
+      "Space Nuclear Power",
+      "Politico"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-nasa-nuclear-mars-mission-budget-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
+  },
+  {
     "slug": "/world/us-canada-50-percent-tariff-trade-war-2026",
     "filePath": "articles\\2026\\07\\world-us-canada-50-percent-tariff-trade-war-2026.json",
     "title": "Trade Escalation | U.S. Imposes 50 Percent Tariff on Canadian Imports",

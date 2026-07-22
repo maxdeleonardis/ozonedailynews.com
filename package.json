@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next dev",
-    "prebuild": "npx ts-node --project tsconfig.scripts.json scripts/validate-public.ts && npx ts-node --project tsconfig.scripts.json scripts/validate-canonicals.ts && npx ts-node --project tsconfig.scripts.json scripts/validate-cms-routes.ts && npx ts-node --project tsconfig.scripts.json scripts/sync-registry.ts --write",
+    "prebuild": "npx ts-node --project tsconfig.scripts.json scripts/prebuild.ts --write",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

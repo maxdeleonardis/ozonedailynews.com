@@ -136,8 +136,13 @@ export async function PUT(
     let staticPath: string | null = null;
     let store: string | null = null;
     for (const s of ALL_STORES) {
-      const fp = path.join(STATIC_BASE, s, `${slug}.json`);
-      if (fs.existsSync(fp)) { staticPath = fp; store = s; break; }
+      const storePath = path.join(STATIC_BASE, s);
+      const candidates = fs.existsSync(storePath)
+        ? fs.readdirSync(storePath, { recursive: true, withFileTypes: true })
+          .filter((entry) => entry.isFile() && entry.name === `${slug}.json`)
+          .map((entry) => path.join(entry.parentPath, entry.name))
+        : [];
+      if (candidates[0]) { staticPath = candidates[0]; store = s; break; }
     }
 
     if (!staticPath || !store) {
@@ -167,7 +172,7 @@ export async function PUT(
     }
 
     const branch = BRAND_BRANCH[merged.brand_slug as string] ?? GITHUB_DEFAULT_BRANCH;
-    const repoPath = `content/static/${store}/${slug}.json`;
+    const repoPath = path.relative(process.cwd(), staticPath).replace(/\\/g, '/');
 
     await commitFilesAtomically(
       GITHUB_OWNER, GITHUB_REPO, branch, GITHUB_TOKEN,

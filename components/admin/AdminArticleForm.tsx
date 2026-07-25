@@ -494,6 +494,11 @@ export default function AdminArticleForm({ initialData, isEdit = false }: Props)
           details: json.details,
         });
       }
+    } catch (err) {
+      setMessage({
+        type: 'err',
+        text: `Publish error: ${err instanceof Error ? err.message : String(err)}`,
+      });
     } finally {
       setPublishing(false);
     }

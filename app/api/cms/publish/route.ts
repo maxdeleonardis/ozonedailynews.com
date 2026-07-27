@@ -326,6 +326,9 @@ export async function POST(req: NextRequest) {
     breaking:        finalArticle.breaking ?? false,
   };
 
+  // Keep registry-driven routing pointed at the exact file committed above.
+  registryEntry.filePath = jsonFilePath.replace(/^content\/static\//, '');
+
   upsertRegistryEntry(registryEntry);
 
   // Read the freshly-written registry to include in the atomic commit

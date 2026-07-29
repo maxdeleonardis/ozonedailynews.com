@@ -1,5 +1,20 @@
 [
   {
+    "slug": "/news-faa-commercial-space-launch-approvals-2026",
+    "url": "https://www.ozonedailynews.com/news/faa-commercial-space-launch-approvals-2026",
+    "title": "FAA Proposes Sweeping Rule Change | Accelerate Commercial Space Launch Approvals",
+    "subtitle": "The FAA proposes waiving environmental review requirements across 13 federal statutes to expedite commercial launch and reentry approvals for SpaceX, Blue Origin, and Rocket Lab.",
+    "category": "News",
+    "author": "Max DeLeonardis",
+    "author_slug": "max-deleonardis",
+    "articleType": "NewsArticle",
+    "publishDate": "July 28, 2026",
+    "modifiedDate": "2026-07-29",
+    "imageUrl": "/thumbnails/news-faa-commercial-space-launch-approvals-2026.jpg",
+    "filePath": "articles/2026/07/news-faa-commercial-space-launch-approvals-2026.json",
+    "thumbnail_src": "/thumbnails/news-faa-commercial-space-launch-approvals-2026.jpg"
+  },
+  {
     "slug": "/news/faa-commercial-space-launch-approvals-2026",
     "filePath": "articles/2026/07/news-faa-commercial-space-launch-approvals-2026.json",
     "title": "FAA Proposes Sweeping Rule Change | Accelerate Commercial Space Launch Approvals",
@@ -25,6 +40,33 @@
     "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": true
+  },
+  {
+    "slug": "/science/swift-ai-wandering-black-hole-tde-2026",
+    "filePath": "articles/2026/07/science-swift-ai-wandering-black-hole-tde-2026.json",
+    "title": "Wandering Black Hole Caught Shredding a Star | Swift Observatory AI Discovery",
+    "description": "An AI algorithm and NASA Swift Observatory data caught a rare orphan supermassive black hole shredding a star more than 30,000 light-years from its galaxy core.",
+    "publishDate": "2026-07-28",
+    "modifiedDate": "2026-07-28",
+    "category": "Science",
+    "tags": [
+      "NASA",
+      "Swift Observatory",
+      "Supermassive Black Hole",
+      "Tidal Disruption Event",
+      "Zwicky Transient Facility",
+      "Robert Stein",
+      "University of Maryland",
+      "The Astrophysical Journal Letters"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": false
   },
   {
     "slug": "/science-truncating-photon-quantum-mess-2026",
@@ -2917,18 +2959,18 @@
     "breaking": false
   },
   {
-    "slug": "/news-faa-commercial-space-launch-approvals-2026",
-    "url": "https://www.ozonedailynews.com/news/faa-commercial-space-launch-approvals-2026",
-    "title": "FAA Proposes Sweeping Rule Change | Accelerate Commercial Space Launch Approvals",
-    "subtitle": "The FAA proposes waiving environmental review requirements across 13 federal statutes to expedite commercial launch and reentry approvals for SpaceX, Blue Origin, and Rocket Lab.",
-    "category": "News",
+    "slug": "/science-swift-ai-wandering-black-hole-tde-2026",
+    "url": "https://www.ozonedailynews.com/science/swift-ai-wandering-black-hole-tde-2026",
+    "title": "Wandering Black Hole Caught Shredding a Star | Swift Observatory AI Discovery",
+    "subtitle": "An AI algorithm and NASA Swift Observatory data caught a rare orphan supermassive black hole shredding a star more than 30,000 light-years from its galaxy core.",
+    "category": "Science",
     "author": "Max DeLeonardis",
     "author_slug": "max-deleonardis",
     "articleType": "NewsArticle",
     "publishDate": "July 28, 2026",
     "modifiedDate": "2026-07-29",
-    "imageUrl": "/thumbnails/news-faa-commercial-space-launch-approvals-2026.jpg",
-    "filePath": "articles/2026/07/news-faa-commercial-space-launch-approvals-2026.json",
-    "thumbnail_src": "/thumbnails/news-faa-commercial-space-launch-approvals-2026.jpg"
+    "imageUrl": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg",
+    "filePath": "articles/2026/07/science-swift-ai-wandering-black-hole-tde-2026.json",
+    "thumbnail_src": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg"
   }
 ]

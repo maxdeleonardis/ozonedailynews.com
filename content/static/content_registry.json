@@ -15,6 +15,21 @@
     "thumbnail_src": "/thumbnails/news-faa-commercial-space-launch-approvals-2026.jpg"
   },
   {
+    "slug": "/science-swift-ai-wandering-black-hole-tde-2026",
+    "url": "https://www.ozonedailynews.com/science/swift-ai-wandering-black-hole-tde-2026",
+    "title": "Wandering Black Hole Caught Shredding a Star | Swift Observatory AI Discovery",
+    "subtitle": "An AI algorithm and NASA Swift Observatory data caught a rare orphan supermassive black hole shredding a star more than 30,000 light-years from its galaxy core.",
+    "category": "Science",
+    "author": "Max DeLeonardis",
+    "author_slug": "max-deleonardis",
+    "articleType": "NewsArticle",
+    "publishDate": "July 28, 2026",
+    "modifiedDate": "2026-07-29",
+    "imageUrl": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg",
+    "filePath": "articles/2026/07/science-swift-ai-wandering-black-hole-tde-2026.json",
+    "thumbnail_src": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg"
+  },
+  {
     "slug": "/news/faa-commercial-space-launch-approvals-2026",
     "filePath": "articles/2026/07/news-faa-commercial-space-launch-approvals-2026.json",
     "title": "FAA Proposes Sweeping Rule Change | Accelerate Commercial Space Launch Approvals",
@@ -67,6 +82,33 @@
     "articleType": "NewsArticle",
     "lifecycle": "news",
     "breaking": false
+  },
+  {
+    "slug": "/tech/amazon-leo-direct-to-device-satellite-constellation-2026",
+    "filePath": "articles/2026/07/tech-amazon-leo-direct-to-device-satellite-constellation-2026.json",
+    "title": "Sky-Bound Cellular | Amazon Files for 5,100-Satellite Direct-to-Device Network",
+    "description": "Amazon filed an FCC application for Amazon Leo Direct-to-Device, a 5,105-satellite LEO constellation that beams cellular service directly to unmodified smartphones using Globalstar spectrum.",
+    "publishDate": "2026-07-28",
+    "modifiedDate": "2026-07-28",
+    "category": "Tech",
+    "tags": [
+      "Amazon",
+      "Project Kuiper",
+      "Globalstar",
+      "FCC",
+      "Direct-to-Device",
+      "LEO Satellites",
+      "Apple",
+      "SpaceX Starlink"
+    ],
+    "author": "Max DeLeonardis",
+    "authorSlug": "max-deleonardis",
+    "priority": 0.7,
+    "changeFrequency": "daily",
+    "imageUrl": "/thumbnails/tech-reflect-orbital-earendil-1-fcc-approval-space-mirror-2026.jpg",
+    "articleType": "NewsArticle",
+    "lifecycle": "news",
+    "breaking": true
   },
   {
     "slug": "/science-truncating-photon-quantum-mess-2026",
@@ -2959,18 +3001,18 @@
     "breaking": false
   },
   {
-    "slug": "/science-swift-ai-wandering-black-hole-tde-2026",
-    "url": "https://www.ozonedailynews.com/science/swift-ai-wandering-black-hole-tde-2026",
-    "title": "Wandering Black Hole Caught Shredding a Star | Swift Observatory AI Discovery",
-    "subtitle": "An AI algorithm and NASA Swift Observatory data caught a rare orphan supermassive black hole shredding a star more than 30,000 light-years from its galaxy core.",
-    "category": "Science",
+    "slug": "/tech-amazon-leo-direct-to-device-satellite-constellation-2026",
+    "url": "https://www.ozonedailynews.com/tech/amazon-leo-direct-to-device-satellite-constellation-2026",
+    "title": "Sky-Bound Cellular | Amazon Files for 5,100-Satellite Direct-to-Device Network",
+    "subtitle": "Amazon filed an FCC application for Amazon Leo Direct-to-Device, a 5,105-satellite LEO constellation that beams cellular service directly to unmodified smartphones using Globalstar spectrum.",
+    "category": "Tech",
     "author": "Max DeLeonardis",
     "author_slug": "max-deleonardis",
     "articleType": "NewsArticle",
     "publishDate": "July 28, 2026",
     "modifiedDate": "2026-07-29",
-    "imageUrl": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg",
-    "filePath": "articles/2026/07/science-swift-ai-wandering-black-hole-tde-2026.json",
-    "thumbnail_src": "/thumbnails/science-second-generation-black-holes-ligo-virgo-kagra-2026.jpg"
+    "imageUrl": "/thumbnails/tech-reflect-orbital-earendil-1-fcc-approval-space-mirror-2026.jpg",
+    "filePath": "articles/2026/07/tech-amazon-leo-direct-to-device-satellite-constellation-2026.json",
+    "thumbnail_src": "/thumbnails/tech-reflect-orbital-earendil-1-fcc-approval-space-mirror-2026.jpg"
   }
 ]

@@ -99,6 +99,6 @@ Build explicit, crawlable content clusters that signal topical authority to Goog
 
 - [ ] 1. Unify dynamic route (`app/[...slug]/page.tsx`) with `NewsArticleDB`
 - [ ] 2. Server-render `moreFromHub` 6-article cluster links for all articles
-- [ ] 3. Add static JSON article validator script (`scripts/validate-static-articles.ts`)
+- [x] 3. Add static JSON article validator script (`scripts/validate-static-articles.ts`) — integrated into `prebuild.ts`
 - [ ] 4. Enforce publish gate in CMS publish route
-- [ ] 5. Fix 31 current metadata warnings
+- [ ] 5. Fix 31 current metadata warnings — partially resolved (5 BluePink entries fixed, 31 E-E-AAT warnings remain on hub pages)

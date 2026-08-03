@@ -266,6 +266,119 @@ if (badLinks.length === 0) console.log(`  \u2705 All edit links properly formatt
 
 console.log(`\n\u2705 CMS route validation passed!`);
 
+// ─── 5. validate-static-articles ────────────────────────────────────────────────
+
+console.log(`\n\uD83D\uDD0D Validating static article content...\n`);
+
+const BANNED_PHRASES = [
+  'In conclusion', 'It is important to note', 'It is important to remember',
+  'Furthermore, it is crucial', "In today's fast-paced world",
+  'In the ever-evolving landscape', 'It is worth noting that',
+  'Moreover, it should be noted', 'Navigating the complex', 'Delve into',
+  'In summary', 'delve into', 'Delve deeper',
+];
+
+const KNOWN_AUTHOR_SLUGS = new Set([
+  'max-deleonardis', 'simon-minter', 'ozonedailynews-editorial-team',
+  'kaustubh-madiraju', 'josh-donnelly',
+]);
+
+const BANNED_EM_DASH = /[—–]/;
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#\d+;/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+
+let staticErrors = 0;
+let staticWarnings = 0;
+const staticFiles = new Set<string>();
+
+for (const store of STORES) {
+  const storeDir = path.join(STATIC_BASE, store.table);
+  for (const fp of findJsonFilesRecursive(storeDir)) {
+    const relPath = path.relative(CWD, fp);
+    if (staticFiles.has(relPath)) continue;
+    staticFiles.add(relPath);
+
+    let raw: Record<string, unknown>;
+    try { raw = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch { continue; }
+
+    const contentHtml = (raw.content_html as string) ?? '';
+    const title = (raw.title as string) ?? '';
+    const authorSlug = (raw.author_slug as string) ?? '';
+    const metadata = (raw.metadata ?? {}) as Record<string, unknown>;
+    const description = (metadata.description as string) ?? '';
+    const metaTitle = (metadata.title as string) ?? '';
+    const subtitle = (raw.subtitle as string) ?? '';
+
+    // Don't validate article_pages/wiki/creator — they are different content types
+    const slug = (raw.slug as string) ?? '';
+    if (slug.includes('article_pages') || slug.includes('wiki_') || slug.includes('creator_')) continue;
+
+    const cleanText = stripHtml(contentHtml);
+    const wordCount = cleanText ? cleanText.split(/\s+/).length : 0;
+
+    if (wordCount < 300) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Word count is ${wordCount} (minimum 300)`);
+    } else if (wordCount < 600) {
+      staticWarnings++; console.warn(`  \u26A0 [${relPath}] Word count is ${wordCount} (target 600+)`);
+    }
+
+    const internalLinks = (contentHtml.match(/<a\s[^>]*href\s*=\s*"(?:\/(?!\/)[^"]*|[^"http][^"]*)"/gi) ?? []).length;
+    if (internalLinks < 4) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Found ${internalLinks} internal link(s) (minimum 4)`);
+    }
+
+    const externalLinks = (contentHtml.match(/<a\s[^>]*href\s*=\s*"https?:\/\/(?!.*ozonedailynews\.com)[^"]*"/gi) ?? []).length;
+    if (externalLinks < 1) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Found ${externalLinks} external link(s) (minimum 1)`);
+    }
+
+    const h2Count = (contentHtml.match(/<h2\b[^>]*>/gi) ?? []).length;
+    if (h2Count < 1) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Found ${h2Count} <h2> heading(s) (minimum 1)`);
+    }
+
+    if (BANNED_EM_DASH.test(title)) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Em dash in title: "${title}"`);
+    }
+
+    if (BANNED_EM_DASH.test(contentHtml)) {
+      const idx = contentHtml.search(BANNED_EM_DASH); const snippet = contentHtml.slice(Math.max(0, idx - 30), idx + 30).replace(/\n/g, ' ');
+      staticErrors++; console.error(`  \u2716 [${relPath}] Em dash found near: "...${snippet}..."`);
+    }
+
+    if (authorSlug && !KNOWN_AUTHOR_SLUGS.has(authorSlug)) {
+      staticErrors++; console.error(`  \u2716 [${relPath}] Unknown author_slug "${authorSlug}"`);
+    }
+
+    const lowerBody = (contentHtml + ' ' + subtitle + ' ' + description).toLowerCase();
+    for (const phrase of BANNED_PHRASES) {
+      if (lowerBody.includes(phrase.toLowerCase())) {
+        staticErrors++; console.error(`  \u2716 [${relPath}] Banned phrase: "${phrase}"`);
+      }
+    }
+
+    if (description && description.length > 155) {
+      staticWarnings++; console.warn(`  \u26A0 [${relPath}] Description is ${description.length} chars (max 155)`);
+    } else if (description && description.length > 0 && description.length < 130) {
+      staticWarnings++; console.warn(`  \u26A0 [${relPath}] Description is ${description.length} chars (target 130-155)`);
+    }
+
+    if (metaTitle && metaTitle.length > 60) {
+      staticWarnings++; console.warn(`  \u26A0 [${relPath}] Meta title is ${metaTitle.length} chars (max 60)`);
+    }
+  }
+}
+
+console.log(`\n  Static article checks: ${staticErrors} error(s), ${staticWarnings} warning(s)\n`);
+if (staticErrors > 0) {
+  console.log('  ⚠ Found legacy article quality issues — not blocking build.\n');
+  console.log('  Run "npm run validate:static" for a strict fail-on-error scan.\n');
+}
+
 // ─── Done ──────────────────────────────────────────────────────────────────────
 
-console.log(`\n\u2705 All prebuild checks passed in ${((Date.now() - START) / 1000).toFixed(1)}s`);
+console.log(`\u2705 All prebuild checks passed in ${((Date.now() - START) / 1000).toFixed(1)}s`);

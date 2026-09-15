@@ -98,7 +98,7 @@ export const AUTHORS: Record<string, AuthorEntity> = {
 
   'simon-minter': {
     slug: 'simon-minter',
-    name: 'Anderea Redwood',
+    name: 'Andrea Redwood',
     jobTitle: 'Energy Correspondent',
     tagline: 'Energy Correspondent, OzoneNews',
     bio: [

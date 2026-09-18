@@ -1,0 +1,60 @@
+{
+  "slug": "climate",
+  "url": "https://www.ozonedailynews.com/climate",
+  "article_type": "article_page",
+  "title": "Climate | Science, Data, and Earth System Change",
+  "subtitle": "Climate science, global temperature data, atmospheric research, and the physical processes driving Earth's changing climate system.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-09-16T10:00:00-05:00",
+  "publish_date": "September 16, 2026",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "read_time": "4 min read",
+  "thumbnail_src": "/thumbnails/climate.jpg",
+  "thumbnail_alt": "Satellite view of Earth's atmosphere showing cloud patterns and weather systems",
+  "info_box": {
+    "title": "Climate",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1611928482473-7b27d24eab80?w=400&h=400&fit=crop",
+      "alt": "Earth atmosphere from space",
+      "caption": "Earth's climate system is driven by atmospheric physics, ocean currents, and solar radiation"
+    },
+    "sections": [
+      {
+        "heading": "Key Indicators (2026)",
+        "items": [
+          { "label": "Global Temp Anomaly", "value": "+1.4\u00b0C above pre-industrial" },
+          { "label": "CO\u2082 Level", "value": "433.95 ppm (Mauna Loa 2026)" },
+          { "label": "Arctic Sea Ice", "value": "13% decline per decade" },
+          { "label": "Sea Level Rise", "value": "+3.4mm/year (accelerating)" },
+          { "label": "Ocean Heat Content", "value": "Record high (2025-2026)" }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          { "href": "/science/keeling-curve-co2-annual-peak-mauna-loa-2026", "label": "CO\u2082 Levels 2026" },
+          { "href": "/science/arctic-sea-ice-minimum-2026-measured-extent", "label": "Arctic Sea Ice Data" },
+          { "href": "/science/solar-storm-us-power-grid-risk-2026", "label": "Solar Storm Grid Risk" },
+          { "href": "/science/great-barrier-reef-bleaching-data-2026", "label": "Great Barrier Reef Bleaching" }
+        ]
+      }
+    ]
+  },
+  "tags": ["Climate Science", "Global Warming", "Atmospheric Science", "CO2", "Climate Data", "Earth Science"],
+  "metadata": {
+    "title": "Climate | Science, Data, and Earth System Change",
+    "description": "Climate science, global temperature data, atmospheric research, and the physical processes driving Earth's changing climate system.",
+    "keywords": ["climate science data", "global warming atmospheric research", "earth climate system change"],
+    "alternates": { "canonical": "https://www.ozonedailynews.com/climate" },
+    "openGraph": {
+      "title": "Climate | Science, Data, and Earth System Change",
+      "description": "Climate science, global temperature data, atmospheric research, and the physical processes driving Earth's changing climate system.",
+      "images": [{ "url": "/thumbnails/climate.jpg", "width": 1200, "height": 675, "alt": "Earth atmosphere from space" }]
+    }
+  },
+  "content_html": "<p>Climate science sits at the intersection of atmospheric physics, oceanography, glaciology, and ecology. Earth's climate is determined by the balance of incoming solar radiation and outgoing thermal radiation, modulated by greenhouse gas concentrations, cloud cover, aerosols, and surface albedo. Human activity has shifted this balance, driving global temperatures to levels not seen in at least 125,000 years.</p>\n\n<h2>Global Temperature and Carbon Dioxide</h2>\n\n<p>The Keeling Curve, measured at Mauna Loa Observatory since 1958, provides the longest continuous record of atmospheric CO\u2082. In 2026, CO\u2082 reached 433.95 parts per million, roughly 50 percent higher than pre-industrial levels. This increase is the primary driver of the observed +1.4\u00b0C global temperature anomaly above pre-industrial baselines.</p>\n\n<h2>Cryosphere and Sea Level</h2>\n\n<p>Ice sheets in Greenland and Antarctica are losing mass at accelerating rates, contributing to sea level rise of 3.4 millimeters per year. Arctic sea ice extent continues its long-term decline at roughly 13 percent per decade, opening new shipping routes while disrupting polar ecosystems and albedo feedback loops.</p>\n\n<h2>Climate Modeling and Prediction</h2>\n\n<p>Earth system models integrate atmospheric, oceanic, cryospheric, and terrestrial processes to project future climate under different emission scenarios. Model improvements in cloud physics, aerosol interactions, and ocean mixing are reducing uncertainty in regional climate projections, though significant challenges remain in predicting tipping point behavior.</p>",
+  "author_role": "Founder & Publisher"
+}

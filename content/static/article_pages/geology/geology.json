@@ -1,0 +1,60 @@
+{
+  "slug": "geology",
+  "url": "https://www.ozonedailynews.com/geology",
+  "article_type": "article_page",
+  "title": "Geology | Earth's Deep Structure, Fossils, and Planetary Processes",
+  "subtitle": "Geology, paleontology, plate tectonics, volcanism, and the deep Earth processes that shape the planet's surface and history.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-09-16T10:00:00-05:00",
+  "publish_date": "September 16, 2026",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "read_time": "4 min read",
+  "thumbnail_src": "/thumbnails/geology.jpg",
+  "thumbnail_alt": "Rock strata and geological formations showing Earth's deep time record",
+  "info_box": {
+    "title": "Geology",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1587334274322-7af2c6b0b4c0?w=400&h=400&fit=crop",
+      "alt": "Rock layers and geological strata",
+      "caption": "Earth's geological record preserves 4.5 billion years of planetary history"
+    },
+    "sections": [
+      {
+        "heading": "Key Topics",
+        "items": [
+          { "label": "Deep Time", "value": "4.54 billion years of Earth history" },
+          { "label": "Plate Tectonics", "value": "7 major plates, dozens of minor plates" },
+          { "label": "Fossil Record", "value": "3.7 billion years of life preserved in rock" },
+          { "label": "Volcanic Activity", "value": "~1,500 potentially active volcanoes" },
+          { "label": "Earthquakes", "value": "~500,000 detected per year" }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          { "href": "/science/adult-t-rex-trackway-north-dakota-2026", "label": "T. Rex Trackway Discovery" },
+          { "href": "/science/fossilized-dinosaur-poop-feather-2026", "label": "Dinosaur Coprolite Feather" },
+          { "href": "/science/pets-monkeys-keep-animal-kingdom-evolution-2026", "label": "Primate Evolution" },
+          { "href": "/science/vesuvius-scrolls-herculaneum-ai-decipherment-2026", "label": "Vesuvius Scrolls" }
+        ]
+      }
+    ]
+  },
+  "tags": ["Geology", "Paleontology", "Plate Tectonics", "Volcanology", "Earth Science", "Fossils", "Deep Time"],
+  "metadata": {
+    "title": "Geology | Earth's Deep Structure, Fossils, and Planetary Processes",
+    "description": "Geology, paleontology, plate tectonics, volcanism, and the deep Earth processes that shape the planet's surface and history.",
+    "keywords": ["geology earth deep structure", "paleontology fossils", "plate tectonics volcanism earth science"],
+    "alternates": { "canonical": "https://www.ozonedailynews.com/geology" },
+    "openGraph": {
+      "title": "Geology | Earth's Deep Structure, Fossils, and Planetary Processes",
+      "description": "Geology, paleontology, plate tectonics, volcanism, and the deep Earth processes that shape the planet's surface and history.",
+      "images": [{ "url": "/thumbnails/geology.jpg", "width": 1200, "height": 675, "alt": "Rock strata and geological formations" }]
+    }
+  },
+  "content_html": "<p>Geology is the study of Earth's solid materials, the processes that shape them, and the 4.5-billion-year history recorded in the planet's crust. From plate tectonics and volcanic activity to the fossil record of ancient life, geology provides the foundational timescale for understanding Earth's evolution and the forces that continue to reshape its surface.</p>\n\n<h2>Plate Tectonics and Earth's Interior</h2>\n\n<p>Earth's lithosphere is divided into seven major tectonic plates that move at rates of 2 to 15 centimeters per year. Plate boundaries are sites of intense geological activity, including earthquakes, volcanic eruptions, and mountain building. The driving forces include mantle convection, slab pull at subduction zones, and ridge push at mid-ocean spreading centers.</p>\n\n<h2>Paleontology and the Fossil Record</h2>\n\n<p>The fossil record preserves evidence of life stretching back 3.7 billion years, from microscopic stromatolites to the largest dinosaurs. Paleontology reconstructs evolutionary relationships, extinction events, and ancient environments by analyzing preserved remains. Recent discoveries, including the first adult T. rex trackway and a feather preserved in dinosaur coprolite, continue to refine our understanding of Cretaceous ecosystems.</p>\n\n<h2>Volcanism and Earth Hazards</h2>\n\n<p>Volcanic eruptions are among Earth's most powerful geological forces, capable of altering climate, reshaping landscapes, and threatening populations. Understanding eruption mechanisms, magma chamber dynamics, and monitoring technologies is essential for hazard assessment. The 79 CE eruption of Mount Vesuvius that buried Herculaneum serves as a reminder of the destructive power preserved in the geological record.</p>",
+  "author_role": "Founder & Publisher"
+}

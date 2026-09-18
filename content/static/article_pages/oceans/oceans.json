@@ -1,0 +1,60 @@
+{
+  "slug": "oceans",
+  "url": "https://www.ozonedailynews.com/oceans",
+  "article_type": "article_page",
+  "title": "Oceans | Deep Sea, Marine Life, and Ocean Science",
+  "subtitle": "Oceanography, deep-sea exploration, marine ecosystems, and the physical processes that drive Earth's largest habitat.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-09-16T10:00:00-05:00",
+  "publish_date": "September 16, 2026",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "read_time": "4 min read",
+  "thumbnail_src": "/thumbnails/oceans.jpg",
+  "thumbnail_alt": "Deep blue ocean waves from above showing the vastness of Earth's marine systems",
+  "info_box": {
+    "title": "Oceans",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=400&fit=crop",
+      "alt": "Ocean waves from above",
+      "caption": "Earth's ocean covers 71 percent of the planet's surface"
+    },
+    "sections": [
+      {
+        "heading": "Key Statistics",
+        "items": [
+          { "label": "Ocean Coverage", "value": "71% of Earth (361 million km\u00b2)" },
+          { "label": "Mean Depth", "value": "3,688 meters" },
+          { "label": "Deepest Point", "value": "Challenger Deep, 10,994m" },
+          { "label": "Explored", "value": "<20% of seafloor mapped" },
+          { "label": "Marine Species", "value": "~2.2 million described" }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          { "href": "/earth/coral-reef", "label": "Coral Reef Systems" },
+          { "href": "/science/great-barrier-reef-bleaching-data-2026", "label": "Great Barrier Reef 2026" },
+          { "href": "/science/humpback-whale-migration-great-barrier-reef-2026", "label": "Humpback Whale Recovery" },
+          { "href": "/science/arctic-ocean-permafrost-carbon-seabed-storage-2026", "label": "Arctic Ocean Carbon Storage" }
+        ]
+      }
+    ]
+  },
+  "tags": ["Oceanography", "Marine Biology", "Deep Sea", "Ocean Health", "Marine Conservation", "Ocean Temperature"],
+  "metadata": {
+    "title": "Oceans | Deep Sea, Marine Life, and Ocean Science",
+    "description": "Oceanography, deep-sea exploration, marine ecosystems, and the physical processes that drive Earth's largest habitat.",
+    "keywords": ["oceans deep sea marine biology", "oceanography science", "marine conservation ocean health"],
+    "alternates": { "canonical": "https://www.ozonedailynews.com/oceans" },
+    "openGraph": {
+      "title": "Oceans | Deep Sea, Marine Life, and Ocean Science",
+      "description": "Oceanography, deep-sea exploration, marine ecosystems, and the physical processes that drive Earth's largest habitat.",
+      "images": [{ "url": "/thumbnails/oceans.jpg", "width": 1200, "height": 675, "alt": "Ocean waves from above" }]
+    }
+  },
+  "content_html": "<p>The ocean is Earth's largest habitat, covering 71 percent of the planet's surface and driving global climate, weather, and nutrient cycles. Despite its size, less than 20 percent of the seafloor has been mapped at high resolution, and new species are discovered on nearly every deep-sea expedition.</p>\n\n<h2>Marine Ecosystems and Biodiversity</h2>\n\n<p>Coral reefs, kelp forests, seagrass meadows, and deep-sea hydrothermal vents each host distinct communities of organisms adapted to extreme conditions. The health of these ecosystems is directly tied to ocean temperature, acidity, and nutrient availability. Our coverage tracks the latest research on marine heatwaves, coral bleaching, and species migration patterns as the ocean warms.</p>\n\n<h2>Deep-Sea Exploration</h2>\n\n<p>Advances in remotely operated vehicles (ROVs), autonomous underwater vehicles (AUVs), and satellite oceanography are opening new frontiers in deep-sea research. From hydrothermal vent ecosystems that operate without sunlight to abyssal plains that store centuries of carbon, the deep ocean remains one of the least understood environments on Earth.</p>\n\n<h2>Ocean and Climate</h2>\n\n<p>The ocean absorbs roughly 30 percent of anthropogenic carbon dioxide and over 90 percent of excess heat from greenhouse gas warming. This makes it the planet's most important climate buffer, but the cost is rising ocean temperatures, acidification, and deoxygenation. Understanding these physical processes is essential for predicting future climate scenarios.</p>",
+  "author_role": "Founder & Publisher"
+}

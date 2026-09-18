@@ -1,0 +1,59 @@
+{
+  "slug": "archaeology",
+  "url": "https://www.ozonedailynews.com/archaeology",
+  "article_type": "article_page",
+  "title": "Archaeology | Ancient Civilizations, Artifacts, and Human Origins",
+  "subtitle": "Archaeology, ancient civilizations, human origins, and the material record of humanity's past from prehistory to the classical world.",
+  "category": "Science",
+  "status": "published",
+  "lifecycle": "evergreen",
+  "published_at": "2026-09-16T10:00:00-05:00",
+  "publish_date": "September 16, 2026",
+  "author_name": "Max DeLeonardis",
+  "author_slug": "max-deleonardis",
+  "read_time": "4 min read",
+  "thumbnail_src": "/thumbnails/archaeology.jpg",
+  "thumbnail_alt": "Archaeological excavation site with ancient ruins and artifacts",
+  "info_box": {
+    "title": "Archaeology",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1566577739112-5180d4bf9391?w=400&h=400&fit=crop",
+      "alt": "Ancient ruins and archaeological excavation",
+      "caption": "Archaeology reconstructs human history through the material record"
+    },
+    "sections": [
+      {
+        "heading": "Key Topics",
+        "items": [
+          { "label": "Human Origins", "value": "~300,000 years of Homo sapiens" },
+          { "label": "Classical World", "value": "Greek, Roman, Egyptian, Mesopotamian" },
+          { "label": "Written Record", "value": "~5,400 years of writing" },
+          { "label": "Undiscovered Sites", "value": ">90% of archaeological sites unexcavated" }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          { "href": "/science/vesuvius-scrolls-herculaneum-ai-decipherment-2026", "label": "Vesuvius Scrolls AI Decipherment" },
+          { "href": "/science/neanderthal-homo-sapiens-ucagizli-cave-culture-2026", "label": "Neanderthal and Homo Sapiens" },
+          { "href": "/science/hillsborough-meteorite-alien-chemistry-2026", "label": "Meteorite Chemistry" },
+          { "href": "/science/erythrulose-interstellar-true-sugar-2026", "label": "Interstellar Sugar Discovery" }
+        ]
+      }
+    ]
+  },
+  "tags": ["Archaeology", "Ancient Civilizations", "Human Origins", "Classical Studies", "Artifacts", "Paleontology"],
+  "metadata": {
+    "title": "Archaeology | Ancient Civilizations, Artifacts, and Human Origins",
+    "description": "Archaeology, ancient civilizations, human origins, and the material record of humanity's past from prehistory to the classical world.",
+    "keywords": ["archaeology ancient civilizations", "human origins artifacts", "classical archaeology science"],
+    "alternates": { "canonical": "https://www.ozonedailynews.com/archaeology" },
+    "openGraph": {
+      "title": "Archaeology | Ancient Civilizations, Artifacts, and Human Origins",
+      "description": "Archaeology, ancient civilizations, human origins, and the material record of humanity's past from prehistory to the classical world.",
+      "images": [{ "url": "/thumbnails/archaeology.jpg", "width": 1200, "height": 675, "alt": "Archaeological excavation site" }]
+    }
+  },
+  "content_html": "<p>Archaeology reconstructs human history through the material remains of past societies. From stone tools and cave paintings to monumental architecture and written texts, the archaeological record spans over 300,000 years of human existence and provides the only direct evidence for how our ancestors lived, thought, and organized themselves.</p>\n\n<h2>Human Origins and Prehistory</h2>\n\n<p>The study of human evolution draws on fossil evidence, genetic analysis, and archaeological excavations across Africa, Europe, and Asia. Key questions include the timing and routes of human migration out of Africa, the interaction between Homo sapiens and Neanderthals, and the cognitive and cultural developments that enabled the emergence of complex societies.</p>\n\n<h2>Classical Civilizations</h2>\n\n<p>The classical world of Greece, Rome, Egypt, and Mesopotamia produced enduring achievements in philosophy, literature, law, and engineering. The Villa of the Papyri in Herculaneum, buried by Mount Vesuvius in 79 CE, preserves the only intact library from classical antiquity. AI-driven virtual unwrapping is now recovering lost philosophical works that have not been read in nearly 2,000 years.</p>\n\n<h2>Digital Archaeology and New Methods</h2>\n\n<p>Modern archaeology increasingly relies on non-destructive technologies including ground-penetrating radar, LiDAR, satellite imagery, and CT scanning. These tools allow researchers to discover and analyze sites without excavation, preserving them for future generations while extracting unprecedented amounts of data from existing artifacts and structures.</p>",
+  "author_role": "Founder & Publisher"
+}

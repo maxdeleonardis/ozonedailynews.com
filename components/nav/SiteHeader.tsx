@@ -5,11 +5,12 @@ import Link from 'next/link';
 
 const NAV_LINKS = [
   { label: 'Space',       href: '/space' },
-  { label: 'Rockets',     href: '/rockets' },
-  { label: 'Engineering', href: '/engineering' },
+  { label: 'Earth',       href: '/earth' },
+  { label: 'Oceans',      href: '/oceans' },
+  { label: 'Climate',     href: '/climate' },
+  { label: 'Geology',     href: '/geology' },
+  { label: 'Archaeology', href: '/archaeology' },
   { label: 'Science',     href: '/science' },
-  { label: 'Defense',     href: '/defense' },
-  { label: 'Policy',      href: '/policy' },
 ] as const;
 
 export default function SiteHeader() {

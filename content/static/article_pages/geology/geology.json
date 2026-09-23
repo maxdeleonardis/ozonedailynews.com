@@ -17,7 +17,7 @@
   "info_box": {
     "title": "Geology",
     "image": {
-      "src": "https://images.unsplash.com/photo-1587334274322-7af2c6b0b4c0?w=400&h=400&fit=crop",
+      "src": "/thumbnails/geology.jpg",
       "alt": "Rock layers and geological strata",
       "caption": "Earth's geological record preserves 4.5 billion years of planetary history"
     },

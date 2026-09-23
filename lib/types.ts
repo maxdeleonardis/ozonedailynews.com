@@ -28,32 +28,27 @@ export interface CorrectionEntry {
 }
 
 export type Category =
-  | 'News'
-  | 'Tech'
-  | 'Finance'
-  | 'Entertainment'
-  | 'World'
-  | 'Politics'
   | 'Science'
-  | 'Sports'
-  | 'Culture'
-  | 'Crypto'
-  | 'Gaming';
+  | 'Space'
+  | 'Tech'
+  | 'Earth'
+  | 'News'
+  | 'World';
 
 export type TopicTagType =
-  | 'gaming'
-  | 'entertainment'
-  | 'ai'
-  | 'tech'
-  | 'finance'
-  | 'politics'
   | 'science'
-  | 'sports'
-  | 'world'
-  | 'crypto'
-  | 'culture'
-  | 'health'
-  | 'business';
+  | 'space'
+  | 'rockets'
+  | 'earth'
+  | 'oceans'
+  | 'climate'
+  | 'geology'
+  | 'archaeology'
+  | 'physics'
+  | 'astronomy'
+  | 'biology'
+  | 'ecology'
+  | 'atmospheric';
 
 // ─── NewsArticleDB ────────────────────────────────────────────────────────────
 export interface ArticleFull {

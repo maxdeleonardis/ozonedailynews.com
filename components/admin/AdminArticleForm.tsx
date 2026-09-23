@@ -11,8 +11,7 @@ import { AUTHORS } from '@/lib/authors';
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const CATEGORIES = [
-  'News', 'Tech', 'Finance', 'Entertainment', 'World',
-  'Politics', 'Science', 'Sports', 'Culture', 'Crypto', 'Gaming',
+  'Science', 'Space', 'Earth', 'Tech', 'News', 'World',
 ];
 
 // Brand is locked to whichever site the admin panel is deployed on.

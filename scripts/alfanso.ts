@@ -51,8 +51,7 @@ const SITE_URL    = 'https://www.ozonedailynews.com';
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
 
 const VALID_CATEGORIES = [
-  'News', 'Tech', 'Finance', 'Entertainment', 'World',
-  'Politics', 'Science', 'Sports', 'Culture', 'Crypto', 'Gaming',
+  'Science', 'Space', 'Earth', 'Tech', 'News', 'World',
 ] as const;
 
 // Pulled from lib/authors.ts — keep in sync

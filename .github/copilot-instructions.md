@@ -34,6 +34,22 @@ CORRECT alternatives:
 - No brand suffix (no "| OzoneNews" at the end)
 - No em dashes, no en dashes
 - `&` is ALLOWED in metadata.title only
+- Front-load the primary keyword: crawlers and readers scan the first words first
+- Never truncate mid-thought: if the full title is long, compress it to a coherent ≤60-char string
+
+## H1 / Article title Rules (title field)
+
+- Sentence case: capitalize only the first word and proper nouns
+- ≤70 characters for scannability
+- Front-load the subject/keyword, do NOT bury it behind a creative metaphor
+- NO "Creative Phrase | Descriptive Detail" two-part format for news headlines. The
+  title must state the point directly.
+- The H1 (title) and metadata.title must be contextually aligned. For Google News
+  discoverability they should be as close to identical as length allows.
+- Example:
+  WRONG: "Healing the Shield | Antarctic Ozone Hole Reaches One of Its Smallest States in Decades"
+  RIGHT: "Antarctic Ozone Hole Reaches Smallest Size in Decades"
+- Subheads (h2/h3) stay `Specific Sub-Question | Data Point` and stay specific.
 
 ## metadata.description Rules
 

@@ -17,8 +17,8 @@
   "info_box": {
     "title": "Archaeology",
     "image": {
-      "src": "https://images.unsplash.com/photo-1566577739112-5180d4bf9391?w=400&h=400&fit=crop",
-      "alt": "Ancient ruins and archaeological excavation",
+      "src": "/thumbnails/archaeology.jpg",
+      "alt": "Archaeological excavation site with ancient ruins and artifacts",
       "caption": "Archaeology reconstructs human history through the material record"
     },
     "sections": [

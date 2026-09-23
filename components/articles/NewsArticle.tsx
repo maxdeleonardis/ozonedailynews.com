@@ -15,8 +15,8 @@ import type { FAQItem } from '@/components/FAQAccordion';
 import { MoreFromHub, type MoreFromHubItem } from '@/components/discovery/MoreFromHub';
 
 // =============================================================================
-// NEWS ARTICLE COMPONENT - Flashy, engaging article layout
-// For: News stories, influencer coverage, entertainment, trending topics
+// NEWS ARTICLE COMPONENT - Science news article layout
+// For: Science news, space exploration, Earth science, and research breakthroughs
 // =============================================================================
 
 // =============================================================================
@@ -33,9 +33,8 @@ export interface AuthorInfo {
 }
 
 export type TopicTagType = 
-  | "technology" | "news" | "finance" | "sports" | "entertainment" 
-  | "lifestyle" | "investigations" | "world" | "politics" | "science"
-  | "gaming" | "crypto" | "ai" | "automotive" | "education" | "culture";
+  | "space" | "earth" | "oceans" | "climate" | "geology" | "archaeology"
+  | "physics" | "astronomy" | "science" | "rockets";
 
 export interface NewsArticleProps {
   title: string;
@@ -83,22 +82,16 @@ export interface NewsArticleProps {
 // =============================================================================
 
 const topicTagStyles: Record<TopicTagType, { bg: string; text: string; icon: string }> = {
-  technology:      { bg: 'bg-blue-100',    text: 'text-blue-800',    icon: '💻' },
-  news:            { bg: 'bg-red-100',     text: 'text-red-800',     icon: '📰' },
-  finance:         { bg: 'bg-green-100',   text: 'text-green-800',   icon: '💰' },
-  sports:          { bg: 'bg-indigo-100',  text: 'text-indigo-800',  icon: '🏆' },
-  entertainment:   { bg: 'bg-purple-100',  text: 'text-purple-800',  icon: '🎬' },
-  lifestyle:       { bg: 'bg-pink-100',    text: 'text-pink-800',    icon: '👕' },
-  investigations:  { bg: 'bg-orange-100',  text: 'text-orange-800',  icon: '🔍' },
-  world:           { bg: 'bg-sky-100',     text: 'text-sky-800',     icon: '🌍' },
-  politics:        { bg: 'bg-rose-100',    text: 'text-rose-800',    icon: '🏛️' },
-  science:         { bg: 'bg-teal-100',    text: 'text-teal-800',    icon: '🔬' },
-  gaming:          { bg: 'bg-violet-100',  text: 'text-violet-800',  icon: '🎮' },
-  crypto:          { bg: 'bg-amber-100',   text: 'text-amber-800',   icon: '₿' },
-  ai:              { bg: 'bg-cyan-100',    text: 'text-cyan-800',    icon: '🤖' },
-  automotive:      { bg: 'bg-slate-100',   text: 'text-slate-800',   icon: '🚗' },
-  education:       { bg: 'bg-lime-100',    text: 'text-lime-800',    icon: '🎓' },
-  culture:         { bg: 'bg-fuchsia-100', text: 'text-fuchsia-800', icon: '🎨' },
+  space:         { bg: 'bg-indigo-100',  text: 'text-indigo-800',  icon: '🚀' },
+  rockets:       { bg: 'bg-blue-100',    text: 'text-blue-800',    icon: '🛰️' },
+  earth:         { bg: 'bg-teal-100',    text: 'text-teal-800',    icon: '🌍' },
+  oceans:        { bg: 'bg-cyan-100',    text: 'text-cyan-800',    icon: '🌊' },
+  climate:       { bg: 'bg-emerald-100', text: 'text-emerald-800', icon: '🌡️' },
+  geology:       { bg: 'bg-violet-100',  text: 'text-violet-800',  icon: '⛰️' },
+  archaeology:   { bg: 'bg-rose-100',    text: 'text-rose-800',    icon: '🏛️' },
+  physics:       { bg: 'bg-purple-100',  text: 'text-purple-800',  icon: '⚛️' },
+  astronomy:     { bg: 'bg-sky-100',     text: 'text-sky-800',     icon: '🔭' },
+  science:       { bg: 'bg-gray-100',    text: 'text-gray-800',    icon: '🔬' },
 };
 
 /**
@@ -106,7 +99,7 @@ const topicTagStyles: Record<TopicTagType, { bg: string; text: string; icon: str
  * Use this on every article, card, and listing for consistent categorization.
  */
 export function TopicTag({ topic, size = 'sm', showIcon = true }: { topic: TopicTagType; size?: 'xs' | 'sm' | 'md'; showIcon?: boolean }) {
-  const style = topicTagStyles[topic] || topicTagStyles.news;
+  const style = topicTagStyles[topic] || topicTagStyles.science;
   const sizeClasses = {
     xs: 'text-[10px] px-2 py-0.5',
     sm: 'text-xs px-2.5 py-1',
@@ -128,25 +121,15 @@ export function inferTopicTag(category: string, slug?: string): TopicTagType {
   const cat = category.toLowerCase();
   const s = (slug || '').toLowerCase();
   
-  if (cat.includes('tech') || s.startsWith('/google') || s.startsWith('/apple') || s.startsWith('/nvidia') || s.startsWith('/intel') || s.startsWith('/microsoft') || s.startsWith('/saas') || s.startsWith('/github')) return 'technology';
-  if (cat.includes('investigation') || cat.includes('fraud')) return 'investigations';
-  if (cat.includes('finance') || cat.includes('business') || s.startsWith('/finance') || s.startsWith('/bank')) return 'finance';
-  if (cat.includes('sport') || s.startsWith('/winter-olympics') || s.startsWith('/world-cup')) return 'sports';
-  if (cat.includes('entertainment') || s.startsWith('/disney') || s.startsWith('/entertainment')) return 'entertainment';
-  if (cat.includes('gaming') || s.startsWith('/video-games')) return 'gaming';
-  if (cat.includes('crypto') || s.startsWith('/crypto')) return 'crypto';
-  if (cat.includes('politic') || cat.includes('government')) return 'politics';
-  if (s.startsWith('/nasa') || s.startsWith('/technology/articles/dawn-of-orbital')) return 'science';
-  if (s.startsWith('/clothing') || s.startsWith('/artists')) return 'lifestyle';
-  if (s.startsWith('/youtube') || s.startsWith('/influencer') || s.startsWith('/podcasts') || s.startsWith('/beastgames')) return 'entertainment';
-  if (s.startsWith('/cars')) return 'automotive';
-  if (s.startsWith('/college')) return 'education';
-  if (s.startsWith('/open-ai') || s.startsWith('/define') || cat.includes('ai') || cat.includes('software')) return 'ai';
-  if (s.startsWith('/elon-musk')) return 'finance';
-  if (cat.includes('world') || s.startsWith('/news/world') || s.startsWith('/news/canada')) return 'world';
-  if (s.startsWith('/social')) return 'technology';
-  if (s.startsWith('/events')) return 'news';
-  return 'news';
+  if (s.startsWith('/space') || s.startsWith('/nasa') || s.startsWith('/rockets') || s.startsWith('/space-x') || s.startsWith('/blue-origin') || cat.includes('space')) return 'space';
+  if (s.startsWith('/oceans') || s.startsWith('/earth') || cat.includes('ocean') || cat.includes('marine')) return cat.includes('ocean') || cat.includes('marine') ? 'oceans' : 'earth';
+  if (s.startsWith('/climate') || cat.includes('climate')) return 'climate';
+  if (s.startsWith('/geology') || cat.includes('geology') || cat.includes('paleont')) return 'geology';
+  if (s.startsWith('/archaeology') || cat.includes('archaeology')) return 'archaeology';
+  if (s.startsWith('/rocket') || cat.includes('rocket') || cat.includes('launch')) return 'rockets';
+  if (cat.includes('physics') || cat.includes('quantum') || cat.includes('dark matter')) return 'physics';
+  if (cat.includes('astronomy') || cat.includes('telescope') || cat.includes('exoplanet') || cat.includes('galaxy')) return 'astronomy';
+  return 'science';
 }
 
 // =============================================================================

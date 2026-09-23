@@ -15,32 +15,34 @@ interface HubEntry {
 }
 
 const TOPIC_TAG_MAP: Partial<Record<TopicTagType, HubEntry>> = {
-  gaming:         { href: '/video-games',  label: 'Video Games',    accent: 'border-purple-500 text-purple-600 dark:text-purple-400', emoji: '🎮' },
-  crypto:         { href: '/crypto',       label: 'Crypto',         accent: 'border-green-500  text-green-600  dark:text-green-400',  emoji: '₿'  },
-  ai:             { href: '/tech',         label: 'Tech & AI',      accent: 'border-blue-500   text-blue-600   dark:text-blue-400',   emoji: '🤖' },
-  technology:     { href: '/tech',         label: 'Tech',           accent: 'border-blue-500   text-blue-600   dark:text-blue-400',   emoji: '💻' },
-  finance:        { href: '/finance',      label: 'Finance',        accent: 'border-yellow-500 text-yellow-600 dark:text-yellow-400', emoji: '📈' },
-  entertainment:  { href: '/entertainment',label: 'Entertainment',  accent: 'border-orange-500 text-orange-600 dark:text-orange-400', emoji: '🎬' },
-  sports:         { href: '/mls',          label: 'MLS',            accent: 'border-green-600  text-green-700  dark:text-green-400',  emoji: '⚽' },
+  space:         { href: '/space',        label: 'Space',         accent: 'border-indigo-500 text-indigo-600 dark:text-indigo-400', emoji: '🚀' },
+  rockets:       { href: '/rockets',      label: 'Rockets',       accent: 'border-blue-500   text-blue-600   dark:text-blue-400',   emoji: '🛰️' },
+  earth:         { href: '/earth',        label: 'Earth',         accent: 'border-teal-500   text-teal-600   dark:text-teal-400',   emoji: '🌍' },
+  oceans:        { href: '/oceans',       label: 'Oceans',        accent: 'border-cyan-500   text-cyan-600   dark:text-cyan-400',   emoji: '🌊' },
+  climate:       { href: '/climate',      label: 'Climate',       accent: 'border-emerald-500 text-emerald-600 dark:text-emerald-400', emoji: '🌡️' },
+  geology:       { href: '/geology',      label: 'Geology',       accent: 'border-violet-500 text-violet-600 dark:text-violet-400', emoji: '⛰️' },
+  archaeology:   { href: '/archaeology',  label: 'Archaeology',   accent: 'border-rose-500   text-rose-600   dark:text-rose-400',   emoji: '🏛️' },
+  physics:       { href: '/science',      label: 'Physics',       accent: 'border-purple-500 text-purple-600 dark:text-purple-400', emoji: '⚛️' },
+  astronomy:     { href: '/science',      label: 'Astronomy',     accent: 'border-sky-500    text-sky-600    dark:text-sky-400',    emoji: '🔭' },
+  science:       { href: '/science',      label: 'Science',       accent: 'border-gray-500   text-gray-600   dark:text-gray-400',   emoji: '🔬' },
 };
 
 /** Category string → hub. Used as fallback when topicTag is absent or unmapped. */
 const CATEGORY_MAP: Record<string, HubEntry> = {
-  'Gaming':        TOPIC_TAG_MAP.gaming!,
-  'gaming':        TOPIC_TAG_MAP.gaming!,
-  'Crypto':        TOPIC_TAG_MAP.crypto!,
-  'crypto':        TOPIC_TAG_MAP.crypto!,
-  'Tech':          TOPIC_TAG_MAP.technology!,
-  'Technology':    TOPIC_TAG_MAP.technology!,
-  'technology':    TOPIC_TAG_MAP.technology!,
-  'AI':            TOPIC_TAG_MAP.ai!,
-  'Finance':       TOPIC_TAG_MAP.finance!,
-  'finance':       TOPIC_TAG_MAP.finance!,
-  'Entertainment': TOPIC_TAG_MAP.entertainment!,
-  'entertainment': TOPIC_TAG_MAP.entertainment!,
-  'Sports':        TOPIC_TAG_MAP.sports!,
-  'sports':        TOPIC_TAG_MAP.sports!,
-  'Influencer':    { href: '/influencer', label: 'Influencer', accent: 'border-pink-500 text-pink-600 dark:text-pink-400', emoji: '⭐' },
+  'Space':         TOPIC_TAG_MAP.space!,
+  'space':         TOPIC_TAG_MAP.space!,
+  'Earth':         TOPIC_TAG_MAP.earth!,
+  'earth':         TOPIC_TAG_MAP.earth!,
+  'Oceans':        TOPIC_TAG_MAP.oceans!,
+  'oceans':        TOPIC_TAG_MAP.oceans!,
+  'Climate':       TOPIC_TAG_MAP.climate!,
+  'climate':       TOPIC_TAG_MAP.climate!,
+  'Geology':       TOPIC_TAG_MAP.geology!,
+  'geology':       TOPIC_TAG_MAP.geology!,
+  'Archaeology':   TOPIC_TAG_MAP.archaeology!,
+  'archaeology':   TOPIC_TAG_MAP.archaeology!,
+  'Science':       TOPIC_TAG_MAP.science!,
+  'science':       TOPIC_TAG_MAP.science!,
 };
 
 // ─────────────────────────────────────────────────────────────────────────────

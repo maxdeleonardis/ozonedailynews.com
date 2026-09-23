@@ -7,13 +7,13 @@ import type { Metadata } from "next";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} | Objective News Network`,
-  description: "Breaking news, analysis and verified reporting from Ozone Network News. Finance, Tech, Politics, World and more.",
+  title: `${SITE_CONFIG.name} | Science News Network`,
+  description: "Science news covering space exploration, Earth science, climate, oceans, geology, and archaeology from Ozone Network News.",
   alternates: { canonical: SITE_CONFIG.url },
   openGraph: {
     type: "website",
-    title: `${SITE_CONFIG.name} | Objective News Network`,
-    description: "Breaking news, analysis and verified reporting from Ozone Network News.",
+    title: `${SITE_CONFIG.name} | Science News Network`,
+    description: "Science news covering space exploration, Earth science, climate, oceans, geology, and archaeology from Ozone Network News.",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.publisherName,
   },

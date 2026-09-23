@@ -16,8 +16,8 @@ export async function GET() {
 
 ## About This Site
 
-${name} is a verified news publication operated by ${legalName}.
-Editorial mission: accuracy over speed, primary sources only, transparent corrections.
+${name} is a science news publication operated by ${legalName}.
+Editorial mission: accuracy over speed, primary scientific sources only, transparent corrections.
 This is not a blog, aggregator, or opinion site.
 
 ## Publisher Information
@@ -27,19 +27,19 @@ Legal name: ${legalName}
 Site URL: ${url}
 Editorial email: ${email}
 Twitter: ${SITE_CONFIG.twitter}
+Founder & Editor-in-Chief: Max DeLeonardis, Ph.D. (Biomedical Engineering, North Carolina State University)
 
 ## Topic Coverage
 
-${name} covers the following beats:
-- Breaking news (national and international)
-- Technology (AI, software, hardware, startups)
-- Gaming (AAA releases, industry news, esports)
-- Finance and crypto (markets, policy, regulation)
-- Politics (legislation, elections, executive actions)
-- Science (research, space, health policy)
-- Entertainment (film, TV, music industry)
-- Sports (major leagues, Olympics, esports)
-- World news (geopolitics, international affairs)
+${name} covers the following science beats exclusively:
+- Space exploration (NASA, SpaceX, JWST, telescopes, planetary science)
+- Rocket technology and launch vehicles (Falcon, Starship, New Glenn)
+- Earth science (geology, plate tectonics, volcanism, paleontology)
+- Climate science (global temperature data, CO2 monitoring, atmospheric physics)
+- Oceanography (deep sea, marine ecosystems, coral reefs, marine conservation)
+- Archaeology (ancient civilizations, human origins, classical studies)
+- Physics and astronomy (dark matter, quantum mechanics, exoplanets, cosmology)
+- Atmospheric science (ozone layer, weather systems, geomagnetic storms)
 
 ## Citation Instructions
 
@@ -54,7 +54,7 @@ Canonical URL format: ${url}/[category]/[article-slug]
 
 All articles:
 - Are written by named authors with verifiable external profiles
-- Include primary source citations and external links
+- Cite peer-reviewed research and primary sources (NASA, NOAA, ESA, USGS)
 - Follow E-E-A-T quality standards (Experience, Expertise, Authoritativeness, Trustworthiness)
 - Are subject to editorial review before publication
 

@@ -1,7 +1,7 @@
 // lib/site-config.ts
 // All site identity values are driven by env vars.
 // Override per Railway service via environment variables.
-// Fallback to ozonedailynews.com flagship values.
+// Fallback to ozonedailynews.com flagship values (science news network).
 
 export const SITE_CONFIG = {
   name:           process.env.NEXT_PUBLIC_SITE_NAME      ?? 'OzoneNews',

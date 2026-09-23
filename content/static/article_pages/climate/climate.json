@@ -17,7 +17,7 @@
   "info_box": {
     "title": "Climate",
     "image": {
-      "src": "https://images.unsplash.com/photo-1611928482473-7b27d24eab80?w=400&h=400&fit=crop",
+      "src": "/thumbnails/climate.jpg",
       "alt": "Earth atmosphere from space",
       "caption": "Earth's climate system is driven by atmospheric physics, ocean currents, and solar radiation"
     },

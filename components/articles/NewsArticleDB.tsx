@@ -14,7 +14,6 @@
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import { NewsArticle } from './NewsArticle';
 import { ContentRenderer } from './ContentRenderer';
 import { SourcesInterlink } from './SourcesInterlink';
@@ -105,27 +104,8 @@ function deriveBreadcrumbs(urlPath: string | null | undefined, title: string): B
 }
 
 export async function NewsArticleDB({ slug }: NewsArticleDBProps) {
-  // ---------------------------------------------------------------------------
-  // 1. Supabase first — edits saved in the admin panel are live immediately
-  //    without requiring a GitHub commit or Vercel rebuild.
-  // ---------------------------------------------------------------------------
-  let row: Record<string, unknown> | null = null;
-
-  const supabase = await createClient();
-  if (supabase) {
-    const { data } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single();
-    row = data ?? null;
-  }
-
-  // ---------------------------------------------------------------------------
-  // 2. Fallback to static JSON (local dev, Supabase offline, or not yet in DB)
-  // ---------------------------------------------------------------------------
-  if (!row) row = loadStaticRow(slug);
+  // Static JSON is the single source of truth. No Supabase fallback.
+  const row = loadStaticRow(slug);
 
   if (!row) notFound();
 

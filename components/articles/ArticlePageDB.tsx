@@ -17,7 +17,6 @@
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import { ArticlePage, TableOfContents } from './ArticlePage';
 import { ContentRenderer } from './ContentRenderer';
 import { SourcesInterlink } from './SourcesInterlink';
@@ -55,31 +54,9 @@ interface ArticlePageDBProps {
 }
 
 export async function ArticlePageDB({ slug }: ArticlePageDBProps) {
-  // Static JSON is source of truth — always read it first so the Git-committed
-  // version always wins over any stale Supabase row from a mis-routed update.
+  // Static JSON is the single source of truth. No Supabase fallback.
   let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
 
-  if (!rowRaw) {
-    const supabase = await createClient();
-    if (supabase) {
-      const { data: pageData } = await supabase
-        .from('article_pages')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-      rowRaw = pageData ?? null;
-
-      if (!rowRaw) {
-        const { data: articleData } = await supabase
-          .from('articles')
-          .select('*')
-          .eq('slug', slug)
-          .eq('status', 'published')
-          .single();
-        rowRaw = articleData ?? null;
-      }
-    }
-  }
   if (!rowRaw) notFound();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const row = rowRaw as any;

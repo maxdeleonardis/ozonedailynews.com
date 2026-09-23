@@ -1,7 +1,6 @@
 // lib/registry-service.ts
 // Content registry: master index for sitemaps, JSON-LD, related articles.
-// Layer 1: content/static/content_registry.json (filesystem, in-memory cache)
-// Layer 2: Supabase fallback if registry file is missing.
+// Single source: content/static/content_registry.json (filesystem, in-memory cache).
 
 import fs from 'fs';
 import path from 'path';
@@ -18,6 +17,7 @@ function rowToEntry(row: Record<string, unknown>): ContentEntry {
     description:     String(row.description ?? ''),
     publishDate:     String(row.publishDate ?? row.publish_date ?? ''),
     modifiedDate:    String(row.modifiedDate ?? row.modified_date ?? row.publishDate ?? row.publish_date ?? ''),
+    publishAt:       row.publishAt ?? row.publish_at ? String(row.publishAt ?? row.publish_at ?? '') : undefined,
     category:        String(row.category ?? 'News'),
     tags:            Array.isArray(row.tags) ? (row.tags as string[]) : [],
     author:          String(row.author ?? ''),
@@ -51,42 +51,18 @@ export function clearRegistryCache() {
   _localCache = null;
 }
 
-export async function getAllEntries(): Promise<ContentEntry[]> {
-  const local = loadLocalRegistry();
-  if (local && local.length > 0) return local;
-
-  // Layer 2: Supabase fallback — hit when content/static/content_registry.json
-  // is empty (first deploy on a new branch) or has been cleared.
-  // NOTE: For homepage/carousel queries that need real-time freshness between
-  // deploys, use getLatestArticles() which queries Supabase directly.
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const { data } = await supabase
-    .from('content_registry')
-    .select('*')
-    .order('publish_date', { ascending: false });
-  return ((data ?? []) as Record<string, unknown>[]).map(rowToEntry);
+/** True when a registry entry is publicly visible right now (scheduled publish gate). */
+export function isEntryLive(e: ContentEntry): boolean {
+  if (e.lifecycle === 'pruned') return false;
+  if (!e.publishAt) return true;
+  const ts = new Date(e.publishAt).getTime();
+  if (Number.isNaN(ts)) return true;
+  return ts <= Date.now();
 }
 
-/**
- * getLatestArticlesLive — always queries Supabase directly.
- * Use this for the homepage carousel and category hubs where you need
- * articles published since the last deploy to appear immediately.
- * The JSON file registry only updates on deploy; Supabase updates instantly.
- */
-export async function getLatestArticlesLive(limit = 12): Promise<ContentEntry[]> {
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return getLatestArticles(limit); // graceful fallback to static
-  const { data } = await supabase
-    .from('content_registry')
-    .select('*')
-    .neq('lifecycle', 'pruned')
-    .order('publish_date', { ascending: false })
-    .limit(limit);
-  if (!data || data.length === 0) return getLatestArticles(limit);
-  return (data as Record<string, unknown>[]).map(rowToEntry);
+export async function getAllEntries(): Promise<ContentEntry[]> {
+  const local = loadLocalRegistry();
+  return (local ?? []).filter(isEntryLive);
 }
 
 export async function getEntry(slug: string): Promise<ContentEntry | null> {

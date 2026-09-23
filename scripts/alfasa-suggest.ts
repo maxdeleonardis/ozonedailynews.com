@@ -76,13 +76,16 @@ if (registry.length > 0) {
 console.log('\n  OStandard Quick Reminders:');
 console.log('    • NO em dashes (—) or en dashes (–). Use | in headings, , in prose.');
 console.log('    • All links: class="text-blue-600 hover:text-blue-800 underline"');
-console.log('    • metadata.title: max 60 chars, Primary Keyword | Specific Detail');
+console.log('    • H1 (title): sentence case, ≤70 chars, front-loaded, NO "Metaphor | Fact" two-part');
+console.log('    • metadata.title: ≤60 chars, Primary Keyword | Specific Detail');
 console.log('    • metadata.description: 130-155 chars, primary keyword in first 60');
 console.log('    • Every article: min 4 internal links + 1 external source link');
 console.log('    • GEO: DirectAnswer first, KeyTakeaways second, CitationBlock per claim');
+console.log('    • Science-only categories: Science, Space, Earth, Tech, News, World');
 
 console.log('\n  Quick commands:');
 console.log('    npm run wiki:sync -- --write   (register new articles)');
+console.log('    npm run last                    (last 3 articles)');
 console.log('    npm run validate:geo            (GEO signal coverage)');
 console.log('    npm run validate:eeat           (E-E-A-T prebuild scan)');
 console.log('    npm run lifecycle:check         (flag 48h+ news → review)');

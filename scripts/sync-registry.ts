@@ -32,7 +32,28 @@ if (fs.existsSync(REGISTRY_PATH)) {
   }
 }
 
+// ── Self-healing dedup at load ────────────────────────────────────────────────
+// One JSON file == one article. If the registry ever contains two entries sharing
+// the same filePath (flat slug + nested canonical path), keep the canonical
+// nested-slug entry and drop the duplicate. This prevents the registry from
+// drifting back to ~2x size whenever sync --write is re-run.
+{
+  const seenFiles = new Set<string>();
+  const deduped: ContentEntry[] = [];
+  for (const e of existing) {
+    const fp = e.filePath ?? e.slug ?? '';
+    if (seenFiles.has(fp)) continue;
+    seenFiles.add(fp);
+    deduped.push(e);
+  }
+  existing = deduped;
+}
+
 const existingSlugs = new Set(existing.map((e) => e.slug));
+// Primary dedupe key: filePath (one JSON file == one article). Slug is only a
+// secondary signal, because the same file can be registered under both a flat
+// filename slug and the canonical nested URL path.
+const existingFilePaths = new Set(existing.map((e) => e.filePath).filter(Boolean));
 const newEntries: ContentEntry[] = [];
 
 // Recursive function to find all JSON files in a directory
@@ -80,7 +101,25 @@ for (const { table, articleType } of STORES) {
       // Linux/Vercel deployments. The registry must be OS-agnostic.
       const relativePath = path.relative(STATIC_BASE, fullPath).split(path.sep).join('/');
 
-      // Deduplicate against both the relative path AND any legacy full-URL form.
+      // Deduplicate by filePath first (authoritative), then by slug as fallback.
+      if (existingFilePaths.has(relativePath)) {
+        // Same file already registered — refresh mutable metadata in place.
+        const existingEntry = existing.find((e) => e.filePath === relativePath);
+        if (existingEntry) {
+          if (article.thumbnail_src) existingEntry.imageUrl = article.thumbnail_src;
+          if (article.published_at) existingEntry.publishDate = article.published_at.split('T')[0];
+          existingEntry.publishAt = article.publish_at ?? undefined;
+          if (article.modified_date_iso) existingEntry.modifiedDate = article.modified_date_iso.split('T')[0];
+          else if (article.published_at) existingEntry.modifiedDate = article.published_at.split('T')[0];
+          existingEntry.title = article.title ?? existingEntry.title;
+          existingEntry.category = article.category ?? existingEntry.category;
+          existingEntry.tags = Array.isArray(article.tags) ? article.tags : existingEntry.tags;
+          existingEntry.author = article.author_name ?? existingEntry.author;
+          existingEntry.authorSlug = article.author_slug ?? existingEntry.authorSlug;
+        }
+        continue;
+      }
+
       if (existingSlugs.has(slug) || existingSlugs.has(rawSlug)) {
         // Backfill filePath and refresh imageUrl on existing entries
         const existingEntry = existing.find(
@@ -104,7 +143,8 @@ for (const { table, articleType } of STORES) {
         title:           article.title ?? '',
         description:     article.metadata?.description ?? article.subtitle ?? '',
         publishDate:     article.published_at?.split('T')[0] ?? new Date().toISOString().split('T')[0],
-        modifiedDate:    article.published_at?.split('T')[0] ?? new Date().toISOString().split('T')[0],
+        modifiedDate:    (article.modified_date_iso?.split('T')[0]) ?? (article.published_at?.split('T')[0]) ?? new Date().toISOString().split('T')[0],
+        publishAt:       article.publish_at ?? undefined,
         category:        article.category ?? 'News',
         tags:            Array.isArray(article.tags) ? article.tags : [],
         author:          article.author_name ?? '',
@@ -119,6 +159,7 @@ for (const { table, articleType } of STORES) {
 
       newEntries.push(entry);
       existingSlugs.add(slug);
+      existingFilePaths.add(relativePath);
     } catch (err) {
       console.warn(`  Warning: Failed to parse ${fullPath}:`, err);
     }

@@ -57,6 +57,9 @@ function getRecentArticles(): ArticleFull[] {
         if (!a.published_at) return false;
         if ((a as ArticleFull & { lifecycle?: string }).lifecycle === 'pruned') return false;
         if ((a as ArticleFull & { status?: string }).status === 'draft') return false;
+        // Scheduled publishing: hide until publish_at has passed
+        const publishAt = (a as ArticleFull & { publish_at?: string }).publish_at;
+        if (publishAt && new Date(publishAt).getTime() > Date.now()) return false;
         return new Date(a.published_at) > cutoff;
       });
 

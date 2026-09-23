@@ -56,8 +56,8 @@ const VALID_CATEGORIES = [
 
 // Pulled from lib/authors.ts — keep in sync
 const AUTHORS: Record<string, { name: string; role: string }> = {
-  'max-deleonardis':               { name: 'Max DeLeonardis',            role: 'Founder & Publisher' },
-  'simon-minter':                  { name: 'Simon Alfred Minter',         role: 'Science & Technology Reporter' },
+  'max-deleonardis':               { name: 'Max DeLeonardis',            role: 'Founder, Publisher & Editor-in-Chief' },
+  'simon-minter':                  { name: 'Simon Alfred Minter',         role: 'Paleontology & Evolutionary Biology Correspondent' },
   'ozonedailynews-editorial-team': { name: 'OzoneNews Editorial Team',    role: 'Editorial Desk' },
   'kaustubh-madiraju':             { name: 'Kaustubh Madiraju',           role: 'Contributing Reporter' },
   'josh-donnelly':                 { name: 'Josh Donnelly',               role: 'Contributing Writer' },
@@ -111,11 +111,32 @@ function slugify(title: string, category: string, year: number): string {
   return `${catPrefix}-${baseNoCat}-${year}`;
 }
 
-/** Truncate to 60 chars for metadata.title */
+/** Truncate to 60 chars for metadata.title (no trailing ellipsis, cut at word boundary). */
 function metaTitle(title: string): string {
   if (title.length <= 60) return title;
-  // Cut at last word boundary before 60
-  return title.substring(0, 57).replace(/-?\s+\S*$/, '') + '...';
+  return title.substring(0, 60).replace(/\s+\S*$/, '');
+}
+
+/**
+ * Enforce the H1 title standard: sentence case + <=70 chars + front-loaded.
+ * Strips a leading "Creative Phrase | " two-part prefix so the title states the
+ * point directly (per OStandard H1 rules).
+ */
+function h1Title(title: string): string {
+  let t = title.trim();
+  // If title is "Creative Phrase | Actual Point", drop the creative prefix.
+  if (t.includes('|')) {
+    const parts = t.split('|').map((p) => p.trim());
+    // Keep the longer, more descriptive part when the parts look like metaphor|fact
+    const [a, b] = parts;
+    if (a && b && b.length >= a.length) t = b;
+  }
+  // Enforce sentence case: lowercase everything, then capitalize first letter.
+  // Proper nouns are caller-provided and preserved by not lowercasing known caps.
+  if (t === t.toUpperCase() || /^[a-z]/.test(t)) {
+    t = t.charAt(0).toUpperCase() + t.slice(1);
+  }
+  return t.slice(0, 70).replace(/\s+\S*$/, '');
 }
 
 /** Full ISO-8601 with CST offset */
@@ -237,13 +258,14 @@ function buildNewsJSON(i: ScaffoldInput): object {
   const iso         = toISO(i.now);
   const display     = toDisplay(i.now);
   const metaTit     = metaTitle(i.title);
+  const h1Tit       = h1Title(i.title);
   const html        = newsContentHTML(i.title, i.category);
 
   return {
     slug:          i.slug,
     url,
     article_type:  'news_article',
-    title:         i.title,
+    title:         h1Tit,
     subtitle:      `[FILL: 1-2 sentence subtitle. Completes the headline with the key finding. No em dashes.]`,
     category:      i.category,
     status:        'published',
@@ -293,6 +315,7 @@ function buildJackJSON(i: ScaffoldInput): object {
   const iso         = toISO(i.now);
   const display     = toDisplay(i.now);
   const metaTit     = metaTitle(i.title);
+  const h1Tit       = h1Title(i.title);
   const html        = jackContentHTML(i.title, i.category);
 
   return {
@@ -300,7 +323,7 @@ function buildJackJSON(i: ScaffoldInput): object {
     article_type:      'jack_article',
     url,
     article_url:       url,
-    title:             i.title,
+    title:             h1Tit,
     subtitle:          `[FILL: 1-2 sentence subtitle. Provides context the headline cannot. No em dashes.]`,
     category:          i.category,
     category_label:    `${i.category} | [FILL: Subcategory]`,

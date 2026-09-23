@@ -67,6 +67,9 @@ export interface ArticleFull {
   content_html: string;
   publish_date: string;           // Display: "March 12, 2026"
   published_at: string;           // ISO-8601: "2026-03-12T00:00:00Z"
+  /** Optional scheduled go-live time. When set in the future, the article is
+      hidden from all list/carousel/sitemap surfaces until that instant. */
+  publish_at?: string;
   author_name: string;
   author_slug: string;
   read_time?: string;
@@ -253,6 +256,8 @@ export interface ContentEntry {
   description: string;
   publishDate: string;
   modifiedDate: string;
+  /** Scheduled go-live time (ISO). Future-dated entries are hidden from public surfaces. */
+  publishAt?: string;
   category: string;
   tags: string[];
   author: string;

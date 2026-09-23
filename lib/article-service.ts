@@ -1,22 +1,40 @@
 // lib/article-service.ts
-// Local-first data layer. Layer 1 (Git static JSON) is ALWAYS read first.
-// Supabase is only hit when content/static/ returns empty (fallback / breaking news insert).
+// Local-first data layer. Static JSON in content/static/ is the single source
+// of truth. No Supabase, no network reads, no routing_table.
 //
-// Routing resolution order for getArticleByUrlSegments():
-//   1. Supabase routing_table lookup (decoupled URL → content_id)
-//      → reads content/articles/[content_id].json (new ID-addressed storage)
-//   2. Joined slug match (legacy: content/static/articles/[slug].json)
-//   3. Last segment match
-//   4. Full URL scan across all static articles
-//   5. Supabase articles table fallback (draft/live lookup)
+// Every public list/getAll surface respects a `publish_at` field: articles with
+// a future publish_at are hidden until that instant, enabling scheduled publishing.
 
 import fs from 'fs';
 import path from 'path';
 import type { ArticleFull, JackArticleFull, SterlingArticleFull, ArticlePageFull, CreatorArticleFull, WikiArticleFull } from './types';
 
 const STATIC_BASE = path.join(process.cwd(), 'content', 'static');
-// ID-addressed content store — files never renamed, URLs never break Git history
-const CONTENT_BASE = path.join(process.cwd(), 'content');
+
+// ─── Visibility gate (scheduled publishing) ──────────────────────────────────
+
+interface HasPublishAt {
+  publish_at?: string;
+  published_at?: string;
+  status?: string;
+  lifecycle?: string;
+}
+
+/** The instant an article should become visible (publish_at preferred, published_at fallback). */
+function scheduledAt(a: HasPublishAt): string {
+  return a.publish_at ?? a.published_at ?? '';
+}
+
+/** True when the article should be publicly visible right now. */
+export function isPublishLive(a: HasPublishAt): boolean {
+  if (a.status && a.status !== 'published') return false;
+  if (a.lifecycle === 'pruned') return false;
+  const t = scheduledAt(a);
+  if (!t) return true;
+  const ts = new Date(t).getTime();
+  if (Number.isNaN(ts)) return true;
+  return ts <= Date.now();
+}
 
 // ─── Filesystem helpers ───────────────────────────────────────────────────────
 
@@ -108,50 +126,10 @@ function readStaticRow<T>(table: string, slug: string): T | null {
   return null;
 }
 
-// ─── ID-addressed content reader ─────────────────────────────────────────────
-// Reads from content/[store]/[id].json — the decoupled storage introduced by
-// the NodeLX routing layer. File names are immutable UUIDs; URLs are arbitrary.
-
-function readContentRow<T>(store: string, contentId: string): T | null {
-  const file = path.join(CONTENT_BASE, store, `${contentId}.json`);
-  if (!fs.existsSync(file)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8')) as T;
-  } catch {
-    return null;
-  }
-}
-
-/**
- * Resolves an article by its immutable content_id (UUID).
- * Used by getArticleByUrlSegments() after a routing_table hit.
- * Checks content/articles/[id].json first, then Supabase fallback.
- */
-export async function getArticleByContentId(
-  contentId: string,
-  contentStore: string = 'articles'
-): Promise<ArticleFull | null> {
-  // Layer 1: ID-addressed Git file
-  const local = readContentRow<ArticleFull>(contentStore, contentId);
-  if (local) return local;
-
-  // Layer 2: Supabase (article may exist in DB but not yet deployed to Git)
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('articles')
-    .select('*')
-    .eq('id', contentId)
-    .eq('status', 'published')
-    .single();
-  return (data as ArticleFull | null) ?? null;
-}
-
 // ─── Articles (NewsArticleDB) ─────────────────────────────────────────────────
 
 export async function getAllArticles(): Promise<ArticleFull[]> {
-  // Layer 1: read ALL static stores so jack_articles, wiki_articles,
+  // Read ALL static stores so jack_articles, wiki_articles,
   // creator_articles, sterling_articles, article_pages all appear on the homepage.
   const staticStores: (typeof ALL_STORES[number])[] = [
     'articles',
@@ -166,35 +144,10 @@ export async function getAllArticles(): Promise<ArticleFull[]> {
     merged.push(...readStaticDir<ArticleFull>(store));
   }
 
-  if (merged.length > 0) {
-    // Deduplicate by slug (same article can theoretically appear in two stores)
-    const seen = new Set<string>();
-    const deduped = merged.filter((a) => {
-      const key = a.slug ?? a.url ?? '';
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-    return deduped.sort((a, b) =>
-      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
-    );
-  }
-
-  // Layer 2: Supabase fallback — fan out across all typed tables
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const results: ArticleFull[] = [];
-  for (const table of ['articles', 'jack_articles', 'wiki_articles', 'creator_articles', 'article_pages', 'sterling_articles']) {
-    const { data } = await supabase
-      .from(table)
-      .select('*')
-      .eq('status', 'published')
-      .order('published_at', { ascending: false });
-    if (data) results.push(...(data as ArticleFull[]));
-  }
+  // Deduplicate by slug, filter to live (publish_at in the past), then sort.
   const seen = new Set<string>();
-  return results
+  const deduped = merged
+    .filter(isPublishLive)
     .filter((a) => {
       const key = a.slug ?? a.url ?? '';
       if (seen.has(key)) return false;
@@ -204,22 +157,13 @@ export async function getAllArticles(): Promise<ArticleFull[]> {
     .sort((a, b) =>
       new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
     );
+
+  return deduped;
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleFull | null> {
   const local = readStaticRow<ArticleFull>('articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (data as ArticleFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 /**
@@ -250,23 +194,7 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
   // Try 1: joined slug — fast path, checks all stores, no network.
   for (const store of ALL_STORES) {
     const hit = readStaticRow<ArticleFull>(store, joinedSlug);
-    if (hit) return hit;
-  }
-
-  // Try 0: routing_table lookup (new ID-addressed storage, zero file renames)
-  // Guarded by a 2 s timeout so a slow Supabase connection never hangs the page.
-  try {
-    const { resolveUrlPath } = await import('./routing-service');
-    const route = await Promise.race([
-      resolveUrlPath(fullPath),
-      new Promise<null>((resolve) => setTimeout(() => resolve(null), 2000)),
-    ]);
-    if (route) {
-      const byId = await getArticleByContentId(route.content_id, route.content_store);
-      if (byId) return byId;
-    }
-  } catch {
-    // routing-service unavailable (e.g. no Supabase in local dev) — fall through
+    if (hit && isPublishLive(hit)) return hit;
   }
 
   // Try 2: last segment only — same multi-store check
@@ -274,7 +202,7 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
   if (lastSegment !== joinedSlug) {
     for (const store of ALL_STORES) {
       const hit = readStaticRow<ArticleFull>(store, lastSegment);
-      if (hit) return hit;
+      if (hit && isPublishLive(hit)) return hit;
     }
   }
 
@@ -285,197 +213,70 @@ export async function getArticleByUrlSegments(segments: string[]): Promise<Artic
       if (!a.url) return false;
       try { return new URL(a.url).pathname === fullPath; } catch { return a.url === fullPath; }
     });
-    if (byUrl) return byUrl;
-  }
-
-  // Try 4: Supabase fallback — fan out across all typed tables
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-
-  for (const table of ['articles', 'jack_articles', 'wiki_articles', 'creator_articles', 'article_pages']) {
-    const { data } = await supabase
-      .from(table)
-      .select('*')
-      .ilike('url', `%${fullPath}`)
-      .eq('status', 'published')
-      .single();
-    if (data) return data as ArticleFull;
+    if (byUrl && isPublishLive(byUrl)) return byUrl;
   }
 
   return null;
 }
 
 export async function getBreakingHeadlines(): Promise<ArticleFull[]> {
-  // Check static stores first — breaking articles published via Git show up immediately.
+  // Static stores only — breaking articles published via Git show up immediately.
   const all = await getAllArticles();
-  const staticBreaking = all.filter((a) => (a as ArticleFull & { breaking?: boolean }).breaking);
-  if (staticBreaking.length > 0) return staticBreaking.slice(0, 5);
-
-  // Supabase fallback for live-inserted breaking news
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const { data } = await supabase
-    .from('articles')
-    .select('slug, title, url, category, published_at')
-    .eq('breaking', true)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(5);
-  return (data ?? []) as ArticleFull[];
+  return all.filter((a) => (a as ArticleFull & { breaking?: boolean }).breaking).slice(0, 5);
 }
 
 // ─── Sterling Articles (SterlingArticleDB) ──────────────────────────────────
 
 export async function getAllSterlingArticles(): Promise<SterlingArticleFull[]> {
   const local = readStaticDir<SterlingArticleFull>('sterling_articles');
-  if (local.length > 0) {
-    return local.sort((a, b) =>
-      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
-    );
-  }
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const { data } = await supabase
-    .from('sterling_articles')
-    .select('*')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-  return (data ?? []) as SterlingArticleFull[];
+  return local
+    .filter(isPublishLive)
+    .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 }
 
 export async function getSterlingArticleBySlug(slug: string): Promise<SterlingArticleFull | null> {
   const local = readStaticRow<SterlingArticleFull>('sterling_articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('sterling_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (data as SterlingArticleFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 // ─── Article Pages (ArticlePageDB) ────────────────────────────────────────────
 
 export async function getAllArticlePages(): Promise<ArticlePageFull[]> {
   const local = readStaticDir<ArticlePageFull>('article_pages');
-  if (local.length > 0) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const { data } = await supabase
-    .from('article_pages')
-    .select('*')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-  return (data ?? []) as ArticlePageFull[];
+  return local.filter(isPublishLive);
 }
 
 export async function getArticlePageBySlug(slug: string): Promise<ArticlePageFull | null> {
-  // Check article_pages/ first (canonical location), then wiki_articles/ as a
-  // legacy fallback — wiki_article is now an alias for article_page, so old
-  // files in wiki_articles/ still resolve without needing to be migrated.
   const local =
     readStaticRow<ArticlePageFull>('article_pages', slug) ??
     readStaticRow<ArticlePageFull>('wiki_articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-
-  // Try article_pages table first, then wiki_articles table as fallback
-  const { data: apData } = await supabase
-    .from('article_pages')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  if (apData) return apData as ArticlePageFull;
-
-  const { data: wikiData } = await supabase
-    .from('wiki_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (wikiData as ArticlePageFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 // ─── Creator Articles (CreatorArticleDB) ──────────────────────────────────────
 
 export async function getCreatorArticles(): Promise<CreatorArticleFull[]> {
-  // Creator profiles: Supabase only (live-managed)
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return [];
-  const { data } = await supabase
-    .from('creator_articles')
-    .select('*')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-  return (data ?? []) as CreatorArticleFull[];
+  const local = readStaticDir<CreatorArticleFull>('creator_articles');
+  return local.filter(isPublishLive);
 }
 
 export async function getCreatorBySlug(slug: string): Promise<CreatorArticleFull | null> {
   const local = readStaticRow<CreatorArticleFull>('creator_articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('creator_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (data as CreatorArticleFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 // ─── Jack Articles (long-form / investigation) ───────────────────────────────
 
 export async function getJackArticleBySlug(slug: string): Promise<JackArticleFull | null> {
   const local = readStaticRow<JackArticleFull>('jack_articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('jack_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (data as JackArticleFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 // ─── Wiki Articles ────────────────────────────────────────────────────────────
 
 export async function getWikiArticleBySlug(slug: string): Promise<WikiArticleFull | null> {
   const local = readStaticRow<WikiArticleFull>('wiki_articles', slug);
-  if (local) return local;
-
-  const { createClient } = await import('./supabase/server');
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data } = await supabase
-    .from('wiki_articles')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-  return (data as WikiArticleFull | null) ?? null;
+  return local && isPublishLive(local) ? local : null;
 }
 
 // ─── Latest articles (cross-store, for homepage carousel) ────────────────────

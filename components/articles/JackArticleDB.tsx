@@ -18,7 +18,6 @@
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import { getAuthor } from '@/lib/authors';
 import { extractAndInjectToc } from '@/lib/toc-utils';
 import JackArticle from './JackArticle';
@@ -63,36 +62,8 @@ interface JackArticleDBProps {
 }
 
 export async function JackArticleDB({ slug }: JackArticleDBProps) {
-  // Static JSON is source of truth — always read it first. This guarantees the
-  // Git-committed version (with correct article_type + full content) always wins
-  // over any stale Supabase row left by a mis-routed update.
+  // Static JSON is the single source of truth. No Supabase fallback.
   let rowRaw: Record<string, unknown> | null = loadStaticRow(slug);
-
-  // Only fall back to Supabase when there is no static file (e.g. breaking news
-  // inserted directly into the DB before a Git commit). Always check jack_articles
-  // first, then articles as a legacy fallback.
-  if (!rowRaw) {
-    const supabase = await createClient();
-    if (supabase) {
-      const { data: jackData } = await supabase
-        .from('jack_articles')
-        .select('*')
-        .eq('slug', slug)
-        .eq('status', 'published')
-        .single();
-      rowRaw = jackData ?? null;
-
-      if (!rowRaw) {
-        const { data: articleData } = await supabase
-          .from('articles')
-          .select('*')
-          .eq('slug', slug)
-          .eq('status', 'published')
-          .single();
-        rowRaw = articleData ?? null;
-      }
-    }
-  }
 
   if (!rowRaw) notFound();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -112,6 +112,18 @@ for (const { table, articleType } of STORES) {
           if (article.modified_date_iso) existingEntry.modifiedDate = article.modified_date_iso.split('T')[0];
           else if (article.published_at) existingEntry.modifiedDate = article.published_at.split('T')[0];
           existingEntry.title = article.title ?? existingEntry.title;
+          existingEntry.slug = slug;
+          if (article.article_type) {
+            const map: Record<string, ContentEntry['articleType']> = {
+              news_article: 'NewsArticle',
+              jack_article: 'JackArticle',
+              article_page: 'ArticlePage',
+              wiki_article: 'WikiArticle',
+              creator_article: 'CreatorArticle',
+              sterling_article: 'SterlingArticle',
+            };
+            existingEntry.articleType = map[article.article_type] ?? existingEntry.articleType;
+          }
           existingEntry.category = article.category ?? existingEntry.category;
           existingEntry.tags = Array.isArray(article.tags) ? article.tags : existingEntry.tags;
           existingEntry.author = article.author_name ?? existingEntry.author;

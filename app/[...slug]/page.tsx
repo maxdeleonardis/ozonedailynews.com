@@ -7,7 +7,7 @@
 // publish. This means an editor's typo fix is live within a minute without
 // waiting for a full Railway/Vercel build pipeline to complete.
 
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getArticleByUrlSegments, getAllArticles } from '@/lib/article-service';
 import { getAllEntries } from '@/lib/registry-service';
@@ -83,7 +83,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticleCatchallPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const article = await getArticleByUrlSegments(slug);
-  if (!article) notFound();
+  if (!article) {
+    // Drop-one-slug fallback: if /a/b/c 404s, redirect to /a/b, then /a, then /.
+    // Works for every topic (e.g. /fifa/25 -> /fifa) without a per-route map.
+    if (slug.length > 1) {
+      redirect('/' + slug.slice(0, -1).join('/'));
+    }
+    notFound();
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const articleAny = article as any;

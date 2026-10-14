@@ -1,8 +1,32 @@
 # Satori Thumbnail System | How-To Guide
 
-**Updated:** August 10, 2026
-**Production URL:** `https://satori-neon.vercel.app/
+**Updated:** October 14, 2026
+**Production URL:** `https://satori-neon.vercel.app`
 **Token:** `satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3`
+
+---
+
+## Which Endpoint To Use (Verified October 14, 2026)
+
+| Endpoint | Status | Notes |
+|---|---|---|
+| `https://satori-neon.vercel.app` | **WORKING, use this** | Minted every thumbnail in the current pipeline. `/api/health` reports `unhealthy` for database/storage, but `quick-generate` and `generate` both return correctly. Ignore the health flag. |
+| `http://localhost:4444` | Optional, flaky | Local `next dev` with `PORT=4444`. Works while the terminal stays open, but the process dies when the shell is reused or interrupted. Port 4444 is used deliberately so it does not collide with the OzoneNews dev server on 3000/3001. |
+| `https://www.fshot.one` | **DEAD, do not use** | Returns `NXDOMAIN`. The domain does not resolve, so requests fail at DNS, not HTTP. Older revisions of this guide claimed the opposite; that is corrected here. |
+
+**Practical rule:** mint against `satori-neon.vercel.app`. Do not burn cycles restarting the local server unless you are actively developing Satori itself.
+
+Probe before minting if unsure:
+
+```bash
+for base in "https://satori-neon.vercel.app" "http://localhost:4444"; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 8 "$base/api/v1/quick-generate" \
+    -X POST -H "Content-Type: application/json" \
+    -H "Authorization: Bearer satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3" \
+    -d '{"network":"ozone","slug":"ping","title":"ping","subtitle":"ping","layout":"breaking"}')
+  echo "$base -> $code"
+done
+```
 
 ---
 
@@ -14,7 +38,7 @@ Satori is a branded thumbnail generation server. For every article we publish it
 2. Renders a branded 1200×630 PNG (title, subtitle, logo, gradient overlay)
 3. Returns the raw PNG bytes via `/api/v1/generate`
 
-That PNG gets saved to `public/thumbnails/[slug].jpg` and set as `thumbnail_src` in the article JSON — a **static local file**, never a live CDN URL.
+That PNG gets saved to `public/thumbnails/[slug].jpg` and set as `thumbnail_src` in the article JSON, a **static local file**, never a live CDN URL.
 
 ---
 
@@ -24,7 +48,7 @@ That PNG gets saved to `public/thumbnails/[slug].jpg` and set as `thumbnail_src`
 
 | Wrong | Correct |
 |---|---|
-| `"thumbnail_src": "https://www.fshot.one/api/v1/generate?..."` | `"thumbnail_src": "/thumbnails/my-slug.jpg"` |
+| `"thumbnail_src": "https://satori-neon.vercel.app/api/v1/generate?..."` | `"thumbnail_src": "/thumbnails/my-slug.jpg"` |
 | `"thumbnail_src": "https://www.ozonedailynews.com/api/og?slug=..."` | `"thumbnail_src": "/thumbnails/my-slug.jpg"` |
 | Live render on every request | Static file served from `/public` |
 | Breaks if Satori is down | Always works |
@@ -32,9 +56,9 @@ That PNG gets saved to `public/thumbnails/[slug].jpg` and set as `thumbnail_src`
 
 ---
 
-## The Correct Minting Method — Python urllib (Always)
+## The Correct Minting Method | Python urllib (Always)
 
-**Never use `mint-thumbnails.ts` for individual articles.** That script calls Satori with bare defaults — no layout selection, no accent color, overlay always at 100 — and produces flat, dark thumbnails.
+**Never use `mint-thumbnails.ts` for individual articles.** That script calls Satori with bare defaults (no layout selection, no accent color, overlay always at 100) and produces flat, dark thumbnails.
 
 **Never use multi-line curl with shell variables.** Shell variable interpolation causes silent failures with special characters in titles.
 
@@ -46,11 +70,11 @@ That PNG gets saved to `public/thumbnails/[slug].jpg` and set as `thumbnail_src`
 
 Every mint requires two API calls in order:
 
-### Step 1 — `POST /api/v1/quick-generate`
+### Step 1 | `POST /api/v1/quick-generate`
 
-Registers the article in the Satori DB and retrieves the best contextually matched Unsplash background photo. **Always run this first** — skipping it produces a generic or wrong photo.
+Registers the article in the Satori DB and retrieves the best contextually matched Unsplash background photo. **Always run this first**, because skipping it produces a generic or wrong photo.
 
-### Step 2 — `GET /api/v1/generate`
+### Step 2 | `GET /api/v1/generate`
 
 Renders the final 1200×630 PNG with full parameter control: layout, accent color, overlay strength, and the `image_url` from Step 1.
 
@@ -63,14 +87,14 @@ Copy this block for every new article. Fill in the six variables at the top.
 ```python
 import urllib.request, urllib.parse, json, os
 
-SATORI_BASE = "https://www.fshot.one"   # local dev: http://localhost:3000
+SATORI_BASE = "https://satori-neon.vercel.app"   # local dev: http://localhost:4444
 TOKEN       = "satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3"
 SLUG        = "category-article-slug-2026"
 TITLE       = "Article Title | Specific Detail"
-SUBTITLE    = "Short deck sentence — one or two lines max"
+SUBTITLE    = "Short deck sentence, one or two lines max"
 LAYOUT      = "cinematic"    # cinematic | breaking | standard | minimal
-ACCENT      = "#00d4ff"      # hex — see accent guide below
-OVERLAY     = "75"           # 0–100 — see overlay guide below
+ACCENT      = "#00d4ff"      # hex, see accent guide below
+OVERLAY     = "75"           # 0-100, see overlay guide below
 OUT_PATH    = f"public/thumbnails/{SLUG}.jpg"
 
 # ── Step 1: Register + get contextual Unsplash photo ──────────────────────
@@ -141,7 +165,7 @@ The layout controls the overall visual composition of the thumbnail.
 
 ## Accent Color Guide
 
-The accent color tints the gradient band and logo glow. Match it to the story topic — this is what separates a polished thumbnail from a generic one.
+The accent color tints the gradient band and logo glow. Match it to the story topic, because this is what separates a polished thumbnail from a generic one.
 
 | Story type | Color | Hex |
 |---|---|---|
@@ -152,7 +176,7 @@ The accent color tints the gradient band and logo glow. Match it to the story to
 | Science / biology / archaeology / atmosphere | Teal | `#0d9488` |
 | Gaming | Violet | `#7c3aed` |
 | Politics / world affairs | Rose | `#f43f5e` |
-| No override needed | Omit `accent` param | — |
+| No override needed | Omit `accent` param | n/a |
 
 ---
 
@@ -162,9 +186,9 @@ The overlay is the dark gradient between the background photo and the title text
 
 | Value | Effect | Use when |
 |---|---|---|
-| `100` | Full black — photo invisible (script default) | Never — avoid |
+| `100` | Full black, photo invisible (script default) | Never, avoid |
 | `85` | Slight darkening | Breaking news, critical legibility |
-| `80` | Standard — photo visible, text clear | Most `breaking` articles |
+| `80` | Standard, photo visible, text clear | Most `breaking` articles |
 | `75` | Photo detail shows through | `cinematic` science/space with dramatic backgrounds |
 | `70` | Photo-forward | Strong landscapes where context adds value |
 | Below `65` | Text legibility suffers | Avoid unless background is very dark |
@@ -175,10 +199,10 @@ The overlay is the dark gradient between the background photo and the title text
 
 | Category | Layout | Accent | Overlay |
 |---|---|---|---|
-| Science — Space | `cinematic` | `#00d4ff` | `75` |
-| Science — Biology / Earth | `cinematic` | `#0d9488` | `70` |
-| Tech — AI / Software | `breaking` | `#2563eb` | `80` |
-| Tech — Spacecraft / Rockets | `breaking` | `#2563eb` | `80` |
+| Science / Space | `cinematic` | `#00d4ff` | `75` |
+| Science / Biology / Earth | `cinematic` | `#0d9488` | `70` |
+| Tech / AI / Software | `breaking` | `#2563eb` | `80` |
+| Tech / Spacecraft / Rockets | `breaking` | `#2563eb` | `80` |
 | Finance / Funding | `breaking` | `#10b981` | `80` |
 | Breaking News | `breaking` | `#ef4444` | `85` |
 | Gaming | `cinematic` | `#7c3aed` | `75` |
@@ -187,7 +211,7 @@ The overlay is the dark gradient between the background photo and the title text
 
 ---
 
-## After Minting — Always Sync the Registry
+## After Minting | Always Sync the Registry
 
 `content_registry.json` is what the homepage, hub pages, and sitemaps read. Rebuild it after every mint:
 
@@ -205,12 +229,12 @@ Until you run this, the new thumbnail will not appear on:
 
 ## Fixing CDN Violations (Existing Articles)
 
-If `thumbnail_src` in a JSON file starts with `https://` — pointing to `satori-neon.vercel.app`, `fshot.one`, or `ozonedailynews.com/api/og` — it is a Golden Rule violation. Fix pattern:
+If `thumbnail_src` in a JSON file starts with `https://`, it is a Golden Rule violation. Fix pattern:
 
 ```python
 import urllib.request, urllib.parse, json, os
 
-SATORI_BASE = "https://www.fshot.one"
+SATORI_BASE = "https://satori-neon.vercel.app"
 TOKEN       = "satori_0c00f62203a65529f7dac2f75b74e684f3806484f23724a3"
 JSON_PATH   = "content/static/articles/2026/05/my-article.json"
 
@@ -261,48 +285,58 @@ Then run `npm run wiki:sync -- --write`.
 
 ```
 1. Write static JSON  →  content/static/articles/YYYY/MM/{slug}.json
-2. Mint thumbnail     →  Python urllib two-step (template above)
-3. Sync registry      →  npm run wiki:sync -- --write
-4. Verify locally     →  http://localhost:3000/[section]/[slug]
-5. Commit
-git add app/[section]/[slug]/page.tsx public/thumbnails/[slug].jpg lib/registry-data.json
-git commit -m "feat: [slug] + thumbnail"
+2. Sync registry      →  npm run wiki:sync -- --write
+3. Mint thumbnail     →  Python urllib two-step against https://satori-neon.vercel.app
+4. Re-sync registry   →  npm run wiki:sync -- --write   (picks up the new imageUrl)
+5. Verify             →  npx ts-node --project tsconfig.scripts.json scripts/last-articles.ts 3
+6. Commit
+git add content/static/articles/YYYY/MM/{slug}.json \
+        content/static/content_registry.json \
+        public/thumbnails/{slug}.jpg
+git commit -m "feat: {slug} + thumbnail"
 ```
+
+> Mint order matters. Sync once before minting so the article is registered, then sync again after the PNG lands so `imageUrl` is populated in the registry.
 
 ---
 
-## Custom Thumbnails — Live Editor & Grok AI
+## Custom Thumbnails | Live Editor & Grok AI
 
-The **Live Editor** is a browser-based Canva-style dashboard built directly into Satori. It lets you craft a thumbnail visually — no command line needed — and gives you access to every customization option including Grok-powered AI prompts.
+The **Live Editor** is a browser-based Canva-style dashboard built directly into Satori. It lets you craft a thumbnail visually with no command line, and exposes every customization option including Grok-powered AI prompts.
+
+> The Live Editor requires a **running local Satori instance**. It is not available on the hosted `satori-neon.vercel.app` endpoint. Start it first:
+>
+> ```bash
+> cd ~/Documents/GitHub/0zonetwork/satori && PORT=4444 npx next dev
+> ```
 
 Open it at:
 ```
-http://localhost:3000
+http://localhost:4444
 ```
-_(Satori must be running. Same `npm run dev` as above.)_
 
 ---
 
 ### Live Editor: Quick Start
 
-1. Open `http://localhost:3001` in your browser
+1. Open `http://localhost:4444` in your browser (local Satori must be running)
 2. Either:
-   - **Paste an article URL** into the URL import bar and click **Import** — Satori auto-fills title, subtitle, and finds a background photo
-   - **Type a prompt** (flip toggle to ✨ Prompt mode) — e.g. `"Breaking: Spain wins Euro 2026"` — and Satori uses Grok to generate everything
+   - **Paste an article URL** into the URL import bar and click **Import**. Satori auto-fills title, subtitle, and finds a background photo
+   - **Type a prompt** (flip the toggle to ✨ Prompt mode), for example `"Breaking: Spain wins Euro 2026"`, and Satori uses Grok to generate everything
 3. Tweak any field in the sidebar
 4. Click **Save to Satori** to register it in the DB
 
-> The saved URL (`/api/v1/og?network=ozone&slug=...`) is what your minting script reads — the visual is locked in at that point.
+> The saved URL (`/api/v1/og?network=ozone&slug=...`) is what your minting script reads. The visual is locked in at that point.
 
 ---
 
-### Game Articles — Grok-Powered Game Customization
+### Game Articles | Grok-Powered Game Customization
 
 For game coverage (reviews, previews, guides), the **Game Customization** panel unlocks a full set of game-specific options powered by the Grok AI.
 
 Scroll to the **Game Customization** section in the sidebar and expand it.
 
-#### Step 1 — Fill in the game details
+#### Step 1 | Fill in the game details
 
 | Field | What to enter | Example |
 |---|---|---|
@@ -312,7 +346,7 @@ Scroll to the **Game Customization** section in the sidebar and expand it.
 | Publisher | Publisher name | `Bandai Namco` |
 | Genre | Pick from dropdown | `Soulslike` |
 
-#### Step 2 — Select platforms
+#### Step 2 | Select platforms
 
 Toggle any platforms that apply. Each badge appears on the thumbnail corner:
 
@@ -325,7 +359,7 @@ Toggle any platforms that apply. Each badge appears on the thumbnail corner:
 | 📱 Mobile | Grey |
 | 🥽 VR | Purple |
 
-#### Step 3 — Choose an overlay badge
+#### Step 3 | Choose an overlay badge
 
 Pick the label that stamps across your thumbnail banner:
 
@@ -340,17 +374,17 @@ Pick the label that stamps across your thumbnail banner:
 | 📖 GUIDE | Walkthrough / tips |
 | _(none)_ | Clean thumbnail, no badge |
 
-#### Step 4 — Set a review score (optional)
+#### Step 4 | Set a review score (optional)
 
-Drag the **Review Score** slider (0–100). A colour-coded score badge appears:
-- **80–100** → Gold (excellent)
-- **60–79** → Green (good)
-- **40–59** → Yellow (mixed)
-- **0–39** → Red (poor)
+Drag the **Review Score** slider (0-100). A colour-coded score badge appears:
+- **80-100** → Gold (excellent)
+- **60-79** → Green (good)
+- **40-59** → Yellow (mixed)
+- **0-39** → Red (poor)
 
 Leave the slider off if this is not a scored review.
 
-#### Step 5 — Generate a visual prompt with Grok
+#### Step 5 | Generate a visual prompt with Grok
 
 Click **🤖 Generate Game Visual with Grok**. The system sends your game details to `grok-3-mini` and gets back:
 
@@ -361,7 +395,7 @@ Click **🤖 Generate Game Visual with Grok**. The system sends your game detail
 
 The generated prompt auto-fills the **Enhance Image** text box. You can edit it before clicking **Mint Image**.
 
-> **Grok API is live** — no extra setup needed. The `GROK_API_KEY` is already configured in the environment.
+> **Grok API is live**, no extra setup needed. The `GROK_API_KEY` is already configured in the environment.
 
 #### Full Game Review Example
 
@@ -379,13 +413,13 @@ Review Score:   88
 
 ---
 
-### YouTube Thumbnails — Import Video Frames as Base Layer
+### YouTube Thumbnails | Import Video Frames as Base Layer
 
 Satori can now scrape YouTube video thumbnails and auto-generated frames. This is great for video essay coverage, trailer reactions, or any article about a specific YouTube video.
 
 #### How it works
 
-YouTube provides 5 free frame variants for every video — no API key needed:
+YouTube provides 5 free frame variants for every video, and no API key is needed:
 
 | Frame | URL pattern | Resolution | Availability |
 |---|---|---|---|
@@ -395,20 +429,20 @@ YouTube provides 5 free frame variants for every video — no API key needed:
 | Auto frame 2 | `img.youtube.com/vi/{id}/2.jpg` | 320×180 | ~50% into video |
 | Auto frame 3 | `img.youtube.com/vi/{id}/3.jpg` | 320×180 | ~75% into video |
 
-Metadata (title, channel name) is fetched from YouTube's free oEmbed endpoint — also no API key required.
+Metadata (title, channel name) is fetched from YouTube's free oEmbed endpoint, which also needs no API key.
 
-#### Setup — no configuration needed
+#### Setup | No Configuration Needed
 
 YouTube integration works out of the box. No API keys, no tokens, no environment variables. The endpoint uses:
-- **YouTube oEmbed API** (`youtube.com/oembed`) — free, public, no auth
-- **Direct `img.youtube.com` URLs** — public CDN, always available
+- **YouTube oEmbed API** (`youtube.com/oembed`): free, public, no auth
+- **Direct `img.youtube.com` URLs**: public CDN, always available
 
-#### Programmatic API — `POST /api/v1/fetch-youtube`
+#### Programmatic API | `POST /api/v1/fetch-youtube`
 
 For scripts and automated workflows, use the dedicated endpoint:
 
 ```bash
-curl -X POST "https://www.fshot.one/api/v1/fetch-youtube" \
+curl -X POST "https://satori-neon.vercel.app/api/v1/fetch-youtube" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://www.youtube.com/watch?v=sR6B5x6EAN8"}'
 ```
@@ -437,12 +471,12 @@ Returns:
 }
 ```
 
-#### Python urllib — pull YouTube + mint in one script
+#### Python urllib | Pull YouTube and Mint in One Script
 
 ```python
 import urllib.request, urllib.parse, json, os
 
-SATORI_BASE = "https://www.fshot.one"
+SATORI_BASE = "https://satori-neon.vercel.app"
 YT_URL      = "https://www.youtube.com/watch?v=sR6B5x6EAN8"
 SLUG        = "youtube-video-article-2026"
 BRAND       = "ozone"
@@ -527,11 +561,11 @@ For more control, use the Content tab:
 
 #### Copyright note
 
-> YouTube thumbnails are copyrighted by the video creator. Using them as-is in your article's OG image may constitute infringement. Satori encourages using them as a **base layer** for transformation — combine with text overlays, brand logo, gradient overlays, and FLUX enhancement to create a substantially new work.
+> YouTube thumbnails are copyrighted by the video creator. Using them as-is in your article's OG image may constitute infringement. Satori encourages using them as a **base layer** for transformation: combine with text overlays, brand logo, gradient overlays, and FLUX enhancement to create a substantially new work.
 
 ---
 
-### 🧅 Layered Image Editor — Drag-and-Drop Style Layer Stack
+### 🧅 Layered Image Editor | Drag-and-Drop Style Layer Stack
 
 The Content tab now includes a layered image compositing system inspired by Canva and Photoshop. Instead of picking a single background image, you can stack multiple images as layers with per-layer opacity, visibility, and z-ordering.
 
@@ -542,7 +576,7 @@ Each layer in the stack has:
 | Control | What it does |
 |---|---|
 | 👁 Visibility toggle | Show or hide the layer without deleting it |
-| Opacity slider | 0–100% — fade layers in/out for blends |
+| Opacity slider | 0-100%, fade layers in/out for blends |
 | ▲ Move up | Send the layer forward (higher z-index) |
 | ▼ Move down | Send the layer backward (lower z-index) |
 | ✕ Delete | Remove the layer from the stack |
@@ -552,12 +586,12 @@ Each layer in the stack has:
 
 1. Switch to the **🎬 Content** tab
 2. Load images via YouTube URL, **Find Images** search, or game screenshots
-3. Click any image in the **Image Sources** grid — it becomes a new layer
+3. Click any image in the **Image Sources** grid to make it a new layer
 4. In the **🧅 Layers** panel:
    - Drag opacity sliders to blend layers together
    - Use ▲/▼ to reorder (top of stack = frontmost)
    - Toggle visibility on/off
-5. The first layer added is set as the main `image_url` — subsequent layers are composited on top
+5. The first layer added is set as the main `image_url`; subsequent layers are composited on top
 6. Switch back to the **Editor** tab to see your composite in the live preview
 
 #### Layer states
@@ -596,20 +630,20 @@ The accent colour affects the gradient overlay band and the logo text glow. Use 
 
 ### Overlay Strength
 
-Control how dark the image gradient overlay appears — useful when the background photo has important detail you don't want to obscure.
+Control how dark the image gradient overlay appears. This is useful when the background photo has important detail you don't want to obscure.
 
 1. In the **Advanced** section, drag the **Overlay Strength** slider
-2. `100` = full overlay (default — best readability)
+2. `100` = full overlay (default, best readability)
 3. `50` = semi-transparent overlay (photo detail shows through)
-4. `0` = no overlay (photo only — use with caution, text may be hard to read)
+4. `0` = no overlay (photo only, use with caution, text may be hard to read)
 
-> The overlay is the dark gradient that sits between the background photo and the title text. Reducing it makes photos more visible but can hurt headline legibility on bright images. A value of `70–85` works well for most game screenshots.
+> The overlay is the dark gradient that sits between the background photo and the title text. Reducing it makes photos more visible but can hurt headline legibility on bright images. A value of `70-85` works well for most game screenshots.
 
 ---
 
 ### Uploading Original Media (Screenshots & Photos)
 
-For first-hand game screenshots, press photos, or event photography — upload the original file directly into Satori instead of relying on Unsplash.
+For first-hand game screenshots, press photos, or event photography, upload the original file directly into Satori instead of relying on Unsplash.
 
 1. Scroll to **Original Media** in the sidebar
 2. Either **drag-and-drop** a file onto the upload zone, or click to **browse**
@@ -620,12 +654,12 @@ Once uploaded, a coloured **source badge** appears below the image URL:
 
 | Badge | Meaning |
 |---|---|
-| 🟢 Original Upload | Your first-hand media — highest E-E-A-T value |
+| 🟢 Original Upload | Your first-hand media, highest E-E-A-T value |
 | 🔵 Unsplash | Stock photo pulled by the AI |
 | 🟣 AI Generated | FLUX/Replicate-generated image |
 | 🟠 External URL | Image linked from another site |
 
-> **E-E-A-T tip:** Google rewards original, first-hand images. An "Original Upload" badge means the image is credited as `"Original — First-hand Media"` in the DB. Aim for at least 20% original media across your articles.
+> **E-E-A-T tip:** Google rewards original, first-hand images. An "Original Upload" badge means the image is credited as `"Original - First-hand Media"` in the DB. Aim for at least 20% original media across your articles.
 
 #### Accepted uploads
 
@@ -636,14 +670,14 @@ Once uploaded, a coloured **source badge** appears below the image URL:
 
 ---
 
-### Putting It All Together — Custom Game Thumbnail Workflow
+### Putting It All Together | Custom Game Thumbnail Workflow
 
 ```bash
-# 1. Start Satori
-cd ~/path/to/satori && npm run dev
+# 1. Start Satori (local only; the Live Editor is not hosted)
+cd ~/Documents/GitHub/0zonetwork/satori && PORT=4444 npx next dev
 
 # 2. Open the editor
-#    http://localhost:3001
+#    http://localhost:4444
 
 # 3. Paste the article URL or type a prompt → Import
 
@@ -669,15 +703,18 @@ cd ~/path/to/satori && npm run dev
 
 ## Satori API Reference
 
-**Production:** `https://www.fshot.one`
-**Local dev:** `http://localhost:3000`
+**Production:** `https://satori-neon.vercel.app`
+**Local dev:** `http://localhost:4444`
+
+> Verified October 14, 2026. `https://www.fshot.one` is dead (NXDOMAIN) and must not be used.
 
 ### Health check
 ```bash
-curl https://www.fshot.one/api/health
+curl https://satori-neon.vercel.app/api/health
 ```
+Note: this currently reports `"status":"unhealthy"` for database/storage while minting still works. Do not treat that flag as a blocker.
 
-### Step 1 — Register + get Unsplash image
+### Step 1 | `POST /api/v1/quick-generate`
 ```
 POST /api/v1/quick-generate
 Authorization: Bearer <token>
@@ -687,7 +724,7 @@ Content-Type: application/json
 ```
 Returns: `{ "image_url": "https://images.unsplash.com/..." }`
 
-### Step 2 — Render PNG
+### Step 2 | Render PNG
 ```
 GET /api/v1/generate?network=ozone&title=...&subtitle=...&image_url=...&layout=...&accent=...&overlay=...
 ```
@@ -699,15 +736,15 @@ Returns: raw PNG bytes (save to `public/thumbnails/{slug}.jpg`)
 |---|---|---|
 | `network` | Yes | Always `ozone` for this project |
 | `title` | Yes | URL-encoded headline |
-| `subtitle` | — | URL-encoded deck text |
-| `image_url` | — | URL from `quick-generate` Step 1 |
-| `layout` | — | `cinematic`, `breaking`, `standard`, `minimal`, `youtube`, `social` |
-| `accent` | — | 6-digit hex e.g. `%2300d4ff` (URL-encode the `#`) |
-| `overlay` | — | `0`–`100`, default `100` — use `75`–`85` |
+| `subtitle` | No | URL-encoded deck text |
+| `image_url` | No | URL from `quick-generate` Step 1 |
+| `layout` | No | `cinematic`, `breaking`, `standard`, `minimal`, `youtube`, `social` |
+| `accent` | No | 6-digit hex e.g. `%2300d4ff` (URL-encode the `#`) |
+| `overlay` | No | `0-100`, default `100`. Use `75-85` |
 
 ### Look up a saved thumbnail
 ```bash
-curl "https://www.fshot.one/api/v1/og?network=ozone&slug=my-article-slug"
+curl "https://satori-neon.vercel.app/api/v1/og?network=ozone&slug=my-article-slug"
 ```
 
 ### Fetch YouTube video metadata + frames
@@ -723,7 +760,7 @@ No authentication required. Uses YouTube's free oEmbed API and direct `img.youtu
 
 ### Preview in browser
 ```
-https://www.fshot.one/api/v1/generate?network=ozone&title=My+Title&layout=cinematic&accent=%2300d4ff&overlay=75
+https://satori-neon.vercel.app/api/v1/generate?network=ozone&title=My+Title&layout=cinematic&accent=%2300d4ff&overlay=75
 ```
 
 ---
@@ -732,22 +769,24 @@ https://www.fshot.one/api/v1/generate?network=ozone&title=My+Title&layout=cinema
 
 | Problem | Fix |
 |---|---|
-| `Connection refused` on localhost:3000 | Satori is not running — start it with `npm run dev` in the Satori repo |
-| `HTTP 308` from fshot.one | Use `https://www.fshot.one` — bare `fshot.one` permanently redirects |
-| `HTTP 502` from any Satori URL | `satori-neon.vercel.app` is decommissioned — always use `www.fshot.one` |
-| Thumbnail not showing on homepage | Run `npm run wiki:sync -- --write` then hard-refresh (`Cmd+Shift+R`) |
-| Article header shows flat color | `thumbnail_src` is missing or a CDN URL — re-mint and fix the JSON field |
-| Photo is wrong / generic | Run `quick-generate` Step 1 first — it fetches a topic-matched Unsplash photo |
-| Thumbnail is too dark | Lower `overlay` from 100 to 75–80 |
-| Wrong domain showing as `objectwire.org` | Run global domain fix: `grep -r "objectwire\.org" --include="*.json" -l | grep -v node_modules | xargs sed -i '' 's/objectwire\.org/objectivewire\.com/g'` then `npm run wiki:sync -- --write` |
+| `NXDOMAIN` / `Could not resolve host` for `www.fshot.one` | Expected. The domain is dead. Use `https://satori-neon.vercel.app`. |
+| `Connection refused` on `localhost:4444` | Local Satori is not running. Start it with `cd ~/Documents/GitHub/0zonetwork/satori && PORT=4444 npx next dev`, or skip local entirely and mint against `satori-neon.vercel.app`. |
+| Local Satori dies between commands | The background dev process is killed when its shell is reused or interrupted. This is the usual cause of repeated failed mints. Prefer the hosted endpoint. |
+| `/api/health` returns `"status":"unhealthy"` | Known state on `satori-neon.vercel.app`. Database/storage checks fail but `quick-generate` and `generate` still return valid output. Proceed with the mint. |
+| `HTTP 502` from `satori-neon.vercel.app` during a mint | Cold start or transient. Retry after a few seconds. If it persists, start local Satori on 4444 and mint there. |
+| Thumbnail not showing on homepage | Run `npm run wiki:sync -- --write` then hard-refresh (`Cmd+Shift+R`). |
+| Article header shows flat color | `thumbnail_src` is missing or is a CDN URL. Re-mint and fix the JSON field. |
+| Photo is wrong or generic | Run `quick-generate` Step 1 first. It fetches a topic-matched Unsplash photo. |
+| Thumbnail is too dark | Lower `overlay` from 100 to 75 through 80. |
+| Wrong domain showing as `objectwire.org` | Run global domain fix: `grep -r "objectwire\.org" --include="*.json" -l \| grep -v node_modules \| xargs sed -i '' 's/objectwire\.org/objectivewire\.com/g'` then `npm run wiki:sync -- --write` |
 
 ---
 
 ## Never Do
 
-- **Never** call `satori-neon.vercel.app` — returns 502
-- **Never** call bare `fshot.one` — returns 308 redirect to `www.`
-- **Never** store a live URL in `thumbnail_src` — always save the PNG first
-- **Never** use multi-line curl with shell variables — use Python urllib
-- **Never** use `mint-thumbnails.ts` for individual articles — bare defaults, overlay=100, no accent
-- **Never** skip `npm run wiki:sync -- --write` after minting
+- **Never** call `https://www.fshot.one`. It no longer resolves (NXDOMAIN).
+- **Never** store a live URL in `thumbnail_src`. Always save the PNG first.
+- **Never** use multi-line curl with shell variables. Use Python urllib.
+- **Never** use `mint-thumbnails.ts` for individual articles. It sends bare defaults, overlay=100, no accent.
+- **Never** skip `npm run wiki:sync -- --write` after minting.
+- **Never** trust `/api/health` as a mint-readiness signal. Check `quick-generate` instead.

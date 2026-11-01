@@ -595,15 +595,22 @@ export function TagsSection({ tags }: { tags: string[] }) {
         Tags
       </h3>
       <div className="flex flex-wrap gap-2">
-        {tags.map((tag, index) => (
-          <Link
-            key={index}
-            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-            className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors"
-          >
-            #{tag}
-          </Link>
-        ))}
+        {tags.map((tag, index) => {
+          const isHoney = tag.toUpperCase() === 'HONEY';
+          return (
+            <Link
+              key={index}
+              href={isHoney ? '/earth' : `/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+              className={
+                isHoney
+                  ? "inline-flex items-center gap-1 px-3 py-1 bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 font-bold rounded-full text-sm transition-colors shadow-sm"
+                  : "px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors"
+              }
+            >
+              {isHoney ? '🍯 HONEY' : `#${tag}`}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

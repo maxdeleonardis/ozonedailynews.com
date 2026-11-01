@@ -176,6 +176,62 @@ export const AUTHORS: Record<string, AuthorEntity> = {
     initials: 'JD',
     since: '2026',
   },
+
+  'tina-boyle': {
+    slug: 'tina-boyle',
+    name: 'Tina Boyle',
+    jobTitle: 'Senior Editor',
+    isOwner: false,
+    tagline: 'Senior Editor, Environment and Earth Science',
+    bio: [
+      'Tina Boyle is a Senior Editor covering environment, public health, food systems, wildlife, and environmental accountability.',
+      'She leads reporting built around human-centered journalism, verified scientific sourcing, and accountability reporting with real-world impact. Every story published under her editorial leadership meets strict standards of named authorship, independent verification, and a published corrections policy.',
+    ],
+    beats: ['Environment', 'Public Health', 'Food Safety', 'Animals', 'Ethics', 'Community', 'Earth Science'],
+    knowsAbout: [
+      'Environmental Journalism',
+      'Public Health Reporting',
+      'Food Safety',
+      'Accountability Journalism',
+      'Editorial Standards',
+      'Human-Centered Journalism',
+    ],
+    sameAs: [],
+    initials: 'TB',
+    since: '2026',
+  },
+
+  'teagen-salty': {
+    slug: 'teagen-salty',
+    name: 'Teagen Salty',
+    jobTitle: 'Staff Science Reporter',
+    tagline: 'Staff Science Reporter, Environment and Biology',
+    bio: [
+      'Teagen Salty is a staff science reporter covering environment, biology, technology, and health. They hold a Doctor of Philosophy in Cell Biology and Physiology from the University of North Carolina at Chapel Hill, with a research background in cellular mechanisms of aging and tissue regeneration.',
+      'Their reporting bridges the gap between primary scientific literature and public understanding, drawing on doctoral training in cell biology to translate complex biomedical and environmental research into accessible, sourced journalism.',
+    ],
+    beats: ['Environment', 'Science', 'Technology', 'Health', 'Biology'],
+    knowsAbout: [
+      'Environmental Journalism',
+      'Science Reporting',
+      'Technology',
+      'Health',
+      'Cell Biology',
+      'Physiology',
+      'Aging Research',
+    ],
+    education: [
+      {
+        institution: 'University of North Carolina at Chapel Hill',
+        degree: 'Doctor of Philosophy (Ph.D.), Cell Biology and Physiology',
+      },
+    ],
+    sameAs: [
+      'https://www.linkedin.com/in/teagen-salty-968295434/',
+    ],
+    initials: 'TS',
+    since: '2026',
+  },
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

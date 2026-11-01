@@ -1,0 +1,139 @@
+{
+  "slug": "community",
+  "url": "/community",
+  "title": "Community Impact | Environmental Justice, School Food, and Local Stories That Matter",
+  "subtitle": "Stories about how environmental and policy decisions affect real communities. OzoneNews covers environmental justice, Cancer Alley, school lunch policy, lead exposure by zip code, farmworker health, and the local stories mainstream outlets overlook.",
+  "category": "News",
+  "last_updated": "June 11, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "tags": [
+    "Environmental Justice",
+    "Cancer Alley",
+    "School Meals",
+    "Lead Exposure",
+    "Superfund",
+    "Farmworkers",
+    "Urban Heat Island"
+  ],
+  "thumbnail_src": "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Community neighborhood street representing local impact and environmental justice",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/community",
+      "label": "Community Impact"
+    }
+  ],
+  "table_of_contents": [
+    {
+      "id": "environmental-justice",
+      "label": "Environmental Justice | Who Lives Near the Pollution",
+      "level": 1
+    },
+    {
+      "id": "school-food",
+      "label": "School Food | What Children Eat and Why It Matters",
+      "level": 1
+    },
+    {
+      "id": "farmworkers",
+      "label": "Farmworkers | The People Closest to Pesticide Exposure",
+      "level": 1
+    },
+    {
+      "id": "housing",
+      "label": "Housing and Environmental Health",
+      "level": 1
+    }
+  ],
+  "info_box": {
+    "title": "Community Impact Coverage",
+    "sections": [
+      {
+        "heading": "Key Data Points",
+        "items": [
+          {
+            "label": "Cancer Alley",
+            "value": "85-mile stretch, 200+ industrial facilities"
+          },
+          {
+            "label": "Superfund near schools",
+            "value": "EPA EJScreen documents proximity"
+          },
+          {
+            "label": "School meals served",
+            "value": "30M students daily, USDA funded"
+          },
+          {
+            "label": "Universal free meals",
+            "value": "10+ states enacted by 2024"
+          }
+        ]
+      },
+      {
+        "heading": "Primary Sources",
+        "links": [
+          {
+            "href": "https://ejscreen.epa.gov",
+            "label": "EPA EJScreen",
+            "external": true
+          },
+          {
+            "href": "https://www.fns.usda.gov/nslp",
+            "label": "USDA School Lunch Program",
+            "external": true
+          },
+          {
+            "href": "https://projects.propublica.org/toxmap",
+            "label": "ProPublica Pollution Tracker",
+            "external": true
+          }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          {
+            "href": "/health",
+            "label": "Public Health"
+          },
+          {
+            "href": "/food",
+            "label": "Food Safety"
+          },
+          {
+            "href": "/environment",
+            "label": "Environment"
+          }
+        ]
+      }
+    ]
+  },
+  "related_links": [
+    {
+      "href": "/health",
+      "label": "Public Health",
+      "description": "PFAS, lead contamination, air quality, and health disparities"
+    },
+    {
+      "href": "/food",
+      "label": "Food Safety",
+      "description": "FDA enforcement, food additives, and school nutrition standards"
+    },
+    {
+      "href": "/ethics",
+      "label": "Ethics and Accountability",
+      "description": "Corporate accountability for community-level harms"
+    },
+    {
+      "href": "/environment",
+      "label": "Environment",
+      "description": "PFAS in ecosystems, deforestation, and ocean health"
+    }
+  ],
+  "content_html": "<p>OzoneNews's community desk covers the people most directly affected by environmental contamination, inadequate food systems, and policy failures. These stories share a common feature: the harm is well-documented in government data, and the communities bearing it are rarely centered in mainstream coverage. We report from primary sources, name specific places and specific institutions, and follow the data to where the impact is greatest.</p>\n\n<h2 id=\"environmental-justice\">Environmental Justice | Who Lives Near the Pollution</h2>\n\n<p>Environmental justice is the principle that no community should bear a disproportionate burden of environmental harm based on race, income, or national origin. The data shows this principle is routinely violated. A 2021 study published in <em>Science Advances</em> found that in the United States, people of color are exposed to 56 percent more air pollution from industry than white Americans. Low-income communities face similar disparities in proximity to hazardous waste facilities, industrial agricultural operations, and Superfund sites.</p>\n\n<p>Cancer Alley is the most documented example in the United States. The 85-mile stretch of the Mississippi River between Baton Rouge and New Orleans, Louisiana, is home to more than 200 petrochemical facilities. The communities along this corridor, predominantly Black and low-income, have documented cancer rates significantly above the national average. The EPA's own EJScreen tool rates many of these census tracts in the 99th percentile for cancer risk from air pollution. A 2021 ProPublica analysis of EPA air toxics data found that the St. John the Baptist Parish stretch of Cancer Alley had the highest cancer risk from industrial air pollution of any area in the United States. Community organizations have filed civil rights complaints with the EPA. Federal oversight actions have been challenged in court by industrial operators.</p>\n\n<p>The <a href=\"https://ejscreen.epa.gov\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">EPA EJScreen tool</a> allows anyone to look up any US address or census tract and see its percentile rankings for 11 environmental indicators and 6 demographic indicators. It is the most accessible federal tool for documenting the relationship between pollution burden and community demographics. OzoneNews uses EJScreen data in every community health story. See our <a href=\"/health\" class=\"text-blue-600 hover:text-blue-800 underline\">Public Health coverage</a> for the full data context on air quality and lead contamination by community.</p>\n\n<p>Superfund site proximity is a measurable indicator of environmental injustice. The EPA maintains the National Priorities List of the most contaminated sites in the country requiring long-term cleanup. A 2022 EPA analysis found that 73 percent of communities adjacent to Superfund sites have above-average percentages of people of color, and 75 percent have above-average rates of low-income residents. Cleanup timelines at Superfund sites average more than 15 years from listing to final remediation. Sites near lower-income communities have documented longer cleanup timelines than sites in wealthier areas.</p>\n\n<h2 id=\"school-food\">School Food | What Children Are Fed and Why It Matters</h2>\n\n<p>Approximately 30 million children eat school lunches in the United States each day, making the National School Lunch Program one of the largest nutrition interventions in American public policy. The USDA sets the nutrition standards. For many low-income children, school meals are the most nutritious food they eat in a day. The quality, accessibility, and cost of those meals is therefore a direct equity issue.</p>\n\n<p>School food debt has emerged as a significant flashpoint. In states and districts without universal free meal programs, students whose meal accounts have insufficient funds are sometimes denied hot meals and given cold alternative meals instead, a practice criticized by nutritionists and advocates as harmful to children. As of 2024, at least 10 states have passed universal free school meals laws, guaranteeing a meal to every student regardless of family income. Connecticut, California, Minnesota, Michigan, and Maine are among those with permanent programs. In states without these laws, students from families just above the federal free and reduced-price meal eligibility threshold face the highest risk of meal debt.</p>\n\n<p>The nutritional content of school meals is determined partly by USDA commodity programs, which supply schools with surplus agricultural products. The commodity system means schools often receive butter, cheese, ground beef, and processed foods in quantities determined by agricultural surpluses rather than nutritional guidelines. The tension between the agriculture commodity support mission and the nutrition mission of school feeding programs is structural and well-documented. The USDA's updated 2024 meal standards set new limits on sodium and added sugars, with a phase-in timeline through 2027. Industry groups representing processed food manufacturers lobbied against the sodium limits during the rulemaking process. See our full <a href=\"/food\" class=\"text-blue-600 hover:text-blue-800 underline\">Food Safety</a> coverage for the school nutrition policy detail.</p>\n\n<h2 id=\"farmworkers\">Farmworkers | The People Closest to Pesticide Exposure</h2>\n\n<p>Approximately 2 to 3 million hired agricultural workers work on US farms each year, according to USDA estimates. They represent one of the most occupationally exposed populations to pesticides in the country. Agricultural work is exempt from many labor protections available to other workers. The Agricultural Worker Exception from the National Labor Relations Act limits farmworkers' rights to organize and collectively bargain. Minimum wage and overtime protections under the Fair Labor Standards Act cover many but not all agricultural workers, with exemptions for farms below certain size thresholds.</p>\n\n<p>The EPA's Worker Protection Standard (WPS) is the primary federal regulation governing pesticide safety for agricultural workers. It requires training, notification when pesticides are applied, access to personal protective equipment, and a restricted entry interval before workers can re-enter treated fields. Enforcement of the WPS relies primarily on state agricultural agencies, whose resources and priorities vary widely. A 2023 report by Farmworker Justice documented persistent WPS violations across major agricultural states, with heat illness and pesticide exposure continuing to cause preventable deaths and injuries.</p>\n\n<p>Children are disproportionately exposed to pesticides in agricultural areas through multiple pathways: household members who are farmworkers bring residues home on clothing, children of farmworkers may accompany parents in fields, and pesticide drift affects residences near treated fields. The American Academy of Pediatrics has stated that there is no safe level of pesticide exposure for children and has called for the elimination of organophosphate pesticides from use near schools and residences. Several states have established pesticide buffer zones around schools.</p>\n\n<h2 id=\"housing\">Housing and Environmental Health | Heat, Mold, and Where You Live</h2>\n\n<p>Where a person lives determines their exposure to environmental health risks in ways that are rarely visible to outside observers. Two of the most significant and under-reported housing-related environmental health issues in the United States are urban heat islands and mold in subsidized housing.</p>\n\n<p>Urban heat islands are areas within cities where surface temperatures are significantly higher than surrounding rural areas, due to the concentration of pavement, buildings, and reduced vegetation. Satellite temperature data consistently shows that the hottest neighborhoods in American cities are lower-income neighborhoods with less tree canopy, more impervious surfaces, and more proximity to industrial heat sources. A 2020 study in <em>Climate</em> found that formerly redlined neighborhoods in 108 US cities are on average 2.6 degrees Celsius hotter in summer than non-redlined areas in the same city. During heat waves, this temperature difference translates directly into higher rates of heat illness and mortality. The communities least likely to have air conditioning are the communities most exposed to extreme heat.</p>\n\n<p>Mold in subsidized housing affects millions of Americans. The Department of Housing and Urban Development (HUD) oversees approximately 1.1 million units of public housing. Deferred maintenance due to chronic underfunding has left a significant proportion of units with unresolved moisture problems that support mold growth. Mold exposure exacerbates asthma, increases respiratory infection rates, and causes allergic disease. Children and elderly residents are most vulnerable. A 2021 HUD assessment of its public housing portfolio found a multibillion-dollar capital needs backlog, including significant mold and moisture remediation requirements. Tenant organizations in multiple cities have filed civil rights complaints and litigation documenting documented health harms from unresolved mold conditions."
+}

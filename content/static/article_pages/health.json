@@ -1,0 +1,143 @@
+{
+  "slug": "health",
+  "url": "/health",
+  "title": "Public Health | PFAS, Water Contamination, Air Quality, and Health Disparities",
+  "subtitle": "OzoneNews's public health desk covers the environmental and systemic factors that determine health outcomes for real communities. Every claim cites a government agency, peer-reviewed study, or primary document.",
+  "category": "News",
+  "last_updated": "June 11, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "tags": [
+    "PFAS",
+    "Lead Contamination",
+    "Air Quality",
+    "Microplastics",
+    "Environmental Justice",
+    "Community Health"
+  ],
+  "thumbnail_src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Water quality testing in a community affected by contamination",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/health",
+      "label": "Public Health"
+    }
+  ],
+  "table_of_contents": [
+    {
+      "id": "pfas",
+      "label": "PFAS and Drinking Water",
+      "level": 1
+    },
+    {
+      "id": "lead",
+      "label": "Lead Contamination Post-Flint",
+      "level": 1
+    },
+    {
+      "id": "air",
+      "label": "Air Quality and Who Breathes the Worst Air",
+      "level": 1
+    },
+    {
+      "id": "microplastics",
+      "label": "Microplastics in the Human Body",
+      "level": 1
+    }
+  ],
+  "info_box": {
+    "title": "Public Health Coverage",
+    "sections": [
+      {
+        "heading": "Key Data Points",
+        "items": [
+          {
+            "label": "PFAS water limits",
+            "value": "EPA MCL rule finalized 2024"
+          },
+          {
+            "label": "Lead in water",
+            "value": "EPA Lead & Copper Rule active"
+          },
+          {
+            "label": "Air quality deaths",
+            "value": "60,000+ US/year (PM2.5, EPA)"
+          },
+          {
+            "label": "Microplastics",
+            "value": "Found in human blood, lungs, liver"
+          }
+        ]
+      },
+      {
+        "heading": "Primary Sources",
+        "links": [
+          {
+            "href": "https://www.epa.gov",
+            "label": "EPA",
+            "external": true
+          },
+          {
+            "href": "https://www.cdc.gov",
+            "label": "CDC",
+            "external": true
+          },
+          {
+            "href": "https://www.ewg.org",
+            "label": "Environmental Working Group",
+            "external": true
+          },
+          {
+            "href": "https://www.atsdr.cdc.gov",
+            "label": "CDC ATSDR",
+            "external": true
+          }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          {
+            "href": "/food",
+            "label": "Food Safety"
+          },
+          {
+            "href": "/environment",
+            "label": "Environment"
+          },
+          {
+            "href": "/community",
+            "label": "Community Impact"
+          }
+        ]
+      }
+    ]
+  },
+  "related_links": [
+    {
+      "href": "/food",
+      "label": "Food Safety",
+      "description": "FDA enforcement, food additives, and what's in your food"
+    },
+    {
+      "href": "/environment",
+      "label": "Environment",
+      "description": "Pollinators, ocean health, deforestation, and PFAS in ecosystems"
+    },
+    {
+      "href": "/community",
+      "label": "Community Impact",
+      "description": "Environmental justice, school food, and local health stories"
+    },
+    {
+      "href": "/ethics",
+      "label": "Ethics and Accountability",
+      "description": "Corporate accountability for public health harms"
+    }
+  ],
+  "content_html": "<p>OzoneNews's public health desk covers the environmental and systemic factors that determine health outcomes for real communities. The stories we track sit at the intersection of science, regulation, and equity: contaminated water sources, industrial emissions near schools, chemicals in food, and the disparities that determine who bears the greatest health burden. Every claim on this page links to a government agency, peer-reviewed study, or primary document.</p>\n\n<h2 id=\"pfas\">PFAS | Forever Chemicals in Drinking Water</h2>\n\n<p>Per- and polyfluoroalkyl substances (PFAS) are a class of more than 12,000 synthetic chemicals used in non-stick cookware, stain-resistant fabrics, food packaging, firefighting foam, and hundreds of industrial processes. They do not break down in the environment or in the human body. The nickname \"forever chemicals\" reflects their persistence: PFAS ingested today will still be measurable in human blood decades from now.</p>\n\n<p>In April 2024, the EPA finalized the first-ever federal maximum contaminant levels (MCLs) for six PFAS compounds in public drinking water. The rule set limits of 4 parts per trillion for PFOA and PFOS, the two most studied PFAS compounds. Previous EPA guidance had been advisory only. Public water systems now have five years to test for PFAS and three years after that to implement treatment if contamination exceeds the limits. The rule covers approximately 66,000 public water systems serving 100 million people. Private wells, used by roughly 43 million Americans, are not covered by federal MCL rules. The <a href=\"https://www.ewg.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Environmental Working Group</a> maintains an interactive map showing documented PFAS contamination levels by water system.</p>\n\n<p>Documented health effects associated with PFAS exposure include immune system suppression, thyroid disruption, elevated cholesterol, kidney and testicular cancer, and reduced vaccine effectiveness in children. The National Toxicology Program, part of the Department of Health and Human Services, concluded in 2023 that PFAS exposure is associated with suppressed antibody response to vaccines, even at low concentrations. The immune system findings are particularly significant for children, whose immune systems are still developing.</p>\n\n<p>See our full <a href=\"/environment\" class=\"text-blue-600 hover:text-blue-800 underline\">Environment coverage</a> for reporting on how PFAS move through ecosystems and reach drinking water sources in the first place.</p>\n\n<h2 id=\"lead\">Lead Contamination | Post-Flint America</h2>\n\n<p>The Flint, Michigan water crisis that began in 2014 made lead in drinking water a national issue. Less understood is the scale of the ongoing problem: the American Society of Civil Engineers estimates there are between 6 million and 10 million lead service lines still in the ground across the United States. These are the pipes connecting water mains to individual homes, and they leach lead directly into tap water, particularly in older housing stock.</p>\n\n<p>The EPA's Lead and Copper Rule Revisions, finalized in 2021, require water utilities to replace all lead service lines within 10 years and conduct enhanced testing. Compliance and enforcement vary significantly by state and water system. The CDC has stated there is no safe level of lead exposure for children. Lead disrupts neurological development, with effects on IQ, behavior, and attention that are irreversible once they occur. The CDC uses a blood lead reference value of 3.5 micrograms per deciliter to identify children requiring intervention, but acknowledges that harm occurs below this threshold.</p>\n\n<p>The problem is heavily concentrated by geography and income. A 2022 Reuters investigation using CDC data found that hundreds of US neighborhoods had child blood lead poisoning rates higher than Flint at the height of its crisis. Most are in low-income urban areas with aging housing stock and limited municipal resources to accelerate service line replacement. Our <a href=\"/community\" class=\"text-blue-600 hover:text-blue-800 underline\">Community Impact</a> desk covers specific affected communities.</p>\n\n<h2 id=\"air\">Air Quality | Who Breathes the Worst Air</h2>\n\n<p>The American Lung Association's annual State of the Air report grades counties and metropolitan areas on ozone and particle pollution. The 2024 report found that more than 131 million Americans, approximately 40 percent of the population, live in counties that received a failing grade for at least one measure of air quality. Wildfire smoke has dramatically worsened air quality data in Western states and increasingly affects Midwestern and Eastern cities as fire seasons intensify and expand geographically.</p>\n\n<p>Fine particulate matter, known as PM2.5, is the most damaging air pollutant by health outcome. Particles smaller than 2.5 micrometers can penetrate deep into the lungs and cross into the bloodstream. Long-term exposure is associated with cardiovascular disease, stroke, lung cancer, and cognitive decline. The EPA estimates PM2.5 pollution causes approximately 60,000 premature deaths in the United States each year. In 2024, the EPA tightened the annual PM2.5 standard from 12 micrograms per cubic meter to 9 micrograms per cubic meter, the first revision since 2012.</p>\n\n<p>The distribution of air pollution exposure is not random. Industrial facilities, highways, freight corridors, and waste facilities are disproportionately sited in low-income communities and communities of color. The EPA's EJScreen tool documents the correlation between pollution exposure and demographic data at the census block level. ProPublica's <a href=\"https://projects.propublica.org/toxmap\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Pollution Mapping project</a> provides the most granular publicly available data on industrial air emissions by neighborhood.</p>\n\n<h2 id=\"microplastics\">Microplastics | What We Now Know About Human Exposure</h2>\n\n<p>Microplastics, plastic particles smaller than 5 millimeters, have been detected in human blood, lung tissue, liver tissue, the placenta, breast milk, and fetal meconium. A landmark 2022 study in <em>Environment International</em> found microplastics in the blood of 77 percent of healthy adult donors, with an average concentration of 1.6 micrograms per milliliter. The health effects of this accumulation are not yet fully characterized, but emerging research links microplastic exposure to inflammation, oxidative stress, and endocrine disruption.</p>\n\n<p>The primary exposure routes are food, water, and air. Bottled water contains significantly more microplastics than tap water. Seafood, particularly shellfish that filter seawater, concentrates microplastics from the marine environment. Indoor air quality studies have found microplastic fibers in household dust at concentrations that exceed outdoor air by a factor of three to five. The WHO has called for more research and a reduction in plastic pollution at source, but has not yet set exposure limits. The science is moving faster than the regulation."
+}

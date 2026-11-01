@@ -1,0 +1,148 @@
+{
+  "slug": "environment",
+  "url": "/environment",
+  "title": "Environment | Pollinators, Oceans, Forests, and the Living World",
+  "subtitle": "OzoneNews's environment desk covers the species, ecosystems, and natural systems under the most acute pressure in 2026. Every story is grounded in primary data from government agencies and peer-reviewed research.",
+  "category": "Science",
+  "last_updated": "June 11, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "tags": [
+    "Pollinators",
+    "Coral Reefs",
+    "Deforestation",
+    "PFAS",
+    "Endangered Species",
+    "Ocean Health"
+  ],
+  "thumbnail_src": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Wildflower meadow with bees and natural habitat",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/environment",
+      "label": "Environment"
+    }
+  ],
+  "table_of_contents": [
+    {
+      "id": "pollinators",
+      "label": "Pollinators and Bee Colony Collapse",
+      "level": 1
+    },
+    {
+      "id": "pfas",
+      "label": "PFAS in Ecosystems",
+      "level": 1
+    },
+    {
+      "id": "oceans",
+      "label": "Ocean Health and Coral Bleaching",
+      "level": 1
+    },
+    {
+      "id": "deforestation",
+      "label": "Deforestation and Forest Accountability",
+      "level": 1
+    }
+  ],
+  "info_box": {
+    "title": "Environment Coverage",
+    "sections": [
+      {
+        "heading": "Key Data Points",
+        "items": [
+          {
+            "label": "Bee colony loss",
+            "value": "60% winter loss (USDA 2024-25)"
+          },
+          {
+            "label": "Reef area bleached",
+            "value": "62%+ in 5th global event (2024)"
+          },
+          {
+            "label": "Amazon deforestation",
+            "value": "Tracked monthly by INPE"
+          },
+          {
+            "label": "PFAS in rainwater",
+            "value": "Detected on every continent"
+          }
+        ]
+      },
+      {
+        "heading": "Primary Sources",
+        "links": [
+          {
+            "href": "https://www.nass.usda.gov",
+            "label": "USDA NASS",
+            "external": true
+          },
+          {
+            "href": "https://coralreefwatch.noaa.gov",
+            "label": "NOAA Coral Reef Watch",
+            "external": true
+          },
+          {
+            "href": "https://www.globalforestwatch.org",
+            "label": "Global Forest Watch",
+            "external": true
+          },
+          {
+            "href": "https://www.iucnredlist.org",
+            "label": "IUCN Red List",
+            "external": true
+          }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          {
+            "href": "/animals",
+            "label": "Animals and Wildlife"
+          },
+          {
+            "href": "/health",
+            "label": "Public Health"
+          },
+          {
+            "href": "/food",
+            "label": "Food Safety"
+          }
+        ]
+      }
+    ]
+  },
+  "related_links": [
+    {
+      "href": "/animals",
+      "label": "Animals and Wildlife",
+      "description": "Endangered species, factory farming, and marine life"
+    },
+    {
+      "href": "/health",
+      "label": "Public Health",
+      "description": "PFAS, air quality, water contamination, and disparities"
+    },
+    {
+      "href": "/food",
+      "label": "Food Safety",
+      "description": "FDA enforcement, food additives, and school meals"
+    },
+    {
+      "href": "/ethics",
+      "label": "Ethics and Accountability",
+      "description": "Greenwashing, supply chains, and corporate responsibility"
+    },
+    {
+      "href": "/community",
+      "label": "Community Impact",
+      "description": "Environmental justice and local stories"
+    }
+  ],
+  "content_html": "<p>OzoneNews's environment desk covers the species, ecosystems, and natural systems facing the most acute pressure in 2026. Every story is grounded in primary data from government agencies, peer-reviewed research, and named scientists. We report on what is actually happening, not what advocates or corporations claim.</p>\n\n<h2 id=\"pollinators\">Pollinators | The Bee Colony Collapse Crisis</h2>\n\n<p>The USDA's annual Honey Bee Colonies report, published each June, is the most closely watched data release OzoneNews tracks. The 2024-2025 survey recorded a 60 percent winter colony loss, the highest on record since systematic tracking began. One in three bites of food Americans eat depends on pollinator activity, making colony collapse a food security issue, not just an ecological one.</p>\n\n<p>The primary documented driver is neonicotinoid pesticide exposure. These systemic insecticides are absorbed into every part of a treated plant, including nectar and pollen. The European Union restricted three major neonicotinoids in 2018. The United States Environmental Protection Agency has been in a rolling re-registration process for imidacloprid, clothianidin, and thiamethoxam since 2016, with no final determination reached as of mid-2026. Active litigation from agricultural and beekeeping interests has extended the timeline.</p>\n\n<p>Beyond managed honeybees, wild bee diversity has declined sharply across North America. A 2023 study in <em>Science</em> documented the disappearance of more than 25 percent of wild bee species in the continental United States since 1990. Native bees are often more effective pollinators than honeybees for specific crops, but they have no commercial lobby and receive far less monitoring. The <a href=\"https://beeinformed.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Bee Informed Partnership</a> publishes annual colony loss data that breaks down losses by state and management practice.</p>\n\n<p>Monarch butterfly populations represent a separate but related pollinator crisis. The IUCN listed the migratory monarch as endangered in 2022. The annual overwintering count in Mexico's forests, conducted by the World Wildlife Fund and Mexican partners, documented a 22 percent decline in the 2023-2024 season compared to the prior year. Habitat loss along the migratory corridor, particularly the conversion of milkweed-bearing grasslands to row crops in the Midwest, is the primary driver alongside pesticide exposure. See our full <a href=\"/animals\" class=\"text-blue-600 hover:text-blue-800 underline\">Animals coverage</a> for species-level detail.</p>\n\n<h2 id=\"pfas\">PFAS | The Chemicals That Reach Every Ecosystem</h2>\n\n<p>Per- and polyfluoroalkyl substances, known as PFAS or forever chemicals, are not only a <a href=\"/health\" class=\"text-blue-600 hover:text-blue-800 underline\">public health issue</a>. They are an environmental contamination story of unprecedented scale. A 2022 study in <em>Environmental Science and Technology Letters</em> found PFAS concentrations in rainwater samples from every continent, including Antarctica, exceeding the EPA's health advisory levels. The chemicals travel through the atmosphere and deposit globally via precipitation, meaning there is no uncontaminated environmental baseline remaining.</p>\n\n<p>PFAS reach rivers, lakes, and soil through industrial discharge, the agricultural use of PFAS-contaminated biosolid fertilizers, and atmospheric deposition. The USGS has documented PFAS in groundwater wells serving millions of Americans. Wildlife exposure is now well-documented: studies have found PFAS in the blood of polar bears, dolphins, sea turtles, and fish populations in remote waterways far from any industrial source. The chemicals do not break down in the environment and bioaccumulate up the food chain.</p>\n\n<h2 id=\"oceans\">Ocean Health | Coral Bleaching and Acidification</h2>\n\n<p>The fifth global mass coral bleaching event, declared by NOAA and the International Coral Reef Initiative in 2024, affected more than 62 percent of the world's reef area. It was the largest bleaching event on record. The Great Barrier Reef's northern sector, which had recorded its highest coral cover in four decades just before the event, experienced significant mortality from thermal stress. The Australian Institute of Marine Science published 2026 recovery surveys showing uneven rebound across reef zones, with deeper and more isolated reef areas recovering faster than near-shore sites.</p>\n\n<p>Ocean acidification is advancing in parallel with bleaching. The ocean absorbs approximately 30 percent of the carbon dioxide humans emit each year. As CO2 dissolves in seawater it forms carbonic acid, lowering pH. Current ocean pH of approximately 8.1 represents a 26 percent increase in acidity since the pre-industrial era. Coral skeletons, oyster shells, and the shells of other calcifying organisms are made of calcium carbonate, which dissolves more readily as pH drops. NOAA's aragonite saturation monitoring tracks which ocean zones have crossed into corrosive conditions for marine life. The <a href=\"https://coralreefwatch.noaa.gov\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">NOAA Coral Reef Watch</a> publishes weekly bleaching alerts updated from satellite thermal data.</p>\n\n<p>Plastic pollution compounds ocean health stress. A 2023 study estimated over 171 trillion pieces of plastic currently floating in the ocean. Microplastic ingestion has been documented in over 1,000 marine species. Deep-sea surveys have found microplastics in the Mariana Trench and in Antarctic ice cores.</p>\n\n<h2 id=\"deforestation\">Deforestation | Forests as Carbon, Habitat, and Water Systems</h2>\n\n<p>The Amazon rainforest stores an estimated 150 to 200 billion tons of carbon. Brazil's National Institute for Space Research (INPE) publishes monthly deforestation alerts via its PRODES and DETER satellite monitoring systems, making the Brazilian Amazon one of the best-monitored forests on Earth. Deforestation fell significantly after new federal enforcement priorities took effect in 2023. The rate remains above what Brazil's Paris Agreement commitments require to halt net deforestation by 2030.</p>\n\n<p>Scientists have documented a tipping point risk in the Amazon. If deforestation reaches approximately 20 to 25 percent of the original forest area, the remaining forest may no longer generate enough rainfall to sustain itself, triggering a transition from tropical forest to savanna. Current estimates put cumulative deforestation at approximately 17 to 18 percent. The margin for further clearing before ecological feedback loops become self-sustaining is narrowing.</p>\n\n<p>In Indonesia, palm oil expansion into carbon-dense peatlands is the dominant driver of forest loss. <a href=\"https://www.globalforestwatch.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Global Forest Watch</a> satellite analysis shows concession areas continuing to expand. The EU Deforestation Regulation, which came into force in 2023, requires companies selling into the EU to prove their products did not cause deforestation. Enforcement has triggered supply chain audits across palm oil, soy, beef, cocoa, coffee, wood, and rubber supply chains worldwide. See our <a href=\"/ethics\" class=\"text-blue-600 hover:text-blue-800 underline\">Ethics and Accountability</a> coverage for corporate supply chain reporting."
+}

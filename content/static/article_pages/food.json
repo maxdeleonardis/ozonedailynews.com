@@ -1,0 +1,139 @@
+{
+  "slug": "food",
+  "url": "/food",
+  "title": "Food Safety | FDA Enforcement, Additives, Recalls, and School Meals",
+  "subtitle": "Reported coverage of FDA actions, food recalls, banned additives, and the science behind what Americans eat. OzoneNews tracks the GRAS loophole, colorant bans, ultra-processed food research, and school nutrition policy.",
+  "category": "News",
+  "last_updated": "June 11, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "tags": [
+    "FDA",
+    "Food Safety",
+    "GRAS Loophole",
+    "Red Dye No 3",
+    "Ultra-Processed Food",
+    "School Meals",
+    "Food Recalls"
+  ],
+  "thumbnail_src": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Fresh produce in a farmers market, representing food safety and sourcing",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/food",
+      "label": "Food Safety"
+    }
+  ],
+  "table_of_contents": [
+    {
+      "id": "gras",
+      "label": "The GRAS Loophole",
+      "level": 1
+    },
+    {
+      "id": "colorants",
+      "label": "Banned Colorants and the Phase-Out Timeline",
+      "level": 1
+    },
+    {
+      "id": "ultra-processed",
+      "label": "Ultra-Processed Food Research",
+      "level": 1
+    },
+    {
+      "id": "school-meals",
+      "label": "School Meals and Nutrition Standards",
+      "level": 1
+    }
+  ],
+  "info_box": {
+    "title": "Food Safety Coverage",
+    "sections": [
+      {
+        "heading": "Key Data Points",
+        "items": [
+          {
+            "label": "GRAS chemicals",
+            "value": "1,000+ self-affirmed, never FDA reviewed"
+          },
+          {
+            "label": "Red Dye No. 3",
+            "value": "Banned Jan 2024, phase-out by Jan 2027"
+          },
+          {
+            "label": "FDA recalls (2024)",
+            "value": "Tracked at fda.gov/safety/recalls"
+          },
+          {
+            "label": "School meals",
+            "value": "30M students, USDA standards"
+          }
+        ]
+      },
+      {
+        "heading": "Primary Sources",
+        "links": [
+          {
+            "href": "https://www.fda.gov/food",
+            "label": "FDA Food Safety",
+            "external": true
+          },
+          {
+            "href": "https://www.fsis.usda.gov",
+            "label": "USDA FSIS",
+            "external": true
+          },
+          {
+            "href": "https://www.ewg.org/foodscores",
+            "label": "EWG Food Scores",
+            "external": true
+          }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          {
+            "href": "/health",
+            "label": "Public Health"
+          },
+          {
+            "href": "/community",
+            "label": "Community Impact"
+          },
+          {
+            "href": "/ethics",
+            "label": "Ethics and Accountability"
+          }
+        ]
+      }
+    ]
+  },
+  "related_links": [
+    {
+      "href": "/health",
+      "label": "Public Health",
+      "description": "PFAS, air quality, water contamination, and health disparities"
+    },
+    {
+      "href": "/community",
+      "label": "Community Impact",
+      "description": "School lunch debt, environmental justice, and local stories"
+    },
+    {
+      "href": "/ethics",
+      "label": "Ethics and Accountability",
+      "description": "Corporate food industry accountability and supply chains"
+    },
+    {
+      "href": "/animals",
+      "label": "Animals",
+      "description": "Factory farming, antibiotics in livestock, and animal welfare"
+    }
+  ],
+  "content_html": "<p>OzoneNews's food safety desk tracks the regulatory actions, scientific research, and policy decisions that determine what is in the American food supply. The FDA and USDA set the rules, but enforcement is inconsistent, industry self-reporting is widespread, and the science on ultra-processed food has advanced faster than regulation. We report on the specific actions, the specific chemicals, and the specific evidence.</p>\n\n<h2 id=\"gras\">The GRAS Loophole | How 1,000 Chemicals Entered Food Without FDA Review</h2>\n\n<p>The FDA's Generally Recognized as Safe (GRAS) designation was created in 1958 to exempt common food ingredients, such as salt, vinegar, and vegetable oil, from the food additive approval process. The exemption made sense for substances with long histories of safe use. What happened next did not: manufacturers gradually began self-affirming that their proprietary chemical ingredients were GRAS, without notifying the FDA and without any independent agency review.</p>\n\n<p>An investigation by the Environmental Working Group in 2014 identified over 1,000 food chemicals that companies had declared GRAS on their own authority and never disclosed to the FDA. A 2017 report in the journal <em>JAMA Internal Medicine</em> found that GRAS expert panels convened by companies included financial conflicts of interest in 13 percent of cases reviewed. The FDA has no complete list of what is in the food supply. This is not a hypothetical gap: it means there are chemicals being consumed by millions of Americans whose safety the agency has never reviewed.</p>\n\n<p>The FDA proposed a rule in 2023 to require companies to notify the agency when they self-affirm a substance as GRAS, which would at minimum create a disclosure record. The rule had not been finalized as of mid-2026. The <a href=\"https://www.ewg.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Environmental Working Group</a> publishes ongoing tracking of GRAS chemicals and petitions.</p>\n\n<h2 id=\"colorants\">Banned Colorants | The Red Dye No. 3 Phase-Out and What Comes Next</h2>\n\n<p>In January 2024, the FDA revoked authorization for Red Dye No. 3 in food and ingested drugs, citing the Delaney Clause, a 1960 law that prohibits any additive shown to cause cancer in humans or animals at any dose. The colorant had been shown to cause thyroid tumors in male rats. The FDA gave manufacturers until January 15, 2027 to reformulate food products and until January 18, 2028 to reformulate ingested drugs. Products manufactured before those dates may remain on store shelves until their expiration dates.</p>\n\n<p>Red Dye No. 3, also listed as FD&C Red No. 3 or erythrosine on ingredient labels, is found in maraschino cherries, some fruit cocktails, candy, and cake decorations. Independent testing by the <a href=\"https://www.ewg.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Environmental Working Group</a> identified the dye in over 3,000 food products as of early 2024. Consumers who want to avoid it before the phase-out deadline need to read ingredient labels carefully: it may be listed under either name.</p>\n\n<p>Red Dye No. 3 was the first FDA colorant revocation in decades, but it is unlikely to be the last. The FDA is currently reviewing Red Dye No. 40, Yellow Dye No. 5, and Yellow Dye No. 6, all of which have been linked in some studies to hyperactivity in children. The European Union has required warning labels on foods containing these dyes since 2010. No equivalent labeling requirement exists in the United States. OzoneNews tracks FDA color additive petitions and updates its <a href=\"/food\" class=\"text-blue-600 hover:text-blue-800 underline\">Food Safety coverage</a> as new determinations are made.</p>\n\n<h2 id=\"ultra-processed\">Ultra-Processed Food | What the Research Actually Shows</h2>\n\n<p>Ultra-processed foods, a category defined by the NOVA classification system as formulations containing ingredients not typically found in home cooking, now account for more than 60 percent of calories in the average American diet. The NOVA framework classifies foods into four groups based on the degree and purpose of processing: unprocessed or minimally processed foods; processed culinary ingredients; processed foods; and ultra-processed food and drink products. The last category includes soft drinks, packaged snacks, reconstituted meat products, instant soups, and most breakfast cereals.</p>\n\n<p>The research on health outcomes associated with ultra-processed food consumption has expanded rapidly since 2019. A 2024 meta-analysis in <em>The BMJ</em> that pooled data from 45 studies and over 9 million participants found significant associations between ultra-processed food consumption and 32 adverse health outcomes, including cardiovascular disease, type 2 diabetes, common mental health disorders, and all-cause mortality. The association was consistent across study designs and populations. Mechanistic explanations under investigation include food additive effects, displacement of nutritious foods, altered gut microbiome composition, and the disruption of normal satiety signaling by hyperpalatable formulations.</p>\n\n<p>It is important to note that association is not the same as causation, and the field is actively debating whether the harmful effects are primarily due to what ultra-processed foods lack (fiber, micronutrients, whole food components) or what they contain (additives, emulsifiers, artificial flavors). Both explanations likely contribute. The FDA does not regulate ultra-processed foods as a category. Nutritional labeling requirements apply to individual nutrients, not to processing levels.</p>\n\n<h2 id=\"school-meals\">School Meals | What 30 Million Children Are Fed Every Day</h2>\n\n<p>The National School Lunch Program and School Breakfast Program serve approximately 30 million students per day in the United States, at a cost of over $20 billion annually. The USDA sets the nutrition standards. In 2024, the USDA finalized updated standards for school meals that increase whole grain requirements, add limits on added sodium, and restrict added sugars in breakfast items and flavored milks. The rules take effect in stages through 2027, with schools receiving financial assistance to transition.</p>\n\n<p>The school meal system operates at the intersection of nutrition science, agricultural policy, and food industry lobbying. USDA commodity foods, which represent a significant portion of what schools cook, are determined in part by agricultural surplus programs that prioritize what farmers produce, not what nutritionists recommend. Pizza was famously classified as a vegetable for school meal purposes in 2011 due to tomato paste content, a decision lobbied for by food manufacturers that came under significant public scrutiny. While that specific rule was later revised, the structural tension between nutrition objectives and agricultural commodity programs remains.</p>\n\n<p>School food debt has become a major equity issue. As of 2024, at least 10 states have passed universal free school meals laws, meaning every student receives a meal regardless of family income. In states without these laws, students with unpaid meal accounts can be denied hot meals and given cold alternative meals, a practice known as lunch shaming. OzoneNews tracks state-level school meal policy through our <a href=\"/community\" class=\"text-blue-600 hover:text-blue-800 underline\">Community Impact</a> desk."
+}

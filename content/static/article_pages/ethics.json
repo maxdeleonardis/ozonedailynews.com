@@ -1,0 +1,139 @@
+{
+  "slug": "ethics",
+  "url": "/ethics",
+  "title": "Ethics and Accountability | Greenwashing, Supply Chains, and Corporate Responsibility",
+  "subtitle": "Reported accountability journalism covering the gap between what corporations say and what the evidence shows. OzoneNews investigates greenwashing claims, supply chain labor practices, carbon market integrity, and regulatory capture.",
+  "category": "News",
+  "last_updated": "June 11, 2026",
+  "author_name": "OzoneNews Editorial Team",
+  "author_slug": "ozonedailynews-editorial-team",
+  "tags": [
+    "Greenwashing",
+    "Supply Chain",
+    "Carbon Offsets",
+    "Corporate Accountability",
+    "Fast Fashion",
+    "Animal Welfare Law",
+    "UFLPA"
+  ],
+  "thumbnail_src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=675&fit=crop",
+  "thumbnail_alt": "Corporate building exterior representing accountability and transparency",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ethics",
+      "label": "Ethics and Accountability"
+    }
+  ],
+  "table_of_contents": [
+    {
+      "id": "greenwashing",
+      "label": "Greenwashing and Misleading Environmental Claims",
+      "level": 1
+    },
+    {
+      "id": "supply-chains",
+      "label": "Supply Chain Accountability",
+      "level": 1
+    },
+    {
+      "id": "carbon-markets",
+      "label": "Carbon Markets and Offset Integrity",
+      "level": 1
+    },
+    {
+      "id": "animal-welfare-law",
+      "label": "Animal Welfare Law and Corporate Compliance",
+      "level": 1
+    }
+  ],
+  "info_box": {
+    "title": "Ethics and Accountability",
+    "sections": [
+      {
+        "heading": "Key Regulatory Bodies",
+        "items": [
+          {
+            "label": "US greenwashing",
+            "value": "FTC Green Guides (updated 2023)"
+          },
+          {
+            "label": "EU Green Claims",
+            "value": "Directive in force 2024"
+          },
+          {
+            "label": "Carbon offsets",
+            "value": "Voluntary Carbon Market (VCMI)"
+          },
+          {
+            "label": "Supply chain law",
+            "value": "UFLPA (Uyghur Forced Labor)"
+          }
+        ]
+      },
+      {
+        "heading": "Primary Sources",
+        "links": [
+          {
+            "href": "https://www.ftc.gov/news-events/topics/truth-advertising/green-guides",
+            "label": "FTC Green Guides",
+            "external": true
+          },
+          {
+            "href": "https://www.cbp.gov/trade/forced-labor/UFLPA",
+            "label": "UFLPA Enforcement",
+            "external": true
+          },
+          {
+            "href": "https://www.ran.org",
+            "label": "Rainforest Action Network",
+            "external": true
+          }
+        ]
+      },
+      {
+        "heading": "Related Coverage",
+        "links": [
+          {
+            "href": "/environment",
+            "label": "Environment"
+          },
+          {
+            "href": "/animals",
+            "label": "Animals"
+          },
+          {
+            "href": "/community",
+            "label": "Community Impact"
+          }
+        ]
+      }
+    ]
+  },
+  "related_links": [
+    {
+      "href": "/environment",
+      "label": "Environment",
+      "description": "Deforestation, PFAS, and ecological accountability"
+    },
+    {
+      "href": "/animals",
+      "label": "Animals",
+      "description": "Factory farming, animal welfare laws, and marine life"
+    },
+    {
+      "href": "/community",
+      "label": "Community Impact",
+      "description": "Environmental justice and who bears the cost"
+    },
+    {
+      "href": "/food",
+      "label": "Food Safety",
+      "description": "FDA enforcement, food additives, and industry accountability"
+    }
+  ],
+  "content_html": "<p>OzoneNews's ethics and accountability desk investigates the gap between what corporations and governments claim about their environmental and social practices and what the evidence actually shows. This is not opinion journalism. It is document-based reporting: we read the filings, the audits, the litigation, and the scientific literature, and we report what they say. The targets of our accountability coverage span industries, and the standard is consistent: if a claim is made publicly, it must be supported by verifiable evidence.</p>\n\n<h2 id=\"greenwashing\">Greenwashing | When Environmental Claims Do Not Hold Up</h2>\n\n<p>Greenwashing refers to misleading marketing claims about a product's environmental attributes. The term covers a range of practices: vague claims like \"eco-friendly\" or \"sustainable\" that have no agreed-upon standard, selective disclosure that highlights environmental positives while omitting significant negatives, and outright false claims about certifications, materials, or carbon footprints.</p>\n\n<p>The Federal Trade Commission's Green Guides, updated most recently in 2023, provide the framework for evaluating US environmental marketing claims. The guides state that marketers should not make broad, unqualified claims about environmental benefit because such claims convey that the product has no negative environmental impact. The FTC can and does bring enforcement actions. In 2023, the FTC sent warning letters to more than 50 companies for unsubstantiated environmental claims on products sold on major retail platforms. Several enforcement actions against specific companies have been concluded with consent decrees requiring corrective advertising and in some cases civil penalties.</p>\n\n<p>The European Union's Green Claims Directive, which entered into force in 2024, goes further. It bans vague environmental claims without substantiation, prohibits claims based on carbon offset schemes unless the emissions reduction is additional to any existing legal obligations, and requires independent verification of specific environmental certifications before they can be used in marketing. The directive applies to companies selling into the EU market, which includes many US and global brands. EU enforcement has already resulted in fines and required retractions of marketing materials.</p>\n\n<p>Plastic recycling claims represent one of the most documented areas of greenwashing. The actual recycling rate for plastic in the United States has never exceeded 9 percent. A 2024 report by the FTC's Division of Consumer and Business Education found that the \"recyclable\" claim on plastic packaging frequently describes theoretical recyclability in optimal conditions, not actual recycling outcomes in the consumer's municipality. The universal recycling symbol (the chasing arrows) has no legal definition in US law and can legally be placed on any plastic container regardless of whether any recycling program accepts it. See our full <a href=\"/environment\" class=\"text-blue-600 hover:text-blue-800 underline\">Environment coverage</a> for the science on plastic pollution.</p>\n\n<h2 id=\"supply-chains\">Supply Chain Accountability | Labor, Land, and Raw Materials</h2>\n\n<p>Supply chain accountability journalism follows the products Americans buy back to the conditions under which they were made. The most significant US law governing forced labor in supply chains is the Uyghur Forced Labor Prevention Act (UFLPA), signed in 2021. The law creates a rebuttable presumption that goods produced wholly or in part in China's Xinjiang region were made with forced labor and are barred from import unless the importer can prove otherwise with clear and convincing evidence. US Customs and Border Protection publishes enforcement data quarterly. As of 2025, CBP had reviewed thousands of shipments and blocked hundreds of millions of dollars in goods.</p>\n\n<p>Cotton is the primary UFLPA-affected commodity. Xinjiang produces approximately 85 percent of China's cotton and an estimated 20 percent of the world's cotton supply. Major fashion brands have faced significant legal and reputational pressure to audit their supply chains for Xinjiang cotton exposure. Independent auditing in Xinjiang is not possible under current conditions, making third-party verification reliant on documentary evidence, satellite imagery, and shipping records analysis.</p>\n\n<p>Cocoa supply chains present a different accountability challenge. The US Department of Labor has listed cocoa from C\u00f4te d'Ivoire and Ghana on its list of goods produced with child labor for more than a decade. A 2020 study commissioned by the US Department of Labor found that approximately 1.56 million children were engaged in hazardous work in cocoa farming in the two countries. The major chocolate companies, including Hershey, Nestl\u00e9, and Mars, signed the 2001 Harkin-Engel Protocol pledging to eliminate the worst forms of child labor from their supply chains by 2005. That target has been missed by two decades. Corporate sustainability reports claim progress; independent assessments document continued child labor at scale.</p>\n\n<p>Lithium mining for EV batteries introduces land rights and water rights conflicts. The Atacama Desert in Chile and Argentina contains the world's largest lithium reserves. Mining operations pump large volumes of brine from below the salt flats. Indigenous communities relying on the same aquifer systems for water and traditional livelihoods have documented reduced water availability and filed legal challenges. The <a href=\"https://www.ran.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 hover:text-blue-800 underline\">Rainforest Action Network</a> and the Business and Human Rights Resource Centre track litigation and advocacy developments.</p>\n\n<h2 id=\"carbon-markets\">Carbon Markets | The Promise and Reality of Offset Credits</h2>\n\n<p>The voluntary carbon market allows companies to purchase credits representing carbon reductions or removals and use them to offset their own emissions in sustainability reports and net-zero claims. The market grew rapidly between 2020 and 2023, driven by corporate net-zero commitments. It contracted sharply in 2023 and 2024 following a series of investigative reports finding that significant proportions of the credits sold had not actually reduced emissions.</p>\n\n<p>A January 2023 investigation by The Guardian, Zeit, and SourceMaterial found that more than 90 percent of Verra's rainforest offset credits, Verra being the world's largest carbon crediting standard, were likely worthless based on independent satellite analysis. The analysis found that protected areas claimed as avoided deforestation showed no difference in deforestation rates compared to unprotected areas nearby. Verra disputed the methodology, but the investigation triggered a significant reputational crisis for the voluntary market and forced several major corporations to publicly revisit their offset-based net-zero claims.</p>\n\n<p>The Voluntary Carbon Markets Integrity Initiative (VCMI) published Claims Code of Practice in 2023 establishing standards for how companies can credibly use carbon credits in their public claims. The code distinguishes between using credits to offset residual emissions after genuine reductions versus using them as a substitute for reducing emissions. Several major airlines and oil companies have faced regulatory scrutiny and consumer protection actions in Europe for advertising products as \"carbon neutral\" based on offset purchases that did not meet this standard.</p>\n\n<h2 id=\"animal-welfare-law\">Animal Welfare Law | What the Law Requires and What It Does Not</h2>\n\n<p>The federal Animal Welfare Act covers animals used in research, exhibition, and the pet trade. It explicitly exempts farm animals raised for food, fiber, or research purposes, as well as rats, mice, and birds bred for research. Approximately 99 percent of farm animals in the United States are excluded from the law's protections. State anti-cruelty laws provide some coverage, but most explicitly exempt standard agricultural practices, a term that is defined by industry groups.</p>\n\n<p>The most meaningful recent legal development is California's Proposition 12 and the Supreme Court's 2023 ruling in <em>National Pork Producers Council v. Ross</em>. The court upheld California's right to prohibit the sale of pork in California from pigs housed in conditions below California's minimum space standards, even when those pigs were raised in other states. The ruling established that states can set humane standards for products sold within their borders, opening the door to similar legislation in other states and for other species. See our full <a href=\"/animals\" class=\"text-blue-600 hover:text-blue-800 underline\">Animals coverage</a> for species-by-species welfare status."
+}

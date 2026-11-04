@@ -24,6 +24,9 @@
  *   --cat     Science | Tech | Finance | ... (default: News)
  *   --author  slug from lib/authors.ts (default: simon-minter)
  *   --tags    "Tag1,Tag2,Tag3" (comma-separated, 4–8 proper nouns)
+ *   --at      schedule slot  ("2026-11-05T06:00", "tomorrow 6am", "+2h", "2026-11-05")
+ *             Sets publish_at + published_at to the slot. The registry gate
+ *             (isEntryLive) holds the article until that moment. Must be future.
  *   --dry     Print JSON to stdout, do not write files
  *   --open    Open the created file in $EDITOR after writing
  *
@@ -43,7 +46,7 @@
 import * as fs   from 'fs';
 import * as path from 'path';
 import * as rl   from 'readline';
-import { execSync } from 'child_process';
+import { execSync } from "child_process";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -136,13 +139,93 @@ function h1Title(title: string): string {
   if (t === t.toUpperCase() || /^[a-z]/.test(t)) {
     t = t.charAt(0).toUpperCase() + t.slice(1);
   }
-  return t.slice(0, 70).replace(/\s+\S*$/, '');
+  // Only truncate when actually over the 70-char limit. Running the word-trim
+  // regex unconditionally stripped the final word from short titles.
+  if (t.length > 70) {
+    t = t.slice(0, 70).replace(/\s+\S*$/, '');
+  }
+  return t;
 }
 
 /** Full ISO-8601 with CST offset */
 function toISO(d: Date): string {
   const p = (n: number) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}T09:00:00-05:00`;
+}
+
+/**
+ * Full ISO-8601 with the local timezone offset, preserving the exact time given.
+ * Unlike toISO (which pins 09:00), this is used for scheduled publishes where the
+ * caller picks a specific slot.
+ */
+function toISOExact(d: Date): string {
+  const p = (n: number) => String(n).padStart(2, '0');
+  const offsetMinutes = -d.getTimezoneOffset();
+  const sign = offsetMinutes >= 0 ? '+' : '-';
+  const absOffset = Math.abs(offsetMinutes);
+  const offH = p(Math.floor(absOffset / 60));
+  const offM = p(absOffset % 60);
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}:00${sign}${offH}:${offM}`;
+}
+
+/**
+ * Parse a --at scheduling expression into a Date.
+ * Accepted forms:
+ *   "2026-11-05T06:00"            full local datetime
+ *   "2026-11-05 06:00"            space-separated variant
+ *   "2026-11-05"                  date only, defaults to 06:00 local
+ *   "tomorrow 6am" | "tomorrow"   relative day, defaults to 06:00 local
+ *   "today 18:30"                 today at a specific local time
+ *   "+2h" | "+90m"                relative offset from now
+ * Returns null when the expression cannot be parsed.
+ */
+function parseSchedule(expr: string): Date | null {
+  const s = expr.trim().toLowerCase();
+  const now = new Date();
+
+  // Relative offset: +2h / +90m / +1d
+  const rel = s.match(/^\+(\d+)([hmd])$/);
+  if (rel) {
+    const n = parseInt(rel[1], 10);
+    const unit = rel[2];
+    const ms = unit === 'h' ? n * 3600e3 : unit === 'm' ? n * 60e3 : n * 86400e3;
+    return new Date(now.getTime() + ms);
+  }
+
+  // "tomorrow [HHmm|Ham]" or "today [time]"
+  const dayWord = s.match(/^(tomorrow|today)(?:\s+(.*))?$/);
+  if (dayWord) {
+    const base = new Date(now);
+    if (dayWord[1] === 'tomorrow') base.setDate(base.getDate() + 1);
+    let hh = 6, mm = 0; // default 06:00 local
+    const timeStr = (dayWord[2] ?? '').trim();
+    if (timeStr) {
+      const t = timeStr.match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
+      if (!t) return null;
+      hh = parseInt(t[1], 10);
+      mm = t[2] ? parseInt(t[2], 10) : 0;
+      if (t[3] === 'pm' && hh < 12) hh += 12;
+      if (t[3] === 'am' && hh === 12) hh = 0;
+      if (hh > 23 || mm > 59) return null;
+    }
+    base.setHours(hh, mm, 0, 0);
+    return base;
+  }
+
+  // ISO-ish: "2026-11-05" or "2026-11-05T06:00" or "2026-11-05 06:00"
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[t\s](\d{1,2}):(\d{2}))?$/);
+  if (iso) {
+    const [, y, mo, d, hhRaw, mmRaw] = iso;
+    const hh = hhRaw ? parseInt(hhRaw, 10) : 6;
+    const mm = mmRaw ? parseInt(mmRaw, 10) : 0;
+    if (hh > 23 || mm > 59) return null;
+    const dt = new Date(now);
+    dt.setFullYear(parseInt(y, 10), parseInt(mo, 10) - 1, parseInt(d, 10));
+    dt.setHours(hh, mm, 0, 0);
+    return dt;
+  }
+
+  return null;
 }
 
 /** Display date: "June 11, 2026" */
@@ -249,14 +332,16 @@ interface ScaffoldInput {
   authorSlug: string;
   tags:       string[];
   now:        Date;
+  /** Optional scheduled publish slot. When set, publish_at is written explicitly. */
+  scheduleAt?: Date;
 }
 
 function buildNewsJSON(i: ScaffoldInput): object {
   // Slug has category prefix for filename; URL path uses slug without the prefix
   const urlSlug     = i.slug.replace(new RegExp(`^${i.category.toLowerCase()}-`), '');
   const url         = `${SITE_URL}/${i.category.toLowerCase()}/${urlSlug}`;
-  const iso         = toISO(i.now);
-  const display     = toDisplay(i.now);
+  const iso         = i.scheduleAt ? toISOExact(i.scheduleAt) : toISO(i.now);
+  const display     = toDisplay(i.scheduleAt ?? i.now);
   const metaTit     = metaTitle(i.title);
   const h1Tit       = h1Title(i.title);
   const html        = newsContentHTML(i.title, i.category);
@@ -272,6 +357,9 @@ function buildNewsJSON(i: ScaffoldInput): object {
     lifecycle:     'news',
     topic_tag:     i.category.toLowerCase(),
     published_at:  iso,
+    // Explicit publish_at drives the registry scheduling gate (isEntryLive).
+    // Both fields must carry the same slot for the gate to hold correctly.
+    ...(i.scheduleAt ? { publish_at: iso } : {}),
     publish_date:  display,
     author_name:   AUTHORS[i.authorSlug].name,
     author_slug:   i.authorSlug,
@@ -312,8 +400,8 @@ function buildJackJSON(i: ScaffoldInput): object {
   // Slug has category prefix for filename; URL path uses slug without the prefix
   const urlSlug     = i.slug.replace(new RegExp(`^${i.category.toLowerCase()}-`), '');
   const url         = `${SITE_URL}/${i.category.toLowerCase()}/${urlSlug}`;
-  const iso         = toISO(i.now);
-  const display     = toDisplay(i.now);
+  const iso         = i.scheduleAt ? toISOExact(i.scheduleAt) : toISO(i.now);
+  const display     = toDisplay(i.scheduleAt ?? i.now);
   const metaTit     = metaTitle(i.title);
   const h1Tit       = h1Title(i.title);
   const html        = jackContentHTML(i.title, i.category);
@@ -447,6 +535,19 @@ async function main() {
   const authorFlag = getFlag('--author');
   const tagsFlag   = getFlag('--tags');
   const slugFlag   = getFlag('--slug');
+  const atFlag     = getFlag('--at');
+
+  // Parse the optional schedule slot up front so both modes can use it.
+  let scheduleAt: Date | undefined;
+  if (atFlag) {
+    const parsed = parseSchedule(atFlag);
+    if (!parsed) {
+      console.error(`  ✗  Could not parse --at "${atFlag}".`);
+      console.error(`     Accepted: "2026-11-05T06:00", "2026-11-05", "tomorrow 6am", "today 18:30", "+2h".\n`);
+      process.exit(1);
+    }
+    scheduleAt = parsed;
+  }
 
   if (titleFlag) {
     // Non-interactive mode
@@ -458,16 +559,32 @@ async function main() {
       ? tagsFlag.split(',').map(t => t.trim()).filter(Boolean)
       : [`[FILL: Tag1]`, `[FILL: Tag2]`, `[FILL: Tag3]`, `[FILL: Tag4]`];
     const slug     = slugFlag || slugify(titleFlag, category, now.getFullYear());
-    input = { title: titleFlag, slug, type, category, authorSlug, tags, now };
+    input = { title: titleFlag, slug, type, category, authorSlug, tags, now, scheduleAt };
   } else {
     // Interactive mode
     input = await runInteractive();
+    if (atFlag) input.scheduleAt = scheduleAt;
   }
 
   // ── Validate ────────────────────────────────────────────────────────────────
   if (!input.title.trim()) {
     console.error('  ✗  Title is required.\n');
     process.exit(1);
+  }
+
+  // ── Schedule validation ─────────────────────────────────────────────────────
+  if (input.scheduleAt) {
+    const slot = input.scheduleAt;
+    const nowMs = Date.now();
+    if (slot.getTime() <= nowMs) {
+      console.error(`  ✗  Schedule slot is in the past: ${slot.toString()}`);
+      console.error(`     The publish gate would expose the article immediately.`);
+      console.error(`     Use a future time, or omit --at to publish now.\n`);
+      process.exit(1);
+    }
+    const daysAhead = Math.round((slot.getTime() - nowMs) / 86400e3 * 10) / 10;
+    console.log(`  ⏱  Scheduled publish: ${slot.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })} (${daysAhead} day(s) ahead)`);
+    console.log(`     publish_at + published_at both set. The registry gate holds it until then.\n`);
   }
 
   // ── Build JSON ──────────────────────────────────────────────────────────────
@@ -492,6 +609,11 @@ async function main() {
   console.log(`  Slug:    ${input.slug}`);
   console.log(`  Author:  ${AUTHORS[input.authorSlug].name}`);
   console.log(`  Tags:    ${input.tags.join(', ')}`);
+  if (input.scheduleAt) {
+    console.log(`  Slot:    ${input.scheduleAt.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })}  (scheduled)`);
+  } else {
+    console.log(`  Slot:    immediate (no --at given)`);
+  }
   console.log(`  Path:    content/static/${store}/${year}/${month}/${input.slug}.json`);
   console.log(`  URL:     ${articleUrl}`);
   console.log(`  ────────────────────────────────────────────────────────\n`);

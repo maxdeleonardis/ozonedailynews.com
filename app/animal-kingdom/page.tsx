@@ -15,17 +15,22 @@ const ANIMAL_TAGS = new Set([
   'biodiversity', 'conservation', 'habitat', 'mammal', 'bird', 'reptile',
   'marine biology', 'ocean', 'cetacean', 'whale', 'dolphin',
   'ethology', 'cognition', 'interspecific', 'cross-species',
+  // Insects and invertebrates are animals too: pollinator and butterfly coverage
+  'monarch butterfly', 'butterfly', 'insect', 'entomology', 'pollinators',
+  'pollinator', 'bee', 'honeybee', 'bumblebee', 'endangered species',
 ]);
 
 function isAnimalArticle(slug: string, tags: string[], category: string): boolean {
   if (slug.startsWith('/animal-kingdom/')) return true;
   const lowerTags = tags.map((t) => t.toLowerCase());
   if (lowerTags.some((t) => ANIMAL_TAGS.has(t))) return true;
-  if (category.toLowerCase() === 'science') {
+  if (category.toLowerCase() === 'science' || category.toLowerCase() === 'earth') {
     return lowerTags.some((t) =>
       t.includes('animal') || t.includes('primate') || t.includes('species') ||
       t.includes('wildlife') || t.includes('monkey') || t.includes('ape') ||
-      t.includes('zoology') || t.includes('ethology') || t.includes('evolution')
+      t.includes('zoology') || t.includes('ethology') || t.includes('evolution') ||
+      t.includes('butterfly') || t.includes('insect') || t.includes('pollinator') ||
+      t.includes('bee') || t.includes('migration')
     );
   }
   return false;

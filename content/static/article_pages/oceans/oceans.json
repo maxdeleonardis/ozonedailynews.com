@@ -38,7 +38,8 @@
           { "href": "/earth/coral-reef", "label": "Coral Reef Systems" },
           { "href": "/science/great-barrier-reef-bleaching-data-2026", "label": "Great Barrier Reef 2026" },
           { "href": "/science/humpback-whale-migration-great-barrier-reef-2026", "label": "Humpback Whale Recovery" },
-          { "href": "/science/arctic-ocean-permafrost-carbon-seabed-storage-2026", "label": "Arctic Ocean Carbon Storage" }
+          { "href": "/science/arctic-ocean-permafrost-carbon-seabed-storage-2026", "label": "Arctic Ocean Carbon Storage" },
+          { "href": "/oceans/whale-pump-carbon-sequestration-blue-carbon-2026", "label": "Whale Pump and Blue Carbon" }
         ]
       }
     ]

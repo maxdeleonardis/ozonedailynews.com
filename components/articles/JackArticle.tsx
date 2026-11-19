@@ -121,6 +121,9 @@ export interface JackArticleProps {
   modifiedDateISO?: string;
   /** Read time label */
   readTime?: string;
+  /** Article tags, rendered by ArticleFooter. Includes the HONEY legacy badge
+   *  for Earth, wildlife, and environment coverage from the HoneyNewspaper merger. */
+  tags?: string[];
   /** Main title */
   title: string;
   /** Subtitle or deck (news layout) */
@@ -858,6 +861,7 @@ export default function JackArticle({
   publishDateISO,
   modifiedDateISO,
   readTime,
+  tags,
   title,
   subtitle,
   subject,
@@ -1106,6 +1110,7 @@ export default function JackArticle({
                 url={articleUrl}
                 image={heroImage?.src}
                 category={section ?? categoryLabel}
+                tags={tags}
               />
             </article>
           </div>
@@ -1472,6 +1477,7 @@ export default function JackArticle({
               url={articleUrl}
               image={heroImage?.src}
               category={section ?? categoryLabel}
+              tags={tags}
             />
           </div>
 

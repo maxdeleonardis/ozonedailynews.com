@@ -176,6 +176,74 @@ export const AUTHORS: Record<string, AuthorEntity> = {
     initials: 'JD',
     since: '2026',
   },
+
+  /**
+   * Tina Boyle joined OzoneNews through the HoneyNewspaper merger. Her
+   * environment, public health, food safety, animals, ethics, and community
+   * desk coverage carries the HONEY legacy tag on Earth-related stories.
+   */
+  'tina-boyle': {
+    slug: 'tina-boyle',
+    name: 'Tina Boyle',
+    jobTitle: 'Senior Editor, Environment and Earth Science',
+    isOwner: false,
+    tagline: 'Senior Editor, Environment and Earth Science',
+    bio: [
+      'Tina Boyle is a Senior Editor at OzoneNews covering environment, public health, food safety, wildlife, ethics, and community accountability reporting. She joined the network through the HoneyNewspaper merger, bringing a desk built around human-centered journalism and verified sourcing.',
+      'Her reporting covers pollinator decline, PFAS and drinking water contamination, endangered species, factory farming, and environmental justice in communities such as Cancer Alley. Every story published under her editorial leadership meets the OzoneNews standard of named authorship, independent verification, and a published corrections policy.',
+    ],
+    beats: ['Environment', 'Public Health', 'Food Safety', 'Animals', 'Ethics', 'Community', 'Earth Science'],
+    knowsAbout: [
+      'Environmental Journalism',
+      'Public Health Reporting',
+      'Food Safety',
+      'Accountability Journalism',
+      'Editorial Standards',
+      'Human-Centered Journalism',
+      'Endangered Species',
+      'Environmental Justice',
+    ],
+    sameAs: [],
+    initials: 'TB',
+    since: '2026',
+  },
+
+  /**
+   * Teagen Salty joined OzoneNews through the HoneyNewspaper merger. Holds a
+   * Ph.D. in Cell Biology and Physiology from UNC Chapel Hill.
+   */
+  'teagen-salty': {
+    slug: 'teagen-salty',
+    name: 'Teagen Salty',
+    jobTitle: 'Staff Science Reporter, Environment and Biology',
+    tagline: 'Staff Science Reporter, Environment and Biology',
+    bio: [
+      'Teagen Salty is a staff science reporter at OzoneNews covering environment, biology, technology, and health. They hold a Doctor of Philosophy in Cell Biology and Physiology from the University of North Carolina at Chapel Hill, with a research background in cellular mechanisms of aging and tissue regeneration.',
+      'Their reporting bridges the gap between primary scientific literature and public understanding, drawing on doctoral training in cell biology to translate complex biomedical and environmental research into accessible, sourced journalism. Their work follows the OzoneNews standard of named authorship, independent verification, and a published corrections policy.',
+    ],
+    beats: ['Environment', 'Science', 'Technology', 'Health', 'Biology'],
+    knowsAbout: [
+      'Environmental Journalism',
+      'Science Reporting',
+      'Technology',
+      'Health',
+      'Cell Biology',
+      'Physiology',
+      'Aging Research',
+      'Oceanography',
+    ],
+    education: [
+      {
+        institution: 'University of North Carolina at Chapel Hill',
+        degree: 'Doctor of Philosophy (Ph.D.), Cell Biology and Physiology',
+      },
+    ],
+    sameAs: [
+      'https://www.linkedin.com/in/teagen-salty-968295434/',
+    ],
+    initials: 'TS',
+    since: '2026',
+  },
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

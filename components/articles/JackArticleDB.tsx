@@ -104,6 +104,7 @@ export async function JackArticleDB({ slug }: JackArticleDBProps) {
       publishDateISO={row.publish_date_iso ?? undefined}
       modifiedDateISO={row.modified_date_iso ?? undefined}
       readTime={row.read_time ?? undefined}
+      tags={Array.isArray(row.tags) ? (row.tags as string[]) : undefined}
       heroImage={
         row.hero_image
           ? typeof row.hero_image === 'string'

@@ -45,20 +45,48 @@ export interface ArticleFooterProps {
 // ---------------------------------------------------------------------------
 // Tags
 // ---------------------------------------------------------------------------
+
+/**
+ * HONEY is the legacy badge for Earth, wildlife, and environment coverage that
+ * originated in the HoneyNewspaper merger. It renders as a distinct amber pill
+ * so the heritage of that desk stays visible on every Earth-related story.
+ */
+const HONEY_TAG = 'honey';
+
+function isHoneyTag(tag: string): boolean {
+  return tag.trim().toLowerCase() === HONEY_TAG;
+}
+
+function tagHref(tag: string): string {
+  return `/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+}
+
 function TagsSection({ tags }: { tags: string[] }) {
   return (
     <div className="mt-10 pt-6 border-t border-gray-100 dark:border-gray-800">
       <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">Filed under</p>
       <div className="flex flex-wrap gap-2">
-        {tags.map((tag, i) => (
-          <Link
-            key={i}
-            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-black hover:text-white dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white dark:hover:text-black transition-all duration-150 border border-transparent hover:border-black dark:hover:border-white"
-          >
-            #{tag}
-          </Link>
-        ))}
+        {tags.map((tag, i) => {
+          const honey = isHoneyTag(tag);
+          return (
+            <Link
+              key={i}
+              href={tagHref(tag)}
+              title={
+                honey
+                  ? 'Earth, wildlife, and environment coverage from the HoneyNewspaper legacy desk'
+                  : undefined
+              }
+              className={
+                honey
+                  ? 'inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 hover:bg-amber-200 hover:border-amber-400 dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-700 dark:hover:bg-amber-900/50 transition-all duration-150 uppercase tracking-wide shadow-sm'
+                  : 'inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-black hover:text-white dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white dark:hover:text-black transition-all duration-150 border border-transparent hover:border-black dark:hover:border-white'
+              }
+            >
+              {honey ? '🍯 Honey' : `#${tag}`}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

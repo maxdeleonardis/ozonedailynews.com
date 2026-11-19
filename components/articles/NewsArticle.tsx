@@ -585,31 +585,6 @@ export function Timeline({
 export { default as ReactionBar } from '@/components/engagement/ReactionBar';
 
 // =============================================================================
-// TAGS SECTION
-// =============================================================================
-
-export function TagsSection({ tags }: { tags: string[] }) {
-  return (
-    <div className="mt-12 pt-6 border-t border-gray-200">
-      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">
-        Tags
-      </h3>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag, index) => (
-          <Link
-            key={index}
-            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-            className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors"
-          >
-            #{tag}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// =============================================================================
 // RELATED STORIES (Card Style)
 // =============================================================================
 

@@ -7,11 +7,11 @@ const PAGE_URL = `${SITE_CONFIG.url}/animals`;
 
 export const metadata: Metadata = {
   title: 'Animals | Endangered Species, Wildlife Conservation & Animal Welfare',
-  description: 'HoneyNewspaper animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
+  description: 'OzoneNews animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Animals | Endangered Species, Wildlife Conservation & Animal Welfare',
-    description: 'HoneyNewspaper animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
+    description: 'OzoneNews animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
     type: 'website',
     url: PAGE_URL,
     siteName: SITE_CONFIG.publisherName,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Animals | Endangered Species, Wildlife Conservation & Animal Welfare',
-    description: 'HoneyNewspaper animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
+    description: 'OzoneNews animals desk: endangered species data, pollinator decline, factory farming welfare, marine life conservation, and IUCN Red List updates.',
   },
 };
 

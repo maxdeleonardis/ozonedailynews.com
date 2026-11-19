@@ -7,11 +7,11 @@ const PAGE_URL = `${SITE_CONFIG.url}/environment`;
 
 export const metadata: Metadata = {
   title: 'Environment | Pollinators, Oceans, Forests & Wildlife',
-  description: 'HoneyNewspaper environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species. Sourced from primary data.',
+  description: 'OzoneNews environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species. Sourced from primary data.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Environment | Pollinators, Oceans, Forests & Wildlife',
-    description: 'HoneyNewspaper environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species.',
+    description: 'OzoneNews environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species.',
     type: 'website',
     url: PAGE_URL,
     siteName: SITE_CONFIG.publisherName,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Environment | Pollinators, Oceans, Forests & Wildlife',
-    description: 'HoneyNewspaper environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species.',
+    description: 'OzoneNews environment coverage: bee colony collapse, PFAS contamination, coral bleaching, Amazon deforestation, and endangered species.',
   },
 };
 
